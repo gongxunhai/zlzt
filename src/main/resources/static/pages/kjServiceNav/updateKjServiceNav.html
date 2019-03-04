@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../layui/css/layui.css">
+</head>
+<body>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<form class="form-horizontal" onsubmit="return false" id="form">
+		<fieldset>
+			<input type="hidden" id="id" name="id">
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>一级分类</label>
+				<div class='col-md-10'>
+					<select class='form-control' placeholder='fId' type='text' name='fId' id='fId' data-bv-notempty='true' data-bv-notempty-message='fId 不能为空'></select>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>二级分类</label>
+				<div class='col-md-10'>
+					<select class='form-control' placeholder='sId' type='text' name='sId' id='sId' data-bv-notempty='true' data-bv-notempty-message='sId 不能为空'></select>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>名称</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='name' type='text' name='name' id='name' data-bv-notempty='true' data-bv-notempty-message='name 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>链接</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='href' type='text' name='href' id='href' data-bv-notempty='true' data-bv-notempty-message='href 不能为空'>
+				</div>
+			</div>
+			<div class="form-actions">
+				<div class="row" align="center">
+					<div class="col-md-12">
+					    <button class="btn btn-primary" onclick="location.href='kjServiceNavList.html'">返回</button>
+						<button class="btn btn-primary" type="submit" onclick="update()">
+							<i class="fa fa-save"></i> 保存
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+</div>
+	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../js/jq.js"></script>
+	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript">
+		layui.use(['layer','laydate'], function(){
+		    var layer = layui.layer;
+		});
+
+
+        function selectCompany(){
+            $.ajax({
+                type : 'get',
+                url : '/kjServiceNavs/getData',
+                async : false,
+                success : function (result) {
+                    if (result.length > 0) {
+                        var fidSelect = $("#fId");
+                        var sidSelect = $("#sId");
+                        fidSelect.append("<option value = ''> </option>");
+                        sidSelect.append("<option value = ''> </option>");
+                        for(var i =0; i<result.length;i++){
+                            var d = result[i];
+                            if (d.type == "kjServiceNavFid"){
+                                fidSelect.append("<option value='"+ d.k +"'>" +d.val+"</option>");
+                            }
+                            if (d.type == "kjServiceNavSid"){
+                                sidSelect.append("<option value='"+ d.k +"'>" +d.val+"</option>");
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        selectCompany();
+
+		function initData(){
+			var id = getUrlParam("id");
+			if(id != ""){
+				$.ajax({
+					type : 'get',
+					url : '/kjServiceNavs/'+id,
+					async : false,
+					success : function(data) {
+						$('#id').val(data.id);
+						$('#fId').val(data.fId);
+						$('#sId').val(data.sId);
+						$('#name').val(data.name);
+						$('#href').val(data.href);
+						$('#createTime').val(data.createTime);
+
+					}
+				});
+			}
+		}
+        initData();
+
+		function update() {
+			$('#form').bootstrapValidator();
+			var bootstrapValidator = $("#form").data('bootstrapValidator');
+			bootstrapValidator.validate();
+		    if(!bootstrapValidator.isValid()){
+			   return;
+		    }
+		    
+		    var formdata = $("#form").serializeObject();
+
+			$.ajax({
+				type : 'put',
+				url : '/kjServiceNavs',
+				contentType: "application/json; charset=utf-8",  
+				data : JSON.stringify(formdata),
+				success : function(data) {
+					layer.msg("修改成功", {shift: -1, time: 1000}, function(){
+                        location.href = "kjServiceNavList.html";
+                    });
+				}
+			});
+		}
+		
+	</script>
+</body>
+</html>

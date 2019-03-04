@@ -1,0 +1,1184 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<title>项目需求</title>
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../fonts/FontAwesome/font-awesome.css" rel="stylesheet">
+	<link href="../fonts/IconFont/iconfont.css" rel="stylesheet">
+	<link href="../css/animate.css" rel="stylesheet">
+	<link href="../css/bootsnav.css" rel="stylesheet">
+    <link href="../css/swiper.min.css" rel="stylesheet">
+    <link href="../treetable/css/jquery.treetable.css" rel="stylesheet" type="text/css" >
+	<link href="../css/style.css" rel="stylesheet">
+    <script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootsnav.js"></script>
+    <script src="../js/swiper.min.js"></script>
+	<script src="../treetable/js/jquery.treetable.js"></script>
+    <script src="../js/rem.js"></script>
+    <script src="../js/public.js"></script>
+	<!--[if lt IE 9]>
+	  <script src="../js/html5shiv.min.js"></script>
+	  <script src="../js/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+<nav class="navbar navbar-default bootsnav navbar-fixed-top wow fadeInDown">
+    <div class="wrap">
+        <div class="attr-nav navRig">
+            <ul>
+            	<li class="navTelMob"><a href="tel:010-68376645"><i class="iconfont icon-dianhua"></i></a></li>
+                <li class="navTel"><a href="javascript:;"><i class="iconfont icon-dianhua"></i><strong>010-68376645</strong></a></li>
+                <li class="navSearch"><a href="javascript:;"><i class="iconfont icon-sousuo"></i>搜索</a></li>
+                <li><i class="iconfont icon-guanjiaowangtubiao01"></i><a href="#">登录</a><span>or</span><a href="#">注册</a></li>
+            </ul>
+        </div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand flexBox logo" href="#">
+                <span><img src="../images/logo.png" class="img-responsive"></span>
+            </a>
+        </div>            
+        <div class="collapse navbar-collapse" id="navbar-menu">
+            <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
+                <li><a href="../index.html"><span>首页</span></a></li>
+                <li><a href="../kjsc/kjsc.html"><span>科技商城</span></a></li>
+                <li class="active"><a href="pjRequire.html"><span>项目需求</span></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" ><span>科技资源</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../lawsRegulations/lawsRegulations.html">政策法规</a></li>
+                        <li><a href="../zlzt/zlzt.html">专利专题</a></li>
+                        <li class="dropdown">
+                          <a href="../ztReport/ztReport.html" class="dropdown-toggle" data-toggle="dropdown" >专题报告</a>
+                            <ul class="dropdown-menu">
+                               <li><a href="../ztReport/ztReportList.html">专利态势分析</a></li>
+                                <li><a href="../ztReport/ztReportList.html">政策研究</a></li>
+                               <li><a href="../ztReport/ztReportList.html">行业咨询</a></li>
+                                <li><a href="../ztReport/ztReportList.html">情报研究</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="../gfArea/zlResult.html"><span>高分专区</span></a></li>
+                <li><a href="../news/news.html"><span>新闻动态</span></a></li>
+                <li><a href="../kjService/kjService.html"><span>科技服务</span></a></li>
+                <li><a href="../aboutUs.html"><span>关于我们</span></a></li>
+            </ul>
+        </div>        
+    </div>
+</nav>
+<div class="searchBg">
+	<div class="wrap">
+    	<div class="search">
+        	<div class="close"></div>
+            <div class="container">
+            	<div class="searchBox">
+                	<a href="javascript:;" class="searchBtn"><i class="fa fa-search"></i></a>
+                	<input type="text" placeholder="请输入关键字" class="searchInput" >
+                </div>
+				<div class="searchTip">点击回车即可搜索</div>
+            	<ul class="hotSearch list-unstyled list-inline">
+                	<li><a href="#">技术成果</a></li>
+                	<li><a href="#">专家需求</a></li>
+                	<li><a href="#">科研院所资源</a></li>
+                	<li><a href="#">专利成果</a></li>
+                	<li><a href="#">检验测试需求</a></li>
+                	<li><a href="#">检验测试资源</a></li>
+                	<li><a href="#">技术需求</a></li>
+                	<li><a href="#">仪器设备需求</a></li>
+                	<li><a href="#">仪器设备资源</a></li>
+                	<li><a href="#">服务需求</a></li>
+                	<li><a href="#">专家资源</a></li>
+                	<li><a href="#">展厅资源</a></li>
+                	<li><a href="#">服务</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div><!--searchBg-->
+<div class="banInner wow fadeIn">
+	<div class="imgFull"><img src="../images/banProject.jpg" class="img-responsive"></div>
+</div>
+<div class="breadNavBg">
+	<div class="wrap">
+    	<ul class="breadcrumb wow fadeInLeft">
+            <li><i class="iconfont icon-weizhi"></i>当前位置：</li>
+            <li><a href="#">首页</a></li>
+            <li>项目需求</li>
+        </ul>
+    </div>
+</div>
+<div class="mainBg grayBg overHide">
+    <div class="wrap">
+    	<div class="main">
+            <div class="mLef">                
+                <div class="leftGg wow fadeInLeft hidden-xs hidden-sm hidden-md"><a href="#"><img src="../images/recommendAd.jpg" class="img-responsive"></a></div>
+                <div class="fenlei wow fadeInLeft hidden-xs hidden-sm hidden-md">
+                    <div class="siftTop">
+                        <h2 class="siftTit">重点推荐</h2>
+                        <div class="fenleiH2Btn visible-xs visible-sm visible-md"><i class="fa fa-folder"></i>展开</div>
+                    </div>
+                    <ul class="fenleiList recommendList list-unstyled">
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">燃气低氮燃烧技术</h3>
+                                <div class="recommendBrief">
+                                    <p>通过改变天然气锅炉燃烧器结构以及精准控制燃料和空气的输送…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">液压折叠宿营车</h3>
+                                <div class="recommendBrief">
+                                    <p>该车共由三个可折叠舱体组成，采用了方舱折叠技术，打破了一车一舱…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">超宽带生命探测雷达</h3>
+                                <div class="recommendBrief">
+                                    <p>该雷达可以通过增加随机信号的相关长度，在不影响距离分辨率的情况下…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">DC-DC模块电源</h3>
+                                <div class="recommendBrief">
+                                    <p>产品采用数字控制准谐振或谐振软开关及同步整流技术，利用DSC控制…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">Mesh+PMP宽带无线通信系统</h3>
+                                <div class="recommendBrief">
+                                    <p>能够在有线网络架设不便，对网络快速部署要求高等特殊场景下发挥…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">雪豹系列排爆机器人</h3>
+                                <div class="recommendBrief">
+                                    <p>红林公司生产的排爆机器人针对国内市场，技术上突破国外垄断…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">井下救生舱无电蓄冰散热装置</h3>
+                                <div class="recommendBrief">
+                                    <p>一般降温装置均需要有电力驱动，本发明的创新点就在于其工作时…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">网络安全可视化指挥平台</h3>
+                                <div class="recommendBrief">
+                                    <p>多维度的网络安全态势融合技术 网络安全态势融合技术是形成全局网络…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">高速物理熵源密码发生器</h3>
+                                <div class="recommendBrief">
+                                    <p>首次提出利用宽带混沌信号作为新型物理熵源，发明了面向超高速真随机…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">船舶脱硫脱硝一体化技术</h3>
+                                <div class="recommendBrief">
+                                    <p>我国脱硫达到国际公约2015年控制区域新标，脱硝达到2016年即将…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">超宽带生命探测雷达</h3>
+                                <div class="recommendBrief">
+                                    <p>该雷达可以通过增加随机信号的相关长度，在不影响距离分辨率的情况下…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">DC-DC模块电源</h3>
+                                <div class="recommendBrief">
+                                    <p>产品采用数字控制准谐振或谐振软开关及同步整流技术，利用DSC控制…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">Mesh+PMP宽带无线通信系统</h3>
+                                <div class="recommendBrief">
+                                    <p>能够在有线网络架设不便，对网络快速部署要求高等特殊场景下发挥…</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="leftMore">
+                        <a href="#">查看更多<i class="iconfont icon-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mRig">
+            	<div class="rigTopBg">
+                	<div class="sxBox">
+                        <div class="sxTop wow fadeInDown">
+                        	<div class="sxTopTit">
+                                <i class="iconfont icon-shaixuan"></i>
+                                <span>当前检索条件</span>
+                            </div>
+                            <div class="sxTopCon"><span class="delSelBtn" onclick="clearAllSelect()">清空筛选</span></div>
+                        </div>
+                        <div class="sxBot" id="listSelect">
+                            <div class="sxBotItem wow fadeInUp">
+                                <span class="sxBotTit">所属行业：</span>
+                                <div class="sxBotCon">
+                                	<div class="sxFirst">
+                                    	<div class="sxFirCon">
+                                            <a class="active" href="javascript:;" data-index="0">不限</a>
+                                            <a href="javascript:;" data-index="1">电子信息</a>
+                                            <a href="javascript:;" data-index="2">航空航天</a>
+                                            <a href="javascript:;" data-index="3">先进制造</a>
+                                            <a href="javascript:;" data-index="4">现代交通 </a>
+                                            <a href="javascript:;" data-index="5">农业环境</a>
+                                            <a href="javascript:;" data-index="6">保护与资源综合利用</a>
+                                            <a href="javascript:;" data-index="7">生物、医药合医疗器械</a>
+                                            <a href="javascript:;" data-index="8">新材料及其应用</a>
+                                            <a href="javascript:;" data-index="9">新能源与高效节能</a>
+                                            <a href="javascript:;" data-index="10">城市建设与社会发展</a>
+                                            <a href="javascript:;" data-index="11">其它</a>
+                                        </div>
+                                    </div>
+                                    <div class="sxSecond" data-con="1">
+                                    	<a href="javascript:;">专用车制造</a>
+                                    	<a href="javascript:;">能源装备</a>
+                                    	<a href="javascript:;">汽车电子及零部件</a>
+                                    	<a href="javascript:;">传感器</a>
+                                    	<a href="javascript:;">工业互联网</a>
+                                    	<a href="javascript:;">先进材料</a>
+                                    	<a href="javascript:;">网络安全</a>
+                                    	<a href="javascript:;">定位系统</a>
+                                    	<a href="javascript:;">识别技术</a>
+                                    </div>
+                                    <div class="sxSecond" data-con="2">
+                                    	<a href="javascript:;">识别技术2</a>
+                                    	<a href="javascript:;">专用车制造2</a>
+                                    	<a href="javascript:;">能源装备2</a>
+                                    	<a href="javascript:;">汽车电子及零部件2</a>
+                                    	<a href="javascript:;">传感器2</a>
+                                    	<a href="javascript:;">工业互联网2</a>
+                                    </div>
+                                    <div class="sxSecond" data-con="3">
+                                    	<a href="javascript:;">识别技术3</a>
+                                    	<a href="javascript:;">专用车制造3</a>
+                                    	<a href="javascript:;">能源装备3</a>
+                                    	<a href="javascript:;">汽车电子及零部件3</a>
+                                    </div>
+                                    <div class="sxSecond" data-con="4">
+                                    	<a href="javascript:;">能源装备4</a>
+                                    	<a href="javascript:;">汽车电子及零部件4</a>
+                                    	<a href="javascript:;">传感器4</a>
+                                    	<a href="javascript:;">工业互联网4</a>
+                                    </div>
+                                </div>
+                                <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>
+                            </div>
+                            <div class="sxBotItem wow fadeInUp">
+                                <span class="sxBotTit">合作方式：</span>
+                                <div class="sxBotCon">
+                                	<div class="sxFirst">
+                                    	<div class="sxFirCon">
+                                            <a class="active" href="javascript:;" data-index="0">不限</a>
+                                            <a href="javascript:;" data-index="1">技术转让</a>
+                                            <a href="javascript:;" data-index="2">许可使用</a>
+                                            <a href="javascript:;" data-index="3">合作开发</a>
+                                            <a href="javascript:;" data-index="4">作价入股</a>
+                                            <a href="javascript:;" data-index="5">技术服务</a>
+                                            <a href="javascript:;" data-index="6">其它</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>
+                            </div>
+                            <div class="sxBotItem wow fadeInUp">
+                                <span class="sxBotTit">细分领域：</span>
+                                <div class="sxBotCon">
+                                	<div class="sxFirst">
+                                    	<div class="sxFirCon">
+                                            <a class="active" href="javascript:;" data-index="0">不限</a>
+                                            <a href="javascript:;" data-index="1">细分领域1</a>
+                                            <a href="javascript:;" data-index="2">细分领域2</a>
+                                            <a href="javascript:;" data-index="3">细分领域3</a>
+                                            <a href="javascript:;" data-index="4">细分领域4</a>
+                                            <a href="javascript:;" data-index="5">细分领域5</a>
+                                            <a href="javascript:;" data-index="6">其它</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>
+                            </div>
+                            <div class="sxBotItem wow fadeInUp">
+                                <span class="sxBotTit">区域：</span>
+                                <div class="sxBotCon">
+                                	<div class="sxFirst">
+                                    	<div class="sxFirCon">
+                                            <a class="active" href="javascript:;" data-index="0">不限</a>
+                                            <a href="javascript:;" data-index="1">北京市</a>
+                                            <a href="javascript:;" data-index="2">天津市 </a>
+                                            <a href="javascript:;" data-index="3">河北省</a>
+                                            <a href="javascript:;" data-index="4">山西省</a>
+                                            <a href="javascript:;" data-index="5">辽宁省</a>
+                                            <a href="javascript:;" data-index="6">吉林省</a>
+                                            <a href="javascript:;" data-index="7">广东省</a>
+                                            <a href="javascript:;" data-index="8">海南省</a>
+                                            <a href="javascript:;" data-index="9">上海市</a>
+                                            <a href="javascript:;" data-index="10">江苏省</a>
+                                            <a href="javascript:;" data-index="11">浙江省</a>
+                                            <a href="javascript:;" data-index="12">安徽省</a>
+                                        </div>                                        
+                                    </div>                                    
+                                </div>
+                                <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rigTopBg">
+                	<div class="rigSearch rigSearch2 wow fadeInDown">
+                    	<span class="rigSearchTit">项目需求：</span>
+                        <div class="rigSearchRig">
+                        	<div class="rigSearchLef">
+                                <a href="javascript:;" class="iconfont icon-sousuo1 rigSearchIco"></a>
+                                <input type="text" class="rigSearchInput" style="outline: none;" placeholder="搜索关键字" id="searchByInput">
+                            </div>
+                            <a class="rigSearchBtn rigSearchBtn1" href="javascript:searchByInput();">搜索</a>
+						</div>
+                        <div class="clear"></div>
+                    </div>                    
+                    <div class="zyTabTop wow fadeInUp">
+                    	<h3 class="zyTabTit">项目需求</h3>
+                        <ul class="zyOrderBy list-unstyled list-inline">
+                        	<li><span>搜索到相关结果：<strong class="corOrg" id="searchNum">136</strong>个</span></li>
+                            <li><span class="active">人气<i class="iconfont icon-jiantouxia"></i></span></li>
+                            <li><span>时间<i class="iconfont icon-jiantouxia"></i></span></li>
+                            <li><span>收藏榜<i class="iconfont icon-jiantouxia"></i></span></li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                    <table id="projectTab" class="table wow fadeInUp" width="100%">
+                    	<thead>
+                        	<tr>
+                            	<th></th>
+                            	<th></th>
+                            </tr>
+						</thead>
+                        <tbody>
+                            <!--<tr>
+                                <td>
+                                    <div class="projectBox">
+                                        <a class="box1Link" href="#" share-src="http://www.taobao.com">
+                                            <div class="projectTit">
+                                            	<span>拟投资金额：<i>面议</i></span>
+                                                <h3>开发新型的特种纸包装制品</h3>
+                                            </div>
+                                            <div class="projectBrief">
+                                            	<p>提高铝合金材料的熔点及表面车切削（宝石刀）后的光洁度及抗氧化性能。目前铝合金熔点大概在650度左右，希望达到730度左右。铝合金在灶具中的应用，特别是用燃烧器皿燃烧固火后，铝合金压铸程的燃烧器皿易熔化变形。</p>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="projectTime pull-left">行业：无<i>|</i><span>更新：2018-07-19</span></div>
+                                            <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox pull-right">
+                                                <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>
+                                                <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>
+                                                <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="projectBox">
+                                        <a class="box1Link" href="#" share-src="http://www.baidu.com">
+                                            <div class="projectTit">
+                                            	<span>拟投资金额：<i>面议</i></span>
+                                                <h3>透明阻燃PC</h3>
+                                            </div>
+                                            <div class="projectBrief">
+                                            	<p>提高铝合金材料的熔点及表面车切削（宝石刀）后的光洁度及抗氧化性能。目前铝合金熔点大概在650度左右，希望达到730度左右。铝合金在灶具中的应用，特别是用燃烧器皿燃烧固火后，铝合金压铸程的燃烧器皿易熔化变形。</p>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="projectTime pull-left">行业：无<i>|</i><span>更新：2018-07-19</span></div>
+                                            <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox pull-right">
+                                                <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>
+                                                <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>
+                                                <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="projectBox">
+                                        <a class="box1Link" href="#" share-src="http://www.taobao.com">
+                                            <div class="projectTit">
+                                            	<span>拟投资金额：<i>面议</i></span>
+                                                <h3>智能化播种机械与微小异形种子处理技术</h3>
+                                            </div>
+                                            <div class="projectBrief">
+                                            	<p>提高铝合金材料的熔点及表面车切削（宝石刀）后的光洁度及抗氧化性能。目前铝合金熔点大概在650度左右，希望达到730度左右。铝合金在灶具中的应用，特别是用燃烧器皿燃烧固火后，铝合金压铸程的燃烧器皿易熔化变形。</p>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="projectTime pull-left">行业：无<i>|</i><span>更新：2018-07-19</span></div>
+                                            <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox pull-right">
+                                                <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>
+                                                <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>
+                                                <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="projectBox">
+                                        <a class="box1Link" href="#" share-src="http://www.baidu.com">
+                                            <div class="projectTit">
+                                            	<span>拟投资金额：<i>面议</i></span>
+                                                <h3>高分子材料的加工应用技术改进</h3>
+                                            </div>
+                                            <div class="projectBrief">
+                                            	<p>提高铝合金材料的熔点及表面车切削（宝石刀）后的光洁度及抗氧化性能。目前铝合金熔点大概在650度左右，希望达到730度左右。铝合金在灶具中的应用，特别是用燃烧器皿燃烧固火后，铝合金压铸程的燃烧器皿易熔化变形。</p>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="projectTime pull-left">行业：无<i>|</i><span>更新：2018-07-19</span></div>
+                                            <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox pull-right">
+                                                <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>
+                                                <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>
+                                                <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="projectBox">
+                                        <a class="box1Link" href="#" share-src="http://www.taobao.com">
+                                            <div class="projectTit">
+                                            	<span>拟投资金额：<i>面议</i></span>
+                                                <h3>水雾化生产CuSn6Ni9的制备方法</h3>
+                                            </div>
+                                            <div class="projectBrief">
+                                            	<p>提高铝合金材料的熔点及表面车切削（宝石刀）后的光洁度及抗氧化性能。目前铝合金熔点大概在650度左右，希望达到730度左右。铝合金在灶具中的应用，特别是用燃烧器皿燃烧固火后，铝合金压铸程的燃烧器皿易熔化变形。</p>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="projectTime pull-left">行业：无<i>|</i><span>更新：2018-07-19</span></div>
+                                            <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox pull-right">
+                                                <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>
+                                                <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>
+                                                <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="projectBox">
+                                        <a class="box1Link" href="#" share-src="http://www.baidu.com">
+                                            <div class="projectTit">
+                                            	<span>拟投资金额：<i>面议</i></span>
+                                                <h3>生鲜固料自动控制设备</h3>
+                                            </div>
+                                            <div class="projectBrief">
+                                            	<p>提高铝合金材料的熔点及表面车切削（宝石刀）后的光洁度及抗氧化性能。目前铝合金熔点大概在650度左右，希望达到730度左右。铝合金在灶具中的应用，特别是用燃烧器皿燃烧固火后，铝合金压铸程的燃烧器皿易熔化变形。</p>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="projectTime pull-left">行业：无<i>|</i><span>更新：2018-07-19</span></div>
+                                            <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox pull-right">
+                                                <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>
+                                                <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>
+                                                <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="projectBox">
+                                        <a class="box1Link" href="#" share-src="http://www.taobao.com">
+                                            <div class="projectTit">
+                                            	<span>拟投资金额：<i>面议</i></span>
+                                                <h3>专用车技术开发类人才及专用车管理类人才</h3>
+                                            </div>
+                                            <div class="projectBrief">
+                                            	<p>提高铝合金材料的熔点及表面车切削（宝石刀）后的光洁度及抗氧化性能。目前铝合金熔点大概在650度左右，希望达到730度左右。铝合金在灶具中的应用，特别是用燃烧器皿燃烧固火后，铝合金压铸程的燃烧器皿易熔化变形。</p>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="projectTime pull-left">行业：无<i>|</i><span>更新：2018-07-19</span></div>
+                                            <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox pull-right">
+                                                <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>
+                                                <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>
+                                                <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="projectBox">
+                                        <a class="box1Link" href="#" share-src="http://www.baidu.com">
+                                            <div class="projectTit">
+                                            	<span>拟投资金额：<i>面议</i></span>
+                                                <h3>高质量、新技术电子衡器产品</h3>
+                                            </div>
+                                            <div class="projectBrief">
+                                            	<p>提高铝合金材料的熔点及表面车切削（宝石刀）后的光洁度及抗氧化性能。目前铝合金熔点大概在650度左右，希望达到730度左右。铝合金在灶具中的应用，特别是用燃烧器皿燃烧固火后，铝合金压铸程的燃烧器皿易熔化变形。</p>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="projectTime pull-left">行业：无<i>|</i><span>更新：2018-07-19</span></div>
+                                            <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox pull-right">
+                                                <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>
+                                                <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>
+                                                <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="projectBox">
+                                        <a class="box1Link" href="#" share-src="http://www.taobao.com">
+                                            <div class="projectTit">
+                                            	<span>拟投资金额：<i>面议</i></span>
+                                                <h3>专用车技术开发类人才及专用车管理类人才</h3>
+                                            </div>
+                                            <div class="projectBrief">
+                                            	<p>提高铝合金材料的熔点及表面车切削（宝石刀）后的光洁度及抗氧化性能。目前铝合金熔点大概在650度左右，希望达到730度左右。铝合金在灶具中的应用，特别是用燃烧器皿燃烧固火后，铝合金压铸程的燃烧器皿易熔化变形。</p>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="projectTime pull-left">行业：无<i>|</i><span>更新：2018-07-19</span></div>
+                                            <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox pull-right">
+                                                <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>
+                                                <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>
+                                                <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="projectBox">
+                                        <a class="box1Link" href="#" share-src="http://www.baidu.com">
+                                            <div class="projectTit">
+                                            	<span>拟投资金额：<i>面议</i></span>
+                                                <h3>高质量、新技术电子衡器产品</h3>
+                                            </div>
+                                            <div class="projectBrief">
+                                            	<p>提高铝合金材料的熔点及表面车切削（宝石刀）后的光洁度及抗氧化性能。目前铝合金熔点大概在650度左右，希望达到730度左右。铝合金在灶具中的应用，特别是用燃烧器皿燃烧固火后，铝合金压铸程的燃烧器皿易熔化变形。</p>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="projectTime pull-left">行业：无<i>|</i><span>更新：2018-07-19</span></div>
+                                            <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox pull-right">
+                                                <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>
+                                                <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>
+                                                <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="projectBox">
+                                        <a class="box1Link" href="#" share-src="http://www.taobao.com">
+                                            <div class="projectTit">
+                                            	<span>拟投资金额：<i>面议</i></span>
+                                                <h3>专用车技术开发类人才及专用车管理类人才</h3>
+                                            </div>
+                                            <div class="projectBrief">
+                                            	<p>提高铝合金材料的熔点及表面车切削（宝石刀）后的光洁度及抗氧化性能。目前铝合金熔点大概在650度左右，希望达到730度左右。铝合金在灶具中的应用，特别是用燃烧器皿燃烧固火后，铝合金压铸程的燃烧器皿易熔化变形。</p>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="projectTime pull-left">行业：无<i>|</i><span>更新：2018-07-19</span></div>
+                                            <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox pull-right">
+                                                <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>
+                                                <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>
+                                                <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="projectBox">
+                                        <a class="box1Link" href="#" share-src="http://www.baidu.com">
+                                            <div class="projectTit">
+                                            	<span>拟投资金额：<i>面议</i></span>
+                                                <h3>高质量、新技术电子衡器产品</h3>
+                                            </div>
+                                            <div class="projectBrief">
+                                            	<p>提高铝合金材料的熔点及表面车切削（宝石刀）后的光洁度及抗氧化性能。目前铝合金熔点大概在650度左右，希望达到730度左右。铝合金在灶具中的应用，特别是用燃烧器皿燃烧固火后，铝合金压铸程的燃烧器皿易熔化变形。</p>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="projectTime pull-left">行业：无<i>|</i><span>更新：2018-07-19</span></div>
+                                            <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox pull-right">
+                                                <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>
+                                                <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>
+                                                <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="projectBox">
+                                        <a class="box1Link" href="#" share-src="http://www.taobao.com">                                            
+                                            <div class="projectTit">
+                                            	<span>拟投资金额：<i>面议</i></span>
+                                                <h3>水雾化生产CuSn6Ni9的制备方法</h3>
+                                            </div>
+                                            <div class="projectBrief">
+                                            	<p>提高铝合金材料的熔点及表面车切削（宝石刀）后的光洁度及抗氧化性能。目前铝合金熔点大概在650度左右，希望达到730度左右。铝合金在灶具中的应用，特别是用燃烧器皿燃烧固火后，铝合金压铸程的燃烧器皿易熔化变形。</p>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="projectTime pull-left">行业：无<i>|</i><span>更新：2018-07-19</span></div>
+                                            <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox pull-right">
+                                                <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>
+                                                <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>
+                                                <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="projectBox">
+                                        <a class="box1Link" href="#" share-src="http://www.baidu.com">                                            
+                                            <div class="projectTit">
+                                            	<span>拟投资金额：<i>面议</i></span>
+                                                <h3>生鲜固料自动控制设备</h3>
+                                            </div>
+                                            <div class="projectBrief">
+                                            	<p>提高铝合金材料的熔点及表面车切削（宝石刀）后的光洁度及抗氧化性能。目前铝合金熔点大概在650度左右，希望达到730度左右。铝合金在灶具中的应用，特别是用燃烧器皿燃烧固火后，铝合金压铸程的燃烧器皿易熔化变形。</p>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="projectTime pull-left">行业：无<i>|</i><span>更新：2018-07-19</span></div>
+                                            <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox pull-right">
+                                                <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>
+                                                <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>
+                                                <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>                                
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="projectBox">
+                                        <a class="box1Link" href="#" share-src="http://www.taobao.com">                                            
+                                            <div class="projectTit">
+                                            	<span>拟投资金额：<i>面议</i></span>
+                                                <h3>开发新型的特种纸包装制品</h3>
+                                            </div>
+                                            <div class="projectBrief">
+                                            	<p>提高铝合金材料的熔点及表面车切削（宝石刀）后的光洁度及抗氧化性能。目前铝合金熔点大概在650度左右，希望达到730度左右。铝合金在灶具中的应用，特别是用燃烧器皿燃烧固火后，铝合金压铸程的燃烧器皿易熔化变形。</p>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="projectTime pull-left">行业：无<i>|</i><span>更新：2018-07-19</span></div>
+                                            <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox pull-right">
+                                                <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>
+                                                <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>
+                                                <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="projectBox">
+                                        <a class="box1Link" href="#" share-src="http://www.baidu.com">                                            
+                                            <div class="projectTit">
+                                            	<span>拟投资金额：<i>面议</i></span>
+                                                <h3>透明阻燃PC</h3>
+                                            </div>
+                                            <div class="projectBrief">
+                                            	<p>提高铝合金材料的熔点及表面车切削（宝石刀）后的光洁度及抗氧化性能。目前铝合金熔点大概在650度左右，希望达到730度左右。铝合金在灶具中的应用，特别是用燃烧器皿燃烧固火后，铝合金压铸程的燃烧器皿易熔化变形。</p>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="projectTime pull-left">行业：无<i>|</i><span>更新：2018-07-19</span></div>
+                                            <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox pull-right">
+                                                <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>
+                                                <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>
+                                                <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+					<script type="text/javascript">
+						//全局变量，动态的文章ID
+						var ShareId = "";
+						//绑定所有分享按钮所在A标签的鼠标移入事件，从而获取动态ID
+						$(function () {
+							$(".projectBox").click(function () {
+								ShareId = $(this).find(".box1Link").attr("share-src");
+								ShareTit = $(this).find(".projectTit h3").html();
+							});
+						});						
+						/* 
+						* 动态设置百度分享URL的函数,具体参数
+						* cmd为分享目标id,此id指的是插件中分析按钮的ID
+						*，我们自己的文章ID要通过全局变量获取
+						* config为当前设置，返回值为更新后的设置。
+						*/
+						function SetShareUrl(cmd, config) {            
+							if (ShareId) {
+								config.bdUrl = ShareId;   
+								config.bdText = ShareTit;
+							}
+							return config;
+						}						
+						//插件的配置部分，注意要记得设置onBeforeClick事件，主要用于获取动态的文章ID
+						window._bd_share_config = {
+							"common": {
+								onBeforeClick:SetShareUrl,"bdSnsKey":{},"bdText":"","bdMini":"2"
+								,"bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"
+							}, "share": {"bdCustomStyle": "../css/share.css"}
+						};
+						//插件的JS加载部分
+						with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+ ~(-new Date() / 36e5)];
+					</script>
+                </div>                
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <input type="hidden" id="search" name="type">
+    <input type="hidden" id="type" name="type">
+    <input type="hidden" id="fId" name="type">
+    <input type="hidden" id="sId" name="type">
+    <input type="hidden" id="cWays" name="type">
+    <input type="hidden" id="xfArea" name="type">
+    <input type="hidden" id="place" name="type">
+</div>
+<footer class="footBg">
+    <div class="wrap">
+        <div class="ftTop">
+        	<div class="friendLink wow fadeInLeft">
+            	<h3 class="ftTit">友情链接</h3>
+                <ul class="fdLinkList list-unstyled list-inline">
+                	<li><a href="#">- 航天云网</a></li>
+                	<li><a href="#">- 中国军民融合网</a></li>
+                	<li><a href="#">- 中国航天科工三院</a></li>
+                	<li><a href="#">- 融融网</a></li>
+                	<li><a href="#">- 装备采购网</a></li>
+                	<li><a href="#">- 中国航天科工集团</a></li>
+                	<li><a href="#">- 海鹰资讯</a></li>
+                	<li><a href="#">- 猪八戒网</a></li>
+                </ul>
+            </div>
+            <ul class="ftCon list-unstyled list-inline wow fadeInDown">
+            	<li>
+                    <h3 class="ftTit">科技商城</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 科技产品</a></p>
+                        <p><a href="#">- 科技成果</a></p>
+                        <p><a href="#">- 专利技术</a></p>
+                    </div>
+                </li>
+            	<li>
+                    <h3 class="ftTit">新闻动态</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 工作动态</a></p>
+                        <p><a href="#">- 科技动态</a></p>
+                        <p><a href="#">- 通知公告</a></p>
+                    </div>
+                </li>
+            	<li>
+                    <h3 class="ftTit">科技服务</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 知识产权管理系统</a></p>
+                        <p><a href="#">- 知识产权资源导航</a></p>
+                        <p><a href="#">- 知识产权贯标系统</a></p>
+                        <p><a href="#">- 专利大数据检索</a></p>
+                        <p><a href="#">- 知识产权价值评估系统</a></p>
+                        <p><a href="#">- 知识培训统</a></p>
+                    </div>
+                </li>
+            </ul>
+        	<div class="ftConUs wow fadeInRight">
+            	<h3 class="ftTit">联系我们</h3>
+                <p class="ftAdd"><strong>地址：</strong>北京市丰台区云岗北区西里1号院</p>
+                <p class="ftTel"><strong>电话：</strong>010-68376645</p>
+                <p class="ftEmail"><strong>邮箱：</strong>service@htjsw.com</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="ftBot wow fadeInUp">
+        	<div class="copyRight">
+            	<p>Copyright © 2018中国航天科工集团知识产权中心版权所有 京ICP备13006003号-2  设计支持：<a href="#">谦亨网络</a></p>
+            </div>
+            <div class="ftBotRig">
+            	<ul class="ftBotIco list-unstyled list-inline">
+                	<li>
+                    	<a href="javascript:;"><i class="fa fa-weixin"></i></a>
+                        <div class="ftBotWx">
+                        	<img src="../images/weChat.jpg" class="img-responsive">
+                        </div>
+                    </li>
+                    <li><a href="#"><i class="fa fa-weibo"></i></a></li>
+                </ul>
+            	<ul class="ftBotLink list-unstyled list-inline">
+                	<li><a href="#">关于我们</a></li>
+                	<li><a href="#">发布成果</a></li>
+                	<li><a href="#">发布需求</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</footer>
+<link rel="stylesheet" type="text/css" media="screen" href="../datatables/dataTables.bootstrap.min.css">
+<script type="text/javascript" src="../datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../datatables/dataTables.bootstrap.min.js"></script>
+<script>
+    var dataSet = [];
+    var orderBy = 'order by id desc';
+
+    $(document).find(".zyOrderBy li:not(:first-child)").on("click", "span", function(){
+        $(this).addClass("active").parent().siblings().find("span").removeClass("active");
+        // alert($(this).text());
+        switch ($(this).text()) {
+            case "时间" : orderBy = 'order by endTime DESC';break;
+            case "人气" : orderBy = 'order by id';break;
+            case "收藏榜" : orderBy = 'order by id DESC';break;
+        }
+        init();
+    });
+
+    function searchByInput() {
+        $("#search").val($("#searchByInput").val());
+        $('#projectTab').dataTable().fnClearTable();
+        init();
+        $('#projectTab').dataTable().fnAddData(dataSet);
+        $('#projectTab').dataTable().fnDraw(false);
+    }
+    function clearAllSelect() {
+        $("#type").val('');
+        $("#fId").val('');
+        $("#sId").val('');
+        $("#cWays").val('');
+        $("#xfArea").val('');
+        $("#place").val('');
+        init();
+    }
+
+    function init() {
+        $.ajax({
+            type : "get",
+            url : "/pjRequires",
+            async : false,
+            data :{
+                "searchByInput" : $("#search").val(),
+                "type" : $("#type").val(),
+                "fId" : $("#fId").val(),
+                "sId" : $("#sId").val(),
+                "cWays" : $("#cWays").val(),
+                "xfArea" : $("#xfArea").val(),
+                "place" : $("#place").val(),
+                "orderBy" : orderBy
+            },
+            success : function (result) {
+                $('#projectTab').dataTable().fnClearTable();
+                dataSet = [];
+                //总条数
+                var length = result.data.length;
+                var data = result.data;
+                $("#searchNum").text(length);
+                var lenA = Math.floor(length/2) ;
+                var lenB = length%2 ;
+                for(var i= 0;i<lenA;i++){
+                    var dataChildren =[];
+                    dataChildren.push('<td>\n' +
+                        '                                    <div class="projectBox">\n' +
+                        '                                        <a class="box1Link" href="pjRequireDetail.html?id='+data[i*2].id+'" share-src="http://192.168.20.103:8080/pages/fore/111.html">\n' +
+                        '                                            <div class="projectTit">\n' +
+                        '                                            \t<span>拟投资金额：<i>'+data[i*2].cmoney+'</i></span>\n' +
+                        '                                                <h3>'+data[i*2].name+'</h3>\n' +
+                        '                                            </div>\n' +
+                        '                                            <div class="projectBrief">\n' +
+                        '                                            \t<p>'+data[i*2].description+'</p>\n' +
+                        '                                            </div>\n' +
+                        '                                        </a>\n' +
+                        '                                        <div class="box1Bot">\n' +
+                        '                                            <div class="projectTime pull-left">行业：'+data[i*2].fIdName+'<i>|</i><span>更新：'+data[i*2].endTime+'</span></div>\n' +
+                        '                                            <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox pull-right">\n' +
+                        '                                                <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>\n' +
+                        '                                                <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>\n' +
+                        '                                                <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>\n' +
+                        '                                            </ul>\n' +
+                        '                                            <div class="clear"></div>\n' +
+                        '                                        </div>\n' +
+                        '                                    </div>\n' +
+                        '                                </td>') ;
+                    dataChildren.push('<td>\n' +
+                        '                                    <div class="projectBox">\n' +
+                        '                                        <a class="box1Link" href="pjRequireDetail.html?id='+data[i*2+1].id+'" share-src="http://www.baidu.com">\n' +
+                        '                                            <div class="projectTit">\n' +
+                        '                                            \t<span>拟投资金额：<i>'+data[i*2+1].cmoney+'</i></span>\n' +
+                        '                                                <h3>'+data[i*2+1].name+'</h3>\n' +
+                        '                                            </div>\n' +
+                        '                                            <div class="projectBrief">\n' +
+                        '                                            \t<p>'+data[i*2+1].description+'</p>\n' +
+                        '                                            </div>\n' +
+                        '                                        </a>\n' +
+                        '                                        <div class="box1Bot">\n' +
+                        '                                            <div class="projectTime pull-left">行业：'+data[i*2+1].fIdName+'<i>|</i><span>更新：'+data[i*2].endTime+'</span></div>\n' +
+                        '                                            <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox pull-right">\n' +
+                        '                                                <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>\n' +
+                        '                                                <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>\n' +
+                        '                                                <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>\n' +
+                        '                                            </ul>\n' +
+                        '                                            <div class="clear"></div>\n' +
+                        '                                        </div>\n' +
+                        '                                    </div>\n' +
+                        '                                </td>');
+                    dataSet.push(dataChildren);
+                }
+                if (lenB > 0) {
+                    var datachildren = [];
+                    datachildren.push('<td>\n' +
+                        '                                    <div class="projectBox">\n' +
+                        '                                        <a class="box1Link" href="pjRequireDetail.html?id='+data[lenA*2].id+'" share-src="http://www.taobao.com">\n' +
+                        '                                            <div class="projectTit">\n' +
+                        '                                            \t<span>拟投资金额：<i>'+data[lenA*2].cmoney+'</i></span>\n' +
+                        '                                                <h3>'+data[lenA*2].name+'</h3>\n' +
+                        '                                            </div>\n' +
+                        '                                            <div class="projectBrief">\n' +
+                        '                                            \t<p>'+data[lenA*2].description+'</p>\n' +
+                        '                                            </div>\n' +
+                        '                                        </a>\n' +
+                        '                                        <div class="box1Bot">\n' +
+                        '                                            <div class="projectTime pull-left">行业：'+data[lenA*2].fIdName+'<i>|</i><span>更新：'+data[lenA*2].endTime+'</span></div>\n' +
+                        '                                            <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox pull-right">\n' +
+                        '                                                <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>\n' +
+                        '                                                <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>\n' +
+                        '                                                <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>\n' +
+                        '                                            </ul>\n' +
+                        '                                            <div class="clear"></div>\n' +
+                        '                                        </div>\n' +
+                        '                                    </div>\n' +
+                        '                                </td>');
+                    datachildren.push('<td></td>');
+                    dataSet.push(datachildren);
+                }
+                if (dataSet.length > 0) {
+                    $('#projectTab').dataTable().fnAddData(dataSet);
+                    $('#projectTab').dataTable().fnDraw(false);
+                }
+                console.log(dataSet);
+            }
+        })
+    }
+
+	var table = $('#projectTab').DataTable({
+		"searching": false,
+		"ordering": false,
+		"processing": false,
+		"info": false,
+		 "bAutoWidth" : true,
+		//"paging":   false,
+		"lengthMenu": [10, 20, 30, "所有"],
+		"pageLength": 4,
+		"pagingType":"numbers",
+        "data" : dataSet,
+        "columns": [
+            { "title": "" },
+            { "title": "" }
+        ],
+		"language": {
+			"sProcessing": "处理中...",
+			"sLengthMenu": "显示 _MENU_ 项结果",
+			"sZeroRecords": "没有匹配结果",
+			"sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+			"sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+			"sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+			"sInfoPostFix": "",
+			"sSearch": "搜索:",
+			"sUrl": "",
+			"sEmptyTable": "表中数据为空",
+			"sLoadingRecords": "载入中...",
+			"sInfoThousands": ",",
+			"oPaginate": {
+				"sFirst": "首页",
+				"sPrevious": "上页",
+				"sNext": "下页",
+				"sLast": "末页"
+			},
+			"oAria": {
+				"sSortAscending": ": 以升序排列此列",
+				"sSortDescending": ": 以降序排列此列"
+			}
+		}/*,
+		"columnDefs": [
+			{ className: "zyTabCon1", "targets": [ 0 ] },
+			{ className: "zyTabCon2", "targets": [ 1 ] },
+			{ className: "zyTabCon3", "targets": [ 2 ] },
+			{ className: "zyTabCon4", "targets": [ 3 ] },
+			{ className: "zyTabCon5", "targets": [ 4 ] },
+		  ]*/
+	});
+
+    function changByJobId(obj,value) {
+        $("#fId").val('');
+        $("#sId").val('');
+        if (obj == '1') {
+            $("#type").val(1);
+            $("#fId").val(parseInt(value));
+        }else {
+            $("#type").val(2);
+            $("#sId").val(parseInt(value));
+        }
+        init();
+    }
+
+    function changeDataByElse(obj,value) {
+        $("#"+obj).val(value);
+        init();
+    }
+
+    function clearSelect() {
+        $("#type").val('');
+        $("#fId").val('');
+        $("#sId").val('');
+        init();
+    }
+
+    function changeSelect() {
+        $.ajax({
+            type : "post",
+            url : "/pjRequires/changeSelect",
+            async : false,
+            success :function (data) {
+                var result = data.listData;
+                console.log(result);
+                $("#listSelect").html('');
+                var len = result.length;
+                var allData = '';
+                for(var i = 0;i<len;i++){
+                    var str ='';
+                    if (result[i].name == '所属行业'){
+                        str += '<div class="sxBotItem wow fadeInUp">\n' +
+                            '                                <span class="sxBotTit">'+result[i].name+'：</span>\n' +
+                            '                                <div class="sxBotCon">';
+                        var fChildren = result[i].children;
+                        var fLen = fChildren.length;
+                        var strfChildren = '<div class="sxFirst">\n' +
+                            '               \t<div class="sxFirCon">\n' +
+                            '               <a class="active" href="javascript:clearSelect();" data-index="0">不限</a>';
+                        var strsChildren = '';
+                        for (var j = 0; j < fLen; j++) {
+                            var sChildren = fChildren[j].children;
+                            strfChildren += '<a href="javascript:changByJobId(\''+fChildren[j].type+'\',\''+fChildren[j].id+'\');" data-index="'+(j+1)+'">'+fChildren[j].name+'</a>'
+                            if (sChildren!=null && sChildren!=''){
+                                strsChildren += ' <div class="sxSecond" data-con="'+(j+1)+'">';
+                                var sLen = sChildren.length;
+                                for (var m = 0; m < sLen; m++) {
+                                    strsChildren += '<a href="javascript:changByJobId(\''+sChildren[m].type+'\',\''+sChildren[m].id+'\');">'+sChildren[m].name+'</a>';
+                                }
+                                strsChildren += '</div>';
+                            }
+                        }
+                        strfChildren +='</div>\n' +
+                            '                                    </div>';
+                        str = str+strfChildren+strsChildren +'</div>\n' +
+                            '                                <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>\n' +
+                            '                            </div>';
+                    }else {
+                        str += '<div class="sxBotItem wow fadeInUp">\n' +
+                            '                                <span class="sxBotTit">'+result[i].name+'：</span>\n' +
+                            '                                <div class="sxBotCon">\n' +
+                            '                                \t<div class="sxFirst">\n' +
+                            '                                    \t<div class="sxFirCon">\n' +
+                            ' <a class="active" href="javascript:changeDataByElse(\''+result[i].value+'\',\'\');" data-index="0">不限</a>';
+                        var fChildren = result[i].children;
+                        var fLen = fChildren.length;
+                        for (var j = 0; j < fLen; j++) {
+                            str += '<a href="javascript:changeDataByElse(\''+result[i].value+'\',\''+fChildren[j]+'\');" data-index="1">'+fChildren[j]+'</a>'
+                        }
+                        str += '</div>\n' +
+                            '                                    </div>                                    \n' +
+                            '                                </div>\n' +
+                            '                                <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>\n' +
+                            '                            </div>';
+                        // console.log(str);
+                    }
+                    allData += str;
+                }
+                $("#listSelect").html(allData);
+            }
+        })
+    }
+    changeSelect();
+    init();
+</script>
+</body>
+</html>

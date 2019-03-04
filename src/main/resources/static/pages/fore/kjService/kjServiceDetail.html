@@ -1,0 +1,518 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<title>科技服务_详情页</title>
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../fonts/FontAwesome/font-awesome.css" rel="stylesheet">
+	<link href="../fonts/IconFont/iconfont.css" rel="stylesheet">
+	<link href="../css/animate.css" rel="stylesheet">
+	<link href="../css/bootsnav.css" rel="stylesheet">
+    <link href="../css/swiper.min.css" rel="stylesheet">
+    <link href="../treetable/css/jquery.treetable.css" rel="stylesheet" type="text/css" >
+	<link href="../css/style.css" rel="stylesheet">
+    <script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootsnav.js"></script>
+    <script src="../js/swiper.min.js"></script>
+	<script src="../treetable/js/jquery.treetable.js"></script>
+    <script type="text/javascript" src="../../../js/common.js"></script>
+    <script src="../js/rem.js"></script>
+    <script src="../js/public.js"></script>
+	<!--[if lt IE 9]>
+	  <script src="../js/html5shiv.min.js"></script>
+	  <script src="../js/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+<nav class="navbar navbar-default bootsnav navbar-fixed-top wow fadeInDown">
+    <div class="wrap">
+        <div class="attr-nav navRig">
+            <ul>
+            	<li class="navTelMob"><a href="tel:010-68376645"><i class="iconfont icon-dianhua"></i></a></li>
+                <li class="navTel"><a href="javascript:;"><i class="iconfont icon-dianhua"></i><strong>010-68376645</strong></a></li>
+                <li class="navSearch"><a href="javascript:;"><i class="iconfont icon-sousuo"></i>搜索</a></li>
+                <li><i class="iconfont icon-guanjiaowangtubiao01"></i><a href="#">登录</a><span>or</span><a href="#">注册</a></li>
+            </ul>
+        </div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand flexBox logo" href="#">
+                <span><img src="../images/logo.png" class="img-responsive"></span>
+            </a>
+        </div>            
+        <div class="collapse navbar-collapse" id="navbar-menu">
+            <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
+                <li><a href="../index.html"><span>首页</span></a></li>
+                <li><a href="../kjsc/kjsc.html"><span>科技商城</span></a></li>
+                <li><a href="../projectRequire/pjRequire.html"><span>项目需求</span></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" ><span>科技资源</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../lawsRegulations/lawsRegulations.html">政策法规</a></li>
+                        <li><a href="../zlzt/zlzt.html">专利专题</a></li>
+                        <li class="dropdown">
+                            <a href="../ztReport/ztReport.html" class="dropdown-toggle" data-toggle="dropdown" >专题报告</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../ztReport/ztReportList.html">专利态势分析</a></li>
+                                <li><a href="../ztReport/ztReportList.html">政策研究</a></li>
+                                <li><a href="../ztReport/ztReportList.html">行业咨询</a></li>
+                                <li><a href="../ztReport/ztReportList.html">情报研究</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="../gfArea/zlResult.html"><span>高分专区</span></a></li>
+                <li><a href="../news/news.html"><span>新闻动态</span></a></li>
+                <li class="active"><a href="kjService.html"><span>科技服务</span></a></li>
+                <li><a href="../aboutUs.html"><span>关于我们</span></a></li>
+            </ul>
+        </div>        
+    </div>
+</nav>
+<div class="searchBg">
+	<div class="wrap">
+    	<div class="search">
+        	<div class="close"></div>
+            <div class="container">
+            	<div class="searchBox">
+                	<a href="javascript:;" class="searchBtn"><i class="fa fa-search"></i></a>
+                	<input type="text" placeholder="请输入关键字" class="searchInput" >
+                </div>
+				<div class="searchTip">点击回车即可搜索</div>
+            	<ul class="hotSearch list-unstyled list-inline">
+                	<li><a href="#">技术成果</a></li>
+                	<li><a href="#">专家需求</a></li>
+                	<li><a href="#">科研院所资源</a></li>
+                	<li><a href="#">专利成果</a></li>
+                	<li><a href="#">检验测试需求</a></li>
+                	<li><a href="#">检验测试资源</a></li>
+                	<li><a href="#">技术需求</a></li>
+                	<li><a href="#">仪器设备需求</a></li>
+                	<li><a href="#">仪器设备资源</a></li>
+                	<li><a href="#">服务需求</a></li>
+                	<li><a href="#">专家资源</a></li>
+                	<li><a href="#">展厅资源</a></li>
+                	<li><a href="#">服务</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div><!--searchBg-->
+<div class="banInner wow fadeIn">
+	<div class="imgFull"><img src="../images/banService.jpg" class="img-responsive"></div>
+</div>
+<div class="breadNavBg">
+	<div class="wrap">
+    	<ul class="breadcrumb wow fadeInLeft">
+            <li><i class="iconfont icon-weizhi"></i>当前位置：</li>
+            <li><a href="../index.html">首页</a></li>
+            <li><a href="kjService.html">科技服务</a></li>
+            <li>知识产权服务</li>
+        </ul>
+    </div>
+</div>
+<div class="mainBg grayBg overHide">
+    <div class="wrap">
+    	<div class="main">
+            <div class="mLef">
+                <div class="fenlei wow fadeInLeft">
+                    <div class="fenleiTop">
+                        <div class="fenleiTit">
+                        	<a class="fenleiTitLink" href="javascript:;">
+                                <h2 class="fenleiTitCn">知识产权服务</h2>
+                                <!--<span class="fenleiTitEn">Intellectual Property Agency</span>-->
+                            </a>
+                        </div>
+                        <div class="fenleiH2Btn visible-xs visible-sm visible-md"><i class="fa fa-folder"></i>展开</div>
+                    </div>
+                    <div class="fenleiList">
+                    	<table class="leftMenu">
+                        	<tbody id="leftTable">
+                                <tr data-tt-id="1" class="leftTr1">
+                                    <td class="leftLi1"><i><a href="#">专利代理</a></i></td>
+                                </tr>
+                                <tr data-tt-id="2" class="leftTr1">
+                                    <td class="leftLi1"><i><a href="#">著作权登记</a></i></td>
+                                </tr>
+                                <tr data-tt-id="3" class="leftTr1">
+                                    <td class="leftLi1"><i><a href="#">商标注册代理</a></i></td>
+                                </tr>
+                                <tr data-tt-id="4" class="leftTr1">
+                                    <td class="leftLi1"><i><a href="#">专利资助办理</a></i></td>
+                                </tr>
+                                <tr data-tt-id="5" class="leftTr1">
+                                    <td class="leftLi1"><i><a href="#">知识产权托管</a></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="leftGg wow fadeInLeft hidden-xs hidden-sm hidden-md"><a href="#"><img src="../images/recommendAd.jpg" class="img-responsive"></a></div>
+                <div class="fenlei wow fadeInLeft hidden-xs hidden-sm hidden-md">
+                    <div class="siftTop">
+                        <h2 class="siftTit">重点推荐</h2>
+                        <div class="fenleiH2Btn visible-xs visible-sm visible-md"><i class="fa fa-folder"></i>展开</div>
+                    </div>
+                    <ul class="fenleiList recommendList list-unstyled">
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">燃气低氮燃烧技术</h3>
+                                <div class="recommendBrief">
+                                    <p>通过改变天然气锅炉燃烧器结构以及精准控制燃料和空气的输送…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">液压折叠宿营车</h3>
+                                <div class="recommendBrief">
+                                    <p>该车共由三个可折叠舱体组成，采用了方舱折叠技术，打破了一车一舱…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">超宽带生命探测雷达</h3>
+                                <div class="recommendBrief">
+                                    <p>该雷达可以通过增加随机信号的相关长度，在不影响距离分辨率的情况下…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">DC-DC模块电源</h3>
+                                <div class="recommendBrief">
+                                    <p>产品采用数字控制准谐振或谐振软开关及同步整流技术，利用DSC控制…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">Mesh+PMP宽带无线通信系统</h3>
+                                <div class="recommendBrief">
+                                    <p>能够在有线网络架设不便，对网络快速部署要求高等特殊场景下发挥…</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="leftMore">
+                        <a href="#">查看更多<i class="iconfont icon-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mRig">
+				<div class="technoTop">
+                    <div class="technoCen">
+                        <div class="technoImg serTopLef pull-left wow fadeInLeft" id="image">
+                        </div>
+                        <div class="serTopRig wow fadeInRight">
+                            <div class="technoTit">
+                                <h1 class="zyTitCn" id="name">专利代理 <span class="box1Tag">自营</span></h1>
+                            </div>
+                            <div class="technoBrief noborder" id="descript">
+                            	<p>可开展高分辨率雷达图像侦察也可开展高精度地形测绘，未来可广泛用于1:5000和1:10000标准比例尺地形测绘、国家西南五省多云雨地区的全地域全天时多天侯地理信息普查和测绘作业、国家重大自然灾害以及突发性环境灾害监测和评估等领域，具有广阔的应用前景。</p>
+                            </div>
+                            <ul class="serSel list-unstyled">
+                            	<li>
+                                	<span class="serSelTit">类型：</span>
+                                    <div class="serSelCon">
+                                    	<label><input type="radio" name="serName1" checked><span>国防专利</span></label>
+                                    	<label><input type="radio" name="serName1"><span>发明专利</span></label>
+                                    	<label><input type="radio" name="serName1"><span>实用新型专利</span></label>
+                                    	<label><input type="radio" name="serName1"><span>外观设计专利</span></label>
+                                    </div>
+                                    <div class="clear"></div>
+                                </li>
+                            	<li>
+                                	<span class="serSelTit">服务方式：</span>
+                                    <div class="serSelCon">
+                                    	<label><input type="radio" name="serName2" checked><span>普通</span></label>
+                                    	<label><input type="radio" name="serName2"><span>加急</span></label>
+                                    </div>
+                                    <div class="clear"></div>
+                                </li>
+                            </ul>
+                            <div class="technoPrice"><span>价格：<big><i id="price">6000</i>以上</big></span></div>
+                            <div class="technoBrief4">
+                                <div class="technoInforNum">
+                                    <p><i class="iconfont icon-chengjiaojieguo"></i>成交量：<strong class="corRed">4</strong> 件</p>
+                                    <p><i class="iconfont icon-pinglun1"></i>评论：<strong class="corGreen">2</strong> 条</p>
+                                </div>                                
+                            </div>
+                            <div class="technoBrief3">
+                                <a href="javascript:;" class="jingjiren" data-toggle="modal" data-target="#myBroker"><i class="iconfont icon-shenqing"></i>立即申请</a>
+                                <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox">
+                                    <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>
+                                    <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>
+                                    <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>
+                                </ul>
+                                <script>
+                                    _bd_share_config = { "common": { "bdSign": "off", "bdSize": "24" }, "share": { "bdCustomStyle": "../css/share.css" } }
+        with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
+                                </script>
+                            </div>
+                        </div>                        
+                        <div class="clear"></div>
+                    </div>
+                    <ul class="zyTextTab list-unstyled list-inline row wow fadeInDown">
+                    	<li class="active"><span>服务介绍</span></li>
+                    	<li><span>服务流程</span></li>
+                    	<li><span>成交记录</span></li>
+                    	<li><span>评论</span></li>
+                    </ul>
+                    <div class="zyTextCon">
+                    	<div class="zyItem" id="introduction">
+                            <h3 class="zyTextH3">服务介绍</h3>
+                            <p>本发明实施例提供了一种基础数据的处理方法和装置。该方法主要包括：根据客户的基础数据规划，确定基础数据的各种类别和每种类别对应的具体数据项；采集客户实际的基础数据，将采集的基础数据按照基础数据的各种类别进行分类，将分类后的基础数据填充到基础数据资源库中；根据客户的业务系统对基础数据的特定需求，设计基础数据资源库的数据提取规则，利用数据提取规则从基础数据资源库中提取出基础数据，将提取的基础数据传输给业务系统。本发明实施例可以克服传统基础数据规划方案普遍以文档或报告等非结构化形式存在，不利于实际操作和应用的缺点，为相关人员展示基础数据规划方案真实内容，适用于针对各级基础数据的规划。</p>
+                            <br>
+                            <center><img src="../images/serPic.jpg" class="img-responsive"></center>
+                        </div>
+                    	<div class="zyItem">
+                            <center><img src="../images/serLc.jpg" class="img-responsive"></center>
+                        </div>
+                        <div class="zyItem">
+                            <table class="technoTable RecordTable text-center" width="100%" align="center">
+                                <tbody>
+                                    <tr>
+                                        <th>买家</th>
+                                        <th>服务方式</th>
+                                        <th>成交时间</th>
+                                    </tr>
+                                    <tr>
+                                        <td>小惠helen</td>
+                                        <td>普通</td>
+                                        <td>2018-12-20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>考拉KALAB</td>
+                                        <td>加急</td>
+                                        <td>2018-12-20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>小红黄蓝绿恐龙</td>
+                                        <td>普通</td>
+                                        <td>2018-12-20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>两乔岩</td>
+                                        <td>加急</td>
+                                        <td>2018-12-20</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="zyItem">
+                            <div class="commentTop">
+                            	<div class="comHeadImg"><div class="imgFull" style="background-image: url(&quot;../images/comHeadImg1.jpg&quot;);"><img src="../images/comHeadImg1.jpg" class="img-responsive"></div></div>
+                                <div class="comRig">
+                                	<textarea placeholder="您对该产品的想法？" rows="4" class="comTextArea"></textarea>
+                                    <div class="comRigBtn"><a href="javascript:;" class="comSubmit"><i class="iconfont icon-fabiao"></i>发表评论</a></div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <ul class="commentBot list-unstyled">
+                                <li>
+                                    <div class="comHeadImg"><div class="imgFull" style="background-image: url(&quot;../images/comHeadImg2.jpg&quot;);"><img src="../images/comHeadImg2.jpg" class="img-responsive"></div></div>
+                                    <div class="comRig">
+                                    	<div class="comRigTop">
+                                        	<a href="javascript:;" class="zan pull-right"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a>
+                                            <div class="comRigName pull-left"><strong>不落地的飞鱼</strong><span>• 2 天前</span></div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <div class="comRigCon">
+                                        	<p>采取正负刚度并联的结构，获取高静态刚度、低动态刚度的刚度特性，实现超低频、无共振、高衰减的隔振效果。本技术的特点是，基于被动装置，不消耗能源且可靠性高。成功应用于卫星敏感载荷隔振也充分说明其应用于复杂环境的适应性。</p>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>   
+                                </li>
+                                <li>
+                                    <div class="comHeadImg"><div class="imgFull" style="background-image: url(&quot;../images/comHeadImg4.jpg&quot;);"><img src="../images/comHeadImg4.jpg" class="img-responsive"></div></div>
+                                    <div class="comRig">
+                                    	<div class="comRigTop">
+                                        	<a href="javascript:;" class="zan pull-right"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a>
+                                            <div class="comRigName pull-left"><strong>不落地的飞鱼</strong><span>• 2 天前</span></div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <div class="comRigCon">
+                                        	<p>采取正负刚度并联的结构，获取高静态刚度、低动态刚度的刚度特性，实现超低频、无共振、高衰减的隔振效果。本技术的特点是，基于被动装置，不消耗能源且可靠性高。成功应用于卫星敏感载荷隔振也充分说明其应用于复杂环境的适应性。</p>
+                                        </div>                                      
+                                    </div>
+                                    <div class="clear"></div>   
+                                </li>                         	
+                            </ul>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<footer class="footBg">
+    <div class="wrap">
+        <div class="ftTop">
+        	<div class="friendLink wow fadeInLeft">
+            	<h3 class="ftTit">友情链接</h3>
+                <ul class="fdLinkList list-unstyled list-inline">
+                	<li><a href="#">- 航天云网</a></li>
+                	<li><a href="#">- 中国军民融合网</a></li>
+                	<li><a href="#">- 中国航天科工三院</a></li>
+                	<li><a href="#">- 融融网</a></li>
+                	<li><a href="#">- 装备采购网</a></li>
+                	<li><a href="#">- 中国航天科工集团</a></li>
+                	<li><a href="#">- 海鹰资讯</a></li>
+                	<li><a href="#">- 猪八戒网</a></li>
+                </ul>
+            </div>
+            <ul class="ftCon list-unstyled list-inline wow fadeInDown">
+            	<li>
+                    <h3 class="ftTit">科技商城</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 科技产品</a></p>
+                        <p><a href="#">- 科技成果</a></p>
+                        <p><a href="#">- 专利技术</a></p>
+                    </div>
+                </li>
+            	<li>
+                    <h3 class="ftTit">新闻动态</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 工作动态</a></p>
+                        <p><a href="#">- 科技动态</a></p>
+                        <p><a href="#">- 通知公告</a></p>
+                    </div>
+                </li>
+            	<li>
+                    <h3 class="ftTit">科技服务</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 知识产权管理系统</a></p>
+                        <p><a href="#">- 知识产权资源导航</a></p>
+                        <p><a href="#">- 知识产权贯标系统</a></p>
+                        <p><a href="#">- 专利大数据检索</a></p>
+                        <p><a href="#">- 知识产权价值评估系统</a></p>
+                        <p><a href="#">- 知识培训统</a></p>
+                    </div>
+                </li>
+            </ul>
+        	<div class="ftConUs wow fadeInRight">
+            	<h3 class="ftTit">联系我们</h3>
+                <p class="ftAdd"><strong>地址：</strong>北京市丰台区云岗北区西里1号院</p>
+                <p class="ftTel"><strong>电话：</strong>010-68376645</p>
+                <p class="ftEmail"><strong>邮箱：</strong>service@htjsw.com</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="ftBot wow fadeInUp">
+        	<div class="copyRight">
+            	<p>Copyright © 2018中国航天科工集团知识产权中心版权所有 京ICP备13006003号-2  设计支持：<a href="#">谦亨网络</a></p>
+            </div>
+            <div class="ftBotRig">
+            	<ul class="ftBotIco list-unstyled list-inline">
+                	<li>
+                    	<a href="javascript:;"><i class="fa fa-weixin"></i></a>
+                        <div class="ftBotWx">
+                        	<img src="../images/weChat.jpg" class="img-responsive">
+                        </div>
+                    </li>
+                    <li><a href="#"><i class="fa fa-weibo"></i></a></li>
+                </ul>
+            	<ul class="ftBotLink list-unstyled list-inline">
+                	<li><a href="#">关于我们</a></li>
+                	<li><a href="#">发布成果</a></li>
+                	<li><a href="#">发布需求</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</footer>
+<div id="myBroker" class="modal fade">
+    <div class="LaySearch LayBroker">
+        <span class="LaySearchClose" data-dismiss="modal"></span>
+        <h3 class="LaySearchTit">委托服务</h3>
+        <ul class="LaySearchList list-unstyled row">
+            <li class="col-xs-12">
+                <div class="LaySearchRig">
+                    <input type="text" class="LaySearchInput" placeholder="联系人">
+                </div>
+            </li>
+            <li class="col-xs-12">
+                <div class="LaySearchRig">
+                    <input type="text" class="LaySearchInput" placeholder="联系方式">
+                </div>
+            </li>
+            <li class="col-xs-12">
+                <div class="LaySearchRig">
+                    <textarea class="LaySearchInput" rows="3" placeholder="详细要求"></textarea>
+                </div>
+            </li>
+            <li class="col-xs-12">
+                <div class="LaySearchBtn">
+                    <a href="javascript:;" class="LaySearchBtn1">提交</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<script>
+    var pro = window.location.protocol;
+    var host = window.location.host;
+    var domain = pro + "//" + host;
+    var id = getUrlParam("id");
+
+    $.ajax({
+        type : "get",
+        url : "/kjServices",
+        async : false,
+        success : function (result) {
+            $("#leftTable").html('');
+            var data = result.data;
+            for (var i = 0; i < data.length; i++){
+                var dataChildren = data[i];
+                $("#leftTable").append('<tr data-tt-id="'+i+1+'" class="leftTr1">\n' +
+                    '                                    <td class="leftLi1"><i><a href="javascript:;" onclick="javascript:changeData('+dataChildren.id+');">'+dataChildren.name+'</a></i></td>\n' +
+                    '                                </tr>');
+            }
+        }
+    });
+
+    function changeData(obj){
+        $.ajax({
+            type : "get",
+            url : "/kjServices/"+obj,
+            async : false,
+            success : function (result) {
+                $("#image").html('<img src="'+domain+'/statics'+result.image+'" style=" width: 300px; height: 350px;">');
+                $("#descript").html('<p>'+result.descript+'</p>');
+                $("#name").html(result.name+' <span class="box1Tag">自营</span>');
+                $("#price").html(result.price);
+                $("#introduction").html(' <h3 class="zyTextH3">服务介绍</h3>'+result.introduction);
+            }
+        });
+    }
+
+    if (id !=null && id !=''){
+        changeData(id);
+    } else {
+        changeData(1);
+    }
+	$(".zyItem").eq(0).show().addClass('fadeInUp animated').siblings().hide();
+	$(".zyTextTab li").click(function(){
+		$(this).addClass("active").siblings().removeClass("active");	
+		$(".zyTextCon .zyItem").eq($(this).index()).show().addClass('fadeInUp animated').siblings().hide();
+	})
+</script>
+</body>
+</html>

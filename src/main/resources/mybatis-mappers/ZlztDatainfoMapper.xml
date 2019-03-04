@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.security.server.dao.ZlztDatainfoDao">
+<resultMap id="BaseResultMap" type="com.boot.security.server.model.ZlztDatainfo">
+	<id column="id" property="id" jdbcType="INTEGER"/>
+	<result column="country" property="country" jdbcType="VARCHAR" />
+	<result column="count" property="count" jdbcType="INTEGER" />
+</resultMap>
+
+	<sql id="where">
+		<where>
+			<if test="params.id != null and params.id != ''">
+				and id = #{params.id} 
+			</if>
+			<if test="params.cId != null and params.cId != ''">
+				and cId = #{params.cId} 
+			</if>
+			<if test="params.openId != null and params.openId != ''">
+				and openId like concat('%',#{params.openId},'%')
+			</if>
+			<if test="params.openDay1 != null and params.openDay1 != ''">
+				<if test="params.openDay2 != null and params.openDay2 != ''">
+					and openDay between #{params.openDay1} and #{params.openDay2}
+				</if>
+				<if test="params.openDay2 == null || params.openDay2 == ''">
+					and openDay > #{params.openDay1}
+				</if>
+			</if>
+			<if test="params.openDay2 != null and params.openDay2 != ''">
+				<if test="params.openDay1 == null || params.openDay1 == ''">
+					and openDay &lt; #{params.openDay2}
+				</if>
+			</if>
+
+			<if test="params.applyDay1 != null and params.applyDay1 != ''">
+				<if test="params.applyDay2 != null and params.applyDay2 != ''">
+					and applyDay between #{params.applyDay1} and #{params.applyDay2}
+				</if>
+				<if test="params.applyDay2 == null || params.applyDay2 == ''">
+					and applyDay > #{params.applyDay1}
+				</if>
+			</if>
+			<if test="params.applyDay2 != null and params.applyDay2 != ''">
+				<if test="params.applyDay1 == null || params.applyDay1 == ''">
+					and applyDay &lt; #{params.applyDay2}
+				</if>
+			</if>
+			<if test="params.applayId != null and params.applayId != ''">
+				and applayId like concat('%', #{params.applayId} ,'%')
+			</if>
+			<if test="params.title != null and params.title != ''">
+				and title like concat('%',#{params.title},'%')
+			</if>
+			<if test="params.zy != null and params.zy != ''">
+				and zy like concat('%',#{params.zy} ,'%')
+			</if>
+			<if test="params.powerAN1 != null and params.powerAN1 != ''">
+				<if test="params.powerAN2 != null and params.powerAN2 != ''">
+					and powerAN between #{params.powerAN1} and #{params.powerAN2}
+				</if>
+				<if test="params.powerAN2 == null and params.powerAN2 == ''">
+					and powerAN > #{params.powerAN1}
+				</if>
+			</if>
+			<if test="params.powerAN2 != null and params.powerAN2 != ''">
+				<if test="params.powerAN1 == null || params.powerAN1 == ''">
+					and applyDay &lt; #{params.powerAN2}
+				</if>
+			</if>
+			<if test="params.applyMan != null and params.applyMan != ''">
+				and applyMan like concat('%',#{params.applyMan},'%')
+			</if>
+			<if test="params.applyPlace != null and params.applyPlace != ''">
+				and applyPlace like concat('%',#{params.applyPlace},'%')
+			</if>
+			<if test="params.createMan != null and params.createMan != ''">
+				and createMan like concat('%',#{params.createMan},'%')
+			</if>
+			<if test="params.ipcMC != null and params.ipcMC != ''">
+				and ipcMC like concat('%',#{params.ipcMC},'%')
+			</if>
+			<if test="params.ipc != null and params.ipc != ''">
+				and ipc like concat('%',#{params.ipc},'%')
+			</if>
+			<if test="params.cpec != null and params.cpec != ''">
+				and cpec like concat('%',#{params.cpec},'%')
+			</if>
+			<if test="params.type != null and params.type != ''">
+				<if test="params.type == 1">
+					and fId = #{params.classifyid}
+				</if>
+				<if test="params.type == 2">
+					and sId = #{params.classifyid}
+				</if>
+				<if test="params.type == 3">
+					and tId = #{params.classifyid}
+				</if>
+				<if test="params.type == 4">
+					and cId = #{params.classifyid}
+				</if>
+			</if>
+			<if test="params.searchKey != null and params.searchKey != ''">
+				and concat(IFNULL(country,''),IFNULL(openId,''),IFNULL(applyId,''),IFNULL(title,''),IFNULL(titleFy,''),IFNULL(zy,''),
+							IFNULL(zyFy,''),IFNULL(powerAsk,''),IFNULL(powerAFy,''),IFNULL(powerAN,''),IFNULL(applyMan,''),IFNULL(applyPlace,''),
+							IFNULL(createMan,''),IFNULL(lawS,''),IFNULL(nowLawS,''),IFNULL(zlType,''),IFNULL(ipcMC,''),IFNULL(ipcMCFy,''),
+							IFNULL(ipc,''),IFNULL(ipcFy,''),IFNULL(cpec,''),IFNULL(cpecFy,''),IFNULL(beUsedNum,''),IFNULL(VALUE,''),IFNULL(zlText,''))
+				like concat('%', #{params.searchKey}, '%')
+			</if>
+			<!-- 国家筛选 -->
+			<if test="params.countryId != null and params.countryId != ''">
+				and country in
+				<foreach collection="params.countryId.split(',')" item="item" index="index"
+						 open="(" separator="," close=")">
+					'${item}'
+				</foreach>
+			</if>
+			<!-- 申请年筛选 -->
+			<if test="params.applyDayId != null and params.applyDayId != ''">
+				and SUBSTRING(applyDay,1,4) in (${params.applyDayId})
+			</if>
+			<!-- 公开年筛选 -->
+			<if test="params.openDayId != null and params.openDayId != ''">
+				and SUBSTRING(openDay,1,4) in (${params.openDayId})
+			</if>
+			<!-- 申请人筛选 -->
+			<if test="params.applyManId != null and params.applyManId != ''">
+				and applyMan in
+				<foreach collection="params.applyManId.split(',')" item="item" index="index"
+						 open="(" separator="," close=")">
+					'${item}'
+				</foreach>
+			</if>
+			<!-- 发明人筛选 -->
+			<if test="params.createManId != null and params.createManId != ''">
+				and
+				<foreach collection="params.createManId.split(',')" item="item" index="index"
+						 open="(" separator="or" close=")">
+					createMan like  CONCAT('%',#{item},'%')
+				</foreach>
+			</if>
+			<!-- 当前法律状态筛选 -->
+			<if test="params.nowLawSId != null and params.nowLawSId != ''">
+				and nowLawS in
+				<foreach collection="params.nowLawSId.split(',')" item="item" index="index"
+						 open="(" separator="," close=")">
+					'${item}'
+				</foreach>
+			</if>
+			<!-- 专利类型筛选 -->
+			<if test="params.zlTypeId != null and params.zlTypeId != ''">
+				and zlType in
+				<foreach collection="params.zlTypeId.split(',')" item="item" index="index"
+						 open="(" separator="or" close=")">
+					 '${item}'
+				</foreach>
+			</if>
+			<!-- ipc分类筛选 -->
+			<if test="params.ipcId != null and params.ipcId != ''">
+				and
+				<foreach collection="params.ipcId.split(',')" item="item" index="index"
+						 open="(" separator="or" close=")">
+					ipc like CONCAT('%',#{item},'%')
+				</foreach>
+			</if>
+			<!-- 国名经济分类筛选 -->
+			<if test="params.cpecId != null and params.cpecId != ''">
+				and cpec in
+				<foreach collection="params.cpecId.split(',')" item="item" index="index"
+						 open="(" separator="," close=")">
+					'${item}'
+				</foreach>
+			</if>
+		</where>
+	</sql>
+
+	<select id="count" resultType="int">
+		select count(1) from
+		<if test="params.fromTable == null || params.fromTable==''">
+			zlzt_datainfo
+		</if>
+		<if test="params.fromTable !=null and params.fromTable !=''">
+			${params.fromTable}
+		</if>
+		<include refid="where" />
+	</select>
+
+	<select id="list" resultType="ZlztDatainfo">
+		select * from
+		<if test="params.fromTable ==null || params.fromTable==''">
+			zlzt_datainfo
+		</if>
+		<if test="params.fromTable !=null and params.fromTable !=''">
+			${params.fromTable}
+		</if>
+		<include refid="where" />
+		<if test="params.order !=null and params.order !=''">
+			order by ${params.order}
+		</if>
+		<if test="params.orderBy != null and params.orderBy !=''">
+			${params.orderBy}
+		</if>
+		<if test="limit!=null and limit!=''">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<update id="update">
+		update zlzt_datainfo t
+		<set>
+			<if test="cId != null">
+				cId = #{cId}, 
+			</if>
+			<if test="country != null">
+				country = #{country}, 
+			</if>
+			<if test="openId != null">
+				openId = #{openId}, 
+			</if>
+			<if test="openDay != null">
+				openDay = #{openDay}, 
+			</if>
+			<if test="applayId != null">
+				applayId = #{applayId}, 
+			</if>
+			<if test="applyDay != null">
+				applyDay = #{applyDay}, 
+			</if>
+			<if test="title != null">
+				title = #{title}, 
+			</if>
+			<if test="titleFy != null">
+				titleFy = #{titleFy}, 
+			</if>
+			<if test="zy != null">
+				zy = #{zy}, 
+			</if>
+			<if test="zyFy != null">
+				zyFy = #{zyFy}, 
+			</if>
+			<if test="powerAsk != null">
+				powerAsk = #{powerAsk}, 
+			</if>
+			<if test="powerAFy != null">
+				powerAFy = #{powerAFy}, 
+			</if>
+			<if test="powerAN != null">
+				powerAN = #{powerAN}, 
+			</if>
+			<if test="applyMan != null">
+				applyMan = #{applyMan}, 
+			</if>
+			<if test="applyPlace != null">
+				applyPlace = #{applyPlace}, 
+			</if>
+			<if test="createMan != null">
+				createMan = #{createMan}, 
+			</if>
+			<if test="lawS != null">
+				lawS = #{lawS}, 
+			</if>
+			<if test="nowLawS != null">
+				nowLawS = #{nowLawS}, 
+			</if>
+			<if test="zlType != null">
+				zlType = #{zlType}, 
+			</if>
+			<if test="ipcMC != null">
+				ipcMC = #{ipcMC}, 
+			</if>
+			<if test="ipcMCFy != null">
+				ipcMCFy = #{ipcMCFy}, 
+			</if>
+			<if test="ipc != null">
+				ipc = #{ipc}, 
+			</if>
+			<if test="ipcFy != null">
+				ipcFy = #{ipcFy}, 
+			</if>
+			<if test="cpec != null">
+				cpec = #{cpec}, 
+			</if>
+			<if test="cpecFy != null">
+				cpecFy = #{cpecFy}, 
+			</if>
+			<if test="beUsedNum != null">
+				beUsedNum = #{beUsedNum}, 
+			</if>
+			<if test="value != null">
+				value = #{value}, 
+			</if>
+			<if test="zlImage != null">
+				zlImage = #{zlImage}, 
+			</if>
+			<if test="zlText != null">
+				zlText = #{zlText}, 
+			</if>
+			<if test="createTime != null">
+				createTime = #{createTime}, 
+			</if>
+			<if test="updateTime != null">
+				updateTime = #{updateTime}, 
+			</if>
+
+		</set>
+
+		where t.id = #{id}
+	</update>
+
+	<select id="getChildren" resultType="ZlztDatainfo">
+		SELECT
+		<if test="keyname=='applyDay'" >
+			substring(${keyname},1,4) keyname,
+		</if>
+		<if test="keyname=='openDay'" >
+			substring(${keyname},1,4) keyname,
+		</if>
+		<if test="keyname!='applyDay' and keyname !='openDay'">
+			${keyname} keyname ,
+		</if>
+		count(*) count
+		from ${fromTable}
+		<where>
+			<if test="fId != null and fId != ''">
+				and fId = #{fId}
+			</if>
+			<if test="sId != null and sId != ''">
+				and sId = #{sId}
+			</if>
+			<if test="tId != null and tId != ''">
+				and tId = #{tId}
+			</if>
+			<if test="cId != null and cId != ''">
+				and cId = #{cId}
+			</if>
+			<!-- 国家筛选 -->
+			<if test="country != null and country != ''">
+				and country in
+				<foreach collection="country.split(',')" item="item" index="index"
+						 open="(" separator="," close=")">
+					'${item}'
+				</foreach>
+			</if>
+			<!-- 申请年筛选 -->
+			<if test="applyDayStr != null and applyDayStr != ''">
+				and SUBSTRING(applyDay,1,4) in (${applyDayStr})
+			</if>
+			<!-- 公开年筛选 -->
+			<if test="openDayStr != null and openDayStr != ''">
+				and SUBSTRING(openDay,1,4) in (${openDayStr})
+			</if>
+			<!-- 申请人筛选 -->
+			<if test="applyMan != null and applyMan != ''">
+				and applyMan in
+				<foreach collection="applyMan.split(',')" item="item" index="index"
+						 open="(" separator="," close=")">
+					'${item}'
+				</foreach>
+			</if>
+			<!-- 发明人筛选 -->
+			<if test="createMan != null and createMan != ''">
+				and
+				<foreach collection="createMan.split(',')" item="item" index="index"
+						 open="(" separator="or" close=")">
+					createMan like  CONCAT('%',#{item},'%')
+				</foreach>
+			</if>
+			<!-- 当前法律状态筛选 -->
+			<if test="nowLawS != null and nowLawS != ''">
+				and nowLawS in
+				<foreach collection="nowLawS.split(',')" item="item" index="index"
+						 open="(" separator="," close=")">
+					'${item}'
+				</foreach>
+			</if>
+			<!-- 专利类型筛选 -->
+			<if test="zlType != null and zlType != ''">
+				and zlType in
+				<foreach collection="zlType.split(',')" item="item" index="index"
+						 open="(" separator="or" close=")">
+					'${item}'
+				</foreach>
+			</if>
+			<!-- ipc分类筛选 -->
+			<if test="ipc != null and ipc != ''">
+				and
+				<foreach collection="ipc.split(',')" item="item" index="index"
+						 open="(" separator="or" close=")">
+					ipc like CONCAT('%',#{item},'%')
+				</foreach>
+			</if>
+			<!-- 国名经济分类筛选 -->
+			<if test="cpec != null and cpec != ''">
+				and cpec in
+				<foreach collection="cpec.split(',')" item="item" index="index"
+						 open="(" separator="," close=")">
+					'${item}'
+				</foreach>
+			</if>
+		</where>
+		group by  keyname
+		ORDER BY keyname desc ,count asc
+	</select>
+
+	<select id="selectListByParams" resultType="ZlztDatainfo">
+		select * from ${params.fromTable} t
+		<where>
+			<if test="params.fType == 1" >
+				and id = (select max(id) from ${params.fromTable} <include refid="where" /> and  id &lt; #{id})
+			</if>
+			<if test="params.fType == 2" >
+				and id = (select min(id) from ${params.fromTable} <include refid="where" /> and id > #{id} )
+			</if>
+		</where>
+		<if test="params.order !=null and params.order !=''">
+			order by ${params.order}
+		</if>
+		<if test="params.orderBy != null and params.orderBy !=''">
+			${params.orderBy}
+		</if>
+	</select>
+</mapper>

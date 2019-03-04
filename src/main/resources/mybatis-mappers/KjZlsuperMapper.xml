@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.security.server.dao.KjZlsuperDao">
+
+	<sql id="where">
+		<where>
+			<if test="params.transform != null and params.transform != ''">
+				and transform = #{params.transform}
+			</if>
+			<if test="params.cMan != null and params.cMan != ''">
+				and cMan = #{params.cMan} 
+			</if>
+			<if test="params.cPhone != null and params.cPhone != ''">
+				and cPhone = #{params.cPhone} 
+			</if>
+			<if test="params.dealMoney != null and params.dealMoney != ''">
+				and dealMoney = #{params.dealMoney} 
+			</if>
+			<if test="params.dealWay != null and params.dealWay != ''">
+				and dealWay = #{params.dealWay} 
+			</if>
+			<if test="params.fId != null and params.fId != ''">
+				and fId = #{params.fId} 
+			</if>
+			<if test="params.id != null and params.id != ''">
+				and id = #{params.id} 
+			</if>
+			<if test="params.lawS != null and params.lawS != ''">
+				and lawS = #{params.lawS} 
+			</if>
+			<if test="params.name != null and params.name != ''">
+				and name = #{params.name} 
+			</if>
+			<if test="params.pubTime != null and params.pubTime != ''">
+				and pubTime = #{params.pubTime} 
+			</if>
+			<if test="params.sId != null and params.sId != ''">
+				and sId = #{params.sId} 
+			</if>
+			<if test="params.useArea != null and params.useArea != ''">
+				and useArea = #{params.useArea} 
+			</if>
+			<if test="params.xfArea != null and params.xfArea != ''">
+				and xfArea = #{params.xfArea} 
+			</if>
+			<if test="params.zlDetails != null and params.zlDetails != ''">
+				and zlDetails = #{params.zlDetails} 
+			</if>
+			<if test="params.zlId != null and params.zlId != ''">
+				and zlId = #{params.zlId} 
+			</if>
+			<if test="params.zlImage != null and params.zlImage != ''">
+				and zlImage = #{params.zlImage} 
+			</if>
+			<if test="params.zlType != null and params.zlType != ''">
+				and zlType = #{params.zlType} 
+			</if>
+			<if test="params.zlYear != null and params.zlYear != ''">
+				and zlYear = #{params.zlYear} 
+			</if>
+		
+		</where>
+	</sql>
+
+	<select id="count" resultType="int">
+		select count(1) from kj_zlsuper t
+		<include refid="where" />
+	</select>
+
+	<select id="list" resultType="KjZlsuper">
+		select * from kj_zlsuper t
+		<include refid="where" />
+		<if test="params.orderBy!=null and params.orderBy !=''">
+			${params.orderBy}
+		</if>
+		<if test="limit !=null and limit !=''">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<update id="update">
+		update kj_zlsuper t
+		<set>
+			<if test="transform != null">
+				transform = #{transform},
+			</if>
+			<if test="cMan != null">
+				cMan = #{cMan}, 
+			</if>
+			<if test="cPhone != null">
+				cPhone = #{cPhone}, 
+			</if>
+			<if test="dealMoney != null">
+				dealMoney = #{dealMoney}, 
+			</if>
+			<if test="dealWay != null">
+				dealWay = #{dealWay}, 
+			</if>
+			<if test="fId != null">
+				fId = #{fId}, 
+			</if>
+			<if test="lawS != null">
+				lawS = #{lawS}, 
+			</if>
+			<if test="name != null">
+				name = #{name}, 
+			</if>
+			<if test="pubTime != null">
+				pubTime = #{pubTime}, 
+			</if>
+			<if test="sId != null">
+				sId = #{sId}, 
+			</if>
+			<if test="useArea != null">
+				useArea = #{useArea}, 
+			</if>
+			<if test="xfArea != null">
+				xfArea = #{xfArea}, 
+			</if>
+			<if test="zlDetails != null">
+				zlDetails = #{zlDetails}, 
+			</if>
+			<if test="zlId != null">
+				zlId = #{zlId}, 
+			</if>
+			<if test="zlImage != null">
+				zlImage = #{zlImage}, 
+			</if>
+			<if test="zlType != null">
+				zlType = #{zlType}, 
+			</if>
+			<if test="zlYear != null">
+				zlYear = #{zlYear}, 
+			</if>
+
+		</set>
+
+		where t.id = #{id}
+	</update>
+
+</mapper>

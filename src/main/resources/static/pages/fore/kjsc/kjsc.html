@@ -1,0 +1,1869 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<title>科技商城</title>
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../fonts/FontAwesome/font-awesome.css" rel="stylesheet">
+	<link href="../fonts/IconFont/iconfont.css" rel="stylesheet">
+	<link href="../css/animate.css" rel="stylesheet">
+	<link href="../css/bootsnav.css" rel="stylesheet">
+    <link href="../css/swiper.min.css" rel="stylesheet">
+    <link href="../treetable/css/jquery.treetable.css" rel="stylesheet" type="text/css" >
+	<link href="../css/style.css" rel="stylesheet">
+    <script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootsnav.js"></script>
+    <script src="../js/swiper.min.js"></script>
+	<script src="../treetable/js/jquery.treetable.js"></script>
+    <script src="../js/rem.js"></script>
+    <script src="../js/public.js"></script>
+    <script type="text/javascript" src="../../../js/common.js"></script>
+	<!--[if lt IE 9]>
+	  <script src="../js/html5shiv.min.js"></script>
+	  <script src="../js/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+<nav class="navbar navbar-default bootsnav navbar-fixed-top wow fadeInDown">
+    <div class="wrap">
+        <div class="attr-nav navRig">
+            <ul>
+            	<li class="navTelMob"><a href="tel:010-68376645"><i class="iconfont icon-dianhua"></i></a></li>
+                <li class="navTel"><a href="javascript:;"><i class="iconfont icon-dianhua"></i><strong>010-68376645</strong></a></li>
+                <li class="navSearch"><a href="javascript:;"><i class="iconfont icon-sousuo"></i>搜索</a></li>
+                <li><i class="iconfont icon-guanjiaowangtubiao01"></i><a href="#">登录</a><span>or</span><a href="#">注册</a></li>
+            </ul>
+        </div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand flexBox logo" href="#">
+                <span><img src="../images/logo.png" class="img-responsive"></span>
+            </a>
+        </div>            
+        <div class="collapse navbar-collapse" id="navbar-menu">
+            <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
+                <li><a href="../index.html"><span>首页</span></a></li>
+                <li class="active"><a href="kjsc.html"><span>科技商城</span></a></li>
+                <li><a href="../projectRequire/pjRequire.html"><span>项目需求</span></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" ><span>科技资源</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../lawsRegulations/lawsRegulations.html">政策法规</a></li>
+                        <li><a href="../zlzt/zlzt.html">专利专题</a></li>
+                        <li class="dropdown">
+                          <a href="../ztReport/ztReport.html" class="dropdown-toggle" data-toggle="dropdown" >专题报告</a>
+                            <ul class="dropdown-menu">
+                               <li><a href="../ztReport/ztReportList.html">专利态势分析</a></li>
+                                <li><a href="../ztReport/ztReportList.html">政策研究</a></li>
+                               <li><a href="../ztReport/ztReportList.html">行业咨询</a></li>
+                                <li><a href="../ztReport/ztReportList.html">情报研究</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="../gfArea/zlResult.html"><span>高分专区</span></a></li>
+                <li><a href="../news/news.html"><span>新闻动态</span></a></li>
+                <li><a href="../kjService/kjService.html"><span>科技服务</span></a></li>
+                <li><a href="../aboutUs.html"><span>关于我们</span></a></li>
+            </ul>
+        </div>        
+    </div>
+</nav>
+<div class="searchBg">
+	<div class="wrap">
+    	<div class="search">
+        	<div class="close"></div>
+            <div class="container">
+            	<div class="searchBox">
+                	<a href="javascript:;" class="searchBtn"><i class="fa fa-search"></i></a>
+                	<input type="text" placeholder="请输入关键字" class="searchInput" >
+                </div>
+				<div class="searchTip">点击回车即可搜索</div>
+            	<ul class="hotSearch list-unstyled list-inline">
+                	<li><a href="#">技术成果</a></li>
+                	<li><a href="#">专家需求</a></li>
+                	<li><a href="#">科研院所资源</a></li>
+                	<li><a href="#">专利成果</a></li>
+                	<li><a href="#">检验测试需求</a></li>
+                	<li><a href="#">检验测试资源</a></li>
+                	<li><a href="#">技术需求</a></li>
+                	<li><a href="#">仪器设备需求</a></li>
+                	<li><a href="#">仪器设备资源</a></li>
+                	<li><a href="#">服务需求</a></li>
+                	<li><a href="#">专家资源</a></li>
+                	<li><a href="#">展厅资源</a></li>
+                	<li><a href="#">服务</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div><!--searchBg-->
+<div class="banInner wow fadeIn">
+	<div class="imgFull"><img src="../images/banMart.jpg" class="img-responsive"></div>
+</div>
+<div class="breadNavBg">
+	<div class="wrap">
+    	<ul class="breadcrumb wow fadeInLeft">
+            <li><i class="iconfont icon-weizhi"></i>当前位置：</li>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">科技商城</a></li>
+            <li>科技成果</li>
+        </ul>
+    </div>
+</div>
+<div class="mainBg grayBg overHide">
+    <div class="wrap">
+    	<div class="main">
+            <div class="mLef">
+                <div class="fenlei wow fadeInLeft">            	
+                    <div class="fenleiTop">
+                        <div class="fenleiTit">
+                        	<a class="fenleiTitLink" href="#">
+                                <h2 class="fenleiTitCn">科技商城</h2>
+                                <span class="fenleiTitEn">Techno Mart</span>
+                            </a>
+                        </div>
+                        <div class="fenleiH2Btn visible-xs visible-sm visible-md"><i class="fa fa-folder"></i>展开</div>
+                    </div>
+                    <div class="fenleiList">
+                    	<table class="leftMenu">
+                        	<tbody>
+                                <tr data-tt-id="1" class="leftTr1">
+                                    <td class="leftLi1"><i><a href="javascript:dataChange('product')">科技产品</a></i></td>
+                                </tr>
+                                <tr data-tt-id="2" class="leftTr1">
+                                    <td class="leftLi1"><i><a href="javascript:dataChange('result')">科技成果</a></i></td>
+                                </tr>
+                                <tr data-tt-id="3" class="leftTr1">
+                                    <td class="leftLi1"><i><a href="javascript:dataChange('zlsuper')">专利超市</a></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="leftGg wow fadeInLeft hidden-xs hidden-sm hidden-md"><a href="#"><img src="../images/recommendAd.jpg" class="img-responsive"></a></div>
+                <div class="fenlei wow fadeInLeft hidden-xs hidden-sm hidden-md">
+                    <div class="siftTop">
+                        <h2 class="siftTit">重点推荐</h2>
+                        <div class="fenleiH2Btn visible-xs visible-sm visible-md"><i class="fa fa-folder"></i>展开</div>
+                    </div>
+                    <ul class="fenleiList recommendList list-unstyled">
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">燃气低氮燃烧技术</h3>
+                                <div class="recommendBrief">
+                                    <p>通过改变天然气锅炉燃烧器结构以及精准控制燃料和空气的输送…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">液压折叠宿营车</h3>
+                                <div class="recommendBrief">
+                                    <p>该车共由三个可折叠舱体组成，采用了方舱折叠技术，打破了一车一舱…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">超宽带生命探测雷达</h3>
+                                <div class="recommendBrief">
+                                    <p>该雷达可以通过增加随机信号的相关长度，在不影响距离分辨率的情况下…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">DC-DC模块电源</h3>
+                                <div class="recommendBrief">
+                                    <p>产品采用数字控制准谐振或谐振软开关及同步整流技术，利用DSC控制…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">Mesh+PMP宽带无线通信系统</h3>
+                                <div class="recommendBrief">
+                                    <p>能够在有线网络架设不便，对网络快速部署要求高等特殊场景下发挥…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">雪豹系列排爆机器人</h3>
+                                <div class="recommendBrief">
+                                    <p>红林公司生产的排爆机器人针对国内市场，技术上突破国外垄断…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">井下救生舱无电蓄冰散热装置</h3>
+                                <div class="recommendBrief">
+                                    <p>一般降温装置均需要有电力驱动，本发明的创新点就在于其工作时…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">网络安全可视化指挥平台</h3>
+                                <div class="recommendBrief">
+                                    <p>多维度的网络安全态势融合技术 网络安全态势融合技术是形成全局网络…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">高速物理熵源密码发生器</h3>
+                                <div class="recommendBrief">
+                                    <p>首次提出利用宽带混沌信号作为新型物理熵源，发明了面向超高速真随机…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">船舶脱硫脱硝一体化技术</h3>
+                                <div class="recommendBrief">
+                                    <p>我国脱硫达到国际公约2015年控制区域新标，脱硝达到2016年即将…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">超宽带生命探测雷达</h3>
+                                <div class="recommendBrief">
+                                    <p>该雷达可以通过增加随机信号的相关长度，在不影响距离分辨率的情况下…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">DC-DC模块电源</h3>
+                                <div class="recommendBrief">
+                                    <p>产品采用数字控制准谐振或谐振软开关及同步整流技术，利用DSC控制…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">Mesh+PMP宽带无线通信系统</h3>
+                                <div class="recommendBrief">
+                                    <p>能够在有线网络架设不便，对网络快速部署要求高等特殊场景下发挥…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">雪豹系列排爆机器人</h3>
+                                <div class="recommendBrief">
+                                    <p>红林公司生产的排爆机器人针对国内市场，技术上突破国外垄断…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                            <a href="#">
+                                <i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">井下救生舱无电蓄冰散热装置</h3>
+                                <div class="recommendBrief">
+                                    <p>一般降温装置均需要有电力驱动，本发明的创新点就在于其工作时…</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="leftMore">
+                        <a href="#">查看更多<i class="iconfont icon-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mRig">
+            	<div class="rigTopBg">
+                	<div class="sxBox">
+                        <div class="sxTop wow fadeInDown">
+                        	<div class="sxTopTit">
+                                <i class="iconfont icon-shaixuan"></i>
+                                <span>当前检索条件</span>
+                            </div>
+                                <div class="sxTopCon"><span class="delSelBtn" onclick="clearAllSelect()">清空筛选</span></div>
+                        </div>
+                        <div class="sxBot" id="listSelect">
+                            <div class="sxBotItem wow fadeInUp">
+                                <span class="sxBotTit">所属行业：</span>
+                                <div class="sxBotCon">
+                                    <div class="sxFirst">
+                                        <div class="sxFirCon">
+                                            <a class="active" href="javascript:;" data-index="0">不限</a>
+                                            <a href="javascript:;" data-index="1">电子信息</a>
+                                            <a href="javascript:;" data-index="2">航空航天</a>
+                                            <a href="javascript:;" data-index="3">先进制造</a>
+                                            <a href="javascript:;" data-index="4">现代交通 </a>
+                                            <a href="javascript:;" data-index="5">农业环境</a>
+                                            <a href="javascript:;" data-index="6">保护与资源综合利用</a>
+                                            <a href="javascript:;" data-index="7">生物、医药合医疗器械</a>
+                                            <a href="javascript:;" data-index="8">新材料及其应用</a>
+                                            <a href="javascript:;" data-index="9">新能源与高效节能</a>
+                                            <a href="javascript:;" data-index="10">城市建设与社会发展</a>
+                                            <a href="javascript:;" data-index="11">其它</a>
+                                        </div>
+                                    </div>
+                                    <div class="sxSecond" data-con="1">
+                                        <a href="javascript:;">专用车制造</a>
+                                        <a href="javascript:;">能源装备</a>
+                                        <a href="javascript:;">汽车电子及零部件</a>
+                                        <a href="javascript:;">传感器</a>
+                                        <a href="javascript:;">工业互联网</a>
+                                        <a href="javascript:;">先进材料</a>
+                                        <a href="javascript:;">网络安全</a>
+                                        <a href="javascript:;">定位系统</a>
+                                        <a href="javascript:;">识别技术</a>
+                                    </div>
+                                    <div class="sxSecond" data-con="2">
+                                        <a href="javascript:;">识别技术2</a>
+                                        <a href="javascript:;">专用车制造2</a>
+                                        <a href="javascript:;">能源装备2</a>
+                                        <a href="javascript:;">汽车电子及零部件2</a>
+                                        <a href="javascript:;">传感器2</a>
+                                        <a href="javascript:;">工业互联网2</a>
+                                    </div>
+                                    <div class="sxSecond" data-con="3">
+                                        <a href="javascript:;">识别技术3</a>
+                                        <a href="javascript:;">专用车制造3</a>
+                                        <a href="javascript:;">能源装备3</a>
+                                        <a href="javascript:;">汽车电子及零部件3</a>
+                                    </div>
+                                    <div class="sxSecond" data-con="4">
+                                        <a href="javascript:;">能源装备4</a>
+                                        <a href="javascript:;">汽车电子及零部件4</a>
+                                        <a href="javascript:;">传感器4</a>
+                                        <a href="javascript:;">工业互联网4</a>
+                                    </div>
+                                </div>
+                                <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>
+                            </div>
+                            <div class="sxBotItem wow fadeInUp">
+                                <span class="sxBotTit">技术来源：</span>
+                                <div class="sxBotCon">
+                                    <div class="sxFirst">
+                                        <div class="sxFirCon">
+                                            <a class="active" href="javascript:;" data-index="0">不限</a>
+                                            <a href="javascript:;" data-index="1">国家（军方）投资</a>
+                                            <a href="javascript:;" data-index="2">外部引进</a>
+                                            <a href="javascript:;" data-index="3">自主研发</a>
+                                            <a href="javascript:;" data-index="4">其它 </a>
+                                        </div>
+                                    </div>
+                                    <div class="sxSecond" data-con="1">
+                                        <a href="javascript:;">识别技术</a>
+                                        <a href="javascript:;">专用车制造</a>
+                                        <a href="javascript:;">能源装备</a>
+                                        <a href="javascript:;">汽车电子及零部件</a>
+                                        <a href="javascript:;">传感器</a>
+                                        <a href="javascript:;">工业互联网</a>
+                                        <a href="javascript:;">先进材料</a>
+                                        <a href="javascript:;">网络安全</a>
+                                        <a href="javascript:;">定位系统</a>
+                                    </div>
+                                    <div class="sxSecond" data-con="2">
+                                        <a href="javascript:;">专用车制造2</a>
+                                        <a href="javascript:;">能源装备2</a>
+                                        <a href="javascript:;">汽车电子及零部件2</a>
+                                        <a href="javascript:;">传感器2</a>
+                                        <a href="javascript:;">工业互联网2</a>
+                                        <a href="javascript:;">先进材料2</a>
+                                        <a href="javascript:;">网络安全2</a>
+                                        <a href="javascript:;">定位系统2</a>
+                                        <a href="javascript:;">识别技术2</a>
+                                    </div>
+                                </div>
+                                <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>
+                            </div>
+                            <div class="sxBotItem wow fadeInUp">
+                                <span class="sxBotTit">技术水平：</span>
+                                <div class="sxBotCon">
+                                    <div class="sxFirst">
+                                        <div class="sxFirCon">
+                                            <a class="active" href="javascript:;" data-index="0">不限</a>
+                                            <a href="javascript:;" data-index="1">国际领先</a>
+                                            <a href="javascript:;" data-index="2">国际先进</a>
+                                            <a href="javascript:;" data-index="3">国内领先</a>
+                                            <a href="javascript:;" data-index="4">国内先进</a>
+                                            <a href="javascript:;" data-index="5">其它</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>
+                            </div>
+                            <div class="sxBotItem wow fadeInUp">
+                                <span class="sxBotTit">合作方式：</span>
+                                <div class="sxBotCon">
+                                    <div class="sxFirst">
+                                        <div class="sxFirCon">
+                                            <a class="active" href="javascript:;" data-index="0">不限</a>
+                                            <a href="javascript:;" data-index="1">技术转让 </a>
+                                            <a href="javascript:;" data-index="2">许可使用</a>
+                                            <a href="javascript:;" data-index="3">合作开发</a>
+                                            <a href="javascript:;" data-index="4">作价入股</a>
+                                            <a href="javascript:;" data-index="5">技术服务</a>
+                                            <a href="javascript:;" data-index="6">其它</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>
+                            </div>
+                            <div class="sxBotItem wow fadeInUp">
+                                <span class="sxBotTit">技术成熟度：</span>
+                                <div class="sxBotCon">
+                                    <div class="sxFirst">
+                                        <div class="sxFirCon">
+                                            <a class="active" href="javascript:;" data-index="0">不限</a>
+                                            <a href="javascript:;" data-index="1">样品、实验室阶段 </a>
+                                            <a href="javascript:;" data-index="2">试生产、应用开发阶段</a>
+                                            <a href="javascript:;" data-index="3">小批量生产、工程应用阶段</a>
+                                            <a href="javascript:;" data-index="4">批量生产、成熟应用阶段</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>
+                            </div>
+                            <div class="sxBotItem wow fadeInUp">
+                                <span class="sxBotTit">区域：</span>
+                                <div class="sxBotCon">
+                                    <div class="sxFirst">
+                                        <div class="sxFirCon">
+                                            <a class="active" href="javascript:;" data-index="1">北京市</a>
+                                            <a href="javascript:;" data-index="2">天津市 </a>
+                                            <a href="javascript:;" data-index="3">河北省</a>
+                                            <a href="javascript:;" data-index="4">山西省</a>
+                                            <a href="javascript:;" data-index="5">辽宁省</a>
+                                            <a href="javascript:;" data-index="6">吉林省</a>
+                                            <a href="javascript:;" data-index="7">广东省</a>
+                                            <a href="javascript:;" data-index="8">海南省</a>
+                                            <a href="javascript:;" data-index="9">上海市</a>
+                                            <a href="javascript:;" data-index="10">江苏省</a>
+                                            <a href="javascript:;" data-index="11">浙江省</a>
+                                            <a href="javascript:;" data-index="12">安徽省</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rigTopBg">
+                	<div class="rigSearch rigSearch2 wow fadeInDown">
+                    	<span class="rigSearchTit">科技成果：</span>
+                        <div class="rigSearchRig">
+                        	<div class="rigSearchLef">
+                                <a href="javascript:;" class="iconfont icon-sousuo1 rigSearchIco"></a>
+                                <input type="text" id="searchByInput" class="rigSearchInput" style="outline: none;" placeholder="搜索关键字">
+                            </div>
+                            <a class="rigSearchBtn rigSearchBtn1" href="javascript:searchByInput();">搜索</a>
+						</div>
+                        <div class="clear"></div>
+                    </div>                    
+                    <div class="zyTabTop wow fadeInUp">
+                    	<h3 class="zyTabTit">技术成果</h3>
+                        <ul class="zyOrderBy list-unstyled list-inline">
+                        	<li><span>搜索到相关结果：<strong class="corOrg" id="searchNum">1120</strong>个</span></li>
+                            <li><span class="active">时间<i class="iconfont icon-jiantouxia"></i></span></li>
+                            <li><span>人气<i class="iconfont icon-jiantouxia"></i></span></li>
+                            <li><span>收藏榜<i class="iconfont icon-jiantouxia"></i></span></li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                    <table id="technoTab" class="table wow fadeInUp" width="100%">
+                    	<thead>
+                        	<tr>
+                            	<th></th>
+                            	<th></th>
+                            	<th></th>
+                            </tr>
+						</thead>
+                        <tbody id="tttBody">
+                            <!--<tr>
+                                <td>
+                                    <div class="box1Con">
+                                        <a class="box1Link" href="#">
+                                            <div class="box1Img">
+                                                <img src="../images/box1Img1.jpg" class="img-responsive">
+                                                <div class="box1Mask"></div>
+                                                <div class="box1Ico">
+                                                    <i class="iconfont icon-chakan"></i>
+                                                    <span>了解详细信息</span>
+                                                </div>
+                                            </div>
+                                            <div class="box1Text">
+                                                <h3 class="box1Tit">金属导体管件的电磁感应加热胀形装置</h3>
+                                                <div class="box1Infor">
+                                                    <span class="b1Sp1">行业：先进制造1</span>
+                                                    <i class="b1Line">|</i>
+                                                    <span class="b1Sp2">更新：2018-07-19</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="upcollect pull-left">
+                                                <a href="javascript:;" class="up">点赞(35)</a>
+                                                <a href="javascript:;" class="collect">关注(64)</a>
+                                            </div>
+                                            <span class="box1Tag pull-right">自营</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="box1Con">
+                                        <a class="box1Link" href="#">
+                                            <div class="box1Img">
+                                                <img src="../images/box1Img2.jpg" class="img-responsive">
+                                                <div class="box1Mask"></div>
+                                                <div class="box1Ico">
+                                                    <i class="iconfont icon-chakan"></i>
+                                                    <span>了解详细信息</span>
+                                                </div>
+                                            </div>
+                                            <div class="box1Text">
+                                                <h3 class="box1Tit">金属导体管件的电磁感应加热胀形装置</h3>
+                                                <div class="box1Infor">
+                                                    <span class="b1Sp1">行业：先进制造2</span>
+                                                    <i class="b1Line">|</i>
+                                                    <span class="b1Sp2">更新：2018-07-19</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="upcollect pull-left">
+                                                <a href="javascript:;" class="up">点赞(35)</a>
+                                                <a href="javascript:;" class="collect">关注(64)</a>
+                                            </div>
+                                            <span class="box1Tag pull-right">自营</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="box1Con">
+                                        <a class="box1Link" href="#">
+                                            <div class="box1Img">
+                                                <img src="../images/box1Img3.jpg" class="img-responsive">
+                                                <div class="box1Mask"></div>
+                                                <div class="box1Ico">
+                                                    <i class="iconfont icon-chakan"></i>
+                                                    <span>了解详细信息</span>
+                                                </div>
+                                            </div>
+                                            <div class="box1Text">
+                                                <h3 class="box1Tit">金属导体管件的电磁感应加热胀形装置</h3>
+                                                <div class="box1Infor">
+                                                    <span class="b1Sp1">行业：先进制造3</span>
+                                                    <i class="b1Line">|</i>
+                                                    <span class="b1Sp2">更新：2018-07-19</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="upcollect pull-left">
+                                                <a href="javascript:;" class="up">点赞(35)</a>
+                                                <a href="javascript:;" class="collect">关注(64)</a>
+                                            </div>
+                                            <span class="box1Tag pull-right">自营</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="box1Con">
+                                        <a class="box1Link" href="#">
+                                            <div class="box1Img">
+                                                <img src="../images/box1Img4.jpg" class="img-responsive">
+                                                <div class="box1Mask"></div>
+                                                <div class="box1Ico">
+                                                    <i class="iconfont icon-chakan"></i>
+                                                    <span>了解详细信息</span>
+                                                </div>
+                                            </div>
+                                            <div class="box1Text">
+                                                <h3 class="box1Tit">金属导体管件的电磁感应加热胀形装置</h3>
+                                                <div class="box1Infor">
+                                                    <span class="b1Sp1">行业：先进制造4</span>
+                                                    <i class="b1Line">|</i>
+                                                    <span class="b1Sp2">更新：2018-07-19</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="upcollect pull-left">
+                                                <a href="javascript:;" class="up">点赞(35)</a>
+                                                <a href="javascript:;" class="collect">关注(64)</a>
+                                            </div>
+                                            <span class="box1Tag pull-right">自营</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="box1Con">
+                                        <a class="box1Link" href="#">
+                                            <div class="box1Img">
+                                                <img src="../images/box1Img5.jpg" class="img-responsive">
+                                                <div class="box1Mask"></div>
+                                                <div class="box1Ico">
+                                                    <i class="iconfont icon-chakan"></i>
+                                                    <span>了解详细信息</span>
+                                                </div>
+                                            </div>
+                                            <div class="box1Text">
+                                                <h3 class="box1Tit">金属导体管件的电磁感应加热胀形装置</h3>
+                                                <div class="box1Infor">
+                                                    <span class="b1Sp1">行业：先进制造5</span>
+                                                    <i class="b1Line">|</i>
+                                                    <span class="b1Sp2">更新：2018-07-19</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="upcollect pull-left">
+                                                <a href="javascript:;" class="up">点赞(35)</a>
+                                                <a href="javascript:;" class="collect">关注(64)</a>
+                                            </div>
+                                            <span class="box1Tag pull-right">自营</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="box1Con">
+                                        <a class="box1Link" href="#">
+                                            <div class="box1Img">
+                                                <img src="../images/box1Img6.jpg" class="img-responsive">
+                                                <div class="box1Mask"></div>
+                                                <div class="box1Ico">
+                                                    <i class="iconfont icon-chakan"></i>
+                                                    <span>了解详细信息</span>
+                                                </div>
+                                            </div>
+                                            <div class="box1Text">
+                                                <h3 class="box1Tit">金属导体管件的电磁感应加热胀形装置</h3>
+                                                <div class="box1Infor">
+                                                    <span class="b1Sp1">行业：先进制造6</span>
+                                                    <i class="b1Line">|</i>
+                                                    <span class="b1Sp2">更新：2018-07-19</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="upcollect pull-left">
+                                                <a href="javascript:;" class="up">点赞(35)</a>
+                                                <a href="javascript:;" class="collect">关注(64)</a>
+                                            </div>
+                                            <span class="box1Tag pull-right">自营</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="box1Con">
+                                        <a class="box1Link" href="#">
+                                            <div class="box1Img">
+                                                <img src="../images/box1Img7.jpg" class="img-responsive">
+                                                <div class="box1Mask"></div>
+                                                <div class="box1Ico">
+                                                    <i class="iconfont icon-chakan"></i>
+                                                    <span>了解详细信息</span>
+                                                </div>
+                                            </div>
+                                            <div class="box1Text">
+                                                <h3 class="box1Tit">金属导体管件的电磁感应加热胀形装置</h3>
+                                                <div class="box1Infor">
+                                                    <span class="b1Sp1">行业：先进制造7</span>
+                                                    <i class="b1Line">|</i>
+                                                    <span class="b1Sp2">更新：2018-07-19</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="upcollect pull-left">
+                                                <a href="javascript:;" class="up">点赞(35)</a>
+                                                <a href="javascript:;" class="collect">关注(64)</a>
+                                            </div>
+                                            <span class="box1Tag pull-right">自营</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="box1Con">
+                                        <a class="box1Link" href="#">
+                                            <div class="box1Img">
+                                                <img src="../images/box1Img8.jpg" class="img-responsive">
+                                                <div class="box1Mask"></div>
+                                                <div class="box1Ico">
+                                                    <i class="iconfont icon-chakan"></i>
+                                                    <span>了解详细信息</span>
+                                                </div>
+                                            </div>
+                                            <div class="box1Text">
+                                                <h3 class="box1Tit">金属导体管件的电磁感应加热胀形装置</h3>
+                                                <div class="box1Infor">
+                                                    <span class="b1Sp1">行业：先进制造8</span>
+                                                    <i class="b1Line">|</i>
+                                                    <span class="b1Sp2">更新：2018-07-19</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="upcollect pull-left">
+                                                <a href="javascript:;" class="up">点赞(35)</a>
+                                                <a href="javascript:;" class="collect">关注(64)</a>
+                                            </div>
+                                            <span class="box1Tag pull-right">自营</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="box1Con">
+                                        <a class="box1Link" href="#">
+                                            <div class="box1Img">
+                                                <img src="../images/box1Img9.jpg" class="img-responsive">
+                                                <div class="box1Mask"></div>
+                                                <div class="box1Ico">
+                                                    <i class="iconfont icon-chakan"></i>
+                                                    <span>了解详细信息</span>
+                                                </div>
+                                            </div>
+                                            <div class="box1Text">
+                                                <h3 class="box1Tit">金属导体管件的电磁感应加热胀形装置</h3>
+                                                <div class="box1Infor">
+                                                    <span class="b1Sp1">行业：先进制造9</span>
+                                                    <i class="b1Line">|</i>
+                                                    <span class="b1Sp2">更新：2018-07-19</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="upcollect pull-left">
+                                                <a href="javascript:;" class="up">点赞(35)</a>
+                                                <a href="javascript:;" class="collect">关注(64)</a>
+                                            </div>
+                                            <span class="box1Tag pull-right">自营</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="box1Con">
+                                        <a class="box1Link" href="#">
+                                            <div class="box1Img">
+                                                <img src="../images/box1Img1.jpg" class="img-responsive">
+                                                <div class="box1Mask"></div>
+                                                <div class="box1Ico">
+                                                    <i class="iconfont icon-chakan"></i>
+                                                    <span>了解详细信息</span>
+                                                </div>
+                                            </div>
+                                            <div class="box1Text">
+                                                <h3 class="box1Tit">金属导体管件的电磁感应加热胀形装置</h3>
+                                                <div class="box1Infor">
+                                                    <span class="b1Sp1">行业：先进制造10</span>
+                                                    <i class="b1Line">|</i>
+                                                    <span class="b1Sp2">更新：2018-07-19</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="upcollect pull-left">
+                                                <a href="javascript:;" class="up">点赞(35)</a>
+                                                <a href="javascript:;" class="collect">关注(64)</a>
+                                            </div>
+                                            <span class="box1Tag pull-right">自营</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="box1Con">
+                                        <a class="box1Link" href="#">
+                                            <div class="box1Img">
+                                                <img src="../images/box1Img2.jpg" class="img-responsive">
+                                                <div class="box1Mask"></div>
+                                                <div class="box1Ico">
+                                                    <i class="iconfont icon-chakan"></i>
+                                                    <span>了解详细信息</span>
+                                                </div>
+                                            </div>
+                                            <div class="box1Text">
+                                                <h3 class="box1Tit">金属导体管件的电磁感应加热胀形装置</h3>
+                                                <div class="box1Infor">
+                                                    <span class="b1Sp1">行业：先进制造11</span>
+                                                    <i class="b1Line">|</i>
+                                                    <span class="b1Sp2">更新：2018-07-19</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="upcollect pull-left">
+                                                <a href="javascript:;" class="up">点赞(35)</a>
+                                                <a href="javascript:;" class="collect">关注(64)</a>
+                                            </div>
+                                            <span class="box1Tag pull-right">自营</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="box1Con">
+                                        <a class="box1Link" href="#">
+                                            <div class="box1Img">
+                                                <img src="../images/box1Img3.jpg" class="img-responsive">
+                                                <div class="box1Mask"></div>
+                                                <div class="box1Ico">
+                                                    <i class="iconfont icon-chakan"></i>
+                                                    <span>了解详细信息</span>
+                                                </div>
+                                            </div>
+                                            <div class="box1Text">
+                                                <h3 class="box1Tit">金属导体管件的电磁感应加热胀形装置</h3>
+                                                <div class="box1Infor">
+                                                    <span class="b1Sp1">行业：先进制造12</span>
+                                                    <i class="b1Line">|</i>
+                                                    <span class="b1Sp2">更新：2018-07-19</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="upcollect pull-left">
+                                                <a href="javascript:;" class="up">点赞(35)</a>
+                                                <a href="javascript:;" class="collect">关注(64)</a>
+                                            </div>
+                                            <span class="box1Tag pull-right">自营</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="box1Con">
+                                        <a class="box1Link" href="#">
+                                            <div class="box1Img">
+                                                <img src="../images/box1Img7.jpg" class="img-responsive">
+                                                <div class="box1Mask"></div>
+                                                <div class="box1Ico">
+                                                    <i class="iconfont icon-chakan"></i>
+                                                    <span>了解详细信息</span>
+                                                </div>
+                                            </div>
+                                            <div class="box1Text">
+                                                <h3 class="box1Tit">金属导体管件的电磁感应加热胀形装置</h3>
+                                                <div class="box1Infor">
+                                                    <span class="b1Sp1">行业：先进制造13</span>
+                                                    <i class="b1Line">|</i>
+                                                    <span class="b1Sp2">更新：2018-07-19</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="upcollect pull-left">
+                                                <a href="javascript:;" class="up">点赞(35)</a>
+                                                <a href="javascript:;" class="collect">关注(64)</a>
+                                            </div>
+                                            <span class="box1Tag pull-right">自营</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="box1Con">
+                                        <a class="box1Link" href="#">
+                                            <div class="box1Img">
+                                                <img src="../images/box1Img8.jpg" class="img-responsive">
+                                                <div class="box1Mask"></div>
+                                                <div class="box1Ico">
+                                                    <i class="iconfont icon-chakan"></i>
+                                                    <span>了解详细信息</span>
+                                                </div>
+                                            </div>
+                                            <div class="box1Text">
+                                                <h3 class="box1Tit">金属导体管件的电磁感应加热胀形装置</h3>
+                                                <div class="box1Infor">
+                                                    <span class="b1Sp1">行业：先进制造14</span>
+                                                    <i class="b1Line">|</i>
+                                                    <span class="b1Sp2">更新：2018-07-19</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="upcollect pull-left">
+                                                <a href="javascript:;" class="up">点赞(35)</a>
+                                                <a href="javascript:;" class="collect">关注(64)</a>
+                                            </div>
+                                            <span class="box1Tag pull-right">自营</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="box1Con">
+                                        <a class="box1Link" href="#">
+                                            <div class="box1Img">
+                                                <img src="../images/box1Img9.jpg" class="img-responsive">
+                                                <div class="box1Mask"></div>
+                                                <div class="box1Ico">
+                                                    <i class="iconfont icon-chakan"></i>
+                                                    <span>了解详细信息</span>
+                                                </div>
+                                            </div>
+                                            <div class="box1Text">
+                                                <h3 class="box1Tit">金属导体管件的电磁感应加热胀形装置</h3>
+                                                <div class="box1Infor">
+                                                    <span class="b1Sp1">行业：先进制造15</span>
+                                                    <i class="b1Line">|</i>
+                                                    <span class="b1Sp2">更新：2018-07-19</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="upcollect pull-left">
+                                                <a href="javascript:;" class="up">点赞(35)</a>
+                                                <a href="javascript:;" class="collect">关注(64)</a>
+                                            </div>
+                                            <span class="box1Tag pull-right">自营</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="box1Con">
+                                        <a class="box1Link" href="#">
+                                            <div class="box1Img">
+                                                <img src="../images/box1Img4.jpg" class="img-responsive">
+                                                <div class="box1Mask"></div>
+                                                <div class="box1Ico">
+                                                    <i class="iconfont icon-chakan"></i>
+                                                    <span>了解详细信息</span>
+                                                </div>
+                                            </div>
+                                            <div class="box1Text">
+                                                <h3 class="box1Tit">金属导体管件的电磁感应加热胀形装置</h3>
+                                                <div class="box1Infor">
+                                                    <span class="b1Sp1">行业：先进制造16</span>
+                                                    <i class="b1Line">|</i>
+                                                    <span class="b1Sp2">更新：2018-07-19</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="upcollect pull-left">
+                                                <a href="javascript:;" class="up">点赞(35)</a>
+                                                <a href="javascript:;" class="collect">关注(64)</a>
+                                            </div>
+                                            <span class="box1Tag pull-right">自营</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="box1Con">
+                                        <a class="box1Link" href="#">
+                                            <div class="box1Img">
+                                                <img src="../images/box1Img5.jpg" class="img-responsive">
+                                                <div class="box1Mask"></div>
+                                                <div class="box1Ico">
+                                                    <i class="iconfont icon-chakan"></i>
+                                                    <span>了解详细信息</span>
+                                                </div>
+                                            </div>
+                                            <div class="box1Text">
+                                                <h3 class="box1Tit">金属导体管件的电磁感应加热胀形装置</h3>
+                                                <div class="box1Infor">
+                                                    <span class="b1Sp1">行业：先进制造17</span>
+                                                    <i class="b1Line">|</i>
+                                                    <span class="b1Sp2">更新：2018-07-19</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="upcollect pull-left">
+                                                <a href="javascript:;" class="up">点赞(35)</a>
+                                                <a href="javascript:;" class="collect">关注(64)</a>
+                                            </div>
+                                            <span class="box1Tag pull-right">自营</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="box1Con">
+                                        <a class="box1Link" href="#">
+                                            <div class="box1Img">
+                                                <img src="../images/box1Img6.jpg" class="img-responsive">
+                                                <div class="box1Mask"></div>
+                                                <div class="box1Ico">
+                                                    <i class="iconfont icon-chakan"></i>
+                                                    <span>了解详细信息</span>
+                                                </div>
+                                            </div>
+                                            <div class="box1Text">
+                                                <h3 class="box1Tit">金属导体管件的电磁感应加热胀形装置</h3>
+                                                <div class="box1Infor">
+                                                    <span class="b1Sp1">行业：先进制造18</span>
+                                                    <i class="b1Line">|</i>
+                                                    <span class="b1Sp2">更新：2018-07-19</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="upcollect pull-left">
+                                                <a href="javascript:;" class="up">点赞(35)</a>
+                                                <a href="javascript:;" class="collect">关注(64)</a>
+                                            </div>
+                                            <span class="box1Tag pull-right">自营</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="box1Con">
+                                        <a class="box1Link" href="#">
+                                            <div class="box1Img">
+                                                <img src="../images/box1Img7.jpg" class="img-responsive">
+                                                <div class="box1Mask"></div>
+                                                <div class="box1Ico">
+                                                    <i class="iconfont icon-chakan"></i>
+                                                    <span>了解详细信息</span>
+                                                </div>
+                                            </div>
+                                            <div class="box1Text">
+                                                <h3 class="box1Tit">金属导体管件的电磁感应加热胀形装置</h3>
+                                                <div class="box1Infor">
+                                                    <span class="b1Sp1">行业：先进制造19</span>
+                                                    <i class="b1Line">|</i>
+                                                    <span class="b1Sp2">更新：2018-07-19</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="upcollect pull-left">
+                                                <a href="javascript:;" class="up">点赞(35)</a>
+                                                <a href="javascript:;" class="collect">关注(64)</a>
+                                            </div>
+                                            <span class="box1Tag pull-right">自营</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="box1Con">
+                                        <a class="box1Link" href="#">
+                                            <div class="box1Img">
+                                                <img src="../images/box1Img8.jpg" class="img-responsive">
+                                                <div class="box1Mask"></div>
+                                                <div class="box1Ico">
+                                                    <i class="iconfont icon-chakan"></i>
+                                                    <span>了解详细信息</span>
+                                                </div>
+                                            </div>
+                                            <div class="box1Text">
+                                                <h3 class="box1Tit">金属导体管件的电磁感应加热胀形装置</h3>
+                                                <div class="box1Infor">
+                                                    <span class="b1Sp1">行业：先进制造20</span>
+                                                    <i class="b1Line">|</i>
+                                                    <span class="b1Sp2">更新：2018-07-19</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="upcollect pull-left">
+                                                <a href="javascript:;" class="up">点赞(35)</a>
+                                                <a href="javascript:;" class="collect">关注(64)</a>
+                                            </div>
+                                            <span class="box1Tag pull-right">自营</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="box1Con">
+                                        <a class="box1Link" href="#">
+                                            <div class="box1Img">
+                                                <img src="../images/box1Img9.jpg" class="img-responsive">
+                                                <div class="box1Mask"></div>
+                                                <div class="box1Ico">
+                                                    <i class="iconfont icon-chakan"></i>
+                                                    <span>了解详细信息</span>
+                                                </div>
+                                            </div>
+                                            <div class="box1Text">
+                                                <h3 class="box1Tit">金属导体管件的电磁感应加热胀形装置</h3>
+                                                <div class="box1Infor">
+                                                    <span class="b1Sp1">行业：先进制造21</span>
+                                                    <i class="b1Line">|</i>
+                                                    <span class="b1Sp2">更新：2018-07-19</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="upcollect pull-left">
+                                                <a href="javascript:;" class="up">点赞(35)</a>
+                                                <a href="javascript:;" class="collect">关注(64)</a>
+                                            </div>
+                                            <span class="box1Tag pull-right">自营</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="box1Con">
+                                        <a class="box1Link" href="#">
+                                            <div class="box1Img">
+                                                <img src="../images/box1Img4.jpg" class="img-responsive">
+                                                <div class="box1Mask"></div>
+                                                <div class="box1Ico">
+                                                    <i class="iconfont icon-chakan"></i>
+                                                    <span>了解详细信息</span>
+                                                </div>
+                                            </div>
+                                            <div class="box1Text">
+                                                <h3 class="box1Tit">金属导体管件的电磁感应加热胀形装置</h3>
+                                                <div class="box1Infor">
+                                                    <span class="b1Sp1">行业：先进制造22</span>
+                                                    <i class="b1Line">|</i>
+                                                    <span class="b1Sp2">更新：2018-07-19</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="upcollect pull-left">
+                                                <a href="javascript:;" class="up">点赞(35)</a>
+                                                <a href="javascript:;" class="collect">关注(64)</a>
+                                            </div>
+                                            <span class="box1Tag pull-right">自营</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="box1Con">
+                                        <a class="box1Link" href="#">
+                                            <div class="box1Img">
+                                                <img src="../images/box1Img5.jpg" class="img-responsive">
+                                                <div class="box1Mask"></div>
+                                                <div class="box1Ico">
+                                                    <i class="iconfont icon-chakan"></i>
+                                                    <span>了解详细信息</span>
+                                                </div>
+                                            </div>
+                                            <div class="box1Text">
+                                                <h3 class="box1Tit">金属导体管件的电磁感应加热胀形装置</h3>
+                                                <div class="box1Infor">
+                                                    <span class="b1Sp1">行业：先进制造23</span>
+                                                    <i class="b1Line">|</i>
+                                                    <span class="b1Sp2">更新：2018-07-19</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="upcollect pull-left">
+                                                <a href="javascript:;" class="up">点赞(35)</a>
+                                                <a href="javascript:;" class="collect">关注(64)</a>
+                                            </div>
+                                            <span class="box1Tag pull-right">自营</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="box1Con">
+                                        <a class="box1Link" href="#">
+                                            <div class="box1Img">
+                                                <img src="../images/box1Img6.jpg" class="img-responsive">
+                                                <div class="box1Mask"></div>
+                                                <div class="box1Ico">
+                                                    <i class="iconfont icon-chakan"></i>
+                                                    <span>了解详细信息</span>
+                                                </div>
+                                            </div>
+                                            <div class="box1Text">
+                                                <h3 class="box1Tit">金属导体管件的电磁感应加热胀形装置</h3>
+                                                <div class="box1Infor">
+                                                    <span class="b1Sp1">行业：先进制造24</span>
+                                                    <i class="b1Line">|</i>
+                                                    <span class="b1Sp2">更新：2018-07-19</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="upcollect pull-left">
+                                                <a href="javascript:;" class="up">点赞(35)</a>
+                                                <a href="javascript:;" class="collect">关注(64)</a>
+                                            </div>
+                                            <span class="box1Tag pull-right">自营</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="box1Con">
+                                        <a class="box1Link" href="#">
+                                            <div class="box1Img">
+                                                <img src="../images/box1Img1.jpg" class="img-responsive">
+                                                <div class="box1Mask"></div>
+                                                <div class="box1Ico">
+                                                    <i class="iconfont icon-chakan"></i>
+                                                    <span>了解详细信息</span>
+                                                </div>
+                                            </div>
+                                            <div class="box1Text">
+                                                <h3 class="box1Tit">金属导体管件的电磁感应加热胀形装置</h3>
+                                                <div class="box1Infor">
+                                                    <span class="b1Sp1">行业：先进制造25</span>
+                                                    <i class="b1Line">|</i>
+                                                    <span class="b1Sp2">更新：2018-07-19</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="upcollect pull-left">
+                                                <a href="javascript:;" class="up">点赞(35)</a>
+                                                <a href="javascript:;" class="collect">关注(64)</a>
+                                            </div>
+                                            <span class="box1Tag pull-right">自营</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="box1Con">
+                                        <a class="box1Link" href="#">
+                                            <div class="box1Img">
+                                                <img src="../images/box1Img2.jpg" class="img-responsive">
+                                                <div class="box1Mask"></div>
+                                                <div class="box1Ico">
+                                                    <i class="iconfont icon-chakan"></i>
+                                                    <span>了解详细信息</span>
+                                                </div>
+                                            </div>
+                                            <div class="box1Text">
+                                                <h3 class="box1Tit">金属导体管件的电磁感应加热胀形装置</h3>
+                                                <div class="box1Infor">
+                                                    <span class="b1Sp1">行业：先进制造26</span>
+                                                    <i class="b1Line">|</i>
+                                                    <span class="b1Sp2">更新：2018-07-19</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="box1Bot">
+                                            <div class="upcollect pull-left">
+                                                <a href="javascript:;" class="up">点赞(35)</a>
+                                                <a href="javascript:;" class="collect">关注(64)</a>
+                                            </div>
+                                            <span class="box1Tag pull-right">自营</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+
+                                </td>
+                            </tr>-->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="tableName" name="type">
+<input type="hidden" id="tableName2" name="type">
+<input type="hidden" id="search" name="type">
+<input type="hidden" id="type" name="type">
+<input type="hidden" id="fId" name="type">
+<input type="hidden" id="sId" name="type">
+<input type="hidden" id="source" name="type">
+<input type="hidden" id="tlevel" name="type">
+<input type="hidden" id="cWays" name="type">
+<input type="hidden" id="teMaturity" name="type">
+<input type="hidden" id="area" name="type">
+<input type="hidden" id="place" name="type">
+<input type="hidden" id="lawS" name="type">
+<input type="hidden" id="dealWay" name="type">
+<input type="hidden" id="zlType" name="type">
+<footer class="footBg">
+    <div class="wrap">
+        <div class="ftTop">
+        	<div class="friendLink wow fadeInLeft">
+            	<h3 class="ftTit">友情链接</h3>
+                <ul class="fdLinkList list-unstyled list-inline">
+                	<li><a href="#">- 航天云网</a></li>
+                	<li><a href="#">- 中国军民融合网</a></li>
+                	<li><a href="#">- 中国航天科工三院</a></li>
+                	<li><a href="#">- 融融网</a></li>
+                	<li><a href="#">- 装备采购网</a></li>
+                	<li><a href="#">- 中国航天科工集团</a></li>
+                	<li><a href="#">- 海鹰资讯</a></li>
+                	<li><a href="#">- 猪八戒网</a></li>
+                </ul>
+            </div>
+            <ul class="ftCon list-unstyled list-inline wow fadeInDown">
+            	<li>
+                    <h3 class="ftTit">科技商城</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 科技产品</a></p>
+                        <p><a href="#">- 科技成果</a></p>
+                        <p><a href="#">- 专利技术</a></p>
+                    </div>
+                </li>
+            	<li>
+                    <h3 class="ftTit">新闻动态</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 工作动态</a></p>
+                        <p><a href="#">- 科技动态</a></p>
+                        <p><a href="#">- 通知公告</a></p>
+                    </div>
+                </li>
+            	<li>
+                    <h3 class="ftTit">科技服务</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 知识产权管理系统</a></p>
+                        <p><a href="#">- 知识产权资源导航</a></p>
+                        <p><a href="#">- 知识产权贯标系统</a></p>
+                        <p><a href="#">- 专利大数据检索</a></p>
+                        <p><a href="#">- 知识产权价值评估系统</a></p>
+                        <p><a href="#">- 知识培训统</a></p>
+                    </div>
+                </li>
+            </ul>
+        	<div class="ftConUs wow fadeInRight">
+            	<h3 class="ftTit">联系我们</h3>
+                <p class="ftAdd"><strong>地址：</strong>北京市丰台区云岗北区西里1号院</p>
+                <p class="ftTel"><strong>电话：</strong>010-68376645</p>
+                <p class="ftEmail"><strong>邮箱：</strong>service@htjsw.com</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="ftBot wow fadeInUp">
+        	<div class="copyRight">
+            	<p>Copyright © 2018中国航天科工集团知识产权中心版权所有 京ICP备13006003号-2  设计支持：<a href="#">谦亨网络</a></p>
+            </div>
+            <div class="ftBotRig">
+            	<ul class="ftBotIco list-unstyled list-inline">
+                	<li>
+                    	<a href="javascript:;"><i class="fa fa-weixin"></i></a>
+                        <div class="ftBotWx">
+                        	<img src="../images/weChat.jpg" class="img-responsive">
+                        </div>
+                    </li>
+                    <li><a href="#"><i class="fa fa-weibo"></i></a></li>
+                </ul>
+            	<ul class="ftBotLink list-unstyled list-inline">
+                	<li><a href="#">关于我们</a></li>
+                	<li><a href="#">发布成果</a></li>
+                	<li><a href="#">发布需求</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+
+        </div>
+    </div>
+</footer>
+<link rel="stylesheet" type="text/css" media="screen" href="../datatables/dataTables.bootstrap.min.css">
+<script type="text/javascript" src="../datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../datatables/dataTables.bootstrap.min.js"></script>
+<script>
+    $("#tableName").val("kj_result");
+    $("#tableName2").val("kj_result_classifyInfo");
+    var dataSet =[];
+    var orderBy = 'order by pubTime desc';
+
+    //排序点击事件
+    $(document).find(".zyOrderBy li:not(:first-child)").on("click", "span", function(){
+        $(this).addClass("active").parent().siblings().find("span").removeClass("active");
+        // alert($(this).text());
+        switch ($(this).text()) {
+            case "时间" : orderBy = 'order by pubTime DESC';break;
+            case "人气" : orderBy = 'order by id';break;
+            case "收藏榜" : orderBy = 'order by id DESC';break;
+        }
+        init();
+    });
+
+    //搜索框点击事件
+    function searchByInput() {
+        $("#search").val($("#searchByInput").val());
+        $('#technoTab').dataTable().fnClearTable();
+        init();
+        $('#technoTab').dataTable().fnAddData(dataSet);
+        $('#technoTab').dataTable().fnDraw(false);
+    }
+
+    //清空筛选
+    function clearAllSelect() {
+        $("#type").val('');
+        $("#fId").val('');
+        $("#sId").val('');
+        $("#source").val('');
+        $("#tlevel").val('');
+        $("#cWays").val('');
+        $("#teMaturity").val('');
+        $("#area").val('');
+        $("#place").val('');
+        $("#lawS").val('');
+        $("#dealWay").val('');
+        $("#zlType").val('');
+        init();
+    }
+
+    function init(){
+        $.ajax({
+            type : "get",
+            url : "/kjResults/foreRequest",
+            async : false,
+            data :{
+                "tableName" : $("#tableName").val(),
+                "tableName2" : $("#tableName2").val(),
+                "searchByInput" : $("#search").val(),
+                "type" : $("#type").val(),
+                "fId" : $("#fId").val(),
+                "sId" : $("#sId").val(),
+                "source" : $("#source").val(),
+                "tlevel" : $("#tlevel").val(),
+                "cWays" : $("#cWays").val(),
+                "teMaturity" : $("#teMaturity").val(),
+                "area" : $("#area").val(),
+                "place" : $("#place").val(),
+                "lawS" : $("#lawS").val(),
+                "dealWay" : $("#dealWay").val(),
+                "zlType" : $("#zlType").val(),
+                "orderBy" : orderBy
+            },
+            success : function (result) {
+                //清空datatables
+                $('#technoTab').dataTable().fnClearTable();
+                // console.log(result);
+                //清空data
+                dataSet = [];
+                //总条数
+                var length = result.data.length;
+                var data = result.data;
+                $("#searchNum").text(length);
+                var a = 0;
+                var b = 0;
+                if ( length >=3) {
+                    a =  Math.floor(length/3) ;
+                    b = length%3 ;
+                }else {
+                    b = length %3;
+                }
+                for (var i =0;i<a;i++){
+                    var ahref = '';
+                    var ahref1 = '';
+                    var ahref2 = '';
+                    switch ($("#tableName").val()) {
+                        case "kj_result" : ahref = '<a class="box1Link" href="kjsc_result.html?id='+data[i*3].id+'">';
+                                            ahref1 = '<a class="box1Link" href="kjsc_result.html?id='+data[i*3+1].id+'">';
+                                            ahref2 = '<a class="box1Link" href="kjsc_result.html?id='+data[i*3+2].id+'">';break;
+                        case "kj_product" : ahref = '<a class="box1Link" href="kjsc_kjproduct.html?id='+data[i*3].id+'">';
+                                            ahref1 = '<a class="box1Link" href="kjsc_kjproduct.html?id='+data[i*3+1].id+'">';
+                                            ahref2 = '<a class="box1Link" href="kjsc_kjproduct.html?id='+data[i*3+2].id+'">';break;
+                        case "kj_zlsuper" : ahref = '<a class="box1Link" href="kjsc_zlsuper.html?id='+data[i*3].id+'">';
+                                            ahref1 = '<a class="box1Link" href="kjsc_zlsuper.html?id='+data[i*3+1].id+'">';
+                                            ahref2 = '<a class="box1Link" href="kjsc_zlsuper.html?id='+data[i*3+2].id+'">';break;
+                    }
+                    var dataChildren =[];
+                    dataChildren.push('<td>\n' +
+                        '                                    <div class="box1Con">\n' + ahref +
+                        '                                            <div class="box1Img">\n' +
+                        '                                                <img src="../images/box1Img1.jpg" class="img-responsive">\n' +
+                        '                                                <div class="box1Mask"></div>\n' +
+                        '                                                <div class="box1Ico">\n' +
+                        '                                                    <i class="iconfont icon-chakan"></i>\n' +
+                        '                                                    <span>了解详细信息</span>\n' +
+                        '                                                </div>\n' +
+                        '                                            </div>\n' +
+                        '                                            <div class="box1Text">\n' +
+                        '                                                <h3 class="box1Tit">'+data[i*3].name+'</h3>\n' +
+                        '                                                <div class="box1Infor">\n' +
+                        '                                                    <span class="b1Sp1">'+data[i*3].fIdName+'</span>\n' +
+                        '                                                    <i class="b1Line">|</i>\n' +
+                        '                                                    <span class="b1Sp2">更新：'+(new Date(data[i*3].pubTime)).Format("yyyy-MM-dd")+'</span>\n' +
+                        '                                                </div>\n' +
+                        '                                            </div>\n' +
+                        '                                        </a>\n' +
+                        '                                        <div class="box1Bot">\n' +
+                        '                                            <div class="upcollect pull-left">\n' +
+                        '                                                <a href="javascript:;" class="up">点赞(35)</a>\n' +
+                        '                                                <a href="javascript:;" class="collect">关注(64)</a>\n' +
+                        '                                            </div>\n' +
+                        '                                            <span class="box1Tag pull-right">自营</span>\n' +
+                        '                                            <div class="clear"></div>\n' +
+                        '                                        </div>\n' +
+                        '                                    </div>\n' +
+                        '                                </td>');
+                    dataChildren.push('<td>\n' +
+                        '                                    <div class="box1Con">\n' + ahref1 +
+                        '                                            <div class="box1Img">\n' +
+                        '                                                <img src="../images/box1Img1.jpg" class="img-responsive">\n' +
+                        '                                                <div class="box1Mask"></div>\n' +
+                        '                                                <div class="box1Ico">\n' +
+                        '                                                    <i class="iconfont icon-chakan"></i>\n' +
+                        '                                                    <span>了解详细信息</span>\n' +
+                        '                                                </div>\n' +
+                        '                                            </div>\n' +
+                        '                                            <div class="box1Text">\n' +
+                        '                                                <h3 class="box1Tit">'+data[i*3+1].name+'</h3>\n' +
+                        '                                                <div class="box1Infor">\n' +
+                        '                                                    <span class="b1Sp1">'+data[i*3+1].fIdName+'</span>\n' +
+                        '                                                    <i class="b1Line">|</i>\n' +
+                        '                                                    <span class="b1Sp2">更新：'+(new Date(data[i*3+1].pubTime)).Format("yyyy-MM-dd")+'</span>\n' +
+                        '                                                </div>\n' +
+                        '                                            </div>\n' +
+                        '                                        </a>\n' +
+                        '                                        <div class="box1Bot">\n' +
+                        '                                            <div class="upcollect pull-left">\n' +
+                        '                                                <a href="javascript:;" class="up">点赞(35)</a>\n' +
+                        '                                                <a href="javascript:;" class="collect">关注(64)</a>\n' +
+                        '                                            </div>\n' +
+                        '                                            <span class="box1Tag pull-right">自营</span>\n' +
+                        '                                            <div class="clear"></div>\n' +
+                        '                                        </div>\n' +
+                        '                                    </div>\n' +
+                        '                                </td>');
+                        dataChildren.push('<td>\n' +
+                        '                                    <div class="box1Con">\n' + ahref2 +
+                        '                                            <div class="box1Img">\n' +
+                        '                                                <img src="../images/box1Img1.jpg" class="img-responsive">\n' +
+                        '                                                <div class="box1Mask"></div>\n' +
+                        '                                                <div class="box1Ico">\n' +
+                        '                                                    <i class="iconfont icon-chakan"></i>\n' +
+                        '                                                    <span>了解详细信息</span>\n' +
+                        '                                                </div>\n' +
+                        '                                            </div>\n' +
+                        '                                            <div class="box1Text">\n' +
+                        '                                                <h3 class="box1Tit">'+data[i*3+2].name+'</h3>\n' +
+                        '                                                <div class="box1Infor">\n' +
+                        '                                                    <span class="b1Sp1">'+data[i*3+2].fIdName+'</span>\n' +
+                        '                                                    <i class="b1Line">|</i>\n' +
+                        '                                                    <span class="b1Sp2">更新：'+(new Date(data[i*3+2].pubTime)).Format("yyyy-MM-dd")+'</span>\n' +
+                        '                                                </div>\n' +
+                        '                                            </div>\n' +
+                        '                                        </a>\n' +
+                        '                                        <div class="box1Bot">\n' +
+                        '                                            <div class="upcollect pull-left">\n' +
+                        '                                                <a href="javascript:;" class="up">点赞(35)</a>\n' +
+                        '                                                <a href="javascript:;" class="collect">关注(64)</a>\n' +
+                        '                                            </div>\n' +
+                        '                                            <span class="box1Tag pull-right">自营</span>\n' +
+                        '                                            <div class="clear"></div>\n' +
+                        '                                        </div>\n' +
+                        '                                    </div>\n' +
+                        '                                </td>');
+                    dataSet.push(dataChildren);
+                }
+                var datachildren =[];
+                if (b > 0) {
+                    for (var j =0;j<b;j++){
+                        var ahref3 = '';
+                        switch ($("#tableName").val()) {
+                            case "kj_result" : ahref3 = '<a class="box1Link" href="kjsc_result.html?id='+data[a*3+j].id+'">';break;
+                            case "kj_product" : ahref3 = '<a class="box1Link" href="kjsc_kjproduct.html?id='+data[a*3+j].id+'">';break;
+                            case "kj_zlsuper" : ahref3 = '<a class="box1Link" href="kjsc_zlsuper.html?id='+data[a*3+j].id+'">';break;
+                        }
+                        datachildren.push('<td>\n' +
+                            '                                    <div class="box1Con">\n' +ahref3 +
+                            '                                            <div class="box1Img">\n' +
+                            '                                                <img src="../images/box1Img1.jpg" class="img-responsive">\n' +
+                            '                                                <div class="box1Mask"></div>\n' +
+                            '                                                <div class="box1Ico">\n' +
+                            '                                                    <i class="iconfont icon-chakan"></i>\n' +
+                            '                                                    <span>了解详细信息</span>\n' +
+                            '                                                </div>\n' +
+                            '                                            </div>\n' +
+                            '                                            <div class="box1Text">\n' +
+                            '                                                <h3 class="box1Tit">'+data[a*3+j].name+'</h3>\n' +
+                            '                                                <div class="box1Infor">\n' +
+                            '                                                    <span class="b1Sp1">行业：'+data[a*3+j].sIdName+'</span>\n' +
+                            '                                                    <i class="b1Line">|</i>\n' +
+                            '                                                    <span class="b1Sp2">更新：'+ (new Date(data[a*3+j].pubTime)).Format("yyyy-MM-dd") +'</span>\n' +
+                            '                                                </div>\n' +
+                            '                                            </div>\n' +
+                            '                                        </a>\n' +
+                            '                                        <div class="box1Bot">\n' +
+                            '                                            <div class="upcollect pull-left">\n' +
+                            '                                                <a href="javascript:;" class="up">点赞(35)</a>\n' +
+                            '                                                <a href="javascript:;" class="collect">关注(64)</a>\n' +
+                            '                                            </div>\n' +
+                            '                                            <span class="box1Tag pull-right">自营</span>\n' +
+                            '                                            <div class="clear"></div>\n' +
+                            '                                        </div>\n' +
+                            '                                    </div>\n' +
+                            '                                </td>');
+                    }
+                    if (b == 1) {
+                        datachildren.push('<td></td>');
+                        datachildren.push('<td></td>');
+                    }else if (b == 2) {
+                        datachildren.push('<td></td>');
+                    }
+                    dataSet.push(datachildren);
+                }
+                if (dataSet.length > 0) {
+                    //datatables赋值及重绘
+                    $('#technoTab').dataTable().fnAddData(dataSet);
+                    $('#technoTab').dataTable().fnDraw(false);
+                }
+            }
+        })
+    }
+
+    var table = $("#technoTab").DataTable({
+        "searching": false,
+        "ordering": false,
+        "processing": false,
+        "info": false,
+        "bAutoWidth" : true,
+        "bPaginate": true,
+        //"paging":   false,
+        "lengthMenu": [10, 20, 30, "所有"],
+        "pageLength": 3,
+        "pagingType":"numbers",
+       "data" : dataSet,
+        "columns": [
+            { "title": "" },
+            { "title": "" },
+            { "title": "" }
+        ],
+        /*
+        ajax": {
+            "url" : "/kjResults",
+            "type":"get",
+            "data":function(d){
+                d.tableName = $("#tableName").val();
+                d.tableName2 = $("#tableName2").val();
+            },
+        },
+        "fnInfoCallback": function (response) {
+            console.log(response.json);
+            return "";
+        },
+        "columns": [
+            {
+                "data": "",
+                "defaultContent": "",
+                "orderable":false,
+                "render": function (data, type, row) {
+                    return "";
+                }
+            },{
+                "data": "",
+                "defaultContent": "",
+                "orderable":false,
+                "render": function (data, type, row) {
+                    return "";
+                }
+            },{
+                "data": "",
+                "defaultContent": "",
+                "orderable":false,
+                "render": function (data, type, row) {
+                    return "";
+                }
+            },
+        ],*/
+        "language": {
+            "sProcessing": "处理中...",
+            "sLengthMenu": "显示 _MENU_ 项结果",
+            "sZeroRecords": "没有匹配结果",
+            "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+            "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+            "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+            "sInfoPostFix": "",
+            "sSearch": "搜索:",
+            "sUrl": "",
+            "sEmptyTable": "表中数据为空",
+            "sLoadingRecords": "载入中...",
+            "sInfoThousands": ",",
+            "oPaginate": {
+                "sFirst": "首页",
+                "sPrevious": "上页",
+                "sNext": "下页",
+                "sLast": "末页"
+            },
+            "oAria": {
+                "sSortAscending": ": 以升序排列此列",
+                "sSortDescending": ": 以降序排列此列"
+            }
+        }/*,
+    "columnDefs": [
+        { className: "zyTabCon1", "targets": [ 0 ] },
+        { className: "zyTabCon2", "targets": [ 1 ] },
+        { className: "zyTabCon3", "targets": [ 2 ] },
+        { className: "zyTabCon4", "targets": [ 3 ] },
+        { className: "zyTabCon5", "targets": [ 4 ] },
+      ]*/
+    });
+    // console.log(table);
+
+
+
+    function dataChange(obj) {
+
+        //隐藏筛选项
+        $('.sxTopCon').find('.sxTag').remove();
+        // $('.sxTopCon .delSelBtn').css('display', 'none');
+        // $('.sxTopCon .delSelBtn').toggle();
+        $('.sxTopCon .delSelBtn').hide();
+
+        $("#tableName").val("kj_"+obj);
+        $("#tableName2").val("kj_"+obj+"_classifyInfo");
+        $("#search").val('');
+        $("#type").val('');
+        $("#fId").val('');
+        $("#sId").val('');
+        $("#source").val('');
+        $("#tlevel").val('');
+        $("#cWays").val('');
+        $("#teMaturity").val('');
+        $("#area").val('');
+        $("#place").val('');
+        $("#lawS").val('');
+        $("#dealWay").val('');
+        $("#zlType").val('');
+        init();
+        changeSelect();
+    }
+
+    //获取1级fid，2级sid的值
+    function changByJobId(obj,value) {
+        if (obj == '1') {
+            $("#type").val(1);
+            $("#fId").val(parseInt(value));
+            $("#sId").val('');
+        }else {
+            $("#type").val(2);
+            $("#sId").val(parseInt(value));
+        }
+        init();
+    }
+    function changeDataByElse(obj,value) {
+        $("#"+obj).val(value);
+        init();
+    }
+    function clearSelect() {
+        $("#type").val('');
+        $("#fId").val('');
+        $("#sId").val('');
+        init();
+    }
+
+    //筛选项展示
+    function changeSelect() {
+        $.ajax({
+            type : "post",
+            url : "/kjResults/changeSelect",
+            async : false,
+            data :{
+                "tableName" : $("#tableName").val(),
+                "tableName2" : $("#tableName2").val()
+            },
+            success :function (data) {
+                var result = data.listData;
+                // console.log(result);
+                $("#listSelect").html('');
+                var len = result.length;
+                var allData = '';
+                for(var i = 0;i<len;i++){
+                    var str ='';
+                    if (result[i].name == '所属行业'){
+                        str += '<div class="sxBotItem wow fadeInUp">\n' +
+                            '                                <span class="sxBotTit">'+result[i].name+'：</span>\n' +
+                            '                                <div class="sxBotCon">';
+                        var fChildren = result[i].children;
+                        var fLen = fChildren.length;
+                        var strfChildren = '<div class="sxFirst">\n' +
+                            '               \t<div class="sxFirCon">\n' +
+                            '               <a class="active" href="javascript:clearSelect();" data-index="0">不限</a>';
+                        var strsChildren = '';
+                        for (var j = 0; j < fLen; j++) {
+                            var sChildren = fChildren[j].children;
+                            strfChildren += '<a href="javascript:changByJobId(\''+fChildren[j].type+'\',\''+fChildren[j].id+'\');" data-index="'+(j+1)+'">'+fChildren[j].name+'</a>'
+                            if (sChildren!=null && sChildren!=''){
+                                strsChildren += ' <div class="sxSecond" data-con="'+(j+1)+'">';
+                                var sLen = sChildren.length;
+                                for (var m = 0; m < sLen; m++) {
+                                    strsChildren += '<a href="javascript:changByJobId(\''+sChildren[m].type+'\',\''+sChildren[m].id+'\');">'+sChildren[m].name+'</a>';
+                                }
+                                strsChildren += '</div>';
+                            }
+                        }
+                        strfChildren +='</div>\n' +
+                            '                                    </div>';
+                        str = str+strfChildren+strsChildren +'</div>\n' +
+                            '                                <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>\n' +
+                            '                            </div>';
+                    }else {
+                            str += '<div class="sxBotItem wow fadeInUp">\n' +
+                                '                                <span class="sxBotTit">'+result[i].name+'：</span>\n' +
+                                '                                <div class="sxBotCon">\n' +
+                                '                                \t<div class="sxFirst">\n' +
+                                '                                    \t<div class="sxFirCon">\n' +
+                                ' <a class="active" href="javascript:changeDataByElse(\''+result[i].value+'\',\'\');" data-index="0">不限</a>';
+                            var fChildren = result[i].children;
+                            var fLen = fChildren.length;
+                            for (var j = 0; j < fLen; j++) {
+                                str += '<a href="javascript:changeDataByElse(\''+result[i].value+'\',\''+fChildren[j]+'\');" data-index="1">'+fChildren[j]+'</a>'
+                            }
+                            str += '</div>\n' +
+                                '                                    </div>                                    \n' +
+                                '                                </div>\n' +
+                                '                                <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>\n' +
+                                '                            </div>';
+                            // console.log(str);
+                    }
+                    allData += str;
+                }
+                $("#listSelect").html(allData);
+            }
+        })
+    }
+
+    init();
+    changeSelect();
+</script>
+</body>
+</html>

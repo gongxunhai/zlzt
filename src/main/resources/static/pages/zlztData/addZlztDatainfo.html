@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../layui/css/layui.css">
+</head>
+<body>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<form class="form-horizontal" onsubmit="return false" id="form">
+		<fieldset>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>country</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='country' type='text' name='country' id='country' data-bv-notempty='true' data-bv-notempty-message='country 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>openId</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='openId' type='text' name='openId' id='openId' data-bv-notempty='true' data-bv-notempty-message='openId 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>openDay</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='openDay' type='text' name='openDay' id='openDay' data-bv-notempty='true' data-bv-notempty-message='openDay 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>applyId</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='applyId' type='text' name='applyId' id='applyId' data-bv-notempty='true' data-bv-notempty-message='applyId 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>applyDay</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='applyDay' type='text' name='applyDay' id='applyDay' data-bv-notempty='true' data-bv-notempty-message='applyDay 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>title</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='title' type='text' name='title' id='title' data-bv-notempty='true' data-bv-notempty-message='title 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>titleFy</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='titleFy' type='text' name='titleFy' id='titleFy' data-bv-notempty='true' data-bv-notempty-message='titleFy 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>zy</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='zy' type='text' name='zy' id='zy' data-bv-notempty='true' data-bv-notempty-message='zy 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>zyFy</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='zyFy' type='text' name='zyFy' id='zyFy' data-bv-notempty='true' data-bv-notempty-message='zyFy 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>powerAsk</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='powerAsk' type='text' name='powerAsk' id='powerAsk' data-bv-notempty='true' data-bv-notempty-message='powerAsk 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>powerAFy</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='powerAFy' type='text' name='powerAFy' id='powerAFy' data-bv-notempty='true' data-bv-notempty-message='powerAFy 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>powerAN</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='powerAN' type='text' name='powerAN' id='powerAN' data-bv-notempty='true' data-bv-notempty-message='powerAN 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>applyMan</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='applyMan' type='text' name='applyMan' id='applyMan' data-bv-notempty='true' data-bv-notempty-message='applyMan 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>applyPlace</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='applyPlace' type='text' name='applyPlace' id='applyPlace' data-bv-notempty='true' data-bv-notempty-message='applyPlace 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>createMan</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='createMan' type='text' name='createMan' id='createMan' data-bv-notempty='true' data-bv-notempty-message='createMan 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>lawS</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='lawS' type='text' name='lawS' id='lawS' data-bv-notempty='true' data-bv-notempty-message='lawS 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>nowLawS</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='nowLawS' type='text' name='nowLawS' id='nowLawS' data-bv-notempty='true' data-bv-notempty-message='nowLawS 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>zlType</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='zlType' type='text' name='zlType' id='zlType' data-bv-notempty='true' data-bv-notempty-message='zlType 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>ipcMC</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='ipcMC' type='text' name='ipcMC' id='ipcMC' data-bv-notempty='true' data-bv-notempty-message='ipcMC 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>ipcMCFy</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='ipcMCFy' type='text' name='ipcMCFy' id='ipcMCFy' data-bv-notempty='true' data-bv-notempty-message='ipcMCFy 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>ipc</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='ipc' type='text' name='ipc' id='ipc' data-bv-notempty='true' data-bv-notempty-message='ipc 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>ipcFy</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='ipcFy' type='text' name='ipcFy' id='ipcFy' data-bv-notempty='true' data-bv-notempty-message='ipcFy 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>cpec</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='cpec' type='text' name='cpec' id='cpec' data-bv-notempty='true' data-bv-notempty-message='cpec 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>cpecFy</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='cpecFy' type='text' name='cpecFy' id='cpecFy' data-bv-notempty='true' data-bv-notempty-message='cpecFy 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>beUsedNum</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='beUsedNum' type='text' name='beUsedNum' id='beUsedNum' data-bv-notempty='true' data-bv-notempty-message='beUsedNum 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>value</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='value' type='text' name='value' id='value' data-bv-notempty='true' data-bv-notempty-message='value 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>zlImage</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='zlImage' type='text' name='zlImage' id='zlImage' data-bv-notempty='true' data-bv-notempty-message='zlImage 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>zlText</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='zlText' type='text' name='zlText' id='zlText' data-bv-notempty='true' data-bv-notempty-message='zlText 不能为空'>
+				</div>
+			</div>
+
+
+			<div class="form-actions">
+				<div class="row" align="center">
+					<div class="col-md-12">
+					    <button class="btn btn-primary" onclick="location.href='zlztDatainfoList.html'">返回</button>
+						<button class="btn btn-primary" type="submit" onclick="add()">
+							<i class="fa fa-save"></i> 保存
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+</div>
+	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../js/jq.js"></script>
+	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript">
+		layui.use(['layer','laydate'], function(){
+		    var layer = layui.layer;
+            var laydate = layui.laydate;
+            laydate.render({
+                elem: '#openDay'
+            });
+            laydate.render({
+                elem: '#applyDay'
+            });
+		});
+		
+		function add() {
+			$('#form').bootstrapValidator();
+			var bootstrapValidator = $("#form").data('bootstrapValidator');
+			bootstrapValidator.validate();
+		    if(!bootstrapValidator.isValid()){
+			   return;
+		    }
+		    
+		    var formdata = $("#form").serializeObject();
+
+			$.ajax({
+				type : 'post',
+				url : '/zlztDatainfos',
+				contentType: "application/json; charset=utf-8",  
+				data : JSON.stringify(formdata),
+				success : function(data) {
+					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                        location.href = "zlztDatainfoList.html";
+                    });
+				}
+			});
+		}
+		
+	</script>
+</body>
+</html>

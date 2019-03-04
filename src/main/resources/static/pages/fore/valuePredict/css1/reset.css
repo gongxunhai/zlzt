@@ -1,0 +1,19 @@
+html, body, ul, li, p, table, td, tr, th, tbody, h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
+}
+body {
+  /* height: 100%; */
+  /* margin-bottom: 210px!important; */
+  background-color: #f5f6fa;
+}
+a, span {
+  display: inline-block;
+}
+ul, li, a {
+  list-style: none;
+  text-decoration: none;
+}
+a:hover {
+  color: blue;
+}

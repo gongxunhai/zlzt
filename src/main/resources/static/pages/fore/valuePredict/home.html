@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>航天专利价值评价系统</title>
+
+  <link rel="stylesheet" href="./css1/reset.css">
+  <link rel="stylesheet" href="./css1/commons.css">
+  <link rel="stylesheet" href="./layui/css/layui.css">
+  <link rel="stylesheet" href="./css/animate.css">
+
+  <script src="./js1/jquery.min.js"></script>
+  <script src="./layui/layui.js"></script>
+
+  <script>
+    /*function getDetail(param){
+        alert(param);
+    }*/
+  </script>
+
+</head>
+<body>
+  <!-- 公用头部 -->
+  <script src="./js1/header.js"></script>
+  <!-- 公用轮播图 -->
+  <script src="./js1/swiper.js"></script>
+
+  <div class="patent-content wow fadeInDown">
+    <div class="title">
+      <div class="list-title">
+        <div><i class="layui-icon layui-icon-note"></i></div>
+        <span>已上传的专利会在下表展示</span>
+      </div>
+      <div class="list-btns">
+        <form class="layui-form" action="">
+          <div class="layui-form-item">
+            <div class="layui-input-block">
+              <select name="city" lay-verify="">
+                <!-- <option value="">请选择一个城市</option> -->
+                <option value="010">国内专利</option>
+                <option value="021">国际专利</option>
+                <option value="0571">所有专利</option>
+              </select>
+            </div>
+          </div>
+        </form>
+        <button id="searchPatent" class="layui-btn layui-btn-normal">专利检索</button>
+        <button id="inserPatent" class="layui-btn layui-btn-warm">专利导入</button>
+      </div>
+    </div>
+
+    <div class="list">
+      <div class="list-item">
+        <div class="item"><p>专利名称</p></div>
+        <div class="item"><p>价值度</p></div>
+        <div class="item"><p>状态</p></div>
+        <div class="item"><p>上传时间</p></div>
+      </div>
+
+      <div class="list-item-con">
+        <div class="item"><p>一种高性能隔热材料及其制作方法</p></div>
+        <!-- <div class="item "><p>价值度</p></div> -->
+        <div class="item rates"></div>
+        <div class="item"><p>未评价，点此<span class="evaluation" >评价</span> / <span class="delete">删除此专利</span></p></div>
+        <div class="item"><p>2018/09/12</p></div>
+      </div>
+      <div class="list-item-con">
+        <div class="item"><p>一种三通道切换装置及其切换方法</p></div>
+        <!-- <div class="item"><p>价值度</p></div> -->
+        <div class="item rates finished"></div>
+        <!-- <div class="item"><p>状态</p></div> -->
+        <div class="item"><p>评价完成，点此<span class="detail">查看详情</span> / <span class="delete">删除此专利</span></p></div>
+        <div class="item"><p>2018/09/12</p></div>
+      </div>
+      <div class="list-item-con">
+        <div class="item"><p>一种量子系统装置一种量子系统装置一种量子系统装置</p></div>
+        <!-- <div class="item"><p>价值度</p></div> -->
+        <div class="item rates"></div>
+        <!-- <div class="item"><p>状态</p></div> -->
+        <div class="item"><p>评价中-已暂存，点此<span class="detail">查看详情</span> / <span class="delete">删除此专利</span></p></div>
+        <div class="item"><p>2018/09/12</p></div>
+      </div>
+
+      <div class="list-item-con">
+        <div class="item"><p>一种高精度轻型机器人多自由度机械臂驱动控制电路</p></div>
+        <!-- <div class="item "><p>价值度</p></div> -->
+        <div class="item rates"></div>
+        <div class="item"><p>未评价，点此<span class="evaluation">评价</span> / <span class="delete">删除此专利</span></p></div>
+        <div class="item"><p>2018/09/12</p></div>
+      </div>
+
+      <div class="list-item-con">
+        <div class="item"><p>一种大动态高精度同步连续频率测量方法</p></div>
+        <!-- <div class="item "><p>价值度</p></div> -->
+        <div class="item rates"></div>
+        <div class="item"><p>未评价，点此<span class="evaluation" id="49"> <!--onclick="getDetail('49')"--> 评价</span> / <span class="delete">删除此专利</span></p></div>
+        <div class="item"><p>2018/09/12</p></div>
+      </div>
+
+      <div class="list-item-con">
+        <div class="item"><p>一种基于光弹调制的原子陀螺闭环检测方法</p></div>
+        <!-- <div class="item "><p>价值度</p></div> -->
+        <div class="item rates"></div>
+        <div class="item"><p>未评价，点此<span class="evaluation" id="50">评价</span> / <span class="delete">删除此专利</span></p></div>
+        <div class="item"><p>2018/09/12</p></div>
+      </div>
+
+      <div class="list-item-con">
+        <div class="item"><p>一种顶端谐振四臂螺旋天线</p></div>
+        <!-- <div class="item "><p>价值度</p></div> -->
+        <div class="item rates"></div>
+        <div class="item"><p>未评价，点此<span class="evaluation" id="51">评价</span> / <span class="delete">删除此专利</span></p></div>
+        <div class="item"><p>2018/09/12</p></div>
+      </div>
+      <div class="list-item-con">
+        <div class="item"><p>一种双冗余惯导系统快速故障检测方法</p></div>
+        <!-- <div class="item "><p>价值度</p></div> -->
+        <div class="item rates"></div>
+        <div class="item"><p>未评价，点此<span class="evaluation">评价</span> / <span class="delete">删除此专利</span></p></div>
+        <div class="item"><p>2018/09/12</p></div>
+      </div>
+      <div class="list-item-con">
+        <div class="item"><p>一种基于状态估计和预测的低成本阻尼导航方法</p></div>
+        <!-- <div class="item "><p>价值度</p></div> -->
+        <div class="item rates"></div>
+        <div class="item"><p>未评价，点此<span class="evaluation">评价</span> / <span class="delete">删除此专利</span></p></div>
+        <div class="item"><p>2018/09/12</p></div>
+      </div>
+      <div class="list-item-con">
+        <div class="item"><p>一种可减小光纤陀螺温度漂移传感环圈制备方法</p></div>
+        <!-- <div class="item "><p>价值度</p></div> -->
+        <div class="item rates"></div>
+        <div class="item"><p>未评价，点此<span class="evaluation">评价</span> / <span class="delete">删除此专利</span></p></div>
+        <div class="item"><p>2018/09/12</p></div>
+      </div>
+      <div class="list-item-con">
+        <div class="item"><p>一种光纤捷联惯导双轴旋转调制方法及双轴旋转机构</p></div>
+        <!-- <div class="item "><p>价值度</p></div> -->
+        <div class="item rates"></div>
+        <div class="item"><p>未评价，点此<span class="evaluation">评价</span> / <span class="delete">删除此专利</span></p></div>
+        <div class="item"><p>2018/09/12</p></div>
+      </div>
+      <div class="list-item-con">
+        <div class="item"><p>一种双轴旋转光纤捷联惯性导航装置</p></div>
+        <!-- <div class="item "><p>价值度</p></div> -->
+        <div class="item rates"></div>
+        <div class="item"><p>未评价，点此<span class="evaluation">评价</span> / <span class="delete">删除此专利</span></p></div>
+        <div class="item"><p>2018/09/12</p></div>
+      </div>
+      <div class="list-item-con">
+        <div class="item"><p>一种惯导/里程计自主组合导航方法</p></div>
+        <!-- <div class="item "><p>价值度</p></div> -->
+        <div class="item rates"></div>
+        <div class="item"><p>未评价，点此<span class="evaluation">评价</span> / <span class="delete">删除此专利</span></p></div>
+        <div class="item"><p>2018/09/12</p></div>
+      </div>
+    </div>
+    <span class="go-home">回到首页> > ></span>
+  </div>
+
+  <div id="service">
+    <p>服务流程</p>
+    <div class="service-content">
+      <div class="section">
+        <div class="img">
+          <img src="./imgs/service4.png" alt="">
+        </div>
+        <div class="img-title">
+          <div class="num">1</div>
+          <span>导入专利点击评分按钮</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="img">
+          <img src="./imgs/service2.png" alt="">
+        </div>
+        <div class="img-title">
+          <div class="num">2</div>
+          <span>等待评估结果</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="img">
+          <img src="./imgs/service3.png" alt="">
+        </div>
+        <div class="img-title">
+          <div class="num">3</div>
+          <span>下载评估报告</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 登录框表单 -->
+  <div id="loginBox" style="display: none;">
+    <form class="layui-form" action="">
+
+      <div class="layui-form-item">
+        <label class="layui-form-label">用户名</label>
+        <div class="layui-input-block">
+          <input type="text" name="username" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">密码</label>
+        <div class="layui-input-block">
+          <input type="password" name="password" required  lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <div class="layui-input-block">
+          <button class="layui-btn" lay-submit lay-filter="formDemo">登录</button>
+          <!-- <button class="layui-btn layui-btn-primary" lay-filter="formCancel">取消</button> -->
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- 检索框 -->
+  <div class="searchPatentForm">
+    <form action="" class="layui-form">
+      <!-- <div class="layui-form-item">
+        <div class="layui-input-block">
+          <label for=""></label>
+        </div>
+      </div> -->
+
+      <div class="layui-form-item">
+        <label class="layui-form-label">申请号</label>
+        <div class="layui-input-block">
+          <input type="text" name="applyNum" placeholder="请输入" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <label class="layui-form-label">申请日</label>
+        <div class="layui-input-block">
+          <input type="text" name="applyDay" placeholder="请输入" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">标题</label>
+        <div class="layui-input-block">
+          <input type="text" name="title" placeholder="请输入" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">公开日</label>
+        <div class="layui-input-block">
+          <input type="text" name="publicDay" placeholder="请输入" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">摘要</label>
+        <div class="layui-input-block">
+          <input type="text" name="summary" placeholder="请输入" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">公开号</label>
+        <div class="layui-input-block">
+          <input type="text" name="publicNum" placeholder="请输入" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">IPC分类号</label>
+        <div class="layui-input-block">
+          <input type="text" name="ipc" placeholder="请输入" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">主分类号</label>
+        <div class="layui-input-block">
+          <input type="text" name="main" placeholder="请输入" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">专利权人</label>
+        <div class="layui-input-block">
+          <input type="text" name="patentPerson" placeholder="请输入" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">发明人</label>
+        <div class="layui-input-block">
+          <input type="text" name="inventor" placeholder="请输入" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">地址</label>
+        <div class="layui-input-block">
+          <input type="text" name="address" placeholder="请输入" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">国民经济分类</label>
+        <div class="layui-input-block">
+          <input type="text" name="economic" placeholder="请输入" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">权利要求书</label>
+        <div class="layui-input-block">
+          <input type="text" name="claim" placeholder="请输入" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <div class="layui-input-block">
+          <button class="layui-btn" lay-submit lay-filter="formSearch">立即提交</button>
+          <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+      </div>
+      
+    </form>
+  </div>
+
+  <!-- 评价弹框 -->
+  <div class="evaluationBox">
+    <form class="layui-form" action="">
+      <div class="layui-form-item">
+        <div class="layui-input-block">
+          <input type="radio" name="system" value="system1" title="军转军专利价值评价指标体系" checked>
+          <input type="radio" name="system" value="system2" title="军转民专利价值评价指标体系">
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- 公用底部 -->
+  <script src="./js1/footer.js"></script>
+  <!-- js 代码 layui 必须写在这里面 外部引入 js 会报错 -->
+
+  <script src="./js1/wow.min.js"></script>
+  <script>
+    new WOW().init();
+    layui.use(['layer', 'form', 'carousel', 'rate'], function() {
+      let layer = layui.layer,
+          form = layui.form,
+          carousel = layui.carousel
+          rate = layui.rate;
+      console.log('切换头部');
+
+      // 入场动画
+      $('.header').addClass('layui-anim layui-anim-down');
+      
+      // 轮播图
+      carousel.render({
+        elem: '#swiper',
+        width: '100%',
+        height: '280px',
+        full: false,
+        arrow: 'hover',
+      });
+
+      // 进入评分
+      $('.score').on('click', function() {
+        // console.log('先登录再评分');
+        layer.open({
+          type: 1,
+          closeBtn: 0,
+          anim: 1,
+          title: false,
+          content: '请先登录',
+          offset: '60px',
+          btn: ['登录', '取消'],
+          btnAlign: 'c',
+          yes: function(index, layero) {
+            layer.close(index);
+            showLogin();
+          },
+          btn2: function() {
+            console.log('取消登录')
+          }
+          
+        })
+      });
+      
+      // 登录
+      $('.login').on('click', function() {
+        // console.log('出现登录框');
+        showLogin();
+      });
+      
+      // form 的 提交事件
+      form.on('submit(formDemo)', function(data){
+        console.log(data.field);
+        let formData = data.field;
+        layer.closeAll();
+        hasLogin(formData.username);
+        return false;  // 阻止页面跳转
+        // console.log('后面代码不执行了')
+      });
+
+      // 显示登录框
+      function showLogin() {
+        console.log('showLogin');
+        layer.open({
+          type: 1,
+          title: '登录',
+          closeBtn: 1,
+          content: $('#loginBox')
+        })
+      }
+      // 已登录状态
+      function hasLogin(username) {
+        console.log(username);
+        $('.score').hide();
+        $('.login').hide();
+        $('.user-name').text(username);
+        $('.user').css('display', 'flex');
+        $('.patent-content').show();
+        $('.logout').hide();
+      }
+      // hasLogin();
+
+      // 点击用户头像
+      $('.user .user-img').on('click', function() {
+        $('.patent-content').show();        
+      })
+
+      // 点击用户后面的下三角
+      $('.user .down').on('click', function() {
+        let displayAttr = $('.logout').css('display');
+        if(displayAttr == 'none') {
+          $('.logout').css('display', 'flex');
+        }
+        if(displayAttr == 'flex') {
+          $('.logout').css('display', 'none');
+        }
+        console.log(
+          $('.logout').css('display')
+        )
+      })
+
+      // 退出登录
+      $('.logout > span').on('click', function() {
+        $('.user').hide();
+        $('.patent-content').hide();
+
+        $('.score').show();
+        $('.login').show();
+      })
+
+      // 专利检索
+      $('#searchPatent').on('click', function() {
+        layer.open({
+          type: 1,
+          title: '请输入检索信息',
+          closeBtn: 1,
+          content: $('.searchPatentForm'),
+          area: ['800px', '500px']
+        })
+      })
+      // 检索框 提交事件
+      form.on('submit(formSearch)', function(data){
+        console.log(data.field);
+        let formData = data.field;
+        // layer.closeAll();
+        // hasLogin(formData.username);
+        return false;  // 阻止页面跳转
+        // console.log('后面代码不执行了')
+      });
+
+      // 导入专利
+      $('#inserPatent').on('click', function() {
+        layer.msg('暂时没做');
+      })
+
+
+      // 评价
+      $(document).on('click', '.evaluation', function() {
+        // layer.msg('开始评价');
+        let id = $(this).attr('id');
+        console.log(id);
+        layer.open({
+          type: 1,
+          title: '请先选择一个指标体系',
+          closeBtn: 0,
+          content: $('.evaluationBox'),
+          btn: ['继续', '取消'],
+          yes: function(index) {
+            layer.close(index);
+            console.log('跳到评价页面');
+            window.location.href = 'scorePage.html?classifyid='+id;
+          },
+          btn2: function() {
+            console.log('取消了评价')
+          }
+
+        })
+      })
+      // 查看详情
+      $(document).on('click', '.detail', function() {
+        // layer.msg('查看评价详情');
+        window.location.href = 'scoreChart.html'
+      })
+      // 删除专利
+      $(document).on('click', '.delete', function() {
+        // layer.msg('删除本条专利');
+        layer.open({
+          type: 1,
+          title: '注意',
+          content: '确定要删除该专利吗？',
+          btn: ['确定', '取消'],
+          yes: (index, layero) => {
+            console.log('点击了确定按钮');
+            layer.close(index);
+            $(this).parent().parent().parent().hide();
+          },
+          btn2: function() {
+            console.log('点击了取消按钮')
+          }
+        })
+      })
+
+      // rate
+      let ins1 = rate.render({
+        elem: '.rates',
+        // value: 2,
+        // half: true,
+        // choose: function(value) {
+          // console.log(value)
+        // }
+      })
+      var ins2 = rate.render({
+        elem: '.rates.finished',
+        value: 4.5,
+        half: true
+      })
+
+      // 回到首页
+      $('.patent-content .go-home').on('click', function() {
+        // layer.msg('回到首页')
+        $('.patent-content').hide();
+      })
+
+      // console.log($('.list .rates'))
+      // 
+      $('.evaluationBox .layui-form-radio div').on('click', function() {
+        // $(this).addClass('sss');
+        layer.tips('', $(this), {
+          tips: [1, '#3595CC'],
+          time: 3000
+        });
+
+      })
+      // trie 树
+    })
+
+  </script>
+</body>
+</html>

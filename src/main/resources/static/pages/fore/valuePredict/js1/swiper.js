@@ -1,0 +1,13 @@
+document.writeln("  <div class=\'layui-carousel\' id=\'swiper\'>");
+document.writeln("    <div carousel-item>");
+document.writeln("      <div>");
+document.writeln("        <img src=\'./imgs/service4.png\' alt=\'\'>");
+document.writeln("      </div>");
+document.writeln("      <div>");
+document.writeln("        <img src=\'./imgs/service2.png\' alt=\'\'>");
+document.writeln("      </div>");
+document.writeln("      <div>");
+document.writeln("        <img src=\'./imgs/service3.png\' alt=\'\'>        ");
+document.writeln("      </div>");
+document.writeln("    </div>");
+document.writeln("  </div>");

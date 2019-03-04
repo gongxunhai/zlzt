@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../layui/css/layui.css">
+</head>
+<body>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <input type="hidden" id="imageurl" >
+    <input type="hidden" id="pdfurl" >
+	<form class="form-horizontal" onsubmit="return false" id="form">
+		<fieldset>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>名称</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='name' type='text' name='name' id='name' data-bv-notempty='true' data-bv-notempty-message='name 不能为空'>
+                </div>
+            </div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>作者</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='author' type='text' name='author' id='author' data-bv-notempty='true' data-bv-notempty-message='author 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>目录</label>
+				<div class='col-md-10'>
+                    <textarea class="layui-textarea" id="catalog" style="display: none;">
+					</textarea>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>摘要</label>
+				<div class='col-md-10'>
+                    <textarea class='form-control' placeholder='descript' type='text' name='descript' id='descript' data-bv-notempty='true' data-bv-notempty-message='descript 不能为空'></textarea>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>所属行业</label>
+				<div class='col-md-10'>
+                    <select class='form-control' placeholder='fId' onchange="changeData()" type='text' name='fId' id='fId' data-bv-notempty='true' data-bv-notempty-message='fId 不能为空'></select>
+				</div>
+			</div>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>二级行业</label>
+                <div class='col-md-10'>
+                    <select class='form-control' placeholder='sId' type='text' name='sId' id='sId' data-bv-notempty='true' data-bv-notempty-message='sId 不能为空'></select>
+                </div>
+            </div>
+            <div style="border-bottom: solid 1px #c6d0de">
+                <span >图片上传</span>
+            </div>
+            <div>
+                <button type="button" class="layui-btn" id="test1">
+                    <i class="layui-icon">&#xe67c;</i>上传图片
+                </button>
+                <button type="button" class="layui-btn" id="test2">
+                    上传
+                </button>
+            </div>
+            <div id="showname"></div>
+            <div id="buttondelete"></div>
+            <div style="border-bottom: solid 1px #c6d0de">
+                <span >pdf上传</span>
+            </div>
+            <div>
+                <button type="button" class="layui-btn" id="test3">
+                    <i class="layui-icon">&#xe67c;</i>上传pdf
+                </button>
+                <button type="button" class="layui-btn" id="test4">
+                    上传
+                </button>
+            </div>
+            <div id="showname1"></div>
+            <div id="buttondelete1"></div>
+			<div class="form-actions">
+				<div class="row" align="center">
+					<div class="col-md-12">
+					    <button class="btn btn-primary" onclick="location.href='ztReportList.html'">返回</button>
+						<button class="btn btn-primary" type="submit" id="updown" onclick="add()">
+							<i class="fa fa-save"></i> 保存
+						</button>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</div>
+	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../js/jq.js"></script>
+	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript">
+        var pro = window.location.protocol;
+        var host = window.location.host;
+        var domain = pro + "//" + host;
+        var layedit, index;
+
+		layui.use(['layer','laydate','upload','layedit'], function(){
+            var layer = layui.layer;
+            var upload = layui.upload;
+            var upload1 = layui.upload;
+            layedit = layui.layedit;
+            layedit.set({
+                uploadImage: {
+                    url: '/files/layui?domain=' + domain+"&token="+localStorage.getItem("token"),
+                    type: 'post'
+                }
+            });
+
+            index = layedit.build('catalog');
+
+            upload.render({
+                elem: '#test1' //绑定元素
+                ,accept: 'images' //允许上传的文件类型
+                ,url: '/files' //上传接口
+                ,auto: false //选择文件后不自动上传
+                ,bindAction: '#updown' //指向一个按钮触发上传
+                ,done: function(res, index, upload){
+                    $("#imageurl").val(res.url);
+                    var a = "<span>上传文件名:"+res.id+"</span>";
+                    $("#showname").html(a);
+                    $("#buttondelete").html('<button onclick="delete1(\''+res.id+'\')">删除</button>');
+                }
+            });
+
+            upload1.render({
+                elem: '#test3' //绑定元素
+                ,accept: 'file' //允许上传的文件类型
+                ,url: '/files' //上传接口
+                ,exts: 'pdf' //上传后缀
+                ,auto: false //选择文件后不自动上传
+                ,bindAction: '#test4' //指向一个按钮触发上传
+                ,done: function(res, index, upload){
+                    $("#pdfurl").val(res.url);
+                    var a = "<span>上传文件名:"+res.id+"</span>";
+                    $("#showname1").html(a);
+                    $("#buttondelete1").html("<button onclick="+"\""+"delete2('"+res.id+"')"+"\""+">删除</button>");
+                }
+            });
+		});
+
+        function delete1(id) {
+            layer.confirm('确定要删除吗？', {
+                btn: ['确定', '取消']
+            }, function () {
+                $.ajax({
+                    type: 'delete',
+                    url: '/files/' + id,
+                    success: function (data) {
+                        $("#showname").html("");
+                        $("#buttondelete").html("");
+                        layer.msg("删除成功");
+                    }
+                });
+                layer.close(1);
+            });
+        }
+
+        function delete2(id) {
+            layer.confirm('确定要删除吗？', {
+                btn: ['确定', '取消']
+            }, function () {
+                $.ajax({
+                    type: 'delete',
+                    url: '/files/' + id,
+                    success: function (data) {
+                        $("#showname1").html("");
+                        $("#buttondelete1").html("");
+                        layer.msg("删除成功");
+                    }
+                });
+                layer.close(1);
+            });
+        }
+
+        function changeData() {
+            var id = parseInt($("#fId").val());
+            $("#sId").html('');
+            selectData(id);
+        }
+        function selectData(obj){
+            $.ajax({
+                type : "get",
+                url : "/ztReportClassifyinfos/getClassify/"+obj,
+                async : false,
+                success : function (result) {
+                    var select = '';
+                    if (obj == 0) {
+                        select = $("#fId");
+                        $("#sId").html('');
+                    }else{
+                        select = $("#sId");
+                    }
+                    select.append("<option value = ''> </option>");
+                    for(var i =0; i<result.length;i++){
+                        var d = result[i];
+                        var id = d['id'];
+                        var name = d['name'];
+                        select.append("<option value='"+ id +"'>" +name+"</option>");
+                    }
+                }
+            });
+        }
+        selectData(0);
+
+
+		function add() {
+			$('#form').bootstrapValidator();
+			var bootstrapValidator = $("#form").data('bootstrapValidator');
+			bootstrapValidator.validate();
+		    if(!bootstrapValidator.isValid()){
+			   return;
+		    }
+		    
+		    var formdata = $("#form").serializeObject();
+            formdata.pdfFile = $("#pdfurl").val();
+            formdata.image = $("#imageurl").val();
+            formdata.catalog = layedit.getContent(index);
+            // formdata.fId = parseInt($("#fId").val());
+            // formdata.sId = parseInt($("#sId").val());
+            alert(JSON.stringify(formdata));
+            return false;
+
+			$.ajax({
+				type : 'post',
+				url : '/ztReports',
+				contentType: "application/json; charset=utf-8",  
+				data : JSON.stringify(formdata),
+				success : function(data) {
+					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                        location.href = "ztReportList.html";
+                    });
+				}
+			});
+		}
+		
+	</script>
+</body>
+</html>

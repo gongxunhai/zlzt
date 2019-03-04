@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>打分详情页</title>
+
+  <link rel="stylesheet" href="./layui/css/layui.css">
+  <link rel="stylesheet" href="./css1/reset.css">
+  <link rel="stylesheet" href="./css1/commons.css">
+  <link rel="stylesheet" href="./css1/score.css">
+
+  <script src="./js1/jquery.min.js"></script>
+  <script src="./layui/layui.js"></script>
+  <script type="text/javascript" src="../../../js/common.js"></script>
+  <script>
+      var id = getUrlParam("classifyid");
+      // alert(id);
+    $(function () {
+        $.ajax({
+            url:"/zlztDatainfos/"+id,
+            type:"get",
+            async: false,
+            success:function (data) {
+                var a = '<span>当前专利：</span>\n' +
+                    '        <span class="name">'+data.title+'</span>\n' +
+                    '        <span class="label">国内专利</span>';
+                $("#nowZl").html(a);
+            }
+        })
+    })
+  </script>
+</head>
+
+<body>
+  <script src="./js1/header.js"></script>
+  <div class="score-wrap">
+    <div class="score-title">
+      <div class="score-name" id="nowZl">
+        <!--<span>当前专利：</span>
+        <span class="name">一种高性能材料及其制作方法</span>
+        <span class="label">国内专利</span>-->
+      </div>
+      <div class="score-help">
+        <span>批量选择专家协助</span>
+      </div>
+    </div>
+
+    <form class="layui-form" action="">
+
+
+      <div class="score-content">
+        <div class="score-item">
+          <div class="item-title">
+            <div class="title-num">1</div>
+            <div class="title-name">军事价值度</div>
+            <div class="collapse">
+              <span>点击收起</span>
+              <i class="layui-icon layui-icon-up"></i>
+            </div>
+          </div>
+          <div class="item-list">
+            <div class="list-item">
+              <div class="item-left">
+                <div class="item-content">
+                  <span class="list-item-name">（1）军事需求度？</span>
+                  <span class="show-info">查看含义</span>
+                </div>
+                <div class="layui-form-item">
+                  <div class="layui-input-block">
+                    <input type="radio" name="xuqiu" value="0" title="a 重大装备型需求" checked>
+                    <input type="radio" name="xuqiu" value="1" title="b 装备型需求">
+                  </div>
+                </div>
+              </div>
+              <div class="item-right">
+                <span class="help">专家协助</span>
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="item-left">
+                <div class="item-content">
+                  <span class="list-item-name">（2）战略性？</span>
+                  <span class="show-info">查看含义</span>
+                </div>
+                <div class="layui-form-item">
+                  <div class="layui-input-block">
+                    <input type="radio" name="zhanlue" value="0" title="a 符合国家战略规划" checked>
+                    <input type="radio" name="zhanlue" value="1" title="b 符合军兵种战略规划">
+                    <input type="radio" name="zhanlue" value="2" title="c 未有相关规划">
+                  </div>
+                </div>
+              </div>
+              <div class="item-right">
+                <span class="help">专家协助</span>
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="item-left">
+                <div class="item-content">
+                  <span class="list-item-name">（3）增效性？</span>
+                  <span class="show-info">查看含义</span>
+                </div>
+                <div class="layui-form-item">
+                  <div class="layui-input-block">
+                    <input type="radio" name="zengxiao" value="0" title="a 效果显著" checked>
+                    <input type="radio" name="zengxiao" value="1" title="b 效果明显">
+                    <input type="radio" name="zengxiao" value="1" title="c 有一定效果">
+                  </div>
+                </div>
+              </div>
+              <div class="item-right">
+                <span class="help">专家协助</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="score-item">
+          <div class="item-title">
+            <div class="title-num">2</div>
+            <div class="title-name">技术价值度</div>
+            <div class="collapse">
+              <span>点击收起</span>
+              <i class="layui-icon layui-icon-up"></i>
+            </div>
+          </div>
+          <div class="item-list">
+            <div class="list-item">
+              <div class="item-left">
+                <div class="item-content">
+                  <span class="list-item-name">（1）先进性？</span>
+                  <span class="show-info">查看含义</span>
+                </div>
+                <div class="layui-form-item">
+                  <div class="layui-input-block">
+                    <input type="radio" name="xianjin" value="0" title="a 非常先进" checked>
+                    <input type="radio" name="xianjin" value="1" title="b 先进" >
+                    <input type="radio" name="xianjin" value="2" title="c 一般" >
+                    <input type="radio" name="xianjin" value="3" title="d 落后" >
+                    <input type="radio" name="xianjin" value="4" title="e 非常落后" >
+                  </div>
+                </div>
+              </div>
+              <div class="item-right">
+                <span class="help">专家协助</span>
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="item-left">
+                <div class="item-content">
+                  <span class="list-item-name">（2）行业发展趋势？</span>
+                  <span class="show-info">查看含义</span>
+                </div>
+                <div class="layui-form-item">
+                  <div class="layui-input-block">
+                    <input type="radio" name="qushi" value="0" title="a 朝阳产业" checked>
+                    <input type="radio" name="qushi" value="1" title="b 成长产业">
+                    <input type="radio" name="qushi" value="2" title="c 成熟产业">
+                    <input type="radio" name="qushi" value="3" title="d 夕阳产业">
+                  </div>
+                </div>
+              </div>
+              <div class="item-right">
+                <span class="help">专家协助</span>
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="item-left">
+                <div class="item-content">
+                  <span class="list-item-name">（3）成熟度？</span>
+                  <span class="show-info">查看含义</span>
+                </div>
+                <div class="layui-form-item">
+                  <div class="layui-input-block">
+                    <input type="radio" name="chengshu" value="0" title="a 产业级" checked>
+                    <input type="radio" name="chengshu" value="1" title="b 系统级">
+                    <input type="radio" name="chengshu" value="2" title="c 产品级">
+                    <input type="radio" name="chengshu" value="3" title="d 环境级">
+                    <input type="radio" name="chengshu" value="4" title="e 正样级">
+                    <input type="radio" name="chengshu" value="5" title="f 初样级">
+                    <input type="radio" name="chengshu" value="6" title="g 仿真级">
+                    <input type="radio" name="chengshu" value="7" title="h 功能级">
+                    <input type="radio" name="chengshu" value="8" title="i 方案级">
+                    <input type="radio" name="chengshu" value="9" title="j 报告级">
+                  </div>
+                </div>
+              </div>
+              <div class="item-right">
+                <span class="help">专家协助</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="score-item">
+          <div class="item-title">
+            <div class="title-num">3</div>
+            <div class="title-name">经济价值度</div>
+            <div class="collapse">
+              <span>点击收起</span>
+              <i class="layui-icon layui-icon-up"></i>
+            </div>
+          </div>
+          <div class="item-list">
+            <div class="list-item">
+              <div class="item-left">
+                <div class="item-content">
+                  <span class="list-item-name">（1）市场应用情况？</span>
+                  <span class="show-info">查看含义</span>
+                </div>
+                <div class="layui-form-item">
+                  <div class="layui-input-block">
+                    <input type="radio" name="shichang" value="0" title="a 已应用" checked>
+                    <input type="radio" name="shichang" value="1" title="b 未应用,易于应用">
+                    <input type="radio" name="shichang" value="2" title="c 为应用,难于应用">
+                  </div>
+                </div>
+              </div>
+              <div class="item-right">
+                <span class="help">专家协助</span>
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="item-left">
+                <div class="item-content">
+                  <span class="list-item-name">（2）竞争情况？</span>
+                  <span class="show-info">查看含义</span>
+                </div>
+                <div class="layui-form-item">
+                  <div class="layui-input-block">
+                    <input type="radio" name="jingzheng" value="0" title="a 几乎没有竞争" checked>
+                    <input type="radio" name="jingzheng" value="1" title="b 竞争对手较弱">
+                    <input type="radio" name="jingzheng" value="2" title="c 竞争对手一般">
+                    <input type="radio" name="jingzheng" value="3" title="d 竞争对手较强">
+                    <input type="radio" name="jingzheng" value="4" title="e 竞争对手很强">
+                  </div>
+                </div>
+              </div>
+              <div class="item-right">
+                <span class="help">专家协助</span>
+              </div>
+            </div>
+            <!-- <div class="list-item">
+              <div class="item-left">
+                <div class="item-content">
+                  <span class="list-item-name">（1）军事需求度？</span>
+                  <span class="show-info">查看含义</span>
+                </div>
+                <div class="layui-form-item">
+                  <div class="layui-input-block">
+                    <input type="radio" name="sex" value="0" title="重大装备型需求" checked>
+                    <input type="radio" name="sex" value="1" title="装备型需求">
+                  </div>
+                </div>
+              </div>
+              <div class="item-right">
+                <span class="help">专家协助</span>
+              </div>
+            </div> -->
+          </div>
+        </div>
+
+        <div class="score-item">
+          <div class="item-title">
+            <div class="title-num">4</div>
+            <div class="title-name">法律价值度</div>
+            <div class="collapse">
+              <span>点击收起</span>
+              <i class="layui-icon layui-icon-up"></i>
+            </div>
+          </div>
+          <div class="item-list">
+            <div class="list-item">
+              <div class="item-left">
+                <div class="item-content">
+                  <span class="list-item-name">（1）稳定性？</span>
+                  <span class="show-info">查看含义</span>
+                </div>
+                <div class="layui-form-item">
+                  <div class="layui-input-block">
+                    <input type="radio" name="wending" value="0" title="a 较为稳定" checked>
+                    <input type="radio" name="wending" value="1" title="b 稳定">
+                    <input type="radio" name="wending" value="2" title="c 不稳定">
+                  </div>
+                </div>
+              </div>
+              <div class="item-right">
+                <span class="help">专家协助</span>
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="item-left">
+                <div class="item-content">
+                  <span class="list-item-name">（2）专利侵权可判定行？</span>
+                  <span class="show-info">查看含义</span>
+                </div>
+                <div class="layui-form-item">
+                  <div class="layui-input-block">
+                    <input type="radio" name="zhuanli" value="0" title="a 非常易于判定" checked>
+                    <input type="radio" name="zhuanli" value="1" title="b 比较易于判定">
+                    <input type="radio" name="zhuanli" value="2" title="c 难以判定">
+                    <input type="radio" name="zhuanli" value="3" title="d 比较难于判定">
+                    <input type="radio" name="zhuanli" value="4" title="e 非常难于判定">
+                  </div>
+                </div>
+              </div>
+              <div class="item-right">
+                <span class="help">专家协助</span>
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="item-left">
+                <div class="item-content">
+                  <span class="list-item-name">（3）有效期？</span>
+                  <span class="show-info">查看含义</span>
+                </div>
+                <div class="layui-form-item">
+                  <div class="layui-input-block">
+                    <input type="radio" name="youxiaoqi" value="0" title="a 16年以上" checked disabled>
+                    <input type="radio" name="youxiaoqi" value="1" title="b 12-15年" disabled>
+                    <input type="radio" name="youxiaoqi" value="1" title="c 8-11年" disabled>
+                    <input type="radio" name="youxiaoqi" value="1" title="d 4-7年" disabled>
+                    <input type="radio" name="youxiaoqi" value="1" title="e 3年以内" disabled>
+                  </div>
+                </div>
+              </div>
+              <div class="item-right sys">
+                <span class="systemScore">系统自动打分 <i class="layui-icon layui-icon-ok"></i> </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="layui-form-item">
+          <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="submitScore">提交</button>
+            <button class="layui-btn layui-btn-primary" lay-submit lay-filter="submitSave">保存</button>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- 批量选择专家弹框 -->
+  <div class="more-experts" >
+    <form action="" class="layui-form">
+      <div class="layui-form-item">
+        <label for="" class="layui-form-label">法律专家 <i class="layui-icon layui-icon-right"></i></label>
+        <div class="layui-input-block checks">
+          <input type="checkbox" name="law[zhuanjia1]" value="1" id="" lay-skin="primary" title="专家1">
+          <input type="checkbox" name="law[zhuanjia2]" value="2" id="" lay-skin="primary" title="专家2">
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <label for="" class="layui-form-label">技术专家 <i class="layui-icon layui-icon-right"></i></label>
+        <div class="layui-input-block checks">
+          <input type="checkbox" name="tec[zhuanjia1]" value="1" id="" lay-skin="primary" title="专家1">
+          <input type="checkbox" name="tec[zhuanjia2]" value="2" id="" lay-skin="primary" title="专家2">
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <div class="layui-input-block">
+          <button class="layui-btn" lay-submit lay-filter="expertSure">确定</button>
+          <button class="layui-btn" lay-submit lay-filter="expertCancel">取消</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+  <!-- <script src="./js/footer.js"></script> -->
+
+  <script>
+    layui.use(['form', 'layer'], function () {
+      let form = layui.form,
+        layer = layui.layer;
+
+      // 初始化为登录状态
+      $('.score').hide();
+      $('.login').hide();
+      $('.user-name').text('username');
+      $('.user').css('display', 'flex');
+      $('.logout').hide();
+      
+      // 批量选择专家协助
+      $('.score-help').on('click', function () {
+        // layer.msg('选择专家来协助打分')
+        layer.open({
+          type: 1,
+          title: '请选择:',
+          closeBtn: 0,
+          content: $('.more-experts'),
+          area: '300px'
+        })
+      })
+      // 专家协助
+
+      // 提交 整个打分表单
+      form.on('submit(submitScore)', function(data) {
+        console.log(data);
+        layer.open({
+          type: 1,
+          title: false,
+          closeBtn: 0,
+          content: '确定要提交吗？',
+          btn: ['确定', '取消'],
+          yes: function(index, layero) {
+            layer.close(index)
+            window.location.href = 'scoreChart.html'
+          },
+          btn2: function(index, layero) {
+            layer.close(index)
+          }
+        })
+        return false;
+      })
+      // 专家 提交
+      form.on('submit(expertSure)', function(data) {
+        console.log(data.field, 'exportSure');
+        layer.closeAll('page');
+        return false;
+      })
+
+      // 专家 取消
+      form.on('submit(expertCancel)', function(data) {
+        // console.log(data, 'exportCancel');
+        layer.closeAll('page');
+        return false;
+      })
+      // 初始化 默认隐藏
+      $('.more-experts .checks').hide();
+      // 专家展开 或 收起
+      $('.more-experts .layui-form-item label').on('click', function() {
+        console.log($(this).next());
+        let con = $(this).find('i').hasClass('layui-icon-right');
+        console.log(con);
+        if(con) {
+          $(this).find('i').removeClass('layui-icon-right').addClass('layui-icon-down');
+        } else {
+          $(this).find('i').removeClass('layui-icon-down').addClass('layui-icon-right');
+        }
+        $(this).next().toggle();
+      })
+
+      // 保存
+      form.on('submit(submitSave)', function(data) {
+        console.log(data);
+        console.log(window.location.href);
+        window.location.href = 'home.html'
+        return false;
+      })
+
+      // 收起 与 展开
+      $(document).on('click', '.score-item .item-title .collapse', function() {
+        // console.log('')
+        // layer.msg('点击设置下面的高度')
+        let displayStyle = $(this).parent().next().css('display');
+        console.log(displayStyle);
+        // console.log($(this).text())
+        if(displayStyle == 'none') {
+          // $(this).parent().next().css('display', 'flex');
+          $(this).parent().next().show()
+          $(this).find('span').text('点击收起');
+          $(this).find('i').removeClass('layui-icon-down').addClass('layui-icon-up');
+        }
+        if(displayStyle == 'flex') {
+          // $(this).parent().next().css('display', 'none');
+          $(this).parent().next().hide();
+          $(this).find('span').text('点击展开');
+          $(this).find('i').removeClass('layui-icon-up').addClass('layui-icon-down');
+        }
+      })
+
+      // 显示含义
+      $('.score-item .item-list .item-left .show-info').on('click', function() {
+        layer.tips('这里显示一些简单的解释', $(this), {
+          tips: [1, 'grey'],
+          time: 2000
+        })
+      })
+
+      // 申请专家协助
+      $('.score-item .item-list .list-item .item-right').not('.sys').on('click', function() {
+        // layer.msg('申请专家协助');
+        // console.log('已申请专家协助');
+        let text = $(this).find('span').text();
+        console.log(text);
+        if(text == '专家协助') {
+          $(this).find('span').css('background-color', '#b3b3b3');
+          $(this).find('span').text('已申请专家协助');
+          layer.open({
+            type: 1,
+            title: false,
+            closeBtn: 0,
+            content: '已成功请求专家协助',
+            btn: ['知道了', '关闭'],
+            yes: function(index, layero) {
+              // console.log(index, layero);
+              layer.close(index);
+            },
+            btn2: function(index, layero) {
+              // console.log(index, layero);
+              layer.close(index);
+            }
+          })
+        }
+        if(text == '已申请专家协助') {
+          layer.msg('已经申请过了，不能重复申请哦！')
+        }
+      })
+      // 系统自动打分
+      $('.score-item .item-list .list-item .item-right.sys').on('click', function() {
+        layer.msg('系统自动打分')
+      })
+
+      // 点击标题进入详情页
+      $('.score-wrap .score-name').on('click', function() {
+        window.location.href = 'http://localhost:8080/pages/fore/zlzt_list_detail.html?classifyid='+id;
+      })
+
+    })
+  </script>
+</body>
+
+</html>

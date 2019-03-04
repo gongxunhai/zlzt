@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../../layui/css/layui.css">
+</head>
+<body>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <input type="hidden" id="imageurl" >
+	<form class="form-horizontal" onsubmit="return false" id="form">
+		<fieldset>
+			<input type="hidden" id="id" name="id">
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>名称</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='name' type='text' name='name' id='name' data-bv-notempty='true' data-bv-notempty-message='名称不能为空'>
+                </div>
+            </div>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>简介</label>
+                <div class='col-md-10'>
+                    <textarea class='form-control' placeholder='descript' type='text' name='descript' id='descript' data-bv-notempty='true' data-bv-notempty-message='简介不能为空'></textarea>
+                </div>
+            </div>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>价格</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='price' type='text' name='price' id='price' data-bv-notempty='true' data-bv-notempty-message='price 不能为空'>
+                </div>
+            </div>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>服务介绍</label>
+                <div class='col-md-10'>
+                    <textarea class='form-control' placeholder='introduction' type='text' name='introduction' id='introduction' data-bv-notempty='true' data-bv-notempty-message='服务介绍 不能为空'></textarea>
+                </div>
+            </div>
+            <div style="border-bottom: solid 1px #c6d0de">
+                <span >图片上传</span>
+            </div>
+            <div>
+                <button type="button" class="layui-btn" id="test1">
+                    <i class="layui-icon">&#xe67c;</i>上传图片
+                </button>
+                <button type="button" class="layui-btn" id="test2">
+                    上传
+                </button>
+            </div>
+            <div id="showname"></div>
+            <div id="buttondelete"></div>
+			<div class="form-actions">
+				<div class="row" align="center">
+					<div class="col-md-12">
+					    <button class="btn btn-primary" onclick="location.href='kjServiceList.html'">返回</button>
+						<button class="btn btn-primary" type="submit" onclick="update()">
+							<i class="fa fa-save"></i> 保存
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+</div>
+	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../js/jq.js"></script>
+	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript">
+        var pro = window.location.protocol;
+        var host = window.location.host;
+        var domain = pro + "//" + host;
+        var layedit, index;
+
+        layui.use(['layer','laydate','layedit','upload'], function(){
+            var layer = layui.layer;
+            var upload = layui.upload;
+
+            layedit = layui.layedit;
+            layedit.set({
+                uploadImage: {
+                    url: '/files/layui?domain=' + domain+"&token="+localStorage.getItem("token"),
+                    type: 'post'
+                }
+            });
+
+            index = layedit.build('introduction');
+
+            upload.render({
+                elem: '#test1' //绑定元素
+                ,accept: 'images' //允许上传的文件类型
+                ,url: '/files' //上传接口
+                ,auto: false //选择文件后不自动上传
+                ,bindAction: '#test2' //指向一个按钮触发上传
+                ,done: function(res, index, upload){
+                    $("#imageurl").val(res.url);
+                    var a = "<span>上传文件名:"+res.id+"</span>";
+                    $("#showname").html(a);
+                    $("#buttondelete").html('<button onclick="delete1(\''+res.id+'\')">删除</button>');
+                }
+            });
+        });
+
+        function delete1(id) {
+            layer.confirm('确定要删除吗？', {
+                btn: ['确定', '取消']
+            }, function () {
+                $.ajax({
+                    type: 'delete',
+                    url: '/files/' + id,
+                    success: function (data) {
+                        $("#showname").html("");
+                        $("#buttondelete").html("");
+                        layer.msg("删除成功");
+                    }
+                });
+                layer.close(1);
+            });
+        }
+
+
+        initData();
+		
+		function initData(){
+			var id = getUrlParam("id");
+			if(id != ""){
+				$.ajax({
+					type : 'get',
+					url : '/kjServices/'+id,
+					async : false,
+					success : function(data) {
+						$('#id').val(data.id);
+						$('#name').val(data.name);
+						$('#descript').val(data.descript);
+						$('#price').val(data.price);
+						$('#introduction').val(data.introduction);
+						$('#showname').html("<span>上传文件名:"+data.image+"</span>");
+					}
+				});
+			}
+		}
+
+		function update() {
+			$('#form').bootstrapValidator();
+			var bootstrapValidator = $("#form").data('bootstrapValidator');
+			bootstrapValidator.validate();
+		    if(!bootstrapValidator.isValid()){
+			   return;
+		    }
+		    
+		    var formdata = $("#form").serializeObject();
+
+			$.ajax({
+				type : 'put',
+				url : '/kjServices',
+				contentType: "application/json; charset=utf-8",  
+				data : JSON.stringify(formdata),
+				success : function(data) {
+					layer.msg("修改成功", {shift: -1, time: 1000}, function(){
+                        location.href = "kjServiceList.html";
+                    });
+				}
+			});
+		}
+	</script>
+</body>
+</html>

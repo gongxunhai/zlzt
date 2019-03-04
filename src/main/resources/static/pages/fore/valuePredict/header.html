@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/commons.css">
+  <link rel="stylesheet" href="./layui/css/layui.css">
+
+  <script src="./js/jquery.min.js"></script>
+  <script src="./layui/layui.js"></script>
+  
+</head>
+<body>
+  <header>
+    <div class="header">
+      <div class="img-icon">
+        <img src="./imgs/icon.png" alt="">
+        <img src="./imgs/icontext.png" alt="">
+      </div>
+      <div class="title">
+        <div class="img-welcome">
+          <img src="./imgs/welcome.png" alt="">
+        </div>
+        <span>欢迎来到航天专利价值评价系统</span>
+      </div>
+      <div class="user">
+        <div class="user-permission">
+          <span>用户权限：</span>
+          <span>个人用户</span>
+        </div>
+        <div class="user-info">
+          <div class="user-name">用户名</div>
+          <div class="user-img"><i class="layui-icon layui-icon-username"></i></div>
+          <div class="down"><i class="layui-icon layui-icon-down"></i></div>
+        </div>
+        <div class="logout">
+          <span>退出登录</span>
+        </div>
+      </div>
+      <!-- <div class="score" >
+        <div>
+          <i class="layui-icon layui-icon-right"></i>
+        </div>
+        <span>进入评分</span>
+      </div>
+      <div class="login">
+        <div>
+          <i class="layui-icon layui-icon-username"></i>
+        </div>
+        <span>登录</span>
+      </div> -->
+    </div>
+  </header>
+
+  <div id="loginBox" style="display: none;">
+    <form class="layui-form" action="">
+
+      <div class="layui-form-item">
+        <label class="layui-form-label">用户名</label>
+        <div class="layui-input-block">
+          <input type="text" name="username" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">密码</label>
+        <div class="layui-input-block">
+          <input type="password" name="password" required  lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <div class="layui-input-block">
+          <button class="layui-btn" lay-submit lay-filter="formDemo">登录</button>
+          <!-- <button class="layui-btn layui-btn-primary" lay-filter="formCancel">取消</button> -->
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="layui-carousel" id="swiper">
+    <div carousel-item>
+      <div>
+        <img src="./imgs/service1.png" alt="">
+      </div>
+      <div>
+        <img src="./imgs/service2.png" alt="">
+      </div>
+      <div>
+        <img src="./imgs/service3.png" alt="">        
+      </div>
+    </div>
+  </div>
+
+  <!-- <script src="./js/toggleHeader.js"></script> -->
+
+  <script>
+    layui.use(['layer', 'form', 'carousel'], function() {
+      let layer = layui.layer,
+          form = layui.form,
+          carousel = layui.carousel;
+      console.log('切换头部');
+      // 轮播图
+      carousel.render({
+        elem: '#swiper',
+        width: '100%',
+        height: '280px',
+        full: false,
+        arrow: 'hover',
+      })
+      // 进入评分
+      $('.score').on('click', function() {
+        // console.log('先登录再评分');
+        layer.open({
+          type: 1,
+          closeBtn: 0,
+          anim: 1,
+          title: false,
+          content: '请先登录',
+          offset: '60px',
+          btn: ['登录', '取消'],
+          btnAlign: 'c',
+          yes: function(index, layero) {
+            layer.close(index);
+
+            layer.open({
+              type: 1,
+              title: '登录',
+              closeBtn: 1,
+              content: $('#loginBox')
+            })
+            // console.log('显示登录框')
+          },
+          btn2: function() {
+            console.log('取消登录')
+          }
+          
+        })
+      });
+      // 登录
+      $('.login').on('click', function() {
+        console.log('出现登录框');
+      });
+
+      form.on('submit(formDemo)', function(data){
+        layer.msg(JSON.stringify(data.field));
+        return false;
+      });
+
+
+      $('.user .down').on('click', function() {
+        alert('tuichu')
+      })
+
+
+
+
+
+    })
+  </script>
+
+</body>
+</html>

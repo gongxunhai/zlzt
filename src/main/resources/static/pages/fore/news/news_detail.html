@@ -1,0 +1,377 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<title>新闻动态详情</title>
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../fonts/FontAwesome/font-awesome.css" rel="stylesheet">
+	<link href="../fonts/IconFont/iconfont.css" rel="stylesheet">
+	<link href="../css/animate.css" rel="stylesheet">
+	<link href="../css/bootsnav.css" rel="stylesheet">
+    <link href="../css/swiper.min.css" rel="stylesheet">
+	<link href="../css/style.css" rel="stylesheet">
+    <script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootsnav.js"></script>
+    <script src="../js/swiper.min.js"></script>
+    <script src="../js/rem.js"></script>
+    <script src="../js/public.js"></script>
+    <script type="text/javascript" src="../../../js/common.js"></script>
+	<!--[if lt IE 9]>
+	  <script src="../js/html5shiv.min.js"></script>
+	  <script src="../js/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+<nav class="navbar navbar-default bootsnav navbar-fixed-top wow fadeInDown">
+    <div class="wrap">
+        <div class="attr-nav navRig">
+            <ul>
+            	<li class="navTelMob"><a href="tel:010-68376645"><i class="iconfont icon-dianhua"></i></a></li>
+                <li class="navTel"><a href="javascript:;"><i class="iconfont icon-dianhua"></i><strong>010-68376645</strong></a></li>
+                <li class="navSearch"><a href="javascript:;"><i class="iconfont icon-sousuo"></i>搜索</a></li>
+                <li><i class="iconfont icon-guanjiaowangtubiao01"></i><a href="#">登录</a><span>or</span><a href="#">注册</a></li>
+            </ul>
+        </div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand flexBox logo" href="#">
+                <span><img src="../images/logo.png" class="img-responsive"></span>
+            </a>
+        </div>            
+        <div class="collapse navbar-collapse" id="navbar-menu">
+            <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
+                <li><a href="../index.html"><span>首页</span></a></li>
+                <li><a href="../kjsc/kjsc.html"><span>科技商城</span></a></li>
+                <li><a href="../projectRequire/pjRequire.html"><span>项目需求</span></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" ><span>科技资源</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../lawsRegulations/lawsRegulations.html">政策法规</a></li>
+                        <li><a href="../zlzt/zlzt.html">专利专题</a></li>
+                        <li class="dropdown">
+                          <a href="../ztReport/ztReport.html" class="dropdown-toggle" data-toggle="dropdown" >专题报告</a>
+                            <ul class="dropdown-menu">
+                               <li><a href="../ztReport/ztReportList.html">专利态势分析</a></li>
+                                <li><a href="../ztReport/ztReportList.html">政策研究</a></li>
+                               <li><a href="../ztReport/ztReportList.html">行业咨询</a></li>
+                                <li><a href="../ztReport/ztReportList.html">情报研究</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="../gfArea/zlResult.html"><span>高分专区</span></a></li>
+                <li  class="active"><a href="../news/news.html"><span>新闻动态</span></a></li>
+                <li><a href="../kjService/kjService.html"><span>科技服务</span></a></li>
+                <li><a href="../aboutUs.html"><span>关于我们</span></a></li>
+            </ul>
+        </div>        
+    </div>
+</nav>
+<div class="searchBg">
+	<div class="wrap">
+    	<div class="search">
+        	<div class="close"></div>
+            <div class="container">
+            	<div class="searchBox">
+                	<a href="javascript:;" class="searchBtn"><i class="fa fa-search"></i></a>
+                	<input type="text" placeholder="请输入关键字" class="searchInput" >
+                </div>
+				<div class="searchTip">点击回车即可搜索</div>
+            	<ul class="hotSearch list-unstyled list-inline">
+                	<li><a href="#">技术成果</a></li>
+                	<li><a href="#">专家需求</a></li>
+                	<li><a href="#">科研院所资源</a></li>
+                	<li><a href="#">专利成果</a></li>
+                	<li><a href="#">检验测试需求</a></li>
+                	<li><a href="#">检验测试资源</a></li>
+                	<li><a href="#">技术需求</a></li>
+                	<li><a href="#">仪器设备需求</a></li>
+                	<li><a href="#">仪器设备资源</a></li>
+                	<li><a href="#">服务需求</a></li>
+                	<li><a href="#">专家资源</a></li>
+                	<li><a href="#">展厅资源</a></li>
+                	<li><a href="#">服务</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div><!--searchBg-->
+<div class="banInner wow fadeIn">
+	<div class="imgFull"><img src="../images/banNews.jpg" class="img-responsive"></div>
+</div>
+<div class="breadNavBg">
+	<div class="wrap">
+    	<ul class="breadcrumb wow fadeInLeft">
+            <li><i class="iconfont icon-weizhi"></i>当前位置：</li>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">新闻动态</a></li>
+            <li>工作动态</li>
+        </ul>
+    </div>
+</div>
+<div class="mainBg grayBg overHide">
+    <div class="wrap">
+    	<div class="main">
+            <div class="mLef">            	 
+            	<div class="leftGg wow fadeInLeft hidden-xs hidden-sm hidden-md"><a href="#"><img src="../images/recommendAd.jpg" class="img-responsive"></a></div>
+                <div class="fenlei wow fadeInLeft hidden-xs hidden-sm hidden-md">
+                	<div class="siftTop">
+                    	<h2 class="siftTit">相关推荐</h2>
+                        <div class="fenleiH2Btn visible-xs visible-sm visible-md"><i class="fa fa-folder"></i>展开</div>
+                    </div>
+                    <ul class="fenleiList recommendList list-unstyled">
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">燃气低氮燃烧技术</h3>
+                               	<div class="recommendBrief">
+                                	<p>通过改变天然气锅炉燃烧器结构以及精准控制燃料和空气的输送…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">液压折叠宿营车</h3>
+                                <div class="recommendBrief">
+                                	<p>该车共由三个可折叠舱体组成，采用了方舱折叠技术，打破了一车一舱…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">超宽带生命探测雷达</h3>
+                                <div class="recommendBrief">
+                                	<p>该雷达可以通过增加随机信号的相关长度，在不影响距离分辨率的情况下…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">DC-DC模块电源</h3>
+                                <div class="recommendBrief">
+                                	<p>产品采用数字控制准谐振或谐振软开关及同步整流技术，利用DSC控制…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">Mesh+PMP宽带无线通信系统</h3>
+                                <div class="recommendBrief">
+                                	<p>能够在有线网络架设不便，对网络快速部署要求高等特殊场景下发挥…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">雪豹系列排爆机器人</h3>
+                                <div class="recommendBrief">
+                                	<p>红林公司生产的排爆机器人针对国内市场，技术上突破国外垄断…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">雪豹系列排爆机器人</h3>
+                                <div class="recommendBrief">
+                                	<p>红林公司生产的排爆机器人针对国内市场，技术上突破国外垄断…</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="leftMore">
+                    	<a href="#">查看更多<i class="iconfont icon-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mRig">
+                <div class="rigTopBg">
+                	<div class="zyTextTop wow fadeInDown">
+                    	<div class="zyTit" id="pageTitle">
+                            <!--<h1 class="zyTitCn">国家知识产权局首次集中发布专利、商标、地理标志统计数据</h1>
+                            <div class="newsTime">
+                            	<span><strong>来源：</strong>航天科工</span>
+                                <span><strong>发布时间：</strong>2018-07-19</span>
+                                <span><strong>浏览量：</strong>5532</span>
+                            </div>-->
+                        </div>
+                        <ul class="zyTitIco newsShare list-unstyled list-inline bdsharebuttonbox">
+                        	<li><a href="news.html"><i class="iconfont icon-fanhui"></i>返回列表</a></li>
+                        	<li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang"></i>分享</a></li>
+                        </ul>
+                        <script>
+                        	_bd_share_config = { "common": { "bdSign": "off", "bdSize": "24" }, "share": { "bdCustomStyle": "../css/share.css" } }
+with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
+                        </script>
+                    </div>
+                    <div class="newsText wow fadeIn" id="content">
+                    	<!--<p>7月10日，国家知识产权局在京举办2018年第三季度例行新闻发布会。据了解，这是国家知识产权局今年举办的第三场新闻发布会，也是国家知识产权局重新组建后，首次向社会集中发布专利、商标、地理标志的相关统计数据。记者从发布会上获悉，2018年上半年，我国主要知识产权指标实现较快增长，呈现良好发展势头。其中，我国发明专利申请和授权量分别达到75.1万件和21.7万件，商标注册申请量358.6万件，新受理地理标志产品保护申请10个。</p>
+                        <p>此次公布的数据显示，今年上半年，我国发明专利申请量为75.1万件；发明专利授权21.7万件，其中，国内发明专利授权17.1万件。在国内发明专利授权中，职务发明15.9万件，占93.2%；非职务发明1.2万件，占6.8%。截至2018年6月底，我国国内（不含港澳台）发明专利拥有量共计147.5万件，每万人口发明专利拥有量达到10.6件。此外，今年上半年，国家知识产权局共受理通过《专利合作条约》（PCT）途径提交的国际专利申请2.30万件，同比增长6.3%，其中2.16万件来自国内，同比增长7.6%。</p>
+                        <div class="newsPic">
+                        	<div class="col-xs-12 col-sm-6 col-md-4"><img src="../images/newsPic1.jpg" class="img-responsive"></div>
+                        	<div class="col-xs-12 col-sm-6 col-md-4"><img src="../images/newsPic2.jpg" class="img-responsive"></div>
+                        	<div class="col-xs-12 col-sm-6 col-md-4"><img src="../images/newsPic3.jpg" class="img-responsive"></div>
+                        </div>
+                    	<p>2018年上半年，我国商标注册申请量为358.6万件；完成商标审查306.5万件。截至2018年6月底，我国商标累计申请量3142.8万件，累计注册量1939.5万件，有效注册商标量1680.7万件，平均每6.1个市场主体拥有一个有效商标；核准地理标志集体商标、证明商标4395件，其中国外171件。商标注册审查周期从8个月缩短至7个月左右。</p>
+                    	<p>2018年上半年，我国新受理地理标志产品保护申请10个，新批准保护地理标志产品46个，新核准使用地理标志产品专用标志企业135家。截至2018年6月底，累计保护地理标志产品2359个，其中国内2298个，国外61个；累计建设国家地理标志产品保护示范区24个；累计核准专用标志使用企业8091家，相关产值逾1万亿元。</p>
+                    	<p>据介绍，2018年上半年专利、商标、地理标志的相关统计数据主要呈现出4个特点。一是我国知识产权创造运用水平稳中有进。国内发明专利授权量和拥有量分别较上年同期增长6.5%和19.5%，每万人口发明专利拥有量较2017年底提高0.8件；商标注册便利化水平不断提高，商标注册申请量同比增长57.5%。二是国内企业创新主体地位继续巩固。国内发明专利授权量和拥有量中，企业所占比重分别达到63.8%和67.2%；国内企业有效发明专利5年以上维持率达到71.2%。三是我国企业海外知识产权申请数量稳步提升。今年前6个月，提交PCT国际专利申请100件以上的国内企业达到17家；今年前5个月，马德里商标国际注册申请2228件，同比增长80.69%，位列马德里联盟第三位。四是我国知识产权保护环境进一步优化。上半年全国专利行政执法办案总量同比增长29.5%，其中专利纠纷办案同比增长41.0%；查处商标违法案件1.36万件，案值超过2.1亿元。我国进一步塑造了良好的营商环境和创新环境。</p>
+                    	<p>在发布会现场，国家知识产权局有关部门负责人分别就专利质量提升、地理标志产品保护、加强知识产权执法维权、提升知识产权审查质量和审查效率等问题回答了媒体记者的提问。</p>-->
+                    </div>
+                    <div class="page wow fadeInUp">
+                        <ul class="pageList list-unstyled" id="upDownPage">
+                            <!--<li><a class="ellipsis" href="#">上一件：没有了</a></li>
+                            <li><a class="ellipsis" href="#">下一件：利用回收聚酯瓶片生产阻燃涤纶短纤维的方法</a></li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<footer class="footBg">
+    <div class="wrap">
+        <div class="ftTop">
+        	<div class="friendLink wow fadeInLeft">
+            	<h3 class="ftTit">友情链接</h3>
+                <ul class="fdLinkList list-unstyled list-inline">
+                	<li><a href="#">- 航天云网</a></li>
+                	<li><a href="#">- 中国军民融合网</a></li>
+                	<li><a href="#">- 中国航天科工三院</a></li>
+                	<li><a href="#">- 融融网</a></li>
+                	<li><a href="#">- 装备采购网</a></li>
+                	<li><a href="#">- 中国航天科工集团</a></li>
+                	<li><a href="#">- 海鹰资讯</a></li>
+                	<li><a href="#">- 猪八戒网</a></li>
+                </ul>
+            </div>
+            <ul class="ftCon list-unstyled list-inline wow fadeInDown">
+            	<li>
+                    <h3 class="ftTit">科技商城</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 科技产品</a></p>
+                        <p><a href="#">- 科技成果</a></p>
+                        <p><a href="#">- 专利技术</a></p>
+                    </div>
+                </li>
+            	<li>
+                    <h3 class="ftTit">新闻动态</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 工作动态</a></p>
+                        <p><a href="#">- 科技动态</a></p>
+                        <p><a href="#">- 通知公告</a></p>
+                    </div>
+                </li>
+            	<li>
+                    <h3 class="ftTit">科技服务</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 知识产权管理系统</a></p>
+                        <p><a href="#">- 知识产权资源导航</a></p>
+                        <p><a href="#">- 知识产权贯标系统</a></p>
+                        <p><a href="#">- 专利大数据检索</a></p>
+                        <p><a href="#">- 知识产权价值评估系统</a></p>
+                        <p><a href="#">- 知识培训统</a></p>
+                    </div>
+                </li>
+            </ul>
+        	<div class="ftConUs wow fadeInRight">
+            	<h3 class="ftTit">联系我们</h3>
+                <p class="ftAdd"><strong>地址：</strong>北京市丰台区云岗北区西里1号院</p>
+                <p class="ftTel"><strong>电话：</strong>010-68376645</p>
+                <p class="ftEmail"><strong>邮箱：</strong>service@htjsw.com</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="ftBot wow fadeInUp">
+        	<div class="copyRight">
+            	<p>Copyright © 2018中国航天科工集团知识产权中心版权所有 京ICP备13006003号-2  设计支持：<a href="#">谦亨网络</a></p>
+            </div>
+            <div class="ftBotRig">
+            	<ul class="ftBotIco list-unstyled list-inline">
+                	<li>
+                    	<a href="javascript:;"><i class="fa fa-weixin"></i></a>
+                        <div class="ftBotWx">
+                        	<img src="../images/weChat.jpg" class="img-responsive">
+                        </div>
+                    </li>
+                    <li><a href="#"><i class="fa fa-weibo"></i></a></li>
+                </ul>
+            	<ul class="ftBotLink list-unstyled list-inline">
+                	<li><a href="#">关于我们</a></li>
+                	<li><a href="#">发布成果</a></li>
+                	<li><a href="#">发布需求</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</footer>
+<script>
+    var id = getUrlParam("id");
+    var type = getUrlParam("type");
+
+    function addPageView() {
+        $.ajax({
+            type : 'post',
+            url : '/newsInformations/addPageView',
+            data : {
+                "number" : 1,
+                "id" : id
+            },
+            async : false,
+            success : function(data){
+            }
+        })
+    }
+    addPageView();
+    function init() {
+        $.ajax({
+            type: 'post',
+            url: '/newsInformations/getUpDownPage',
+            data :{
+                "id" : id,
+                "type" : type
+            },
+            async : false,
+            success: function (result) {
+                var a = '';
+                var b = '';
+                if (result[0].id !=null){
+                    a = '<li><a class="ellipsis" href="news_detail.html?id='+result[0].id+'&type='+result[0].type+'">上一件：'+result[0].name+'</a></li>\n' ;
+                }else {
+                    a = '<li><a class="ellipsis">上一件：没有了</a></li>\n' ;
+                }
+                if (result[2].id !=null){
+                    b = '<li><a class="ellipsis" href="news_detail.html?id='+result[2].id+'&type='+result[2].type+'">下一件：'+result[2].name+'</a></li>\n' ;
+                }else {
+                    b = '<li><a class="ellipsis">下一件：没有了</a></li>\n' ;
+                }
+                a = a+b;
+                $("#upDownPage").html(a);
+                var data = result[1];
+                $("#pageTitle").html('<h1 class="zyTitCn">' + data.name + '</h1>\n' +
+                    '                            <div class="newsTime">\n' +
+                    '                            \t<span><strong>来源：</strong>' + data.source + '</span>\n' +
+                    '                                <span><strong>发布时间：</strong>' + (new Date(data.createTime)).Format("yyyy-MM-dd") + '</span>\n' +
+                    '                                <span><strong>浏览量：</strong>' + data.pageView + '</span>\n' +
+                    '                            </div>');
+                $("#content").html(data.content);
+            }
+        })
+    }
+
+    init();
+</script>
+</body>
+</html>

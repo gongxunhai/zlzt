@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../layui/css/layui.css">
+</head>
+<body>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<form class="form-horizontal" onsubmit="return false" id="form">
+		<fieldset>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>parentId</label>
+				<div class='col-md-10'>
+					<select class='form-control' placeholder='parentId' type='text' name='parentId' id='parentId' data-bv-notempty='true' data-bv-notempty-message='parentId 不能为空'></select>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>name</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='name' type='text' name='name' id='name' data-bv-notempty='true' data-bv-notempty-message='name 不能为空'>
+				</div>
+			</div>
+			<div class="form-actions">
+				<div class="row" align="center">
+					<div class="col-md-12">
+					    <button class="btn btn-primary" onclick="location.href='lawsRegulationClassifyInfoList.html'">返回</button>
+						<button class="btn btn-primary" type="submit" onclick="add()">
+							<i class="fa fa-save"></i> 保存
+						</button>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</div>
+	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../js/jq.js"></script>
+	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript">
+		layui.use(['layer','laydate'], function(){
+		    var layer = layui.layer;
+		});
+
+        selectClassifyinfo();
+        function selectClassifyinfo() {
+            $.ajax({
+                type : 'get',
+                url : '/lawsRegulationClassifyInfos/getClassify',
+                async : false,
+                success : function(data) {
+                    var select = $("#parentId");
+                    select.append("<option value = '0'>root</option>")
+                    for(var i=0; i<data.length; i++){
+                        var d = data[i];
+                        var id = d['id'];
+                        var name = d['name'];
+                        select.append("<option value='"+ id +"'>" +name+"</option>");
+                    }
+                }
+            });
+        }
+		
+		function add() {
+			$('#form').bootstrapValidator();
+			var bootstrapValidator = $("#form").data('bootstrapValidator');
+			bootstrapValidator.validate();
+		    if(!bootstrapValidator.isValid()){
+			   return;
+		    }
+            var type = $("#parentId").val();
+            (type > 0) ? type=2 : type=1 ;
+		    
+		    var formdata = $("#form").serializeObject();
+            formdata.type = type;
+
+			$.ajax({
+				type : 'post',
+				url : '/lawsRegulationClassifyInfos',
+				contentType: "application/json; charset=utf-8",  
+				data : JSON.stringify(formdata),
+				success : function(data) {
+					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                        location.href = "lawsRegulationClassifyInfoList.html";
+                    });
+				}
+			});
+		}
+		
+	</script>
+</body>
+</html>

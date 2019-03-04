@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.security.server.dao.TblAreaDao">
+
+	<sql id="where">
+		<where>
+			<if test="params.code != null and params.code != ''">
+				and code = #{params.code} 
+			</if>
+			<if test="params.createDate != null and params.createDate != ''">
+				and createDate = #{params.createDate} 
+			</if>
+			<if test="params.customaryId != null and params.customaryId != ''">
+				and customaryId = #{params.customaryId} 
+			</if>
+			<if test="params.id != null and params.id != ''">
+				and id = #{params.id} 
+			</if>
+			<if test="params.level != null and params.level != ''">
+				and level = #{params.level} 
+			</if>
+			<if test="params.name != null and params.name != ''">
+				and name = #{params.name} 
+			</if>
+			<if test="params.parentId != null and params.parentId != ''">
+				and parentId = #{params.parentId} 
+			</if>
+			<if test="params.updateDate != null and params.updateDate != ''">
+				and updateDate = #{params.updateDate} 
+			</if>
+		
+		</where>
+	</sql>
+
+	<select id="count" resultType="int">
+		select count(1) from tbl_area t
+		<include refid="where" />
+	</select>
+
+	<select id="list" resultType="TblArea">
+		select * from tbl_area t
+		<include refid="where" />
+		${params.orderBy}
+		limit #{offset}, #{limit}
+	</select>
+
+	<update id="update">
+		update tbl_area t
+		<set>
+			<if test="code != null">
+				code = #{code}, 
+			</if>
+			<if test="createDate != null">
+				createDate = #{createDate}, 
+			</if>
+			<if test="customaryId != null">
+				customaryId = #{customaryId}, 
+			</if>
+			<if test="level != null">
+				level = #{level}, 
+			</if>
+			<if test="name != null">
+				name = #{name}, 
+			</if>
+			<if test="parentId != null">
+				parentId = #{parentId}, 
+			</if>
+			<if test="updateDate != null">
+				updateDate = #{updateDate}, 
+			</if>
+
+		</set>
+
+		where t.id = #{id}
+	</update>
+
+</mapper>

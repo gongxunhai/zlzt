@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../layui/css/layui.css">
+	<link href="../fore/css/style.css" rel="stylesheet">
+	<link href="../fore/fonts/IconFont/iconfont.css" rel="stylesheet">
+
+	<script src="../fore/js/jquery.js"></script>
+	<script src="../fore/js/bootstrap.min.js"></script>
+	<script src="../fore/js/bootsnav.js"></script>
+	<script src="../fore/js/swiper.min.js"></script>
+	<script src="../fore/js/rem.js"></script>
+	<script src="../fore/js/endPublic.js"></script>
+
+</head>
+<body>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<input type="hidden" id="fileurl" >
+	<form class="form-horizontal" onsubmit="return false" id="form">
+		<fieldset>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>name</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='name' type='text' name='name' id='name' data-bv-notempty='true' data-bv-notempty-message='name 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>type</label>
+				<div class="sxBot" id="listSelect">
+				</div>
+				<div class='col-md-10'>
+				</div>
+			</div>
+
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>company</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='company' type='text' name='company' id='company' data-bv-notempty='true' data-bv-notempty-message='company 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>symbol</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='symbol' type='text' name='symbol' id='symbol' data-bv-notempty='true' data-bv-notempty-message='symbol 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>内容</label>
+				<div class='col-md-10'>
+                    <textarea class='form-control' placeholder='content' type='text' name='content' id='content' data-bv-notempty='true' data-bv-notempty-message='content 不能为空'></textarea>
+				</div>
+			</div>
+			<div style="border-bottom: solid 1px #c6d0de">
+				<span >附件</span>
+			</div>
+			<div>
+				<button type="button" class="layui-btn" id="test1">
+					<i class="layui-icon">&#xe67c;</i>上传文件
+				</button>
+				<button type="button" class="layui-btn" id="test2">
+					上传
+				</button>
+			</div>
+			<div id="showname"></div>
+			<div id="buttondelete"></div>
+			<div class="form-actions">
+				<div class="row" align="center">
+					<div class="col-md-12">
+					    <button class="btn btn-primary" onclick="location.href='lawsRegulationList.html'">返回</button>
+						<button class="btn btn-primary" type="submit" onclick="add()">
+							<i class="fa fa-save"></i> 保存
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+	<input type="hidden" id="type" name="type">
+	<input type="hidden" id="fId" name="fId">
+	<input type="hidden" id="sId" name="sId">
+</div>
+	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../js/jq.js"></script>
+	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript">
+		layui.use(['layer','laydate'], function(){
+		    var layer = layui.layer;
+		});
+
+		//地区分类管理
+        function changeData(obj){
+            var a = "";
+            if (obj == 0) {
+                a = "top";
+                $("#thirdSelect").html('');
+                $("#secondSelect").html('');
+            }else if (obj == 1){
+                a = $("#firstSelect").val();
+                $("#thirdSelect").html('');
+                $("#secondSelect").html('');
+            }else if (obj == 2) {
+                a = $("#secondSelect").val();
+            }
+            $.ajax({
+                type : 'get',
+                url : '/tblAreas/getData?parentId='+a,
+                success : function (result) {
+                    if (result.length > 0) {
+                        var select = '';
+                        if (obj == 0) {
+                            select = $("#firstSelect");
+                        }else if (obj == 1) {
+                            select = $("#secondSelect");
+                        }else if (obj == 2) {
+                            select = $("#thirdSelect");
+                        }
+                        select.append("<option value = ''> </option>");
+                        for(var i =0; i<result.length;i++){
+                            var d = result[i];
+                            var id = d['customaryId'];
+                            var name = d['name'];
+                            select.append("<option value='"+ id +"'>" +name+"</option>");
+                        }
+                    }
+                }
+            })
+        }
+        //1，2级赋值
+
+        function changByJobId(obj,value) {
+            if (obj == '1') {
+                if (value == '4'){
+                    changeData(0);
+                }
+                $("#type").val(1);
+                $("#fId").val(parseInt(value));
+            }else {
+                $("#type").val(2);
+                $("#sId").val(parseInt(value));
+            }
+            // init();
+        }
+		
+		function add() {
+			$('#form').bootstrapValidator();
+			var bootstrapValidator = $("#form").data('bootstrapValidator');
+			bootstrapValidator.validate();
+		    if(!bootstrapValidator.isValid()){
+			   return;
+		    }
+            var fId = $("#fId").val();
+            var sId = $("#sId").val();
+
+            if ($("#fId").val()=='4'){
+                var customaryId = "";
+                var first = $("#firstSelect").val();
+                var second = $("#secondSelect").val();
+                var third = $("#thirdSelect").val();
+                if (first!="") {
+                    if (second != "") {
+                        if (third != "") {
+                            customaryId = third ;
+                        }else {
+                            customaryId = second;
+                        }
+                    }else {
+                        customaryId = first;
+                    }
+                }else {
+                    alert("未填写地区");
+                    return false;
+                }
+                $.ajax({
+					type : 'post',
+					url : '/lawsRegulations/getCodeBycustomaryId',
+                    async : false,
+					data : {
+					    "customaryId" : customaryId
+					},
+					success : function (data) {
+                        sId = data;
+                    }
+				})
+			}
+		    if (fId == ''){
+		        alert("请选择政策类型");
+		        return false;
+			}
+			if (sId == ''){
+			    alert("请选择二级政策类型");
+                return false;
+            }
+
+		    var formdata = $("#form").serializeObject();
+		    formdata.addFile = $("#fileurl").val();
+		    formdata.fId = fId;
+		    formdata.sId = sId;
+
+		    console.log(JSON.stringify(formdata));
+
+			$.ajax({
+				type : 'post',
+				url : '/lawsRegulations',
+				contentType: "application/json; charset=utf-8",  
+				data : JSON.stringify(formdata),
+				success : function(data) {
+					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                        location.href = "lawsRegulationList.html";
+                    });
+				}
+			});
+		}
+
+        layui.use(['upload','layer'], function() {
+            var layer = layui.layer;
+            var upload = layui.upload;
+
+            upload.render({
+                elem: '#test1' //绑定元素
+                ,accept: 'file' //允许上传的文件类型
+                ,url: '/files' //上传接口
+                ,auto: false //选择文件后不自动上传
+                ,bindAction: '#test2' //指向一个按钮触发上传
+                ,done: function(res, index, upload){
+                    $("#fileurl").val(res.url);
+                    var a = "<span>上传文件名:"+res.id+"</span>";
+                    $("#showname").html(a);
+                    $("#buttondelete").html('<button onclick="delete1(\''+res.id+'\')">删除</button>');
+                    alert(JSON.stringify(res));
+                }
+            });
+        });
+
+        function delete1(id) {
+            layer.confirm('确定要删除吗？', {
+                btn: ['确定', '取消']
+            }, function () {
+                $.ajax({
+                    type: 'delete',
+                    url: '/files/' + id,
+                    success: function (data) {
+                        $("#showname").html("");
+                        $("#buttondelete").html("");
+                        layer.msg("删除成功");
+                    }
+                });
+                layer.close(1);
+            });
+        }
+
+        // 获取分类
+        function changeSelect() {
+            $.ajax({
+                type : "post",
+                url : "/lawsRegulationClassifyInfos/changeSelect",
+                async : false,
+                success :function (result) {
+                    // console.log(result);
+                    $("#listSelect").html('');
+                    var len = result.length;
+                    var allData = '';
+                    var str = '<div class="sxBotItem">\n' +
+                        '                                <span class="sxBotTit">政策类型：</span>\n' +
+                        '                                <div class="sxBotCon">\n' +
+                        '                                \t<div class="sxFirst">\n' +
+                        '                                    \t<div class="sxFirCon">\n' ;
+                    var strsChildren = '';
+                    for(var i = 0;i<len;i++) {
+                        var sChildren = result[i].children;
+                        str += '<a href="javascript:changByJobId(\'' + result[i].type + '\',\'' + result[i].id + '\');" data-index="' + (i + 1) + '">' + result[i].name + '</a>'
+                        if (result[i].name == "地方法规与政策") {
+                            strsChildren += '<div class="sxSecond" data-con="' + (i + 1) + '">\n' +
+                                '                                    \t<div class="sxArea">\n' +
+                                '                                            <span class="sxBotTit">地区分类：</span>\n' +
+                                '                                            <div class="sxCenCon">\n' +
+                                '                                                <select onchange="changeData(1)" id="firstSelect">\n' +
+                                '                                                </select>\n' +
+                                '                                                <select onchange="changeData(2)" id="secondSelect">\n' +
+                                '                                                </select>\n' +
+                                '                                                <select onchange="changeData(3)" id="thirdSelect">\n' +
+                                '                                                </select>\n' +
+                                '                                            </div>\n' +
+                                '                                        </div>\n' +
+                                '                                    </div>';
+                        }
+                        if (sChildren != null && sChildren != '') {
+                            strsChildren += ' <div class="sxSecond" data-con="' + (i + 1) + '">';
+                            var sLen = sChildren.length;
+                            for (var m = 0; m < sLen; m++) {
+                                strsChildren += '<a href="javascript:changByJobId(\'' + sChildren[m].type + '\',\'' + sChildren[m].id + '\');">' + sChildren[m].name + '</a>';
+                            }
+                            strsChildren += '</div>';
+                        }
+                    }
+                    str +='</div>\n' +
+                        '                                    </div>';
+                    allData = str+strsChildren +'</div>\n' +
+                        '                                <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>\n' +
+                        '                            </div>';
+                    $("#listSelect").html(allData);
+                }
+            })
+        }
+        changeSelect();
+	</script>
+</body>
+</html>

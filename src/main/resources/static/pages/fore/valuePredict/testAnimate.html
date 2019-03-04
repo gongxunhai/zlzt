@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>animate</title>
+
+  <link rel="stylesheet" href="./css/animate.css">
+
+  <style>
+    .header ul {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      background-color: aqua;
+      color: red;
+    }
+    /* .header ul li {
+      display: inline-block;
+    } */
+ 
+ </style>
+  
+</head>
+<body>
+  <div class="header wow fadeInDown">
+    <ul>
+      <li>首页</li>
+      <li>产品</li>
+      <li>联系我们</li>
+    </ul>
+  </div>
+
+
+  <script src="./js1/wow.min.js"></script>
+  <script>
+    new WOW().init();
+  </script>
+</body>
+</html>

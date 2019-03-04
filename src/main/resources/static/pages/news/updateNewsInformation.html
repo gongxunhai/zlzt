@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../layui/css/layui.css">
+</head>
+<body>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<form class="form-horizontal" onsubmit="return false" id="form">
+		<fieldset>
+			<input type="hidden" id="id" name="id">
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>名称</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='name' type='text' name='name' id='name' data-bv-notempty='true' data-bv-notempty-message='name 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>来源</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='source' type='text' name='source' id='source' data-bv-notempty='true' data-bv-notempty-message='source 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>所属类型</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='type' readonly type='text' name='type' id='type' data-bv-notempty='true' data-bv-notempty-message='type 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>摘要</label>
+				<div class='col-md-10'>
+					<textarea class='form-control' placeholder='type' type='text' name='description' id='description' data-bv-notempty='true' data-bv-notempty-message=' 摘要不能为空'></textarea>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>内容</label>
+				<div class='col-md-10'>
+					<textarea class="layui-textarea" id="demo" style="display: none;">
+					</textarea>
+				</div>
+			</div>
+			<div class="form-actions">
+				<div class="row" align="center">
+					<div class="col-md-12">
+					    <button class="btn btn-primary" onclick="location.href='newsInformationList.html?type='+$('#typeid').val()">返回</button>
+						<button class="btn btn-primary" type="submit" onclick="update()">
+							<i class="fa fa-save"></i> 保存
+						</button>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+	<input type="hidden" id="typeid" name="typeid" readonly>
+</div>
+	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../js/jq.js"></script>
+	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript">
+		layui.use(['layer','laydate'], function(){
+		    var layer = layui.layer;
+		});
+        var pro = window.location.protocol;
+        var host = window.location.host;
+        var domain = pro + "//" + host;
+        //  alert("domain="+domain);
+
+        var layedit, index;
+        layui.use(['layedit','upload'], function(){
+            layedit = layui.layedit;
+            layedit.set({
+                uploadImage: {
+                    url: '/files/layui?domain=' + domain+"&token="+localStorage.getItem("token"),
+                    type: 'post'
+                }
+            });
+            index = layedit.build('demo');
+        });
+
+
+        function selectNewsClassifyInfo(){
+            var id = $('#typeid').val();
+            $.ajax({
+                "type":"get",
+                "url":"/newsClassifyInfos/"+id,
+                async:false,
+                success:function (data) {
+                    $("#type").val(data.name);
+                }
+            })
+        }
+
+		function initData(){
+			var id = getUrlParam("id");
+			if(id != ""){
+				$.ajax({
+					type : 'get',
+					url : '/newsInformations/'+id,
+					async : false,
+					success : function(data) {
+						$('#demo').val(data.content);
+						$('#id').val(data.id);
+						$('#name').val(data.name);
+						$('#source').val(data.source);
+						$('#typeid').val(data.type);
+                        $('#description').val(data.description);
+					}
+				});
+			}
+		}
+        initData();
+        selectNewsClassifyInfo();
+
+		function update() {
+			$('#form').bootstrapValidator();
+			var bootstrapValidator = $("#form").data('bootstrapValidator');
+			bootstrapValidator.validate();
+		    if(!bootstrapValidator.isValid()){
+			   return;
+		    }
+		    
+		    var formdata = $("#form").serializeObject();
+            formdata.type = $("#typeid").val();
+            formdata.content = layedit.getContent(index);
+            console.log(formdata);
+
+			$.ajax({
+				type : 'put',
+				url : '/newsInformations',
+				contentType: "application/json; charset=utf-8",  
+				data : JSON.stringify(formdata),
+				success : function(data) {
+					layer.msg("修改成功", {shift: -1, time: 1000}, function(){
+                        location.href = "newsInformationList.html?type="+$('#typeid').val();
+                    });
+				}
+			});
+		}
+		
+	</script>
+</body>
+</html>

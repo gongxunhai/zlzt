@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../layui/css/layui.css">
+</head>
+<body>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<input type="hidden" id="fileurl" >
+	<form class="form-horizontal" onsubmit="return false" id="form">
+		<fieldset>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>名称</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='name' type='text' name='name' id='name' data-bv-notempty='true' data-bv-notempty-message='name 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>所属行业</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='fId' type='text' name='fId' id='fId' data-bv-notempty='true' data-bv-notempty-message='fId 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>二级行业</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='sId' type='text' name='sId' id='sId' data-bv-notempty='true' data-bv-notempty-message='sId 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>细分领域</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='xfArea' type='text' name='xfArea' id='xfArea' data-bv-notempty='true' data-bv-notempty-message='xfArea 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>合作方式</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='cWays' type='text' name='cWays' id='cWays' data-bv-notempty='true' data-bv-notempty-message='cWays 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>金额</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='cMoney' type='text' name='cMoney' id='cMoney' data-bv-notempty='true' data-bv-notempty-message='cMoney 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>需求描述</label>
+				<div class='col-md-10'>
+					<textarea class='form-control' placeholder='describe' type='text' name='describe' id='describe' data-bv-notempty='true' data-bv-notempty-message='describe 不能为空'></textarea>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>预期目标</label>
+				<div class='col-md-10'>
+					<textarea class='form-control' placeholder='target' type='text' name='target' id='target' data-bv-notempty='true' data-bv-notempty-message='target 不能为空'></textarea>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>区域</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='place' type='text' name='place' id='place' data-bv-notempty='true' data-bv-notempty-message='place 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>截止日期</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='endTime' type='text' name='endTime' id='endTime' data-bv-notempty='true' data-bv-notempty-message='endTime 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>联系单位</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='unit' type='text' name='unit' id='unit' data-bv-notempty='true' data-bv-notempty-message='unit 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>联系人</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='man' type='text' name='man' id='man' data-bv-notempty='true' data-bv-notempty-message='man 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>联系电话</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='phone' type='text' name='phone' id='phone' data-bv-notempty='true' data-bv-notempty-message='phone 不能为空'>
+				</div>
+			</div>
+			<div style="border-bottom: solid 1px #c6d0de">
+				<span >附件</span>
+			</div>
+			<div>
+				<button type="button" class="layui-btn" id="test1">
+					<i class="layui-icon">&#xe67c;</i>上传文件
+				</button>
+				<button type="button" class="layui-btn" id="test2">
+					上传
+				</button>
+			</div>
+			<div id="showname"></div>
+			<div id="buttondelete"></div>
+			<div class="form-actions">
+				<div class="row" align="center">
+					<div class="col-md-12">
+					    <button class="btn btn-primary" onclick="location.href='pjRequireList.html'">返回</button>
+						<button class="btn btn-primary" type="submit" onclick="add()">
+							<i class="fa fa-save"></i> 保存
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+</div>
+	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../js/jq.js"></script>
+	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript">
+		layui.use(['layer','laydate'], function(){
+		    var layer = layui.layer;
+            var laydate = layui.laydate;
+            laydate.render({
+                elem: '#endTime'
+            });
+		});
+		
+		function add() {
+			$('#form').bootstrapValidator();
+			var bootstrapValidator = $("#form").data('bootstrapValidator');
+			bootstrapValidator.validate();
+		    if(!bootstrapValidator.isValid()){
+			   return;
+		    }
+		    
+		    var formdata = $("#form").serializeObject();
+
+			$.ajax({
+				type : 'post',
+				url : '/pjRequires',
+				contentType: "application/json; charset=utf-8",  
+				data : JSON.stringify(formdata),
+				success : function(data) {
+					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                        location.href = "pjRequireList.html";
+                    });
+				}
+			});
+		}
+
+        layui.use(['upload','layer'], function() {
+            var layer = layui.layer;
+            var upload = layui.upload;
+
+            upload.render({
+                elem: '#test1' //绑定元素
+                ,accept: 'file' //允许上传的文件类型
+                ,url: '/files' //上传接口
+                ,auto: false //选择文件后不自动上传
+                ,bindAction: '#test2' //指向一个按钮触发上传
+                ,done: function(res, index, upload){
+                    $("#fileurl").val(res.url);
+                    var a = "<span>上传文件名:"+res.id+"</span>";
+                    $("#showname").html(a);
+                    $("#buttondelete").html('<button onclick="delete1(\''+res.id+'\')">删除</button>');
+                    alert(JSON.stringify(res));
+                }
+            });
+        });
+		
+	</script>
+</body>
+</html>

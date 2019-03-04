@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.security.server.dao.KjProductDao">
+
+	<sql id="where">
+		<where>
+			<if test="params.buyNum != null and params.buyNum != ''">
+				and buyNum = #{params.buyNum} 
+			</if>
+			<if test="params.cMan != null and params.cMan != ''">
+				and cMan = #{params.cMan} 
+			</if>
+			<if test="params.cPhone != null and params.cPhone != ''">
+				and cPhone = #{params.cPhone} 
+			</if>
+			<if test="params.fId != null and params.fId != ''">
+				and fId = #{params.fId} 
+			</if>
+			<if test="params.haveNum != null and params.haveNum != ''">
+				and haveNum = #{params.haveNum} 
+			</if>
+			<if test="params.history != null and params.history != ''">
+				and history = #{params.history} 
+			</if>
+			<if test="params.id != null and params.id != ''">
+				and id = #{params.id} 
+			</if>
+			<if test="params.name != null and params.name != ''">
+				and name = #{params.name} 
+			</if>
+			<if test="params.pData != null and params.pData != ''">
+				and pData = #{params.pData} 
+			</if>
+			<if test="params.pDetail != null and params.pDetail != ''">
+				and pDetail = #{params.pDetail} 
+			</if>
+			<if test="params.pImage != null and params.pImage != ''">
+				and pImage = #{params.pImage} 
+			</if>
+			<if test="params.place != null and params.place != ''">
+				and place = #{params.place} 
+			</if>
+			<if test="params.price != null and params.price != ''">
+				and price = #{params.price} 
+			</if>
+			<if test="params.pubTime != null and params.pubTime != ''">
+				and pubTime = #{params.pubTime} 
+			</if>
+			<if test="params.salePrice != null and params.salePrice != ''">
+				and salePrice = #{params.salePrice} 
+			</if>
+			<if test="params.sId != null and params.sId != ''">
+				and sId = #{params.sId} 
+			</if>
+			<if test="params.talk != null and params.talk != ''">
+				and talk = #{params.talk} 
+			</if>
+			<if test="params.xfArea != null and params.xfArea != ''">
+				and xfArea = #{params.xfArea} 
+			</if>
+		
+		</where>
+	</sql>
+
+	<select id="count" resultType="int">
+		select count(1) from kj_product t
+		<include refid="where" />
+	</select>
+
+	<select id="list" resultType="KjProduct">
+		select * from kj_product t
+		<include refid="where" />
+		<if test="params.orderBy!=null and params.orderBy !=''">
+			${params.orderBy}
+		</if>
+		<if test="limit !=null and limit !=''">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<update id="update">
+		update kj_product t
+		<set>
+			<if test="buyNum != null">
+				buyNum = #{buyNum}, 
+			</if>
+			<if test="cMan != null">
+				cMan = #{cMan}, 
+			</if>
+			<if test="cPhone != null">
+				cPhone = #{cPhone}, 
+			</if>
+			<if test="fId != null">
+				fId = #{fId}, 
+			</if>
+			<if test="haveNum != null">
+				haveNum = #{haveNum}, 
+			</if>
+			<if test="history != null">
+				history = #{history}, 
+			</if>
+			<if test="name != null">
+				name = #{name}, 
+			</if>
+			<if test="pData != null">
+				pData = #{pData}, 
+			</if>
+			<if test="pDetail != null">
+				pDetail = #{pDetail}, 
+			</if>
+			<if test="pImage != null">
+				pImage = #{pImage}, 
+			</if>
+			<if test="place != null">
+				place = #{place}, 
+			</if>
+			<if test="price != null">
+				price = #{price}, 
+			</if>
+			<if test="pubTime != null">
+				pubTime = #{pubTime}, 
+			</if>
+			<if test="salePrice != null">
+				salePrice = #{salePrice}, 
+			</if>
+			<if test="sId != null">
+				sId = #{sId}, 
+			</if>
+			<if test="talk != null">
+				talk = #{talk}, 
+			</if>
+			<if test="xfArea != null">
+				xfArea = #{xfArea}, 
+			</if>
+
+		</set>
+
+		where t.id = #{id}
+	</update>
+
+</mapper>

@@ -1,0 +1,671 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<title>科技商城_科技产品详情</title>
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../fonts/FontAwesome/font-awesome.css" rel="stylesheet">
+	<link href="../fonts/IconFont/iconfont.css" rel="stylesheet">
+	<link href="../css/animate.css" rel="stylesheet">
+	<link href="../css/bootsnav.css" rel="stylesheet">
+    <link href="../css/swiper.min.css" rel="stylesheet">
+    <link href="../treetable/css/jquery.treetable.css" rel="stylesheet" type="text/css" >
+	<link href="../css/style.css" rel="stylesheet">
+    <script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootsnav.js"></script>
+    <script src="../js/swiper.min.js"></script>
+	<script src="../treetable/js/jquery.treetable.js"></script>
+    <script src="../js/rem.js"></script>
+    <script src="../js/public.js"></script>
+    <script type="text/javascript" src="../../../js/common.js"></script>
+	<!--[if lt IE 9]>
+	  <script src="../js/html5shiv.min.js"></script>
+	  <script src="../js/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+
+<nav class="navbar navbar-default bootsnav navbar-fixed-top wow fadeInDown">
+    <div class="wrap">
+        <div class="attr-nav navRig">
+            <ul>
+                <li class="navTelMob"><a href="tel:010-68376645"><i class="iconfont icon-dianhua"></i></a></li>
+                <li class="navTel"><a href="javascript:;"><i class="iconfont icon-dianhua"></i><strong>010-68376645</strong></a></li>
+                <li class="navSearch"><a href="javascript:;"><i class="iconfont icon-sousuo"></i>搜索</a></li>
+                <li><i class="iconfont icon-guanjiaowangtubiao01"></i><a href="#">登录</a><span>or</span><a href="#">注册</a></li>
+            </ul>
+        </div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand flexBox logo" href="#">
+                <span><img src="../images/logo.png" class="img-responsive"></span>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-menu">
+            <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
+                <li><a href="../index.html"><span>首页</span></a></li>
+                <li class="active"><a href="kjsc.html"><span>科技商城</span></a></li>
+                <li><a href="../projectRequire/pjRequire.html"><span>项目需求</span></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" ><span>科技资源</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../lawsRegulations/lawsRegulations.html">政策法规</a></li>
+                        <li><a href="../zlzt/zlzt.html">专利专题</a></li>
+                        <li class="dropdown">
+                          <a href="../ztReport/ztReport.html" class="dropdown-toggle" data-toggle="dropdown" >专题报告</a>
+                            <ul class="dropdown-menu">
+                               <li><a href="../ztReport/ztReportList.html">专利态势分析</a></li>
+                                <li><a href="../ztReport/ztReportList.html">政策研究</a></li>
+                               <li><a href="../ztReport/ztReportList.html">行业咨询</a></li>
+                                <li><a href="../ztReport/ztReportList.html">情报研究</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="../gfArea/zlResult.html"><span>高分专区</span></a></li>
+                <li><a href="../news/news.html"><span>新闻动态</span></a></li>
+                <li><a href="../kjService/kjService.html"><span>科技服务</span></a></li>
+                <li><a href="../aboutUs.html"><span>关于我们</span></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="searchBg">
+    <div class="wrap">
+        <div class="search">
+            <div class="close"></div>
+            <div class="container">
+                <div class="searchBox">
+                    <a href="javascript:;" class="searchBtn"><i class="fa fa-search"></i></a>
+                    <input type="text" placeholder="请输入关键字" class="searchInput" >
+                </div>
+                <div class="searchTip">点击回车即可搜索</div>
+                <ul class="hotSearch list-unstyled list-inline">
+                    <li><a href="#">技术成果</a></li>
+                    <li><a href="#">专家需求</a></li>
+                    <li><a href="#">科研院所资源</a></li>
+                    <li><a href="#">专利成果</a></li>
+                    <li><a href="#">检验测试需求</a></li>
+                    <li><a href="#">检验测试资源</a></li>
+                    <li><a href="#">技术需求</a></li>
+                    <li><a href="#">仪器设备需求</a></li>
+                    <li><a href="#">仪器设备资源</a></li>
+                    <li><a href="#">服务需求</a></li>
+                    <li><a href="#">专家资源</a></li>
+                    <li><a href="#">展厅资源</a></li>
+                    <li><a href="#">服务</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div><!--searchBg-->
+<div class="banInner wow fadeIn">
+    <div class="imgFull"><img src="../images/banMart.jpg" class="img-responsive"></div>
+</div>
+<div class="breadNavBg">
+    <div class="wrap">
+        <ul class="breadcrumb wow fadeInLeft">
+            <li><i class="iconfont icon-weizhi"></i>当前位置：</li>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">科技商城</a></li>
+            <li>科技产品</li>
+        </ul>
+    </div>
+</div>
+<div class="mainBg grayBg overHide">
+    <div class="wrap">
+        <div class="main">
+            <div class="wrap2">
+                <div class="technoTop">
+                    <div class="technoTit wow fadeInDown" id="pageTitle">
+                        <!--<h1 class="zyTitCn">一种高强度可降解多孔结构组织工程支架的制备方法</h1>
+                        <ul class="technoTag list-unstyled list-inline">
+                            <li><span>柔性复合材料</span></li>
+                            <li><span>自主知识产权</span></li>
+                            <li><span>柔性复合材料</span></li>
+                            <li><span>自主知识产权</span></li>
+                            <li><span>柔性复合材料</span></li>
+                            <li><span>自主知识产权</span></li>
+                        </ul>-->
+                    </div>
+                    <div class="technoCen">
+                        <div class="technoImg pull-left wow fadeInLeft">
+                            <div class="technoImgTop">
+                                <div class="swiper-container">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="technoImgMax"><img src="../images/technoImg4.jpg" class="img-responsive"></div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="technoImgMax"><img src="../images/technoImg5.jpg" class="img-responsive"></div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="technoImgMax"><img src="../images/technoImg6.jpg" class="img-responsive"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="technoImgBot">
+                                <div class="swiper-container">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="technoImgMin"><img src="../images/technoImg4.jpg" class="img-responsive"></div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="technoImgMin"><img src="../images/technoImg5.jpg" class="img-responsive"></div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="technoImgMin"><img src="../images/technoImg6.jpg" class="img-responsive"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="technoBtn technoPrev"><i class="iconfont icon-fanhui1"></i></span>
+                                <span class="technoBtn technoNext"><i class="iconfont icon-fanhui1"></i></span>
+                            </div>
+                        </div>
+                        <div class="technoInfor pull-left wow fadeInUp" >
+                            <ul class="technoBrief2 list-unstyled list-inline" id="tableContent">
+                               <!-- <li><p><span>- 所属行业：</span>其它 - 先进制造</p></li>
+                                <li><p><span>- 地点：</span>北京 - 海淀</p></li>-->
+                            </ul>
+                            <div class="technoPrice"><span>价格：<s id="price">1638.00 元</s></span><span>促销价：<big><i id="salePrice">1436.52</i>元</big></span></div>
+                            <div class="technoBrief4">
+                                <div class="technoInforNum">
+                                    <p><i class="iconfont icon-chengjiaojieguo"></i>成交量：<strong class="corRed" id="buyNum">900</strong></p>
+                                    <p><i class="iconfont icon-shengyuminge"></i>剩余量：<strong class="corGreen" id="saleNum">105</strong></p>
+                                </div>
+                                <div class="technoAdd">
+                                    <span class="technoAddBtn">修改&gt;&gt;</span>
+                                    <div class="technoAddCon">
+                                        <p><i class="iconfont icon-zuobiao"></i> 北京 北京市 昌平区 回龙观街道</p>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                            <div class="technoBrief3">
+                                <a href="javascript:;" class="jingjiren" data-toggle="modal" data-target="#myBroker"><i class="iconfont icon-shangcheng1"></i>立即购买</a>
+                                <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox">
+                                    <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>
+                                    <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>
+                                    <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>
+                                </ul>
+                                <script>
+                                    _bd_share_config = { "common": { "bdSign": "off", "bdSize": "24" }, "share": { "bdCustomStyle": "../css/share.css" } }
+                                    with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
+                                </script>
+                            </div>
+                        </div>
+                        <div class="technoConUs pull-right wow fadeInRight">
+                            <div class="technoConUsCon">
+                                <div class="technoConUsIco"><span class="flexBox"><i class="iconfont icon-fuwu1"></i></span></div>
+                                <h3 class="technoConUsTit text-center">联系我们</h3>
+                                <p class="technoCom">联系单位：航天军民融合成果转化基地</p>
+                                <p class="technoPeo">联系人：张甜</p>
+                                <p class="technoTel">电话：010-68376645</p>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <ul class="zyTextTab anchorPoint list-unstyled list-inline row wow fadeInDown">
+                        <li class="active"><a class="javascript:;">产品参数</a></li>
+                        <li><a class="javascript:;">产品详情</a></li>
+                        <li><a class="javascript:;">评论</a></li>
+                        <li><a class="javascript:;">成交记录</a></li>
+                    </ul>
+                    <div class="anchorItem">
+                        <h3 class="zyTextH3">产品参数</h3>
+                        <div class="anchorCon">
+                            <table class="technoTable text-left" width="100%" align="center">
+                                <tbody>
+                                <tr>
+                                    <td width="50%">- 品牌：飞辰</td>
+                                    <td width="50%">- 材质：金属</td>
+                                </tr>
+                                <tr>
+                                    <td>- 容量：201mL(含)-300mL(含)</td>
+                                    <td>- 风格：中式</td>
+                                </tr>
+                                <tr>
+                                    <td>- 产地：中国大陆</td>
+                                    <td>- 颜色分类：咖啡金（220ml） 时尚红（220ml） 宝石蓝（220ml） 博雅黑（220ml）</td>
+                                </tr>
+                                <tr>
+                                    <td>- 价格区间：80元以上</td>
+                                    <td>- 货号: PC-522NEW</td>
+                                </tr>
+                                <tr>
+                                    <td>- 杯子样式: 有盖</td>
+                                    <td>- 适用人群: 大众</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="anchorItem" id="">
+                        <h3 class="zyTextH3">产品详情</h3>
+                        <div class="anchorCon">
+                            <p>本发明实施例提供了一种基础数据的处理方法和装置。该方法主要包括：根据客户的基础数据规划，确定基础数据的各种类别和每种类别对应的具体数据项；采集客户实际的基础数据，将采集的基础数据按照基础数据的各种类别进行分类，将分类后的基础数据填充到基础数据资源库中；根据客户的业务系统对基础数据的特定需求，设计基础数据资源库的数据提取规则，利用数据提取规则从基础数据资源库中提取出基础数据，将提取的基础数据传输给业务系统。本发明实施例可以克服传统基础数据规划方案普遍以文档或报告等非结构化形式存在，不利于实际操作和应用的缺点，为相关人员展示基础数据规划方案真实内容，适用于针对各级基础数据的规划。</p>
+                            <center><img src="../images/proImg.jpg" class="img-responsive"></center>
+                        </div>
+                    </div>
+                    <div class="anchorItem">
+                        <h3 class="zyTextH3">评论（4）</h3>
+                        <div class="anchorCon">
+                            <div class="commentTop">
+                                <div class="comHeadImg"><div class="imgFull"><img src="../images/comHeadImg1.jpg" class="img-responsive"></div></div>
+                                <div class="comRig">
+                                    <textarea placeholder="您对该产品的想法？" rows="4" class="comTextArea"></textarea>
+                                    <div class="comRigBtn"><a href="javascript:;" class="comSubmit"><i class="iconfont icon-fabiao"></i>发表评论</a></div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <ul class="commentBot list-unstyled">
+                                <li>
+                                    <div class="comHeadImg"><div class="imgFull"><img src="../images/comHeadImg2.jpg" class="img-responsive"></div></div>
+                                    <div class="comRig">
+                                        <div class="comRigTop">
+                                            <a href="javascript:;" class="zan pull-right"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a>
+                                            <div class="comRigName pull-left"><strong>不落地的飞鱼</strong><span>• 2 天前</span></div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <div class="comRigCon">
+                                            <p>采取正负刚度并联的结构，获取高静态刚度、低动态刚度的刚度特性，实现超低频、无共振、高衰减的隔振效果。本技术的特点是，基于被动装置，不消耗能源且可靠性高。成功应用于卫星敏感载荷隔振也充分说明其应用于复杂环境的适应性。</p>
+                                        </div>
+                                        <!--<div class="comRigReply">
+                                        	<a href="javascript:;" class="comReplyBtn">回复</a>
+                                            <input class="comInput" placeholder="回复楼主">
+                                        </div>
+                                        <ul>
+                                        	<li>
+                                            	<div class="comHeadImg comHeadImg2"><div class="imgFull"><img src="../images/comHeadImg3.jpg" class="img-responsive"></div></div>
+                                                <div class="comRig">
+                                                    <div class="comRigTop">
+                                                        <div class="comRigName"><strong>独行侠</strong><span>• 9 小时前</span></div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <div class="comRigCon">
+                                                        <p>采取正负刚度并联的结构，获取高静态刚度、低动态刚度的刚度特性，实现超低频、无共振、高衰减的隔振效果。</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>-->
+                                    </div>
+                                    <div class="clear"></div>
+                                </li>
+                                <li>
+                                    <div class="comHeadImg"><div class="imgFull"><img src="../images/comHeadImg4.jpg" class="img-responsive"></div></div>
+                                    <div class="comRig">
+                                        <div class="comRigTop">
+                                            <a href="javascript:;" class="zan pull-right"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a>
+                                            <div class="comRigName pull-left"><strong>不落地的飞鱼</strong><span>• 2 天前</span></div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <div class="comRigCon">
+                                            <p>采取正负刚度并联的结构，获取高静态刚度、低动态刚度的刚度特性，实现超低频、无共振、高衰减的隔振效果。本技术的特点是，基于被动装置，不消耗能源且可靠性高。成功应用于卫星敏感载荷隔振也充分说明其应用于复杂环境的适应性。</p>
+                                        </div>
+                                        <!--<div class="comRigReply">
+                                        	<a href="javascript:;" class="comReplyBtn">回复</a>
+                                            <input class="comInput" placeholder="回复楼主">
+                                        </div>-->
+                                    </div>
+                                    <div class="clear"></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="anchorItem">
+                        <h3 class="zyTextH3">成交记录</h3>
+                        <div class="anchorCon">
+                            <table class="technoTable RecordTable text-center" width="100%" align="center">
+                                <tbody>
+                                <tr>
+                                    <th>买家</th>
+                                    <th>服务方式</th>
+                                    <th>成交时间</th>
+                                </tr>
+                                <tr>
+                                    <td>小惠helen</td>
+                                    <td>普通</td>
+                                    <td>2018-12-20</td>
+                                </tr>
+                                <tr>
+                                    <td>考拉KALAB</td>
+                                    <td>加急</td>
+                                    <td>2018-12-20</td>
+                                </tr>
+                                <tr>
+                                    <td>小红黄蓝绿恐龙</td>
+                                    <td>普通</td>
+                                    <td>2018-12-20</td>
+                                </tr>
+                                <tr>
+                                    <td>两乔岩</td>
+                                    <td>加急</td>
+                                    <td>2018-12-20</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="technoBot">
+                    <div class="sxTop">
+                        <div class="sxTopTit">
+                            <i class="iconfont icon-liuchengguanli"></i>
+                            <span>交易流程</span>
+                        </div>
+                    </div>
+                    <ul class="trading list-unstyled list-inline">
+                        <li class="wow fadeInLeft">
+                            <div class="tradTop">
+                                <div class="tradingCir flexBox">
+                                    <div class="tradingCirCon">
+                                        <p>step</p>
+                                        <p>01</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tradBrief">
+                                <p>选定所需专利，点击申请交易</p>
+                            </div>
+                        </li>
+                        <li class="wow fadeInLeft">
+                            <div class="tradTop">
+                                <div class="tradingCir flexBox">
+                                    <div class="tradingCirCon">
+                                        <p>step</p>
+                                        <p>02</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tradBrief">
+                                <p>平台联系卖家，确认是否可交易及交易价格</p>
+                            </div>
+                        </li>
+                        <li class="wow fadeInLeft">
+                            <div class="tradTop">
+                                <div class="tradingCir flexBox">
+                                    <div class="tradingCirCon">
+                                        <p>step</p>
+                                        <p>03</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tradBrief">
+                                <p>平台联系双方线下并且签约，买方支付首笔款项至平台</p>
+                            </div>
+                        </li>
+                        <li class="wow fadeInLeft">
+                            <div class="tradTop">
+                                <div class="tradingCir flexBox">
+                                    <div class="tradingCirCon">
+                                        <p>step</p>
+                                        <p>04</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tradBrief">
+                                <p>平台将双方签字的相关材料递交国家知识产权局办理国家转让手续</p>
+                            </div>
+                        </li>
+                        <li class="wow fadeInLeft">
+                            <div class="tradTop">
+                                <div class="tradingCir flexBox">
+                                    <div class="tradingCirCon">
+                                        <p>step</p>
+                                        <p>05</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tradBrief">
+                                <p>平台将转让证明（电子件）给买家，买方支付尾款</p>
+                            </div>
+                        </li>
+                        <li class="wow fadeInLeft">
+                            <div class="tradTop">
+                                <div class="tradingCir flexBox">
+                                    <div class="tradingCirCon">
+                                        <p>step</p>
+                                        <p>06</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tradBrief">
+                                <p>平台将专利相关文件（纸质件）邮寄给买家，交易完成</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="technoBot">
+                    <div class="sxTop">
+                        <div class="sxTopTit">
+                            <i class="iconfont icon-tuijian"></i>
+                            <span>专利推荐</span>
+                        </div>
+                    </div>
+                    <ul class="hotProject list-unstyled list-inline">
+                        <li class="wow fadeInUp">
+                            <div class="box1Con">
+                                <a class="box1Link" href="#">
+                                    <div class="box1Img">
+                                        <img src="../images/box1Img4.jpg" class="img-responsive">
+                                        <div class="box1Mask"></div>
+                                        <div class="box1Ico">
+                                            <i class="iconfont icon-chakan"></i>
+                                            <span>了解详细信息</span>
+                                        </div>
+                                    </div>
+                                    <div class="box1Text">
+                                        <h3 class="box1Tit ellipsis">金属导体管件的电磁感应加热胀形装置</h3>
+                                        <div class="box1Infor">
+                                            <span class="b1Sp1">行业：先进制造</span>
+                                            <i class="b1Line">|</i>
+                                            <span class="b1Sp2">更新：2018-07-19</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="box1Bot">
+                                    <div class="upcollect pull-left">
+                                        <a href="javascript:;" class="up">点赞(35)</a>
+                                        <a href="javascript:;" class="collect">关注(64)</a>
+                                    </div>
+                                    <span class="box1Tag pull-right">自营</span>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="wow fadeInUp">
+                            <div class="box1Con">
+                                <a class="box1Link" href="#">
+                                    <div class="box1Img">
+                                        <img src="../images/box1Img5.jpg" class="img-responsive">
+                                        <div class="box1Mask"></div>
+                                        <div class="box1Ico">
+                                            <i class="iconfont icon-chakan"></i>
+                                            <span>了解详细信息</span>
+                                        </div>
+                                    </div>
+                                    <div class="box1Text">
+                                        <h3 class="box1Tit ellipsis">金属导体管件的电磁感应加热胀形装置</h3>
+                                        <div class="box1Infor">
+                                            <span class="b1Sp1">行业：先进制造</span>
+                                            <i class="b1Line">|</i>
+                                            <span class="b1Sp2">更新：2018-07-19</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="box1Bot">
+                                    <div class="upcollect pull-left">
+                                        <a href="javascript:;" class="up">点赞(35)</a>
+                                        <a href="javascript:;" class="collect">关注(64)</a>
+                                    </div>
+                                    <span class="box1Tag pull-right">自营</span>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="wow fadeInUp">
+                            <div class="box1Con">
+                                <a class="box1Link" href="#">
+                                    <div class="box1Img">
+                                        <img src="../images/box1Img6.jpg" class="img-responsive">
+                                        <div class="box1Mask"></div>
+                                        <div class="box1Ico">
+                                            <i class="iconfont icon-chakan"></i>
+                                            <span>了解详细信息</span>
+                                        </div>
+                                    </div>
+                                    <div class="box1Text">
+                                        <h3 class="box1Tit ellipsis">金属导体管件的电磁感应加热胀形装置</h3>
+                                        <div class="box1Infor">
+                                            <span class="b1Sp1">行业：先进制造</span>
+                                            <i class="b1Line">|</i>
+                                            <span class="b1Sp2">更新：2018-07-19</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="box1Bot">
+                                    <div class="upcollect pull-left">
+                                        <a href="javascript:;" class="up">点赞(35)</a>
+                                        <a href="javascript:;" class="collect">关注(64)</a>
+                                    </div>
+                                    <span class="box1Tag pull-right">自营</span>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="footBg">
+    <div class="wrap">
+        <div class="ftTop">
+            <div class="friendLink wow fadeInLeft">
+                <h3 class="ftTit">友情链接</h3>
+                <ul class="fdLinkList list-unstyled list-inline">
+                    <li><a href="#">- 航天云网</a></li>
+                    <li><a href="#">- 中国军民融合网</a></li>
+                    <li><a href="#">- 中国航天科工三院</a></li>
+                    <li><a href="#">- 融融网</a></li>
+                    <li><a href="#">- 装备采购网</a></li>
+                    <li><a href="#">- 中国航天科工集团</a></li>
+                    <li><a href="#">- 海鹰资讯</a></li>
+                    <li><a href="#">- 猪八戒网</a></li>
+                </ul>
+            </div>
+            <ul class="ftCon list-unstyled list-inline wow fadeInDown">
+                <li>
+                    <h3 class="ftTit">科技商城</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 科技产品</a></p>
+                        <p><a href="#">- 科技成果</a></p>
+                        <p><a href="#">- 专利技术</a></p>
+                    </div>
+                </li>
+                <li>
+                    <h3 class="ftTit">新闻动态</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 工作动态</a></p>
+                        <p><a href="#">- 科技动态</a></p>
+                        <p><a href="#">- 通知公告</a></p>
+                    </div>
+                </li>
+                <li>
+                    <h3 class="ftTit">科技服务</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 知识产权管理系统</a></p>
+                        <p><a href="#">- 知识产权资源导航</a></p>
+                        <p><a href="#">- 知识产权贯标系统</a></p>
+                        <p><a href="#">- 专利大数据检索</a></p>
+                        <p><a href="#">- 知识产权价值评估系统</a></p>
+                        <p><a href="#">- 知识培训统</a></p>
+                    </div>
+                </li>
+            </ul>
+            <div class="ftConUs wow fadeInRight">
+                <h3 class="ftTit">联系我们</h3>
+                <p class="ftAdd"><strong>地址：</strong>北京市丰台区云岗北区西里1号院</p>
+                <p class="ftTel"><strong>电话：</strong>010-68376645</p>
+                <p class="ftEmail"><strong>邮箱：</strong>service@htjsw.com</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="ftBot wow fadeInUp">
+            <div class="copyRight">
+                <p>Copyright © 2018中国航天科工集团知识产权中心版权所有 京ICP备13006003号-2  设计支持：<a href="#">谦亨网络</a></p>
+            </div>
+            <div class="ftBotRig">
+                <ul class="ftBotIco list-unstyled list-inline">
+                    <li>
+                        <a href="javascript:;"><i class="fa fa-weixin"></i></a>
+                        <div class="ftBotWx">
+                            <img src="../images/weChat.jpg" class="img-responsive">
+                        </div>
+                    </li>
+                    <li><a href="#"><i class="fa fa-weibo"></i></a></li>
+                </ul>
+                <ul class="ftBotLink list-unstyled list-inline">
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">发布成果</a></li>
+                    <li><a href="#">发布需求</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</footer>
+<div class="LayBg"></div>
+<div class="LayBox">
+    <span class="LayClose"></span>
+    <h4 class="LayTit">专利附图</h4>
+    <div class="LaySlider">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+            </div>
+        </div>
+        <span class="LayPrev"><i class="iconfont icon-jiantou5"></i></span>
+        <span class="LayNext"><i class="iconfont icon-jiantou5"></i></span>
+    </div>
+</div>
+<script>
+    var id = getUrlParam("id");
+    $.ajax({
+        type: 'get',
+        url: '/kjProducts/' + id,
+        success: function (data) {
+            console.log(data);
+            var xfArea = data.xfArea;
+            var pageTitle ='<h1 class="zyTitCn">'+data.name+'</h1>\n' +
+                '<ul class="technoTag list-unstyled list-inline">';
+            if (xfArea != null) {
+                if (xfArea.indexOf("；")) {
+                    var xf = xfArea.split("；");
+                    for (var j in xf) {
+                        pageTitle  += '<li><span>'+xf[j]+'</span></li>';
+                    }
+                }else {
+                    pageTitle += '<li><span>'+xfArea+'</span></li>';
+                }
+            }
+            pageTitle += '</ul>';
+            $("#pageTitle").html(pageTitle);
+            $("#tableContent").html('<li><p><span>- 所属行业：</span>'+data.fIdName+' - '+data.sIdName+'</p></li>\n' +
+                '            <li><p><span>- 地点：</span>'+data.place+'</p></li>');
+            $("#price").html(data.price);
+            $("#salePrice").html(data.salePrice);
+            $("#buyNum").html(data.buyNum);
+            $("#saleNum").html(data.haveNum);
+        }
+    })
+</script>
+</body>
+</html>

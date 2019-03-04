@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.security.server.dao.KjServiceDao">
+
+	<sql id="where">
+		<where>
+			<if test="params.id != null and params.id != ''">
+				and id = #{params.id} 
+			</if>
+			<if test="params.descript != null and params.descript != ''">
+				and descript = #{params.descript} 
+			</if>
+			<if test="params.type != null and params.type != ''">
+				and type = #{params.type} 
+			</if>
+			<if test="params.serviceWay != null and params.serviceWay != ''">
+				and serviceWay = #{params.serviceWay} 
+			</if>
+			<if test="params.price != null and params.price != ''">
+				and price = #{params.price} 
+			</if>
+			<if test="params.Introduction != null and params.Introduction != ''">
+				and Introduction = #{params.Introduction} 
+			</if>
+			<if test="params.flow != null and params.flow != ''">
+				and flow = #{params.flow} 
+			</if>
+			<if test="params.record != null and params.record != ''">
+				and record = #{params.record} 
+			</if>
+			<if test="params.commentId != null and params.commentId != ''">
+				and commentId = #{params.commentId} 
+			</if>
+		
+		</where>
+	</sql>
+
+	<select id="count" resultType="int">
+		select count(1) from kj_service t
+		<include refid="where" />
+	</select>
+
+	<select id="list" resultType="KjService">
+		select * from kj_service t
+		<include refid="where" />
+		<if test="params.orderBy!=null and params.orderBy !=''">
+			${params.orderBy}
+		</if>
+		<if test="limit!=null and limit !=''">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<update id="update">
+		update kj_service t
+		<set>
+			<if test="descript != null">
+				descript = #{descript}, 
+			</if>
+			<if test="type != null">
+				type = #{type}, 
+			</if>
+			<if test="serviceWay != null">
+				serviceWay = #{serviceWay}, 
+			</if>
+			<if test="price != null">
+				price = #{price}, 
+			</if>
+			<if test="Introduction != null">
+				Introduction = #{Introduction}, 
+			</if>
+			<if test="flow != null">
+				flow = #{flow}, 
+			</if>
+			<if test="record != null">
+				record = #{record}, 
+			</if>
+			<if test="commentId != null">
+				commentId = #{commentId}, 
+			</if>
+
+		</set>
+
+		where t.id = #{id}
+	</update>
+
+</mapper>

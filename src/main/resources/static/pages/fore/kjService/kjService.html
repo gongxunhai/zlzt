@@ -1,0 +1,536 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<title>科技服务</title>
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../fonts/FontAwesome/font-awesome.css" rel="stylesheet">
+	<link href="../fonts/IconFont/iconfont.css" rel="stylesheet">
+	<link href="../css/animate.css" rel="stylesheet">
+	<link href="../css/bootsnav.css" rel="stylesheet">
+    <link href="../css/swiper.min.css" rel="stylesheet">
+    <link href="../treetable/css/jquery.treetable.css" rel="stylesheet" type="text/css" >
+	<link href="../css/style.css" rel="stylesheet">
+    <script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootsnav.js"></script>
+    <script src="../js/swiper.min.js"></script>
+	<script src="../treetable/js/jquery.treetable.js"></script>
+    <script src="../js/rem.js"></script>
+    <script src="../js/public.js"></script>
+	<!--[if lt IE 9]>
+	  <script src="../js/html5shiv.min.js"></script>
+	  <script src="../js/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+<nav class="navbar navbar-default bootsnav navbar-fixed-top wow fadeInDown">
+    <div class="wrap">
+        <div class="attr-nav navRig">
+            <ul>
+            	<li class="navTelMob"><a href="tel:010-68376645"><i class="iconfont icon-dianhua"></i></a></li>
+                <li class="navTel"><a href="javascript:;"><i class="iconfont icon-dianhua"></i><strong>010-68376645</strong></a></li>
+                <li class="navSearch"><a href="javascript:;"><i class="iconfont icon-sousuo"></i>搜索</a></li>
+                <li><i class="iconfont icon-guanjiaowangtubiao01"></i><a href="#">登录</a><span>or</span><a href="#">注册</a></li>
+            </ul>
+        </div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand flexBox logo" href="#">
+                <span><img src="../images/logo.png" class="img-responsive"></span>
+            </a>
+        </div>            
+        <div class="collapse navbar-collapse" id="navbar-menu">
+            <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
+                <li><a href="../index.html"><span>首页</span></a></li>
+                <li><a href="../kjsc/kjsc.html"><span>科技商城</span></a></li>
+                <li><a href="../projectRequire/pjRequire.html"><span>项目需求</span></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" ><span>科技资源</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../lawsRegulations/lawsRegulations.html">政策法规</a></li>
+                        <li><a href="../zlzt/zlzt.html">专利专题</a></li>
+                        <li class="dropdown">
+                            <a href="../ztReport/ztReport.html" class="dropdown-toggle" data-toggle="dropdown" >专题报告</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../ztReport/ztReportList.html">专利态势分析</a></li>
+                                <li><a href="../ztReport/ztReportList.html">政策研究</a></li>
+                                <li><a href="../ztReport/ztReportList.html">行业咨询</a></li>
+                                <li><a href="../ztReport/ztReportList.html">情报研究</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="../gfArea/zlResult.html"><span>高分专区</span></a></li>
+                <li><a href="../news/news.html"><span>新闻动态</span></a></li>
+                <li class="dropdown" class="active">
+                    <a href="kjService.html" class="dropdown-toggle" data-toggle="dropdown" ><span>科技服务</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="kjServiceList.html">知识产权服务</a></li>
+                        <li><a href="kjService.html">科技服务</a></li>
+                    </ul>
+                </li>
+                <li><a href="../aboutUs.html"><span>关于我们</span></a></li>
+            </ul>
+        </div>        
+    </div>
+</nav>
+<div class="searchBg">
+	<div class="wrap">
+    	<div class="search">
+        	<div class="close"></div>
+            <div class="container">
+            	<div class="searchBox">
+                	<a href="javascript:;" class="searchBtn"><i class="fa fa-search"></i></a>
+                	<input type="text" placeholder="请输入关键字" class="searchInput" >
+                </div>
+				<div class="searchTip">点击回车即可搜索</div>
+            	<ul class="hotSearch list-unstyled list-inline">
+                	<li><a href="#">技术成果</a></li>
+                	<li><a href="#">专家需求</a></li>
+                	<li><a href="#">科研院所资源</a></li>
+                	<li><a href="#">专利成果</a></li>
+                	<li><a href="#">检验测试需求</a></li>
+                	<li><a href="#">检验测试资源</a></li>
+                	<li><a href="#">技术需求</a></li>
+                	<li><a href="#">仪器设备需求</a></li>
+                	<li><a href="#">仪器设备资源</a></li>
+                	<li><a href="#">服务需求</a></li>
+                	<li><a href="#">专家资源</a></li>
+                	<li><a href="#">展厅资源</a></li>
+                	<li><a href="#">服务</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div><!--searchBg-->
+<div class="banInner wow fadeIn">
+	<div class="imgFull"><img src="../images/banService.jpg" class="img-responsive"></div>
+</div>
+<div class="breadNavBg">
+	<div class="wrap">
+    	<ul class="breadcrumb wow fadeInLeft">
+            <li><i class="iconfont icon-weizhi"></i>当前位置：</li>
+            <li><a href="#">首页</a></li>
+            <li>科技服务</li>
+        </ul>
+    </div>
+</div>
+<div class="mainBg grayBg overHide">
+    <div class="wrap">
+    	<div class="main">
+           	<div class="wrap2">
+            	<div class="technoTop">
+                	<div class="boxTit text-center wow fadeInDown">
+                        <h3 class="boxTitEn text-uppercase">Intellectual Property Services</h3>
+                        <h2 class="boxTitCn">知识产权服务</h2>
+                    </div>
+                    <div class="boxBrief wow fadeInUp text-center">
+                    	<p>中国航天科工集团知识产权研究中心隶属于中国航天科工集团有限公司，拥有航天军民融合成果转化基地、国家知识产权战略实施研究基地、国家知识产权分析评议示范机构、北京（中关村）国家知识产权局专利局审查员实践基地、北京市企业知识产权教育基地等重要资质。</p>
+                    </div>
+                    <div class="serBox">
+                        <ul class="serList list-unstyled list-inline wow fadeInUp" id="content">
+                            <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <a class="serLink" href="kjServiceDetail.html">
+                                    <div class="serIco"><i class="iconfont icon-zhuanliguanli"></i></div>
+                                    <h3 class="serTit ellipsis">专利代理</h3>
+                                    <div class="serBrief">
+                                        <p>提供国防专利、发明专利、实用新型专利、外观设计专利申请的全流程的代理服务。</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <a class="serLink" href="kjServiceDetail.html">
+                                    <div class="serIco"><i class="iconfont icon-zhuzuoquan"></i></div>
+                                    <h3 class="serTit ellipsis">著作权登记</h3>
+                                    <div class="serBrief">
+                                        <p>为用户提供各类著作权登记全过程服务。</p>
+                                        <p>收费标准：1000元/件以上。</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <a class="serLink" href="kjServiceDetail.html">
+                                    <div class="serIco"><i class="iconfont icon-shangbiaozhuce"></i></div>
+                                    <h3 class="serTit ellipsis">商标注册代理</h3>
+                                    <div class="serBrief">
+                                        <p>为用户提供商标注册代理全过程服务。</p>
+                                        <p>收费标准：1200元/件以上。</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <a class="serLink" href="kjServiceDetail.html">
+                                    <div class="serIco"><i class="iconfont icon-rongyuqiang"></i></div>
+                                    <h3 class="serTit ellipsis">专利资助办理</h3>
+                                    <div class="serBrief">
+                                        <p>为企业提供当地政府专利资助申请服务。</p>
+                                        <p>收费标准：200元/件/次。</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <a class="serLink" href="kjServiceDetail.html">
+                                    <div class="serIco"><i class="iconfont icon-zhishichanquanguanli"></i></div>
+                                    <h3 class="serTit ellipsis">知识产权托管</h3>
+                                    <div class="serBrief">
+                                        <p>代理用户管理知识产权，包括知识产权的费用管理、统计分析、转让许可等级等服务。</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <a class="serLink" href="kjServiceDetail.html">
+                                    <div class="serIco"><i class="iconfont icon-shujukubiao-"></i></div>
+                                    <h3 class="serTit ellipsis">专题专利数据库建设</h3>
+                                    <div class="serBrief">
+                                        <p>订制开发个性化专利数据库，挖掘出企业关注的专利技术，集聚成数据库…</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <a class="serLink" href="kjServiceDetail.html">
+                                    <div class="serIco"><i class="iconfont icon-shujujiansuo"></i></div>
+                                    <h3 class="serTit ellipsis">专利大数据检索平台</h3>
+                                    <div class="serBrief">
+                                        <p>为用户提供专利大数据检索工具。收费标准为：30000元/账号/年。</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <a class="serLink" href="kjServiceDetail.html">
+                                    <div class="serIco"><i class="iconfont icon-zaixianxuexi"></i></div>
+                                    <h3 class="serTit ellipsis">知识产权在线学习系统</h3>
+                                    <div class="serBrief">
+                                        <p>为用户提供知识产权在线学习课程。收费标准：10000元/账号/年。</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <a class="serLink" href="kjServiceDetail.html">
+                                    <div class="serIco"><i class="iconfont icon-guwen"></i></div>
+                                    <h3 class="serTit ellipsis">企业知识产权顾问</h3>
+                                    <div class="serBrief">
+                                        <p>依托专家资源，通过知识产权专家顾问形式为用户提供知识产权咨询服务。</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <a class="serLink" href="kjServiceDetail.html">
+                                    <div class="serIco"><i class="iconfont icon-zixun1"></i></div>
+                                    <h3 class="serTit ellipsis">知识产权贯标咨询</h3>
+                                    <div class="serBrief">
+                                        <p>为每家企业配备一名专业知识产权专家为用户贯标工作各个阶段提供咨询服务。</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <a class="serLink" href="kjServiceDetail.html">
+                                    <div class="serIco"><i class="iconfont icon-zhiliangyujingfenxi"></i></div>
+                                    <h3 class="serTit ellipsis">专利预警分析</h3>
+                                    <div class="serBrief">
+                                        <p>对某一技术领域的专利进行技术动态、业界领先者、科研机构、核心专利等…</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <a class="serLink" href="kjServiceDetail.html">
+                                    <div class="serIco"><i class="iconfont icon-fenxipinggu"></i></div>
+                                    <h3 class="serTit ellipsis">竞争对手跟踪分析</h3>
+                                    <div class="serBrief">
+                                        <p>定期跟踪竞争对手最新专利申请、专利法律状态变化、专利交易等动态…</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="serMore wow fadeInUp"><a class="serBtn" href="javascript:;"><span>查看更多知识产权服务</span><i class="iconfont icon-jiantou-you-copy"></i></a></div>
+                </div>
+                <div class="technoTop">
+                	<div class="boxTit text-center wow fadeInDown">
+                        <h3 class="boxTitEn text-uppercase">Product Service</h3>
+                        <h2 class="boxTitCn">产品服务</h2>
+                    </div>
+                    <div class="boxBrief wow fadeInUp text-center">
+                    	<p>以“立足航天、服务国防、面向社会”为宗旨，是军民融合领域专业化的研究咨询机构，拥有专职专业研究人员30余人，重点开展知识产权代理、知识产权分析评议、知识产权项目研究和知识产权推广转化等工作，致力于知识产权工作与国家重大经济科技活动紧密融合，提高大型企业的知识产权竞争力，为我国国家知识产权战略有效的推进提供强有力的决策支撑和政策研究。</p>
+                    </div>
+                    <ul class="serList2 list-unstyled list-inline">
+                    	<li class="col-xs-12 col-sm-6 col-md-6 col-lg-4 wow fadeInUp">
+                        	<a class="serLink2" href="javascript:;">
+                            	<div class="serImg">
+                                	<div class="imgFull"><img src="../images/serImg1.jpg" class="img-responsive"></div>
+                                	<div class="serHovBg"></div>
+                                    <div class="serHov">
+                                    	<i class="iconfont icon-chakan"></i>
+                                    	<span>查看更多信息</span>
+                                    </div>
+                                </div>
+                                <div class="serText">
+                                	<div class="serIco2"><i class="iconfont icon-chilun"></i></div>
+                                    <div class="serRig">
+                                    	<h3 class="serTit ellipsis">知识产权管理系统</h3>
+                                        <div class="serBrief2">
+                                        	<p>我平台多次受到国家知识产权局、装备发展部、国防科工局、集团公司等单位的表彰。为我国国家知识产权战略有效的推进提供强有力的支撑服务。</p>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </a>
+                        </li>
+                    	<li class="col-xs-12 col-sm-6 col-md-6 col-lg-4 wow fadeInUp">
+                        	<a class="serLink2" href="javascript:;">
+                            	<div class="serImg">
+                                	<div class="imgFull"><img src="../images/serImg2.jpg" class="img-responsive"></div>
+                                	<div class="serHovBg"></div>
+                                    <div class="serHov">
+                                    	<i class="iconfont icon-chakan"></i>
+                                    	<span>查看更多信息</span>
+                                    </div>
+                                </div>
+                                <div class="serText">
+                                	<div class="serIco2"><i class="iconfont icon-zhiliang"></i></div>
+                                    <div class="serRig">
+                                    	<h3 class="serTit ellipsis">知识产权贯标系统</h3>
+                                        <div class="serBrief2">
+                                        	<p>我平台多次受到国家知识产权局、装备发展部、国防科工局、集团公司等单位的表彰。为我国国家知识产权战略有效的推进提供强有力的支撑服务。</p>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </a>
+                        </li>
+                    	<li class="col-xs-12 col-sm-6 col-md-6 col-lg-4 wow fadeInUp">
+                        	<a class="serLink2" href="javascript:;">
+                            	<div class="serImg">
+                                	<div class="imgFull"><img src="../images/serImg3.jpg" class="img-responsive"></div>
+                                	<div class="serHovBg"></div>
+                                    <div class="serHov">
+                                    	<i class="iconfont icon-chakan"></i>
+                                    	<span>查看更多信息</span>
+                                    </div>
+                                </div>
+                                <div class="serText">
+                                	<div class="serIco2"><i class="iconfont icon-jiazhipinggu-"></i></div>
+                                    <div class="serRig">
+                                    	<h3 class="serTit ellipsis">知识产权价值评估系统</h3>
+                                        <div class="serBrief2">
+                                        	<p>我平台多次受到国家知识产权局、装备发展部、国防科工局、集团公司等单位的表彰。为我国国家知识产权战略有效的推进提供强有力的支撑服务。</p>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </a>
+                        </li>
+                    	<li class="col-xs-12 col-sm-6 col-md-6 col-lg-4 wow fadeInUp">
+                        	<a class="serLink2" href="kjServiceList.html">
+                            	<div class="serImg">
+                                	<div class="imgFull"><img src="../images/serImg4.jpg" class="img-responsive"></div>
+                                	<div class="serHovBg"></div>
+                                    <div class="serHov">
+                                    	<i class="iconfont icon-chakan"></i>
+                                    	<span>查看更多信息</span>
+                                    </div>
+                                </div>
+                                <div class="serText">
+                                	<div class="serIco2"><i class="iconfont icon-wendang"></i></div>
+                                    <div class="serRig">
+                                    	<h3 class="serTit ellipsis">知识产权资源导航</h3>
+                                        <div class="serBrief2">
+                                        	<p>我平台多次受到国家知识产权局、装备发展部、国防科工局、集团公司等单位的表彰。为我国国家知识产权战略有效的推进提供强有力的支撑服务。</p>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </a>
+                        </li>
+                    	<li class="col-xs-12 col-sm-6 col-md-6 col-lg-4 wow fadeInUp">
+                        	<a class="serLink2" href="javascript:;">
+                            	<div class="serImg">
+                                	<div class="imgFull"><img src="../images/serImg5.jpg" class="img-responsive"></div>
+                                	<div class="serHovBg"></div>
+                                    <div class="serHov">
+                                    	<i class="iconfont icon-chakan"></i>
+                                    	<span>查看更多信息</span>
+                                    </div>
+                                </div>
+                                <div class="serText">
+                                	<div class="serIco2"><i class="iconfont icon-dashuju"></i></div>
+                                    <div class="serRig">
+                                    	<h3 class="serTit ellipsis">专利大数据检索</h3>
+                                        <div class="serBrief2">
+                                        	<p>我平台多次受到国家知识产权局、装备发展部、国防科工局、集团公司等单位的表彰。为我国国家知识产权战略有效的推进提供强有力的支撑服务。</p>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </a>
+                        </li>
+                    	<li class="col-xs-12 col-sm-6 col-md-6 col-lg-4 wow fadeInUp">
+                        	<a class="serLink2" href="javascript:;">
+                            	<div class="serImg">
+                                	<div class="imgFull"><img src="../images/serImg6.jpg" class="img-responsive"></div>
+                                	<div class="serHovBg"></div>
+                                    <div class="serHov">
+                                    	<i class="iconfont icon-chakan"></i>
+                                    	<span>查看更多信息</span>
+                                    </div>
+                                </div>
+                                <div class="serText">
+                                	<div class="serIco2"><i class="iconfont icon-zhuanlizhengshu"></i></div>
+                                    <div class="serRig">
+                                    	<h3 class="serTit ellipsis">知识产权</h3>
+                                        <div class="serBrief2">
+                                        	<p>我平台多次受到国家知识产权局、装备发展部、国防科工局、集团公司等单位的表彰。为我国国家知识产权战略有效的推进提供强有力的支撑服务。</p>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="footBg">
+    <div class="wrap">
+        <div class="ftTop">
+        	<div class="friendLink wow fadeInLeft">
+            	<h3 class="ftTit">友情链接</h3>
+                <ul class="fdLinkList list-unstyled list-inline">
+                	<li><a href="#">- 航天云网</a></li>
+                	<li><a href="#">- 中国军民融合网</a></li>
+                	<li><a href="#">- 中国航天科工三院</a></li>
+                	<li><a href="#">- 融融网</a></li>
+                	<li><a href="#">- 装备采购网</a></li>
+                	<li><a href="#">- 中国航天科工集团</a></li>
+                	<li><a href="#">- 海鹰资讯</a></li>
+                	<li><a href="#">- 猪八戒网</a></li>
+                </ul>
+            </div>
+            <ul class="ftCon list-unstyled list-inline wow fadeInDown">
+            	<li>
+                    <h3 class="ftTit">科技商城</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 科技产品</a></p>
+                        <p><a href="#">- 科技成果</a></p>
+                        <p><a href="#">- 专利技术</a></p>
+                    </div>
+                </li>
+            	<li>
+                    <h3 class="ftTit">新闻动态</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 工作动态</a></p>
+                        <p><a href="#">- 科技动态</a></p>
+                        <p><a href="#">- 通知公告</a></p>
+                    </div>
+                </li>
+            	<li>
+                    <h3 class="ftTit">科技服务</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 知识产权管理系统</a></p>
+                        <p><a href="#">- 知识产权资源导航</a></p>
+                        <p><a href="#">- 知识产权贯标系统</a></p>
+                        <p><a href="#">- 专利大数据检索</a></p>
+                        <p><a href="#">- 知识产权价值评估系统</a></p>
+                        <p><a href="#">- 知识培训统</a></p>
+                    </div>
+                </li>
+            </ul>
+        	<div class="ftConUs wow fadeInRight">
+            	<h3 class="ftTit">联系我们</h3>
+                <p class="ftAdd"><strong>地址：</strong>北京市丰台区云岗北区西里1号院</p>
+                <p class="ftTel"><strong>电话：</strong>010-68376645</p>
+                <p class="ftEmail"><strong>邮箱：</strong>service@htjsw.com</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="ftBot wow fadeInUp">
+        	<div class="copyRight">
+            	<p>Copyright © 2018中国航天科工集团知识产权中心版权所有 京ICP备13006003号-2  设计支持：<a href="#">谦亨网络</a></p>
+            </div>
+            <div class="ftBotRig">
+            	<ul class="ftBotIco list-unstyled list-inline">
+                	<li>
+                    	<a href="javascript:;"><i class="fa fa-weixin"></i></a>
+                        <div class="ftBotWx">
+                        	<img src="../images/weChat.jpg" class="img-responsive">
+                        </div>
+                    </li>
+                    <li><a href="#"><i class="fa fa-weibo"></i></a></li>
+                </ul>
+            	<ul class="ftBotLink list-unstyled list-inline">
+                	<li><a href="#">关于我们</a></li>
+                	<li><a href="#">发布成果</a></li>
+                	<li><a href="#">发布需求</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</footer>
+<div id="myBroker" class="modal fade">
+    <div class="LaySearch LayBroker">
+        <span class="LaySearchClose" data-dismiss="modal"></span>
+        <h3 class="LaySearchTit">委托经纪人</h3>
+        <ul class="LaySearchList list-unstyled row">
+            <li class="col-xs-12">
+                <div class="LaySearchRig">
+                    <input type="text" class="LaySearchInput" placeholder="联系人">
+                </div>
+            </li>
+            <li class="col-xs-12">
+                <div class="LaySearchRig">
+                    <input type="text" class="LaySearchInput" placeholder="联系方式">
+                </div>
+            </li>
+            <li class="col-xs-12">
+                <div class="LaySearchRig">
+                    <textarea class="LaySearchInput" rows="3" placeholder="详细要求"></textarea>
+                </div>
+            </li>
+            <li class="col-xs-12">
+                <div class="LaySearchBtn">
+                    <a href="javascript:;" class="LaySearchBtn1">提交</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<script>
+	$(".zyItem").eq(0).show().addClass('fadeInUp animated').siblings().hide();
+	$(".zyTextTab li").click(function(){
+		$(this).addClass("active").siblings().removeClass("active");	
+		$(".zyTextCon .zyItem").eq($(this).index()).show().addClass('fadeInUp animated').siblings().hide();
+	})
+	$(".zyItemPicCon").click(function(){
+		var LayHtml = $(this).parents(".zyItemPic").html();	
+		var clickNum = $(this).parent().index();
+		$(".LaySlider .swiper-container .swiper-wrapper").html(LayHtml);
+		var LaySlider = new Swiper('.LaySlider .swiper-container', {
+			loop:true,
+			prevButton: '.LayPrev',
+			nextButton: '.LayNext',
+			spaceBetween: 30,
+			resizeReInit:true,
+			observer:true,
+			observeParents:true,		
+			autoHeight: true
+		});
+		$(".LayBg").fadeIn();
+		$(".LayBox").fadeIn();
+		LaySlider.slideTo(clickNum+1, 1000, false);
+	})
+	$(".LayClose").click(function(){
+		$(".LayBg").fadeOut();
+		$(".LayBox").fadeOut();
+		LaySlider.destroy(false);			
+	})
+</script>
+</body>
+</html>

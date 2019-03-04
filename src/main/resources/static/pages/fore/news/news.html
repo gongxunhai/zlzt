@@ -1,0 +1,2031 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<title>新闻动态</title>
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../fonts/FontAwesome/font-awesome.css" rel="stylesheet">
+	<link href="../fonts/IconFont/iconfont.css" rel="stylesheet">
+	<link href="../css/animate.css" rel="stylesheet">
+	<link href="../css/bootsnav.css" rel="stylesheet">
+    <link href="../css/swiper.min.css" rel="stylesheet">
+    <link href="../treetable/css/jquery.treetable.css" rel="stylesheet" type="text/css" >
+	<link href="../css/style.css" rel="stylesheet">
+    <script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootsnav.js"></script>
+    <script src="../js/swiper.min.js"></script>
+	<script src="../treetable/js/jquery.treetable.js"></script>
+    <script src="../js/rem.js"></script>
+    <script src="../js/public.js"></script>
+    <script type="text/javascript" src="../../../js/common.js"></script>
+	<!--[if lt IE 9]>
+	  <script src="../js/html5shiv.min.js"></script>
+	  <script src="../js/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+<nav class="navbar navbar-default bootsnav navbar-fixed-top wow fadeInDown">
+    <div class="wrap">
+        <div class="attr-nav navRig">
+            <ul>
+            	<li class="navTelMob"><a href="tel:010-68376645"><i class="iconfont icon-dianhua"></i></a></li>
+                <li class="navTel"><a href="javascript:;"><i class="iconfont icon-dianhua"></i><strong>010-68376645</strong></a></li>
+                <li class="navSearch"><a href="javascript:;"><i class="iconfont icon-sousuo"></i>搜索</a></li>
+                <li><i class="iconfont icon-guanjiaowangtubiao01"></i><a href="#">登录</a><span>or</span><a href="#">注册</a></li>
+            </ul>
+        </div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand flexBox logo" href="#">
+                <span><img src="../images/logo.png" class="img-responsive"></span>
+            </a>
+        </div>            
+        <div class="collapse navbar-collapse" id="navbar-menu">
+            <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
+                <li><a href="../index.html"><span>首页</span></a></li>
+                <li><a href="../kjsc/kjsc.html"><span>科技商城</span></a></li>
+                <li><a href="../projectRequire/pjRequire.html"><span>项目需求</span></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" ><span>科技资源</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../lawsRegulations/lawsRegulations.html">政策法规</a></li>
+                        <li><a href="../zlzt/zlzt.html">专利专题</a></li>
+                        <li class="dropdown">
+                          <a href="../ztReport/ztReport.html" class="dropdown-toggle" data-toggle="dropdown" >专题报告</a>
+                            <ul class="dropdown-menu">
+                               <li><a href="../ztReport/ztReportList.html">专利态势分析</a></li>
+                                <li><a href="../ztReport/ztReportList.html">政策研究</a></li>
+                               <li><a href="../ztReport/ztReportList.html">行业咨询</a></li>
+                                <li><a href="../ztReport/ztReportList.html">情报研究</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="../gfArea/zlResult.html"><span>高分专区</span></a></li>
+                <li class="active"><a href="news.html"><span>新闻动态</span></a></li>
+                <li><a href="../kjService/kjService.html"><span>科技服务</span></a></li>
+                <li><a href="../aboutUs.html"><span>关于我们</span></a></li>
+            </ul>
+        </div>        
+    </div>
+</nav>
+<div class="searchBg">
+	<div class="wrap">
+    	<div class="search">
+        	<div class="close"></div>
+            <div class="container">
+            	<div class="searchBox">
+                	<a href="javascript:;" class="searchBtn"><i class="fa fa-search"></i></a>
+                	<input type="text" placeholder="请输入关键字" class="searchInput" >
+                </div>
+				<div class="searchTip">点击回车即可搜索</div>
+            	<ul class="hotSearch list-unstyled list-inline">
+                	<li><a href="#">技术成果</a></li>
+                	<li><a href="#">专家需求</a></li>
+                	<li><a href="#">科研院所资源</a></li>
+                	<li><a href="#">专利成果</a></li>
+                	<li><a href="#">检验测试需求</a></li>
+                	<li><a href="#">检验测试资源</a></li>
+                	<li><a href="#">技术需求</a></li>
+                	<li><a href="#">仪器设备需求</a></li>
+                	<li><a href="#">仪器设备资源</a></li>
+                	<li><a href="#">服务需求</a></li>
+                	<li><a href="#">专家资源</a></li>
+                	<li><a href="#">展厅资源</a></li>
+                	<li><a href="#">服务</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div><!--searchBg-->
+<div class="banInner wow fadeIn">
+	<div class="imgFull"><img src="../images/banNews.jpg" class="img-responsive"></div>
+</div>
+<div class="breadNavBg">
+	<div class="wrap">
+    	<ul class="breadcrumb wow fadeInLeft">
+            <li><i class="iconfont icon-weizhi"></i>当前位置：</li>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">新闻动态</a></li>
+            <li id="nowPlace">工作动态</li>
+        </ul>
+    </div>
+</div>
+<div class="mainBg grayBg overHide">
+    <div class="wrap">
+    	<div class="main">
+            <div class="mLef"> 
+            	<div class="fenlei wow fadeInLeft">            	
+                    <div class="fenleiTop">
+                        <div class="fenleiTit">
+                        	<a class="fenleiTitLink" href="javascript:;">
+                                <h2 class="fenleiTitCn">新闻动态</h2>
+                                <span class="fenleiTitEn">News Information</span>
+                            </a>
+                        </div>
+                        <div class="fenleiH2Btn visible-xs visible-sm visible-md"><i class="fa fa-folder"></i>展开</div>
+                    </div>
+                    <div class="fenleiList">
+                    	<table class="leftMenu">
+                        	<tbody>
+                                <tr data-tt-id="1" class="leftTr1">
+                                    <td class="leftLi1"><i><a href="javascript:changeData(1);">工作动态</a></i></td>
+                                </tr>
+                                <tr data-tt-id="2" class="leftTr1">
+                                    <td class="leftLi1"><i><a href="javascript:changeData(2);">科技动态</a></i></td>
+                                </tr>
+                                <tr data-tt-id="3" class="leftTr1">
+                                    <td class="leftLi1"><i><a href="javascript:changeData(3);">通知公告</a></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> 
+            	<div class="leftGg wow fadeInLeft hidden-xs hidden-sm hidden-md"><a href="#"><img src="../images/recommendAd.jpg" class="img-responsive"></a></div>
+                <div class="fenlei wow fadeInLeft hidden-xs hidden-sm hidden-md">
+                	<div class="siftTop">
+                    	<h2 class="siftTit">通知公告</h2>
+                        <div class="fenleiH2Btn visible-xs visible-sm visible-md"><i class="fa fa-folder"></i>展开</div>
+                    </div>
+                    <ul class="fenleiList recommendList list-unstyled">
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">关于开展第三批知识产权保护规范化市场认定工作的通知</h3>
+                                <div class="recommendTime">2018-10-25</div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">关于通过“优先权文件数字接入服务（DAS 2.0）”进行中韩…</h3>
+                                <div class="recommendTime">2018-10-12</div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">TRIZ发明创新方法讲座在海南师范大学举办</h3>
+                                <div class="recommendTime">2018-09-30</div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">中国（济南）知识产权维权援助中心召开专利侵权纠纷案件疑难…</h3>
+                                <div class="recommendTime">2018-08-22</div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">北京市副市长会见世界知识产权组织副总干事</h3>
+                                <div class="recommendTime">2018-08-16</div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="leftMore">
+                    	<a href="#">查看更多<i class="iconfont icon-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mRig">
+                <div class="rigTopBg">
+                	<div class="rigSearch rigSearch2 wow fadeInDown">
+                    	<span class="rigSearchTit" id="nowStatus">工作动态：</span>
+                        <div class="rigSearchRig">
+                        	<div class="rigSearchLef">
+                                <a href="javascript:;" class="iconfont icon-sousuo1 rigSearchIco"></a>
+                                <input type="text" class="rigSearchInput" style="outline: none;" id="searchByInput" placeholder="搜索关键字">
+                            </div>
+                            <a class="rigSearchBtn rigSearchBtn1"  href="javascript:searchByInput();">搜索</a>
+						</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="zyTabTop wow fadeInUp">
+                    	<h3 class="zyTabTit">工作动态</h3>
+                        <ul class="zyOrderBy list-unstyled list-inline">
+                        	<li><span>搜索到相关结果：<strong class="corOrg" id="searchNum">75</strong>个</span></li>
+                            <li><span class="active">人气<i class="iconfont icon-jiantouxia"></i></span></li>
+                            <li><span>时间<i class="iconfont icon-jiantouxia"></i></span></li>
+                            <li><span>收藏榜<i class="iconfont icon-jiantouxia"></i></span></li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>                	  
+                    <table id="newsList" class="table wow fadeInUp" width="100%">
+                    	<thead>
+                        	<tr>
+                            	<th></th>
+                            	<th></th>
+                            	<th></th>
+                            </tr>
+						</thead>
+                        <tbody>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg1.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg2.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg3.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg4.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg5.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg6.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg4.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg5.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg6.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg1.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg2.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg3.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg1.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg2.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg3.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg4.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg5.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg6.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg4.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg5.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg6.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg1.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg2.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg3.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg1.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg2.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg3.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg4.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg5.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg6.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg4.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg5.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg6.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg1.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg2.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg3.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg1.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg2.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg3.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg4.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg5.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg6.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg4.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg5.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg6.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg1.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg2.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg3.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg1.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg2.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg3.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg4.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg5.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg6.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg4.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg5.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg6.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg1.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg2.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg3.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg1.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg2.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg3.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg4.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg5.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg6.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg4.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg5.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg6.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg1.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg2.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg3.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg1.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg2.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg3.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg4.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg5.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg6.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg4.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg5.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg6.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg1.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg2.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg3.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg1.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg2.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg3.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg4.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg5.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg6.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg4.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg5.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg6.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg1.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg2.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg3.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg1.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg2.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg3.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg4.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg5.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg6.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg4.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg5.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg6.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg1.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg2.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg3.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg1.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg2.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg3.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg4.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg5.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg6.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg4.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg5.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg6.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg1.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg2.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>                                    
+                                    <a class="box3Wrap" href="#">
+                                        <div class="box3Img newsImg"><img src="../images/newsImg3.jpg" class="img-responsive"></div>
+                                        <div class="box3Name">
+                                            <h3>科学家赋予石墨烯“磁性金”的特性</h3>
+                                            <p class="box3Time">2018-09-19</p>
+                                        </div>
+                                        <div class="box3Brief">
+                                            <p>石墨烯自身的自旋轨道耦合可忽略不计，而黄金的自旋轨道耦合则非常强。黄金和石墨烯的相互作用使后者自旋轨道耦合增强。使广东成为我国知识产权对外合作的重要窗口，更好地支撑国家对外开放。</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>                  
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="search" name="type">
+<footer class="footBg">
+    <div class="wrap">
+        <div class="ftTop">
+        	<div class="friendLink wow fadeInLeft">
+            	<h3 class="ftTit">友情链接</h3>
+                <ul class="fdLinkList list-unstyled list-inline">
+                	<li><a href="#">- 航天云网</a></li>
+                	<li><a href="#">- 中国军民融合网</a></li>
+                	<li><a href="#">- 中国航天科工三院</a></li>
+                	<li><a href="#">- 融融网</a></li>
+                	<li><a href="#">- 装备采购网</a></li>
+                	<li><a href="#">- 中国航天科工集团</a></li>
+                	<li><a href="#">- 海鹰资讯</a></li>
+                	<li><a href="#">- 猪八戒网</a></li>
+                </ul>
+            </div>
+            <ul class="ftCon list-unstyled list-inline wow fadeInDown">
+            	<li>
+                    <h3 class="ftTit">科技商城</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 科技产品</a></p>
+                        <p><a href="#">- 科技成果</a></p>
+                        <p><a href="#">- 专利技术</a></p>
+                    </div>
+                </li>
+            	<li>
+                    <h3 class="ftTit">新闻动态</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 工作动态</a></p>
+                        <p><a href="#">- 科技动态</a></p>
+                        <p><a href="#">- 通知公告</a></p>
+                    </div>
+                </li>
+            	<li>
+                    <h3 class="ftTit">科技服务</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 知识产权管理系统</a></p>
+                        <p><a href="#">- 知识产权资源导航</a></p>
+                        <p><a href="#">- 知识产权贯标系统</a></p>
+                        <p><a href="#">- 专利大数据检索</a></p>
+                        <p><a href="#">- 知识产权价值评估系统</a></p>
+                        <p><a href="#">- 知识培训统</a></p>
+                    </div>
+                </li>
+            </ul>
+        	<div class="ftConUs wow fadeInRight">
+            	<h3 class="ftTit">联系我们</h3>
+                <p class="ftAdd"><strong>地址：</strong>北京市丰台区云岗北区西里1号院</p>
+                <p class="ftTel"><strong>电话：</strong>010-68376645</p>
+                <p class="ftEmail"><strong>邮箱：</strong>service@htjsw.com</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="ftBot wow fadeInUp">
+        	<div class="copyRight">
+            	<p>Copyright © 2018中国航天科工集团知识产权中心版权所有 京ICP备13006003号-2  设计支持：<a href="#">谦亨网络</a></p>
+            </div>
+            <div class="ftBotRig">
+            	<ul class="ftBotIco list-unstyled list-inline">
+                	<li>
+                    	<a href="javascript:;"><i class="fa fa-weixin"></i></a>
+                        <div class="ftBotWx">
+                        	<img src="../images/weChat.jpg" class="img-responsive">
+                        </div>
+                    </li>
+                    <li><a href="#"><i class="fa fa-weibo"></i></a></li>
+                </ul>
+            	<ul class="ftBotLink list-unstyled list-inline">
+                	<li><a href="#">关于我们</a></li>
+                	<li><a href="#">发布成果</a></li>
+                	<li><a href="#">发布需求</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</footer>
+<link rel="stylesheet" type="text/css" media="screen" href="../datatables/dataTables.bootstrap.min.css">
+<script type="text/javascript" src="../datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../datatables/dataTables.bootstrap.min.js"></script>
+<script>
+    var id = getUrlParam("id");
+    var pro = window.location.protocol;
+    var host = window.location.host;
+    var domain = pro + "//" + host;
+    var orderBy = 'order by id desc';
+
+    $(document).find(".zyOrderBy li:not(:first-child)").on("click", "span", function(){
+        $(this).addClass("active").parent().siblings().find("span").removeClass("active");
+        // alert($(this).text());
+        switch ($(this).text()) {
+            case "人气" : orderBy = 'order by id ';break;
+            case "时间" : orderBy = 'order by createTime DESC';break;
+            case "收藏榜" : orderBy = 'order by id DESC';break;
+        }
+        init();
+    });
+
+    var dataSet = [];
+    var type = 1;
+    function init() {
+        $.ajax({
+            type: "get",
+            url: "/newsInformations",
+            async: false,
+            data: {
+                "searchByInput" : $("#search").val(),
+                "type" : type,
+                "orderBy" : orderBy
+            },
+            success : function (result) {
+                $('#newsList').dataTable().fnClearTable();
+                dataSet = [];
+                //总条数
+                var length = result.data.length;
+                var data = result.data;
+                $("#searchNum").text(length);
+                var a = 0;
+                var b = 0;
+                if (length >= 3) {
+                    a = Math.floor(length / 3);
+                    b = length % 3;
+                } else {
+                    b = length % 3;
+                }
+                for (var i = 0; i < a; i++) {
+                    var datachildren = [];
+                    datachildren.push('<td>                                    \n' +
+                        '                                    <a class="box3Wrap" href="news_detail.html?id='+data[i*3].id+'&type='+data[i*3].type+'">\n' +
+                        '                                        <div class="box3Img newsImg"><img src="'+domain+'/statics'+data[i*3].image+'" class="img-responsive"></div>\n' +
+                        '                                        <div class="box3Name">\n' +
+                        '                                            <h3>' + data[i * 3].name + '</h3>\n' +
+                        '                                            <p class="box3Time">' + (new Date(data[i * 3].createTime)).Format("yyyy-MM-dd") + '</p>\n' +
+                        '                                        </div>\n' +
+                        '                                        <div class="box3Brief">\n' +
+                        '                                            <p>' + data[i * 3].description + '</p>\n' +
+                        '                                        </div>\n' +
+                        '                                    </a>\n' +
+                        '                                </td>');
+                    datachildren.push('<td>                                    \n' +
+                        '                                    <a class="box3Wrap" href="news_detail.html?id='+data[i*3+1].id+'&type='+data[i*3+1].type+'">\n' +
+                        '                                        <div class="box3Img newsImg"><img src="'+domain+'/statics'+data[i*3+1].image+'" class="img-responsive"></div>\n' +
+                        '                                        <div class="box3Name">\n' +
+                        '                                            <h3>' + data[i * 3+1].name + '</h3>\n' +
+                        '                                            <p class="box3Time">' + (new Date(data[i * 3+1].createTime)).Format("yyyy-MM-dd") + '</p>\n' +
+                        '                                        </div>\n' +
+                        '                                        <div class="box3Brief">\n' +
+                        '                                            <p>' + data[i * 3+1].description + '</p>\n' +
+                        '                                        </div>\n' +
+                        '                                    </a>\n' +
+                        '                                </td>');
+                    datachildren.push('<td>                                    \n' +
+                        '                                    <a class="box3Wrap" href="news_detail.html?id='+data[i*3+2].id+'&type='+data[i*3+2].type+'">\n' +
+                        '                                        <div class="box3Img newsImg"><img src="'+domain+'/statics'+data[i*3+2].image+'" class="img-responsive"></div>\n' +
+                        '                                        <div class="box3Name">\n' +
+                        '                                            <h3>' + data[i * 3+2].name + '</h3>\n' +
+                        '                                            <p class="box3Time">' + (new Date(data[i * 3+2].createTime)).Format("yyyy-MM-dd") + '</p>\n' +
+                        '                                        </div>\n' +
+                        '                                        <div class="box3Brief">\n' +
+                        '                                            <p>' + data[i * 3+2].description + '</p>\n' +
+                        '                                        </div>\n' +
+                        '                                    </a>\n' +
+                        '                                </td>');
+                    dataSet.push(datachildren);
+                }
+                var datachildren = [];
+                if (b > 0) {
+                    for (var j = 0; j < b; j++) {
+                        datachildren.push('<td>                                    \n' +
+                            '                                    <a class="box3Wrap" href="news_detail.html?id='+data[a*3+j].id+'&type='+data[a*3+j].type+'">\n' +
+                            '                                        <div class="box3Img newsImg"><img src="'+domain+'/statics'+data[i*3+j].image+'" class="img-responsive"></div>\n' +
+                            '                                        <div class="box3Name">\n' +
+                            '                                            <h3>' + data[a*3+j].name + '</h3>\n' +
+                            '                                            <p class="box3Time">' + (new Date(data[a*3+j].createTime)).Format("yyyy-MM-dd") + '</p>\n' +
+                            '                                        </div>\n' +
+                            '                                        <div class="box3Brief">\n' +
+                            '                                            <p>'+ data[a*3+j].description +'</p>\n' +
+                            '                                        </div>\n' +
+                            '                                    </a>\n' +
+                            '                                </td>');
+                    }
+                    if (b == 1) {
+                        datachildren.push('<td></td>');
+                        datachildren.push('<td></td>');
+                    } else if (b == 2) {
+                        datachildren.push('<td></td>');
+                    }
+                    dataSet.push(datachildren);
+                }
+                if (dataSet.length > 0) {
+                    $('#newsList').dataTable().fnAddData(dataSet);
+                    $('#newsList').dataTable().fnDraw(false);
+                }
+            }
+        })
+    }
+
+    function changeData(obj) {
+        type = obj;
+        if( id == 1){
+            $("#nowPlace").html('工作动态');
+            $("#nowStatus").text('工作动态：');
+        }else if ( id == 2){
+            $("#nowPlace").html('科技动态');
+            $("#nowStatus").text('科技动态：');
+        }else if ( id == 3){
+            $("#nowPlace").html('通知公告');
+            $("#nowStatus").text('通知公告：');
+        }
+        init();
+    }
+
+    function searchByInput() {
+        $("#search").val($("#searchByInput").val());
+        $('#newsList').dataTable().fnClearTable();
+        init();
+        $('#newsList').dataTable().fnAddData(dataSet);
+        $('#newsList').dataTable().fnDraw(false);
+    }
+
+	var table = $('#newsList').DataTable({
+		"searching": false,
+		"ordering": false,
+		"processing": false,
+		"info": false,
+		 "bAutoWidth" : true,
+		//"paging":   false,
+		"lengthMenu": [10, 20, 30, "所有"],
+		"pageLength": 2,
+		"pagingType":"numbers",
+        "data" : dataSet,
+        "columns": [
+            { "title": "" },
+            { "title": "" },
+            { "title": "" }
+        ],
+		"language": {
+			"sProcessing": "处理中...",
+			"sLengthMenu": "显示 _MENU_ 项结果",
+			"sZeroRecords": "没有匹配结果",
+			"sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+			"sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+			"sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+			"sInfoPostFix": "",
+			"sSearch": "搜索:",
+			"sUrl": "",
+			"sEmptyTable": "表中数据为空",
+			"sLoadingRecords": "载入中...",
+			"sInfoThousands": ",",
+			"oPaginate": {
+				"sFirst": "首页",
+				"sPrevious": "上页",
+				"sNext": "下页",
+				"sLast": "末页"
+			},
+			"oAria": {
+				"sSortAscending": ": 以升序排列此列",
+				"sSortDescending": ": 以降序排列此列"
+			}
+		}
+	});
+
+    init();
+    if( id == '1'){
+        changeData(1);
+    }else if ( id == '2'){
+        changeData(2);
+    }else if ( id == '3'){
+        changeData(3);
+    }
+</script>
+</body>
+</html>

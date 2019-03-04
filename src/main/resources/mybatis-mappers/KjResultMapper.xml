@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.security.server.dao.KjResultDao">
+
+	<sql id="where">
+		<where>
+			<if test="params.area != null and params.area != ''">
+				and area = #{params.area} 
+			</if>
+			<if test="params.cMan != null and params.cMan != ''">
+				and cMan = #{params.cMan} 
+			</if>
+			<if test="params.cPhone != null and params.cPhone != ''">
+				and cPhone = #{params.cPhone} 
+			</if>
+			<if test="params.fId != null and params.fId != ''">
+				and fId = #{params.fId} 
+			</if>
+			<if test="params.id != null and params.id != ''">
+				and a.id = #{params.id}
+			</if>
+			<if test="params.knowledge != null and params.knowledge != ''">
+				and knowledge = #{params.knowledge} 
+			</if>
+			<if test="params.Mneed != null and params.Mneed != ''">
+				and Mneed = #{params.Mneed} 
+			</if>
+			<if test="params.name != null and params.name != ''">
+				and name = #{params.name} 
+			</if>
+			<if test="params.predict != null and params.predict != ''">
+				and predict = #{params.predict} 
+			</if>
+			<if test="params.pubTime != null and params.pubTime != ''">
+				and pubTime = #{params.pubTime} 
+			</if>
+			<if test="params.sId != null and params.sId != ''">
+				and a.sId = #{params.sId}
+			</if>
+			<if test="params.source != null and params.source != ''">
+				and source = #{params.source} 
+			</if>
+			<if test="params.tdetails != null and params.tdetails != ''">
+				and tdetails = #{params.tdetails} 
+			</if>
+			<if test="params.tIndex != null and params.tIndex != ''">
+				and tIndex = #{params.tIndex} 
+			</if>
+			<if test="params.tlevel != null and params.tlevel != ''">
+				and tlevel = #{params.tlevel} 
+			</if>
+			<if test="params.useRange != null and params.useRange != ''">
+				and useRange = #{params.useRange} 
+			</if>
+			<if test="params.xfArea != null and params.xfArea != ''">
+				and xfArea = #{params.xfArea} 
+			</if>
+			<if test="params.searchByInput != null and params.searchByInput != ''">
+				and a.name like concat('%', #{params.searchByInput}, '%')
+			</if>
+			<if test="params.column == 'source' and params.columnValue !=''">
+				and a.source = #{params.columnValue}
+			</if>
+			<if test="params.column == 'tlevel' and params.columnValue !=''">
+				and a.tlevel = #{params.columnValue}
+			</if>
+			<if test="params.cWays != null and params.cWays !=''">
+				and a.cWays = #{params.cWays}
+			</if>
+			<if test="params.teMaturity != null and params.teMaturity !=''">
+				and a.teMaturity = #{params.teMaturity}
+			</if>
+			<if test="params.place != null and params.place !=''">
+				and a.place = #{params.place}
+			</if>
+			<if test="params.lawS != null and params.lawS !=''">
+				and a.lawS = #{params.lawS}
+			</if>
+			<if test="params.dealWay != null and params.dealWay !=''">
+				and a.dealWay = #{params.dealWay}
+			</if>
+			<if test="params.zlType != null and params.zlType !=''">
+				and a.zlType = #{params.zlType}
+			</if>
+		</where>
+	</sql>
+
+	<select id="count" resultType="int">
+		select count(1) from kj_result a
+		<include refid="where" />
+	</select>
+
+	<select id="list" resultType="KjResult">
+		select a.*,b.name as fIdName,c.name as sIdName
+		from kj_result a
+		join kj_result_classifyinfo b on a.fId = b.id
+		join kj_result_classifyinfo c on a.sId = c.id
+		<include refid="where" />
+		<if test="params.orderBy!=null and params.orderBy !=''">
+			${params.orderBy}
+		</if>
+		<if test="limit !=null and limit !=''">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<select id="count1" resultType="int">
+		select count(1) from ${params.tableName} a
+		<include refid="where" />
+	</select>
+
+	<select id="list1" resultType="java.util.HashMap">
+		select a.*,b.name as fIdName,c.name as sIdName
+		from ${params.tableName} a
+		join ${params.tableName2} b on a.fId = b.id
+		join ${params.tableName2} c on a.sId = c.id
+		<include refid="where" />
+		<if test="params.orderBy!= null">
+			${params.orderBy}
+		</if>
+		<if test="offset != null and offset !='' and limit !=null and limit !=''">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+
+
+	<update id="update">
+		update kj_result t
+		<set>
+			<if test="area != null">
+				area = #{area}, 
+			</if>
+			<if test="cMan != null">
+				cMan = #{cMan}, 
+			</if>
+			<if test="cPhone != null">
+				cPhone = #{cPhone}, 
+			</if>
+			<if test="cWays != null">
+				cWays = #{cWays}, 
+			</if>
+			<if test="fId != null">
+				fId = #{fId}, 
+			</if>
+			<if test="knowledge != null">
+				knowledge = #{knowledge}, 
+			</if>
+			<if test="Mneed != null">
+				Mneed = #{Mneed}, 
+			</if>
+			<if test="name != null">
+				name = #{name}, 
+			</if>
+			<if test="predict != null">
+				predict = #{predict}, 
+			</if>
+			<if test="pubTime != null">
+				pubTime = #{pubTime}, 
+			</if>
+			<if test="sId != null">
+				sId = #{sId}, 
+			</if>
+			<if test="source != null">
+				source = #{source}, 
+			</if>
+			<if test="tdetails != null">
+				tdetails = #{tdetails}, 
+			</if>
+			<if test="teMaturity != null">
+				teMaturity = #{teMaturity}, 
+			</if>
+			<if test="tIndex != null">
+				tIndex = #{tIndex}, 
+			</if>
+			<if test="tlevel != null">
+				tlevel = #{tlevel}, 
+			</if>
+			<if test="useRange != null">
+				useRange = #{useRange}, 
+			</if>
+			<if test="xfArea != null">
+				xfArea = #{xfArea}, 
+			</if>
+
+		</set>
+
+		where t.id = #{id}
+	</update>
+
+</mapper>

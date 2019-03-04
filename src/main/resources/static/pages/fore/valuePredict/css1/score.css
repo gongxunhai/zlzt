@@ -1,0 +1,146 @@
+.score-wrap {
+  min-height: 800px;
+  margin: 40px;
+  padding: 0 60px;
+  background-color: #ffffff;
+}
+.score-wrap div {
+  display: flex;
+}
+.score-title {
+  min-height: 60px;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: #cccccc solid 2px;
+}
+/* .score-wrap .score-name */
+.score-title .score-name {
+  align-items: center;
+  cursor: pointer;
+}
+.score-title .score-name span {
+  font-size: 22px;
+  font-weight: bolder;
+}
+.score-title .score-name span.label {
+  padding: 0 2px;
+  margin-left: 4px;
+  font-size: 8px;
+  font-weight: normal;
+  border-radius: 2px;
+  background-color: #56cf6b;
+  color: #ffffff;
+}
+.score-title .score-help span {
+  color: cornflowerblue;
+  cursor: pointer;
+}
+/*  */
+.score-content,
+.score-content .score-item,
+.score-content .score-item .item-list,
+.score-content .score-item .item-list .item-left{
+  flex-direction: column;
+}
+.score-item .item-title {
+  align-items: center;
+  color: cornflowerblue;
+  border-bottom: #cccccc solid 1px;
+}
+.score-item .item-title .title-num {
+  width: 40px;
+  height: 40px;
+  /* margin-right: 20px; */
+  margin: 20px 20px 20px 0;
+  border-radius: 50%;
+  border: cornflowerblue solid 2px;
+  justify-content: center;
+  align-items: center;
+}
+.score-item .item-title .collapse {
+  align-items: center;
+  margin-left: 40px;
+  color: #56cf6b;
+  cursor: pointer;
+}
+/*  */
+.score-item .item-list .list-item {
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: #cccccc solid 1px;
+}
+.score-item .item-list .list-item .item-left .item-content .show-info {
+  /* padding-bottom: 10px; */
+  margin-left: 40px;
+  color: cornflowerblue;
+  cursor: pointer;
+}
+.score-item .item-list .list-item .item-right span {
+  width: 100px;
+  padding: 10px 0;
+  text-align: center;
+  background-color: #e8a938;
+  color: #ffffff;
+  font-size: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.score-item .item-list .list-item .item-right span.systemScore {
+  padding: 10px 20px;
+}
+button.systemScore {
+  background-color: #ffffff;
+  color: #333333;
+  border: cornflowerblue solid 1px;
+}
+/* 覆盖 layUI 原样式 */
+.layui-form-item {
+  margin-bottom: 0;
+}
+.layui-input-block {
+  margin-left: 10px;
+  flex-wrap: wrap;
+}
+
+.score-content > .layui-form-item {
+  padding: 40px 0;
+}
+.score-content > .layui-form-item .layui-input-block {
+  margin: 0;
+  width: 100%;
+  justify-content: space-around;
+}
+.score-content > .layui-form-item .layui-input-block button {
+  margin: 0;
+}
+/* .score-content > .layui-form-item {} */
+/* .score-content > .layui-form-item {} */
+
+/* 批量选择专家协助弹框样式 */
+.more-experts {
+  display: none;
+}
+.more-experts form,
+.more-experts form div {
+  display: flex;
+  flex-direction: column;
+}
+.more-experts form .layui-form-item {
+  border-top: #cccccc solid 1px;
+  padding: 10px 0;
+}
+.more-experts form .layui-form-item label {
+  cursor: pointer;
+}
+.more-experts form .layui-form-item .layui-input-block {
+  margin-left: 80px;
+}
+.more-experts form .layui-form-item .layui-input-block:not(.checks) {
+  justify-content: center;
+}
+.more-experts form .layui-form-item:last-child .layui-input-block {
+  flex-direction: row;
+  margin-left: 0;
+}

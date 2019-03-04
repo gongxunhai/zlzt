@@ -1,0 +1,1041 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<title>科技资源_专利专题</title>
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../fonts/FontAwesome/font-awesome.css" rel="stylesheet">
+	<link href="../fonts/IconFont/iconfont.css" rel="stylesheet">
+	<link href="../css/animate.css" rel="stylesheet">
+	<link href="../css/bootsnav.css" rel="stylesheet">
+    <link href="../css/swiper.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+    <link href="../treetable/css/jquery.treetable.css" rel="stylesheet" type="text/css" >
+    <!--<link href="treetable/css/jquery.treetable.theme.default.css" rel="stylesheet" type="text/css">-->
+	<link href="../css/style.css" rel="stylesheet">
+    <script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootsnav.js"></script>
+    <script src="../js/swiper.min.js"></script>
+    <script type="text/javascript" src="../../../js/common.js"></script>
+	<script src="../treetable/js/jquery.treetable.js"></script>
+    <script type="text/javascript" src="../../../layui/layui.js"></script>
+    <script src="../js/rem.js"></script>
+    <script src="../js/zlzt_list.js"></script>
+    <script src="../js/public.js"></script>
+	<!--[if lt IE 9]>
+    <script src="../js/html5shiv.min.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<nav class="navbar navbar-default bootsnav navbar-fixed-top wow fadeInDown">
+    <input type="hidden" id="classifyid" name="classifyid">
+    <input type="hidden" id="type" name="type">
+    <div class="wrap">
+        <div class="attr-nav navRig">
+            <ul>
+            	<li class="navTelMob"><a href="tel:010-68376645"><i class="iconfont icon-dianhua"></i></a></li>
+                <li class="navTel"><a href="javascript:;"><i class="iconfont icon-dianhua"></i><strong>010-68376645</strong></a></li>
+                <li class="navSearch"><a href="javascript:;"><i class="iconfont icon-sousuo"></i>搜索</a></li>
+                <li><i class="iconfont icon-guanjiaowangtubiao01"></i><a href="#">登录</a><span>or</span><a href="#">注册</a></li>
+            </ul>
+        </div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand flexBox logo" href="#">
+                <span><img src="../images/logo.png" class="img-responsive"></span>
+            </a>
+        </div>            
+        <div class="collapse navbar-collapse" id="navbar-menu">
+            <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
+                <li><a href="../index.html"><span>首页</span></a></li>
+                <li><a href="../kjsc/kjsc.html"><span>科技商城</span></a></li>
+                <li><a href="../projectRequire/pjRequire.html"><span>项目需求</span></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" ><span>科技资源</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../lawsRegulations/lawsRegulations.html">政策法规</a></li>
+                        <li  class="active"><a href="zlzt.html">专利专题</a></li>
+                        <li class="dropdown">
+                          <a href="../ztReport/ztReport.html" class="dropdown-toggle" data-toggle="dropdown" >专题报告</a>
+                            <ul class="dropdown-menu">
+                               <li><a href="../ztReport/ztReportList.html">专利态势分析</a></li>
+                                <li><a href="../ztReport/ztReportList.html">政策研究</a></li>
+                               <li><a href="../ztReport/ztReportList.html">行业咨询</a></li>
+                                <li><a href="../ztReport/ztReportList.html">情报研究</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="../gfArea/zlResult.html"><span>高分专区</span></a></li>
+                <li><a href="../news/news.html"><span>新闻动态</span></a></li>
+                <li><a href="../kjService/kjService.html"><span>科技服务</span></a></li>
+                <li><a href="../aboutUs.html"><span>关于我们</span></a></li>
+            </ul>
+        </div>        
+    </div>
+</nav>
+<div class="searchBg">
+	<div class="wrap">
+    	<div class="search">
+        	<div class="close"></div>
+            <div class="container">
+            	<div class="searchBox">
+                	<a href="javascript:;" class="searchBtn"><i class="fa fa-search"></i></a>
+                	<input type="text" placeholder="请输入关键字" class="searchInput" >
+                </div>
+				<div class="searchTip">点击回车即可搜索</div>
+            	<ul class="hotSearch list-unstyled list-inline">
+                	<li><a href="#">技术成果</a></li>
+                	<li><a href="#">专家需求</a></li>
+                	<li><a href="#">科研院所资源</a></li>
+                	<li><a href="#">专利成果</a></li>
+                	<li><a href="#">检验测试需求</a></li>
+                	<li><a href="#">检验测试资源</a></li>
+                	<li><a href="#">技术需求</a></li>
+                	<li><a href="#">仪器设备需求</a></li>
+                	<li><a href="#">仪器设备资源</a></li>
+                	<li><a href="#">服务需求</a></li>
+                	<li><a href="#">专家资源</a></li>
+                	<li><a href="#">展厅资源</a></li>
+                	<li><a href="#">服务</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div><!--searchBg-->
+<div class="banInner wow fadeIn">
+	<div class="imgFull"><img src="../images/banResource.jpg" class="img-responsive"></div>
+</div>
+<div class="breadNavBg">
+	<div class="wrap">
+    	<ul class="breadcrumb wow fadeInLeft" id="nowPlace">
+        </ul>
+    </div>
+</div>
+<div class="mainBg grayBg overHide">
+    <div class="wrap">
+    	<div class="main">
+            <div class="mLef">
+                <div class="fenlei wow fadeInLeft">            	
+                    <div class="fenleiTop">
+                    </div>
+                    <div class="fenleiList">
+                        <table class="leftMenu">
+                        </table>
+                    </div>
+                    <a href="javascript:;" class="dingyue">订阅该专题</a>
+                </div>
+                <div class="fenlei wow fadeInLeft">
+                	<div class="siftTop">
+                    	<h2 class="siftTit">信息统计</h2>
+                        <div class="fenleiH2Btn visible-xs visible-sm visible-md"><i class="fa fa-folder"></i>展开</div>
+                    </div>
+                    <ul class="fenleiList list-unstyled" id="listinfoAll">
+                        <!--<li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">国家</a></h3></li>
+                        <li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">申请年</a></h3></li>
+                        <li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">公开年</a></h3></li>
+                        <li class="fenleiLi">
+                        	<h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">申请人</a></h3>
+                            <div class="fenleiSub siftSub">
+                            	<ul class="siftList list-unstyled">
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">江南大学 (29)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">中原工学院 (27)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">东华大学 (24)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">江苏工程职业技术学院 (18)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">武汉纺织大学 (18)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">绍兴文理学院 (15)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">浙江理工大学 (14)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">南通蛇类治疗研究所 (11)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">西安工程大学 (7)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">青岛大学 (6)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">南通大学 (5)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">陕西科技大学 (4)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">中国人民解放军总后勤部 (4)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">盐城工业职业技术学院 (3)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">河南工程学院 (3)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">江苏工程职业技术学院 (18)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">武汉纺织大学 (18)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">绍兴文理学院 (15)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">浙江理工大学 (14)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">南通蛇类治疗研究所 (11)</a></li>
+                                </ul>
+                            	<div class="siftBtn">
+                                    <a href="javascript:;" class="siftBtn1">筛选</a>
+                                    <a href="javascript:;" class="siftBtn2">隐藏 <i class="iconfont icon-iconfontgengduo"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">发明人</a></h3></li>
+                        <li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">当前法律状态</a></h3></li>
+                        <li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">专利类型</a></h3></li>
+                        <li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">IPC分类</a></h3></li>
+                        <li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">国民分类</a></h3></li>-->
+                    </ul>
+                </div>
+            </div>
+            <div class="mRig">
+                <div class="rigTopBg">
+                	<div class="rigSearch wow fadeInDown">
+                        <div class="rigSearchRig">
+                        	<div class="rigSearchLef">
+                                <a href="javascript:;" class="iconfont icon-sousuo1 rigSearchIco"></a>
+                                <input type="text" class="rigSearchInput" placeholder="搜索关键字" id="searchKey">
+                            </div>
+                            <a class="rigSearchBtn rigSearchBtn1" id="normalSearch">搜索</a>
+                            <a class="rigSearchBtn rigSearchBtn2" data-toggle="modal" data-target="#myModal">高级搜索</a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>                    
+                    <div class="zyTabTop wow fadeInUp">
+                    	<!--<h3 class="zyTabTit">合成纤维</h3>-->
+                        <ul class="zyOrderBy list-unstyled list-inline">
+                        	<li><span >专利数量：<strong class="corOrg" id="zlnum"></strong>个</span></li>
+                            <li class="zyOrderLi selBox">
+                            	<span class="selTit">排序<i class="iconfont icon-jiantou"></i></span>
+                                <ul class="zyOrderSub selList list-unstyled" id="orderby">
+                                	<li value="openDay" >公开号↑</li>
+                                    <li value="openDay DESC">公开号↓</li>
+                                	<li value="applyDay">申请号↑</li>
+                                    <li value="applyDay DESC">申请号↓</li>
+                                	<li value="applyMan">申请人↑</li>
+                                    <li value="applyMan DESC">申请人↓</li>
+                                	<li value="ipcMC">IPC主分类↑</li>
+                                    <li value="ipcMC DESC">IPC主分类↓</li>
+                                	<li value="cpec">国民经济分类↑</li>
+                                    <li value="cpec DESC">国民经济分类↓</li>
+                                </ul>
+                                <input type="hidden">
+                            </li>
+                            <li>
+                            	<a  href="javascript:downloadExcel();"><i class="iconfont icon-daochu" id="download"></i>导出</a>
+                                <!--<button type="submit" onclick="downloadExcel(this)"><i class="iconfont icon-daochu" id="download"></i>导出</button>-->
+                            </li>
+                            <li>
+                            	<a href="#tongji" class="tongji"><i class="iconfont icon-tongji"></i>统计</a>
+                            </li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                    <table id="zyTab" class="table wow fadeInUp" width="100%">
+                        <thead>                      
+                            <tr>
+                                <th class="zyTabCon1"><label>序号<span><input type="checkbox" id="checkAll"><i class="iconfont icon-xuanze checkAll"></i></span></label></th>
+                                <th class="zyTabCon2">标题</th>
+                                <th class="zyTabCon3">申请人</th>
+                                <th class="zyTabCon4">公开号</th>
+                                <th class="zyTabCon5">申请日</th>
+                            </tr>
+                        </thead>
+                            <tbody>
+                            </tbody>
+                    </table>
+                </div>
+                <ul class="rigChart list-unstyled list-inline row" id="tongji">
+                	<li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    	<div class="rigChartBg">
+                        	<h3 class="rigChartTit">专利申请趋势</h3>
+                            <div class="rigCharCon">
+                            	<div id="chartPar1"></div>
+                            </div>
+                        </div>
+                    </li>
+                	<li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    	<div class="rigChartBg">
+                        	<h3 class="rigChartTit">专利公开趋势</h3>
+                            <div class="rigCharCon">
+                            	<div id="chartPar2"></div>
+                            </div>
+                        </div>
+                    </li>
+                	<li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    	<div class="rigChartBg">
+                        	<h3 class="rigChartTit">全球地域分布图</h3>
+                            <div class="rigCharCon">
+                            	<div id="chartPar3"></div>
+                            </div>
+                        </div>
+                    </li>
+                	<li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    	<div class="rigChartBg">
+                        	<h3 class="rigChartTit">法律状态统计</h3>
+                            <div class="rigCharCon">
+                            	<div id="chartPar4"></div>
+                            </div>
+                        </div>
+                    </li>
+                	<li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    	<div class="rigChartBg">
+                        	<h3 class="rigChartTit">发明人统计</h3>
+                            <div class="rigCharCon">
+                            	<div id="chartPar5"></div>
+                            </div>
+                        </div>
+                    </li>
+                	<li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    	<div class="rigChartBg">
+                        	<h3 class="rigChartTit">申请人统计</h3>
+                            <div class="rigCharCon apply">
+                            	<div id="chartPar6"></div>
+                            </div>
+                        </div>
+                    </li>
+                	<li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    	<div class="rigChartBg">
+                        	<h3 class="rigChartTit">IPC分类统计</h3>
+                            <div class="rigCharCon">
+                            	<div id="chartPar7"></div>
+                            </div>
+                        </div>
+                    </li>
+                	<li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    	<div class="rigChartBg">
+                        	<h3 class="rigChartTit">国民经济分类统计</h3>
+                            <div class="rigCharCon">
+                            	<div id="chartPar8"></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<footer class="footBg">
+    <div class="wrap">
+        <div class="ftTop">
+        	<div class="friendLink wow fadeInLeft">
+            	<h3 class="ftTit">友情链接</h3>
+                <ul class="fdLinkList list-unstyled list-inline">
+                	<li><a href="#">- 航天云网</a></li>
+                	<li><a href="#">- 中国军民融合网</a></li>
+                	<li><a href="#">- 中国航天科工三院</a></li>
+                	<li><a href="#">- 融融网</a></li>
+                	<li><a href="#">- 装备采购网</a></li>
+                	<li><a href="#">- 中国航天科工集团</a></li>
+                	<li><a href="#">- 海鹰资讯</a></li>
+                	<li><a href="#">- 猪八戒网</a></li>
+                </ul>
+            </div>
+            <ul class="ftCon list-unstyled list-inline wow fadeInDown">
+            	<li>
+                    <h3 class="ftTit">科技商城</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 科技产品</a></p>
+                        <p><a href="#">- 科技成果</a></p>
+                        <p><a href="#">- 专利技术</a></p>
+                    </div>
+                </li>
+            	<li>
+                    <h3 class="ftTit">新闻动态</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 工作动态</a></p>
+                        <p><a href="#">- 科技动态</a></p>
+                        <p><a href="#">- 通知公告</a></p>
+                    </div>
+                </li>
+            	<li>
+                    <h3 class="ftTit">科技服务</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 知识产权管理系统</a></p>
+                        <p><a href="#">- 知识产权资源导航</a></p>
+                        <p><a href="#">- 知识产权贯标系统</a></p>
+                        <p><a href="#">- 专利大数据检索</a></p>
+                        <p><a href="#">- 知识产权价值评估系统</a></p>
+                        <p><a href="#">- 知识培训统</a></p>
+                    </div>
+                </li>
+            </ul>
+        	<div class="ftConUs wow fadeInRight">
+            	<h3 class="ftTit">联系我们</h3>
+                <p class="ftAdd"><strong>地址：</strong>北京市丰台区云岗北区西里1号院</p>
+                <p class="ftTel"><strong>电话：</strong>010-68376645</p>
+                <p class="ftEmail"><strong>邮箱：</strong>service@htjsw.com</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="ftBot wow fadeInUp">
+        	<div class="copyRight">
+            	<p>Copyright © 2018中国航天科工集团知识产权中心版权所有 京ICP备13006003号-2  设计支持：<a href="#">谦亨网络</a></p>
+            </div>
+            <div class="ftBotRig">
+            	<ul class="ftBotIco list-unstyled list-inline">
+                	<li>
+                    	<a href="javascript:;"><i class="fa fa-weixin"></i></a>
+                        <div class="ftBotWx">
+                        	<img src="../images/weChat.jpg" class="img-responsive">
+                        </div>
+                    </li>
+                    <li><a href="#"><i class="fa fa-weibo"></i></a></li>
+                </ul>
+            	<ul class="ftBotLink list-unstyled list-inline">
+                	<li><a href="#">关于我们</a></li>
+                	<li><a href="#">发布成果</a></li>
+                	<li><a href="#">发布需求</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</footer>
+<div id="myModal" class="modal fade">
+    <div class="LaySearch">
+        <span class="LaySearchClose" data-dismiss="modal"></span>
+        <h3 class="LaySearchTit">高级搜索</h3>
+        <ul class="LaySearchList list-unstyled row">
+            <li class="col-xs-12 col-sm-6">
+                <span class="LaySearchLab">申&ensp;请&ensp;号：</span>
+                <div class="LaySearchRig">
+                    <input type="text" class="LaySearchInput" id="applyId">
+                </div>
+            </li>
+            <li class="col-xs-12 col-sm-6">
+                <span class="LaySearchLab">申&ensp;请&ensp;日：</span>
+                <div class="LaySearchRig">
+                    <div class="LaySearchIco"><i class="iconfont icon-riqi"></i></div>
+                    <input type="text" class="LaySearchInput1 LaySearchDate" readonly id="applyDay1">
+                    <span>-</span>
+                    <input type="text" class="LaySearchInput1 LaySearchDate" readonly id="applyDay2">
+                </div>
+            </li>
+            <li class="col-xs-12 col-sm-6">
+                <span class="LaySearchLab">标&emsp;&ensp;&emsp;题：</span>
+                <div class="LaySearchRig">
+                    <input type="text" class="LaySearchInput" id="title">
+                </div>
+            </li>
+            <li class="col-xs-12 col-sm-6">
+                <span class="LaySearchLab">公&ensp;开&ensp;日：</span>
+                <div class="LaySearchRig">
+                    <div class="LaySearchIco"><i class="iconfont icon-riqi"></i></div>
+                    <input type="text" class="LaySearchInput1 LaySearchDate" readonly id="openDay1">
+                    <span>-</span>
+                    <input type="text" class="LaySearchInput1 LaySearchDate" readonly id="openDay2">
+                </div>
+            </li>
+            <li class="col-xs-12 col-sm-6">
+                <span class="LaySearchLab">摘&emsp;&ensp;&emsp;要：</span>
+                <div class="LaySearchRig">
+                    <input type="text" class="LaySearchInput" id="zy">
+                </div>
+            </li>
+            <li class="col-xs-12 col-sm-6">
+                <span class="LaySearchLab">公&ensp;开&ensp;号：</span>
+                <div class="LaySearchRig">
+                    <input type="text" class="LaySearchInput" id="openId">
+                </div>
+            </li>
+            <li class="col-xs-12 col-sm-6">
+                <span class="LaySearchLab">IPC分类号：</span>
+                <div class="LaySearchRig">
+                    <input type="text" class="LaySearchInput" placeholder="如:A61D53/02" id="ipc">
+                </div>
+            </li>
+            <li class="col-xs-12 col-sm-6">
+                <span class="LaySearchLab">主分类号：</span>
+                <div class="LaySearchRig">
+                    <input type="text" class="LaySearchInput" placeholder="如:A61D61/06" id="ipcMC">
+                </div>
+            </li>
+            <li class="col-xs-12 col-sm-6">
+                <span class="LaySearchLab">专利权人：</span>
+                <div class="LaySearchRig">
+                    <input type="text" class="LaySearchInput" id="applyMan">
+                </div>
+            </li>
+            <li class="col-xs-12 col-sm-6">
+                <span class="LaySearchLab">发&ensp;明&ensp;人：</span>
+                <div class="LaySearchRig">
+                    <input type="text" class="LaySearchInput" id="createMan">
+                </div>
+            </li>
+            <li class="col-xs-12 col-sm-6">
+                <span class="LaySearchLab">地&emsp;&ensp;&emsp;址：</span>
+                <div class="LaySearchRig">
+                    <input type="text" class="LaySearchInput" id="applyPlace">
+                </div>
+            </li>
+            <li class="col-xs-12 col-sm-6">
+                <span class="LaySearchLab">国民经济分类：</span>
+                <div class="LaySearchRig">
+                    <input type="text" class="LaySearchInput" placeholder="如:A012" id="cpec">
+                </div>
+            </li>
+            <li class="col-xs-12 col-sm-6">
+                <span class="LaySearchLab">权利要求数：</span>
+                <div class="LaySearchRig">
+                    <input type="text" class="LaySearchInput1" id="powerAN1">
+                    <span>-</span>
+                    <input type="text" class="LaySearchInput1" id="powerAN2">
+                </div>
+            </li>
+            <li class="col-xs-12">
+                <div class="LaySearchBtn">
+                    <a href="javascript:;" class="LaySearchBtn1">检索</a>
+                    <a href="javascript:;" class="LaySearchBtn2">重置</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <input type="hidden" id="order" name="order">
+    <input type="hidden" id="countryId" name="countryId">
+    <input type="hidden" id="applyDayId" name="applyDayId">
+    <input type="hidden" id="openDayId" name="openDayId">
+    <input type="hidden" id="applyManId" name="applyManId">
+    <input type="hidden" id="createManId" name="createManId">
+    <input type="hidden" id="nowLawSId" name="nowLawSId">
+    <input type="hidden" id="zlTypeId" name="zlTypeId">
+    <input type="hidden" id="ipcId" name="ipcId">
+    <input type="hidden" id="cpecId" name="cpecId">
+</div>
+<link rel="stylesheet" type="text/css" media="screen" href="../datatables/dataTables.bootstrap.min.css">
+<script type="text/javascript" src="../datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../datatables/dataTables.bootstrap.min.js"></script>
+<script>
+
+</script>
+<script>
+    var  isCheckAll=false;
+    var classifyid = getUrlParam("id");
+    var type = getUrlParam("type");
+    var applyDayId;
+
+    $("#classifyid").val(classifyid);
+    $("#type").val(type);
+
+	var table = $('#zyTab').DataTable({
+		"searching": false,
+		"ordering": false,
+        "serverSide" : true,
+		"processing": false,
+		"language": {
+            "url": "/js/plugin/datatables/Chinese.lang"
+		},
+        "ajax": {
+            "url" : "/zlztDatainfos",
+            "type":"get",
+            "data":function(d){
+                d.fromTable = "view_zlztdata";
+                d.order = $("#order").val();
+                d.classifyid = $("#classifyid").val();
+                d.type = $("#type").val();
+                d.searchKey = $("#searchKey").val();
+                d.applyId = $("#applyId").val();
+                d.applyDay1 = $("#applyDay1").val();
+                d.applyDay2 = $("#applyDay2").val();
+                d.title = $("#title").val();
+                d.openDay1 = $("#openDay1").val();
+                d.openDay2 = $("#openDay2").val();
+                d.zy = $("#zy").val();
+                d.openId = $("#openId").val();
+                d.ipc = $("#ipc").val();
+                d.ipcMC = $("#ipcMC").val();
+                d.applyMan = $("#applyMan").val();
+                d.createMan = $("#createMan").val();
+                d.applyPlace = $("#applyPlace").val();
+                d.cpec = $("#cpec").val();
+                d.powerAN1 = $("#powerAN1").val();
+                d.powerAN2 = $("#powerAN2").val();
+                d.countryId = $("#countryId").val();
+                d.applyDayId = $("#applyDayId").val();
+                d.openDayId = $("#openDayId").val();
+                d.applyManId = $("#applyManId").val();
+                d.createManId = $("#createManId").val();
+                d.nowLawSId = $("#nowLawSId").val();
+                d.zlTypeId = $("#zlTypeId").val();
+                d.ipcId = $("#ipcId").val();
+                d.cpecId = $("#cpecId").val();
+            }
+        },
+        // "fnInfoCallback": function (oSettings, iStart, iEnd, iMax, iTotal, sPre) {
+            // console.log(iStart,iEnd, iMax, iTotal);
+            // return iStart + " to " + iEnd;
+            // $("#zlnum").text(iTotal);
+        // },
+        "fnInfoCallback": function (response) {
+           // console.log(response);
+            $("#zlnum").text(response.json.recordsTotal);
+
+        },
+
+        "columnDefs": [
+			{ className: "zyTabCon1", "targets": [ 0 ] },
+			{ className: "zyTabCon2", "targets": [ 1 ] },
+			{ className: "zyTabCon3", "targets": [ 2 ] },
+			{ className: "zyTabCon4", "targets": [ 3 ] },
+			{ className: "zyTabCon5", "targets": [ 4 ] },
+        ],
+        "columns": [
+            {"data" : "", "defaultContent" : "",
+            "render":function (data, type, row) {
+                 return '<label><span><input type="checkbox" name="rowid" value="'+row.id+'"><i class="iconfont icon-xuanze"></i></span></label>';
+            }},
+            {"data" : "title", "defaultContent" : "",
+                "render":function (data, type, row) {
+                    var a = '<strong>标题：</strong>\n'+
+                        '\t<a class="zyTabName" href="zlzt_list_detail.html?classifyid='+row.id+'">'+row.title+'</a>\n'+
+                        '\t<a class="zyTabTag corTag1" href="javascript:;">'+( row.nowLawS || '') +'</a>\n'+
+                        '\t<a class="zyTabTag corTag2" href="javascript:;">'+( row.country|| '') +'</a>\n'+
+                        '\t<a class="zyTabTag corTag3" href="javascript:;">'+( row.zlType || '') +'</a>\n';
+                    return a;
+                }
+            },
+            { "data" : "applyMan", "defaultContent" : ""},
+            {"data" : "openId", "defaultContent" : ""},
+            {"data" : "applyDay", "defaultContent" : "",
+              "render": function (data, type, row) {
+                  return (new Date(data)).Format("yyyy-MM-dd");
+              }},
+        ]
+	});
+	$('#checkAll').on('click', function(){
+      var rows = table.rows({ 'search': 'applied' }).nodes();
+      $('input[type="checkbox"]', rows).prop('checked', this.checked);
+      //默认为false,全选为true;
+      if (isCheckAll==false){
+          isCheckAll=true;
+      } else {
+          isCheckAll=false;
+      }
+
+   });
+   $('#zyTab tbody').on('change', 'input[type="checkbox"]', function(){
+      if(!this.checked){
+         var el = $('#checkAll').get(0);
+         if(el && el.checked && ('indeterminate' in el)){
+            el.indeterminate = true;
+         }
+      }
+   });
+</script>
+<link href="../css/bootstrap-datetimepicker.css" rel="stylesheet">
+<script src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script src="../js/echarts.min.js"></script>
+<script>
+	$.fn.datetimepicker.dates['zh-CN'] = {
+			days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
+			daysShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+			daysMin:  ["日", "一", "二", "三", "四", "五", "六", "日"],
+			months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+			monthsShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一", "十二"],
+			today: "今天",
+			suffix: [],
+			meridiem: ["上午", "下午"]
+	};
+	$('.LaySearchDate').datetimepicker({
+        format: 'yyyy-mm-dd',
+        language:  'zh-CN',
+        weekStart: 1,
+		autoclose: 1,
+		startView: 2,
+		minView: 2,
+		forceParse: 0
+    });
+	$(".tongji").click(function(){
+		$('html,body').animate({scrollTop:$('#tongji').offset().top-$(".logo").height()-15}, 800);	
+	})
+	var chartPar1 = echarts.init(document.getElementById('chartPar1'));
+	var chartPar2 = echarts.init(document.getElementById('chartPar2'));
+	var chartPar3 = echarts.init(document.getElementById('chartPar3'));
+	var chartPar4 = echarts.init(document.getElementById('chartPar4'));
+	var chartPar5 = echarts.init(document.getElementById('chartPar5'));
+	var chartPar6 = echarts.init(document.getElementById('chartPar6'));
+	var chartPar7 = echarts.init(document.getElementById('chartPar7'));
+	var chartPar8 = echarts.init(document.getElementById('chartPar8'));
+	var option1 = {
+		color:'#0670c4',
+        //气泡提示框，常用于展现更详细的数据
+		tooltip: {
+			trigger: 'axis',
+			position: function (pt) {
+				return [pt[0], '10%'];
+			}
+		},
+        //直角坐标系中的横轴，通常并默认为类目型
+		xAxis: {
+			type: 'category',
+			boundaryGap: false,
+			data: [],
+            axisLabel: {
+                interval: 0,
+                formatter:function(value)
+                {
+                    var ret = "";//拼接加\n返回的类目项
+                    var maxLength = 1;//每项显示文字个数
+                    var valLength = value.length;//X轴类目项的文字个数
+                    var rowN = Math.ceil(valLength / maxLength); //类目项需要换行的行数
+                    if (rowN > 1)//如果类目项的文字大于3,
+                    {
+                        for (var i = 0; i < rowN; i++) {
+                            var temp = "";//每次截取的字符串
+                            var start = i * maxLength;//开始截取的位置
+                            var end = start + maxLength;//结束截取的位置
+                            //这里也可以加一个是否是最后一行的判断，但是不加也没有影响，那就不加吧
+                            temp = value.substring(start, end) + "\n";
+                            ret += temp; //凭借最终的字符串
+                        }
+                        return ret;
+                    }
+                    else {
+                        return value;
+                    }
+                }
+            }
+		},
+        //直角坐标系中的纵轴，通常并默认为数值型
+		yAxis: {
+			type: 'value'
+		},
+        //	数据系列，一个图表可能包含多个系列，每一个系列可能包含多个数据
+		series: [{
+			data: [],
+			type: 'line',
+			areaStyle: {
+				normal: {
+					color: new echarts.graphic.LinearGradient(0, 0, 0, 0.8, [{
+						offset: 0,
+						color: '#0670c4'
+					}, {
+						offset: 1,
+						color: '#fff'
+					}])
+				}
+			},
+		}]
+	};
+	var option2 = {
+		color:'#0670c4',
+		tooltip: {
+			trigger: 'axis',
+			position: function (pt) {
+				return [pt[0], '10%'];
+			}
+		},
+		xAxis: {
+			type: 'category',
+			boundaryGap: false,
+			data: []
+		},
+		yAxis: {
+			type: 'value'
+		},
+		series: [{
+			data: [],
+			type: 'line',
+			areaStyle: {
+				normal: {
+					color: new echarts.graphic.LinearGradient(0, 0, 0, 0.8, [{
+						offset: 0,
+						color: '#0670c4'
+					}, {
+						offset: 1,
+						color: '#fff'
+					}])
+				}
+			},
+		}]
+	};
+	var option3 = {
+	//	color:['#57cad9','#ff835c','#fdcd58','#72bd76','#b660c5',],
+		tooltip : {
+			trigger: 'item',
+			formatter: "{a} <br/>{b} : {c} ({d}%)"
+		},
+		legend: {
+			left: 'left',
+			data: []
+		},
+		series : [
+			{
+				name: '全球地域分布图',
+				type: 'pie',
+				radius : '55%',
+				center: ['50%', '60%'],
+				data:[],
+				itemStyle: {
+					emphasis: {
+						shadowBlur: 10,
+						shadowOffsetX: 0,
+						shadowColor: 'rgba(0, 0, 0, 0.5)'
+					},
+                    normal:{
+                        color: function(params) {
+                            var colorList = [
+                                '#ff7f50', '#87cefa', '#da70d6', '#32cd32', '#6495ed',
+                                '#ff69b4', '#ba55d3', '#cd5c5c', '#ffa500', '#40e0d0',
+                                '#1e90ff', '#ff6347', '#7b68ee', '#00fa9a', '#ffd700',
+                                '#6b8e23', '#ff00ff', '#3cb371', '#b8860b', '#30e0e0'
+                            ];
+                            return colorList[params.dataIndex]
+                        },
+                        /*// 以下为是否显示，显示位置和显示格式的设置了
+                        label: {
+                            show: true,
+                            position: 'top',
+                            formatter: '{b}'
+                        }*/
+                    }
+				}
+			}
+		]
+	};
+	var option4 = {
+		//color:['#57cad9','#ff835c','#fdcd58','#72bd76','#b660c5',,'#d7e361','#ef598c',,'#66b4f1',],
+		tooltip : {
+			trigger: 'item',
+			formatter: "{a} <br/>{b} : {c} ({d}%)"
+		},
+		legend: {
+			left: 'left',
+			data: ['授权','权力终止','实质审查','撤回','放弃','驳回','公开','全部无效']
+		},
+		series : [
+			{
+				name: '法律状态统计',
+				type: 'pie',
+				radius : '55%',
+				center: ['50%', '60%'],
+				data:[
+					{value:335, name:'授权'},
+					{value:310, name:'权力终止'},
+					{value:234, name:'实质审查'},
+					{value:135, name:'撤回'},
+					{value:148, name:'放弃'},
+					{value:548, name:'驳回'},
+					{value:458, name:'公开'},
+					{value:248, name:'全部无效'}
+				],
+				itemStyle: {
+					emphasis: {
+						shadowBlur: 10,
+						shadowOffsetX: 0,
+						shadowColor: 'rgba(0, 0, 0, 0.5)'
+					},
+                    normal:{
+                        color: function(params) {
+                            var colorList = [
+                                '#ff69b4', '#ba55d3', '#cd5c5c', '#ffa500', '#40e0d0',
+                                '#ff7f50', '#87cefa', '#da70d6', '#32cd32', '#6495ed',
+                                '#1e90ff', '#ff6347', '#7b68ee', '#00fa9a', '#ffd700',
+                                '#6b8e23', '#ff00ff', '#3cb371', '#b8860b', '#30e0e0'
+                            ];
+                            return colorList[params.dataIndex]
+                        },
+                    }
+				}
+			}
+		]
+	};
+	var option5 = {
+		color: ['#0670c4'],
+		tooltip : {
+			trigger: 'axis',
+			axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+				type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+			}
+		},
+		grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		},
+		xAxis : [
+			{
+				type : 'category',
+				data : [],
+				axisTick: {
+					alignWithLabel: true
+				}
+			}
+		],
+		yAxis : [
+			{
+				type : 'value'
+			}
+		],
+		series : [
+			{
+				name:'专利数量',
+				type:'bar',
+				barWidth: '60%',
+				data:[]
+			}
+		]
+	};
+	var option6 = {
+		color: ['#0670c4'],
+		tooltip : {
+			trigger: 'axis',
+			axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+				type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+			}
+		},
+		grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		},
+		xAxis : [
+			{
+				type : 'category',
+				data : ['测试1','意大利德龙测试公司','2018-12-18测试','测试0000000','测试0000001','测试00000002','测试00000003','测试00000004','测试00000005','测试00000006'],
+				axisTick: {
+					alignWithLabel: true
+				},
+                axisLabel: {
+                    interval: 0,
+                    formatter:function(value)
+                    {
+                        if (value != null) {
+                            var ret = "";//拼接加\n返回的类目项
+                            var maxLength = 3;//每项显示文字个数
+                            var valLength = value.length;//X轴类目项的文字个数
+                            var rowN = Math.ceil(valLength / maxLength); //类目项需要换行的行数
+                            if (rowN > 1)//如果类目项的文字大于3,
+                            {
+                                for (var i = 0; i < rowN; i++) {
+                                    var temp = "";//每次截取的字符串
+                                    var start = i * maxLength;//开始截取的位置
+                                    var end = start + maxLength;//结束截取的位置
+                                    //这里也可以加一个是否是最后一行的判断，但是不加也没有影响，那就不加吧
+                                    temp = value.substring(start, end) + "\n";
+                                    ret += temp; //凭借最终的字符串
+                                }
+                                return ret;
+                            }
+                            else {
+                                return value;
+                            }
+                        }
+                    }
+                }
+            }
+		],
+		yAxis : [
+			{
+				type : 'value'
+			}
+		],
+		series : [
+			{
+				name:'专利数量',
+				type:'bar',
+				barWidth: '60%',
+				data:[]
+			}
+		]
+	};
+	var option7 = {
+		color: ['#2dbdd0'],
+		tooltip : {
+			trigger: 'axis',
+			axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+				type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+			}
+		},
+		grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		},
+		xAxis : [
+			{
+				type : 'category',
+                boundaryGap : true ,
+                // data: [],
+				data : ['意大利德龙测试公司', '意大利德龙测试公司', '意大利德龙测试公司', '意大利德龙测试公司', '意大利德龙测试公司', '意大利德龙测试公司', '意大利德龙测试公司','意大利德龙测试公司','意大利德龙测试公司','意大利德龙测试公司','意大利德龙测试公司','12','13','14','15','16','17','18','19','20','21','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111','1111', '1111', '2222', '3333', '4444', '5555', '6666', '7777', '8888', '9999'],
+				axisTick: {
+					alignWithLabel: true
+				},
+                axisLabel: {
+                    interval: 0,
+                    formatter:function(value)
+                    {
+                        var ret = "";//拼接加\n返回的类目项
+                        var maxLength = 2;//每项显示文字个数
+                        var valLength = value.length;//X轴类目项的文字个数
+                        var rowN = Math.ceil(valLength / maxLength); //类目项需要换行的行数
+                        if (rowN > 1)//如果类目项的文字大于3,
+                        {
+                            for (var i = 0; i < rowN; i++) {
+                                var temp = "";//每次截取的字符串
+                                var start = i * maxLength;//开始截取的位置
+                                var end = start + maxLength;//结束截取的位置
+                                //这里也可以加一个是否是最后一行的判断，但是不加也没有影响，那就不加吧
+                                temp = value.substring(start, end) + "\n";
+                                ret += temp; //凭借最终的字符串
+                            }
+                            return ret;
+                        }
+                        else {
+                            return value;
+                        }
+                    }
+                }
+			}
+		],
+		yAxis : [
+			{
+				type : 'value'
+			}
+		],
+		series : [
+			{
+				name:'专利数量',
+				type:'bar',
+				barWidth: '60%',
+				data:[1061, 424, 405, 343, 246, 180, 177, 123, 234, 345]
+			}
+		]
+	};
+	var option8 = {
+		color: ['#2dbdd0'],
+		tooltip : {
+			trigger: 'axis',
+			axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+				type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+			}
+		},
+		grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		},
+		xAxis : [
+			{
+				type : 'category',
+				data : ['A47J', 'B65D', 'A23F', 'H05B', 'A47G', 'G07F', 'F24H'],
+				axisTick: {
+					alignWithLabel: true
+				}
+			}
+		],
+		yAxis : [
+			{
+				type : 'value'
+			}
+		],
+		series : [
+			{
+				name:'专利数量',
+				type:'bar',
+				barWidth: '60%',
+				data:[10615, 424, 405, 343, 246, 180, 177]
+			}
+		]
+	};
+
+</script>
+</body>
+</html>

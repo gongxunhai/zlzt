@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.security.server.dao.ZlztIpcinfoDao">
+
+	<sql id="where">
+		<where>
+			<if test="params.id != null and params.id != ''">
+				and id = #{params.id} 
+			</if>
+			<if test="params.ipcId != null and params.ipcId != ''">
+				and ipcId = #{params.ipcId} 
+			</if>
+			<if test="params.name != null and params.name != ''">
+				and name = #{params.name} 
+			</if>
+		
+		</where>
+	</sql>
+
+	<select id="count" resultType="int">
+		select count(1) from zlzt_ipcinfo t
+		<include refid="where" />
+	</select>
+
+	<select id="list" resultType="ZlztIpcinfo">
+		select * from zlzt_ipcinfo t
+		<include refid="where" />
+		${params.orderBy}
+		limit #{offset}, #{limit}
+	</select>
+
+	<update id="update">
+		update zlzt_ipcinfo t
+		<set>
+			<if test="ipcId != null">
+				ipcId = #{ipcId}, 
+			</if>
+			<if test="name != null">
+				name = #{name}, 
+			</if>
+
+		</set>
+
+		where t.id = #{id}
+	</update>
+
+</mapper>

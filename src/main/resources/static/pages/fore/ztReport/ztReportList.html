@@ -1,0 +1,1037 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<title>科技商城_专题报告_列表</title>
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../fonts/FontAwesome/font-awesome.css" rel="stylesheet">
+	<link href="../fonts/IconFont/iconfont.css" rel="stylesheet">
+	<link href="../css/animate.css" rel="stylesheet">
+	<link href="../css/bootsnav.css" rel="stylesheet">
+    <link href="../css/swiper.min.css" rel="stylesheet">
+    <link href="../treetable/css/jquery.treetable.css" rel="stylesheet" type="text/css" >
+	<link href="../css/style.css" rel="stylesheet">
+    <script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootsnav.js"></script>
+    <script src="../js/swiper.min.js"></script>
+	<script src="../treetable/js/jquery.treetable.js"></script>
+    <script type="text/javascript" src="../../../js/common.js"></script>
+    <script src="../js/rem.js"></script>
+    <script src="../js/public.js"></script>
+	<!--[if lt IE 9]>
+	  <script src="../js/html5shiv.min.js"></script>
+	  <script src="../js/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+<nav class="navbar navbar-default bootsnav navbar-fixed-top wow fadeInDown">
+    <div class="wrap">
+        <div class="attr-nav navRig">
+            <ul>
+            	<li class="navTelMob"><a href="tel:010-68376645"><i class="iconfont icon-dianhua"></i></a></li>
+                <li class="navTel"><a href="javascript:;"><i class="iconfont icon-dianhua"></i><strong>010-68376645</strong></a></li>
+                <li class="navSearch"><a href="javascript:;"><i class="iconfont icon-sousuo"></i>搜索</a></li>
+                <li><i class="iconfont icon-guanjiaowangtubiao01"></i><a href="#">登录</a><span>or</span><a href="#">注册</a></li>
+            </ul>
+        </div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand flexBox logo" href="#">
+                <span><img src="../images/logo.png" class="img-responsive"></span>
+            </a>
+        </div>            
+        <div class="collapse navbar-collapse" id="navbar-menu">
+            <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
+                <li><a href="../index.html"><span>首页</span></a></li>
+                <li><a href="../kjsc/kjsc.html"><span>科技商城</span></a></li>
+                <li><a href="../projectRequire/pjRequire.html"><span>项目需求</span></a></li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" ><span>科技资源</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../lawsRegulations/lawsRegulations.html">政策法规</a></li>
+                        <li><a href="../zlzt/zlzt.html">专利专题</a></li>
+                        <li class="dropdown">
+                           <a href="ztReport.html" class="dropdown-toggle" data-toggle="dropdown" >专题报告</a>
+                            <ul class="dropdown-menu">
+                               <li><a href="ztReportList.html">专利态势分析</a></li>
+                                <li><a href="ztReportList.html">政策研究</a></li>
+                               <li><a href="ztReportList.html">行业咨询</a></li>
+                                <li><a href="ztReportList.html">情报研究</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="../gfArea/zlResult.html"><span>高分专区</span></a></li>
+                <li><a href="../news/news.html"><span>新闻动态</span></a></li>
+                <li><a href="../kjService/kjService.html"><span>科技服务</span></a></li>
+                <li><a href="../aboutUs.html"><span>关于我们</span></a></li>
+            </ul>
+        </div>        
+    </div>
+</nav>
+<div class="searchBg">
+	<div class="wrap">
+    	<div class="search">
+        	<div class="close"></div>
+            <div class="container">
+            	<div class="searchBox">
+                	<a href="javascript:;" class="searchBtn"><i class="fa fa-search"></i></a>
+                	<input type="text" placeholder="请输入关键字" class="searchInput" >
+                </div>
+				<div class="searchTip">点击回车即可搜索</div>
+            	<ul class="hotSearch list-unstyled list-inline">
+                	<li><a href="#">技术成果</a></li>
+                	<li><a href="#">专家需求</a></li>
+                	<li><a href="#">科研院所资源</a></li>
+                	<li><a href="#">专利成果</a></li>
+                	<li><a href="#">检验测试需求</a></li>
+                	<li><a href="#">检验测试资源</a></li>
+                	<li><a href="#">技术需求</a></li>
+                	<li><a href="#">仪器设备需求</a></li>
+                	<li><a href="#">仪器设备资源</a></li>
+                	<li><a href="#">服务需求</a></li>
+                	<li><a href="#">专家资源</a></li>
+                	<li><a href="#">展厅资源</a></li>
+                	<li><a href="#">服务</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div><!--searchBg-->
+<div class="banInner wow fadeIn">
+	<div class="imgFull"><img src="../images/banResource.jpg" class="img-responsive"></div>
+</div>
+<div class="breadNavBg">
+	<div class="wrap">
+    	<ul class="breadcrumb wow fadeInLeft" id="nowPlace">
+            <li><i class="iconfont icon-weizhi"></i>当前位置：</li>
+            <li><a href="../index.html">首页</a></li>
+            <li><a href="javascript:;">科技资源</a></li>
+            <li><a href="ztReport.html">专题报告</a></li>
+        </ul>
+    </div>
+</div>
+<div class="mainBg grayBg overHide">
+    <div class="wrap">
+    	<div class="main">
+            <div class="mLef">                
+                <div class="leftGg wow fadeInLeft hidden-xs hidden-sm hidden-md"><a href="#"><img src="../images/recommendAd.jpg" class="img-responsive"></a></div>
+                <div class="fenlei wow fadeInLeft hidden-xs hidden-sm hidden-md">
+                	<div class="siftTop">
+                    	<h2 class="siftTit">最新报告</h2>
+                        <div class="fenleiH2Btn visible-xs visible-sm visible-md"><i class="fa fa-folder"></i>展开</div>
+                    </div>
+                    <ul class="fenleiList recommendList list-unstyled">
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">燃气低氮燃烧技术</h3>
+                               	<div class="recommendBrief">
+                                	<p>通过改变天然气锅炉燃烧器结构以及精准控制燃料和空气的输送…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">液压折叠宿营车</h3>
+                                <div class="recommendBrief">
+                                	<p>该车共由三个可折叠舱体组成，采用了方舱折叠技术，打破了一车一舱…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">超宽带生命探测雷达</h3>
+                                <div class="recommendBrief">
+                                	<p>该雷达可以通过增加随机信号的相关长度，在不影响距离分辨率的情况下…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">DC-DC模块电源</h3>
+                                <div class="recommendBrief">
+                                	<p>产品采用数字控制准谐振或谐振软开关及同步整流技术，利用DSC控制…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">Mesh+PMP宽带无线通信系统</h3>
+                                <div class="recommendBrief">
+                                	<p>能够在有线网络架设不便，对网络快速部署要求高等特殊场景下发挥…</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>                    
+                </div>         
+                <div class="fenlei wow fadeInLeft hidden-xs hidden-sm hidden-md">
+                	<div class="siftTop">
+                    	<h2 class="siftTit">重点推荐</h2>
+                        <div class="fenleiH2Btn visible-xs visible-sm visible-md"><i class="fa fa-folder"></i>展开</div>
+                    </div>
+                    <ul class="fenleiList recommendList list-unstyled">
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">燃气低氮燃烧技术</h3>
+                               	<div class="recommendBrief">
+                                	<p>通过改变天然气锅炉燃烧器结构以及精准控制燃料和空气的输送…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">液压折叠宿营车</h3>
+                                <div class="recommendBrief">
+                                	<p>该车共由三个可折叠舱体组成，采用了方舱折叠技术，打破了一车一舱…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">超宽带生命探测雷达</h3>
+                                <div class="recommendBrief">
+                                	<p>该雷达可以通过增加随机信号的相关长度，在不影响距离分辨率的情况下…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">DC-DC模块电源</h3>
+                                <div class="recommendBrief">
+                                	<p>产品采用数字控制准谐振或谐振软开关及同步整流技术，利用DSC控制…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">Mesh+PMP宽带无线通信系统</h3>
+                                <div class="recommendBrief">
+                                	<p>能够在有线网络架设不便，对网络快速部署要求高等特殊场景下发挥…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">雪豹系列排爆机器人</h3>
+                                <div class="recommendBrief">
+                                	<p>红林公司生产的排爆机器人针对国内市场，技术上突破国外垄断…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">井下救生舱无电蓄冰散热装置</h3>
+                                <div class="recommendBrief">
+                                	<p>一般降温装置均需要有电力驱动，本发明的创新点就在于其工作时…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">网络安全可视化指挥平台</h3>
+                                <div class="recommendBrief">
+                                	<p>多维度的网络安全态势融合技术 网络安全态势融合技术是形成全局网络…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">高速物理熵源密码发生器</h3>
+                               	<div class="recommendBrief">
+                                	<p>首次提出利用宽带混沌信号作为新型物理熵源，发明了面向超高速真随机…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">船舶脱硫脱硝一体化技术</h3>
+                                <div class="recommendBrief">
+                                	<p>我国脱硫达到国际公约2015年控制区域新标，脱硝达到2016年即将…</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                        	<a href="#">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit">船舶脱硫脱硝一体化技术</h3>
+                                <div class="recommendBrief">
+                                	<p>我国脱硫达到国际公约2015年控制区域新标，脱硝达到2016年即将…</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="leftMore">
+                    	<a href="#">查看更多<i class="iconfont icon-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mRig">
+            	<div class="rigTopBg">
+                	<ul class="report_category list-unstyled list-inline text-center wow fadeInDown" id="ztClassify">
+                    	<li><a href="#">智能制造</a></li>
+                    	<li><a href="#">先进材料</a></li>
+                    	<li><a class="active" href="#">信息技术</a></li>
+                    	<li><a href="#">装备制造</a></li>
+                    	<li><a href="#">航空航天</a></li>
+                    	<li><a href="#">法律信息</a></li>
+                    </ul>
+                    <div class="rigSearch rigSearch2 wow fadeInDown">
+                        <span class="rigSearchTit" id="nowSelect">信息技术：</span>
+                        <div class="rigSearchRig">
+                            <div class="rigSearchLef">
+                                <a href="javascript:;" onclick="searchClick()" class="iconfont icon-sousuo1 rigSearchIco"></a>
+                                <input type="text" class="rigSearchInput" placeholder="搜索关键字" id="searchKey">
+                            </div>
+                            <a class="rigSearchBtn rigSearchBtn1" onclick="searchClick()">搜索</a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>                    
+                    <div class="zyTabTop wow fadeInUp">
+                        <ul class="zyOrderBy list-unstyled list-inline">
+                            <li><span>搜索到相关结果：<strong class="corOrg" id="ztNum">1120</strong>个</span></li>
+                            <li><span class="active">人气<i class="iconfont icon-jiantouxia"></i></span></li>
+                            <li><span>时间<i class="iconfont icon-jiantouxia"></i></span></li>
+                            <li><span>收藏榜<i class="iconfont icon-jiantouxia"></i></span></li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                	<table id="reportTab" class="table wow fadeInUp" width="100%">
+                    	<thead>
+                        	<tr>
+                            	<th></th>
+                            	<th></th>
+                            </tr>
+						</thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <a class="reportLink" href="ztReportDetail.html">
+                                        <div class="reportImg"><img src="../images/reportImg1.jpg" class="img-responsive"></div>
+                                        <div class="reportRig">
+                                            <h4 class="reportName ellipsis">科学家赋予石墨烯“磁性金”的特性</h4>
+                                            <div class="reportBrief">
+                                                <p>具体表现在：一是进一步开放认证市场，激发市场活力，鼓励发展一批技术能力强、服务水平高的知识产权认证机构；二是维护认证有效性，树立认证公信力，强化认证机构及从业人员的专业性要求；三是加强事中事后监管，规范认证机构及从业人员行为，维持健康、公平、有序的认证市场秩序。</p>
+                                            </div>
+                                            <div class="reportInfor">
+                                                <span><i class="iconfont icon-riqi"></i>2018-09-19</span>
+                                                <span><i class="iconfont icon-liulan-copy"></i>1520</span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="reportLink" href="ztReportDetail.html">
+                                        <div class="reportImg"><img src="../images/reportImg2.jpg" class="img-responsive"></div>
+                                        <div class="reportRig">
+                                            <h4 class="reportName ellipsis">科学家赋予石墨烯“磁性金”的特性</h4>
+                                            <div class="reportBrief">
+                                                <p>具体表现在：一是进一步开放认证市场，激发市场活力，鼓励发展一批技术能力强、服务水平高的知识产权认证机构；二是维护认证有效性，树立认证公信力，强化认证机构及从业人员的专业性要求；三是加强事中事后监管，规范认证机构及从业人员行为，维持健康、公平、有序的认证市场秩序。</p>
+                                            </div>
+                                            <div class="reportInfor">
+                                                <span><i class="iconfont icon-riqi"></i>2018-09-19</span>
+                                                <span><i class="iconfont icon-liulan-copy"></i>1520</span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </td>                                
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a class="reportLink" href="ztReportDetail.html">
+                                        <div class="reportImg"><img src="../images/reportImg3.jpg" class="img-responsive"></div>
+                                        <div class="reportRig">
+                                            <h4 class="reportName ellipsis">科学家赋予石墨烯“磁性金”的特性</h4>
+                                            <div class="reportBrief">
+                                                <p>具体表现在：一是进一步开放认证市场，激发市场活力，鼓励发展一批技术能力强、服务水平高的知识产权认证机构；二是维护认证有效性，树立认证公信力，强化认证机构及从业人员的专业性要求；三是加强事中事后监管，规范认证机构及从业人员行为，维持健康、公平、有序的认证市场秩序。</p>
+                                            </div>
+                                            <div class="reportInfor">
+                                                <span><i class="iconfont icon-riqi"></i>2018-09-19</span>
+                                                <span><i class="iconfont icon-liulan-copy"></i>1520</span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="reportLink" href="ztReportDetail.html">
+                                        <div class="reportImg"><img src="../images/reportImg4.jpg" class="img-responsive"></div>
+                                        <div class="reportRig">
+                                            <h4 class="reportName ellipsis">科学家赋予石墨烯“磁性金”的特性</h4>
+                                            <div class="reportBrief">
+                                                <p>具体表现在：一是进一步开放认证市场，激发市场活力，鼓励发展一批技术能力强、服务水平高的知识产权认证机构；二是维护认证有效性，树立认证公信力，强化认证机构及从业人员的专业性要求；三是加强事中事后监管，规范认证机构及从业人员行为，维持健康、公平、有序的认证市场秩序。</p>
+                                            </div>
+                                            <div class="reportInfor">
+                                                <span><i class="iconfont icon-riqi"></i>2018-09-19</span>
+                                                <span><i class="iconfont icon-liulan-copy"></i>1520</span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </td>                                
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a class="reportLink" href="ztReportDetail.html">
+                                        <div class="reportImg"><img src="../images/reportImg5.jpg" class="img-responsive"></div>
+                                        <div class="reportRig">
+                                            <h4 class="reportName ellipsis">科学家赋予石墨烯“磁性金”的特性</h4>
+                                            <div class="reportBrief">
+                                                <p>具体表现在：一是进一步开放认证市场，激发市场活力，鼓励发展一批技术能力强、服务水平高的知识产权认证机构；二是维护认证有效性，树立认证公信力，强化认证机构及从业人员的专业性要求；三是加强事中事后监管，规范认证机构及从业人员行为，维持健康、公平、有序的认证市场秩序。</p>
+                                            </div>
+                                            <div class="reportInfor">
+                                                <span><i class="iconfont icon-riqi"></i>2018-09-19</span>
+                                                <span><i class="iconfont icon-liulan-copy"></i>1520</span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="reportLink" href="ztReportDetail.html">
+                                        <div class="reportImg"><img src="../images/reportImg6.jpg" class="img-responsive"></div>
+                                        <div class="reportRig">
+                                            <h4 class="reportName ellipsis">科学家赋予石墨烯“磁性金”的特性</h4>
+                                            <div class="reportBrief">
+                                                <p>具体表现在：一是进一步开放认证市场，激发市场活力，鼓励发展一批技术能力强、服务水平高的知识产权认证机构；二是维护认证有效性，树立认证公信力，强化认证机构及从业人员的专业性要求；三是加强事中事后监管，规范认证机构及从业人员行为，维持健康、公平、有序的认证市场秩序。</p>
+                                            </div>
+                                            <div class="reportInfor">
+                                                <span><i class="iconfont icon-riqi"></i>2018-09-19</span>
+                                                <span><i class="iconfont icon-liulan-copy"></i>1520</span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </td>                               
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a class="reportLink" href="ztReportDetail.html">
+                                        <div class="reportImg"><img src="../images/reportImg7.jpg" class="img-responsive"></div>
+                                        <div class="reportRig">
+                                            <h4 class="reportName ellipsis">科学家赋予石墨烯“磁性金”的特性</h4>
+                                            <div class="reportBrief">
+                                                <p>具体表现在：一是进一步开放认证市场，激发市场活力，鼓励发展一批技术能力强、服务水平高的知识产权认证机构；二是维护认证有效性，树立认证公信力，强化认证机构及从业人员的专业性要求；三是加强事中事后监管，规范认证机构及从业人员行为，维持健康、公平、有序的认证市场秩序。</p>
+                                            </div>
+                                            <div class="reportInfor">
+                                                <span><i class="iconfont icon-riqi"></i>2018-09-19</span>
+                                                <span><i class="iconfont icon-liulan-copy"></i>1520</span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="reportLink" href="ztReportDetail.html">
+                                        <div class="reportImg"><img src="../images/reportImg8.jpg" class="img-responsive"></div>
+                                        <div class="reportRig">
+                                            <h4 class="reportName ellipsis">科学家赋予石墨烯“磁性金”的特性</h4>
+                                            <div class="reportBrief">
+                                                <p>具体表现在：一是进一步开放认证市场，激发市场活力，鼓励发展一批技术能力强、服务水平高的知识产权认证机构；二是维护认证有效性，树立认证公信力，强化认证机构及从业人员的专业性要求；三是加强事中事后监管，规范认证机构及从业人员行为，维持健康、公平、有序的认证市场秩序。</p>
+                                            </div>
+                                            <div class="reportInfor">
+                                                <span><i class="iconfont icon-riqi"></i>2018-09-19</span>
+                                                <span><i class="iconfont icon-liulan-copy"></i>1520</span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </td>                                
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a class="reportLink" href="ztReportDetail.html">
+                                        <div class="reportImg"><img src="../images/reportImg7.jpg" class="img-responsive"></div>
+                                        <div class="reportRig">
+                                            <h4 class="reportName ellipsis">科学家赋予石墨烯“磁性金”的特性</h4>
+                                            <div class="reportBrief">
+                                                <p>具体表现在：一是进一步开放认证市场，激发市场活力，鼓励发展一批技术能力强、服务水平高的知识产权认证机构；二是维护认证有效性，树立认证公信力，强化认证机构及从业人员的专业性要求；三是加强事中事后监管，规范认证机构及从业人员行为，维持健康、公平、有序的认证市场秩序。</p>
+                                            </div>
+                                            <div class="reportInfor">
+                                                <span><i class="iconfont icon-riqi"></i>2018-09-19</span>
+                                                <span><i class="iconfont icon-liulan-copy"></i>1520</span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="reportLink" href="ztReportDetail.html">
+                                        <div class="reportImg"><img src="../images/reportImg8.jpg" class="img-responsive"></div>
+                                        <div class="reportRig">
+                                            <h4 class="reportName ellipsis">科学家赋予石墨烯“磁性金”的特性</h4>
+                                            <div class="reportBrief">
+                                                <p>具体表现在：一是进一步开放认证市场，激发市场活力，鼓励发展一批技术能力强、服务水平高的知识产权认证机构；二是维护认证有效性，树立认证公信力，强化认证机构及从业人员的专业性要求；三是加强事中事后监管，规范认证机构及从业人员行为，维持健康、公平、有序的认证市场秩序。</p>
+                                            </div>
+                                            <div class="reportInfor">
+                                                <span><i class="iconfont icon-riqi"></i>2018-09-19</span>
+                                                <span><i class="iconfont icon-liulan-copy"></i>1520</span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </td>                                
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a class="reportLink" href="ztReportDetail.html">
+                                        <div class="reportImg"><img src="../images/reportImg5.jpg" class="img-responsive"></div>
+                                        <div class="reportRig">
+                                            <h4 class="reportName ellipsis">科学家赋予石墨烯“磁性金”的特性</h4>
+                                            <div class="reportBrief">
+                                                <p>具体表现在：一是进一步开放认证市场，激发市场活力，鼓励发展一批技术能力强、服务水平高的知识产权认证机构；二是维护认证有效性，树立认证公信力，强化认证机构及从业人员的专业性要求；三是加强事中事后监管，规范认证机构及从业人员行为，维持健康、公平、有序的认证市场秩序。</p>
+                                            </div>
+                                            <div class="reportInfor">
+                                                <span><i class="iconfont icon-riqi"></i>2018-09-19</span>
+                                                <span><i class="iconfont icon-liulan-copy"></i>1520</span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="reportLink" href="ztReportDetail.html">
+                                        <div class="reportImg"><img src="../images/reportImg6.jpg" class="img-responsive"></div>
+                                        <div class="reportRig">
+                                            <h4 class="reportName ellipsis">科学家赋予石墨烯“磁性金”的特性</h4>
+                                            <div class="reportBrief">
+                                                <p>具体表现在：一是进一步开放认证市场，激发市场活力，鼓励发展一批技术能力强、服务水平高的知识产权认证机构；二是维护认证有效性，树立认证公信力，强化认证机构及从业人员的专业性要求；三是加强事中事后监管，规范认证机构及从业人员行为，维持健康、公平、有序的认证市场秩序。</p>
+                                            </div>
+                                            <div class="reportInfor">
+                                                <span><i class="iconfont icon-riqi"></i>2018-09-19</span>
+                                                <span><i class="iconfont icon-liulan-copy"></i>1520</span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </td>                               
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a class="reportLink" href="ztReportDetail.html">
+                                        <div class="reportImg"><img src="../images/reportImg3.jpg" class="img-responsive"></div>
+                                        <div class="reportRig">
+                                            <h4 class="reportName ellipsis">科学家赋予石墨烯“磁性金”的特性</h4>
+                                            <div class="reportBrief">
+                                                <p>具体表现在：一是进一步开放认证市场，激发市场活力，鼓励发展一批技术能力强、服务水平高的知识产权认证机构；二是维护认证有效性，树立认证公信力，强化认证机构及从业人员的专业性要求；三是加强事中事后监管，规范认证机构及从业人员行为，维持健康、公平、有序的认证市场秩序。</p>
+                                            </div>
+                                            <div class="reportInfor">
+                                                <span><i class="iconfont icon-riqi"></i>2018-09-19</span>
+                                                <span><i class="iconfont icon-liulan-copy"></i>1520</span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="reportLink" href="ztReportDetail.html">
+                                        <div class="reportImg"><img src="../images/reportImg4.jpg" class="img-responsive"></div>
+                                        <div class="reportRig">
+                                            <h4 class="reportName ellipsis">科学家赋予石墨烯“磁性金”的特性</h4>
+                                            <div class="reportBrief">
+                                                <p>具体表现在：一是进一步开放认证市场，激发市场活力，鼓励发展一批技术能力强、服务水平高的知识产权认证机构；二是维护认证有效性，树立认证公信力，强化认证机构及从业人员的专业性要求；三是加强事中事后监管，规范认证机构及从业人员行为，维持健康、公平、有序的认证市场秩序。</p>
+                                            </div>
+                                            <div class="reportInfor">
+                                                <span><i class="iconfont icon-riqi"></i>2018-09-19</span>
+                                                <span><i class="iconfont icon-liulan-copy"></i>1520</span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </td>                                
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a class="reportLink" href="ztReportDetail.html">
+                                        <div class="reportImg"><img src="../images/reportImg1.jpg" class="img-responsive"></div>
+                                        <div class="reportRig">
+                                            <h4 class="reportName ellipsis">科学家赋予石墨烯“磁性金”的特性</h4>
+                                            <div class="reportBrief">
+                                                <p>具体表现在：一是进一步开放认证市场，激发市场活力，鼓励发展一批技术能力强、服务水平高的知识产权认证机构；二是维护认证有效性，树立认证公信力，强化认证机构及从业人员的专业性要求；三是加强事中事后监管，规范认证机构及从业人员行为，维持健康、公平、有序的认证市场秩序。</p>
+                                            </div>
+                                            <div class="reportInfor">
+                                                <span><i class="iconfont icon-riqi"></i>2018-09-19</span>
+                                                <span><i class="iconfont icon-liulan-copy"></i>1520</span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="reportLink" href="ztReportDetail.html">
+                                        <div class="reportImg"><img src="../images/reportImg2.jpg" class="img-responsive"></div>
+                                        <div class="reportRig">
+                                            <h4 class="reportName ellipsis">科学家赋予石墨烯“磁性金”的特性</h4>
+                                            <div class="reportBrief">
+                                                <p>具体表现在：一是进一步开放认证市场，激发市场活力，鼓励发展一批技术能力强、服务水平高的知识产权认证机构；二是维护认证有效性，树立认证公信力，强化认证机构及从业人员的专业性要求；三是加强事中事后监管，规范认证机构及从业人员行为，维持健康、公平、有序的认证市场秩序。</p>
+                                            </div>
+                                            <div class="reportInfor">
+                                                <span><i class="iconfont icon-riqi"></i>2018-09-19</span>
+                                                <span><i class="iconfont icon-liulan-copy"></i>1520</span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </td>                                
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a class="reportLink" href="ztReportDetail.html">
+                                        <div class="reportImg"><img src="../images/reportImg7.jpg" class="img-responsive"></div>
+                                        <div class="reportRig">
+                                            <h4 class="reportName ellipsis">科学家赋予石墨烯“磁性金”的特性</h4>
+                                            <div class="reportBrief">
+                                                <p>具体表现在：一是进一步开放认证市场，激发市场活力，鼓励发展一批技术能力强、服务水平高的知识产权认证机构；二是维护认证有效性，树立认证公信力，强化认证机构及从业人员的专业性要求；三是加强事中事后监管，规范认证机构及从业人员行为，维持健康、公平、有序的认证市场秩序。</p>
+                                            </div>
+                                            <div class="reportInfor">
+                                                <span><i class="iconfont icon-riqi"></i>2018-09-19</span>
+                                                <span><i class="iconfont icon-liulan-copy"></i>1520</span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="reportLink" href="ztReportDetail.html">
+                                        <div class="reportImg"><img src="../images/reportImg8.jpg" class="img-responsive"></div>
+                                        <div class="reportRig">
+                                            <h4 class="reportName ellipsis">科学家赋予石墨烯“磁性金”的特性</h4>
+                                            <div class="reportBrief">
+                                                <p>具体表现在：一是进一步开放认证市场，激发市场活力，鼓励发展一批技术能力强、服务水平高的知识产权认证机构；二是维护认证有效性，树立认证公信力，强化认证机构及从业人员的专业性要求；三是加强事中事后监管，规范认证机构及从业人员行为，维持健康、公平、有序的认证市场秩序。</p>
+                                            </div>
+                                            <div class="reportInfor">
+                                                <span><i class="iconfont icon-riqi"></i>2018-09-19</span>
+                                                <span><i class="iconfont icon-liulan-copy"></i>1520</span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </td>                                
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a class="reportLink" href="ztReportDetail.html">
+                                        <div class="reportImg"><img src="../images/reportImg1.jpg" class="img-responsive"></div>
+                                        <div class="reportRig">
+                                            <h4 class="reportName ellipsis">科学家赋予石墨烯“磁性金”的特性</h4>
+                                            <div class="reportBrief">
+                                                <p>具体表现在：一是进一步开放认证市场，激发市场活力，鼓励发展一批技术能力强、服务水平高的知识产权认证机构；二是维护认证有效性，树立认证公信力，强化认证机构及从业人员的专业性要求；三是加强事中事后监管，规范认证机构及从业人员行为，维持健康、公平、有序的认证市场秩序。</p>
+                                            </div>
+                                            <div class="reportInfor">
+                                                <span><i class="iconfont icon-riqi"></i>2018-09-19</span>
+                                                <span><i class="iconfont icon-liulan-copy"></i>1520</span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="reportLink" href="ztReportDetail.html">
+                                        <div class="reportImg"><img src="../images/reportImg2.jpg" class="img-responsive"></div>
+                                        <div class="reportRig">
+                                            <h4 class="reportName ellipsis">科学家赋予石墨烯“磁性金”的特性</h4>
+                                            <div class="reportBrief">
+                                                <p>具体表现在：一是进一步开放认证市场，激发市场活力，鼓励发展一批技术能力强、服务水平高的知识产权认证机构；二是维护认证有效性，树立认证公信力，强化认证机构及从业人员的专业性要求；三是加强事中事后监管，规范认证机构及从业人员行为，维持健康、公平、有序的认证市场秩序。</p>
+                                            </div>
+                                            <div class="reportInfor">
+                                                <span><i class="iconfont icon-riqi"></i>2018-09-19</span>
+                                                <span><i class="iconfont icon-liulan-copy"></i>1520</span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </td>                                
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a class="reportLink" href="ztReportDetail.html">
+                                        <div class="reportImg"><img src="../images/reportImg5.jpg" class="img-responsive"></div>
+                                        <div class="reportRig">
+                                            <h4 class="reportName ellipsis">科学家赋予石墨烯“磁性金”的特性</h4>
+                                            <div class="reportBrief">
+                                                <p>具体表现在：一是进一步开放认证市场，激发市场活力，鼓励发展一批技术能力强、服务水平高的知识产权认证机构；二是维护认证有效性，树立认证公信力，强化认证机构及从业人员的专业性要求；三是加强事中事后监管，规范认证机构及从业人员行为，维持健康、公平、有序的认证市场秩序。</p>
+                                            </div>
+                                            <div class="reportInfor">
+                                                <span><i class="iconfont icon-riqi"></i>2018-09-19</span>
+                                                <span><i class="iconfont icon-liulan-copy"></i>1520</span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="reportLink" href="ztReportDetail.html">
+                                        <div class="reportImg"><img src="../images/reportImg6.jpg" class="img-responsive"></div>
+                                        <div class="reportRig">
+                                            <h4 class="reportName ellipsis">科学家赋予石墨烯“磁性金”的特性</h4>
+                                            <div class="reportBrief">
+                                                <p>具体表现在：一是进一步开放认证市场，激发市场活力，鼓励发展一批技术能力强、服务水平高的知识产权认证机构；二是维护认证有效性，树立认证公信力，强化认证机构及从业人员的专业性要求；三是加强事中事后监管，规范认证机构及从业人员行为，维持健康、公平、有序的认证市场秩序。</p>
+                                            </div>
+                                            <div class="reportInfor">
+                                                <span><i class="iconfont icon-riqi"></i>2018-09-19</span>
+                                                <span><i class="iconfont icon-liulan-copy"></i>1520</span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </td>                               
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a class="reportLink" href="ztReportDetail.html">
+                                        <div class="reportImg"><img src="../images/reportImg3.jpg" class="img-responsive"></div>
+                                        <div class="reportRig">
+                                            <h4 class="reportName ellipsis">科学家赋予石墨烯“磁性金”的特性</h4>
+                                            <div class="reportBrief">
+                                                <p>具体表现在：一是进一步开放认证市场，激发市场活力，鼓励发展一批技术能力强、服务水平高的知识产权认证机构；二是维护认证有效性，树立认证公信力，强化认证机构及从业人员的专业性要求；三是加强事中事后监管，规范认证机构及从业人员行为，维持健康、公平、有序的认证市场秩序。</p>
+                                            </div>
+                                            <div class="reportInfor">
+                                                <span><i class="iconfont icon-riqi"></i>2018-09-19</span>
+                                                <span><i class="iconfont icon-liulan-copy"></i>1520</span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="reportLink" href="ztReportDetail.html">
+                                        <div class="reportImg"><img src="../images/reportImg4.jpg" class="img-responsive"></div>
+                                        <div class="reportRig">
+                                            <h4 class="reportName ellipsis">科学家赋予石墨烯“磁性金”的特性</h4>
+                                            <div class="reportBrief">
+                                                <p>具体表现在：一是进一步开放认证市场，激发市场活力，鼓励发展一批技术能力强、服务水平高的知识产权认证机构；二是维护认证有效性，树立认证公信力，强化认证机构及从业人员的专业性要求；三是加强事中事后监管，规范认证机构及从业人员行为，维持健康、公平、有序的认证市场秩序。</p>
+                                            </div>
+                                            <div class="reportInfor">
+                                                <span><i class="iconfont icon-riqi"></i>2018-09-19</span>
+                                                <span><i class="iconfont icon-liulan-copy"></i>1520</span>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </a>
+                                </td>                                
+                            </tr>
+                        </tbody>
+                    </table>                    
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<footer class="footBg">
+    <div class="wrap">
+        <div class="ftTop">
+        	<div class="friendLink wow fadeInLeft">
+            	<h3 class="ftTit">友情链接</h3>
+                <ul class="fdLinkList list-unstyled list-inline">
+                	<li><a href="#">- 航天云网</a></li>
+                	<li><a href="#">- 中国军民融合网</a></li>
+                	<li><a href="#">- 中国航天科工三院</a></li>
+                	<li><a href="#">- 融融网</a></li>
+                	<li><a href="#">- 装备采购网</a></li>
+                	<li><a href="#">- 中国航天科工集团</a></li>
+                	<li><a href="#">- 海鹰资讯</a></li>
+                	<li><a href="#">- 猪八戒网</a></li>
+                </ul>
+            </div>
+            <ul class="ftCon list-unstyled list-inline wow fadeInDown">
+            	<li>
+                    <h3 class="ftTit">科技商城</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 科技产品</a></p>
+                        <p><a href="#">- 科技成果</a></p>
+                        <p><a href="#">- 专利技术</a></p>
+                    </div>
+                </li>
+            	<li>
+                    <h3 class="ftTit">新闻动态</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 工作动态</a></p>
+                        <p><a href="#">- 科技动态</a></p>
+                        <p><a href="#">- 通知公告</a></p>
+                    </div>
+                </li>
+            	<li>
+                    <h3 class="ftTit">科技服务</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 知识产权管理系统</a></p>
+                        <p><a href="#">- 知识产权资源导航</a></p>
+                        <p><a href="#">- 知识产权贯标系统</a></p>
+                        <p><a href="#">- 专利大数据检索</a></p>
+                        <p><a href="#">- 知识产权价值评估系统</a></p>
+                        <p><a href="#">- 知识培训统</a></p>
+                    </div>
+                </li>
+            </ul>
+        	<div class="ftConUs wow fadeInRight">
+            	<h3 class="ftTit">联系我们</h3>
+                <p class="ftAdd"><strong>地址：</strong>北京市丰台区云岗北区西里1号院</p>
+                <p class="ftTel"><strong>电话：</strong>010-68376645</p>
+                <p class="ftEmail"><strong>邮箱：</strong>service@htjsw.com</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="ftBot wow fadeInUp">
+        	<div class="copyRight">
+            	<p>Copyright © 2018中国航天科工集团知识产权中心版权所有 京ICP备13006003号-2  设计支持：<a href="#">谦亨网络</a></p>
+            </div>
+            <div class="ftBotRig">
+            	<ul class="ftBotIco list-unstyled list-inline">
+                	<li>
+                    	<a href="javascript:;"><i class="fa fa-weixin"></i></a>
+                        <div class="ftBotWx">
+                        	<img src="../images/weChat.jpg" class="img-responsive">
+                        </div>
+                    </li>
+                    <li><a href="#"><i class="fa fa-weibo"></i></a></li>
+                </ul>
+            	<ul class="ftBotLink list-unstyled list-inline">
+                	<li><a href="#">关于我们</a></li>
+                	<li><a href="#">发布成果</a></li>
+                	<li><a href="#">发布需求</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</footer>
+<link rel="stylesheet" type="text/css" media="screen" href="../datatables/dataTables.bootstrap.min.css">
+<script type="text/javascript" src="../datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../datatables/dataTables.bootstrap.min.js"></script>
+<script>
+    var pro = window.location.protocol;
+    var host = window.location.host;
+    var domain = pro + "//" + host;
+    var fid = getUrlParam("fid");
+    var sid ;
+    var orderBy = 'order by pageView desc';
+    var dataSet = [];
+    var fIdName = '';
+    function getNowPlaceByFid(){
+        $.ajax({
+            type : "get",
+            url : "/ztReportClassifyinfos/getNowPlace/"+fid,
+            async : false,
+            success : function (result) {
+                if (result.name != null) {
+                    fIdName = result.name;
+                    $("#nowPlace").append('<li><a href="javascript:;">'+result.name+'</a></li>');
+                }
+            }
+        });
+    }
+
+    function getNowPlaceBySid(){
+        $.ajax({
+            type : "get",
+            url : "/ztReportClassifyinfos/getNowPlace/"+sid,
+            success : function (result) {
+                if (result.name != null) {
+                    $("#nowSelect").html(result.name+'：');
+                }
+            }
+        });
+    }
+
+    getNowPlaceByFid();
+
+    $.ajax({
+        type : "get",
+        url : "/ztReportClassifyinfos/getClassify/"+fid,
+        async : false,
+        success : function (result) {
+            $("#ztClassify").html('');
+            for (var i = 0; i < result.length; i++) {
+                if (i == 0) {
+                    $("#ztClassify").append('<li><a class="active"  href="javascript:getSid('+result[i].id+')">'+result[i].name+'</a></li>');
+                    sid = result[i].id ;
+                    getNowPlaceBySid();
+                }else {
+                    $("#ztClassify").append('<li><a href="javascript:getSid(' + result[i].id + ')">' + result[i].name + '</a></li>');
+                }
+            }
+        }
+    });
+
+    $(document).find(".zyOrderBy li:not(:first-child)").on("click", "span", function(){
+        $(this).addClass("active").parent().siblings().find("span").removeClass("active");
+        // alert($(this).text());
+       switch ($(this).text()) {
+           case "人气" : orderBy = 'order by pageView DESC';break;
+           case "时间" : orderBy = 'order by createTime DESC';break;
+           case "收藏榜" : orderBy = 'order by id DESC';break;
+       }
+       init();
+    });
+    $(document).find(".report_category li").on("click", "a", function(){
+        $(this).addClass("active").parent().siblings().find("a").removeClass("active");
+        // alert($(this).text());
+    });
+
+    
+    function getSid(obj) {
+        sid = obj;
+        getNowPlaceBySid();
+        init();
+    }
+
+    function init() {
+        $.ajax({
+            type : "get",
+            url : "/ztReports",
+            async : false,
+            data : {
+                "fId" : fid,
+                "sId" : sid,
+                "searchByInput" : $("#searchKey").val(),
+                "orderBy" : orderBy
+            },
+            success : function (result) {
+                console.log(result);
+                $('#reportTab').dataTable().fnClearTable();
+                dataSet = [];
+                var length = result.data.length;
+                var data = result.data;
+                $("#ztNum").text(length);
+                var lenA = Math.floor(length/2) ;
+                var lenB = length%2 ;
+                for(var i= 0;i<lenA;i++){
+                    var dataChildren =[];
+                    dataChildren.push('<td>\n' +
+                        '                                    <a class="reportLink" href="ztReportDetail.html?id='+data[i*2].id+'&nowplace='+fIdName+'">\n' +
+                        '                                        <div class="reportImg"><img src="'+domain+'/statics'+data[i*2].image+'" class="img-responsive"></div>\n' +
+                        '                                        <div class="reportRig">\n' +
+                        '                                            <h4 class="reportName ellipsis">'+data[i*2].name+'</h4>\n' +
+                        '                                            <div class="reportBrief">\n' +
+                        '                                                <p>'+data[i*2].descript+'</p>\n' +
+                        '                                            </div>\n' +
+                        '                                            <div class="reportInfor">\n' +
+                        '                                                <span><i class="iconfont icon-riqi"></i>'+new Date(data[i*2].createTime).Format("yyyy-MM-dd")+'</span>\n' +
+                        '                                                <span><i class="iconfont icon-liulan-copy"></i>'+(data[i*2].pageView || '0')+'</span>\n' +
+                        '                                            </div>\n' +
+                        '                                        </div>\n' +
+                        '                                        <div class="clear"></div>\n' +
+                        '                                    </a>\n' +
+                        '                                </td>') ;
+                    dataChildren.push('<td>\n' +
+                        '                                    <a class="reportLink" href="ztReportDetail.html?id='+data[i*2+1].id+'&nowplace='+fIdName+'">\n' +
+                        '                                        <div class="reportImg"><img src="'+domain+'/statics'+data[i*2+1].image+'" class="img-responsive"></div>\n' +
+                        '                                        <div class="reportRig">\n' +
+                        '                                            <h4 class="reportName ellipsis">'+data[i*2+1].name+'</h4>\n' +
+                        '                                            <div class="reportBrief">\n' +
+                        '                                                <p>'+data[i*2+1].descript+'</p>\n' +
+                        '                                            </div>\n' +
+                        '                                            <div class="reportInfor">\n' +
+                        '                                                <span><i class="iconfont icon-riqi"></i>'+new Date(data[i*2+1].createTime).Format("yyyy-MM-dd")+'</span>\n' +
+                        '                                                <span><i class="iconfont icon-liulan-copy"></i>'+(data[i*2+1].pageView || '0')+'</span>\n' +
+                        '                                            </div>\n' +
+                        '                                        </div>\n' +
+                        '                                        <div class="clear"></div>\n' +
+                        '                                    </a>\n' +
+                        '                                </td>');
+                    dataSet.push(dataChildren);
+                }
+                if (lenB > 0) {
+                    var datachildren = [];
+                    datachildren.push('<td>\n' +
+                        '                                    <a class="reportLink" href="ztReportDetail.html?id='+data[lenA*2].id+'&nowplace='+fIdName+'">\n' +
+                        '                                        <div class="reportImg"><img src="'+domain+'/statics'+data[lenA*2].image+'" class="img-responsive"></div>\n' +
+                        '                                        <div class="reportRig">\n' +
+                        '                                            <h4 class="reportName ellipsis">'+data[lenA*2].name+'</h4>\n' +
+                        '                                            <div class="reportBrief">\n' +
+                        '                                                <p>'+data[lenA*2].descript+'</p>\n' +
+                        '                                            </div>\n' +
+                        '                                            <div class="reportInfor">\n' +
+                        '                                                <span><i class="iconfont icon-riqi"></i>'+new Date(data[lenA*2].createTime).Format("yyyy-MM-dd")+'</span>\n' +
+                        '                                                <span><i class="iconfont icon-liulan-copy"></i>'+(data[lenA*2].pageView || '0')+'</span>\n' +
+                        '                                            </div>\n' +
+                        '                                        </div>\n' +
+                        '                                        <div class="clear"></div>\n' +
+                        '                                    </a>\n' +
+                        '                                </td>');
+                    datachildren.push('<td></td>');
+                    dataSet.push(datachildren);
+                }
+                if (dataSet.length > 0) {
+                    $('#reportTab').dataTable().fnAddData(dataSet);
+                    $('#reportTab').dataTable().fnDraw(false);
+                }
+                console.log(dataSet);
+            }
+        })
+    }
+
+	var table = $('#reportTab').DataTable({
+		"searching": false,
+		"ordering": false,
+		"processing": false,
+		"info": false,
+		 "bAutoWidth" : true,
+		//"paging":   false,
+		"lengthMenu": [10, 20, 30, "所有"],
+		"pageLength": 4,
+		"pagingType":"numbers",
+        "data" : dataSet,
+        "columns": [
+            { "title": "" },
+            { "title": "" }
+        ],
+		"language": {
+			"sProcessing": "处理中...",
+			"sLengthMenu": "显示 _MENU_ 项结果",
+			"sZeroRecords": "没有匹配结果",
+			"sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+			"sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+			"sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+			"sInfoPostFix": "",
+			"sSearch": "搜索:",
+			"sUrl": "",
+			"sEmptyTable": "表中数据为空",
+			"sLoadingRecords": "载入中...",
+			"sInfoThousands": ",",
+			"oPaginate": {
+				"sFirst": "首页",
+				"sPrevious": "上页",
+				"sNext": "下页",
+				"sLast": "末页"
+			},
+			"oAria": {
+				"sSortAscending": ": 以升序排列此列",
+				"sSortDescending": ": 以降序排列此列"
+			}
+		}/*,
+		"columnDefs": [
+			{ className: "zyTabCon1", "targets": [ 0 ] },
+			{ className: "zyTabCon2", "targets": [ 1 ] },
+			{ className: "zyTabCon3", "targets": [ 2 ] },
+			{ className: "zyTabCon4", "targets": [ 3 ] },
+			{ className: "zyTabCon5", "targets": [ 4 ] },
+		  ]*/
+	});
+
+    init();
+</script>
+</body>
+</html>

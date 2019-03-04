@@ -1,0 +1,401 @@
+/* 底部样式 footer-bottom */
+footer {
+  /* position: fixed; */
+  /* bottom: 0; */
+  width: 100%;
+  background-color: #333333;
+  color: #606060;
+  font-size: 10px;
+}
+footer div {
+  display: flex;
+}
+footer .footer-wrap {
+  width: 96%;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.footer-bottom {
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: #606060 solid 1px;
+}
+.bottom-right div {
+  margin-left: 10px;
+  align-items: center;
+}
+.bottom-right div span {
+  padding-right: 10px;
+  border-right: #606060 solid 1px
+}
+.bottom-right div:last-child span {
+  border-right: none;
+}
+/* 底部样式 footer-top */
+.footer-top {
+  justify-content: space-between;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+.footer-top .section1,
+.footer-top .section4,
+.footer-top .section5,
+.footer-top .section {
+  flex-direction: column;
+
+}
+.footer-top .section1 p,
+.footer-top .section4 p,
+.footer-top .section5 p,
+.footer-top .section p {
+  padding: 10px 0;
+  color: #b4b4b4;
+  font-size: 14px;
+}
+.footer-top .section1 ul,
+.footer-top .section4 ul {
+  /* border: red solid 1px; */
+  display: flex;
+  flex-wrap: wrap;
+}
+.footer-top .section1 {
+  width: 320px;
+}
+.footer-top .section4 {
+  width: 250px;
+}
+.footer-top .section1 ul li,
+.footer-top .section4 ul li {
+  margin-right: 20px;
+}
+.footer-top .section4 ul li:nth-of-type(even) {
+  margin-right: 0;
+}
+.footer-top .section {
+  flex-direction: column;
+}
+.footer-top .section5 ul li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.section5 li img {
+  width: 12px;
+  height: 8px;
+  padding: 2px 6px;
+}
+li {
+  padding: 6px 0;
+}
+
+/* 头部样式 header */
+header {
+  background-color: #ffffff;
+  border-bottom: #999999 solid 1px;
+}
+header div {
+  display: flex;
+}
+.header,
+.title {
+  flex: 1;
+  align-items: center;
+}
+.title {
+  justify-content: center;
+}
+.img-icon {
+  align-items: center;
+  margin-left: 40px;
+}
+.img-icon img:first-child {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+.img-icon img:last-child {
+  width: 230px;
+  height: 20px;
+}
+.img-welcome img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+.title > span {
+  font-weight: bolder;
+  font-size: 18px;
+}
+.score,
+.login {
+  width: 120px;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+.score {
+  background-color: #5297f1;
+}
+.login {
+  background-color: #e8a938;
+}
+.score:hover,
+.login:hover {
+  cursor: pointer;
+}
+.user {
+  position: relative;
+  height: 60px;
+  margin-right: 20px;
+  align-items: center;
+  /* border: red solid 1px; */
+  color: #707070;
+  font-size: 12px;
+  display: none;
+}
+.user .user-permission {
+  margin-right: 30px;
+}
+.user .user-info {
+  align-items: center;
+}
+.user .user-info > div {
+  margin-right: 10px;
+}
+.user .user-img {
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #bdd9f1;
+  cursor: pointer;
+}
+.user .user-info .down {
+  cursor: pointer;
+}
+
+.logout {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  z-index: 999;
+  background-color: #ffffff;
+}
+.logout span {
+  margin: 10px 20px;
+  color: red;
+  cursor: pointer;
+}
+
+/* 轮播图 */
+#swiper img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 首页content #service */
+#service {
+  /* border: red solid 1px; */
+  margin: 40px;
+  padding: 0 40px;
+  background-color: #ffffff;
+  overflow: hidden;
+  min-width: 950px;
+}
+#service div {
+  display: flex;
+}
+#service > p {
+  padding: 30px 0;
+  margin-bottom: 10px;
+  border-bottom: #f3f3f3 solid 2px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bolder;
+  font-family: '微软雅黑';
+}
+#service .service-content {
+  justify-content: space-between;
+}
+#service .section {
+  flex-direction: column;
+}
+#service .section img {
+  width: 300px;
+  height: 160px;
+}
+#service .section .img-title {
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+}
+#service .section .img-title .num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  /* border: #5297f1 solid 2px; */
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+.section:nth-child(1) .img-title .num {
+  /* border-color: blue; */
+  border: #2278ec solid 2px;
+}
+.section:nth-child(2) .img-title .num {
+  /* border-color: green; */
+  border: green solid 2px;
+}
+.section:nth-child(3) .img-title .num {
+  /* border-color: green; */
+  border: #5657cb solid 2px;
+}
+#service .section .img-title span {}
+
+/* 覆盖layui原样式 */
+.layui-layer-content {
+  padding: 20px;
+  text-align: center;
+}
+#loginBox label {
+  width: 42px;
+}
+#loginBox .layui-form-item {
+  display: flex;
+  flex: 1
+}
+#loginBox .layui-input-block {
+  display: flex;
+  flex: 1;
+  margin-left: 0;
+}
+#loginBox .layui-input-block input {
+  width: 100%;
+}
+#loginBox .layui-input-block button {
+  width: 100%;
+}
+.patent-content .title .layui-form-item {
+  margin: 0;
+}
+.patent-content .title .layui-form-item .layui-input-block {
+  margin: 0;
+}
+.evaluationBox {
+  display: none;
+}
+.evaluationBox .layui-input-block {
+  margin-left: 0;
+}
+
+/* #loginBox */
+/* #loginBox */
+/* #loginBox */
+/* #loginBox */
+.patent-content {
+  display: none;
+  margin: 0 40px;
+  padding: 0 40px;
+  /* height: 300px; */
+  background-color: #ffffff;
+}
+.patent-content div {
+  display: flex;
+}
+.patent-content .title {
+  justify-content: space-between;
+  align-items: center;
+}
+.patent-content .title .list-title {
+  align-items: center;
+}
+.patent-content .title .list-title span {
+  margin-left: 10px;
+  font-weight: bolder;
+  font-family: '微软雅黑';
+}
+.patent-content .title .list-btns {
+  margin: 20px 0;
+}
+.patent-content .title .list-btns form {
+  margin-right: 10px;
+}
+
+/* searchPatentForm */
+.searchPatentForm {
+  display: none;
+}
+.searchPatentForm form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.searchPatentForm form .layui-form-item {
+  width: 370px;
+}
+.searchPatentForm form .layui-form-item:last-child {
+  width: 600px;
+}
+.searchPatentForm form .layui-input-block {
+  margin-left: 120px;
+}
+.searchPatentForm form .layui-form-label {
+  width: 90px;
+}
+/* 专利列表 */
+
+.patent-content .list {
+  flex-direction: column;
+  font-size: 12px;
+}
+.patent-content .list .list-item-con,
+.patent-content .list .list-item {
+  flex-direction: row;
+  margin-bottom: 2px;
+}
+.patent-content .list .list-item-con .item,
+.patent-content .list .list-item .item {
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  background-color: #cfd1d8;
+  color: #ffffff;
+  margin-right: 2px;
+}
+.patent-content .list .list-item-con .item {
+  background-color: #f5f6fa;
+  color: #666666;
+}
+.patent-content .list .list-item-con .item .evaluation {
+  color: #2278ec;
+  cursor: pointer;
+  margin-left: 4px;
+}
+.patent-content .list .list-item-con .item .delete {
+  color: red;
+  cursor: pointer;
+}
+.patent-content .list .list-item-con .item .detail {
+  color: #e8a938;
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+
+.patent-content .go-home {
+  padding: 20px 0;
+  color: #2278ec;
+  cursor: pointer;
+  font-size: 12px;
+}
+/* .patent-content .list {} */
+/* .patent-content .list {} */
+/* .patent-content .list {} */
+/* 评价弹窗 */
+

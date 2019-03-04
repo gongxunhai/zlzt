@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>得分详情</title>
+
+  <link rel="stylesheet" href="./css1/reset.css">
+  <link rel="stylesheet" href="./css1/commons.css">
+  <link rel="stylesheet" href="./layui/css/layui.css">
+  <link rel="stylesheet" href="./css1/scoreChart.css">
+
+  <script src="./js1/jquery.min.js"></script>
+  <script src="./layui/layui.js"></script>
+  <script src="./js1/echarts.js"></script>
+
+</head>
+<body>
+
+  <script src="./js1/header.js"></script>
+
+  <script src="./js1/swiper.js"></script>
+
+
+  <div class="chart-content">
+    <div class="patent-title">
+      <p>当前专利：一种高性能材料及其制作方法</p>
+      <span>国内专利</span>
+    </div>
+    <div class="total-chart">
+      <div class="left">
+        <div class="title">总得分情况：</div>
+        <div class="content">
+          <div class="con-item">
+            <span>军事价值度：</span>
+            <span class="item1"></span>
+            <span>40分</span>
+          </div>
+          <div class="con-item">
+            <span>技术价值度：</span>
+            <span class="item2"></span>
+            <span>60分</span>
+          </div>
+          <div class="con-item">
+            <span>经济价值度：</span>
+            <span class="item3"></span>
+            <span>70分</span>
+          </div>
+          <div class="con-item">
+            <span>法律价值度：</span>
+            <span class="item4"></span>
+            <span>80分</span>
+          </div>
+          <div class="con-item">
+            <span>总分：</span>
+            <span class="item5"></span>
+            <span>100分</span>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+          <div class="title">一级指标得分详情：</div>
+          <div id="chart5" class="content" style="width: 540px;height: 300px;"></div>
+        
+      </div>
+    </div>
+    <div class="second-title">二级指标得分详情图表：</div>
+    <div class="chart-list">
+      <div class="chart-item">
+        <div class="item-title">军事价值度</div>
+        <div class="item-content" id="chart1" style="width: 540px;height: 300px;">图表</div>
+      </div>
+
+      <div class="chart-item">
+        <div class="item-title">技术价值度</div>
+        <div class="item-content" id="chart2" style="width: 540px;height: 300px;">图表</div>
+      </div>
+
+      <div class="chart-item">
+        <div class="item-title">经济价值度</div>
+        <div class="item-content" id="chart3" style="width: 540px;height: 300px;">图表</div>
+      </div>
+
+      <div class="chart-item">
+        <div class="item-title">法律价值度</div>
+        <div class="item-content" id="chart4" style="width: 540px;height: 300px;">图表</div>
+      </div>
+    </div>
+    <div class="down-report">
+      <span>下载此报告</span>
+    </div>
+
+  </div>
+
+
+  
+
+  
+  
+
+  <script src="./js1/footer.js"></script>
+
+  <!-- js 代码 layui 必须写在这里面 外部引入 js 会报错 -->
+  <script>
+    layui.use(['layer', 'form', 'carousel', 'rate'], function() {
+      let layer = layui.layer,
+          form = layui.form,
+          carousel = layui.carousel
+          rate = layui.rate;
+      
+      // 轮播图
+      carousel.render({
+        elem: '#swiper',
+        width: '100%',
+        height: '280px',
+        full: false,
+        arrow: 'hover',
+      })
+
+      let ins1 = rate.render({
+        elem: '.item1',
+        value: 2,
+        // half: true,
+        // choose: function(value) {
+          // console.log(value)
+        // }
+      })
+      let ins2 = rate.render({
+        elem: '.item2',
+        value: 3,
+        // half: true,
+        // choose: function(value) {
+          // console.log(value)
+        // }
+      })
+      let ins3 = rate.render({
+        elem: '.item3',
+        value: 3.5,
+        half: true,
+        // choose: function(value) {
+          // console.log(value)
+        // }
+      })
+      let ins4 = rate.render({
+        elem: '.item4',
+        value: 4,
+        // half: true,
+        // choose: function(value) {
+          // console.log(value)
+        // }
+      })
+      let ins5 = rate.render({
+        elem: '.item5',
+        value: 5,
+        // half: true,
+        // choose: function(value) {
+          // console.log(value)
+        // }
+      })
+
+      // 初始化为登录状态
+      $('.score').hide();
+      $('.login').hide();
+      $('.user-name').text('username');
+      $('.user').css('display', 'flex');
+      $('.logout').hide();
+
+      // 图表
+      let myChart1 = echarts.init(document.getElementById('chart1'));
+      let myChart2 = echarts.init(document.getElementById('chart2'));
+      let myChart3 = echarts.init(document.getElementById('chart3'));
+      let myChart4 = echarts.init(document.getElementById('chart4'));
+      let myChart5 = echarts.init(document.getElementById('chart5'));
+
+      // console.log(myChart3);
+
+      let option1 = {
+        tootip: {},
+        radar: {
+          name: {
+            textStyle: {
+              // color: ''
+            }
+          },
+          indicator: [
+            { name: '军事需求度', max: 12},
+            { name: '战略性', max: 12},
+            { name: '增效性 Techology）', max: 12},
+          ]
+        },
+        series: [
+          {
+            // name: ''
+            type: 'radar',
+            data: [
+              {
+                value: [6, 9, 12],
+                name: '军事价值度'
+              }
+            ]
+          }
+        ]
+      };
+      option2 = {
+        tootip: {},
+        radar: {
+          name: {
+            textStyle: {
+              // color: ''
+            }
+          },
+          indicator: [
+            { name: '先进性', max: 12},
+            { name: '配套技术依存度', max: 12},
+            { name: '可替代性', max: 12},
+            { name: '成熟度', max: 12},
+            { name: '行业发展趋势', max: 12},
+          ]
+        },
+        series: [
+          {
+            // name: ''
+            type: 'radar',
+            data: [
+              {
+                value: [8, 8, 8, 8, 8],
+                name: '技术价值度'
+              }
+            ]
+          }
+        ]
+      },
+      option3 = {
+        tootip: {},
+        radar: {
+          name: {
+            textStyle: {
+              // color: ''
+            }
+          },
+          indicator: [
+            { name: '市场应用情况', max: 12},
+            { name: '竞争情况', max: 12},
+            { name: '', max: 12},
+          ]
+        },
+        series: [
+          {
+            // name: ''
+            type: 'radar',
+            data: [
+              {
+                value: [10, 8, 0],
+                name: '经济价值度'
+              }
+            ]
+          }
+        ]
+      },
+      option4 = {
+        tootip: {},
+        radar: {
+          name: {
+            textStyle: {
+              // color: 'red'
+            }
+          },
+          indicator: [
+            { name: '稳定性', max: 12},
+            { name: '专利侵权可判定性', max: 12},
+            { name: '有效期', max: 12},
+          ]
+        },
+        series: [
+          {
+            // name: ''
+            type: 'radar',
+            data: [
+              {
+                value: [12, 10, 8],
+                name: '法律价值度'
+              }
+            ]
+          }
+        ]
+      };
+      let option5 = {
+        tootip: {},
+        radar: {
+          startAngle: 45,
+          name: {
+            textStyle: {
+              // color: 'red'
+            }
+          },
+          indicator: [
+            { name: '军事价值度', max: 12},
+            { name: '经济价值度', max: 12},
+            { name: '技术价值度', max: 12},
+            { name: '法律价值度', max: 12},
+          ]
+        },
+        series: [
+          {
+            // name: ''
+            type: 'radar',
+            data: [
+              {
+                value: [12, 10, 8, 12],
+                name: '法律价值度'
+              }
+            ]
+          }
+        ]
+      };
+
+      myChart1.setOption(option1)
+      myChart2.setOption(option2)
+      myChart3.setOption(option3)
+      myChart4.setOption(option4)
+      myChart5.setOption(option5)
+      // initChart2(document.getElementById('chart2'), option);
+
+
+      $('.chart-content .down-report span').on('click', function() {
+        layer.msg('正在下载报告，稍后查看')
+      })
+
+    })
+
+  </script>
+</body>
+</html>
