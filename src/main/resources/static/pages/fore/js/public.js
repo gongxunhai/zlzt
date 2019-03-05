@@ -25,6 +25,21 @@ jQuery(function () {
 		setTimeout(function(){$(".searchBg").hide();},900);
 		$("body").css("overflow","auto");
 	})
+	$(".searchSel").click(function(event){
+		$(this).stop().toggleClass("active");
+		$(".searchList").stop().slideToggle();	
+		event.stopPropagation();
+	})
+	$(".searchList li").click(function(){
+		$(".searchTit").html($(this).html());
+		$(this).parent().next().val($(this).attr("data-index"));
+		$(this).addClass("active").siblings().removeClass("active");
+	})
+	$(window).click(function(){
+		$(".searchSel").removeClass("active");	
+		$(".searchList").slideUp();
+	})
+	
 	$(".banner .swiper-slide").each(function(index){$(this).addClass("ban"+(index+1));});
 	var banner = new Swiper('.banner .swiper-container',{
 		loop:true,
@@ -35,8 +50,8 @@ jQuery(function () {
 		slidesPerView:1,
 		observer:true,
 		observeParents:true,
-		prevButton:'.banPrev',
-		nextButton:'.banNext',
+		prevButton:'.banner .banPrev',
+		nextButton:'.banner .banNext',
 		onInit: function(swiper){
 			swiperAnimateCache(swiper); 
 			swiperAnimate(swiper);
@@ -100,21 +115,7 @@ jQuery(function () {
 		$(".box1Bot .box1Item").eq($(this).parent().index()).show().addClass('fadeInUp animated').siblings().hide();
 	})	
 	$(document).on("click",".upcollect a",function(event){
-		$(this).toggleClass("active");
-		if ($(this).hasClass("up")){
-		    if ($(this).hasClass("active")) {
-		        alert("点赞成功");
-            }else {
-                alert("取消点赞");
-            }
-        }
-        if ($(this).hasClass("collect")){
-            if ($(this).hasClass("active")) {
-                alert("关注成功");
-            }else {
-                alert("取消关注");
-            }
-        }
+		$(this).addClass("active");	
 	})
 	$(".box2Rig li").each(function(index){$(this).attr("data-wow-delay",index/10+"s");});
 	$(".box4List li").each(function(index){$(this).attr("data-wow-delay",index/10+"s");});
@@ -140,7 +141,7 @@ jQuery(function () {
         observer:true,
         observeParents:true,
 		pagination:'.box6List .box6Page',
-		paginationClickable:true,	
+		paginationClickable:true,
 		breakpoints: {
 			1200: {
 				slidesPerView:4,
@@ -165,6 +166,25 @@ jQuery(function () {
 	$(".ftBotIco li:first-child").click(function(){
 		$(this).toggleClass("active");
 	})
+	
+	if($(".bannerN .swiper-slide").length>1){
+		var bannerN = new Swiper('.bannerN .swiper-container',{
+			loop:true,
+			autoplay:6000,
+			autoplayDisableOnInteraction : false,
+			speed:1000,
+			resizeReInit:true,
+			resizeReInit:true,
+			observer:true,
+			observeParents:true,
+			pagination:'.bannerN .swiper-pagination',
+			paginationClickable:true,
+			//autoHeight: true,
+		});
+	}else{
+		$(".bannerN").addClass("none");
+	}
+	
 	function resourceList(){
 		$(".resourceList > li").each(function(index, element) {
 			if($(this).find(".resourceBot").height()>$(this).find(".resourceBotBox").height()){
@@ -493,9 +513,10 @@ jQuery(function () {
 		$(this).parents(".reportTop").next(".reportBot").find(".reportItem").eq($(this).parent().index()).addClass("animated fadeInUp").show().siblings().hide();
 	})
 	//科技服务
-	$(".serBox").css("height",$(".serList li").eq(1).height()*2+parseInt($(".serList li").eq(1).css("padding-top"))*4);
+	$(".serBox").css("height",$(".serList li").eq(1).height()+parseInt($(".serList li").eq(1).css("padding-top"))*2);
+	$(window).load(function(){$(".serBox").css("height",$(".serList li").eq(1).height()+parseInt($(".serList li").eq(1).css("padding-top"))*2);})
 	$(document).on("click",".serBtn",function(event){
-		var oneHeight = ($(".serList li").height()+parseInt($(".serList li").css("padding-top"))*2)*2,
+		var oneHeight = ($(".serList li").height()+parseInt($(".serList li").css("padding-top"))*2),
 			allHeight = $(".serList").height();
 		if($(this).hasClass("active")){
 			$(this).removeClass("active");
@@ -556,12 +577,14 @@ jQuery(function () {
 		$("nav.navbar.bootsnav.no-full .navbar-collapse").css("max-height",$(window).height()-$(".logo").height());
 		var sUserAgent = navigator.userAgent.toLowerCase(); 
 		if((sUserAgent.match(/(ipod|iphone os|midp|ucweb|android|windows ce|windows mobile)/i))){
+			$(".box4Bg").addClass("mob");
 		}else{
-		}		
+			$(".box4Bg").removeClass("mob");
+		}
 	}
 	equip();
     $(window).resize(function(){
-		$(".serBox").css("height",$(".serList li").eq(1).height()*2+parseInt($(".serList li").eq(1).css("padding-top"))*4);
+		$(".serBox").css("height",$(".serList li").eq(1).height()+parseInt($(".serList li").eq(1).css("padding-top"))*2);
 		resourceList();
 		sxBtn();
 		equip();
