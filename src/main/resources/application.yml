@@ -45,12 +45,12 @@ spring:
   mail:
     default-encoding: UTF-8
     host: smtp.163.com
-    username:
-    password:
+    username: gxh2516094@163.com
+    password: gxh2516094
     protocol: smtp
     test-connection: false
-#    properties:
-#      mail.smtp.auth: true
+    properties:
+      mail.smtp.auth: true
 mybatis:
   type-aliases-package: com.boot.security.server.model
   mapper-locations: classpath:/mybatis-mappers/*

@@ -43,7 +43,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 			throw new LockedException("用户被锁定,请联系管理员");
 		} else if (sysUser.getStatus() == Status.DISABLED) {
 			throw new DisabledException("用户已作废");
-		}else if (sysUser.getStatus() == Status.isAdmin) {
+		}else if (sysUser.getStatus() == Status.NotAdmin) {
 			throw new DisabledException("用户不是管理员");
 		}
 

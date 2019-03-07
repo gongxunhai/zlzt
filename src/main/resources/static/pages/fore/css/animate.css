@@ -34,6 +34,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 @keyframes ban01Bg{ 0%{ transform:skew(0,0) scale(1);}25%{ transform:skew(-5deg,0); transform-origin:left bottom;}50%{ transform:skew(0,0) scale(1);}75%{ transform:skew(0,5deg); transform-origin:left bottom;}100%{ transform:skew(0,0) scale(1);}}
 .ban01Bg{ -webkit-animation-name:ban01Bg; animation-name:ban01Bg;}
 
+@-webkit-keyframes banGuang{ 0%{ transform:rotate(0deg); -webkit-transform:rotate(0deg);}100%{ transform:rotate(360deg); -webkit-transform:rotate(360deg);}}
+@keyframes banGuang{ 0%{ transform:rotate(0deg);}100%{ transform:rotate(360deg);}}
+.banGuang{ -webkit-animation-name:banGuang; animation-name:banGuang;}
+
 
 @-webkit-keyframes box2LefImg{ 0%{ transform:translate(0,0);}25%{ transform:translate(15px,-15px);}50%{ transform:translate(0,0);}75%{ transform:translate(-15px,15px);}100%{ transform:translate(0,0);}}
 @keyframes box2LefImg{ 0%{ transform:translate(0,0);}25%{ transform:translate(15px,-15px);}50%{ transform:translate(0,0);}75%{ transform:translate(-15px,15px);}100%{ transform:translate(0,0);}}

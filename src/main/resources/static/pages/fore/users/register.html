@@ -1,0 +1,359 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<title>注册</title>
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../fonts/FontAwesome/font-awesome.css" rel="stylesheet">
+	<link href="../fonts/IconFont/iconfont.css" rel="stylesheet">
+	<link href="../css/animate.css" rel="stylesheet">
+	<link href="../css/bootsnav.css" rel="stylesheet">
+    <link href="../css/swiper.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+    <link href="../treetable/css/jquery.treetable.css" rel="stylesheet" type="text/css" >
+	<link href="../css/style.css" rel="stylesheet">
+    <script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootsnav.js"></script>
+    <script src="../js/swiper.min.js"></script>
+	<script src="../treetable/js/jquery.treetable.js"></script>
+    <script type="text/javascript" src="../../../layui/layui.js"></script>
+    <script src="../js/rem.js"></script>
+    <script src="../js/public.js"></script>
+	<!--[if lt IE 9]>
+	  <script src="../js/html5shiv.min.js"></script>
+	  <script src="../js/respond.min.js"></script>
+	<![endif]-->
+</head>
+<style>
+    a.yzmBtn:hover, a.yzmBtn:focus {
+        color: #FFFFFF;
+        text-decoration: none !important;
+    }
+</style>
+<body>
+<div class="loginBg">
+	<div class="loginWrap mCustomScrollbar wow fadeIn">
+        <div class="loginBox registerBox">
+            <div class="loginTop">
+                <h2 class="loginTit">注册</h2>
+                <a class="loginClose" href="#"><i class="iconfont icon-guanbi"></i></a>
+                <div class="clear"></div>
+            </div>
+            <div class="loginWelcome">
+                <p>您的收藏夹以及个人资料信息将在官网备案保存以供随时调取，带“<span class="corRed"> * </span>”为必填项。</p>
+            </div>
+            <ul class="regList list-unstyled row">
+            	<li class="col-xs-12 col-sm-12 col-md-6">
+                	<label class="regLab"><span class="corRed">*</span> 会员类别：</label>
+                    <div class="regRig">
+                    	<select class="regSelect" onchange="changeData();">
+                        	<option>个人</option>
+                        	<option>企业</option>
+                        </select>
+                    </div>
+                    <div class="clear"></div>
+                </li>
+            	<li class="col-xs-12 col-sm-12 col-md-6">
+                	<label class="regLab"><span class="corRed">*</span> 姓名：</label>
+                    <div class="regRig">
+                    	<input type="text" class="loginInput" id="name" >
+                    </div>
+                    <div class="clear"></div>
+                </li>
+            	<li class="col-xs-12 col-sm-12 col-md-6">
+                	<label class="regLab"><span class="corRed">*</span> 手机号码：</label>
+                    <div class="regRig">
+                    	<input type="text" class="loginInput" id="phone" >
+                    </div>
+                    <div class="clear"></div>
+                </li>
+            	<li class="col-xs-12 col-sm-12 col-md-6">
+                	<label class="regLab"><span class="corRed">*</span> 邮箱：</label>
+                    <div class="regRig">
+                    	<input type="text" class="loginInput" id="email" onblur="checkEmail()">
+                    </div>
+                    <div class="clear"></div>
+                </li>
+            	<li class="col-xs-12 col-sm-12 col-md-6">
+                	<label class="regLab"><span class="corRed">*</span> 密码：</label>
+                    <div class="regRig">
+                    	<input type="password" class="loginInput" id="password">
+                    </div>
+                    <div class="clear"></div>
+                </li>
+            	<li class="col-xs-12 col-sm-12 col-md-6">
+                	<label class="regLab"><span class="corRed">*</span> 确认密码：</label>
+                    <div class="regRig">
+                    	<input type="password" class="loginInput" id="passwordAgain">
+                    </div>
+                    <div class="clear"></div>
+                </li>
+            	<li class="col-xs-12 col-sm-12 col-md-6">
+                	<label class="regLab"><span class="corRed">*</span> 验证码：</label>
+                    <div class="regRig">
+                    	<a href="javascript:;" onclick="return false" class="yzmBtn">发送验证码</a>
+                    	<input type="text" class="loginInput yzmInput" id="yzmInput" placeholder="输入验证码" >
+                    </div>
+                    <div class="clear"></div>
+                </li>
+            	<li class="col-xs-12">
+                	<label class="regLab"><span class="corRed">*</span> 所属行业：</label>
+                    <div class="regRig serSelCon" id="fromJob">
+                    	<label><input type="checkbox" name="serName1"><span>电子信息</span></label>
+                    	<label><input type="checkbox" name="serName1" checked><span>航空航天</span></label>
+                    	<label><input type="checkbox" name="serName1"><span>先进制造</span></label>
+                    	<label><input type="checkbox" name="serName1" checked><span>现代交通</span></label>
+                    	<label><input type="checkbox" name="serName1"><span>农业</span></label>
+                    	<label><input type="checkbox" name="serName1"><span>环境保护与资源综合利用</span></label>
+                    	<label><input type="checkbox" name="serName1"><span>生物、医药合医疗器械</span></label>
+                    	<label><input type="checkbox" name="serName1"><span>新材料及其应用</span></label>
+                    	<label><input type="checkbox" name="serName1"><span>新能源与高效节能</span></label>
+                    	<label><input type="checkbox" name="serName1"><span>城市建设与社会发展</span></label>
+                    	<label><input type="checkbox" name="serName1"><span>其它</span></label>
+                    </div>
+                    <div class="clear"></div>
+                </li>
+            	<li class="col-xs-12">
+                	<label class="regLab"><span class="corRed">*</span> 关注行业：</label>
+                    <div class="regRig serSelCon" id="interestJob">
+                    	<label><input type="checkbox" name="serName2"><span>电子信息</span></label>
+                    	<label><input type="checkbox" name="serName2" checked><span>航空航天</span></label>
+                    	<label><input type="checkbox" name="serName2"><span>先进制造</span></label>
+                    	<label><input type="checkbox" name="serName2" checked><span>现代交通</span></label>
+                    	<label><input type="checkbox" name="serName2"><span>农业</span></label>
+                    	<label><input type="checkbox" name="serName2"><span>环境保护与资源综合利用</span></label>
+                    	<label><input type="checkbox" name="serName2"><span>生物、医药合医疗器械</span></label>
+                    	<label><input type="checkbox" name="serName2"><span>新材料及其应用</span></label>
+                    	<label><input type="checkbox" name="serName2"><span>新能源与高效节能</span></label>
+                    	<label><input type="checkbox" name="serName2"><span>城市建设与社会发展</span></label>
+                    	<label><input type="checkbox" name="serName2"><span>其它</span></label>
+                    </div>
+                    <div class="clear"></div>
+                </li>
+            	<li class="col-xs-12">
+                	<label class="regLab"><span class="corRed">*</span> 信息认证：</label>
+                    <div class="regRig idCard">
+                    	<div class="idCardImg" >
+                        	<div class="idCardInput" id="cardA">
+								<i class="iconfont icon-addition1"></i>
+								<input type="file" onchange="upload('A')"  id="uploadA">
+                            </div>
+                        	<p>身份证正面照片</p>
+                        </div>
+                    	<div class="idCardImg" >
+                        	<div class="idCardInput" id="cardB">
+								<i class="iconfont icon-addition1"></i>
+								<input type="file" onchange="upload('B')" id="uploadB">
+                            </div>
+                        	<p>身份证反面照片</p>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </li>
+            	<li class="col-xs-12">
+                    <div class="regRig">
+                    	<label class="agree"><input type="checkbox" id="agreeInput"><span>注册帐号即表示您同意并愿意遵守平台<a href="javascript:;" class="agreeBtn">航天军民融合科技服务平台注册许可协议</a></span></label>
+                    </div>
+                    <div class="clear"></div>
+                </li>
+            	<li class="col-xs-12">
+                    <div class="regRig">
+                    	<input class="loginBtn" type="submit" value="注册" onclick="add()">
+                    </div>
+                    <div class="clear"></div>
+                </li>
+            </ul>            
+        </div>
+    </div>
+</div>
+<div class="agreementBg"></div>
+<div class="loginWrap aggreeWrap wow fadeIn">
+	<div class="loginBox registerBox">
+        <div class="loginTop">
+            <h2 class="loginTit">注册许可协议</h2>
+            <a class="loginClose agreeClose" href="javascript:;"><i class="iconfont icon-guanbi"></i></a>
+            <div class="clear"></div>
+        </div>
+        <div class="agreeText mCustomScrollbar">
+            <p>欢迎您注册、使用高分专项知识产权信息管理平台帐号！</p>
+            <p>本协议系您与高分专项知识产权信息管理平台科技有限责任公司就高分专项知识产权信息管理平台帐号的注册和使用而订立的。高分专项知识产权信息管理平台在此特别提醒您认真阅读、充分理解本协议各条款，特别是涉及服务费用条款，免除或者限制高分专项知识产权信息管理平台责任的条款，对您的权利限制条款，争议解决和法律适用条款等，此类条款将以加粗的形式提示您注意。请您审慎阅读并选择接受或不接受本协议。除非您接受本协议所有条款，否则您无权注册、使用高分专项知识产权信息管理平台帐号。您的注册和使用高分专项知识产权信息管理平台帐号行为将视为您已充分理解本协议，并同意接受本协议各项条款的约束。</p>
+            <h3><strong>一、 关于高分专项知识产权信息管理平台帐号</strong></h3>
+            <p>1．高分专项知识产权信息管理平台帐号系由高分专项知识产权信息管理平台所有的用于识别您身份的标识。帐号的所有权属于高分专项知识产权信息管理平台，您作为初始申请注册人仅拥有您所注册帐号的使用权。</p>
+            <p>2．您可通过高分专项知识产权信息管理平台帐号享受高分专项知识产权信息管理平台及关联公司提供的单项服务包括但不限于高分专项知识产权信息管理平台网、应用商店、米家有品、云服务、主题商店、lot平台等服务。</p>
+            <p>3. 本服务条款的效力范围及于高分专项知识产权信息管理平台及关联公司的一切产品和服务，您在享受任何单项服务时，应当受本服务条款的约束。当您使用高分专项知识产权信息管理平台各单项服务时，您同意以单项服务要求的方式同意该单项服务的服务条款包括但不限于《高分专项知识产权信息管理平台网用户协议》、《高分专项知识产权信息管理平台生活用户协议》、《MIOT平台服务协议》以及高分专项知识产权信息管理平台在该单项服务中发出的各类公告（下列简称为“单项条款”），在此情况下单项条款与本服务条款同时对您产生效力。若单项条款与本服务条款存在同类条款的冲突，则在单项条款约束范围内应以单项条款为准。</p>
+            <h3><strong>二、帐号使用规则</strong></h3>
+            <p>1．高分专项知识产权信息管理平台帐号系由高分专项知识产权信息管理平台所有的用于识别您身份
+                的标识。帐号的所有权属于高分专项知识产权信息管理平台，您作为初始申请注册人仅拥有您所注册帐号的使用权。</p>
+            <p>2．您可通过高分专项 知识产权信息管理平台帐号享受高分专项知识产权信息管理平台及关联公司提供的单项服务包括但不限于高分专项知识产权信息管理平台网、应用商店、米家有品、云服务、主题商店、lot平台等服务。</p>
+            <p>3. 本服务条款的效力范围及于高分专项知识产权信息管理平台及关联公司的一切产品和服务，您在享受任何单项服务时，应当受本服务条款的约束。当您使用高分专项知识产权信息管理平台各单项服务时，您同意以单项服务要求的方式同意该单项服务的服务条款包括但不限于《高分专项知识产权信息管理平台网用户协议》、《高分专项知识产权信息管理平台生活用户协议》、《MIOT平台服务协议》以及高分专项知识产权信息管理平台在该单项服务中发出的各类公告（下列简称为“单项条款”），在此情况下单项条款与本服务条款同时对您产生效力。若单项条款与本服务条款存在同类条款的冲突，则在单项条款约束范围内应以单项条款为准。</p>
+        </div>     
+    </div>
+</div>
+<input type="hidden" id="cardInputA" name="cardInputA">
+<input type="hidden" id="cardInputB" name="cardInputB">
+<link rel="stylesheet" type="text/css" href="../css/jquery.mCustomScrollbar.css">
+<script src="../js/jquery.mCustomScrollbar.js"></script>
+<script>
+    var pro = window.location.protocol;
+    var host = window.location.host;
+    var domain = pro + "//" + host;
+    var layer;
+    var rondomNum = "";
+    layui.use([ 'layer' ], function() {
+        layer = layui.layer;
+    });
+	$(".loginWrap.mCustomScrollbar").mCustomScrollbar({mouseWheelPixels:300});
+	$(".agreeClose").click(function(){
+		$(".agreementBg").fadeOut();	
+		$(".aggreeWrap").fadeOut();	
+		$(".registerBox").eq(0).removeClass("active");
+	});
+	$(".agreeBtn").click(function(){
+		$(".agreementBg").fadeIn();	
+		$(".aggreeWrap").fadeIn();
+		$(".registerBox").eq(0).addClass("active");
+	});
+
+	$.ajax({
+        type : 'get',
+        url : '/dicts?type=userFromJob',
+        async : false,
+        success : function(data) {
+            $("#fromJob").html('');
+            $("#interestJob").html('');
+            console.log(data);
+            for (var i = 0; i < data.length; i++) {
+                $("#fromJob").append('<label><input type="checkbox" name="serName1"><span>'+data[i].val+'</span></label>')
+                $("#interestJob").append('<label><input type="checkbox" name="serName1"><span>'+data[i].val+'</span></label>')
+            }
+        }
+    });
+    function changeData() {
+        alert($(".regSelect").val());
+    }
+    function upload(obj) {
+	    var file = $("#upload"+obj)[0].files[0];
+	    if (file !=null && file !='undefined'){
+            var formData = new FormData();
+            formData.append("file", file);
+            $.ajax({
+                type : "post" ,
+                url: '/files',
+                data : formData ,
+                processData : false,
+                contentType : false,
+                success: function (result) {
+                    $("#card"+obj).attr("style","background:url("+domain+"/statics"+result.url+") no-repeat;background-size: contain;")
+                    $("#cardInput"+obj).val(result.url);
+                }
+            })
+        }
+    }
+
+    function checkEmail(){
+        var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$"); //正则表达式
+        var obj = document.getElementById("email"); //要验证的对象
+        if(!reg.test(obj.value)){ //正则验证不通过，格式不对
+            layer.msg("无效邮箱!");
+            $(".yzmBtn")[0].style.backgroundColor="#cfd1d8";
+            $(".yzmBtn").attr("onclick","return false");
+            return false;
+        }else if (obj == "") {
+            return false;
+        }else{
+            $(".yzmBtn")[0].style.cssText="background:#0670c4";
+            $(".yzmBtn").attr("onclick","test()");
+        }
+    }
+    
+    function add() {
+        var name = $("#name").val();
+        if (name == "") {
+            layer.msg("请填写姓名！");
+            return false;
+        }
+        var phone = $("#phone").val();
+        if(!(/^1(3|4|5|7|8)\d{9}$/.test(phone))){
+            layer.msg("手机号码有误，请重填");
+            return false;
+        }
+        if ($("#email").val() == "") {
+            layer.msg("邮箱不能为空");
+            return false;
+        }
+        var password = $("#password").val();
+        var passwordAgain = $("#passwordAgain").val();
+        if (password != passwordAgain) {
+            alert("两次输入密码不一样，请重新尝试");
+            return false;
+        }
+        var emailYZM = $("#yzmInput").val();
+        if (emailYZM != rondomNum) {
+            layer.msg("验证码失效");
+            return false;
+        }
+        var fromJob = $("#fromJob").find("input");
+        var fromJob_val = [];
+        for(var i in fromJob){
+            if(fromJob[i].checked){
+                fromJob_val.push($(fromJob[i]).parent().find('span').text())
+            }
+        }
+        if (fromJob_val == "") {
+            layer.msg("所属行业未填！");
+            return false;
+        }
+        console.log("fromJob_val="+fromJob_val);
+        var interest = $("#interestJob").find("input");
+        var interest_val = [];
+        for(var j in interest){
+            if(interest[j].checked){
+                interest_val.push($(interest[j]).parent().find('span').text())
+            }
+        }
+        if (interest_val == "") {
+            layer.msg("关注行业未填！");
+            return false;
+        }
+        console.log("interest_val="+interest_val);
+        var cardA = $("#cardInputA").val();
+        var cardB = $("#cardInputB").val();
+        if (cardA == "" ) {
+            layer.msg("身份证正面照片未上传！");
+            return false;
+        }
+        if (cardA == "") {
+            layer.msg("身份证反面照片未上传！");
+            return false;
+        }
+        if (! $("#agreeInput")[0].checked) {
+            layer.msg("请阅读许可协议！");
+            return false;
+        }
+    }
+
+    function test() {
+        rondomNum = "";
+        for (var i = 0; i < 6; i++) {
+            rondomNum += Math.floor(Math.random()*10);
+        }
+        var formdata = new FormData();
+        formdata.toUsers = $("#email").val();
+        formdata.content = "【航天三院】(请勿将验证码告知或以短信回复任何人，否则帐号将会被盗)验证码："+rondomNum+"，尊敬的用户，您正在进行验证操作";
+        $.ajax({
+            type : 'post',
+            url : '/mails/sendMail',
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formdata),
+            success : function(data) {
+                layer.msg("发送成功");
+            }
+        });
+    }
+</script>
+</body>
+</html>

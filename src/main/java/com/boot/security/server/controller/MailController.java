@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.boot.security.server.service.SendMailSevice;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -28,6 +29,8 @@ import com.boot.security.server.service.MailService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
+import javax.mail.MessagingException;
+
 @Api(tags = "邮件")
 @RestController
 @RequestMapping("/mails")
@@ -37,6 +40,8 @@ public class MailController {
 	private MailDao mailDao;
 	@Autowired
 	private MailService mailService;
+    @Autowired
+    private SendMailSevice sendMailSevice;
 
 	@LogAnnotation
 	@PostMapping
@@ -91,5 +96,12 @@ public class MailController {
 			}
 		}).handle(request);
 	}
+
+    @PostMapping("/sendMail")
+    public void  sendMail(@RequestBody Mail mail) throws MessagingException {
+	    mail.setSubject("航天三院");
+        sendMailSevice.sendMail(mail.getToUsers(), mail.getSubject(), mail.getContent());
+        System.out.println("成功发送邮件");
+    }
 
 }

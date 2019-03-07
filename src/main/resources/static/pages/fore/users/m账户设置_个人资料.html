@@ -1,0 +1,384 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<title>账户设置</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="fonts/FontAwesome/font-awesome.css" rel="stylesheet">
+	<link href="fonts/IconFont/iconfont.css" rel="stylesheet">
+	<link href="css/animate.css" rel="stylesheet">
+	<link href="css/bootsnav.css" rel="stylesheet">
+    <link href="css/swiper.min.css" rel="stylesheet">
+    <link href="treetable/css/jquery.treetable.css" rel="stylesheet" type="text/css" >
+	<link href="css/style.css" rel="stylesheet">    
+    <script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootsnav.js"></script>
+    <script src="js/swiper.min.js"></script>
+	<script src="treetable/js/jquery.treetable.js"></script>
+    <script src="js/rem.js"></script>
+    <script src="js/public.js"></script>
+	<!--[if lt IE 9]>
+	  <script src="js/html5shiv.min.js"></script>
+	  <script src="js/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+<nav class="navbar navbar-default bootsnav navbar-fixed-top wow fadeInDown">
+    <div class="wrap">
+        <div class="attr-nav navRig">
+            <ul>
+            	<li class="navTelMob"><a href="tel:010-68376645"><i class="iconfont icon-dianhua"></i></a></li>
+                <li class="navTel"><a href="javascript:;"><i class="iconfont icon-dianhua"></i><strong>010-68376645</strong></a></li>
+                <li class="navSearch"><a href="javascript:;"><i class="iconfont icon-sousuo"></i>搜索</a></li>
+                <li class="navUser dropdown">
+                	<a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+                    	<i class="iconfont icon-guanjiaowangtubiao01"><sup></sup></i>
+                        <span>一抹微阳<i class="fa fa-angle-down"></i></span>
+                    </a>
+                    <ul class="dropdown-menu navUserCon">
+                    	<li>
+                        	<div class="media">
+                            	<div class="media-left media-middle">
+                                	<div class="headerImg"><img src="images/userImg.jpg" class="img-responsive"></div>
+                                </div>
+                                <div class="media-body">
+                                	<h3 class="navUserName">一抹微阳</h3>
+                                    <p>lu*****179@sina.com</p>
+                                    <p>13*****9203</p>
+                                </div>
+                            </div>
+                        </li>
+                    	<li>
+                        	<p><a href="#">我的个人资料</a></p>
+                        	<p><a href="#">我的订单<span class="corRed">（3）</span></a></p>
+                        	<p><a href="#">消息通知<span class="corRed">（20）</span></a></p>
+                        </li>
+                    	<li class="exit">
+                        	<p><a href="javascript:;"><i class="iconfont icon-zhuxiao"></i>退出</a></p>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand flexBox logo" href="#">
+                <span><img src="images/logo.png" class="img-responsive"></span>
+            </a>
+        </div>            
+        <div class="collapse navbar-collapse" id="navbar-menu">
+            <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
+                <li><a href="#"><span>首页</span></a></li>
+				<li><a href="#"><span>科技商城</span></a></li>
+				<li><a href="#"><span>项目需求</span></a></li>             
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" ><span>科技资源</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">政策法规</a></li>
+                        <li><a href="#">专利专题</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" >专题报告</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">专利态势分析</a></li>
+                                <li><a href="#">政策研究</a></li>
+                                <li><a href="#">行业咨询</a></li>
+                                <li><a href="#">情报研究</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">行业咨询</a></li>
+                    </ul>
+                </li>
+				<li><a href="#"><span>专项成果</span></a></li>
+				<li><a href="#"><span>新闻动态</span></a></li>
+				<li><a href="#"><span>科技服务</span></a></li>
+				<li><a href="#"><span>关于我们</span></a></li>
+            </ul>
+        </div>        
+    </div>
+</nav>
+<div class="searchBg">
+	<div class="wrap">
+    	<div class="search">
+        	<div class="close"></div>
+            <div class="container">
+            	<div class="searchBox">
+                	<a href="javascript:;" class="searchBtn"><i class="fa fa-search"></i></a>
+                	<input type="text" placeholder="请输入关键字" class="searchInput" >
+                </div>
+				<div class="searchTip">点击回车即可搜索</div>
+            	<ul class="hotSearch list-unstyled list-inline">
+                	<li><a href="#">技术成果</a></li>
+                	<li><a href="#">专家需求</a></li>
+                	<li><a href="#">科研院所资源</a></li>
+                	<li><a href="#">专利成果</a></li>
+                	<li><a href="#">检验测试需求</a></li>
+                	<li><a href="#">检验测试资源</a></li>
+                	<li><a href="#">技术需求</a></li>
+                	<li><a href="#">仪器设备需求</a></li>
+                	<li><a href="#">仪器设备资源</a></li>
+                	<li><a href="#">服务需求</a></li>
+                	<li><a href="#">专家资源</a></li>
+                	<li><a href="#">展厅资源</a></li>
+                	<li><a href="#">服务</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div><!--searchBg-->
+<div class="banInner banUser wow fadeIn">
+	<div class="imgFull"><img src="images/banUser.jpg" class="img-responsive"></div>
+    <div class="banUserCon">
+    	<div class="userImgBox" data-toggle="modal" data-target="#myHeadImg">
+        	<div class="userImg">
+            	<img src="images/userImg.jpg" class="img-responsive img-circle">
+                <div class="userImgHov flexBox">
+                	<div class="userImgHovCon">
+                        <i class="iconfont icon-ccgl-shujuzidianxiugaijilu-6"></i>
+                        <p>修改头像</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="userName">一抹微阳</div>
+        <ul class="userInfor list-unstyled list-inline">
+        	<li><i class="iconfont icon-VIP"></i><strong>会员等级：</strong>vip用户</li>
+        	<li><i class="iconfont icon-dingdan1"></i><strong>我的订单：</strong>（<a href="#">3</a>）个</li>
+        	<li><i class="iconfont icon-guanzhu1"></i><strong>我的收藏：</strong>（<a href="#">52</a>）个</li>
+        	<li><i class="iconfont icon-tongzhi"></i><strong>消息通知：</strong>（<a href="#">7</a>）条</li>
+        	<li><i class="iconfont icon-weituoweixuanzhong"></i><strong>我的委托：</strong>（<a href="#">2</a>）个</li>
+        </ul>
+    </div>
+</div>
+<div class="userNavBg">
+	<ul class="userNav list-unstyled list-inline text-center wow fadeIn">
+    	<li><a href="#">首页</a></li>
+    	<li><a href="#">我发布的项目</a></li>
+    	<li><a href="#">我发布的需求</a></li>
+    	<li><a href="#">我的订单</a></li>
+    	<li><a href="#">我的委托</a></li>
+    	<li><a href="#">我的收藏</a></li>
+    	<li><a href="#">我已点赞</a></li>
+    	<li><a href="#">消息通知</a></li>
+    	<li><a class="active" href="#">账户设置</a></li>
+    </ul>
+</div>
+<div class="mainBg grayBg overHide">
+    <div class="container">
+        <div class="reportTop userTit wow fadeInDown">
+            <h3 class="reportTit pull-left">账户设置</h3>
+            <ul class="userTitRig list-unstyled list-inline pull-right">
+            	<li><a class="active" href="#">个人资料</a></li>
+            	<li><a href="#">实名认证</a></li>
+            	<li><a href="#">意见反馈</a></li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <ul class="regList newPro setUp list-unstyled row wow fadeInUp">
+            <li class="col-xs-12 col-sm-12 col-md-6">
+                <label class="regLab">用户类型：</label>
+                <div class="regRig">
+                    <select class="regSelect">
+                        <option>个人用户</option>
+                        <option>测试</option>
+                    </select>
+                </div>
+                <div class="clear"></div>
+            </li> 
+            <li class="col-xs-12 col-sm-12 col-md-6">
+                <label class="regLab">真实姓名（或单位）：</label>
+                <div class="regRig">
+                    <input type="text" class="loginInput" >
+                </div>
+                <div class="clear"></div>
+            </li>
+            <li class="col-xs-12 col-sm-12 col-md-6">
+                <label class="regLab">性别：</label>
+                <div class="regRig serSelCon serSelCon2 serSelCon3">
+                    <label><input type="radio" name="serName2" checked="" class="active"><span>男</span></label>
+                    <label><input type="radio" name="serName2"><span>女</span></label>
+                </div>
+                <div class="clear"></div>
+            </li>
+            <li class="col-xs-12 col-sm-12 col-md-6">
+                <label class="regLab">所属城市：</label>
+                <div class="sxCenCon">
+                    <select>
+                        <option>省份</option>
+                        <option>北京</option>
+                    </select>
+                    <select>
+                        <option>城市</option>
+                        <option>北京</option>
+                    </select>
+                    <select>
+                        <option>地区</option>
+                        <option>海淀区</option>
+                    </select>
+                </div>
+                <div class="clear"></div>
+            </li>
+            <li class="col-xs-12 col-sm-12 col-md-6">
+                <label class="regLab">详细地址：</label>
+                <div class="regRig">
+                    <input type="text" class="loginInput" >
+                </div>
+                <div class="clear"></div>
+            </li>
+            <li class="col-xs-12 col-sm-12 col-md-6">
+                <label class="regLab">联系电话：</label>
+                <div class="regRig">
+                    <input type="text" class="loginInput" >
+                </div>
+                <div class="clear"></div>
+            </li>
+            <li class="col-xs-12 col-sm-12">
+                <label class="regLab">所属行业：</label>
+                <div class="regRig serSelCon">
+                    <label><input type="checkbox" name="serName1"><span>电子信息</span></label>
+                    <label><input type="checkbox" name="serName1" checked=""><span>航空航天</span></label>
+                    <label><input type="checkbox" name="serName1"><span>先进制造</span></label>
+                    <label><input type="checkbox" name="serName1" checked=""><span>现代交通</span></label>
+                    <label><input type="checkbox" name="serName1"><span>农业</span></label>
+                    <label><input type="checkbox" name="serName1"><span>环境保护与资源综合利用</span></label>
+                    <label><input type="checkbox" name="serName1"><span>生物、医药合医疗器械</span></label>
+                    <label><input type="checkbox" name="serName1"><span>新材料及其应用</span></label>
+                    <label><input type="checkbox" name="serName1"><span>新能源与高效节能</span></label>
+                    <label><input type="checkbox" name="serName1"><span>城市建设与社会发展</span></label>
+                    <label><input type="checkbox" name="serName1"><span>其它</span></label>
+                </div>
+                <div class="clear"></div>
+            </li>
+            <li class="col-xs-12 col-sm-12">
+                <label class="regLab">关注行业：</label>
+                <div class="regRig serSelCon">
+                    <label><input type="checkbox" name="serName1"><span>电子信息</span></label>
+                    <label><input type="checkbox" name="serName1" checked=""><span>航空航天</span></label>
+                    <label><input type="checkbox" name="serName1"><span>先进制造</span></label>
+                    <label><input type="checkbox" name="serName1"><span>现代交通</span></label>
+                    <label><input type="checkbox" name="serName1"><span>农业</span></label>
+                    <label><input type="checkbox" name="serName1"><span>环境保护与资源综合利用</span></label>
+                    <label><input type="checkbox" name="serName1"><span>生物、医药合医疗器械</span></label>
+                    <label><input type="checkbox" name="serName1"><span>新材料及其应用</span></label>
+                    <label><input type="checkbox" name="serName1"><span>新能源与高效节能</span></label>
+                    <label><input type="checkbox" name="serName1"><span>城市建设与社会发展</span></label>
+                    <label><input type="checkbox" name="serName1"><span>其它</span></label>
+                </div>
+                <div class="clear"></div>
+            </li>
+            <li class="col-xs-12">
+                <div class="regRig sxCenCon text-center">
+                    <input class="loginBtn submitBtn" type="submit" value="发布" data-toggle="modal" data-target="#success">
+                    <input class="loginBtn cancelBtn" type="submit" value="取消">
+                </div>
+                <div class="clear"></div>
+            </li>
+        </ul>       
+    </div>
+</div>
+<footer class="footBg">
+    <div class="wrap">
+        <div class="ftTop">
+        	<div class="friendLink wow fadeInLeft">
+            	<h3 class="ftTit">友情链接</h3>
+                <ul class="fdLinkList list-unstyled list-inline">
+                	<li><a href="#">- 航天云网</a></li>
+                	<li><a href="#">- 中国军民融合网</a></li>
+                	<li><a href="#">- 中国航天科工三院</a></li>
+                	<li><a href="#">- 融融网</a></li>
+                	<li><a href="#">- 装备采购网</a></li>
+                	<li><a href="#">- 中国航天科工集团</a></li>
+                	<li><a href="#">- 海鹰资讯</a></li>
+                	<li><a href="#">- 猪八戒网</a></li>
+                </ul>
+            </div>
+            <ul class="ftCon list-unstyled list-inline wow fadeInDown">
+            	<li>
+                    <h3 class="ftTit">科技商城</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 科技产品</a></p>
+                        <p><a href="#">- 科技成果</a></p>
+                        <p><a href="#">- 专利技术</a></p>
+                    </div>
+                </li>
+            	<li>
+                    <h3 class="ftTit">新闻动态</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 工作动态</a></p>
+                        <p><a href="#">- 科技动态</a></p>
+                        <p><a href="#">- 通知公告</a></p>
+                    </div>
+                </li>
+            	<li>
+                    <h3 class="ftTit">科技服务</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 知识产权管理系统</a></p>
+                        <p><a href="#">- 知识产权资源导航</a></p>
+                        <p><a href="#">- 知识产权贯标系统</a></p>
+                        <p><a href="#">- 专利大数据检索</a></p>
+                        <p><a href="#">- 知识产权价值评估系统</a></p>
+                        <p><a href="#">- 知识培训统</a></p>
+                    </div>
+                </li>
+            </ul>
+        	<div class="ftConUs wow fadeInRight">
+            	<h3 class="ftTit">联系我们</h3>
+                <p class="ftAdd"><strong>地址：</strong>北京市丰台区云岗北区西里1号院</p>
+                <p class="ftTel"><strong>电话：</strong>010-68376645</p>
+                <p class="ftEmail"><strong>邮箱：</strong>service@htjsw.com</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="ftBot wow fadeInUp">
+        	<div class="copyRight">
+            	<p>Copyright © 2018中国航天科工集团知识产权中心版权所有 京ICP备13006003号-2  设计支持：<a href="#">千助科技</a></p>
+            </div>
+            <div class="ftBotRig">
+            	<ul class="ftBotIco list-unstyled list-inline">
+                	<li>
+                    	<a href="javascript:;"><i class="fa fa-weixin"></i></a>
+                        <div class="ftBotWx">
+                        	<img src="images/weChat.jpg" class="img-responsive">
+                        </div>
+                    </li>
+                    <li><a href="#"><i class="fa fa-weibo"></i></a></li>
+                </ul>
+            	<ul class="ftBotLink list-unstyled list-inline">
+                	<li><a href="#">关于我们</a></li>
+                	<li><a href="#">发布成果</a></li>
+                	<li><a href="#">发布需求</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</footer>
+<div id="myHeadImg" class="modal fade">
+    <div class="loginBox">
+        <div class="loginTop">
+            <h2 class="loginTit">修改头像</h2>
+            <span class="loginClose" href="javascript:;" data-dismiss="modal"><i class="iconfont icon-guanbi"></i></span>
+            <div class="clear"></div>
+        </div>
+        <div class="uploadTip">
+            <p><strong>请上传图片：</strong></p>
+        </div>
+        <div class="uploadImg">
+        	<div class="uploadBtn text-center">
+            	<input type="file">
+                <a href="javascript:;" class="loginBtn">上传头像</a>
+            </div>
+        </div>
+        <div class="goRegister text-center">
+            <p>jpg 或 png，大小不超过2M</p>
+        </div>
+        <a href="javascript:;" class="uploadExit" data-dismiss="modal">取消</a>
+    </div>
+</div>
+</body>
+</html>
