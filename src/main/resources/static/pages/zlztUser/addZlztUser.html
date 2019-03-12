@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+</head>
+<body>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<form class="form-horizontal" onsubmit="return false" id="form">
+		<fieldset>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>username</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='username' type='text' name='username' id='username' data-bv-notempty='true' data-bv-notempty-message='username 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>password</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='password' type='text' name='password' id='password' data-bv-notempty='true' data-bv-notempty-message='password 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>nickname</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='nickname' type='text' name='nickname' id='nickname' data-bv-notempty='true' data-bv-notempty-message='nickname 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>headImgUrl</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='headImgUrl' type='text' name='headImgUrl' id='headImgUrl' data-bv-notempty='true' data-bv-notempty-message='headImgUrl 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>phone</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='phone' type='text' name='phone' id='phone' data-bv-notempty='true' data-bv-notempty-message='phone 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>telephone</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='telephone' type='text' name='telephone' id='telephone' data-bv-notempty='true' data-bv-notempty-message='telephone 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>email</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='email' type='text' name='email' id='email' data-bv-notempty='true' data-bv-notempty-message='email 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>birthday</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='birthday' type='text' name='birthday' id='birthday' data-bv-notempty='true' data-bv-notempty-message='birthday 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>sex</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='sex' type='text' name='sex' id='sex' data-bv-notempty='true' data-bv-notempty-message='sex 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>status</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='status' type='text' name='status' id='status' data-bv-notempty='true' data-bv-notempty-message='status 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>inforAutA</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='inforAutA' type='text' name='inforAutA' id='inforAutA' data-bv-notempty='true' data-bv-notempty-message='inforAutA 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>inforAutB</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='inforAutB' type='text' name='inforAutB' id='inforAutB' data-bv-notempty='true' data-bv-notempty-message='inforAutB 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>formJob</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='formJob' type='text' name='formJob' id='formJob' data-bv-notempty='true' data-bv-notempty-message='formJob 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>interestJob</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='interestJob' type='text' name='interestJob' id='interestJob' data-bv-notempty='true' data-bv-notempty-message='interestJob 不能为空'>
+				</div>
+			</div>
+
+
+			<div class="form-actions">
+				<div class="row" align="center">
+					<div class="col-md-12">
+					    <button class="btn btn-primary" onclick="location.href='zlztUserList.html'">返回</button>
+						<button class="btn btn-primary" type="submit" onclick="add()">
+							<i class="fa fa-save"></i> 保存
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+</div>
+	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../js/jq.js"></script>
+	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript">
+		layui.use(['layer','laydate'], function(){
+		    var layer = layui.layer;
+		});
+		
+		function add() {
+			$('#form').bootstrapValidator();
+			var bootstrapValidator = $("#form").data('bootstrapValidator');
+			bootstrapValidator.validate();
+		    if(!bootstrapValidator.isValid()){
+			   return;
+		    }
+		    
+		    var formdata = $("#form").serializeObject();
+
+			$.ajax({
+				type : 'post',
+				url : '/zlztUsers',
+				contentType: "application/json; charset=utf-8",  
+				data : JSON.stringify(formdata),
+				success : function(data) {
+					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                        location.href = "zlztUserList.html";
+                    });
+				}
+			});
+		}
+		
+	</script>
+</body>
+</html>

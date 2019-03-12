@@ -38,6 +38,9 @@
 			<if test="params.sId != null and params.sId != ''">
 				and sId = #{params.sId} 
 			</if>
+			<if test="params.searchByInput != null and params.searchByInput != ''">
+				and t.name like concat('%', #{params.searchByInput}, '%')
+			</if>
 		
 		</where>
 	</sql>

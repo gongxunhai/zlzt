@@ -466,7 +466,8 @@ background: linear-gradient(to right,rgba(0,0,0,0.3),rgba(0,0,0,0));
 .rigSearch{ margin:50px 0; position:relative; z-index:2; background:#cfd1d8; padding:11px 10px;}
 .rigSearchRig{ height:50px; position:relative; padding-right:260px;}
 .rigSearchBtn{ display:block; width:120px; height:50px; line-height:50px; font-size:18px; color:#FFFFFF; text-align:center; border-radius:5px; margin-left:10px; position:absolute; top:0; transition:all 0.2s linear; cursor:pointer;}
-.rigSearchBtn1{ background:#da261a; right:130px;}
+.rigSearchBtn1{ background:#0670c4; right:130px;}
+/* #da261a */
 .rigSearchBtn2{ background:#333333; right:0;}
 .rigSearchLef{ background:#FFFFFF; border-radius:5px; position:relative; overflow:hidden;}
 .rigSearchIco{ width:36px; line-height:24px; text-align:center; color:#929292; font-size:28px; position:absolute; left:0; top:13px;}
@@ -1361,7 +1362,7 @@ background-image: linear-gradient(to bottom,rgba(234,236,241,0) 0%, rgba(234,236
 .update li{ margin:0.34rem 0; transition:all 0.3s linear;}
 .updateBox{ background:#FFFFFF; border-radius:5px; padding:0.3rem; padding-right:180px; position:relative; transition:all 0.3s linear;}
 .updateBtn{ right:0.3rem;}
-.updateIco{ float:left; max-width:62ppx; padding-right:0.2rem;}
+.updateIco{ float:left; max-width:62px; padding-right:0.2rem;}
 .updateIco i{ color:#0670c4; font-size:50px; line-height:50px;}
 .updateCon{ color:#999999; line-height:26px; overflow:hidden;}
 .updateCon h4{ font-size:18px; color:#333333; line-height:26px; word-break:keep-all;}
@@ -1560,7 +1561,7 @@ background-image: linear-gradient(to bottom,rgba(234,236,241,0) 0%, rgba(234,236
 	.box6Bg{ padding:60px 0 0;}
 	.box3Name h3{ font-size:17px;}
 	
-	.banInner{ height:500px;}	
+	.banInner{ height:350px;}
 	.resourceList{ padding:30px 0; margin:0 -10px;}
 	.resourceList > li{ padding:10px;}
 	.resourceBox{ padding:10px 15px;}
@@ -1676,7 +1677,7 @@ background-image: linear-gradient(to bottom,rgba(234,236,241,0) 0%, rgba(234,236
 	.notice{ line-height:44px;}
 	.noticeList{ height:44px;}
 	.friendLink{ width:25%;}	
-	.banInner{ height:420px;}
+	.banInner{ height:350px;}
 	.breadcrumb li i{ font-size:18px;}
 	
 	.resourceList{ margin:0 -5px; padding:0.2rem 0;}

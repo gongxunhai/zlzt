@@ -112,8 +112,8 @@
     <div class="wrap">
         <ul class="breadcrumb wow fadeInLeft">
             <li><i class="iconfont icon-weizhi"></i>当前位置：</li>
-            <li><a href="#">首页</a></li>
-            <li><a href="#">科技商城</a></li>
+            <li><a href="../index.html">首页</a></li>
+            <li><a href="kjsc.html">科技商城</a></li>
             <li>科技产品</li>
         </ul>
     </div>
@@ -174,7 +174,7 @@
                                <!-- <li><p><span>- 所属行业：</span>其它 - 先进制造</p></li>
                                 <li><p><span>- 地点：</span>北京 - 海淀</p></li>-->
                             </ul>
-                            <div class="technoPrice"><span>价格：<s id="price">1638.00 元</s></span><span>促销价：<big><i id="salePrice">1436.52</i>元</big></span></div>
+                           <div class="technoPrice"><span>价格：<i id="price">1638.00 元</i></span>  <!--<span>促销价：<big><i id="salePrice">1436.52</i>元</big></span>--></div>
                             <div class="technoBrief4">
                                 <div class="technoInforNum">
                                     <p><i class="iconfont icon-chengjiaojieguo"></i>成交量：<strong class="corRed" id="buyNum">900</strong></p>
@@ -201,7 +201,7 @@
                                 </script>
                             </div>
                         </div>
-                        <div class="technoConUs pull-right wow fadeInRight">
+                        <!--<div class="technoConUs pull-right wow fadeInRight">
                             <div class="technoConUsCon">
                                 <div class="technoConUsIco"><span class="flexBox"><i class="iconfont icon-fuwu1"></i></span></div>
                                 <h3 class="technoConUsTit text-center">联系我们</h3>
@@ -209,7 +209,7 @@
                                 <p class="technoPeo">联系人：张甜</p>
                                 <p class="technoTel">电话：010-68376645</p>
                             </div>
-                        </div>
+                        </div>-->
                         <div class="clear"></div>
                     </div>
                     <ul class="zyTextTab anchorPoint list-unstyled list-inline row wow fadeInDown">
@@ -591,13 +591,13 @@
                     </div>
                 </li>
             </ul>
-            <div class="ftConUs wow fadeInRight">
+            <!--<div class="ftConUs wow fadeInRight">
                 <h3 class="ftTit">联系我们</h3>
                 <p class="ftAdd"><strong>地址：</strong>北京市丰台区云岗北区西里1号院</p>
                 <p class="ftTel"><strong>电话：</strong>010-68376645</p>
                 <p class="ftEmail"><strong>邮箱：</strong>service@htjsw.com</p>
             </div>
-            <div class="clear"></div>
+            <div class="clear"></div>-->
         </div>
         <div class="ftBot wow fadeInUp">
             <div class="copyRight">
@@ -659,7 +659,8 @@
             pageTitle += '</ul>';
             $("#pageTitle").html(pageTitle);
             $("#tableContent").html('<li><p><span>- 所属行业：</span>'+data.fIdName+' - '+data.sIdName+'</p></li>\n' +
-                '            <li><p><span>- 地点：</span>'+data.place+'</p></li>');
+                '            <li><p><span>- 地点：</span>'+data.place+'</p></li>' +
+                '<li><p><span>- 规格：</span>'+data.name+'</p></li>');
             $("#price").html(data.price);
             $("#salePrice").html(data.salePrice);
             $("#buyNum").html(data.buyNum);

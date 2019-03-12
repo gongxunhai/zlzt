@@ -67,7 +67,7 @@
                             <ul class="dropdown-menu">
                                <li><a href="../ztReport/ztReportList.html">专利态势分析</a></li>
                                 <li><a href="../ztReport/ztReportList.html">政策研究</a></li>
-                               <li><a href="../ztReport/ztReportList.html">行业咨询</a></li>
+
                                 <li><a href="../ztReport/ztReportList.html">情报研究</a></li>
                             </ul>
                         </li>
@@ -502,6 +502,9 @@
 
 </script>
 <script>
+    var pro = window.location.protocol;
+    var host = window.location.host;
+    var domain = pro + "//" + host;
     var  isCheckAll=false;
     var classifyid = getUrlParam("id");
     var type = getUrlParam("type");

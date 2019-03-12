@@ -104,7 +104,7 @@
         </div>
     </div>
 </div><!--searchBg-->
-<div class="banInner wow fadeIn">
+<div class="banInner wow fadeIn" style="height:350px;">
 	<div class="imgFull"><img src="../images/banResource.jpg" class="img-responsive"></div>
 </div>
 <div class="breadNavBg">
@@ -297,7 +297,7 @@
                     	<li><a href="#">法律信息</a></li>
                     </ul>
                     <div class="rigSearch rigSearch2 wow fadeInDown">
-                        <span class="rigSearchTit" id="nowSelect">信息技术：</span>
+                       <!-- <span class="rigSearchTit" id="nowSelect">信息技术：</span>
                         <div class="rigSearchRig">
                             <div class="rigSearchLef">
                                 <a href="javascript:;" onclick="searchClick()" class="iconfont icon-sousuo1 rigSearchIco"></a>
@@ -305,11 +305,23 @@
                             </div>
                             <a class="rigSearchBtn rigSearchBtn1" onclick="searchClick()">搜索</a>
                         </div>
-                        <div class="clear"></div>
+                        <div class="clear"></div>-->
                     </div>                    
                     <div class="zyTabTop wow fadeInUp">
                         <ul class="zyOrderBy list-unstyled list-inline">
                             <li><span>搜索到相关结果：<strong class="corOrg" id="ztNum">1120</strong>个</span></li>
+                            <li><div class="rigSearchRig" style="    padding-right: 100px;
+">
+                                <div class="rigSearchLef" style="
+    width: 400px;
+">
+                                    <a href="javascript:;" class="iconfont icon-sousuo1 rigSearchIco"></a>
+                                    <input type="text" class="rigSearchInput" style="outline: none;" id="searchByInput" placeholder="搜索关键字">
+                                </div>
+                                <a class="rigSearchBtn rigSearchBtn1" style="
+    margin-right: -100px; color: #FFFFFF;
+" href="javascript:searchByInput();">搜索</a>
+                            </div></li>
                             <li><span class="active">人气<i class="iconfont icon-jiantouxia"></i></span></li>
                             <li><span>时间<i class="iconfont icon-jiantouxia"></i></span></li>
                             <li><span>收藏榜<i class="iconfont icon-jiantouxia"></i></span></li>
@@ -897,6 +909,14 @@
         init();
     }
 
+    function searchByInput() {
+        $("#search").val($("#searchByInput").val());
+        $('#reportTab').dataTable().fnClearTable();
+        init();
+        $('#reportTab').dataTable().fnAddData(dataSet);
+        $('#reportTab').dataTable().fnDraw(false);
+    }
+
     function init() {
         $.ajax({
             type : "get",
@@ -905,7 +925,7 @@
             data : {
                 "fId" : fid,
                 "sId" : sid,
-                "searchByInput" : $("#searchKey").val(),
+                "searchByInput" : $("#searchByInput").val(),
                 "orderBy" : orderBy
             },
             success : function (result) {

@@ -115,7 +115,21 @@ jQuery(function () {
 		$(".box1Bot .box1Item").eq($(this).parent().index()).show().addClass('fadeInUp animated').siblings().hide();
 	})	
 	$(document).on("click",".upcollect a",function(event){
-		$(this).addClass("active");	
+        $(this).toggleClass("active");
+        if ($(this).hasClass("up")){
+            if ($(this).hasClass("active")) {
+                alert("点赞成功");
+            }else {
+                alert("取消点赞");
+            }
+        }
+        if ($(this).hasClass("collect")){
+            if ($(this).hasClass("active")) {
+                alert("点赞成功");
+            }else {
+                alert("取消点赞");
+            }
+        }
 	})
 	$(".box2Rig li").each(function(index){$(this).attr("data-wow-delay",index/10+"s");});
 	$(".box4List li").each(function(index){$(this).attr("data-wow-delay",index/10+"s");});

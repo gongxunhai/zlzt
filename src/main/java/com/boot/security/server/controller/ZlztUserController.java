@@ -2,15 +2,10 @@ package com.boot.security.server.controller;
 
 import java.util.List;
 
+import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.boot.security.server.page.table.PageTableRequest;
 import com.boot.security.server.page.table.PageTableHandler;
@@ -24,6 +19,7 @@ import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/zlztUsers")
+@Api(tags = "会员中心")
 public class ZlztUserController {
 
     @Autowired
@@ -73,5 +69,25 @@ public class ZlztUserController {
     @ApiOperation(value = "删除")
     public void delete(@PathVariable Long id) {
         zlztUserDao.delete(id);
+    }
+
+    @PostMapping("/selectKey")
+    @ApiOperation(value = "手机和邮箱在数据库是否有重复")
+    public JSONObject selectPhone(@RequestParam(value = "key") String key,@RequestParam(value = "value") String value){
+        int i = zlztUserDao.selectParam(key,value);
+        JSONObject json = new JSONObject();
+        if (i == -1){
+            json.put("msg","success");
+        }else {
+            json.put("msg","fail");
+        }
+        return json;
+    }
+
+    @PostMapping("/getPwdByPhoneOrEmail")
+    @ApiOperation(value = "通过手机和邮箱获取密码")
+    public String getPwdByPhoneOrEmail(@RequestParam(value = "param") String key){
+        String value = zlztUserDao.getPwdByPhoneOrEmail(key);
+        return value;
     }
 }

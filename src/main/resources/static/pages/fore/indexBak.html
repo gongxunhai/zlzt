@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿    <!DOCTYPE html>
 <html lang="zh">
 <head>
 	<meta charset="UTF-8">
@@ -12,13 +12,15 @@
 	<link href="css/animate.css" rel="stylesheet">
 	<link href="css/bootsnav.css" rel="stylesheet">
     <link href="css/swiper.min.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">    
     <script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/bootsnav.js"></script>
     <script src="js/swiper.min.js"></script>
     <script src="js/rem.js"></script>
     <script src="js/public.js"></script>
+     <script src=" treetable/js/jquery.treetable.js"></script>
+   
 	<!--[if lt IE 9]>
 	  <script src="js/html5shiv.min.js"></script>
 	  <script src="js/respond.min.js"></script>
@@ -32,41 +34,42 @@
             	<li class="navTelMob"><a href="tel:010-68376645"><i class="iconfont icon-dianhua"></i></a></li>
                 <li class="navTel"><a href="javascript:;"><i class="iconfont icon-dianhua"></i><strong>010-68376645</strong></a></li>
                 <li class="navSearch"><a href="javascript:;"><i class="iconfont icon-sousuo"></i>搜索</a></li>
-                <li><i class="iconfont icon-guanjiaowangtubiao01"></i><a href="users/login.html">登录</a><span>or</span><a href="users/register.html">注册</a></li>
+                <li><i class="iconfont icon-guanjiaowangtubiao01"></i><a href="javascript: alert('暂未开发');" >登录</a><span>or</span><a href="javascript:;">注册</a></li>
             </ul>
         </div>
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                 <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand flexBox logo" href="#">
+            <a class="navbar-brand flexBox logo" href="index.html">
                 <span><img src="images/logo.png" class="img-responsive"></span>
             </a>
         </div>            
         <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
                 <li class="active"><a href="index.html"><span>首页</span></a></li>
-                <li><a href="kjsc/kjsc.html"><span>科技商城</span></a></li>
-                <li><a href="projectRequire/pjRequire.html"><span>项目需求</span></a></li>
+				<li><a href="kjsc/kjsc.html"><span>科技商城</span></a></li>
+				<li><a href="projectRequire/pjRequire.html"><span>项目需求</span></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" ><span>科技资源</span></a>
                     <ul class="dropdown-menu">
                         <li><a href="lawsRegulations/lawsRegulations.html">政策法规</a></li>
                         <li><a href="zlzt/zlzt.html">专利专题</a></li>
                         <li class="dropdown">
-                            <a href="ztReport/ztReport.html" class="dropdown-toggle" data-toggle="dropdown" >专题报告</a>
+                          <a href="ztReport/ztReport.html" class="dropdown-toggle" data-toggle="dropdown" >专题报告</a>
                             <ul class="dropdown-menu">
-                                <li><a href="ztReport/ztReportList.html">专利态势分析</a></li>
+                               <li><a href="ztReport/ztReportList.html">专利态势分析</a></li>
                                 <li><a href="ztReport/ztReportList.html">政策研究</a></li>
-                                <li><a href="ztReport/ztReportList.html">情报研究</a></li>
+                                <li><a href="ztReport/ztReportList.html">行业咨询</a></li>
+                               <li><a href="ztReport/ztReportList.html">情报研究</a></li>
                             </ul>
                         </li>
                     </ul>
                 </li>
-                <li><a href="gfArea/zlResult.html"><span>高分专区</span></a></li>
-                <li><a href="news/news.html"><span>新闻动态</span></a></li>
-                <li><a href="kjService/kjService.html"><span>科技服务</span></a></li>
-                <li><a href="aboutUs.html"><span>关于我们</span></a></li>
+				<li><a href="gfArea/zlResult.html"><span>高分专区</span></a></li>
+				<li><a href="news/news.html"><span>新闻动态</span></a></li>
+				<li><a href="kjService/kjService.html"><span>科技服务</span></a></li>
+				<li><a href="aboutUs.html"><span>关于我们</span></a></li>
             </ul>
         </div>        
     </div>
@@ -77,22 +80,10 @@
         	<div class="close"></div>
             <div class="container">
             	<div class="searchBox">
-                	<div class="searchSel">
-                    	<span class="searchTit ellipsis">全部</span>
-                        <ul class="searchList list-unstyled">
-                        	<li class="active" data-index="0">全部</li>
-                        	<li data-index="1">专家需求</li>
-                        	<li data-index="2">检验测试需求</li>
-                        	<li data-index="3">仪器设备需求</li>
-                        	<li data-index="4">专家资源</li>
-                        	<li data-index="5">展厅资源</li>
-                        </ul>
-                        <input type="hidden" value="0">
-                    </div>
                 	<a href="javascript:;" class="searchBtn"><i class="fa fa-search"></i></a>
-                	<input type="text" placeholder="搜索" class="searchInput" >
+                	<input type="text" placeholder="请输入关键字" class="searchInput" >
                 </div>
-				<!--<div class="searchTip">点击回车即可搜索</div>-->
+				<div class="searchTip">点击回车即可搜索</div>
             	<ul class="hotSearch list-unstyled list-inline">
                 	<li><a href="#">技术成果</a></li>
                 	<li><a href="#">专家需求</a></li>
@@ -129,14 +120,9 @@
                 <div class="ban01Bg ban01Bg5"><img src="images/ban01Bg4.png" class="img-responsive"></div>
                 <div class="ban01Bg ban01CirBg flexBox">
                 	<div class="ban01CirImg ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.3s">
-                        <div class="banGuang"></div>
                     	<img src="images/ban01CirBg.png" >
-                        <div class="ban01CirArr ban01CirArr1"></div>
-                        <div class="ban01CirArr ban01CirArr1"></div>
-                        <div class="ban01CirArr ban01CirArr1"></div>
-                        <div class="ban01CirArr ban01CirArr2"></div>
 						<ul class="ban01List list-unstyled">
-                            <li class="ban01Li1 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="1.3s">
+                            <li class="ban01Li1 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.3s" swiper-animate-delay="1.3s">
                                 <a href="lawsRegulations/lawsRegulations.html">
                                 	<div class="ban01Dot"><i></i></div>
                                     <div class="ban01Ico"><img src="images/ban01Ico1.png"></div>
@@ -149,7 +135,7 @@
                                     <div class="clear"></div>
                                 </a>
                             </li>
-                            <li class="ban01Li2 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="1.3s">
+                            <li class="ban01Li2 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.3s" swiper-animate-delay="1.3s">
                                 <a href="kjService/kjService.html">
                                 	<div class="ban01Dot"><i></i></div>
                                     <div class="ban01Ico"><img src="images/ban01Ico2.png"></div>
@@ -162,7 +148,7 @@
                                     <div class="clear"></div>
                                 </a>
                             </li>
-                            <li class="ban01Li3 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="1.8s">
+                            <li class="ban01Li3 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.3s" swiper-animate-delay="1.6s">
                                 <a href="gfArea/zlResult.html">
                                 	<div class="ban01Dot"><i></i></div>
                                     <div class="ban01Ico"><img src="images/ban01Ico3.png"></div>
@@ -175,7 +161,7 @@
                                     <div class="clear"></div>
                                 </a>
                             </li>
-                            <li class="ban01Li4 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="1.8s">
+                            <li class="ban01Li4 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.3s" swiper-animate-delay="1.6s">
                                 <a href="zlzt/zlzt.html">
                                 	<div class="ban01Dot"><i></i></div>
                                     <div class="ban01Ico"><img src="images/ban01Ico4.png"></div>
@@ -188,7 +174,7 @@
                                     <div class="clear"></div>
                                 </a>
                             </li>
-                            <li class="ban01Li5 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="2.3s">
+                            <li class="ban01Li5 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.3s" swiper-animate-delay="1.9s">
                                 <a href="kjsc/kjsc.html">
                                 	<div class="ban01Dot"><i></i></div>
                                     <div class="ban01Ico"><img src="images/ban01Ico5.png"></div>
@@ -201,7 +187,7 @@
                                     <div class="clear"></div>
                                 </a>
                             </li>
-                            <li class="ban01Li6 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="2.3s">
+                            <li class="ban01Li6 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.3s" swiper-animate-delay="1.9s">
                                 <a href="ztReport/ztReport.html">
                                 	<div class="ban01Dot"><i></i></div>
                                     <div class="ban01Ico"><img src="images/ban01Ico6.png"></div>
@@ -220,7 +206,7 @@
             </div>
             <div class="swiper-slide">
             	<div class="banImg imgFull hidden-xs hidden-sm"><img src="images/banner02.jpg"></div>
-                <div class="banMob visible-xs visible-sm"><img src="images/banMob2.jpg" class="img-responsive"></div>
+                <div class="banMob visible-xs visible-sm"><img src="images/banMob2.jpg" class="img-responsive"></div>             
             </div>
         </div>
         <span class="banBtn banPrev"><i class="iconfont icon-arrow-right"></i></span>
@@ -233,7 +219,9 @@
             <div class="noticeTit"><i class="iconfont icon-gonggao"></i><span>最新公告</span></div>
             <div class="noticeList">
                 <div class="swiper-container">
-                    <div class="swiper-wrapper" id="newNews">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide ellipsis"><a href="news/news_detail.html?id=3&type=3">关于如何减肥的方法</a></div>
+                        <div class="swiper-slide ellipsis"><a href="news/news_detail.html?id=6&type=3">关于如何长高的方法</a></div>
                     </div>
                 </div>
             </div>
@@ -244,34 +232,34 @@
 </div>
 <div class="mainBox">
 <div class="boxBg box1Bg overHide">
-    <div class="container">
-        <div class="box1Top">
-            <div class="boxTit pull-left wow fadeInLeft">
-                <h3 class="boxTitEn text-uppercase">Techno Mart</h3>
+	<div class="container">
+    	<div class="box1Top">
+        	<div class="boxTit pull-left wow fadeInLeft">
+            	<h3 class="boxTitEn text-uppercase">Techno Mart</h3>
                 <h2 class="boxTitCn">科技商城</h2>
             </div>
             <ul class="box1Tab list-unstyled list-inline pull-right wow fadeInRight">
-                <li class="active"><span>科技产品</span></li>
-                <li><span>科技成果</span></li>
-                <li><span>专利超市</span></li>
-                <li><a href="javascript:;">发布成果</a></li>
-                <li><a href="javascript:;">发布需求</a></li>
+            	<li class="active"><span>科技产品</span></li>
+            	<li><span>科技成果</span></li>
+            	<li><span>专利超市</span></li>
+            	<li><a href="javascript:;">发布成果</a></li>
+            	<li><a href="javascript:;">发布需求</a></li>
             </ul>
             <div class="clear"></div>
         </div>
         <div class="box1Bot wow fadeInUp">
-            <div class="box1Item">
-                <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="box1Con">
-                                <a class="box1Link" href="kjsc/kjsc_kjproduct.html?id=1">
+        	<div class="box1Item">
+            	<div class="swiper-container">
+                	<div class="swiper-wrapper">
+                    	<div class="swiper-slide">
+                        	<div class="box1Con">
+                            	<a class="box1Link" href="kjsc/kjsc_kjproduct.html?id=1">
                                     <div class="box1Img">
                                         <div class="imgFull"><img src="images/pro1-11.jpeg" class="img-responsive"></div>
                                         <div class="box1Mask"></div>
                                         <div class="box1Ico">
-                                            <i class="iconfont icon-chakan"></i>
-                                            <span>了解详细信息</span>
+                                        	<i class="iconfont icon-chakan"></i>
+                                        	<span>了解详细信息</span>
                                         </div>
                                     </div>
                                     <div class="box1Text">
@@ -284,24 +272,24 @@
                                     </div>
                                 </a>
                                 <div class="box1Bot">
-                                    <div class="upcollect pull-left">
-                                        <a href="javascript:;" class="up">点赞(35)</a>
-                                        <a href="javascript:;" class="collect">关注(64)</a>
+                                	<div class="upcollect pull-left">
+                                    	<a href="javascript:;" class="up">点赞(35)</a>
+                                    	<a href="javascript:;" class="collect">关注(64)</a>
                                     </div>
                                     <span class="box1Tag pull-right">自营</span>
                                     <div class="clear"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="box1Con">
-                                <a class="box1Link" href="kjsc/kjsc_kjproduct.html?id=2">
+                    	<div class="swiper-slide">
+                        	<div class="box1Con">
+                            	<a class="box1Link" href="kjsc/kjsc_kjproduct.html?id=2">
                                     <div class="box1Img">
                                         <div class="imgFull"><img src="images/box1Img3.jpg" class="img-responsive"></div>
                                         <div class="box1Mask"></div>
                                         <div class="box1Ico">
-                                            <i class="iconfont icon-chakan"></i>
-                                            <span>了解详细信息</span>
+                                        	<i class="iconfont icon-chakan"></i>
+                                        	<span>了解详细信息</span>
                                         </div>
                                     </div>
                                     <div class="box1Text">
@@ -314,24 +302,24 @@
                                     </div>
                                 </a>
                                 <div class="box1Bot">
-                                    <div class="upcollect pull-left">
-                                        <a href="javascript:;" class="up">点赞(40)</a>
-                                        <a href="javascript:;" class="collect">关注(21)</a>
+                                	<div class="upcollect pull-left">
+                                    	<a href="javascript:;" class="up">点赞(40)</a>
+                                    	<a href="javascript:;" class="collect">关注(21)</a>
                                     </div>
                                     <span class="box1Tag pull-right">自营</span>
                                     <div class="clear"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="box1Con">
-                                <a class="box1Link" href="kjsc/kjsc_kjproduct.html?id=3">
+                    	<div class="swiper-slide">
+                        	<div class="box1Con">
+                            	<a class="box1Link" href="kjsc/kjsc_kjproduct.html?id=3">
                                     <div class="box1Img">
                                         <div class="imgFull"><img src="images/pro1-12.jpg" class="img-responsive"></div>
                                         <div class="box1Mask"></div>
                                         <div class="box1Ico">
-                                            <i class="iconfont icon-chakan"></i>
-                                            <span>了解详细信息</span>
+                                        	<i class="iconfont icon-chakan"></i>
+                                        	<span>了解详细信息</span>
                                         </div>
                                     </div>
                                     <div class="box1Text">
@@ -344,9 +332,9 @@
                                     </div>
                                 </a>
                                 <div class="box1Bot">
-                                    <div class="upcollect pull-left">
-                                        <a href="javascript:;" class="up">点赞(10)</a>
-                                        <a href="javascript:;" class="collect">关注(55)</a>
+                                	<div class="upcollect pull-left">
+                                    	<a href="javascript:;" class="up">点赞(10)</a>
+                                    	<a href="javascript:;" class="collect">关注(55)</a>
                                     </div>
                                     <span class="box1Tag pull-right">自营</span>
                                     <div class="clear"></div>
@@ -356,23 +344,23 @@
                     </div>
                 </div>
                 <div class="boxBtn box1Btn">
-                    <a class="boxPrev box1Prev" href="javascript:;"></a>
-                    <a class="boxList" href="kjsc/kjsc.html"></a>
-                    <a class="boxNext box1Next" href="javascript:;"></a>
+                	<a class="boxPrev box1Prev" href="javascript:;"></a>
+                	<a class="boxList" href="kjsc/kjsc.html"></a>
+                	<a class="boxNext box1Next" href="javascript:;"></a>
                 </div>
             </div>
             <div class="box1Item">
-                <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="box1Con">
-                                <a class="box1Link" href="kjsc/kjsc_result.html?id=1">
+            	<div class="swiper-container">
+                	<div class="swiper-wrapper">
+                    	<div class="swiper-slide">
+                        	<div class="box1Con">
+                            	<a class="box1Link" href="kjsc/kjsc_result.html?id=1">
                                     <div class="box1Img">
                                         <div class="imgFull"><img src="images/box3Img2.jpg" class="img-responsive"></div>
                                         <div class="box1Mask"></div>
                                         <div class="box1Ico">
-                                            <i class="iconfont icon-chakan"></i>
-                                            <span>了解详细信息</span>
+                                        	<i class="iconfont icon-chakan"></i>
+                                        	<span>了解详细信息</span>
                                         </div>
                                     </div>
                                     <div class="box1Text">
@@ -385,24 +373,24 @@
                                     </div>
                                 </a>
                                 <div class="box1Bot">
-                                    <div class="upcollect pull-left">
-                                        <a href="javascript:;" class="up">点赞(35)</a>
-                                        <a href="javascript:;" class="collect">关注(64)</a>
+                                	<div class="upcollect pull-left">
+                                    	<a href="javascript:;" class="up">点赞(35)</a>
+                                    	<a href="javascript:;" class="collect">关注(64)</a>
                                     </div>
                                     <span class="box1Tag pull-right">自营</span>
                                     <div class="clear"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="box1Con">
-                                <a class="box1Link" href="kjsc/kjsc_result.html?id=2">
+                    	<div class="swiper-slide">
+                        	<div class="box1Con">
+                            	<a class="box1Link" href="kjsc/kjsc_result.html?id=2">
                                     <div class="box1Img">
                                         <div class="imgFull"><img src="images/cgBox5Img2.jpg" class="img-responsive"></div>
                                         <div class="box1Mask"></div>
                                         <div class="box1Ico">
-                                            <i class="iconfont icon-chakan"></i>
-                                            <span>了解详细信息</span>
+                                        	<i class="iconfont icon-chakan"></i>
+                                        	<span>了解详细信息</span>
                                         </div>
                                     </div>
                                     <div class="box1Text">
@@ -415,24 +403,24 @@
                                     </div>
                                 </a>
                                 <div class="box1Bot">
-                                    <div class="upcollect pull-left">
-                                        <a href="javascript:;" class="up">点赞(40)</a>
-                                        <a href="javascript:;" class="collect">关注(21)</a>
+                                	<div class="upcollect pull-left">
+                                    	<a href="javascript:;" class="up">点赞(40)</a>
+                                    	<a href="javascript:;" class="collect">关注(21)</a>
                                     </div>
                                     <span class="box1Tag pull-right">自营</span>
                                     <div class="clear"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="box1Con">
-                                <a class="box1Link" href="kjsc/kjsc_result.html?id=3">
+                    	<div class="swiper-slide">
+                        	<div class="box1Con">
+                            	<a class="box1Link" href="kjsc/kjsc_result.html?id=3">
                                     <div class="box1Img">
                                         <div class="imgFull"><img src="images/box1Img3.jpg" class="img-responsive"></div>
                                         <div class="box1Mask"></div>
                                         <div class="box1Ico">
-                                            <i class="iconfont icon-chakan"></i>
-                                            <span>了解详细信息</span>
+                                        	<i class="iconfont icon-chakan"></i>
+                                        	<span>了解详细信息</span>
                                         </div>
                                     </div>
                                     <div class="box1Text">
@@ -445,9 +433,9 @@
                                     </div>
                                 </a>
                                 <div class="box1Bot">
-                                    <div class="upcollect pull-left">
-                                        <a href="javascript:;" class="up">点赞(10)</a>
-                                        <a href="javascript:;" class="collect">关注(55)</a>
+                                	<div class="upcollect pull-left">
+                                    	<a href="javascript:;" class="up">点赞(10)</a>
+                                    	<a href="javascript:;" class="collect">关注(55)</a>
                                     </div>
                                     <span class="box1Tag pull-right">自营</span>
                                     <div class="clear"></div>
@@ -457,23 +445,23 @@
                     </div>
                 </div>
                 <div class="boxBtn box1Btn">
-                    <a class="boxPrev box1Prev" href="javascript:;"></a>
-                    <a class="boxList" href="kjsc/kjsc.html"></a>
-                    <a class="boxNext box1Next" href="javascript:;"></a>
+                	<a class="boxPrev box1Prev" href="javascript:;"></a>
+                	<a class="boxList" href="kjsc/kjsc.html"></a>
+                	<a class="boxNext box1Next" href="javascript:;"></a>
                 </div>
             </div>
             <div class="box1Item">
-                <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="box1Con">
-                                <a class="box1Link" href="kjsc/kjsc_zlsuper.html?id=3">
+            	<div class="swiper-container">
+                	<div class="swiper-wrapper">
+                    	<div class="swiper-slide">
+                        	<div class="box1Con">
+                            	<a class="box1Link" href="kjsc/kjsc_zlsuper.html?id=3">
                                     <div class="box1Img">
                                         <div class="imgFull"><img src="images/box1Img2.jpg" class="img-responsive"></div>
                                         <div class="box1Mask"></div>
                                         <div class="box1Ico">
-                                            <i class="iconfont icon-chakan"></i>
-                                            <span>了解详细信息</span>
+                                        	<i class="iconfont icon-chakan"></i>
+                                        	<span>了解详细信息</span>
                                         </div>
                                     </div>
                                     <div class="box1Text">
@@ -486,24 +474,24 @@
                                     </div>
                                 </a>
                                 <div class="box1Bot">
-                                    <div class="upcollect pull-left">
-                                        <a href="javascript:;" class="up">点赞(35)</a>
-                                        <a href="javascript:;" class="collect">关注(64)</a>
+                                	<div class="upcollect pull-left">
+                                    	<a href="javascript:;" class="up">点赞(35)</a>
+                                    	<a href="javascript:;" class="collect">关注(64)</a>
                                     </div>
                                     <span class="box1Tag pull-right">自营</span>
                                     <div class="clear"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="box1Con">
-                                <a class="box1Link" href="kjsc/kjsc_zlsuper.html?id=4">
+                    	<div class="swiper-slide">
+                        	<div class="box1Con">
+                            	<a class="box1Link" href="kjsc/kjsc_zlsuper.html?id=4">
                                     <div class="box1Img">
                                         <div class="imgFull"><img src="images/box1Img3.jpg" class="img-responsive"></div>
                                         <div class="box1Mask"></div>
                                         <div class="box1Ico">
-                                            <i class="iconfont icon-chakan"></i>
-                                            <span>了解详细信息</span>
+                                        	<i class="iconfont icon-chakan"></i>
+                                        	<span>了解详细信息</span>
                                         </div>
                                     </div>
                                     <div class="box1Text">
@@ -516,24 +504,24 @@
                                     </div>
                                 </a>
                                 <div class="box1Bot">
-                                    <div class="upcollect pull-left">
-                                        <a href="javascript:;" class="up">点赞(40)</a>
-                                        <a href="javascript:;" class="collect">关注(21)</a>
+                                	<div class="upcollect pull-left">
+                                    	<a href="javascript:;" class="up">点赞(40)</a>
+                                    	<a href="javascript:;" class="collect">关注(21)</a>
                                     </div>
                                     <span class="box1Tag pull-right">自营</span>
                                     <div class="clear"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="box1Con">
-                                <a class="box1Link" href="kjsc/kjsc_zlsuper.html?id=5">
+                    	<div class="swiper-slide">
+                        	<div class="box1Con">
+                            	<a class="box1Link" href="kjsc/kjsc_zlsuper.html?id=5">
                                     <div class="box1Img">
                                         <div class="imgFull"><img src="images/box1Img7.jpg" class="img-responsive"></div>
                                         <div class="box1Mask"></div>
                                         <div class="box1Ico">
-                                            <i class="iconfont icon-chakan"></i>
-                                            <span>了解详细信息</span>
+                                        	<i class="iconfont icon-chakan"></i>
+                                        	<span>了解详细信息</span>
                                         </div>
                                     </div>
                                     <div class="box1Text">
@@ -546,9 +534,9 @@
                                     </div>
                                 </a>
                                 <div class="box1Bot">
-                                    <div class="upcollect pull-left">
-                                        <a href="javascript:;" class="up">点赞(10)</a>
-                                        <a href="javascript:;" class="collect">关注(55)</a>
+                                	<div class="upcollect pull-left">
+                                    	<a href="javascript:;" class="up">点赞(10)</a>
+                                    	<a href="javascript:;" class="collect">关注(55)</a>
                                     </div>
                                     <span class="box1Tag pull-right">自营</span>
                                     <div class="clear"></div>
@@ -558,18 +546,15 @@
                     </div>
                 </div>
                 <div class="boxBtn box1Btn">
-                    <a class="boxPrev box1Prev" href="javascript:;"></a>
-                    <a class="boxList" href="kjsc/kjsc.html"></a>
-                    <a class="boxNext box1Next" href="javascript:;"></a>
+                	<a class="boxPrev box1Prev" href="javascript:;"></a>
+                	<a class="boxList" href="kjsc/kjsc.html"></a>
+                	<a class="boxNext box1Next" href="javascript:;"></a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <div class="boxBg box2Bg overHide">
-    <div class="wavesBg">
-        <canvas id="waves" class="waves"></canvas>
-    </div>
 	<div class="container">
     	<div class="box2">
     		<div class="box2LefImg"><img src="images/box2LefImg.png" class="img-responsive"></div>
@@ -580,7 +565,7 @@
             </div>
             <ul class="box2Rig list-unstyled list-inline">
             	<li class="col-xs-12 col-md-6 col-sm-12 wow fadeInRight">
-                    <a href="lawsRegulations/lawsRegulations.html">
+                	<a href="lawsRegulations/lawsRegulations.html">
                     	<div class="box2Ico"><i class="iconfont icon-zhengcefagui1"></i></div>
                     	<div class="box2Con">
                         	<h3 class="box2Name ellipsis">政策法规</h3>
@@ -592,36 +577,36 @@
                     </a>
                 </li>
             	<li class="col-xs-12 col-md-6 col-sm-12 wow fadeInRight">
-                    <a href="zlzt/zlzt.html">
+                	<a href="zlzt/zlzt.html">
                     	<div class="box2Ico"><i class="iconfont icon-zhuanliguanli"></i></div>
                     	<div class="box2Con">
                         	<h3 class="box2Name ellipsis">专利专题</h3>
                             <div class="box2Brief">
-                            	<p>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试。</p>
+                            	<p>知识产权研究中心取得了一系列研究与实践成果，多次受到国家知识产权局、装备发展部、国防科工局、集团公司等单位的表彰。</p>
                             </div>
                         </div>
                         <div class="clear"></div>
                     </a>
                 </li>
             	<li class="col-xs-12 col-md-6 col-sm-12 wow fadeInRight">
-                    <a href="ztReport/ztReport.html">
+                	<a href="ztReport/ztReport.html">
                     	<div class="box2Ico"><i class="iconfont icon-baogao1"></i></div>
                     	<div class="box2Con">
                         	<h3 class="box2Name ellipsis">专题报告</h3>
                             <div class="box2Brief">
-                            	<p>吃吃吃吃吃吃吃吃吃吃吃吃吃吃吃吃吃吃！！！！</p>
+                            	<p>知识产权研究中心取得了一系列研究与实践成果，多次受到国家知识产权局、装备发展部、国防科工局、集团公司等单位的表彰。</p>
                             </div>
                         </div>
                         <div class="clear"></div>
                     </a>
                 </li>
             	<li class="col-xs-12 col-md-6 col-sm-12 wow fadeInRight">
-                    <a href="zlzt/zlzt.html">
-                        <div class="box2Ico"><i class="iconfont icon-zixun"></i></div>
-                        <div class="box2Con">
-                            <h3 class="box2Name ellipsis">专利专题</h3>
+                	<a href="zlzt/zlzt.html">
+                    	<div class="box2Ico"><i class="iconfont icon-zixun"></i></div>
+                    	<div class="box2Con">
+                        	<h3 class="box2Name ellipsis">专利专题</h3>
                             <div class="box2Brief">
-                                <p>知识产权研究中心取得了一系列研究与实践成果，多次受到国家知识产权局、装备发展部、国防科工局、集团公司等单位的表彰。</p>
+                            	<p>知识产权研究中心取得了一系列研究与实践成果，多次受到国家知识产权局、装备发展部、国防科工局、集团公司等单位的表彰。</p>
                             </div>
                         </div>
                         <div class="clear"></div>
@@ -632,16 +617,16 @@
     </div>
 </div>
 <div class="boxBg box3Bg overHide">
-    <div class="container">
+	<div class="container">
         <div class="boxTit text-center wow fadeInDown">
             <h3 class="boxTitEn text-uppercase">News & Events</h3>
             <h2 class="boxTitCn">新闻动态</h2>
         </div>
         <div class="box3List">
-            <div class="box3Item wow fadeInLeft">
-                <div class="box3Con">
-                    <div class="box3Tit">
-                        <h2><strong>工作动态</strong></h2>
+        	<div class="box3Item wow fadeInLeft">
+            	<div class="box3Con">
+                	<div class="box3Tit">
+                    	<h2><strong>工作动态</strong></h2>
                         <a href="news/news.html?id=1" class="iconfont icon-gengduo1"></a>
                         <div class="clear"></div>
                     </div>
@@ -657,10 +642,10 @@
                     </a>
                 </div>
             </div>
-            <div class="box3Item wow fadeInUp">
-                <div class="box3Con">
-                    <div class="box3Tit">
-                        <h2><strong>科技动态</strong></h2>
+        	<div class="box3Item wow fadeInUp">
+            	<div class="box3Con">
+                	<div class="box3Tit">
+                    	<h2><strong>科技动态</strong></h2>
                         <a href="news/news.html?id=2" class="iconfont icon-gengduo1"></a>
                         <div class="clear"></div>
                     </div>
@@ -676,225 +661,343 @@
                     </a>
                 </div>
             </div>
-            <div class="box3Item wow fadeInRight">
-                <div class="box3Con">
-                    <div class="box3Tit">
-                        <h2><strong>通知公告</strong></h2>
+        	<div class="box3Item wow fadeInRight">
+            	<div class="box3Con">
+                	<div class="box3Tit">
+                    	<h2><strong>通知公告</strong></h2>
                         <a href="news/news.html?id=3" class="iconfont icon-gengduo1"></a>
                         <div class="clear"></div>
                     </div>
                     <ul class="box3Notice list-unstyled">
-                        <li><a class="ellipsis" href="news/news_detail.html?id=3&type=3">• 关于如何减肥的方法</a></li>
-                        <li><a class="ellipsis" href="news/news_detail.html?id=6&type=3">• 关于如何长高的方法</a></li>
-                        <!--<li><a class="ellipsis" href="#">• 中韩外观设计优先权文件电子交换的公告</a></li>
-                        <li><a class="ellipsis" href="#">• 10个地理标志产品的保护申请</a></li>
-                        <li><a class="ellipsis" href="#">• 第二届中国专利检索技能大赛在南京落幕</a></li>
-                        <li><a class="ellipsis" href="#">• TRIZ发明创新方法讲座在海南师范大学举办</a></li>
-                        <li><a class="ellipsis" href="#">• 航天云网专利征集活动</a></li>
-                        <li><a class="ellipsis" href="#">• 中国（济南）知识产权维权援助中心召</a></li>
-                        <li><a class="ellipsis" href="#">• 跨境专利拍卖，成功“跨”出第一步</a></li>-->
+                    	<li><a class="ellipsis" href="news/news_detail.html?id=3&type=3">• 关于如何减肥的方法</a></li>
+                    	<li><a class="ellipsis" href="news/news_detail.html?id=6&type=3">• 关于如何长高的方法</a></li>
+                    	<!--<li><a class="ellipsis" href="#">• 中韩外观设计优先权文件电子交换的公告</a></li>
+                    	<li><a class="ellipsis" href="#">• 10个地理标志产品的保护申请</a></li>
+                    	<li><a class="ellipsis" href="#">• 第二届中国专利检索技能大赛在南京落幕</a></li>
+                    	<li><a class="ellipsis" href="#">• TRIZ发明创新方法讲座在海南师范大学举办</a></li>
+                    	<li><a class="ellipsis" href="#">• 航天云网专利征集活动</a></li>
+                    	<li><a class="ellipsis" href="#">• 中国（济南）知识产权维权援助中心召</a></li>
+                    	<li><a class="ellipsis" href="#">• 跨境专利拍卖，成功“跨”出第一步</a></li>-->
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="boxBg box4Bg overHide">
-    <div class="box4VideoBg wow fadeIn"><video src="video/box4Video.mp4" autoplay loop class="box4Video"></video><span></span></div>
-    <div class="box4ImgBg"><div class="imgFull"><img src="images/box4Bg.jpg" class="img-responsive"></div></div>
-	<div class="container">
-        <div class="boxTit text-center wow fadeInDown">
-            <h3 class="boxTitEn text-uppercase">technology services</h3>
-            <h2 class="boxTitCn">科技服务</h2>
+    <div class="boxBg box4Bg overHide">
+        <div class="box4VideoBg wow fadeIn"><video src="video/box4Video.mp4" autoplay loop class="box4Video"></video><span></span></div>
+        <div class="box4ImgBg"><div class="imgFull"><img src="images/box4Bg.jpg" class="img-responsive"></div></div>
+        <div class="container">
+            <div class="boxTit text-center wow fadeInDown">
+                <h3 class="boxTitEn text-uppercase">technology services</h3>
+                <h2 class="boxTitCn">科技服务</h2>
+            </div>
+            <ul class="box4List list-unstyled list-inline">
+                <li class="col-xs-6 col-sm-6 col-md-4 wow fadeIn">
+                    <a href="#">
+                        <div class="box4Ico"><i class="iconfont icon-chilun"></i></div>
+                        <h3 class="box4Tit ellipsis">知识产权管理系统</h3>
+                        <div class="box4Brief">
+                            <p>我平台多次受到国家知识产权局、装备发展部、国防科工局、集团公司等单位的表彰。</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="col-xs-6 col-sm-6 col-md-4 wow fadeIn">
+                    <a href="#">
+                        <div class="box4Ico"><i class="iconfont icon-zhiliang"></i></div>
+                        <h3 class="box4Tit ellipsis">知识产权贯标系统</h3>
+                        <div class="box4Brief">
+                            <p>我平台多次受到国家知识产权局、装备发展部、国防科工局、集团公司等单位的表彰。</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="col-xs-6 col-sm-6 col-md-4 wow fadeIn">
+                    <a href="#">
+                        <div class="box4Ico"><i class="iconfont icon-jiazhipinggu-"></i></div>
+                        <h3 class="box4Tit ellipsis">知识产权价值评估系统</h3>
+                        <div class="box4Brief">
+                            <p>我平台多次受到国家知识产权局、装备发展部、国防科工局、集团公司等单位的表彰。</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="col-xs-6 col-sm-6 col-md-4 wow fadeIn">
+                    <a href="#">
+                        <div class="box4Ico"><i class="iconfont icon-wendang"></i></div>
+                        <h3 class="box4Tit ellipsis">知识产权资源导航</h3>
+                        <div class="box4Brief">
+                            <p>我平台多次受到国家知识产权局、装备发展部、国防科工局、集团公司等单位的表彰。</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="col-xs-6 col-sm-6 col-md-4 wow fadeIn">
+                    <a href="#">
+                        <div class="box4Ico"><i class="iconfont icon-dashuju"></i></div>
+                        <h3 class="box4Tit ellipsis">专利大数据检索</h3>
+                        <div class="box4Brief">
+                            <p>我平台多次受到国家知识产权局、装备发展部、国防科工局、集团公司等单位的表彰。</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="col-xs-6 col-sm-6 col-md-4 wow fadeIn">
+                    <a href="#">
+                        <div class="box4Ico"><i class="iconfont icon-peixun"></i></div>
+                        <h3 class="box4Tit ellipsis">知识培训</h3>
+                        <div class="box4Brief">
+                            <p>我平台多次受到国家知识产权局、装备发展部、国防科工局、集团公司等单位的表彰。</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
         </div>
-        <ul class="box4List list-unstyled list-inline">
-        	<li class="col-xs-6 col-sm-6 col-md-4 wow fadeIn">
-            	<a href="javascript:;">
-                	<div class="box4Ico"><i class="iconfont icon-chilun"></i></div>
-                    <h3 class="box4Tit ellipsis">知识产权管理系统</h3>
-                    <div class="box4Brief">
-                    	<p>我平台多次受到国家知识产权局、装备发展部、国防科工局、集团公司等单位的表彰。</p>
-                    </div>
-                </a>
-            </li>
-        	<li class="col-xs-6 col-sm-6 col-md-4 wow fadeIn">
-            	<a href="#">
-                	<div class="box4Ico"><i class="iconfont icon-zhiliang"></i></div>
-                    <h3 class="box4Tit ellipsis">知识产权贯标系统</h3>
-                    <div class="box4Brief">
-                    	<p>我平台多次受到国家知识产权局、装备发展部、国防科工局、集团公司等单位的表彰。</p>
-                    </div>
-                </a>
-            </li>
-        	<li class="col-xs-6 col-sm-6 col-md-4 wow fadeIn">
-            	<a href="javascript:;">
-                	<div class="box4Ico"><i class="iconfont icon-jiazhipinggu-"></i></div>
-                    <h3 class="box4Tit ellipsis">知识产权价值评估系统</h3>
-                    <div class="box4Brief">
-                    	<p>我平台多次受到国家知识产权局、装备发展部、国防科工局、集团公司等单位的表彰。</p>
-                    </div>
-                </a>
-            </li>
-        	<li class="col-xs-6 col-sm-6 col-md-4 wow fadeIn">
-            	<a href="javascript:;">
-                	<div class="box4Ico"><i class="iconfont icon-wendang"></i></div>
-                    <h3 class="box4Tit ellipsis">知识产权资源导航</h3>
-                    <div class="box4Brief">
-                    	<p>我平台多次受到国家知识产权局、装备发展部、国防科工局、集团公司等单位的表彰。</p>
-                    </div>
-                </a>
-            </li>
-        	<li class="col-xs-6 col-sm-6 col-md-4 wow fadeIn">
-            	<a href="javascript:;">
-                	<div class="box4Ico"><i class="iconfont icon-dashuju"></i></div>
-                    <h3 class="box4Tit ellipsis">专利大数据检索</h3>
-                    <div class="box4Brief">
-                    	<p>我平台多次受到国家知识产权局、装备发展部、国防科工局、集团公司等单位的表彰。</p>
-                    </div>
-                </a>
-            </li>
-        	<li class="col-xs-6 col-sm-6 col-md-4 wow fadeIn">
-            	<a href="javascript:;">
-                	<div class="box4Ico"><i class="iconfont icon-peixun"></i></div>
-                    <h3 class="box4Tit ellipsis">知识培训</h3>
-                    <div class="box4Brief">
-                    	<p>我平台多次受到国家知识产权局、装备发展部、国防科工局、集团公司等单位的表彰。</p>
-                    </div>
-                </a>
-            </li>
-        </ul>
-    </div>
 </div>
 <div class="boxBg box5Bg overHide">
-    <div class="container">
-        <div class="box1Top">
-            <div class="boxTit pull-left wow fadeInLeft">
-                <h3 class="boxTitEn text-uppercase">Project requirements</h3>
+	<div class="container">
+    	<div class="box1Top">
+        	<div class="boxTit pull-left wow fadeInLeft">
+            	<h3 class="boxTitEn text-uppercase">Project requirements</h3>
                 <h2 class="boxTitCn">项目需求</h2>
             </div>
-            <div class="boxBtn box5Btn pull-right wow fadeInRight">
+			<div class="boxBtn box5Btn pull-right wow fadeInRight">
                 <a class="boxPrev box5Prev" href="javascript:;"></a>
                 <a class="boxList" href="projectRequire/pjRequire.html"></a>
                 <a class="boxNext box5Next" href="javascript:;"></a>
             </div>
             <div class="clear"></div>
         </div>
-        <div class="box5List">
+		<div class="box5List">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <ul class="box5Item list-unstyled list-inline">
-                            <li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
-                                <div class="box5Wrap">
-                                    <div class="box5Num">1</div>
+                        	<li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
+                            	<div class="box5Wrap">
+                                	<div class="box5Num">1</div>
                                     <div class="box5Con">
-                                        <h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=1">橡胶材料耐热性提升</a></h3>
+                                    	<h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=1">橡胶材料耐热性提升</a></h3>
                                         <div class="box5Infor">
-                                            <span>更新时间：2019-01-02</span>
+                                        	<span>更新时间：2019-01-02</span>
                                             <span>所属行业：新材料</span>
                                         </div>
                                     </div>
                                     <div class="upcollect box5UpCollect flexBox">
-                                        <div class="box5UpCollectCon">
+                                    	<div class="box5UpCollectCon">
                                             <a class="up" href="javascript:;"></a>
                                             <a class="collect" href="javascript:;"></a>
                                         </div>
-                                    </div>
+									</div>
                                     <div class="clear"></div>
                                 </div>
                             </li>
-                            <li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
-                                <div class="box5Wrap">
-                                    <div class="box5Num">2</div>
+                        	<li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
+                            	<div class="box5Wrap">
+                                	<div class="box5Num">2</div>
                                     <div class="box5Con">
-                                        <h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=2">测试</a></h3>
+                                    	<h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=2">测试</a></h3>
                                         <div class="box5Infor">
-                                            <span>更新时间：2019-01-02</span>
+                                        	<span>更新时间：2019-01-02</span>
                                             <span>所属行业：新材料</span>
                                         </div>
                                     </div>
                                     <div class="upcollect box5UpCollect flexBox">
-                                        <div class="box5UpCollectCon">
+                                    	<div class="box5UpCollectCon">
                                             <a class="up" href="javascript:;"></a>
                                             <a class="collect" href="javascript:;"></a>
                                         </div>
-                                    </div>
+									</div>
                                     <div class="clear"></div>
                                 </div>
                             </li>
-                            <li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
-                                <div class="box5Wrap">
-                                    <div class="box5Num">3</div>
+                        	<li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
+                            	<div class="box5Wrap">
+                                	<div class="box5Num">3</div>
                                     <div class="box5Con">
-                                        <h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=3">测试1</a></h3>
+                                    	<h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=3">测试1</a></h3>
                                         <div class="box5Infor">
-                                            <span>更新时间：2019-01-02</span>
+                                        	<span>更新时间：2019-01-02</span>
                                             <span>所属行业：未知材料</span>
                                         </div>
                                     </div>
                                     <div class="upcollect box5UpCollect flexBox">
-                                        <div class="box5UpCollectCon">
+                                    	<div class="box5UpCollectCon">
                                             <a class="up" href="javascript:;"></a>
                                             <a class="collect" href="javascript:;"></a>
                                         </div>
-                                    </div>
+									</div>
                                     <div class="clear"></div>
                                 </div>
                             </li>
-                            <li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
-                                <div class="box5Wrap">
-                                    <div class="box5Num">4</div>
+                        	<li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
+                            	<div class="box5Wrap">
+                                	<div class="box5Num">4</div>
                                     <div class="box5Con">
-                                        <h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=4">测试2</a></h3>
+                                    	<h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=4">测试2</a></h3>
                                         <div class="box5Infor">
-                                            <span>更新时间：2019-01-02</span>
+                                        	<span>更新时间：2019-01-02</span>
                                             <span>所属行业：其它</span>
                                         </div>
                                     </div>
                                     <div class="upcollect box5UpCollect flexBox">
-                                        <div class="box5UpCollectCon">
+                                    	<div class="box5UpCollectCon">
                                             <a class="up" href="javascript:;"></a>
                                             <a class="collect" href="javascript:;"></a>
                                         </div>
-                                    </div>
+									</div>
                                     <div class="clear"></div>
                                 </div>
                             </li>
-                            <li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
-                                <div class="box5Wrap">
-                                    <div class="box5Num">5</div>
+                        	<li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
+                            	<div class="box5Wrap">
+                                	<div class="box5Num">5</div>
                                     <div class="box5Con">
-                                        <h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=5">01-05测试</a></h3>
+                                    	<h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=5">01-05测试</a></h3>
                                         <div class="box5Infor">
-                                            <span>更新时间：2019-01-02</span>
+                                        	<span>更新时间：2019-01-02</span>
                                             <span>所属行业：新材料</span>
                                         </div>
                                     </div>
                                     <div class="upcollect box5UpCollect flexBox">
-                                        <div class="box5UpCollectCon">
+                                    	<div class="box5UpCollectCon">
                                             <a class="up" href="javascript:;"></a>
                                             <a class="collect" href="javascript:;"></a>
                                         </div>
-                                    </div>
+									</div>
                                     <div class="clear"></div>
                                 </div>
                             </li>
-                            <li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
-                                <div class="box5Wrap">
-                                    <div class="box5Num">6</div>
+                        	<li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
+                            	<div class="box5Wrap">
+                                	<div class="box5Num">6</div>
                                     <div class="box5Con">
-                                        <h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=6">01-06测试</a></h3>
+                                    	<h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=6">01-06测试</a></h3>
                                         <div class="box5Infor">
-                                            <span>更新时间：2019-01-02</span>
+                                        	<span>更新时间：2019-01-02</span>
                                             <span>所属行业：新材料</span>
                                         </div>
                                     </div>
                                     <div class="upcollect box5UpCollect flexBox">
-                                        <div class="box5UpCollectCon">
+                                    	<div class="box5UpCollectCon">
                                             <a class="up" href="javascript:;"></a>
                                             <a class="collect" href="javascript:;"></a>
                                         </div>
+									</div>
+                                    <div class="clear"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>   
+                    <div class="swiper-slide">
+                        <ul class="box5Item list-unstyled list-inline">
+                        	<li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
+                            	<div class="box5Wrap">
+                                	<div class="box5Num">7</div>
+                                    <div class="box5Con">
+                                    	<h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=7">01-07测试</a></h3>
+                                        <div class="box5Infor">
+                                        	<span>更新时间：2019-01-02</span>
+                                            <span>所属行业：未知材料</span>
+                                        </div>
                                     </div>
+                                    <div class="upcollect box5UpCollect flexBox">
+                                    	<div class="box5UpCollectCon">
+                                            <a class="up" href="javascript:;"></a>
+                                            <a class="collect" href="javascript:;"></a>
+                                        </div>
+									</div>
+                                    <div class="clear"></div>
+                                </div>
+                            </li>
+                        	<li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
+                            	<div class="box5Wrap">
+                                	<div class="box5Num">8</div>
+                                    <div class="box5Con">
+                                    	<h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=8">01-08测试</a></h3>
+                                        <div class="box5Infor">
+                                        	<span>更新时间：2019-01-02</span>
+                                            <span>所属行业：其它</span>
+                                        </div>
+                                    </div>
+                                    <div class="upcollect box5UpCollect flexBox">
+                                    	<div class="box5UpCollectCon">
+                                            <a class="up" href="javascript:;"></a>
+                                            <a class="collect" href="javascript:;"></a>
+                                        </div>
+									</div>
+                                    <div class="clear"></div>
+                                </div>
+                            </li>
+                        	<li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
+                            	<div class="box5Wrap">
+                                	<div class="box5Num">9</div>
+                                    <div class="box5Con">
+                                    	<h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=9">01-09测试</a></h3>
+                                        <div class="box5Infor">
+                                        	<span>更新时间：2019-01-02</span>
+                                            <span>所属行业：新材料</span>
+                                        </div>
+                                    </div>
+                                    <div class="upcollect box5UpCollect flexBox">
+                                    	<div class="box5UpCollectCon">
+                                            <a class="up" href="javascript:;"></a>
+                                            <a class="collect" href="javascript:;"></a>
+                                        </div>
+									</div>
+                                    <div class="clear"></div>
+                                </div>
+                            </li>
+                        	<li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
+                            	<div class="box5Wrap">
+                                	<div class="box5Num">10</div>
+                                    <div class="box5Con">
+                                    	<h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=10">01-10测试</a></h3>
+                                        <div class="box5Infor">
+                                        	<span>更新时间：2019-01-02</span>
+                                            <span>所属行业：新材料</span>
+                                        </div>
+                                    </div>
+                                    <div class="upcollect box5UpCollect flexBox">
+                                    	<div class="box5UpCollectCon">
+                                            <a class="up" href="javascript:;"></a>
+                                            <a class="collect" href="javascript:;"></a>
+                                        </div>
+									</div>
+                                    <div class="clear"></div>
+                                </div>
+                            </li>
+                        	<li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
+                            	<div class="box5Wrap">
+                                	<div class="box5Num">11</div>
+                                    <div class="box5Con">
+                                    	<h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=11">01-11测试</a></h3>
+                                        <div class="box5Infor">
+                                        	<span>更新时间：2019-01-02</span>
+                                            <span>所属行业：未知材料</span>
+                                        </div>
+                                    </div>
+                                    <div class="upcollect box5UpCollect flexBox">
+                                    	<div class="box5UpCollectCon">
+                                            <a class="up" href="javascript:;"></a>
+                                            <a class="collect" href="javascript:;"></a>
+                                        </div>
+									</div>
+                                    <div class="clear"></div>
+                                </div>
+                            </li>
+                        	<li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
+                            	<div class="box5Wrap">
+                                	<div class="box5Num">12</div>
+                                    <div class="box5Con">
+                                    	<h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=12">01-12测试</a></h3>
+                                        <div class="box5Infor">
+                                        	<span>更新时间：2019-01-02</span>
+                                            <span>所属行业：其它</span>
+                                        </div>
+                                    </div>
+                                    <div class="upcollect box5UpCollect flexBox">
+                                    	<div class="box5UpCollectCon">
+                                            <a class="up" href="javascript:;"></a>
+                                            <a class="collect" href="javascript:;"></a>
+                                        </div>
+									</div>
                                     <div class="clear"></div>
                                 </div>
                             </li>
@@ -902,240 +1005,122 @@
                     </div>
                     <div class="swiper-slide">
                         <ul class="box5Item list-unstyled list-inline">
-                            <li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
-                                <div class="box5Wrap">
-                                    <div class="box5Num">7</div>
+                        	<li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
+                            	<div class="box5Wrap">
+                                	<div class="box5Num">13</div>
                                     <div class="box5Con">
-                                        <h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=7">01-07测试</a></h3>
+                                    	<h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=13">01-13测试</a></h3>
                                         <div class="box5Infor">
-                                            <span>更新时间：2019-01-02</span>
-                                            <span>所属行业：未知材料</span>
-                                        </div>
-                                    </div>
-                                    <div class="upcollect box5UpCollect flexBox">
-                                        <div class="box5UpCollectCon">
-                                            <a class="up" href="javascript:;"></a>
-                                            <a class="collect" href="javascript:;"></a>
-                                        </div>
-                                    </div>
-                                    <div class="clear"></div>
-                                </div>
-                            </li>
-                            <li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
-                                <div class="box5Wrap">
-                                    <div class="box5Num">8</div>
-                                    <div class="box5Con">
-                                        <h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=8">01-08测试</a></h3>
-                                        <div class="box5Infor">
-                                            <span>更新时间：2019-01-02</span>
-                                            <span>所属行业：其它</span>
-                                        </div>
-                                    </div>
-                                    <div class="upcollect box5UpCollect flexBox">
-                                        <div class="box5UpCollectCon">
-                                            <a class="up" href="javascript:;"></a>
-                                            <a class="collect" href="javascript:;"></a>
-                                        </div>
-                                    </div>
-                                    <div class="clear"></div>
-                                </div>
-                            </li>
-                            <li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
-                                <div class="box5Wrap">
-                                    <div class="box5Num">9</div>
-                                    <div class="box5Con">
-                                        <h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=9">01-09测试</a></h3>
-                                        <div class="box5Infor">
-                                            <span>更新时间：2019-01-02</span>
+                                        	<span>更新时间：2019-01-02</span>
                                             <span>所属行业：新材料</span>
                                         </div>
                                     </div>
                                     <div class="upcollect box5UpCollect flexBox">
-                                        <div class="box5UpCollectCon">
+                                    	<div class="box5UpCollectCon">
                                             <a class="up" href="javascript:;"></a>
                                             <a class="collect" href="javascript:;"></a>
                                         </div>
-                                    </div>
+									</div>
                                     <div class="clear"></div>
                                 </div>
                             </li>
-                            <li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
-                                <div class="box5Wrap">
-                                    <div class="box5Num">10</div>
+                        	<li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
+                            	<div class="box5Wrap">
+                                	<div class="box5Num">14</div>
                                     <div class="box5Con">
-                                        <h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=10">01-10测试</a></h3>
+                                    	<h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=14">01-14测试</a></h3>
                                         <div class="box5Infor">
-                                            <span>更新时间：2019-01-02</span>
+                                        	<span>更新时间：2019-01-02</span>
                                             <span>所属行业：新材料</span>
                                         </div>
                                     </div>
                                     <div class="upcollect box5UpCollect flexBox">
-                                        <div class="box5UpCollectCon">
+                                    	<div class="box5UpCollectCon">
                                             <a class="up" href="javascript:;"></a>
                                             <a class="collect" href="javascript:;"></a>
                                         </div>
-                                    </div>
+									</div>
                                     <div class="clear"></div>
                                 </div>
                             </li>
-                            <li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
-                                <div class="box5Wrap">
-                                    <div class="box5Num">11</div>
+                        	<li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
+                            	<div class="box5Wrap">
+                                	<div class="box5Num">15</div>
                                     <div class="box5Con">
-                                        <h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=11">01-11测试</a></h3>
+                                    	<h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=15">01-15测试</a></h3>
                                         <div class="box5Infor">
-                                            <span>更新时间：2019-01-02</span>
+                                        	<span>更新时间：2019-01-02</span>
                                             <span>所属行业：未知材料</span>
                                         </div>
                                     </div>
                                     <div class="upcollect box5UpCollect flexBox">
-                                        <div class="box5UpCollectCon">
+                                    	<div class="box5UpCollectCon">
                                             <a class="up" href="javascript:;"></a>
                                             <a class="collect" href="javascript:;"></a>
                                         </div>
-                                    </div>
+									</div>
                                     <div class="clear"></div>
                                 </div>
                             </li>
-                            <li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
-                                <div class="box5Wrap">
-                                    <div class="box5Num">12</div>
+                        	<li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
+                            	<div class="box5Wrap">
+                                	<div class="box5Num">16</div>
                                     <div class="box5Con">
-                                        <h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=12">01-12测试</a></h3>
+                                    	<h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=16">01-16测试</a></h3>
                                         <div class="box5Infor">
-                                            <span>更新时间：2019-01-02</span>
+                                        	<span>更新时间：2019-01-02</span>
                                             <span>所属行业：其它</span>
                                         </div>
                                     </div>
                                     <div class="upcollect box5UpCollect flexBox">
-                                        <div class="box5UpCollectCon">
+                                    	<div class="box5UpCollectCon">
                                             <a class="up" href="javascript:;"></a>
                                             <a class="collect" href="javascript:;"></a>
                                         </div>
+									</div>
+                                    <div class="clear"></div>
+                                </div>
+                            </li>
+                        	<li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
+                            	<div class="box5Wrap">
+                                	<div class="box5Num">17</div>
+                                    <div class="box5Con">
+                                    	<h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=17">01-17测试</a></h3>
+                                        <div class="box5Infor">
+                                        	<span>更新时间：2019-01-02</span>
+                                            <span>所属行业：新材料</span>
+                                        </div>
                                     </div>
+                                    <div class="upcollect box5UpCollect flexBox">
+                                    	<div class="box5UpCollectCon">
+                                            <a class="up" href="javascript:;"></a>
+                                            <a class="collect" href="javascript:;"></a>
+                                        </div>
+									</div>
+                                    <div class="clear"></div>
+                                </div>
+                            </li>
+                        	<li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
+                            	<div class="box5Wrap">
+                                	<div class="box5Num">18</div>
+                                    <div class="box5Con">
+                                    	<h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=18">01-18测试</a></h3>
+                                        <div class="box5Infor">
+                                        	<span>更新时间：2019-01-02</span>
+                                            <span>所属行业：新材料</span>
+                                        </div>
+                                    </div>
+                                    <div class="upcollect box5UpCollect flexBox">
+                                    	<div class="box5UpCollectCon">
+                                            <a class="up" href="javascript:;"></a>
+                                            <a class="collect" href="javascript:;"></a>
+                                        </div>
+									</div>
                                     <div class="clear"></div>
                                 </div>
                             </li>
                         </ul>
-                    </div>
-                    <div class="swiper-slide">
-                        <ul class="box5Item list-unstyled list-inline">
-                            <li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
-                                <div class="box5Wrap">
-                                    <div class="box5Num">13</div>
-                                    <div class="box5Con">
-                                        <h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=13">01-13测试</a></h3>
-                                        <div class="box5Infor">
-                                            <span>更新时间：2019-01-02</span>
-                                            <span>所属行业：新材料</span>
-                                        </div>
-                                    </div>
-                                    <div class="upcollect box5UpCollect flexBox">
-                                        <div class="box5UpCollectCon">
-                                            <a class="up" href="javascript:;"></a>
-                                            <a class="collect" href="javascript:;"></a>
-                                        </div>
-                                    </div>
-                                    <div class="clear"></div>
-                                </div>
-                            </li>
-                            <li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
-                                <div class="box5Wrap">
-                                    <div class="box5Num">14</div>
-                                    <div class="box5Con">
-                                        <h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=14">01-14测试</a></h3>
-                                        <div class="box5Infor">
-                                            <span>更新时间：2019-01-02</span>
-                                            <span>所属行业：新材料</span>
-                                        </div>
-                                    </div>
-                                    <div class="upcollect box5UpCollect flexBox">
-                                        <div class="box5UpCollectCon">
-                                            <a class="up" href="javascript:;"></a>
-                                            <a class="collect" href="javascript:;"></a>
-                                        </div>
-                                    </div>
-                                    <div class="clear"></div>
-                                </div>
-                            </li>
-                            <li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
-                                <div class="box5Wrap">
-                                    <div class="box5Num">15</div>
-                                    <div class="box5Con">
-                                        <h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=15">01-15测试</a></h3>
-                                        <div class="box5Infor">
-                                            <span>更新时间：2019-01-02</span>
-                                            <span>所属行业：未知材料</span>
-                                        </div>
-                                    </div>
-                                    <div class="upcollect box5UpCollect flexBox">
-                                        <div class="box5UpCollectCon">
-                                            <a class="up" href="javascript:;"></a>
-                                            <a class="collect" href="javascript:;"></a>
-                                        </div>
-                                    </div>
-                                    <div class="clear"></div>
-                                </div>
-                            </li>
-                            <li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
-                                <div class="box5Wrap">
-                                    <div class="box5Num">16</div>
-                                    <div class="box5Con">
-                                        <h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=16">01-16测试</a></h3>
-                                        <div class="box5Infor">
-                                            <span>更新时间：2019-01-02</span>
-                                            <span>所属行业：其它</span>
-                                        </div>
-                                    </div>
-                                    <div class="upcollect box5UpCollect flexBox">
-                                        <div class="box5UpCollectCon">
-                                            <a class="up" href="javascript:;"></a>
-                                            <a class="collect" href="javascript:;"></a>
-                                        </div>
-                                    </div>
-                                    <div class="clear"></div>
-                                </div>
-                            </li>
-                            <li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
-                                <div class="box5Wrap">
-                                    <div class="box5Num">17</div>
-                                    <div class="box5Con">
-                                        <h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=17">01-17测试</a></h3>
-                                        <div class="box5Infor">
-                                            <span>更新时间：2019-01-02</span>
-                                            <span>所属行业：新材料</span>
-                                        </div>
-                                    </div>
-                                    <div class="upcollect box5UpCollect flexBox">
-                                        <div class="box5UpCollectCon">
-                                            <a class="up" href="javascript:;"></a>
-                                            <a class="collect" href="javascript:;"></a>
-                                        </div>
-                                    </div>
-                                    <div class="clear"></div>
-                                </div>
-                            </li>
-                            <li class="col-xs-12 col-sm-12 col-md-6 wow fadeIn">
-                                <div class="box5Wrap">
-                                    <div class="box5Num">18</div>
-                                    <div class="box5Con">
-                                        <h3 class="box5Tit ellipsis"><a href="projectRequire/pjRequireDetail.html?id=18">01-18测试</a></h3>
-                                        <div class="box5Infor">
-                                            <span>更新时间：2019-01-02</span>
-                                            <span>所属行业：新材料</span>
-                                        </div>
-                                    </div>
-                                    <div class="upcollect box5UpCollect flexBox">
-                                        <div class="box5UpCollectCon">
-                                            <a class="up" href="javascript:;"></a>
-                                            <a class="collect" href="javascript:;"></a>
-                                        </div>
-                                    </div>
-                                    <div class="clear"></div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+                    </div>                 
                 </div>
             </div>
         </div>
@@ -1275,7 +1260,7 @@
                     <div class="ftLink">
                         <p><a href="#">- 科技产品</a></p>
                         <p><a href="#">- 科技成果</a></p>
-                        <p><a href="#">- 专利技术</a></p>
+                        <p><a href="#">- 专利超市</a></p>
                     </div>
                 </li>
             	<li>
@@ -1308,7 +1293,7 @@
         </div>
         <div class="ftBot wow fadeInUp">
         	<div class="copyRight">
-            	<p>Copyright © 2018中国航天科工集团知识产权中心版权所有 京ICP备13006003号-2  设计支持：<a href="#">千助科技</a></p>
+            	<p>Copyright © 2018中国航天科工集团知识产权中心版权所有 京ICP备13006003号-2  设计支持：<a href="#">谦亨网络</a></p>
             </div>
             <div class="ftBotRig">
             	<ul class="ftBotIco list-unstyled list-inline">
@@ -1338,49 +1323,6 @@
     <li><span>05</span>项目需求</li>
     <li><span>06</span>合作机构</li>
 </ul>
-<div class="onBox hidden-xs hidden-sm hidden-md">
-    <ul class="onLine list-unstyled">
-        <li><a href="javascript:;"><i class="fa fa-qq"></i>沟通</a></li>
-        <li>
-        	<a href="javascript:;">
-                <i class="fa fa-weixin"></i>微信
-                <div class="onCon"><img src="images/weChat.jpg"></div>
-            </a>
-        </li>
-        <li><a href="javascript:;" data-toggle="modal" data-target="#myPwd"><i class="fa fa-edit"></i>留言</a></li>
-        <li class="top"><a href="javascript:;"><i class="fa fa-angle-up"></i>顶部</a></li>
-    </ul>
-    <span class="onBtn"></span>
-</div>
-<div id="myPwd" class="modal fade">
-	<div class="LaySearch LayBroker">
-        <span class="LaySearchClose" data-dismiss="modal"></span>
-        <h3 class="LaySearchTit">在线留言</h3>
-        <ul class="LaySearchList list-unstyled row">
-            <li class="col-xs-12">
-                <div class="LaySearchRig">
-                    <input type="text" class="LaySearchInput" placeholder="联系人">
-                </div>
-            </li>
-            <li class="col-xs-12">
-                <div class="LaySearchRig">
-                    <input type="text" class="LaySearchInput" placeholder="联系方式">
-                </div>
-            </li>
-            <li class="col-xs-12">
-                <div class="LaySearchRig">
-                	<textarea class="LaySearchInput" rows="3" placeholder="留言内容"></textarea>
-                </div>
-            </li>
-            <li class="col-xs-12">
-                <div class="LaySearchBtn LaySearchBtn3">
-                    <a href="javascript:;" class="LaySearchBtn1">留言</a>
-                    <a href="javascript:;" class="LaySearchBtn2">重置</a>
-                </div>
-            </li>
-        </ul>
-    </div>    
-</div>
 <script>
 var old_height = 660;
 change_size();
@@ -1388,14 +1330,14 @@ $(window).resize(function(event) {
 	change_size()
 });
 function change_size() {
-	var W = $(window).width()*1.1;
+	var W = $(window).width()*1.2;
 	var scale_num = W / 1920;
 	if(scale_num<=1){
 		$(".ban01Bg").css({
 			"transform": "scale(" + scale_num + ")",
 			"transform-origin": "center center",
 			"-webkit-transform": "scale(" + scale_num + ")",
-			"-webkit-transform-origin": "center center",
+			"-webkit-transform-origin": "centercentertop",
 			"-moz-transform": "scale(" + scale_num + ")",
 			"-moz-transform-origin": "center center",
 			"-ms-transform": "scale(" + scale_num + ")",
@@ -1453,32 +1395,7 @@ $(window).scroll(function(){
 			return false;
 		}
 	});
-});
-
-var pro = window.location.protocol;
-var host = window.location.host;
-var domain = pro + "//" + host;
-
-    $.ajax({
-        "type": "get",
-        "url": "/newsInformations",
-        data: {
-            "type" : 3,
-            "start" : 0,
-            "length" : 2,
-            "orderBy" : 'ORDER BY createTime desc'
-        },
-        async: false,
-        success:function (result) {
-            var data = result.data;
-            for (var i = 0; i < data.length; i++) {
-                if (i < 2) {
-                    $("#newNews").append(' <div class="swiper-slide ellipsis"><a href="news/news_detail.html?id='+data[i].id+'&type='+data[i].type+'">'+data[i].name+'</a></div>');
-                }
-            }
-        }
-    })
+})
 </script>
-<script src="js/waves.js"></script>
 </body>
 </html>

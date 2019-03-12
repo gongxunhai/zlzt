@@ -178,9 +178,9 @@ function initlistdata() {
         success : function (data) {
           //  console.log(JSON.stringify(data));
             var a = '<div class="fenleiTit">\n' +
-                '                        \t<a class="fenleiTitLink" onclick="changData(\''+data.id+'\',\''+data.type+'\')">\n' +
+                '                        \t<a class="fenleiTitLink" style="display: flex;" href="javascript:;" onclick="changData(\''+data.id+'\',\''+data.type+'\')">\n' +
+                '                                <img src="'+domain+'/statics/icon/zlzt.png" style="margin: 3px;width:25px;height:25px">\n' +
                 '                                <h2 class="fenleiTitCn">'+data.name+'</h2>\n' +
-                '                                <span class="fenleiTitEn">'+data.translate+'</span>\n' +
                 '                            </a>\n' +
                 '                        </div>\n' +
                 '                        <div class="fenleiH2Btn visible-xs visible-sm visible-md"><i class="fa fa-folder"></i>展开</div>';

@@ -50,7 +50,7 @@
             	<li class="col-xs-12 col-sm-12 col-md-6">
                 	<label class="regLab"><span class="corRed">*</span> 会员类别：</label>
                     <div class="regRig">
-                    	<select class="regSelect" onchange="changeData();">
+                    	<select class="regSelect" id="userType" onchange="changeDataByUserType();">
                         	<option>个人</option>
                         	<option>企业</option>
                         </select>
@@ -218,6 +218,19 @@
 		$(".registerBox").eq(0).addClass("active");
 	});
 
+    $.ajax({
+        type : 'get',
+        url : '/dicts?type=zlztUserType',
+        async : false,
+        success : function(data) {
+            $("#userType").html('');
+            console.log(data);
+            for (var i = 0; i < data.length; i++) {
+                $("#userType").append('<option value="'+data[i].k+'">'+data[i].val+'</option>')
+            }
+        }
+    });
+
 	$.ajax({
         type : 'get',
         url : '/dicts?type=userFromJob',
@@ -227,13 +240,13 @@
             $("#interestJob").html('');
             console.log(data);
             for (var i = 0; i < data.length; i++) {
-                $("#fromJob").append('<label><input type="checkbox" name="serName1"><span>'+data[i].val+'</span></label>')
-                $("#interestJob").append('<label><input type="checkbox" name="serName1"><span>'+data[i].val+'</span></label>')
+                $("#fromJob").append('<label><input type="checkbox" name="serName1" value="'+data[i].k+'"><span>'+data[i].val+'</span></label>')
+                $("#interestJob").append('<label><input type="checkbox" name="serName1" value="'+data[i].k+'"><span>'+data[i].val+'</span></label>')
             }
         }
     });
-    function changeData() {
-        alert($(".regSelect").val());
+    function changeDataByUserType() {
+        // alert($("#userType").val());
     }
     function upload(obj) {
 	    var file = $("#upload"+obj)[0].files[0];
@@ -257,12 +270,12 @@
     function checkEmail(){
         var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$"); //正则表达式
         var obj = document.getElementById("email"); //要验证的对象
-        if(!reg.test(obj.value)){ //正则验证不通过，格式不对
+        if (obj.value == "") {
+            return false;
+        }else if(!reg.test(obj.value)){ //正则验证不通过，格式不对
             layer.msg("无效邮箱!");
             $(".yzmBtn")[0].style.backgroundColor="#cfd1d8";
             $(".yzmBtn").attr("onclick","return false");
-            return false;
-        }else if (obj == "") {
             return false;
         }else{
             $(".yzmBtn")[0].style.cssText="background:#0670c4";
@@ -276,13 +289,56 @@
             layer.msg("请填写姓名！");
             return false;
         }
+        if (name.indexOf("") != -1) {
+            layer.msg("姓名中存在空格");
+            return false;
+        }
         var phone = $("#phone").val();
         if(!(/^1(3|4|5|7|8)\d{9}$/.test(phone))){
             layer.msg("手机号码有误，请重填");
             return false;
         }
-        if ($("#email").val() == "") {
+        var selectPhone = '';
+        $.ajax({
+            "type": "post",
+            "url": "/zlztUsers/selectKey",
+            async: false,
+            data : {
+                "key" : "phone",
+                "value" : phone
+            },
+            success:function (data) {
+                if (data.msg != "" && data.msg != null ) {
+                    selectPhone = data.msg;
+                }
+            }
+        });
+        if (selectPhone == "fail") {
+            layer.msg("号码已存在!");
+            return false;
+        }
+        var email = $("#email").val();
+        if (email == "") {
             layer.msg("邮箱不能为空");
+            return false;
+        }
+        var selectEmail = '';
+        $.ajax({
+            "type": "post",
+            "url": "/zlztUsers/selectKey",
+            async: false,
+            data : {
+                "key" : "email",
+                "value" : email
+            },
+            success:function (data) {
+                if (data.msg != "" && data.msg != null ) {
+                    selectEmail = data.msg;
+                }
+            }
+        });
+        if (selectEmail == "fail") {
+            layer.msg("邮箱已存在!");
             return false;
         }
         var password = $("#password").val();
@@ -292,15 +348,23 @@
             return false;
         }
         var emailYZM = $("#yzmInput").val();
+        if (emailYZM == "") {
+            layer.msg("请输入验证码");
+            return false;
+        }
         if (emailYZM != rondomNum) {
             layer.msg("验证码失效");
             return false;
         }
         var fromJob = $("#fromJob").find("input");
-        var fromJob_val = [];
+        var fromJob_val = "";
         for(var i in fromJob){
             if(fromJob[i].checked){
-                fromJob_val.push($(fromJob[i]).parent().find('span').text())
+                if (i == 0) {
+                    fromJob_val += fromJob[i].value;
+                }else {
+                    fromJob_val += ";"+ fromJob[i].value;
+                }
             }
         }
         if (fromJob_val == "") {
@@ -309,10 +373,14 @@
         }
         console.log("fromJob_val="+fromJob_val);
         var interest = $("#interestJob").find("input");
-        var interest_val = [];
+        var interest_val  = "";
         for(var j in interest){
             if(interest[j].checked){
-                interest_val.push($(interest[j]).parent().find('span').text())
+                if (j == 0) {
+                    interest_val +=interest[j].value;
+                }else {
+                    interest_val += ";"+ interest[j].value;
+                }
             }
         }
         if (interest_val == "") {
@@ -326,7 +394,7 @@
             layer.msg("身份证正面照片未上传！");
             return false;
         }
-        if (cardA == "") {
+        if (cardB == "") {
             layer.msg("身份证反面照片未上传！");
             return false;
         }
@@ -334,6 +402,30 @@
             layer.msg("请阅读许可协议！");
             return false;
         }
+        var formdata = new FormData();
+        formdata.username = name;
+        formdata.phone = phone;
+        formdata.email = email;
+        formdata.password = password;
+        formdata.formJob = fromJob_val;
+        formdata.interestJob = interest_val;
+        formdata.inforAutA = cardA;
+        formdata.inforAutB = cardB;
+        formdata.userType = $("#userType").val();
+        formdata.status = 0;
+        console.log(JSON.stringify(formdata));
+
+        $.ajax({
+            type : 'post',
+            url : '/zlztUsers',
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formdata),
+            success : function(data) {
+                layer.msg("注册成功", {shift: -1, time: 1000}, function(){
+                    location.href = "login.html";
+                });
+            }
+        });
     }
 
     function test() {

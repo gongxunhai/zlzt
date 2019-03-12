@@ -16,8 +16,9 @@ public class ZlztUser extends BaseEntity<Long> {
 	private Integer status;
 	private String inforAutA;
 	private String inforAutB;
-	private Integer formJob;
-	private Integer interestJob;
+	private String formJob;
+	private String interestJob;
+	private Integer userType;
 
 	public String getUsername() {
 		return username;
@@ -91,17 +92,22 @@ public class ZlztUser extends BaseEntity<Long> {
 	public void setInforAutB(String inforAutB) {
 		this.inforAutB = inforAutB;
 	}
-	public Integer getFormJob() {
+	public String getFormJob() {
 		return formJob;
 	}
-	public void setFormJob(Integer formJob) {
+	public void setFormJob(String formJob) {
 		this.formJob = formJob;
 	}
-	public Integer getInterestJob() {
+	public String getInterestJob() {
 		return interestJob;
 	}
-	public void setInterestJob(Integer interestJob) {
+	public void setInterestJob(String interestJob) {
 		this.interestJob = interestJob;
 	}
-
+	public Integer getUserType() {
+		return userType;
+	}
+	public void setUserType(Integer userType) {
+		this.userType = userType;
+	}
 }

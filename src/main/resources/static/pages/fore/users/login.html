@@ -12,6 +12,7 @@
 	<link href="../css/animate.css" rel="stylesheet">
 	<link href="../css/bootsnav.css" rel="stylesheet">
     <link href="../css/swiper.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
     <link href="../treetable/css/jquery.treetable.css" rel="stylesheet" type="text/css" >
 	<link href="../css/style.css" rel="stylesheet">
     <script src="../js/jquery.js"></script>
@@ -19,6 +20,7 @@
 	<script src="../js/bootsnav.js"></script>
     <script src="../js/swiper.min.js"></script>
 	<script src="../treetable/js/jquery.treetable.js"></script>
+    <script type="text/javascript" src="../../../layui/layui.js"></script>
     <script src="../js/rem.js"></script>
     <script src="../js/public.js"></script>
 	<!--[if lt IE 9]>
@@ -40,23 +42,59 @@
             </div>
             <ul class="loginList list-unstyled">
                 <li>
-                    <input type="text" placeholder="手机号 / 邮箱" class="loginInput">
+                    <input type="text" placeholder="手机号 / 邮箱" id="phoneOrEmail" class="loginInput">
                 </li>
                 <li>
-                    <input type="password" placeholder="密码" class="loginInput">
+                    <input type="password" placeholder="密码" id="pwd" class="loginInput">
                 </li>
                 <li>
                     <a class="forPwd" href="#">忘记密码？</a>
                 </li>
                 <li>
-                    <input class="loginBtn" type="submit" value="登录">
+                    <input class="loginBtn" type="submit" onclick="login()" value="登录">
                 </li>
             </ul>
             <div class="goRegister text-center">
-                <p>尚未注册账户？<a href="#">注册</a></p>
+                <p>尚未注册账户？<a href="register.html">注册</a></p>
             </div>
         </div>
     </div>
 </div>
+<script>
+    var layer;
+    layui.use([ 'layer' ], function() {
+        layer = layui.layer;
+    });
+    function login(){
+        var phoneOrEmail = $("#phoneOrEmail").val();
+        if (phoneOrEmail == "") {
+            layer.msg("请您输入手机/邮箱");
+            return false;
+        }
+        var pwd = $("#pwd").val();
+        if (pwd == "") {
+            layer.msg("请您输入密码");
+            return false;
+        }
+        $.ajax({
+            "type": "post",
+            "url": "/zlztUsers/getPwdByPhoneOrEmail",
+            async: false,
+            data : {
+                "param" : phoneOrEmail
+            },
+            success:function (data) {
+                if (data =="" || data != pwd){
+                    layer.msg("用户名或密码有误，请重新输入或找回密码")
+                }else if (data == pwd) {
+                    layer.msg("登录成功", {shift: -1, time: 1000}, function(){
+                        location.href = "userCore.html";
+                    });
+                }
+            }
+        })
+    }
+
+</script>
 </body>
 </html>
