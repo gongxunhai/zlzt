@@ -5,25 +5,25 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
-	<title>消息通知</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="fonts/FontAwesome/font-awesome.css" rel="stylesheet">
-	<link href="fonts/IconFont/iconfont.css" rel="stylesheet">
-	<link href="css/animate.css" rel="stylesheet">
-	<link href="css/bootsnav.css" rel="stylesheet">
-    <link href="css/swiper.min.css" rel="stylesheet">
-    <link href="treetable/css/jquery.treetable.css" rel="stylesheet" type="text/css" >
-	<link href="css/style.css" rel="stylesheet">    
-    <script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/bootsnav.js"></script>
-    <script src="js/swiper.min.js"></script>
-	<script src="treetable/js/jquery.treetable.js"></script>
-    <script src="js/rem.js"></script>
-    <script src="js/public.js"></script>
+	<title>我的收藏</title>
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../fonts/FontAwesome/font-awesome.css" rel="stylesheet">
+	<link href="../fonts/IconFont/iconfont.css" rel="stylesheet">
+	<link href="../css/animate.css" rel="stylesheet">
+	<link href="../css/bootsnav.css" rel="stylesheet">
+    <link href="../css/swiper.min.css" rel="stylesheet">
+    <link href="../treetable/css/jquery.treetable.css" rel="stylesheet" type="text/css" >
+	<link href="../css/style.css" rel="stylesheet">
+    <script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootsnav.js"></script>
+    <script src="../js/swiper.min.js"></script>
+	<script src="../treetable/js/jquery.treetable.js"></script>
+    <script src="../js/rem.js"></script>
+    <script src="../js/public.js"></script>
 	<!--[if lt IE 9]>
-	  <script src="js/html5shiv.min.js"></script>
-	  <script src="js/respond.min.js"></script>
+	  <script src="../js/html5shiv.min.js"></script>
+	  <script src="../js/respond.min.js"></script>
 	<![endif]-->
 </head>
 <body>
@@ -43,7 +43,7 @@
                     	<li>
                         	<div class="media">
                             	<div class="media-left media-middle">
-                                	<div class="headerImg"><img src="images/userImg.jpg" class="img-responsive"></div>
+                                	<div class="headerImg"><img src="../images/userImg.jpg" class="img-responsive"></div>
                                 </div>
                                 <div class="media-body">
                                 	<h3 class="navUserName">一抹微阳</h3>
@@ -69,7 +69,7 @@
                 <i class="fa fa-bars"></i>
             </button>
             <a class="navbar-brand flexBox logo" href="#">
-                <span><img src="images/logo.png" class="img-responsive"></span>
+                <span><img src="../images/logo.png" class="img-responsive"></span>
             </a>
         </div>            
         <div class="collapse navbar-collapse" id="navbar-menu">
@@ -132,11 +132,11 @@
     </div>
 </div><!--searchBg-->
 <div class="banInner banUser wow fadeIn">
-	<div class="imgFull"><img src="images/banUser.jpg" class="img-responsive"></div>
+	<div class="imgFull"><img src="../images/banUser.jpg" class="img-responsive"></div>
     <div class="banUserCon">
     	<div class="userImgBox" data-toggle="modal" data-target="#myHeadImg">
         	<div class="userImg">
-            	<img src="images/userImg.jpg" class="img-responsive img-circle">
+            	<img src="../images/userImg.jpg" class="img-responsive img-circle">
                 <div class="userImgHov flexBox">
                 	<div class="userImgHovCon">
                         <i class="iconfont icon-ccgl-shujuzidianxiugaijilu-6"></i>
@@ -162,26 +162,30 @@
     	<li><a href="#">我发布的需求</a></li>
     	<li><a href="#">我的订单</a></li>
     	<li><a href="#">我的委托</a></li>
-    	<li><a href="#">我的收藏</a></li>
+    	<li><a class="active" href="#">我的收藏</a></li>
     	<li><a href="#">我已点赞</a></li>
-    	<li><a class="active" href="#">消息通知</a></li>
+    	<li><a href="#">消息通知</a></li>
     	<li><a href="#">账户设置</a></li>
     </ul>
 </div>
 <div class="mainBg grayBg overHide">
     <div class="container">
         <div class="reportTop userTit wow fadeInDown">
-            <h3 class="reportTit pull-left">消息通知</h3>
+            <h3 class="reportTit pull-left">我的收藏</h3>
             <ul class="userTitRig list-unstyled list-inline pull-right">
-            	<li><a class="active" href="#">系统消息</a></li>
-            	<li><a href="#">站内消息</a></li>
+            	<li><a class="active" href="#">科技产品</a></li>
+            	<li><a href="#">科技成果</a></li>
+            	<li><a href="#">专利技术</a></li>
+            	<li><a href="#">项目需求</a></li>
+            	<li><a href="#">专利专题库</a></li>
+            	<li><a href="#">专利数据</a></li>
             </ul>
             <div class="clear"></div>
         </div>
         <div class="proSeach proSeach2">
             <ul class="regList newPro list-unstyled row wow fadeInUp">
                 <li class="col-xs-12 col-sm-12 col-md-6">
-                    <label class="regLab">消息标题：</label>
+                    <label class="regLab">需求名称：</label>
                     <div class="regRig">
 						<input type="text" class="loginInput" placeholder="请输入名称或关键字" >
                     </div>
@@ -198,20 +202,22 @@
             </ul>
             <a class="proSeaBtn wow fadeInRight" href="javascript:;"><i class="iconfont icon-sousuo1"></i>查询</a>
         </div>
-        <table id="proTab" class="table wow fadeInUp" width="100%">
+        <table id="collTab" class="table wow fadeInUp" width="100%">
             <thead>                      
                 <tr>
-                    <th class="proTabCon1 mesTabCon1"><label><span><input type="checkbox" id="checkAll"><i class="iconfont icon-xuanze checkAll"></i></span>全选</label></th>
-                    <th class="proTabCon2 mesTabCon2">内容</th>
-                    <th class="proTabCon3 mesTabCon3">发布日期</th>
-                    <th class="proTabCon6 mesTabCon4">操作</th>
+                    <th class="proTabCon1 collTabCon1"><label><span><input type="checkbox" id="checkAll"><i class="iconfont icon-xuanze checkAll"></i></span>全选</label></th>
+                    <th class="proTabCon2 collTabCon2">展示图</th>
+                    <th class="proTabCon3 collTabCon3">产品名称</th>
+                    <th class="proTabCon4 collTabCon4">收藏时间</th>
+                    <th class="proTabCon6 collTabCon5">操作</th>
                 </tr>                            
             </thead>
             <tbody>
                 <tr>
                     <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">关于开展第三批知识产权保护规范化市场认定工作的通知</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
+                    <td><strong>展示图：</strong><img src="../images/collImg.jpg" class="img-responsive"></td>
+                    <td><strong>产品名称：</strong><a class="zyTabName" href="#">弹上电缆三维协同设计与制造平台</a></td>
+                    <td><strong>收藏时间：</strong>2018-11-09</td>
                     <td>
                     	<strong>操作：</strong>
                     	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
@@ -220,8 +226,9 @@
                 </tr>
                 <tr>
                     <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">关于通过“优先权文件数字接入服务”外观设计优先权文件电子交换的公告</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
+                    <td><strong>展示图：</strong><img src="../images/collImg.jpg" class="img-responsive"></td>
+                    <td><strong>产品名称：</strong><a class="zyTabName" href="#">弹上电缆三维协同设计与制造平台</a></td>
+                    <td><strong>收藏时间：</strong>2018-11-09</td>
                     <td>
                     	<strong>操作：</strong>
                     	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
@@ -230,8 +237,9 @@
                 </tr>
                 <tr>
                     <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">10个地理标志产品的保护申请</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
+                    <td><strong>展示图：</strong><img src="../images/collImg.jpg" class="img-responsive"></td>
+                    <td><strong>产品名称：</strong><a class="zyTabName" href="#">弹上电缆三维协同设计与制造平台</a></td>
+                    <td><strong>收藏时间：</strong>2018-11-09</td>
                     <td>
                     	<strong>操作：</strong>
                     	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
@@ -240,8 +248,9 @@
                 </tr>
                 <tr>
                     <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">第二届中国专利检索技能大赛在南京落幕</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
+                    <td><strong>展示图：</strong><img src="../images/collImg.jpg" class="img-responsive"></td>
+                    <td><strong>产品名称：</strong><a class="zyTabName" href="#">弹上电缆三维协同设计与制造平台</a></td>
+                    <td><strong>收藏时间：</strong>2018-11-09</td>
                     <td>
                     	<strong>操作：</strong>
                     	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
@@ -250,8 +259,9 @@
                 </tr>
                 <tr>
                     <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">TRIZ发明创新方法讲座在海南师范大学举办</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
+                    <td><strong>展示图：</strong><img src="../images/collImg.jpg" class="img-responsive"></td>
+                    <td><strong>产品名称：</strong><a class="zyTabName" href="#">弹上电缆三维协同设计与制造平台</a></td>
+                    <td><strong>收藏时间：</strong>2018-11-09</td>
                     <td>
                     	<strong>操作：</strong>
                     	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
@@ -260,8 +270,9 @@
                 </tr>
                 <tr>
                     <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">航天云网专利征集活动</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
+                    <td><strong>展示图：</strong><img src="../images/collImg.jpg" class="img-responsive"></td>
+                    <td><strong>产品名称：</strong><a class="zyTabName" href="#">弹上电缆三维协同设计与制造平台</a></td>
+                    <td><strong>收藏时间：</strong>2018-11-09</td>
                     <td>
                     	<strong>操作：</strong>
                     	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
@@ -270,8 +281,9 @@
                 </tr>
                 <tr>
                     <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">北京市副市长会见世界知识产权组织副总干事</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
+                    <td><strong>展示图：</strong><img src="../images/collImg.jpg" class="img-responsive"></td>
+                    <td><strong>产品名称：</strong><a class="zyTabName" href="#">弹上电缆三维协同设计与制造平台</a></td>
+                    <td><strong>收藏时间：</strong>2018-11-09</td>
                     <td>
                     	<strong>操作：</strong>
                     	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
@@ -280,8 +292,9 @@
                 </tr>
                 <tr>
                     <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">11月份召开互联网大会，地点：桐乡</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
+                    <td><strong>展示图：</strong><img src="../images/collImg.jpg" class="img-responsive"></td>
+                    <td><strong>产品名称：</strong><a class="zyTabName" href="#">弹上电缆三维协同设计与制造平台</a></td>
+                    <td><strong>收藏时间：</strong>2018-11-09</td>
                     <td>
                     	<strong>操作：</strong>
                     	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
@@ -290,8 +303,9 @@
                 </tr>
                 <tr>
                     <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">关于通过“优先权文件数字接入服务”外观设计优先权文件电子交换的公告</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
+                    <td><strong>展示图：</strong><img src="../images/collImg.jpg" class="img-responsive"></td>
+                    <td><strong>产品名称：</strong><a class="zyTabName" href="#">弹上电缆三维协同设计与制造平台</a></td>
+                    <td><strong>收藏时间：</strong>2018-11-09</td>
                     <td>
                     	<strong>操作：</strong>
                     	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
@@ -300,8 +314,9 @@
                 </tr>
                 <tr>
                     <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">10个地理标志产品的保护申请</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
+                    <td><strong>展示图：</strong><img src="../images/collImg.jpg" class="img-responsive"></td>
+                    <td><strong>产品名称：</strong><a class="zyTabName" href="#">弹上电缆三维协同设计与制造平台</a></td>
+                    <td><strong>收藏时间：</strong>2018-11-09</td>
                     <td>
                     	<strong>操作：</strong>
                     	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
@@ -310,8 +325,9 @@
                 </tr>
                 <tr>
                     <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">第二届中国专利检索技能大赛在南京落幕</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
+                    <td><strong>展示图：</strong><img src="../images/collImg.jpg" class="img-responsive"></td>
+                    <td><strong>产品名称：</strong><a class="zyTabName" href="#">弹上电缆三维协同设计与制造平台</a></td>
+                    <td><strong>收藏时间：</strong>2018-11-09</td>
                     <td>
                     	<strong>操作：</strong>
                     	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
@@ -320,8 +336,9 @@
                 </tr>
                 <tr>
                     <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">TRIZ发明创新方法讲座在海南师范大学举办</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
+                    <td><strong>展示图：</strong><img src="../images/collImg.jpg" class="img-responsive"></td>
+                    <td><strong>产品名称：</strong><a class="zyTabName" href="#">弹上电缆三维协同设计与制造平台</a></td>
+                    <td><strong>收藏时间：</strong>2018-11-09</td>
                     <td>
                     	<strong>操作：</strong>
                     	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
@@ -330,8 +347,9 @@
                 </tr>
                 <tr>
                     <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">TRIZ发明创新方法讲座在海南师范大学举办</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
+                    <td><strong>展示图：</strong><img src="../images/collImg.jpg" class="img-responsive"></td>
+                    <td><strong>产品名称：</strong><a class="zyTabName" href="#">弹上电缆三维协同设计与制造平台</a></td>
+                    <td><strong>收藏时间：</strong>2018-11-09</td>
                     <td>
                     	<strong>操作：</strong>
                     	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
@@ -340,8 +358,9 @@
                 </tr>
                 <tr>
                     <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">TRIZ发明创新方法讲座在海南师范大学举办</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
+                    <td><strong>展示图：</strong><img src="../images/collImg.jpg" class="img-responsive"></td>
+                    <td><strong>产品名称：</strong><a class="zyTabName" href="#">弹上电缆三维协同设计与制造平台</a></td>
+                    <td><strong>收藏时间：</strong>2018-11-09</td>
                     <td>
                     	<strong>操作：</strong>
                     	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
@@ -350,218 +369,9 @@
                 </tr>
                 <tr>
                     <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">TRIZ发明创新方法讲座在海南师范大学举办</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
-                    <td>
-                    	<strong>操作：</strong>
-                    	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
-                    	<a href="javascript:;"><i class="iconfont icon-chakan1"></i>查看</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">TRIZ发明创新方法讲座在海南师范大学举办</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
-                    <td>
-                    	<strong>操作：</strong>
-                    	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
-                    	<a href="javascript:;"><i class="iconfont icon-chakan1"></i>查看</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">TRIZ发明创新方法讲座在海南师范大学举办</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
-                    <td>
-                    	<strong>操作：</strong>
-                    	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
-                    	<a href="javascript:;"><i class="iconfont icon-chakan1"></i>查看</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">TRIZ发明创新方法讲座在海南师范大学举办</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
-                    <td>
-                    	<strong>操作：</strong>
-                    	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
-                    	<a href="javascript:;"><i class="iconfont icon-chakan1"></i>查看</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">TRIZ发明创新方法讲座在海南师范大学举办</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
-                    <td>
-                    	<strong>操作：</strong>
-                    	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
-                    	<a href="javascript:;"><i class="iconfont icon-chakan1"></i>查看</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">TRIZ发明创新方法讲座在海南师范大学举办</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
-                    <td>
-                    	<strong>操作：</strong>
-                    	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
-                    	<a href="javascript:;"><i class="iconfont icon-chakan1"></i>查看</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">TRIZ发明创新方法讲座在海南师范大学举办</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
-                    <td>
-                    	<strong>操作：</strong>
-                    	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
-                    	<a href="javascript:;"><i class="iconfont icon-chakan1"></i>查看</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">TRIZ发明创新方法讲座在海南师范大学举办</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
-                    <td>
-                    	<strong>操作：</strong>
-                    	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
-                    	<a href="javascript:;"><i class="iconfont icon-chakan1"></i>查看</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">TRIZ发明创新方法讲座在海南师范大学举办</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
-                    <td>
-                    	<strong>操作：</strong>
-                    	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
-                    	<a href="javascript:;"><i class="iconfont icon-chakan1"></i>查看</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">TRIZ发明创新方法讲座在海南师范大学举办</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
-                    <td>
-                    	<strong>操作：</strong>
-                    	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
-                    	<a href="javascript:;"><i class="iconfont icon-chakan1"></i>查看</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">TRIZ发明创新方法讲座在海南师范大学举办</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
-                    <td>
-                    	<strong>操作：</strong>
-                    	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
-                    	<a href="javascript:;"><i class="iconfont icon-chakan1"></i>查看</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">TRIZ发明创新方法讲座在海南师范大学举办</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
-                    <td>
-                    	<strong>操作：</strong>
-                    	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
-                    	<a href="javascript:;"><i class="iconfont icon-chakan1"></i>查看</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">TRIZ发明创新方法讲座在海南师范大学举办</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
-                    <td>
-                    	<strong>操作：</strong>
-                    	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
-                    	<a href="javascript:;"><i class="iconfont icon-chakan1"></i>查看</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">TRIZ发明创新方法讲座在海南师范大学举办</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
-                    <td>
-                    	<strong>操作：</strong>
-                    	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
-                    	<a href="javascript:;"><i class="iconfont icon-chakan1"></i>查看</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">TRIZ发明创新方法讲座在海南师范大学举办</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
-                    <td>
-                    	<strong>操作：</strong>
-                    	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
-                    	<a href="javascript:;"><i class="iconfont icon-chakan1"></i>查看</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">TRIZ发明创新方法讲座在海南师范大学举办</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
-                    <td>
-                    	<strong>操作：</strong>
-                    	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
-                    	<a href="javascript:;"><i class="iconfont icon-chakan1"></i>查看</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">TRIZ发明创新方法讲座在海南师范大学举办</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
-                    <td>
-                    	<strong>操作：</strong>
-                    	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
-                    	<a href="javascript:;"><i class="iconfont icon-chakan1"></i>查看</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">TRIZ发明创新方法讲座在海南师范大学举办</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
-                    <td>
-                    	<strong>操作：</strong>
-                    	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
-                    	<a href="javascript:;"><i class="iconfont icon-chakan1"></i>查看</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">TRIZ发明创新方法讲座在海南师范大学举办</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
-                    <td>
-                    	<strong>操作：</strong>
-                    	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
-                    	<a href="javascript:;"><i class="iconfont icon-chakan1"></i>查看</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">TRIZ发明创新方法讲座在海南师范大学举办</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
-                    <td>
-                    	<strong>操作：</strong>
-                    	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
-                    	<a href="javascript:;"><i class="iconfont icon-chakan1"></i>查看</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">第二届中国专利检索技能大赛在南京落幕</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
-                    <td>
-                    	<strong>操作：</strong>
-                    	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
-                    	<a href="javascript:;"><i class="iconfont icon-chakan1"></i>查看</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label><span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
-                    <td><strong>内容：</strong><a class="zyTabName" href="#">第二届中国专利检索技能大赛在南京落幕</a></td>
-                    <td><strong>发布日期：</strong>2018-11-09</td>
+                    <td><strong>展示图：</strong><img src="../images/collImg.jpg" class="img-responsive"></td>
+                    <td><strong>产品名称：</strong><a class="zyTabName" href="#">弹上电缆三维协同设计与制造平台</a></td>
+                    <td><strong>收藏时间：</strong>2018-11-09</td>
                     <td>
                     	<strong>操作：</strong>
                     	<a href="javascript:;"><i class="iconfont icon-shanchu"></i>删除</a>
@@ -571,7 +381,7 @@
 			</tbody>
             <tfoot>
                 <tr>
-                    <th colspan="2">共计：<strong class="corOrg">420</strong>条记录</th>
+                    <th colspan="3">共计：<strong class="corOrg">420</strong>条记录</th>
                     <th colspan="2"><a class="prodelBtn" href="javascript:;">删除所选项目</a></th>
                 </tr>
             </tfoot>
@@ -640,7 +450,7 @@
                 	<li>
                     	<a href="javascript:;"><i class="fa fa-weixin"></i></a>
                         <div class="ftBotWx">
-                        	<img src="images/weChat.jpg" class="img-responsive">
+                        	<img src="../images/weChat.jpg" class="img-responsive">
                         </div>
                     </li>
                     <li><a href="#"><i class="fa fa-weibo"></i></a></li>
@@ -677,18 +487,18 @@
         <a href="javascript:;" class="uploadExit" data-dismiss="modal">取消</a>
     </div>
 </div>
-<link rel="stylesheet" type="text/css" media="screen" href="datatables/dataTables.bootstrap.min.css">
-<script type="text/javascript" src="datatables/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="datatables/dataTables.bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="../datatables/dataTables.bootstrap.min.css">
+<script type="text/javascript" src="../datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../datatables/dataTables.bootstrap.min.js"></script>
 <script>
-	var table = $('#proTab').DataTable({
+	var table = $('#collTab').DataTable({
 		"searching": false,
 		"ordering": false,
 		"processing": false,
 		"info": false,
 		//"paging":   false,
-		"lengthMenu": [12, 24, 36, "所有"],
-		"pageLength": 12,
+		"lengthMenu": [5, 10, 15, "所有"],
+		"pageLength": 5,
 		"pagingType":"numbers",
 		"language": {
 			"sProcessing": "处理中...",
@@ -715,17 +525,18 @@
 			}			
 		},
 		"columnDefs": [
-			{ className: "proTabCon1 mesTabCon1", "targets": [ 0 ] },
-			{ className: "proTabCon2 mesTabCon2", "targets": [ 1 ] },
-			{ className: "proTabCon3 mesTabCon3", "targets": [ 2 ] },
-			{ className: "proTabCon6 mesTabCon4", "targets": [ 3 ] },
+			{ className: "proTabCon1 collTabCon1", "targets": [ 0 ] },
+			{ className: "proTabCon2 collTabCon2", "targets": [ 1 ] },
+			{ className: "proTabCon3 collTabCon3", "targets": [ 2 ] },
+			{ className: "proTabCon4 collTabCon4", "targets": [ 3 ] },
+			{ className: "proTabCon6 collTabCon5", "targets": [ 4 ] },
 		  ]
 	});
 	$('#checkAll').on('click', function(){
       var rows = table.rows({ 'search': 'applied' }).nodes();
       $('input[type="checkbox"]', rows).prop('checked', this.checked);
 	});
-	$('#proTab tbody').on('change', 'input[type="checkbox"]', function(){
+	$('#collTab tbody').on('change', 'input[type="checkbox"]', function(){
 		if(!this.checked){
 			var el = $('#checkAll').get(0);
 			if(el && el.checked && ('indeterminate' in el)){

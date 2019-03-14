@@ -78,23 +78,28 @@
         }
         $.ajax({
             "type": "post",
-            "url": "/zlztUsers/getPwdByPhoneOrEmail",
+            "url": "/zlztUsers/userLogin",
             async: false,
             data : {
-                "param" : phoneOrEmail
+                "phoneOrEmail" : phoneOrEmail,
+                "password" : pwd
             },
             success:function (data) {
-                if (data =="" || data != pwd){
-                    layer.msg("用户名或密码有误，请重新输入或找回密码")
-                }else if (data == pwd) {
-                    layer.msg("登录成功", {shift: -1, time: 1000}, function(){
-                        location.href = "userCore.html";
-                    });
+                if (data.msg!=null && data.msg!=''){
+                     if (data.msg == 'success') {
+                         sessionStorage.setItem("forSession",JSON.stringify(data.foreSession));
+                         layer.msg("登录成功", {shift: -1, time: 1000}, function () {
+                             location.href = "userCore.html";
+                         });
+                     }else if (data.msg == 'losePwd') {
+                         layer.msg("账号名还未注册！");
+                     }else if (data.msg == 'fail') {
+                         layer.msg("密码错误！！");
+                     }
                 }
             }
         })
     }
-
 </script>
 </body>
 </html>

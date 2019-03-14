@@ -33,7 +33,9 @@
 		select * from pj_require_classifyInfo t
 		<include refid="where" />
 		${params.orderBy}
+		<if test="limit !=null and limit !=''">
 		limit #{offset}, #{limit}
+		</if>
 	</select>
 
 	<update id="update">

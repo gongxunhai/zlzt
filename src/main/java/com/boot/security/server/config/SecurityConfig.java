@@ -61,14 +61,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 						"/kjProducts/**","/pjRequires/**","/newsClassifyInfos/**","/newsInformations/**","/tblAreas/**",
 						"/lawsRegulationClassifyInfos/**","/lawsRegulations/**","/ztReportClassifyinfos/**",
                         "/ztReports/**","/kjServiceNavs/**","/kjServices/**","/files/**","/kjServiceNavClassifyinfos/**",
-						 "/dicts/**","/mails/**","/zlztUsers/**")
+						 "/dicts/**","/mails/**","/zlztUsers/**","/pjRequireClassifyInfos/**","/kjProductClassifyInfos/**",
+                        "/kjResultClassifyInfos/**","/kjZlSuperClassifyInfos/**")
 				.permitAll().anyRequest().authenticated();
 		http.formLogin().loginProcessingUrl("/login")
 				.successHandler(authenticationSuccessHandler).failureHandler(authenticationFailureHandler).and()
 				.exceptionHandling().authenticationEntryPoint(authenticationEntryPoint);
 		http.logout().logoutUrl("/logout").logoutSuccessHandler(logoutSuccessHandler);
 		// 解决不允许显示在iframe的问题
-	//	http.authorizeRequests().antMatchers("/users/save").authenticated().anyRequest().permitAll();
 		http.headers().frameOptions().disable();
 		http.headers().cacheControl();
 

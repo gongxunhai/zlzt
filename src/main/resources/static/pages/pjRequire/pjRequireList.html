@@ -49,16 +49,10 @@
 									<th>所属行业</th>
 									<th>二级行业</th>
 									<th>细分领域</th>
-								<!--	<th>合作方式</th>
-									<th>合作金额</th>-->
 									<th>项目描述</th>
 									<th>预期目标</th>
-									<th>区域</th>
+									<th>状态</th>
 									<th>截至日期</th>
-									<!--<th>附件</th>
-									<th>联系单位</th>
-									<th>联系人</th>
-									<th>联系电话</th>-->
 									<th>操作</th>
                                 </tr>
                             </thead>
@@ -110,7 +104,19 @@ function init(){
 				{"data" : "cmoney", "defaultContent" : ""},*/
                 {"data" : "description", "defaultContent" : ""},
                 {"data" : "target", "defaultContent" : ""},
-                {"data" : "place", "defaultContent" : ""},
+                {"data" : "status", "defaultContent" : "",
+                    "render": function (data, type, row) {
+                        var status = row['status'];
+                        if(status == 0){
+                            return "<span style='color:red'>未审核</span>";
+                        }else if(status == 1){
+                            return "已审核";
+                        }else if(status == 2){
+                            return "审核失败";
+                        }
+                        return status;
+                    }
+                },
 				{"data" : "endTime", "defaultContent" : ""},
                 /*{"data" : "addFile", "defaultContent" : ""},
                 {"data" : "unit", "defaultContent" : ""},

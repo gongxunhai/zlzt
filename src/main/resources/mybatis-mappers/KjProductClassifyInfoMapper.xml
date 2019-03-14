@@ -20,7 +20,9 @@
 			<if test="params.type != null and params.type != ''">
 				and type = #{params.type} 
 			</if>
-		
+			<if test="params.parentId != null and params.parentId != ''">
+				and parentId = #{params.parentId}
+			</if>
 		</where>
 	</sql>
 
@@ -33,7 +35,9 @@
 		select * from kj_product_classifyInfo t
 		<include refid="where" />
 		${params.orderBy}
+		<if test="limit !=null and limit !=''">
 		limit #{offset}, #{limit}
+		</if>
 	</select>
 
 	<update id="update">

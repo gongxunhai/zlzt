@@ -289,7 +289,7 @@
             layer.msg("请填写姓名！");
             return false;
         }
-        if (name.indexOf("") != -1) {
+        if (name.indexOf("") == -1) {
             layer.msg("姓名中存在空格");
             return false;
         }

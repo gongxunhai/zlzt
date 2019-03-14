@@ -5,6 +5,7 @@ import java.util.List;
 import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import com.boot.security.server.page.table.PageTableRequest;
@@ -24,12 +25,14 @@ public class ZlztUserController {
 
     @Autowired
     private ZlztUserDao zlztUserDao;
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     @PostMapping
     @ApiOperation(value = "保存")
     public ZlztUser save(@RequestBody ZlztUser zlztUser) {
+        zlztUser.setPassword(passwordEncoder.encode(zlztUser.getPassword()));
         zlztUserDao.save(zlztUser);
-
         return zlztUser;
     }
 
@@ -84,10 +87,21 @@ public class ZlztUserController {
         return json;
     }
 
-    @PostMapping("/getPwdByPhoneOrEmail")
+    @PostMapping("/userLogin")
     @ApiOperation(value = "通过手机和邮箱获取密码")
-    public String getPwdByPhoneOrEmail(@RequestParam(value = "param") String key){
-        String value = zlztUserDao.getPwdByPhoneOrEmail(key);
-        return value;
+    public JSONObject getPwdByPhoneOrEmail(@RequestParam(value = "phoneOrEmail") String phoneOrEmail,@RequestParam(value = "password") String password){
+        JSONObject json = new JSONObject();
+        json.put("msg","fail");
+        ZlztUser zlztUser = zlztUserDao.getPwdByPhoneOrEmail(phoneOrEmail);
+        if (zlztUser!=null){
+            String oldPwd = zlztUser.getPassword();
+            if (passwordEncoder.matches(password,oldPwd)) {
+                json.put("msg","success");
+                json.put("foreSession",zlztUser);
+            }
+        }else{
+            json.put("msg","losePwd");
+        }
+        return json;
     }
 }

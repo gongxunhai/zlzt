@@ -173,17 +173,16 @@
         <div class="reportTop userTit wow fadeInDown">
             <h3 class="reportTit pull-left">发布新项目</h3>
             <ul class="userTitRig list-unstyled list-inline pull-right">
-            	<li><a href="javascript:;">发布产品</a></li>
-            	<li><a class="active" href="javascript:;">技术成果</a></li>
-            	<li><a href="javascript:;">专利交易</a></li>
+            	<li class="pubProduct" name="product"><a class="active" href="javascript:;">发布产品</a></li>
+            	<li class="pubProduct" name="result"><a href="javascript:;">技术成果</a></li>
+            	<li class="pubProduct" name="patent"><a href="javascript:;">专利交易</a></li>
             	<li><a class="last" href="#">发布新项目</a></li>
             </ul>
             <div class="clear"></div>
         </div>
-        <div class="ceshi">
-            <ul id="product" class="regList newPro list-unstyled row wow fadeInUp">
+            <ul id="product" class="regList newPro list-unstyled row wow fadeInUp ">
                 <li class="col-xs-12 col-sm-12">
-                    <label class="regLab">成果名称：</label>
+                    <label class="regLab">产品名称：</label>
                     <div class="regRig">
                         <input type="text" class="loginInput" >
                     </div>
@@ -203,6 +202,13 @@
                         <label><input type="checkbox" name="serName1"><span>新能源与高效节能</span></label>
                         <label><input type="checkbox" name="serName1"><span>城市建设与社会发展</span></label>
                         <label><input type="checkbox" name="serName1"><span>其它</span></label>
+                    </div>
+                    <div class="clear"></div>
+                </li>
+                <li class="col-xs-12 col-sm-12">
+                    <label class="regLab">二级行业：</label>
+                    <div class="regRig">
+                        <input type="text" class="loginInput" >
                     </div>
                     <div class="clear"></div>
                 </li>
@@ -250,7 +256,7 @@
                                 <input type="file">
                             </div>
                         </div>
-                        <div class="clear"></div>                    
+                        <div class="clear"></div>
                     </div>
                     <div class="clear"></div>
                 </li>
@@ -353,7 +359,7 @@
                     <div class="clear"></div>
                 </li>
             </ul>
-            <ul id="result" class="regList newPro list-unstyled row wow fadeInUp">
+            <ul id="result" class="regList newPro list-unstyled row wow fadeInUp ">
                 <li class="col-xs-12 col-sm-12">
                     <label class="regLab">成果名称：</label>
                     <div class="regRig">
@@ -378,6 +384,13 @@
                     </div>
                     <div class="clear"></div>
                 </li>
+                <li class="col-xs-12 col-sm-12">
+                    <label class="regLab">二级行业：</label>
+                    <div class="regRig">
+                        <input type="text" class="loginInput" >
+                    </div>
+                    <div class="clear"></div>
+                </li>
                 <li class="col-xs-12 col-sm-12 col-md-6">
                     <label class="regLab">细分领域：</label>
                     <div class="regRig">
@@ -422,7 +435,7 @@
                                 <input type="file">
                             </div>
                         </div>
-                        <div class="clear"></div>                    
+                        <div class="clear"></div>
                     </div>
                     <div class="clear"></div>
                 </li>
@@ -525,9 +538,9 @@
                     <div class="clear"></div>
                 </li>
             </ul>
-            <ul id="patent" class="regList newPro list-unstyled row wow fadeInUp">
+            <ul id="patent" class="regList newPro list-unstyled row wow fadeInUp ">
                 <li class="col-xs-12 col-sm-12">
-                    <label class="regLab">成果名称：</label>
+                    <label class="regLab">专利名称：</label>
                     <div class="regRig">
                         <input type="text" class="loginInput" >
                     </div>
@@ -550,6 +563,13 @@
                     </div>
                     <div class="clear"></div>
                 </li>
+                <li class="col-xs-12 col-sm-12">
+                    <label class="regLab">二级行业：</label>
+                    <div class="regRig">
+                        <input type="text" class="loginInput" >
+                    </div>
+                    <div class="clear"></div>
+                </li>
                 <li class="col-xs-12 col-sm-12 col-md-6">
                     <label class="regLab">细分领域：</label>
                     <div class="regRig">
@@ -594,7 +614,7 @@
                                 <input type="file">
                             </div>
                         </div>
-                        <div class="clear"></div>                    
+                        <div class="clear"></div>
                     </div>
                     <div class="clear"></div>
                 </li>
@@ -697,18 +717,6 @@
                     <div class="clear"></div>
                 </li>
             </ul>
-        </div>
-        <script>
-        	$(".ceshi .regList").eq(0).show().siblings().hide();
-			$(".userTitRig li a").click(function(){
-			    var param = $(this)[0].text;
-                changeJob(param);
-				$(this).addClass("active").parent().siblings().find("a").removeClass("active");
-				$(".ceshi .regList").eq($(this).parent().index()).show().siblings().hide();				
-				var wow=new WOW({boxClass:"newPro",animateClass:"animated",offset:0,mobile:true,live:true});
-				wow.init();
-			})
-        </script>
     </div>
 </div>
 <footer class="footBg">
@@ -792,7 +800,7 @@
     <div class="loginBox">
         <div class="loginTop">
             <h2 class="loginTit">修改头像</h2>
-            <span class="loginClose" href="javascript:;" data-dismiss="modal"><i class="iconfont icon-guanbi"></i></span>
+            <a class="loginClose" href="javascript:;" data-dismiss="modal"><i class="iconfont icon-guanbi"></i></a>
             <div class="clear"></div>
         </div>
         <div class="uploadTip">
@@ -813,7 +821,7 @@
 <div id="success" class="modal fade">
     <div class="loginBox succBox">
         <div class="loginTop">
-            <span class="loginClose" href="javascript:;" data-dismiss="modal"><i class="iconfont icon-guanbi"></i></span>
+            <a class="loginClose" href="javascript:;" data-dismiss="modal"><i class="iconfont icon-guanbi"></i></a>
             <div class="clear"></div>
         </div>
         <div class="succTip text-center">
@@ -823,37 +831,39 @@
         </div>
     </div>
 </div>
-</body>
+
+
 <script>
-    //所属行业改变
-    function changeJob(obj) {
-        var a = '';
-        var b ;
-        if (obj == '技术成果') {
-            a= 'kjResultClassifyInfos';
-            b = $("#resultClassify");
-        }else if (obj == '发布产品') {
-            a= 'kjProductClassifyInfos';
-            b= $("#productClassify");
-        }else if (obj == '专利交易') {
-            a= 'kjZlSuperClassifyInfos';
-            b = $("#patentClassify");
-        }
-        $.ajax({
-            "type":"get",
-            "url":"/"+ a ,
-            async:false,
-            data : {
-                "parentId" : 0
-            },
-            success:function (result) {
-                b.html('');
-                var data = result.data;
-                for (var i = 0; i < data.length; i++) {
-                    b.append('<label><input type="radio" name="serName1"><span>'+data[i].name+'</span></label>\n');
-                }
+    /*$('.ceshi .regList').eq(0).show().siblings().hide();
+
+    $('.userTitRig li a').click(function() {
+        $(this).addClass('active').parent().siblings().find('a').removeClass('active');
+        $(".ceshi .regList").eq( $(this).parent().index() ).show().siblings().hide();
+        var wow=new WOW({boxClass: "ceshi", animateClass: "animated", offset: 0, mobile: true, live: true });
+        wow.init();
+    })*/
+
+    // $('#product').hide();
+        $('#result').hide();
+        $('#patent').hide();
+    $(document).on('click', '.pubProduct', function() {
+        $(this).parent().find('a').removeClass('active');
+        $(this).find('a').addClass('active');
+
+        var name = $(this).attr('name');
+
+        var uls = $(this).parents('.container').find('ul.regList');
+
+        console.log(uls);
+        for(var i=0;i<uls.length;i++) {
+            $(uls[i]).hide();
+            if($(uls[i]).attr('id') == name ) {
+                $(uls[i]).show();
             }
-        })
-    }
+        }
+    })
+
 </script>
+
+</body>
 </html>

@@ -20,6 +20,8 @@ public class PjRequire extends BaseEntity<Long> {
 	private String xfArea;
 	private String fIdName;
 	private String sIdName;
+	private Integer userId;
+	private Integer status;
 
 	public String getAddFile() {
 		return addFile;
@@ -124,4 +126,20 @@ public class PjRequire extends BaseEntity<Long> {
 	public void setsIdName(String sIdName) {
 		this.sIdName = sIdName;
 	}
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 }

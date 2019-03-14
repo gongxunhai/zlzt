@@ -725,13 +725,13 @@ background-image: linear-gradient(to bottom,rgba(234,236,241,0) 0%, rgba(234,236
 .sxBotTit{ float:left; width:110px; text-align:right; padding-right:10px; font-size:14px; color:#333333; line-height:34px;}
 .sxBotCon{ overflow:hidden; line-height:34px; max-width:1115px; font-size:0;}
 .sxBotCon a{ display:inline-block; vertical-align:middle; font-size:14px; color:#666666; margin-right:24px; padding-left:19px; position:relative;}
-.sxBotCon a:before{ display:block; content:"\e628"; font-family:"iconfont" !important; position:absolute; left:0; top:1px; color:#999999; font-size:16px;}
+/*.sxBotCon a:before{ display:block; content:"\e628"; font-family:"iconfont" !important; position:absolute; left:0; top:1px; color:#999999; font-size:16px;}*/
 .sxBtn{ position:absolute; right:0; top:0; line-height:34px; color:#999999; cursor:pointer; display:none;}
 .sxBtn i{ font-size:16px; margin-left:5px;}
 .sxFirst{ height:34px; overflow:hidden;}
 .sxSecond{ border:1px dashed #dddddd; padding:10px 20px; border-radius:5px; margin:10px 0; display:none;}
 .sxBotCon a.active{ color:#0670c4;}
-.sxBotCon a.active:before{ content:"\e7cc"; color:#0670c4; font-size:15px;}
+/*.sxBotCon a.active:before{ content:"\e7cc"; color:#0670c4; font-size:15px;}*/
 .sxFirst.active{ height:auto;}
 
 .sxCen{ font-size:0;}

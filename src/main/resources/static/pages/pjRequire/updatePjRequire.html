@@ -93,9 +93,22 @@
 					<input class='form-control' placeholder='xfArea' type='text' name='xfArea' id='xfArea' data-bv-notempty='true' data-bv-notempty-message='xfArea 不能为空'>
 				</div>
 			</div>
-
-
-
+			<div class='form-group' id="showCreateMan">
+				<label class='col-md-2 control-label'>发布者</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='createMan'  readonly="readonly" type='text' name='createMan' id='createMan' data-bv-notempty='true' data-bv-notempty-message='createMan 不能为空'>
+				</div>
+			</div>
+            <div class='form-group'>
+				<label class='col-md-2 control-label'>状态</label>
+				<div class='col-md-10'>
+                    <select class='form-control' placeholder='status' type='text' name='status' id='status' data-bv-notempty='true' data-bv-notempty-message='status 不能为空'>
+                        <option value="0">未审核</option>
+                        <option value="1">审核</option>
+                        <option value="2">驳回</option>
+                    </select>
+				</div>
+			</div>
 			<div class="form-actions">
 				<div class="row" align="center">
 					<div class="col-md-12">
@@ -145,11 +158,16 @@
 						$('#target').val(data.target);
 						$('#unit').val(data.unit);
 						$('#xfArea').val(data.xfArea);
-
+                        $('#createMan').val(data.userId);
+                        $('#status').val(data.status);
 					}
 				});
 			}
 		}
+
+		if ( $('#createMan').val() == ""){
+		    $("#showCreateMan").hide();
+        }
 
 		function update() {
 			$('#form').bootstrapValidator();

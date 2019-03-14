@@ -34,6 +34,6 @@ public interface ZlztUserDao {
     @Select("select IFNULL(MAX(id),-1) from zlzt_user where ${key} = #{phone} ")
     int selectParam(@Param("key") String key,@Param("phone") String phone);
 
-    @Select("select password from zlzt_user where phone = #{phoneOrEmail} or email = #{phoneOrEmail}")
-    String getPwdByPhoneOrEmail(@Param("phoneOrEmail") String phoneOrEmail);
+    @Select("select * from zlzt_user where phone = #{phoneOrEmail} or email = #{phoneOrEmail}")
+    ZlztUser getPwdByPhoneOrEmail(@Param("phoneOrEmail") String phoneOrEmail);
 }

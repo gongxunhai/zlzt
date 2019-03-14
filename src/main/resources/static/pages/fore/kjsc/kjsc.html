@@ -28,7 +28,14 @@
 	<![endif]-->
 </head>
 <body>
-<nav class="navbar navbar-default bootsnav navbar-fixed-top wow fadeInDown">
+<script>
+    var pro = window.location.protocol;
+    var host = window.location.host;
+    var domain = pro + "//" + host;
+</script>
+<script src="../js/htmlJs/publicHeader.js"></script>
+<script src="../js/htmlJs/getPathname.js"></script>
+<!--<nav class="navbar navbar-default bootsnav navbar-fixed-top wow fadeInDown">
     <div class="wrap">
         <div class="attr-nav navRig">
             <ul>
@@ -74,7 +81,7 @@
             </ul>
         </div>        
     </div>
-</nav>
+</nav>-->
 <div class="searchBg">
 	<div class="wrap">
     	<div class="search">
@@ -135,13 +142,13 @@
                     	<table class="leftMenu">
                         	<tbody>
                                 <tr data-tt-id="1" class="leftTr1">
-                                    <td class="leftLi1"><i><a href="javascript:dataChange('product')">科技产品</a></i></td>
+                                    <td class="leftLi1"><i><a href="javascript:dataChange('product', '1')">科技产品</a></i></td>
                                 </tr>
                                 <tr data-tt-id="2" class="leftTr1">
-                                    <td class="leftLi1"><i><a href="javascript:dataChange('result')">科技成果</a></i></td>
+                                    <td class="leftLi1"><i><a href="javascript:dataChange('result', '2')">科技成果</a></i></td>
                                 </tr>
                                 <tr data-tt-id="3" class="leftTr1">
-                                    <td class="leftLi1"><i><a href="javascript:dataChange('zlsuper')">专利超市</a></i></td>
+                                    <td class="leftLi1"><i><a href="javascript:dataChange('zlsuper', '3')">专利超市</a></i></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1325,11 +1332,10 @@
 <script type="text/javascript" src="../datatables/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="../datatables/dataTables.bootstrap.min.js"></script>
 <script>
+    var id = getUrlParam("id");
     $("#tableName").val("kj_result");
     $("#tableName2").val("kj_result_classifyInfo");
-    var pro = window.location.protocol;
-    var host = window.location.host;
-    var domain = pro + "//" + host;
+
     var dataSet =[];
     var orderBy = 'order by pubTime desc';
 
@@ -1353,8 +1359,6 @@
         $("#search").val($("#searchByInput").val());
         $('#technoTab').dataTable().fnClearTable();
         init();
-        $('#technoTab').dataTable().fnAddData(dataSet);
-        $('#technoTab').dataTable().fnDraw(false);
     }
 
     //清空筛选
@@ -1665,8 +1669,21 @@
     // console.log(table);
 
 
+    function dataChange(obj, index) {
 
-    function dataChange(obj) {
+        var aObjs = $('.leftMenu').find('tr');
+
+        console.log(aObjs);
+
+        for(var i=0;i<aObjs.length;i++) {
+            var num = $(aObjs[i]).attr('data-tt-id');
+
+            if(index == num) {
+                $(aObjs[i]).find('a').css('color', '#F08080');
+            } else {
+                $(aObjs[i]).find('a').css('color', '#000000');
+            }
+        }
 
         //隐藏筛选项
         $('.sxTopCon').find('.sxTag').remove();
@@ -1798,6 +1815,13 @@
 
     init();
     changeSelect();
+    if( id == '1'){
+        dataChange('product', '1')
+    }else if ( id == '2'){
+        dataChange('result', '2')
+    }else if ( id == '3'){
+        dataChange('zlsuper', '3')
+    }
 </script>
 </body>
 </html>

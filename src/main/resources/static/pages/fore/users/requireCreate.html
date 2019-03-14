@@ -12,6 +12,7 @@
 	<link href="../css/animate.css" rel="stylesheet">
 	<link href="../css/bootsnav.css" rel="stylesheet">
     <link href="../css/swiper.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
     <link href="../treetable/css/jquery.treetable.css" rel="stylesheet" type="text/css" >
 	<link href="../css/style.css" rel="stylesheet">
     <script src="../js/jquery.js"></script>
@@ -19,6 +20,7 @@
 	<script src="../js/bootsnav.js"></script>
     <script src="../js/swiper.min.js"></script>
 	<script src="../treetable/js/jquery.treetable.js"></script>
+    <script type="text/javascript" src="../../../layui/layui.js"></script>
     <script src="../js/rem.js"></script>
     <script src="../js/public.js"></script>
 	<!--[if lt IE 9]>
@@ -181,41 +183,24 @@
             <li class="col-xs-12 col-sm-12">
                 <label class="regLab">需求名称：</label>
                 <div class="regRig">
-                    <input type="text" class="loginInput" >
+                    <input type="text" class="loginInput" id="name">
                 </div>
                 <div class="clear"></div>
             </li>
             <li class="col-xs-12 col-sm-12">
                 <label class="regLab">所属行业：</label>
-                <div class="regRig serSelCon">
-                    <label><input type="checkbox" name="serName1"><span>电子信息</span></label>
-                    <label><input type="checkbox" name="serName1" checked><span>航空航天</span></label>
-                    <label><input type="checkbox" name="serName1"><span>先进制造</span></label>
-                    <label><input type="checkbox" name="serName1" checked><span>现代交通</span></label>
-                    <label><input type="checkbox" name="serName1"><span>农业</span></label>
-                    <label><input type="checkbox" name="serName1"><span>环境保护与资源综合利用</span></label>
-                    <label><input type="checkbox" name="serName1"><span>生物、医药合医疗器械</span></label>
-                    <label><input type="checkbox" name="serName1"><span>新材料及其应用</span></label>
-                    <label><input type="checkbox" name="serName1"><span>新能源与高效节能</span></label>
-                    <label><input type="checkbox" name="serName1"><span>城市建设与社会发展</span></label>
-                    <label><input type="checkbox" name="serName1"><span>其它</span></label>
-                </div>
-                <div class="clear"></div>
-            </li>
-            <li class="col-xs-12 col-sm-12">
-                <label class="regLab">二级行业：</label>
-                <div class="regRig serSelCon">
-                    <label><input type="checkbox" name="serName1"><span>电子信息</span></label>
-                    <label><input type="checkbox" name="serName1" checked><span>航空航天</span></label>
-                    <label><input type="checkbox" name="serName1"><span>先进制造</span></label>
-                    <label><input type="checkbox" name="serName1"><span>现代交通</span></label>
-                    <label><input type="checkbox" name="serName1"><span>农业</span></label>
-                    <label><input type="checkbox" name="serName1"><span>环境保护与资源综合利用</span></label>
-                    <label><input type="checkbox" name="serName1"><span>生物、医药合医疗器械</span></label>
-                    <label><input type="checkbox" name="serName1"><span>新材料及其应用</span></label>
-                    <label><input type="checkbox" name="serName1"><span>新能源与高效节能</span></label>
-                    <label><input type="checkbox" name="serName1"><span>城市建设与社会发展</span></label>
-                    <label><input type="checkbox" name="serName1"><span>其它</span></label>
+                <div class="regRig serSelCon" id="fromJob">
+                    <label><input type="radio" name="serName1"><span>电子信息</span></label>
+                    <label><input type="radio" name="serName1" checked><span>航空航天</span></label>
+                    <label><input type="radio" name="serName1"><span>先进制造</span></label>
+                    <label><input type="radio" name="serName1" checked><span>现代交通</span></label>
+                    <label><input type="radio" name="serName1"><span>农业</span></label>
+                    <label><input type="radio" name="serName1"><span>环境保护与资源综合利用</span></label>
+                    <label><input type="radio" name="serName1"><span>生物、医药合医疗器械</span></label>
+                    <label><input type="radio" name="serName1"><span>新材料及其应用</span></label>
+                    <label><input type="radio" name="serName1"><span>新能源与高效节能</span></label>
+                    <label><input type="radio" name="serName1"><span>城市建设与社会发展</span></label>
+                    <label><input type="radio" name="serName1"><span>其它</span></label>
                 </div>
                 <div class="clear"></div>
             </li>
@@ -230,7 +215,7 @@
                 <label class="regLab">截止日期：</label>
                 <div class="regRig">
                 	<div class="inputIco"><i class="iconfont icon-riqi"></i></div>
-                    <input type="text" class="loginInput inputDate" placeholder="2018-12-02">
+                    <input type="text" class="loginInput inputDate" id="endTime" placeholder="yyyy-MM-dd">
                 </div>
                 <div class="clear"></div>
             </li>
@@ -286,7 +271,7 @@
             </li>
             <li class="col-xs-12">
                 <div class="regRig sxCenCon text-center">
-                    <input class="loginBtn submitBtn" type="submit" value="发布" data-toggle="modal" data-target="#success">
+                    <input class="loginBtn submitBtn" type="submit" onclick="submitButton()" value="发布" data-toggle="modal" data-target="#success">
                     <input class="loginBtn cancelBtn" type="submit" value="取消">
                 </div>
                 <div class="clear"></div>
@@ -407,4 +392,53 @@
     </div>
 </div>
 </body>
+<script>
+    var pro = window.location.protocol;
+    var host = window.location.host;
+    var domain = pro + "//" + host;
+    var layer;
+    layui.use([ 'layer','laydate' ], function() {
+        layer = layui.layer;
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#endTime'
+        });
+    });
+
+    $.ajax({
+        "type": "get",
+        "url": "/pjRequireClassifyInfos",
+        async: false,
+        data : {
+            "parentId" : 0
+        },
+        success:function (result) {
+            $("#fromJob").html('');
+            var data = result.data;
+            for (var i = 0; i < data.length; i++) {
+                $("#fromJob").append('<label><input type="radio" name="serName1" value="'+data[i].id+'"><span>'+data[i].name+'</span></label>');
+            }
+        }
+    });
+    function submitButton(){
+        var cWays ;
+        var fromJob;
+        var obj = $(".serSelCon2").find("input");
+        for (var i in obj) {
+            if(obj[i].checked){
+                cWays = ($(".serSelCon2").find("span"))[i].innerText;
+            }
+        }
+        var fromJobObj = $("#fromJob").find("input");
+        for (var i in fromJobObj) {
+            if(fromJobObj[i].checked){
+                console.log(fromJobObj[i]);
+                fromJob = fromJobObj[i].value;
+            }
+        }
+        alert("cWays="+cWays);
+        alert("fromJob="+fromJob);
+    }
+
+</script>
 </html>
