@@ -24,7 +24,6 @@
     <script type="text/javascript" src="../../../js/common.js"></script>
     <script src="../js/rem.js"></script>
     <script src="../js/public.js"></script>
-
 	<!--[if lt IE 9]>
 	  <script src="../js/html5shiv.min.js"></script>
 	  <script src="../js/respond.min.js"></script>
@@ -200,9 +199,9 @@
                             </ul>                       
                             <div class="technoBrief3">
                             	<a href="javascript:;" class="jingjiren" data-toggle="modal" data-target="#myBroker"><i class="iconfont icon-jingjiren"></i>委托经纪人</a>
-                                <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox">
-                                    <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>
-                                    <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>
+                                <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox" id="pointAndCare">
+                                    <li><a href="javascript:;"  class="point"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>
+                                    <li><a href="javascript:;" class="collection"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>
                                     <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>
                                 </ul>
                                 <script>
@@ -328,7 +327,7 @@
                             <span>相关推荐</span>
                         </div>
                     </div>
-                    <ul class="hotProject2 list-unstyled list-inline">
+                    <ul class="hotProject2 list-unstyled list-inline" id="lookMore">
                     	<li class="wow fadeInUp">
                             <div class="projectBox">
                                 <a class="box1Link" href="#" share-src="http://www.taobao.com">                                            
@@ -581,7 +580,7 @@
 	$(".zyTextTab li").click(function(){
 		$(this).addClass("active").siblings().removeClass("active");	
 		$(".zyTextCon .zyItem").eq($(this).index()).show().addClass('fadeInUp animated').siblings().hide();
-	})
+	});
 	$(".zyItemPicCon").click(function(){
 		var LayHtml = $(this).parents(".zyItemPic").html();	
 		var clickNum = $(this).parent().index();
@@ -599,17 +598,18 @@
 		$(".LayBg").fadeIn();
 		$(".LayBox").fadeIn();
 		LaySlider.slideTo(clickNum+1, 1000, false);
-	})
+	});
 
 	$(".LayClose").click(function(){
 		$(".LayBg").fadeOut();
 		$(".LayBox").fadeOut();
 		LaySlider.destroy(false);			
-	})
+	});
 
     $.ajax({
         type: 'get',
         url: '/pjRequires/' + id,
+        async : false,
         success: function (data) {
             console.log(data);
             var xfArea = data.xfArea;
@@ -635,9 +635,23 @@
                 '                            <p>'+data.description+'</p>');
             $("#target").html(' <h3 class="zyTextH3">预期目标</h3>\n' +
                 '                            <p>'+data.target+'</p>');
+            $("#pointAndCare").html(' <li><a href="javascript:;" class="point"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞('+( data.pointNum || '0' )+')</a></li>\n' +
+                '                                    <li><a href="javascript:;" class="collection" ><i class="iconfont icon-guanzhu1"></i>关注('+( data.careNum || '0' )+')</a></li>\n' +
+                '                                    <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>');
         }
-    })
+    });
 
+    $.ajax({
+        type: 'get',
+        url: '/pjRequires',
+        async : false,
+        success: function (data) {
+            console.log(data);
+            for (var i = 0; i < data.length; i++) {
+                $("#lookMore").append('');
+            }
+        }
+    });
     function changeValue() {
         console.log("user="+user);
         if (user != null && user != ''){
@@ -689,6 +703,163 @@
             layer.msg("请先登录");
         }
     }
+
+    $(document).on("click",".zyTitIco a",function(event){
+        if (user != null && user != '') {
+            $(this).toggleClass("active");
+            if ($(this).hasClass("point")){
+                if ($(this).hasClass("active")) {
+                    addPoint(id);
+                }else {
+                    deletePoint(id);
+                }
+            }
+            if ($(this).hasClass("collection")){
+                if ($(this).hasClass("active")) {
+                    addCollection(id);
+                }else {
+                    deleteCollection(id);
+                }
+            }
+        }else {
+            alert("请先登录!");
+        }
+    });
+    function addPoint(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.agreeId =  obj;
+        formData.type = 'pj_require';
+        formData.url = "/pages/fore/projectRequire/pjRequireDetail.html?id="+obj;
+        $.ajax({
+            type : 'post',
+            url : '/zlztPointAgrees/addPoint',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    if (data.msg == "success") {
+                        $(".point").html('<i class="iconfont icon-qinziAPPtubiao-"></i>点赞(' + data.pointNum + ')');
+                        alert("点赞成功!");
+                    }
+                    else {
+                        alert("已点赞!");
+                    }
+                }
+            }
+        })
+    }
+
+    function deletePoint(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.agreeId =  obj;
+        formData.type = 'pj_require';
+        $.ajax({
+            type : 'delete',
+            url : '/zlztPointAgrees/deletePoint',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    $(".point").html('<i class="iconfont icon-qinziAPPtubiao-"></i>点赞(' + data.pointNum + ')');
+                    alert("取消点赞!");
+                }
+            }
+        });
+    }
+    //已点赞的就显示
+    function selectPoint() {
+        $.ajax({
+            type : 'get',
+            url : '/zlztPointAgrees',
+            async : false,
+            data:{
+                "userId" : user.id,
+                "type" : 'pj_require'
+            },
+            success : function(result) {
+                var data = result.data;
+                console.log(data);
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i].agreeId == id) {
+                        $(".point").addClass("active");
+                    }
+                }
+            }
+        })
+    }
+
+    function addCollection(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.careId =  obj;
+        formData.type = 'pj_require';
+        formData.url = "/pages/fore/projectRequire/pjRequireDetail.html?id="+obj;
+        $.ajax({
+            type : 'post',
+            url : '/zlztCareinfos/addCare',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    if (data.msg == "success") {
+                        $(".collection").html('<i class="iconfont icon-guanzhu1">收藏(' + data.pointNum + ')');
+                        alert("收藏成功!");
+                    }
+                    else {
+                        alert("已收藏!");
+                    }
+                }
+            }
+        })
+    }
+    function deleteCollection(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.careId =  obj;
+        formData.type = 'pj_require';
+        $.ajax({
+            type : 'delete',
+            url : '/zlztCareinfos/deleteCare',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    $(".collection").html('<i class="iconfont icon-guanzhu1">收藏(' + data.pointNum + ')');
+                    alert("取消收藏!");
+                }
+            }
+        });
+    }
+
+    function selectCollection() {
+        $.ajax({
+            type : 'get',
+            url : '/zlztCareinfos',
+            async : false,
+            data:{
+                "userId" : user.id,
+                "type" : 'pj_require'
+            },
+            success : function(result) {
+                var data = result.data;
+                console.log(data);
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i].careId == id) {
+                        $(".collection").addClass("active");
+                    }
+                }
+            }
+        })
+    }
+
+    selectPoint();
+    selectCollection();
 </script>
 </body>
 </html>

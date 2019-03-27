@@ -1,0 +1,1529 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<title>科技资源_专利专题</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="fonts/FontAwesome/font-awesome.css" rel="stylesheet">
+    <link href="fonts/IconFont/iconfont.css" rel="stylesheet">
+    <link rel="stylesheet" href="./myfont/iconfont.css">
+	<link href="css/animate.css" rel="stylesheet">
+	<link href="css/bootsnav.css" rel="stylesheet">
+    <link href="css/swiper.min.css" rel="stylesheet">
+    <link href="treetable/css/jquery.treetable.css" rel="stylesheet" type="text/css" >
+	<link href="css/style.css" rel="stylesheet">    
+    <script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootsnav.js"></script>
+    <script src="js/swiper.min.js"></script>
+	<script src="treetable/js/jquery.treetable.js"></script>
+    <script src="js/rem.js"></script>
+    <script src="js/public.js"></script>
+	<!--[if lt IE 9]>
+	  <script src="js/html5shiv.min.js"></script>
+	  <script src="js/respond.min.js"></script>
+    <![endif]-->
+    
+    <style>
+            .ding,
+            .ding div,
+            .tabs {
+                display: flex;
+            }
+            .ding {
+                width: 100%;
+                height: 330px;
+                flex-direction: column;
+                background-color: #087EDB;
+            }
+    
+            .title {
+                width: 100%;
+                justify-content: center;
+                margin-top: 78px;
+                margin-bottom: 98px;
+            }
+    
+            .title span {
+                font-size: 36px;
+                font-weight: 400;
+                color: #ffffff;
+            }
+    
+            .title img {
+                width: 60px;
+                height: 56px;
+                margin-left: 25px;
+            }
+    
+            .cat {
+                width: 100%;
+                justify-content: center;
+            }
+    
+            .cat .cat-section {
+                margin-right: 46px;
+                align-items: center;
+            }
+    
+            .cat .cat-section span.icons {
+                font-size: 50px;
+                color: #ffffff;
+                margin-right: 15px;
+            }
+    
+            .cat .cat-section span.text {
+                font-size: 24px;
+                font-weight: 400;
+                color: #FEFEFE;
+            }
+    
+            .tabs {
+                width: 100%;
+                justify-content: center;
+                background-color: #ffffff;
+            }
+    
+            .tabs .tab {
+                margin-right: 70px;
+                padding: 30px 0;
+                font-size: 24px;
+                font-weight: 400;
+                color: #999999;
+            }
+    
+            .tabs .active-tab {
+                color: #1875F0;
+                border-bottom: #087EDB solid 1px;
+            }
+    
+            
+            .search-section,
+            .search-section div{ 
+                display: flex;
+            }
+             .search-section {
+                width: 100%;
+                /* height: 72px; */
+                box-sizing: border-box;
+                margin: 0 auto;
+                align-items: center;
+                justify-content: space-around;
+                background-color: #CFD1D8;
+                border-radius: 2px;
+                padding: 0 40px;
+                color: #ffffff;
+            }
+             /* .search-section .search-result {} */
+             .search-section .search-result span {
+                color: #E99918;
+            }
+             .search-section .search-box {
+                flex: 1;
+                height: 50px;
+                align-items: center;
+                margin: 20px 40px;
+                background-color: #ffffff;
+                border-radius: 4px;
+            }
+             .search-section .search-box span.iconfont {
+                font-size: 30px;
+                margin: 0 10px;
+                color: #929292;
+            }
+             .search-section .search-box input {
+                /* width: 60%; */
+                display: flex;
+                flex: 1;
+                height: 30px;
+                border: none;
+                outline-style: none;
+                color: #333;
+            }
+             .search-section .search-box span.btnS {
+                padding: 0 20px;
+                border-left: #DDDDDD 2px solid;
+                color: #087EDB;
+                cursor: pointer;
+            }
+             /* .search-section .item-wrap {} */
+             .search-section .time {
+                padding: 2px 6px;
+                margin: 0 10px;
+                border-radius: 20px;
+                background-color: #E5E5E5;
+                color: #ffffff;
+                cursor: pointer;
+            }
+             .search-section .time span {
+                color: #ffffff;
+            }
+             .search-section .time span.iconfont {
+                font-size: 20px;
+            }
+
+            .fenleiA {
+                display: flex;
+                align-items: center;
+                padding: 10px 0;
+            }
+            .fenleiA:hover {
+                background-color: #087EDB;
+                color: #ffffff;
+            }
+            .fenleiA:hover h2 {
+                color: #ffffff;
+            }
+
+            .fenleiA .icon-show,
+            .fenleiA .icon {
+                width: 20px;
+                height: 20px;
+                margin: 10px;
+                cursor: pointer;
+                background-size: cover;
+                /* background:url(../images/box3Bg.jpg)  */
+            }
+            .fenleiA .icon {
+                background-image: url(./imgs/arrow-down.png);
+            }
+            .fenleiA .icon-show {
+                background-image: url(./imgs/arrow_down.png);
+            }
+
+        </style>
+</head>
+<body>
+
+        <div class="ding wow fadeInDown">
+                <div class="title">
+                    <span>欢迎来到高分专项知识产权信息管理平台</span>
+                    <img src="./imgs/logo.png" alt="">
+                </div>
+                <div class="cat">
+                    <div class="cat-section">
+                        <span class="iconfont icon-chengguo icons"></span>
+                        <span class="text">科技成果：1120项</span>
+                    </div>
+                    <div class="cat-section">
+                        <span class="iconfont icon-chengguo icons"></span>
+                        <span class="text">普通专利：30项</span>
+                    </div>
+                    <div class="cat-section">
+                        <span class="iconfont icon-unie641 icons"></span>
+                        <span class="text">国防专利：23项</span>
+                    </div>
+                </div>
+            </div>
+            <div class="tabs wow fadeInDown">
+                <span class="tab ">科技成果</span>
+                <span class="tab">普通专利</span>
+                <span class="tab active-tab">国防专利</span>
+            </div>
+            <!-- <div style="width: 100%;height:20px;background-color: #f7f8ff;"></div> -->
+    
+            <!-- <div class="mRig" style="width: 80%;margin: 0 auto;">
+                    <div class="rigTopBg">
+                        <div class="sxBox">
+                            <div class="sxTop wow fadeInDown">
+                                <div class="sxTopTit">
+                                    <i class="iconfont icon-shaixuan"></i>
+                                    <span>当前检索条件</span>
+                                </div>
+                                <div class="sxTopCon"><span class="delSelBtn">清空筛选</span></div>                            
+                            </div>
+                            <div class="sxBot">
+                                <div class="sxBotItem wow fadeInUp">
+                                    <span class="sxBotTit">所属行业：</span>
+                                    <div class="sxBotCon">
+                                        <div class="sxFirst">
+                                            <div class="sxFirCon">
+                                                <a class="active" href="javascript:;" data-index="0">不限</a>
+                                                <a href="javascript:;" data-index="1">电子信息</a>
+                                                <a href="javascript:;" data-index="2">航空航天</a>
+                                                <a href="javascript:;" data-index="3">先进制造</a>
+                                                <a href="javascript:;" data-index="4">现代交通 </a>
+                                                <a href="javascript:;" data-index="5">农业环境</a>
+                                                <a href="javascript:;" data-index="6">保护与资源综合利用</a>
+                                                <a href="javascript:;" data-index="7">生物、医药合医疗器械</a>
+                                                <a href="javascript:;" data-index="8">新材料及其应用</a>
+                                                <a href="javascript:;" data-index="9">新能源与高效节能</a>
+                                                <a href="javascript:;" data-index="10">城市建设与社会发展</a>
+                                                <a href="javascript:;" data-index="11">其它</a>
+                                            </div>
+                                        </div>
+                                        <div class="sxSecond" data-con="1">
+                                            <a href="javascript:;">专用车制造</a>
+                                            <a href="javascript:;">能源装备</a>
+                                            <a href="javascript:;">汽车电子及零部件</a>
+                                            <a href="javascript:;">传感器</a>
+                                            <a href="javascript:;">工业互联网</a>
+                                            <a href="javascript:;">先进材料</a>
+                                            <a href="javascript:;">网络安全</a>
+                                            <a href="javascript:;">定位系统</a>
+                                            <a href="javascript:;">识别技术</a>
+                                        </div>
+                                        <div class="sxSecond" data-con="2">
+                                            <a href="javascript:;">识别技术2</a>
+                                            <a href="javascript:;">专用车制造2</a>
+                                            <a href="javascript:;">能源装备2</a>
+                                            <a href="javascript:;">汽车电子及零部件2</a>
+                                            <a href="javascript:;">传感器2</a>
+                                            <a href="javascript:;">工业互联网2</a>
+                                        </div>
+                                        <div class="sxSecond" data-con="3">
+                                            <a href="javascript:;">识别技术3</a>
+                                            <a href="javascript:;">专用车制造3</a>
+                                            <a href="javascript:;">能源装备3</a>
+                                            <a href="javascript:;">汽车电子及零部件3</a>
+                                        </div>
+                                        <div class="sxSecond" data-con="4">
+                                            <a href="javascript:;">能源装备4</a>
+                                            <a href="javascript:;">汽车电子及零部件4</a>
+                                            <a href="javascript:;">传感器4</a>
+                                            <a href="javascript:;">工业互联网4</a>
+                                        </div>
+                                    </div>
+                                    <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>
+                                </div>
+                                <div class="sxBotItem wow fadeInUp">
+                                    <span class="sxBotTit">技术来源：</span>
+                                    <div class="sxBotCon">
+                                        <div class="sxFirst">
+                                            <div class="sxFirCon">
+                                                <a class="active" href="javascript:;" data-index="0">不限</a>
+                                                <a href="javascript:;" data-index="1">国家（军方）投资</a>
+                                                <a href="javascript:;" data-index="2">外部引进</a>
+                                                <a href="javascript:;" data-index="3">自主研发</a>
+                                                <a href="javascript:;" data-index="4">其它 </a>
+                                            </div>
+                                        </div>
+                                        <div class="sxSecond" data-con="1">
+                                            <a href="javascript:;">识别技术</a>
+                                            <a href="javascript:;">专用车制造</a>
+                                            <a href="javascript:;">能源装备</a>
+                                            <a href="javascript:;">汽车电子及零部件</a>
+                                            <a href="javascript:;">传感器</a>
+                                            <a href="javascript:;">工业互联网</a>
+                                            <a href="javascript:;">先进材料</a>
+                                            <a href="javascript:;">网络安全</a>
+                                            <a href="javascript:;">定位系统</a>
+                                        </div>
+                                        <div class="sxSecond" data-con="2">
+                                            <a href="javascript:;">专用车制造2</a>
+                                            <a href="javascript:;">能源装备2</a>
+                                            <a href="javascript:;">汽车电子及零部件2</a>
+                                            <a href="javascript:;">传感器2</a>
+                                            <a href="javascript:;">工业互联网2</a>
+                                            <a href="javascript:;">先进材料2</a>
+                                            <a href="javascript:;">网络安全2</a>
+                                            <a href="javascript:;">定位系统2</a>
+                                            <a href="javascript:;">识别技术2</a>
+                                        </div>
+                                    </div>
+                                    <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>
+                                </div>
+                                <div class="sxBotItem wow fadeInUp">
+                                    <span class="sxBotTit">技术水平：</span>
+                                    <div class="sxBotCon">
+                                        <div class="sxFirst">
+                                            <div class="sxFirCon">
+                                                <a class="active" href="javascript:;" data-index="0">不限</a>
+                                                <a href="javascript:;" data-index="1">国际领先</a>
+                                                <a href="javascript:;" data-index="2">国际先进</a>
+                                                <a href="javascript:;" data-index="3">国内领先</a>
+                                                <a href="javascript:;" data-index="4">国内先进</a>
+                                                <a href="javascript:;" data-index="5">其它</a>
+                                            </div>
+                                        </div>                                    
+                                    </div>
+                                    <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>
+                                </div>
+                                <div class="sxBotItem wow fadeInUp">
+                                    <span class="sxBotTit">合作方式：</span>
+                                    <div class="sxBotCon">
+                                        <div class="sxFirst">
+                                            <div class="sxFirCon">
+                                                <a class="active" href="javascript:;" data-index="0">不限</a>
+                                                <a href="javascript:;" data-index="1">技术转让 </a>
+                                                <a href="javascript:;" data-index="2">许可使用</a>
+                                                <a href="javascript:;" data-index="3">合作开发</a>
+                                                <a href="javascript:;" data-index="4">作价入股</a>
+                                                <a href="javascript:;" data-index="5">技术服务</a>
+                                                <a href="javascript:;" data-index="6">其它</a>
+                                            </div>
+                                        </div>                                    
+                                    </div>
+                                    <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>
+                                </div>
+                                <div class="sxBotItem wow fadeInUp">
+                                    <span class="sxBotTit">技术成熟度：</span>
+                                    <div class="sxBotCon">
+                                        <div class="sxFirst">
+                                            <div class="sxFirCon">
+                                                <a class="active" href="javascript:;" data-index="0">不限</a>
+                                                <a href="javascript:;" data-index="1">样品、实验室阶段 </a>
+                                                <a href="javascript:;" data-index="2">试生产、应用开发阶段</a>
+                                                <a href="javascript:;" data-index="3">小批量生产、工程应用阶段</a>
+                                                <a href="javascript:;" data-index="4">批量生产、成熟应用阶段</a>
+                                            </div>
+                                        </div>                                    
+                                    </div>
+                                    <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>
+                                </div>
+                                <div class="sxBotItem wow fadeInUp">
+                                    <span class="sxBotTit">区域：</span>
+                                    <div class="sxBotCon">
+                                        <div class="sxFirst">
+                                            <div class="sxFirCon">
+                                                <a class="active" href="javascript:;" data-index="1">北京市</a>
+                                                <a href="javascript:;" data-index="2">天津市 </a>
+                                                <a href="javascript:;" data-index="3">河北省</a>
+                                                <a href="javascript:;" data-index="4">山西省</a>
+                                                <a href="javascript:;" data-index="5">辽宁省</a>
+                                                <a href="javascript:;" data-index="6">吉林省</a>
+                                                <a href="javascript:;" data-index="7">广东省</a>
+                                                <a href="javascript:;" data-index="8">海南省</a>
+                                                <a href="javascript:;" data-index="9">上海市</a>
+                                                <a href="javascript:;" data-index="10">江苏省</a>
+                                                <a href="javascript:;" data-index="11">浙江省</a>
+                                                <a href="javascript:;" data-index="12">安徽省</a>
+                                            </div>                                        
+                                        </div>                                    
+                                    </div>
+                                    <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+    
+            <!-- <div style="width: 100%;height:20px;background-color: #f7f8ff;"></div> -->
+    
+
+<div class="mainBg grayBg overHide">
+    <div class="wrap">
+    	<div class="main">
+            <div class="mLef">
+                <div class="fenlei wow fadeInLeft" style="padding-bottom: 0; ">            	
+                    <div class="fenleiA">
+                        <div class="icon"></div>
+                        <a class="fenleiTitleLink" href="#">
+                            <h2 class="fenleiTitCn">技术导航</h2>
+                        </a>
+                    </div>
+                    <div class="fenleiA">
+                        <div class="icon-show"></div>
+                        <a class="fenleiTitleLink" href="#">
+                            <h2 class="fenleiTitCn">承研单位</h2>
+                        </a>
+                        
+                    </div>
+                    <!-- <table class="leftMenu">
+                            <tbody>
+                                <tr data-tt-id="1" class="leftTr1">
+                                    <td class="leftLi1"><i><a href="#">气凝胶</a></i></td>
+                                </tr>
+                                <tr data-tt-id="1-1" data-tt-parent-id="1">
+                                    <td class="leftLi2"><i><a href="#">太阳能电池材料</a></i></td>
+                                </tr>
+                                <tr data-tt-id="1-2" data-tt-parent-id="1">
+                                    <td class="leftLi2"><i><a href="#">储氢材料</a></i></td>
+                                </tr>
+                                <tr data-tt-id="1-2-1" data-tt-parent-id="1-2">
+                                    <td class="leftLi3"><i><a href="#">- 合成纤维</a></i></td>
+                                </tr>
+                                <tr data-tt-id="1-2-2" data-tt-parent-id="1-2">
+                                    <td class="leftLi3"><i><a href="#">- 聚酯</a></i></td>
+                                </tr>
+                                <tr data-tt-id="1-2-3" data-tt-parent-id="1-2">
+                                    <td class="leftLi3"><i><a href="#">- 决策支持系统</a></i></td>
+                                </tr>
+                                <tr data-tt-id="1-3" data-tt-parent-id="1">
+                                    <td class="leftLi2"><i><a href="#">固体氧化物电池材料</a></i></td>
+                                </tr>
+                                <tr data-tt-id="2" class="leftTr1">
+                                    <td class="leftLi1"><i><a href="#">石墨烯</a></i></td>
+                                </tr>
+                                <tr data-tt-id="3" class="leftTr1">
+                                    <td class="leftLi1"><i><a href="#">磁性材料</a></i></td>
+                                </tr>
+                                <tr data-tt-id="4" class="leftTr1">
+                                    <td class="leftLi1"><i><a href="#">能源材料</a></i></td>
+                                </tr>
+                                <tr data-tt-id="4-1" data-tt-parent-id="4">
+                                    <td class="leftLi2"><i><a href="#">太阳能电池材料</a></i></td>
+                                </tr>
+                                <tr data-tt-id="4-2" data-tt-parent-id="4">
+                                    <td class="leftLi2"><i><a href="#">储氢材料</a></i></td>
+                                </tr>
+                                <tr data-tt-id="4-2-1" data-tt-parent-id="4-2">
+                                    <td class="leftLi3"><i><a href="#">- 合成纤维</a></i></td>
+                                </tr>
+                                <tr data-tt-id="4-2-2" data-tt-parent-id="4-2">
+                                    <td class="leftLi3"><i><a href="#">- 聚酯</a></i></td>
+                                </tr>
+                                <tr data-tt-id="4-2-3" data-tt-parent-id="4-2">
+                                    <td class="leftLi3"><i><a href="#">- 决策支持系统</a></i></td>
+                                </tr>
+                                <tr data-tt-id="4-3" data-tt-parent-id="4">
+                                    <td class="leftLi2"><i><a href="#">固体氧化物电池材料</a></i></td>
+                                </tr>
+                                <tr data-tt-id="5" class="leftTr1">
+                                    <td class="leftLi1"><i><a href="#">高分子材料</a></i></td>
+                                </tr>
+                            </tbody>
+                        </table> -->
+                    <div class="fenleiA">
+                        <div class="icon"></div>
+                        <a class="fenleiTitleLink" href="#">
+                            <h2 class="fenleiTitCn">研究报告</h2>
+                        </a>
+                    </div>
+                    <!-- <div class="fenleiTop">
+                        <div class="fenleiTit">
+                        	<a class="fenleiTitLink" href="#">
+                                <h2 class="fenleiTitCn">先进材料</h2>
+                            </a>
+                        </div>
+                        <div class="fenleiH2Btn visible-xs visible-sm visible-md"><i class="fa fa-folder"></i>展开</div>
+                    </div>
+                    <div class="fenleiTop active-fenleiTop">
+                        <div class="fenleiTit">
+                            <a class="fenleiTitLink" href="#">
+                                <h2 class="fenleiTitCn">先进材料</h2>
+                            </a>
+                        </div>
+                        <div class="fenleiH2Btn visible-xs visible-sm visible-md"><i class="fa fa-folder"></i>展开</div>
+                    </div>
+                    <div class="fenleiTop">
+                        <div class="fenleiTit">
+                            <a class="fenleiTitLink" href="#">
+                                <h2 class="fenleiTitCn">先进材料</h2>
+                            </a>
+                        </div>
+                        <div class="fenleiH2Btn visible-xs visible-sm visible-md"><i class="fa fa-folder"></i>展开</div>
+                    </div> -->
+                    <!-- <div class="fenleiList">
+                    	<table class="leftMenu">
+                        	<tbody>
+                                <tr data-tt-id="1" class="leftTr1">
+                                    <td class="leftLi1"><i><a href="#">气凝胶</a></i></td>
+                                </tr>
+                                <tr data-tt-id="1-1" data-tt-parent-id="1">
+                                    <td class="leftLi2"><i><a href="#">太阳能电池材料</a></i></td>
+                                </tr>
+                                <tr data-tt-id="1-2" data-tt-parent-id="1">
+                                    <td class="leftLi2"><i><a href="#">储氢材料</a></i></td>
+                                </tr>
+                                <tr data-tt-id="1-2-1" data-tt-parent-id="1-2">
+                                    <td class="leftLi3"><i><a href="#">- 合成纤维</a></i></td>
+                                </tr>
+                                <tr data-tt-id="1-2-2" data-tt-parent-id="1-2">
+                                    <td class="leftLi3"><i><a href="#">- 聚酯</a></i></td>
+                                </tr>
+                                <tr data-tt-id="1-2-3" data-tt-parent-id="1-2">
+                                    <td class="leftLi3"><i><a href="#">- 决策支持系统</a></i></td>
+                                </tr>
+                                <tr data-tt-id="1-3" data-tt-parent-id="1">
+                                    <td class="leftLi2"><i><a href="#">固体氧化物电池材料</a></i></td>
+                                </tr>
+                                <tr data-tt-id="2" class="leftTr1">
+                                    <td class="leftLi1"><i><a href="#">石墨烯</a></i></td>
+                                </tr>
+                                <tr data-tt-id="3" class="leftTr1">
+                                    <td class="leftLi1"><i><a href="#">磁性材料</a></i></td>
+                                </tr>
+                                <tr data-tt-id="4" class="leftTr1">
+                                    <td class="leftLi1"><i><a href="#">能源材料</a></i></td>
+                                </tr>
+                                <tr data-tt-id="4-1" data-tt-parent-id="4">
+                                    <td class="leftLi2"><i><a href="#">太阳能电池材料</a></i></td>
+                                </tr>
+                                <tr data-tt-id="4-2" data-tt-parent-id="4">
+                                    <td class="leftLi2"><i><a href="#">储氢材料</a></i></td>
+                                </tr>
+                                <tr data-tt-id="4-2-1" data-tt-parent-id="4-2">
+                                    <td class="leftLi3"><i><a href="#">- 合成纤维</a></i></td>
+                                </tr>
+                                <tr data-tt-id="4-2-2" data-tt-parent-id="4-2">
+                                    <td class="leftLi3"><i><a href="#">- 聚酯</a></i></td>
+                                </tr>
+                                <tr data-tt-id="4-2-3" data-tt-parent-id="4-2">
+                                    <td class="leftLi3"><i><a href="#">- 决策支持系统</a></i></td>
+                                </tr>
+                                <tr data-tt-id="4-3" data-tt-parent-id="4">
+                                    <td class="leftLi2"><i><a href="#">固体氧化物电池材料</a></i></td>
+                                </tr>
+                                <tr data-tt-id="5" class="leftTr1">
+                                    <td class="leftLi1"><i><a href="#">高分子材料</a></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>         -->
+                </div>
+                <div class="fenlei wow fadeInLeft">
+                	<div class="siftTop">
+                    	<h2 class="siftTit">信息统计</h2>
+                        <div class="fenleiH2Btn visible-xs visible-sm visible-md"><i class="fa fa-folder"></i>展开</div>
+                    </div>
+                    <ul class="fenleiList list-unstyled">
+                        <li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">法律状态</a></h3></li>
+                        <li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">国家</a></h3></li>
+                        <li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">申请年</a></h3></li>
+                        <li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">公开年</a></h3></li>
+                        <li class="fenleiLi">
+                        	<h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">申请人</a></h3>
+                            <div class="fenleiSub siftSub">
+                            	<ul class="siftList list-unstyled">
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">江南大学 (29)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">中原工学院 (27)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">东华大学 (24)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">江苏工程职业技术学院 (18)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">武汉纺织大学 (18)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">绍兴文理学院 (15)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">浙江理工大学 (14)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">南通蛇类治疗研究所 (11)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">西安工程大学 (7)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">青岛大学 (6)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">南通大学 (5)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">陕西科技大学 (4)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">中国人民解放军总后勤部 (4)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">盐城工业职业技术学院 (3)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">河南工程学院 (3)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">江苏工程职业技术学院 (18)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">武汉纺织大学 (18)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">绍兴文理学院 (15)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">浙江理工大学 (14)</a></li>
+                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">南通蛇类治疗研究所 (11)</a></li>
+                                </ul>
+                            	<div class="siftBtn">
+                                    <a href="javascript:;" class="siftBtn1">筛选</a>
+                                    <a href="javascript:;" class="siftBtn2">隐藏 <i class="iconfont icon-iconfontgengduo"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">发明人</a></h3></li>
+                        <li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">当前法律状态</a></h3></li>
+                        <li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">专利类型</a></h3></li>
+                        <li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">IPC分类</a></h3></li>
+                        <li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">国民分类</a></h3></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mRig">
+                <div class="rigTopBg">
+                        <div class="search-section wow fadeInDown">
+                                <div class="search-result">
+                                    共搜索到 <span>6472</span> 个专利
+                                </div>
+                                <div class="search-box">
+                                    <span class="iconfont icon-search"></span>
+                                    <input type="text" name="" id="" placeholder="搜索关键字">
+                                    <span class="btnS">搜索</span>
+                                </div>
+                                <div class="item-wrap">
+                
+                                    <div class="time">
+                                        <span>时间</span>
+                                        <span class="iconfont icon-arrow-down"></span>
+                                    </div>
+                                    <div class="time">
+                                        <span>人气</span>
+                                        <span class="iconfont icon-arrow-down"></span>
+                                    </div>
+                                    <div class="time">
+                                        <span>收藏</span>
+                                        <span class="iconfont icon-arrow-down"></span>
+                                    </div>
+                                </div>
+                            </div>
+                	<!-- <div class="rigSearch wow fadeInDown">
+                        <div class="rigSearchRig">
+                        	<div class="rigSearchLef">
+                                <a href="javascript:;" class="iconfont icon-sousuo1 rigSearchIco"></a>
+                                <input type="text" class="rigSearchInput" placeholder="搜索关键字">
+                            </div>
+                            <a class="rigSearchBtn rigSearchBtn1">搜索</a>
+                            <a class="rigSearchBtn rigSearchBtn2" data-toggle="modal" data-target="#myModal">高级搜索</a>
+                        </div>
+                        <div class="clear"></div>
+                    </div> -->
+                    <div class="zyTabTop wow fadeInUp">
+                    	<h3 class="zyTabTit">合成纤维</h3>
+                        <ul class="zyOrderBy list-unstyled list-inline" style="display: flex;justify-content: flex-end; ">
+                            <!-- <li><span>专利数量：<strong class="corOrg">1560</strong>个</span></li> -->
+                            <li>
+                                <a href="#tongji" class="tongji"><i class="iconfont icon-tongji"></i>统计</a>
+                            </li>
+                            <li class="zyOrderLi selBox">
+                            	<span class="selTit">排序<i class="iconfont icon-jiantou"></i></span>
+                                <ul class="zyOrderSub selList list-unstyled">
+                                	<li data-index="1">公开号</li>
+                                	<li data-index="2">申请号</li>
+                                	<li data-index="3">申请人</li>
+                                	<li data-index="4">IPC主分类</li>
+                                	<li data-index="5">国民经济分类</li>
+                                </ul>
+                                <input type="hidden">
+                            </li>
+                            <li>
+                            	<span><i class="iconfont icon-daochu"></i>导出</span>
+                            </li>
+                            <li>
+                                <span><i class="iconfont icon-daoruiconxuanzhong" style="font-size: 28px; "></i>导入</span>
+                            </li>
+                            
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                    <table id="zyTab" class="table wow fadeInUp" width="100%">
+                        <thead>                      
+                            <tr>
+                                <th class="zyTabCon1"><label>序号<span><input type="checkbox" id="checkAll"><i class="iconfont icon-xuanze checkAll"></i></span></label></th>
+                                <th class="zyTabCon2">标题</th>
+                                <th class="zyTabCon3">申请人</th>
+                                <th class="zyTabCon4">公开号</th>
+                                <th class="zyTabCon5">申请日</th>
+                            </tr>                            
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><label>01<span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
+                                <td>
+                                    <strong>标题：</strong>
+                                    <a class="zyTabName" href="#">由化学交联法固载的固-固相变材料的制备方法</a>
+                                    <a class="zyTabTag corTag1" href="#">授权</a>
+                                    <a class="zyTabTag corTag2" href="#">中国</a>
+                                    <a class="zyTabTag corTag3" href="#">发明</a>
+                                </td>
+                                <td><strong>申请人：</strong>南通大学</td>
+                                <td><strong>公开号：</strong>CN102102241A</td>
+                                <td><strong>申请日：</strong>2011-09-23</td>
+                            </tr>
+                            <tr>
+                                <td><label>02<span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
+                                <td>
+                                    <strong>标题：</strong>
+                                    <a class="zyTabName" href="#">利用回收聚酯瓶片生产阻燃涤纶短纤维的方法</a>
+                                    <a class="zyTabTag corTag1" href="#">实质审查</a>
+                                    <a class="zyTabTag corTag2" href="#">中国</a>
+                                    <a class="zyTabTag corTag3" href="#">发明</a>
+                                </td>
+                                <td><strong>申请人：</strong>浙江理工大学</td>
+                                <td><strong>公开号：</strong>CN105696097A</td>
+                                <td><strong>申请日：</strong>2010-11-16</td>
+                            </tr>
+                            <tr>
+                                <td><label>03<span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
+                                <td>
+                                    <strong>标题：</strong>
+                                    <a class="zyTabName" href="#">天然防蚊克螨织物衣</a>
+                                    <a class="zyTabTag corTag1" href="#">实质审查</a>
+                                    <a class="zyTabTag corTag2" href="#">中国</a>
+                                    <a class="zyTabTag corTag3" href="#">发明</a>
+                                </td>
+                                <td><strong>申请人：</strong>上海八达纺织印染服装有限公司；东华大学</td>
+                                <td><strong>公开号：</strong>CN105484031A</td>
+                                <td><strong>申请日：</strong>2016-04-16</td>
+                            </tr>
+                            <tr>
+                                <td><label>04<span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
+                                <td>
+                                    <strong>标题：</strong>
+                                    <a class="zyTabName" href="#">一种合成纤维/织物的阻燃接枝改性产品及制备方法</a>
+                                    <a class="zyTabTag corTag1" href="#">实质审查</a>
+                                    <a class="zyTabTag corTag2" href="#">中国</a>
+                                    <a class="zyTabTag corTag3" href="#">发明</a>
+                                </td>
+                                <td><strong>申请人：</strong>青岛大学</td>
+                                <td><strong>公开号：</strong>CN106087177A</td>
+                                <td><strong>申请日：</strong>2016-01-04</td>
+                            </tr>
+                            <tr>
+                                <td><label>05<span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
+                                <td>
+                                    <strong>标题：</strong>
+                                    <a class="zyTabName" href="#">一种液晶聚酯纤维的连续固相缩聚热处理方法</a>
+                                    <a class="zyTabTag corTag1" href="#">实质审查</a>
+                                    <a class="zyTabTag corTag2" href="#">中国</a>
+                                    <a class="zyTabTag corTag3" href="#">发明</a>
+                                </td>
+                                <td><strong>申请人：</strong>武汉纺织大学；湖北枫树线业有限公司</td>
+                                <td><strong>公开号：</strong>CN105624865A</td>
+                                <td><strong>申请日：</strong>2016-08-26</td>
+                            </tr>
+                            <tr>
+                                <td><label>06<span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
+                                <td>
+                                    <strong>标题：</strong>
+                                    <a class="zyTabName" href="#">运动衫用抗菌保暖赛络纺纱线及其纺纱工艺</a>
+                                    <a class="zyTabTag corTag1" href="#">授权</a>
+                                    <a class="zyTabTag corTag2" href="#">中国</a>
+                                    <a class="zyTabTag corTag3" href="#">发明</a>
+                                </td>
+                                <td><strong>申请人：</strong>沈阳化工大学</td>
+                                <td><strong>公开号：</strong>CN102102241A</td>
+                                <td><strong>申请日：</strong>2014-10-28</td>
+                            </tr>
+                            <tr>
+                                <td><label>07<span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
+                                <td>
+                                    <strong>标题：</strong>
+                                    <a class="zyTabName" href="#">一种篷盖布用超强阻燃纱线的纺纱工艺</a>
+                                    <a class="zyTabTag corTag1" href="#">授权</a>
+                                    <a class="zyTabTag corTag2" href="#">中国</a>
+                                    <a class="zyTabTag corTag3" href="#">发明</a>
+                                </td>
+                                <td><strong>申请人：</strong>江南大学</td>
+                                <td><strong>公开号：</strong>CN105696097A</td>
+                                <td><strong>申请日：</strong>2015-10-09</td>
+                            </tr>
+                            <tr>
+                                <td><label>08<span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
+                                <td>
+                                    <strong>标题：</strong>
+                                    <a class="zyTabName" href="#">一种紧密赛络纺涤纶粘胶高支纱及其生产方法</a>
+                                    <a class="zyTabTag corTag1" href="#">实质审查</a>
+                                    <a class="zyTabTag corTag2" href="#">中国</a>
+                                    <a class="zyTabTag corTag3" href="#">发明</a>
+                                </td>
+                                <td><strong>申请人：</strong>浙江省现代纺织工业研究院</td>
+                                <td><strong>公开号：</strong>CN105484031A</td>
+                                <td><strong>申请日：</strong>2016-01-04</td>
+                            </tr>
+                            <tr>
+                                <td><label>09<span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
+                                <td>
+                                    <strong>标题：</strong>
+                                    <a class="zyTabName" href="#">一种体育运动防护绷带及其制造方法</a>
+                                    <a class="zyTabTag corTag1" href="#">实质审查</a>
+                                    <a class="zyTabTag corTag2" href="#">中国</a>
+                                    <a class="zyTabTag corTag3" href="#">发明</a>
+                                </td>
+                                <td><strong>申请人：</strong>四川省纺织科学研究院</td>
+                                <td><strong>公开号：</strong>CN106087177A</td>
+                                <td><strong>申请日：</strong>2016-01-04</td>
+                            </tr>
+                            <tr>
+                                <td><label>10<span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
+                                <td>
+                                    <strong>标题：</strong>
+                                    <a class="zyTabName" href="#">一种半精纺多孔断彩竹节纱及其制备方法</a>
+                                    <a class="zyTabTag corTag1" href="#">实质审查</a>
+                                    <a class="zyTabTag corTag2" href="#">中国</a>
+                                    <a class="zyTabTag corTag3" href="#">发明</a>
+                                </td>
+                                <td><strong>申请人：</strong>嘉兴学院</td>
+                                <td><strong>公开号：</strong>CN105624865A</td>
+                                <td><strong>申请日：</strong>2016-01-04</td>
+                            </tr>
+                            <tr>
+                                <td><label>11<span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
+                                <td>
+                                    <strong>标题：</strong>
+                                    <a class="zyTabName" href="#">水响应印花织物及其制备方法</a>
+                                    <a class="zyTabTag corTag1" href="#">授权</a>
+                                    <a class="zyTabTag corTag2" href="#">中国</a>
+                                    <a class="zyTabTag corTag3" href="#">发明</a>
+                                </td>
+                                <td><strong>申请人：</strong>江苏工程职业技术学院</td>
+                                <td><strong>公开号：</strong>CN102102241A</td>
+                                <td><strong>申请日：</strong>2016-01-04</td>
+                            </tr>
+                            <tr>
+                                <td><label>12<span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
+                                <td>
+                                    <strong>标题：</strong>
+                                    <a class="zyTabName" href="#">热粘合弹性纤维及其制备方法</a>
+                                    <a class="zyTabTag corTag1" href="#">实质审查</a>
+                                    <a class="zyTabTag corTag2" href="#">中国</a>
+                                    <a class="zyTabTag corTag3" href="#">发明</a>
+                                </td>
+                                <td><strong>申请人：</strong>南通大学</td>
+                                <td><strong>公开号：</strong>CN105696097A</td>
+                                <td><strong>申请日：</strong>2016-01-04</td>
+                            </tr>
+                            <tr>
+                                <td><label>13<span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
+                                <td>
+                                    <strong>标题：</strong>
+                                    <a class="zyTabName" href="#">一种超高分子量聚乙烯膜的水刺无纺布及其制备工艺</a>
+                                    <a class="zyTabTag corTag1" href="#">实质审查</a>
+                                    <a class="zyTabTag corTag2" href="#">中国</a>
+                                    <a class="zyTabTag corTag3" href="#">发明</a>
+                                </td>
+                                <td><strong>申请人：</strong>盐城工业职业技术学院</td>
+                                <td><strong>公开号：</strong>CN105484031A</td>
+                                <td><strong>申请日：</strong>2016-01-04</td>
+                            </tr>
+                            <tr>
+
+                                <td><label>14<span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
+                                <td>
+                                    <strong>标题：</strong>
+                                    <a class="zyTabName" href="#">一种PBT多孔纤维的制备方法</a>
+                                    <a class="zyTabTag corTag1" href="#">实质审查</a>
+                                    <a class="zyTabTag corTag2" href="#">中国</a>
+                                    <a class="zyTabTag corTag3" href="#">发明</a>
+                                </td>
+                                <td><strong>申请人：</strong>武汉纺织大学</td>
+                                <td><strong>公开号：</strong>CN106087177A</td>
+                                <td><strong>申请日：</strong>2016-01-04</td>
+                            </tr>
+                            <tr>
+                                <td><label>15<span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
+                                <td>
+                                    <strong>标题：</strong>
+                                    <a class="zyTabName" href="#">一种丝素蛋白与聚对苯二甲酸丁二醇酯的共混纤维及其制备方法</a>
+                                    <a class="zyTabTag corTag1" href="#">实质审查</a>
+                                    <a class="zyTabTag corTag2" href="#">中国</a>
+                                    <a class="zyTabTag corTag3" href="#">发明</a>
+                                </td>
+                                <td><strong>申请人：</strong>武汉纺织大学</td>
+                                <td><strong>公开号：</strong>CN105624865A</td>
+                                <td><strong>申请日：</strong>2016-01-04</td>
+                            </tr>
+                            <tr>
+                                <td><label>16<span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
+                                <td class="">
+                                    <strong>标题：</strong>
+                                    <a class="zyTabName" href="#">一种纤维粘结式蜂巢结构的高弹抗菌直立棉及其制备方法</a>
+                                    <a class="zyTabTag corTag1" href="#">授权</a>
+                                    <a class="zyTabTag corTag2" href="#">中国</a>
+                                    <a class="zyTabTag corTag3" href="#">发明</a>
+                                </td>
+                                <td><strong>申请人：</strong>华南理工大学</td>
+                                <td><strong>公开号：</strong>CN102102241A</td>
+                                <td><strong>申请日：</strong>2016-01-04</td>
+                            </tr>
+                            <tr>
+                                <td><label>17<span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
+                                <td>
+                                    <strong>标题：</strong>
+                                    <a class="zyTabName" href="#">一种可织造的相变储能丙纶</a>
+                                    <a class="zyTabTag corTag1" href="#">实质审查</a>
+                                    <a class="zyTabTag corTag2" href="#">中国</a>
+                                    <a class="zyTabTag corTag3" href="#">发明</a>
+                                </td>
+                                <td><strong>申请人：</strong>东华大学</td>
+                                <td><strong>公开号：</strong>CN105696097A</td>
+                                <td><strong>申请日：</strong>2016-01-04</td>
+                            </tr>
+                            <tr>
+                                <td><label>18<span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
+                                <td>
+                                    <strong>标题：</strong>
+                                    <a class="zyTabName" href="#">脂肪族聚酯嵌段共聚酯纤维与蛋白质纤维的织物</a>
+                                    <a class="zyTabTag corTag1" href="#">实质审查</a>
+                                    <a class="zyTabTag corTag2" href="#">中国</a>
+                                    <a class="zyTabTag corTag3" href="#">发明</a>
+                                </td>
+                                <td><strong>申请人：</strong>东华大学；浙江三元集团有限公司</td>
+                                <td><strong>公开号：</strong>CN105484031A</td>
+                                <td><strong>申请日：</strong>2016-01-04</td>
+                            </tr>
+                            <tr>
+                                <td><label>19<span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
+                                <td>
+                                    <strong>标题：</strong>
+                                    <a class="zyTabName" href="#">一种驱蚊氨纶的制备方法</a>
+                                    <a class="zyTabTag corTag1" href="#">实质审查</a>
+                                    <a class="zyTabTag corTag2" href="#">中国</a>
+                                    <a class="zyTabTag corTag3" href="#">发明</a>
+                                </td>
+                                <td><strong>申请人：</strong>江南大学</td>
+                                <td><strong>公开号：</strong>CN106087177A</td>
+                                <td><strong>申请日：</strong>2016-01-04</td>
+                            </tr>
+                            <tr>
+                                <td><label>20<span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
+                                <td>
+                                    <strong>标题：</strong>
+                                    <a class="zyTabName" href="#">一种锂离子电池用PMMA基核壳结构凝胶聚合物及其制备方法</a>
+                                    <a class="zyTabTag corTag1" href="#">实质审查</a>
+                                    <a class="zyTabTag corTag2" href="#">中国</a>
+                                    <a class="zyTabTag corTag3" href="#">发明</a>
+                                </td>
+                                <td><strong>申请人：</strong>绍兴文理学院</td>
+                                <td><strong>公开号：</strong>CN105624865A</td>
+                                <td><strong>申请日：</strong>2016-01-04</td>
+                            </tr>
+                            <tr>
+                                <td><label>21<span><input type="checkbox"><i class="iconfont icon-xuanze"></i></span></label></td>
+                                <td>
+                                    <strong>标题：</strong>
+                                    <a class="zyTabName" href="#">一种锂离子电池用PMMA基核壳结构凝胶聚合物及其制备方法</a>
+                                    <a class="zyTabTag corTag1" href="#">实质审查</a>
+                                    <a class="zyTabTag corTag2" href="#">中国</a>
+                                    <a class="zyTabTag corTag3" href="#">发明</a>
+                                </td>
+                                <td><strong>申请人：</strong>绍兴文理学院</td>
+                                <td><strong>公开号：</strong>CN105624865A</td>
+                                <td><strong>申请日：</strong>2016-01-04</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <ul class="rigChart list-unstyled list-inline row" id="tongji">
+                	<li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    	<div class="rigChartBg">
+                        	<h3 class="rigChartTit">专利申请趋势</h3>
+                            <div class="rigCharCon">
+                            	<div id="chartPar1"></div>
+                            </div>
+                        </div>
+                    </li>
+                	<li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    	<div class="rigChartBg">
+                        	<h3 class="rigChartTit">专利公开趋势</h3>
+                            <div class="rigCharCon">
+                            	<div id="chartPar2"></div>
+                            </div>
+                        </div>
+                    </li>
+                	<li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    	<div class="rigChartBg">
+                        	<h3 class="rigChartTit">全球地域分布图</h3>
+                            <div class="rigCharCon">
+                            	<div id="chartPar3"></div>
+                            </div>
+                        </div>
+                    </li>
+                	<li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    	<div class="rigChartBg">
+                        	<h3 class="rigChartTit">法律状态统计</h3>
+                            <div class="rigCharCon">
+                            	<div id="chartPar4"></div>
+                            </div>
+                        </div>
+                    </li>
+                	<li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    	<div class="rigChartBg">
+                        	<h3 class="rigChartTit">发明人统计</h3>
+                            <div class="rigCharCon">
+                            	<div id="chartPar5"></div>
+                            </div>
+                        </div>
+                    </li>
+                	<li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    	<div class="rigChartBg">
+                        	<h3 class="rigChartTit">申请人统计</h3>
+                            <div class="rigCharCon">
+                            	<div id="chartPar6"></div>
+                            </div>
+                        </div>
+                    </li>
+                	<li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    	<div class="rigChartBg">
+                        	<h3 class="rigChartTit">IPC分类统计</h3>
+                            <div class="rigCharCon">
+                            	<div id="chartPar7"></div>
+                            </div>
+                        </div>
+                    </li>
+                	<li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    	<div class="rigChartBg">
+                        	<h3 class="rigChartTit">国民经济分类统计</h3>
+                            <div class="rigCharCon">
+                            	<div id="chartPar8"></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+
+<div id="myModal" class="modal fade">
+    <div class="LaySearch">
+        <span class="LaySearchClose" data-dismiss="modal"></span>
+        <h3 class="LaySearchTit">高级搜索</h3>
+        <ul class="LaySearchList list-unstyled row">
+            <li class="col-xs-12 col-sm-6">
+                <span class="LaySearchLab">申请号：</span>
+                <div class="LaySearchRig">
+                    <input type="text" class="LaySearchInput">
+                </div>
+            </li>
+            <li class="col-xs-12 col-sm-6">
+                <span class="LaySearchLab">申请日：</span>
+                <div class="LaySearchRig">
+                    <div class="LaySearchIco"><i class="iconfont icon-riqi"></i></div>
+                    <input type="text" class="LaySearchInput LaySearchDate" readonly>
+                </div>
+            </li>
+            <li class="col-xs-12 col-sm-6">
+                <span class="LaySearchLab">标题：</span>
+                <div class="LaySearchRig">
+                    <input type="text" class="LaySearchInput">
+                </div>
+            </li>
+            <li class="col-xs-12 col-sm-6">
+                <span class="LaySearchLab">公开日：</span>
+                <div class="LaySearchRig">
+                    <div class="LaySearchIco"><i class="iconfont icon-riqi"></i></div>
+                    <input type="text" class="LaySearchInput LaySearchDate" readonly>
+                </div>
+            </li>
+            <li class="col-xs-12 col-sm-6">
+                <span class="LaySearchLab">摘要：</span>
+                <div class="LaySearchRig">
+                    <input type="text" class="LaySearchInput">
+                </div>
+            </li>
+            <li class="col-xs-12 col-sm-6">
+                <span class="LaySearchLab">公开号：</span>
+                <div class="LaySearchRig">
+                    <input type="text" class="LaySearchInput">
+                </div>
+            </li>
+            <li class="col-xs-12 col-sm-6">
+                <span class="LaySearchLab">IPC分类号：</span>
+                <div class="LaySearchRig">
+                    <input type="text" class="LaySearchInput">
+                </div>
+            </li>
+            <li class="col-xs-12 col-sm-6">
+                <span class="LaySearchLab">主分类号：</span>
+                <div class="LaySearchRig">
+                    <input type="text" class="LaySearchInput">
+                </div>
+            </li>
+            <li class="col-xs-12 col-sm-6">
+                <span class="LaySearchLab">专利权人：</span>
+                <div class="LaySearchRig">
+                    <input type="text" class="LaySearchInput">
+                </div>
+            </li>
+            <li class="col-xs-12 col-sm-6">
+                <span class="LaySearchLab">发明人：</span>
+                <div class="LaySearchRig">
+                    <input type="text" class="LaySearchInput">
+                </div>
+            </li>
+            <li class="col-xs-12 col-sm-6">
+                <span class="LaySearchLab">地址：</span>
+                <div class="LaySearchRig">
+                    <input type="text" class="LaySearchInput">
+                </div>
+            </li>
+            <li class="col-xs-12 col-sm-6">
+                <span class="LaySearchLab">国民经济分类：</span>
+                <div class="LaySearchRig">
+                    <input type="text" class="LaySearchInput">
+                </div>
+            </li>
+            <li class="col-xs-12 col-sm-6">
+                <span class="LaySearchLab">权利要求书：</span>
+                <div class="LaySearchRig">
+                    <input type="text" class="LaySearchInput">
+                </div>
+            </li>
+            <li class="col-xs-12">
+                <div class="LaySearchBtn">
+                    <a href="javascript:;" class="LaySearchBtn1">检索</a>
+                    <a href="javascript:;" class="LaySearchBtn2">重置</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<link rel="stylesheet" type="text/css" media="screen" href="datatables/dataTables.bootstrap.min.css">
+<script type="text/javascript" src="datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="datatables/dataTables.bootstrap.min.js"></script>
+<script>
+	var table = $('#zyTab').DataTable({
+		"searching": false,
+		"ordering": false,
+		"processing": false,
+		"info": false,
+		//"paging":   false,
+		"lengthMenu": [10, 20, 30, "所有"],
+		"pageLength": 15,
+		"pagingType":"numbers",
+		"language": {
+			"sProcessing": "处理中...",
+			"sLengthMenu": "显示 _MENU_ 项结果",
+			"sZeroRecords": "没有匹配结果",
+			"sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+			"sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+			"sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+			"sInfoPostFix": "",
+			"sSearch": "搜索:",
+			"sUrl": "",
+			"sEmptyTable": "表中数据为空",
+			"sLoadingRecords": "载入中...",
+			"sInfoThousands": ",",
+			"oPaginate": {
+				"sFirst": "首页",
+				"sPrevious": "上页",
+				"sNext": "下页",
+				"sLast": "末页"
+			},
+			"oAria": {
+				"sSortAscending": ": 以升序排列此列",
+				"sSortDescending": ": 以降序排列此列"
+			}			
+		},
+		"columnDefs": [
+			{ className: "zyTabCon1", "targets": [ 0 ] },
+			{ className: "zyTabCon2", "targets": [ 1 ] },
+			{ className: "zyTabCon3", "targets": [ 2 ] },
+			{ className: "zyTabCon4", "targets": [ 3 ] },
+			{ className: "zyTabCon5", "targets": [ 4 ] },
+		  ]
+	});
+	$('#checkAll').on('click', function(){
+      var rows = table.rows({ 'search': 'applied' }).nodes();
+      $('input[type="checkbox"]', rows).prop('checked', this.checked);
+   });
+   $('#zyTab tbody').on('change', 'input[type="checkbox"]', function(){
+      if(!this.checked){
+         var el = $('#checkAll').get(0);
+         if(el && el.checked && ('indeterminate' in el)){
+            el.indeterminate = true;
+         }
+      }
+   });
+</script>
+<link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
+<script src="js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script src="js/echarts.min.js"></script>
+<script>
+	$.fn.datetimepicker.dates['zh-CN'] = {
+			days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
+			daysShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+			daysMin:  ["日", "一", "二", "三", "四", "五", "六", "日"],
+			months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+			monthsShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一", "十二"],
+			today: "今天",
+			suffix: [],
+			meridiem: ["上午", "下午"]
+	};
+	$('.LaySearchDate').datetimepicker({
+        language:  'zh-CN',
+        weekStart: 1,
+		autoclose: 1,
+		startView: 2,
+		minView: 2,
+		forceParse: 0
+    });
+	$(".tongji").click(function(){
+		$('html,body').animate({scrollTop:$('#tongji').offset().top-$(".logo").height()-15}, 800);	
+	})
+	var chartPar1 = echarts.init(document.getElementById('chartPar1'));
+	var chartPar2 = echarts.init(document.getElementById('chartPar2'));
+	var chartPar3 = echarts.init(document.getElementById('chartPar3'));
+	var chartPar4 = echarts.init(document.getElementById('chartPar4'));
+	var chartPar5 = echarts.init(document.getElementById('chartPar5'));
+	var chartPar6 = echarts.init(document.getElementById('chartPar6'));
+	var chartPar7 = echarts.init(document.getElementById('chartPar7'));
+	var chartPar8 = echarts.init(document.getElementById('chartPar8'));
+	var option1 = {
+		color:'#0670c4',
+		tooltip: {
+			trigger: 'axis',
+			position: function (pt) {
+				return [pt[0], '10%'];
+			}
+		},
+		xAxis: {
+			type: 'category',
+			boundaryGap: false,
+			data: ['2012', '2013', '2014', '2015', '2016', '2017', '2018']
+		},
+		yAxis: {
+			type: 'value'
+		},
+		series: [{
+			data: [820, 932, 901, 934, 1290, 1330, 1320],
+			type: 'line',
+			areaStyle: {
+				normal: {
+					color: new echarts.graphic.LinearGradient(0, 0, 0, 0.8, [{
+						offset: 0,
+						color: '#0670c4'
+					}, {
+						offset: 1,
+						color: '#fff'
+					}])
+				}
+			},
+		}]
+	};
+	var option2 = {
+		color:'#0670c4',
+		tooltip: {
+			trigger: 'axis',
+			position: function (pt) {
+				return [pt[0], '10%'];
+			}
+		},
+		xAxis: {
+			type: 'category',
+			boundaryGap: false,
+			data: ['2012', '2013', '2014', '2015', '2016', '2017', '2018']
+		},
+		yAxis: {
+			type: 'value'
+		},
+		series: [{
+			data: [620, 532, 901, 934, 1290, 1330, 1320],
+			type: 'line',
+			areaStyle: {
+				normal: {
+					color: new echarts.graphic.LinearGradient(0, 0, 0, 0.8, [{
+						offset: 0,
+						color: '#0670c4'
+					}, {
+						offset: 1,
+						color: '#fff'
+					}])
+				}
+			},
+		}]
+	};
+	var option3 = {
+		color:['#57cad9','#ff835c','#fdcd58','#72bd76','#b660c5',],
+		tooltip : {
+			trigger: 'item',
+			formatter: "{a} <br/>{b} : {c} ({d}%)"
+		},
+		legend: {
+			left: 'left',
+			data: ['中国','德国','美国','法国','欧盟']
+		},
+		series : [
+			{
+				name: '全球地域分布图',
+				type: 'pie',
+				radius : ['55%', '80%'],
+				center: ['50%', '56%'],
+				data:[
+					{value:335, name:'中国'},
+					{value:310, name:'德国'},
+					{value:234, name:'美国'},
+					{value:135, name:'法国'},
+					{value:1548, name:'欧盟'}
+				],
+				itemStyle: {
+					emphasis: {
+						shadowBlur: 10,
+						shadowOffsetX: 0,
+						shadowColor: 'rgba(0, 0, 0, 0.5)'
+					}
+				}
+			}
+		]
+	};
+	var option4 = {
+		color:['#57cad9','#ff835c','#fdcd58','#72bd76','#b660c5',,'#d7e361','#ef598c',,'#66b4f1',],
+		tooltip : {
+			trigger: 'item',
+			formatter: "{a} <br/>{b} : {c} ({d}%)"
+		},
+		legend: {
+			left: 'left',
+			data: ['授权','权力终止','实质审查','撤回','放弃','驳回','公开','全部无效']
+		},
+		series : [
+			{
+				name: '法律状态统计',
+				type: 'pie',
+				radius : '55%',
+				center: ['50%', '60%'],
+				data:[
+					{value:335, name:'授权'},
+					{value:310, name:'权力终止'},
+					{value:234, name:'实质审查'},
+					{value:135, name:'撤回'},
+					{value:148, name:'放弃'},
+					{value:548, name:'驳回'},
+					{value:458, name:'公开'},
+					{value:248, name:'全部无效'}
+				],
+				itemStyle: {
+					emphasis: {
+						shadowBlur: 10,
+						shadowOffsetX: 0,
+						shadowColor: 'rgba(0, 0, 0, 0.5)'
+					}
+				}
+			}
+		]
+	};
+	var option5 = {
+		color: ['#0670c4'],
+		tooltip : {
+			trigger: 'axis',
+			axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+				type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+			}
+		},
+		grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		},
+		xAxis : [
+			{
+				type : 'category',
+				data : ['郭建刚', '陈龙辉', '王冬雷', '不公告设计人', '曾永春', '赵三', '李四'],
+				axisTick: {
+					alignWithLabel: true
+				}
+			}
+		],
+		yAxis : [
+			{
+				type : 'value'
+			}
+		],
+		series : [
+			{
+				name:'专利数量',
+				type:'bar',
+				barWidth: '60%',
+				data:[10, 52, 200, 334, 390, 330, 220]
+			}
+		]
+	};
+	var option6 = {
+		color: ['#0670c4'],
+		tooltip : {
+			trigger: 'axis',
+			axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+				type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+			}
+		},
+		grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		},
+		xAxis : [
+			{
+				type : 'category',
+				data : ['郭建刚', '陈龙辉', '王冬雷', '不公告设计人', '曾永春', '赵三', '李四'],
+				axisTick: {
+					alignWithLabel: true
+				}
+			}
+		],
+		yAxis : [
+			{
+				type : 'value'
+			}
+		],
+		series : [
+			{
+				name:'专利数量',
+				type:'bar',
+				barWidth: '60%',
+				data:[10, 52, 200, 334, 390, 330, 220]
+			}
+		]
+	};
+	var option7 = {
+		color: ['#2dbdd0'],
+		tooltip : {
+			trigger: 'axis',
+			axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+				type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+			}
+		},
+		grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		},
+		xAxis : [
+			{
+				type : 'category',
+				data : ['A47J', 'B65D', 'A23F', 'H05B', 'A47G', 'G07F', 'F24H'],
+				axisTick: {
+					alignWithLabel: true
+				}
+			}
+		],
+		yAxis : [
+			{
+				type : 'value'
+			}
+		],
+		series : [
+			{
+				name:'专利数量',
+				type:'bar',
+				barWidth: '60%',
+				data:[10615, 424, 405, 343, 246, 180, 177]
+			}
+		]
+	};
+	var option8 = {
+		color: ['#2dbdd0'],
+		tooltip : {
+			trigger: 'axis',
+			axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+				type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+			}
+		},
+		grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		},
+		xAxis : [
+			{
+				type : 'category',
+				data : ['A47J', 'B65D', 'A23F', 'H05B', 'A47G', 'G07F', 'F24H'],
+				axisTick: {
+					alignWithLabel: true
+				}
+			}
+		],
+		yAxis : [
+			{
+				type : 'value'
+			}
+		],
+		series : [
+			{
+				name:'专利数量',
+				type:'bar',
+				barWidth: '60%',
+				data:[10615, 424, 405, 343, 246, 180, 177]
+			}
+		]
+	};
+	chartPar1.setOption(option1);
+	chartPar2.setOption(option2);
+	chartPar3.setOption(option3);
+	chartPar4.setOption(option4);
+	chartPar5.setOption(option5);
+	chartPar6.setOption(option6);
+	chartPar7.setOption(option7);
+	chartPar8.setOption(option8);
+	window.addEventListener("resize", function(){
+		this.chartPar1.resize();
+		this.chartPar2.resize();
+		this.chartPar3.resize();
+		this.chartPar4.resize();
+		this.chartPar5.resize();
+		this.chartPar6.resize();
+		this.chartPar7.resize();
+		this.chartPar8.resize();
+	});
+</script>
+</body>
+</html>
