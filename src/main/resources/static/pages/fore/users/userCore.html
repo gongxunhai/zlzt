@@ -21,6 +21,7 @@
     <script src="../js/swiper.min.js"></script>
 	<script src="../treetable/js/jquery.treetable.js"></script>
     <script type="text/javascript" src="../../../layui/layui.js"></script>
+    <script type="text/javascript" src="../../../js/common.js"></script>
     <script src="../js/rem.js"></script>
     <script src="../js/public.js"></script>
 	<!--[if lt IE 9]>
@@ -29,7 +30,13 @@
 	<![endif]-->
 </head>
 <body>
-<nav class="navbar navbar-default bootsnav navbar-fixed-top wow fadeInDown">
+<script>
+    var pro = window.location.protocol;
+    var host = window.location.host;
+    var domain = pro + "//" + host;
+</script>
+<script src="../js/htmlJs/publicHeader.js"></script>
+<!--<nav class="navbar navbar-default bootsnav navbar-fixed-top wow fadeInDown">
     <div class="wrap">
         <div class="attr-nav navRig">
             <ul>
@@ -73,12 +80,12 @@
             <a class="navbar-brand flexBox logo" href="#">
                 <span><img src="../images/logo.png" class="img-responsive"></span>
             </a>
-        </div>            
+        </div>
         <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
                 <li><a href="#"><span>首页</span></a></li>
 				<li><a href="#"><span>科技商城</span></a></li>
-				<li><a href="#"><span>项目需求</span></a></li>             
+				<li><a href="#"><span>项目需求</span></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" ><span>科技资源</span></a>
                     <ul class="dropdown-menu">
@@ -101,9 +108,9 @@
 				<li><a href="#"><span>科技服务</span></a></li>
 				<li><a href="#"><span>关于我们</span></a></li>
             </ul>
-        </div>        
+        </div>
     </div>
-</nav>
+</nav>-->
 <div class="searchBg">
 	<div class="wrap">
     	<div class="search">
@@ -133,7 +140,9 @@
         </div>
     </div>
 </div><!--searchBg-->
-<div class="banInner banUser wow fadeIn">
+<script src="../js/htmlJs/getUserHeader.js"></script>
+<script src="../js/htmlJs/getPathname.js"></script>
+<!--<div class="banInner banUser wow fadeIn">
 	<div class="imgFull"><img src="../images/banUser.jpg" class="img-responsive"></div>
     <div class="banUserCon">
     	<div class="userImgBox" data-toggle="modal" data-target="#myHeadImg">
@@ -169,7 +178,7 @@
     	<li><a href="information.html">消息通知</a></li>
     	<li><a href="m账户设置_个人资料.html">账户设置</a></li>
     </ul>
-</div>
+</div>-->
 <div class="mainBg grayBg overHide">
     <div class="userBox1Bg">
         <div class="container">
@@ -301,7 +310,7 @@
         </div>
         <div class="ftBot wow fadeInUp">
         	<div class="copyRight">
-            	<p>Copyright © 2018中国航天科工集团知识产权中心版权所有 京ICP备13006003号-2  设计支持：<a href="#">千助科技</a></p>
+            	<p>Copyright © 2018中国航天科工集团知识产权中心版权所有 京ICP备13006003号-2  设计支持：<a href="#">谦亨网络</a></p>
             </div>
             <div class="ftBotRig">
             	<ul class="ftBotIco list-unstyled list-inline">
@@ -323,7 +332,7 @@
         </div>
     </div>
 </footer>
-<div id="myHeadImg" class="modal fade">
+<!--<div id="myHeadImg" class="modal fade">
     <div class="loginBox">
         <div class="loginTop">
             <h2 class="loginTit">修改头像</h2>
@@ -344,7 +353,7 @@
         </div>
         <a href="javascript:;" class="uploadExit" data-dismiss="modal">取消</a>
     </div>
-</div>
+</div>-->
 </body>
 <script>
     console.log("forSession="+sessionStorage.getItem("forSession"));

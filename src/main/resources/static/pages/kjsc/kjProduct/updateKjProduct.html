@@ -111,9 +111,16 @@
 					<input class='form-control' placeholder='xfArea' type='text' name='xfArea' id='xfArea' data-bv-notempty='true' data-bv-notempty-message='xfArea 不能为空'>
 				</div>
 			</div>
-
-
-
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>状态</label>
+				<div class='col-md-10'>
+					<select class='form-control' placeholder='status' type='text' name='status' id='status' data-bv-notempty='true' data-bv-notempty-message='status 不能为空'>
+						<option value="0">未审核</option>
+						<option value="1">审核</option>
+						<option value="2">驳回</option>
+					</select>
+				</div>
+			</div>
 			<div class="form-actions">
 				<div class="row" align="center">
 					<div class="col-md-12">
@@ -149,24 +156,24 @@
 					async : false,
 					success : function(data) {
 						$('#buyNum').val(data.buyNum);
-						$('#cMan').val(data.cMan);
-						$('#cPhone').val(data.cPhone);
-						$('#fId').val(data.fId);
+						$('#cMan').val(data.cman);
+						$('#cPhone').val(data.cphone);
+						$('#fId').val(data.fid);
 						$('#haveNum').val(data.haveNum);
 						$('#history').val(data.history);
 						$('#id').val(data.id);
 						$('#name').val(data.name);
-						$('#pData').val(data.pData);
-						$('#pDetail').val(data.pDetail);
-						$('#pImage').val(data.pImage);
+						$('#pData').val(data.pdata);
+						$('#pDetail').val(data.pdetail);
+						$('#pImage').val(data.pimage);
 						$('#place').val(data.place);
 						$('#price').val(data.price);
 						$('#pubTime').val(data.pubTime);
 						$('#salePrice').val(data.salePrice);
-						$('#sId').val(data.sId);
+						$('#sId').val(data.sid);
 						$('#talk').val(data.talk);
 						$('#xfArea').val(data.xfArea);
-
+                        $('#status').val(data.status);
 					}
 				});
 			}

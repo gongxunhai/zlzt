@@ -6,7 +6,7 @@
 	<sql id="where">
 		<where>
 			<if test="params.id != null and params.id != ''">
-				and id = #{params.id} 
+				and id = #{params.id}
 			</if>
 			<if test="params.dataId != null and params.dataId != ''">
 				and dataId = #{params.dataId} 

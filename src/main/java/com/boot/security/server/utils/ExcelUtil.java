@@ -927,7 +927,7 @@ public class ExcelUtil {
 						case 6 : kjResult.setTlevel(cell.getStringCellValue()); break;
 						case 7 : kjResult.setUseRange(cell.getStringCellValue()); break;
 						case 8 : kjResult.setCWays(cell.getStringCellValue()); break;
-						case 9 : kjResult.setMneed(cell.getStringCellValue()); break;
+						case 9 : kjResult.setmNeed(cell.getStringCellValue()); break;
 						case 10 : kjResult.setTeMaturity(cell.getStringCellValue()); break;
 						case 11 : kjResult.setArea(cell.getStringCellValue()); break;
 						case 12 : kjResult.setTdetails(cell.getStringCellValue()); break;
@@ -1008,7 +1008,7 @@ public class ExcelUtil {
 					int key1 = Integer.parseInt(entry.getKey().toString().substring(0, entrykey.indexOf("-")));
 					int key2 = Integer.parseInt(entry.getKey().toString().substring(entrykey.indexOf("-") + 1, entrykey.length()));
 					if (key1 == r && key2 == m) {
-						kjZlsuper.setZlImage(entry.getValue());
+						kjZlsuper.setImage(entry.getValue());
 					}
 					//   System.out.println("key="+entry.getKey()+", value="+entry.getValue());
 				}
@@ -1108,7 +1108,7 @@ public class ExcelUtil {
 					int key1 = Integer.parseInt(entry.getKey().toString().substring(0, entrykey.indexOf("-")));
 					int key2 = Integer.parseInt(entry.getKey().toString().substring(entrykey.indexOf("-") + 1, entrykey.length()));
 					if (key1 == r && key2 == m) {
-						kjProduct.setPImage(entry.getValue());
+						kjProduct.setImage(entry.getValue());
 					}
 					//   System.out.println("key="+entry.getKey()+", value="+entry.getValue());
 				}

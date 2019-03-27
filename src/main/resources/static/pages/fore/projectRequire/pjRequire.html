@@ -889,7 +889,8 @@
                 "cWays" : $("#cWays").val(),
                 "xfArea" : $("#xfArea").val(),
                 "place" : $("#place").val(),
-                "orderBy" : orderBy
+                "orderBy" : orderBy,
+                "status" : 1
             },
             success : function (result) {
                 $('#projectTab').dataTable().fnClearTable();
@@ -916,8 +917,8 @@
                         '                                        <div class="box1Bot">\n' +
                         '                                            <div class="projectTime pull-left">行业：'+data[i*2].fIdName+'<i>|</i><span>更新：'+data[i*2].endTime+'</span></div>\n' +
                         '                                            <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox pull-right">\n' +
-                        '                                                <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>\n' +
-                        '                                                <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>\n' +
+                        '                                                <li><a href="javascript:;"  class="point" id="P'+data[i*2].id+'" value="'+data[i*2].id+'"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞('+(data[i*2].pointNum || '0' )+')</a></li>\n' +
+                        '                                                <li><a href="javascript:;"  class="collection" id="C'+data[i*2].id+'" value="'+data[i*2].id+'"><i class="iconfont icon-guanzhu1"></i>关注('+(data[i*2].careNum || '0' )+')</a></li>\n' +
                         '                                                <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>\n' +
                         '                                            </ul>\n' +
                         '                                            <div class="clear"></div>\n' +
@@ -936,10 +937,10 @@
                         '                                            </div>\n' +
                         '                                        </a>\n' +
                         '                                        <div class="box1Bot">\n' +
-                        '                                            <div class="projectTime pull-left">行业：'+data[i*2+1].fIdName+'<i>|</i><span>更新：'+data[i*2].endTime+'</span></div>\n' +
+                        '                                            <div class="projectTime pull-left">行业：'+data[i*2+1].fIdName+'<i>|</i><span>更新：'+data[i*2+1].endTime+'</span></div>\n' +
                         '                                            <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox pull-right">\n' +
-                        '                                                <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>\n' +
-                        '                                                <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>\n' +
+                        '                                                <li><a href="javascript:;"  class="point" id="P'+data[i*2+1].id+'" value="'+data[i*2+1].id+'"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞('+(data[i*2+1].pointNum || '0' )+')</a></li>\n' +
+                        '                                                <li><a href="javascript:;"  class="collection" id="C'+data[i*2+1].id+'" value="'+data[i*2+1].id+'"><i class="iconfont icon-guanzhu1"></i>关注('+(data[i*2+1].careNum || '0' )+')</a></li>\n' +
                         '                                                <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>\n' +
                         '                                            </ul>\n' +
                         '                                            <div class="clear"></div>\n' +
@@ -964,8 +965,8 @@
                         '                                        <div class="box1Bot">\n' +
                         '                                            <div class="projectTime pull-left">行业：'+data[lenA*2].fIdName+'<i>|</i><span>更新：'+data[lenA*2].endTime+'</span></div>\n' +
                         '                                            <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox pull-right">\n' +
-                        '                                                <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>\n' +
-                        '                                                <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>\n' +
+                        '                                                <li><a href="javascript:;"  class="point" id="P'+data[lenA*2].id+'" value="'+data[lenA*2].id+'"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞('+(data[lenA*2].pointNum || '0' )+')</a></li>\n' +
+                        '                                                <li><a href="javascript:;"  class="collection" id="C'+data[lenA*2].id+'" value="'+data[lenA*2].id+'"><i class="iconfont icon-guanzhu1"></i>关注('+(data[lenA*2].careNum || '0' )+')</a></li>\n' +
                         '                                                <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>\n' +
                         '                                            </ul>\n' +
                         '                                            <div class="clear"></div>\n' +
@@ -1124,6 +1125,159 @@
     }
     changeSelect();
     init();
+    selectPoint();
+    selectCollection();
+
+    $(document).on("click",".zyTitIco a",function(event){
+        if (user != null && user != '') {
+            $(this).toggleClass("active");
+            if ($(this).hasClass("point")){
+                if ($(this).hasClass("active")) {
+                    addPoint($(this).attr("value"));
+                }else {
+                    deletePoint($(this).attr("value"));
+                }
+            }
+            if ($(this).hasClass("collection")){
+                if ($(this).hasClass("active")) {
+                    addCollection($(this).attr("value"));
+                }else {
+                    deleteCollection($(this).attr("value"));
+                }
+            }
+        }else {
+            alert("请先登录!");
+        }
+    });
+
+    function addPoint(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.agreeId =  obj;
+        formData.type = 'pj_require';
+        formData.url = "/pages/fore/projectRequire/pjRequireDetail.html?id="+obj;
+        $.ajax({
+            type : 'post',
+            url : '/zlztPointAgrees/addPoint',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    if (data.msg == "success") {
+                        $("#P" + obj).html('<i class="iconfont icon-qinziAPPtubiao-"></i>点赞(' + data.pointNum + ')');
+                        alert("点赞成功!");
+                    }
+                    else {
+                        alert("已点赞!");
+                    }
+                }
+            }
+        })
+    }
+
+    function deletePoint(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.agreeId =  obj;
+        formData.type = 'pj_require';
+        $.ajax({
+            type : 'delete',
+            url : '/zlztPointAgrees/deletePoint',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    $("#P" + obj).html('<i class="iconfont icon-qinziAPPtubiao-"></i>点赞(' + data.pointNum + ')');
+                    alert("取消点赞!");
+                }
+            }
+        });
+    }
+    //已点赞的就显示
+    function selectPoint() {
+        $.ajax({
+            type : 'get',
+            url : '/zlztPointAgrees',
+            async : false,
+            data:{
+                "userId" : user.id,
+                "type" : 'pj_require'
+            },
+            success : function(result) {
+                var data = result.data;
+                console.log(data);
+                for (var i = 0; i < data.length; i++) {
+                    $("#P"+data[i].agreeId).addClass("active");
+                }
+            }
+        })
+    }
+
+    function addCollection(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.careId =  obj;
+        formData.type = 'pj_require';
+        formData.url = "/pages/fore/projectRequire/pjRequireDetail.html?id="+obj;
+        $.ajax({
+            type : 'post',
+            url : '/zlztCareinfos/addCare',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    if (data.msg == "success") {
+                        $("#C" + obj).html('<i class="iconfont icon-guanzhu1">收藏(' + data.pointNum + ')');
+                        alert("收藏成功!");
+                    }
+                    else {
+                        alert("已收藏!");
+                    }
+                }
+            }
+        })
+    }
+    function deleteCollection(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.careId =  obj;
+        formData.type = 'pj_require';
+        $.ajax({
+            type : 'delete',
+            url : '/zlztCareinfos/deleteCare',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    $("#C" + obj).html('<i class="iconfont icon-guanzhu1">收藏(' + data.pointNum + ')');
+                    alert("取消收藏!");
+                }
+            }
+        });
+    }
+
+    function selectCollection() {
+        $.ajax({
+            type : 'get',
+            url : '/zlztCareinfos',
+            async : false,
+            data:{
+                "userId" : user.id,
+                "type" : 'pj_require'
+            },
+            success : function(result) {
+                var data = result.data;
+                console.log(data);
+                for (var i = 0; i < data.length; i++) {
+                    $("#C"+data[i].careId).addClass("active");
+                }
+            }
+        })
+    }
 </script>
 </body>
 </html>

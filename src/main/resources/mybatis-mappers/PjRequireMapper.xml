@@ -53,6 +53,25 @@
 			<if test="params.searchByInput != null and params.searchByInput != ''">
 				and a.name like concat('%', #{params.searchByInput}, '%')
 			</if>
+			<if test="params.beginTime != null and params.beginTime != ''">
+				<if test="params.lastTime != null and params.lastTime != ''">
+					and a.createTime between #{params.beginTime} and #{params.lastTime}
+				</if>
+				<if test="params.lastTime == null || params.lastTime == ''">
+					and a.createTime > #{params.beginTime}
+				</if>
+			</if>
+			<if test="params.lastTime != null and params.lastTime != ''">
+				<if test="params.beginTime == null || params.beginTime == ''">
+					and  a.createTime &lt; #{params.lastTime}
+				</if>
+			</if>
+			<if test="params.userId != null and params.userId != ''">
+				and a.userId = #{params.userId}
+			</if>
+			<if test="params.status != null and params.status != ''">
+				and a.status = #{params.status}
+			</if>
 		</where>
 	</sql>
 

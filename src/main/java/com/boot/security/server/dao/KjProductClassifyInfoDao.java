@@ -36,4 +36,7 @@ public interface KjProductClassifyInfoDao {
 
     @Select("select * from kj_product_classifyInfo where parentId = #{parentId}")
     List<KjProductClassifyInfo> listData(@Param("parentId") Long parentId);
+
+    @Select("select ifnull(max(id),-1) from kj_product_classifyInfo where parentId = #{fid} and name = '其它' ")
+    int selectSidByFid(@Param("fid") int fid);
 }

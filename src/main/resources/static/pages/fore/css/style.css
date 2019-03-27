@@ -411,7 +411,7 @@ background: linear-gradient(to right,rgba(0,0,0,0.3),rgba(0,0,0,0));
 .fenleiTitEn{ display:block; font-size:18px; font-family:Arial;}
 .fenleiH2Btn{ position:absolute; right:15px; top:50%; transform:translateY(-70%); cursor:pointer;}
 .fenleiH2Btn i{ margin-right:5px;}
-.fenleiList{ padding:15px 20px 25px;}
+.fenleiList{ padding:15px 20px 15px; margin-bottom:15px;}
 .fenleiLi{ border-bottom:1px dashed rgba(0,0,0,0.2);}
 .fenleiLiTit{ font-size:16px; color:#333333; line-height:24px; padding:9px 0;}
 .fenleiLiTit a{ display:block; color:#333333;}
@@ -427,6 +427,7 @@ background: linear-gradient(to right,rgba(0,0,0,0.3),rgba(0,0,0,0));
 .fenleiLi.active .fenleiLiTit .fenleiIco:after{ height:0;}
 .fenleiLi.active .fenleiLiTit .fenleiIco:before{ background:#0670c4;}
 .fenleiLiSub.active .fenleiLiSubTit{ color:#e99918;}
+.fenleiTop + .fenleiList{ max-height:441px; overflow-y:auto;}
 .siftTop{ border-top:4px solid #0670c4; padding:10px 20px 0; position:relative;}
 .siftTit{ font-size:18px; color:#333333; font-weight:bold; line-height:20px; padding:10px 0 15px; border-bottom:1px solid #cccccc;}
 .siftSub{ padding-left:0;}
@@ -585,6 +586,8 @@ background-image: linear-gradient(to bottom,rgba(234,236,241,0) 0%, rgba(234,236
 .zyTitIco li{ vertical-align:middle; padding:0 5px;}
 .zyTitIco li a{ color:#999999;}
 .zyTitIco li a i{ margin-right:5px;}
+.zyTitIco li a.active .icon-qinziAPPtubiao-:before{ content:"\e601";}
+.zyTitIco li a.active .icon-guanzhu1:before{ content:"\e886"; font-size:18px;}
 .zyTextTab{ margin:30px -2px; font-size:0; display:flex; flex-wrap:wrap; text-align:center;}
 .zyTextTab li{ vertical-align:middle; padding:2px; font-size:18px; color:#333333; line-height:30px; flex:auto;}
 .zyTextTab li span,.zyTextTab li a{ display:block; background:#f5f6fa; padding:10px; cursor:pointer;}
@@ -1573,7 +1576,7 @@ background-image: linear-gradient(to bottom,rgba(234,236,241,0) 0%, rgba(234,236
 	.main{ padding:40px 0 0;}
 	.mLef{ margin-right:25px; width:240px;}
 	.fenlei{ margin-bottom:25px;}
-	.fenleiList{ padding:15px 15px 25px;}
+	.fenleiList{ padding:15px 15px 15px;}
 	.fenleiLiTit{ font-size:15px;}
 	.leftGg{ margin-bottom:25px;}
 	
@@ -1690,7 +1693,7 @@ background-image: linear-gradient(to bottom,rgba(234,236,241,0) 0%, rgba(234,236
 	.mLef{ width:260px;}
 	.fenleiTitCn{ font-size:20px; line-height:24px;}
 	.fenleiTitEn{ font-size:16px;}
-	.fenleiList{ padding:10px 15px 30px;}
+	.fenleiList{ padding:10px 15px 15px;}
 	.siftTit{ font-size:17px;}
 	
 	.rigTopBg{ padding:1px 15px;}

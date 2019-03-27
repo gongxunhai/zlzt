@@ -37,4 +37,7 @@ public interface KjResultClassifyInfoDao {
 
     @Select("select * from kj_result_classifyinfo where parentId = #{parentId}")
     List<KjResultClassifyInfo> listData(@Param("parentId") Long parentId);
+
+    @Select("select ifnull(max(id),-1) from kj_result_classifyinfo where parentId = #{fid} and name = '其它' ")
+    int selectSidByFid(@Param("fid") int fid);
 }

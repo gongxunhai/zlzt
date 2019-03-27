@@ -18,7 +18,7 @@ public interface FileInfoDao {
 	@Select("select * from file_info t where t.id = #{id}")
 	FileInfo getById(String id);
 
-	@Insert("insert into file_info(id, contentType, size, path, url, type, createTime, updateTime) values(#{id}, #{contentType}, #{size}, #{path}, #{url}, #{type}, now(), now())")
+	@Insert("insert into file_info(id, contentType, size, path, url, type, name, createTime, updateTime) values(#{id}, #{contentType}, #{size}, #{path}, #{url}, #{type}, #{name}, now(), now())")
 	int save(FileInfo fileInfo);
 
 	@Update("update file_info t set t.updateTime = now() where t.id = #{id}")

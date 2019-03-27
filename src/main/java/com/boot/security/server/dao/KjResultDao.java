@@ -26,7 +26,7 @@ public interface KjResultDao {
     int update(KjResult kjResult);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into kj_result(area, cMan, cPhone, cWays, fId, knowledge, Mneed, name, predict, pubTime, sId, source, tdetails, teMaturity, tIndex, tlevel, useRange, xfArea) values(#{area}, #{cMan}, #{cPhone}, #{cWays}, #{fId}, #{knowledge}, #{Mneed}, #{name}, #{predict}, #{pubTime}, #{sId}, #{source}, #{tdetails}, #{teMaturity}, #{tIndex}, #{tlevel}, #{useRange}, #{xfArea})")
+    @Insert("insert into kj_result(area, cMan, cPhone, cWays, fId, knowledge, mNeed, name, predict, pubTime, sId, source, tdetails, teMaturity, tIndex, tlevel, useRange, xfArea, userId, status, image) values(#{area}, #{cMan}, #{cPhone}, #{cWays}, #{fId}, #{knowledge}, #{mNeed}, #{name}, #{predict}, #{pubTime}, #{sId}, #{source}, #{tdetails}, #{teMaturity}, #{tIndex}, #{tlevel}, #{useRange}, #{xfArea}, #{userId}, #{status}, #{image})")
     int save(KjResult kjResult);
     
     int count(@Param("params") Map<String, Object> params);

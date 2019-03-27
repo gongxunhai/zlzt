@@ -10,6 +10,7 @@
 
 	<sql id="where">
 		<where>
+			1 = 1
 			<if test="params.id != null and params.id != ''">
 				and id = #{params.id} 
 			</if>

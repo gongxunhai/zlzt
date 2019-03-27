@@ -51,6 +51,12 @@ spring:
     test-connection: false
     properties:
       mail.smtp.auth: true
+      mail.smtp.starttls.enable : true
+      mail.smtp.starttls.required : true
+      mail.smtp.socketFactory.port : 465
+      mail.smtp.socketFactory.class : javax.net.ssl.SSLSocketFactory
+      mail.smtp.socketFactory.fallback : false
+    port : 465
 mybatis:
   type-aliases-package: com.boot.security.server.model
   mapper-locations: classpath:/mybatis-mappers/*

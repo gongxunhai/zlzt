@@ -37,4 +37,7 @@ public interface DictDao {
 
 	@Select("select * from t_dict t where t.type = #{type}")
 	List<Dict> listByType(String type);
+
+	@Select("select * from t_dict t where t.type = #{type} and val = #{val}")
+	Dict getKByValAndType(@Param("type") String type, @Param("val") String val);
 }

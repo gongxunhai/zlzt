@@ -2,16 +2,10 @@ package com.boot.security.server.controller;
 
 import java.util.List;
 
+import com.boot.security.server.model.KjZlSuperClassifyInfo;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.boot.security.server.page.table.PageTableRequest;
 import com.boot.security.server.page.table.PageTableHandler;
@@ -75,5 +69,26 @@ public class KjResultClassifyInfoController {
     @ApiOperation(value = "删除")
     public void delete(@PathVariable Long id) {
         kjResultClassifyInfoDao.delete(id);
+    }
+
+    @GetMapping("/selectSidByFid")
+    @ApiOperation(value = "获取二级id通过一级id")
+    public int selectSidByFid(@RequestParam("fid") int fid ){
+        int sId = kjResultClassifyInfoDao.selectSidByFid(fid);
+        if (sId == -1){
+            KjResultClassifyInfo kjResultClassifyInfo = new KjResultClassifyInfo();
+            kjResultClassifyInfo.setParentId(fid);
+            kjResultClassifyInfo.setName("其它");
+            kjResultClassifyInfo.setType(2);
+            kjResultClassifyInfoDao.save(kjResultClassifyInfo);
+            sId = kjResultClassifyInfo.getId().intValue();
+        }
+        return sId;
+    }
+
+    @PostMapping("/changeFromJob")
+    @ApiOperation(value = "获取用户中心发布新项目的所属行业")
+    public List<KjResultClassifyInfo> changeFromJob(){
+        return kjResultClassifyInfoDao.listData((long) 0);
     }
 }

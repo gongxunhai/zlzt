@@ -64,7 +64,6 @@ public class KjResultController {
     @ApiOperation(value = "修改")
     public KjResult update(@RequestBody KjResult kjResult) {
         kjResultDao.update(kjResult);
-
         return kjResult;
     }
 

@@ -12,6 +12,7 @@
 	<link href="../css/animate.css" rel="stylesheet">
 	<link href="../css/bootsnav.css" rel="stylesheet">
     <link href="../css/swiper.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
     <link href="../treetable/css/jquery.treetable.css" rel="stylesheet" type="text/css" >
 	<link href="../css/style.css" rel="stylesheet">
     <script src="../js/jquery.js"></script>
@@ -19,6 +20,8 @@
 	<script src="../js/bootsnav.js"></script>
     <script src="../js/swiper.min.js"></script>
 	<script src="../treetable/js/jquery.treetable.js"></script>
+    <script type="text/javascript" src="../../../layui/layui.js"></script>
+    <script type="text/javascript" src="../../../js/common.js"></script>
     <script src="../js/rem.js"></script>
     <script src="../js/public.js"></script>
 	<!--[if lt IE 9]>
@@ -27,7 +30,18 @@
 	<![endif]-->
 </head>
 <body>
-<nav class="navbar navbar-default bootsnav navbar-fixed-top wow fadeInDown">
+<script>
+    var pro = window.location.protocol;
+    var host = window.location.host;
+    var domain = pro + "//" + host;
+
+    var layer;
+    layui.use([ 'layer' ], function() {
+        layer = layui.layer;
+    });
+</script>
+<script src="../js/htmlJs/publicHeader.js"></script>
+<!--<nav class="navbar navbar-default bootsnav navbar-fixed-top wow fadeInDown">
     <div class="wrap">
         <div class="attr-nav navRig">
             <ul>
@@ -101,7 +115,7 @@
             </ul>
         </div>        
     </div>
-</nav>
+</nav>-->
 <div class="searchBg">
 	<div class="wrap">
     	<div class="search">
@@ -131,7 +145,7 @@
         </div>
     </div>
 </div><!--searchBg-->
-<div class="banInner banUser wow fadeIn">
+<!--<div class="banInner banUser wow fadeIn">
 	<div class="imgFull"><img src="../images/banUser.jpg" class="img-responsive"></div>
     <div class="banUserCon">
     	<div class="userImgBox" data-toggle="modal" data-target="#myHeadImg">
@@ -167,7 +181,9 @@
     	<li><a href="#">消息通知</a></li>
     	<li><a href="#">账户设置</a></li>
     </ul>
-</div>
+</div>-->
+<script src="../js/htmlJs/getUserHeader.js"></script>
+<script src="../js/htmlJs/getPathname.js"></script>
 <div class="mainBg grayBg overHide">
     <div class="container">
         <div class="reportTop userTit wow fadeInDown">
@@ -183,52 +199,71 @@
         <div class="ceshi">
             <ul id="product" class="regList newPro list-unstyled row wow fadeInUp">
                 <li class="col-xs-12 col-sm-12">
-                    <label class="regLab">成果名称：</label>
+                    <label class="regLab">名称：</label>
                     <div class="regRig">
-                        <input type="text" class="loginInput" >
+                        <input type="text" class="loginInput" id="productName" >
                     </div>
                     <div class="clear"></div>
                 </li>
                 <li class="col-xs-12 col-sm-12">
                     <label class="regLab">所属行业：</label>
                     <div class="regRig serSelCon" id="productClassify">
-                        <label><input type="checkbox" name="serName1"><span>电子信息</span></label>
-                        <label><input type="checkbox" name="serName1" checked><span>航空航天</span></label>
-                        <label><input type="checkbox" name="serName1"><span>先进制造</span></label>
-                        <label><input type="checkbox" name="serName1" checked><span>现代交通</span></label>
-                        <label><input type="checkbox" name="serName1"><span>农业</span></label>
-                        <label><input type="checkbox" name="serName1"><span>环境保护与资源综合利用</span></label>
-                        <label><input type="checkbox" name="serName1"><span>生物、医药合医疗器械</span></label>
-                        <label><input type="checkbox" name="serName1"><span>新材料及其应用</span></label>
-                        <label><input type="checkbox" name="serName1"><span>新能源与高效节能</span></label>
-                        <label><input type="checkbox" name="serName1"><span>城市建设与社会发展</span></label>
-                        <label><input type="checkbox" name="serName1"><span>其它</span></label>
                     </div>
                     <div class="clear"></div>
                 </li>
                 <li class="col-xs-12 col-sm-12 col-md-6">
                     <label class="regLab">细分领域：</label>
                     <div class="regRig">
-                        <input type="text" class="loginInput" >
+                        <input type="text" class="loginInput" id="xfArea">
                     </div>
                     <div class="clear"></div>
                 </li>
                 <li class="col-xs-12 col-sm-12 col-md-6">
-                    <label class="regLab">技术来源：</label>
+                    <label class="regLab">区域：</label>
                     <div class="regRig">
-                        <select class="regSelect">
-                            <option>国家（军方）投资</option>
-                            <option>外部引进</option>
-                            <option>自主研发</option>
-                            <option>其它</option>
-                        </select>
+                        <input type="text" class="loginInput" id="place">
                     </div>
                     <div class="clear"></div>
                 </li>
                 <li class="col-xs-12 col-sm-12">
-                    <label class="regLab">技术简介：</label>
+                    <label class="regLab">产品参数：</label>
                     <div class="regRig">
-                        <input type="text" class="loginInput" >
+                        <textarea type="text" class="loginInput" id="pData"></textarea>
+                    </div>
+                    <div class="clear"></div>
+                </li>
+                <li class="col-xs-12 col-sm-12 col-md-6">
+                    <label class="regLab">价格：</label>
+                    <div class="regRig">
+                        <input type="text" class="loginInput" id="price">
+                    </div>
+                    <div class="clear"></div>
+                </li>
+                <li class="col-xs-12 col-sm-12 col-md-6">
+                    <label class="regLab">促销价：</label>
+                    <div class="regRig">
+                        <input type="text" class="loginInput"id="salePrice">
+                    </div>
+                    <div class="clear"></div>
+                </li>
+                <li class="col-xs-12 col-sm-12 col-md-6">
+                    <label class="regLab">成交量：</label>
+                    <div class="regRig">
+                        <input type="text" class="loginInput" id="buyNum">
+                    </div>
+                    <div class="clear"></div>
+                </li>
+                <li class="col-xs-12 col-sm-12 col-md-6">
+                    <label class="regLab">剩余量：</label>
+                    <div class="regRig">
+                        <input type="text" class="loginInput" id="haveNum">
+                    </div>
+                    <div class="clear"></div>
+                </li>
+                <li class="col-xs-12 col-sm-12">
+                    <label class="regLab">产品详情：</label>
+                    <div class="regRig">
+                        <textarea type="text" class="loginInput" id="pDetail"></textarea>
                     </div>
                     <div class="clear"></div>
                 </li>
@@ -236,18 +271,9 @@
                     <label class="regLab">上传图片：</label>
                     <div class="regRig idCard">
                         <div class="idCardImg">
-                            <img src="../images/newProject1.jpg" class="img-responsive">
-                        </div>
-                        <div class="idCardImg">
-                            <img src="../images/newProject2.jpg" class="img-responsive">
-                        </div>
-                        <div class="idCardImg">
-                            <img src="../images/newProject3.jpg" class="img-responsive">
-                        </div>
-                        <div class="idCardImg">
-                            <div class="idCardInput">
+                            <div class="idCardInput" id="cardA">
                                 <i class="iconfont icon-addition1"></i>
-                                <input type="file">
+                                <input type="file" onchange="upload('A')"  id="uploadA">
                             </div>
                         </div>
                         <div class="clear"></div>                    
@@ -255,99 +281,22 @@
                     <div class="clear"></div>
                 </li>
                 <li class="col-xs-12 col-sm-12 col-md-6">
-                    <label class="regLab">技术指标：</label>
-                    <div class="regRig">
-                        <input type="text" class="loginInput" >
-                    </div>
-                    <div class="clear"></div>
-                </li>
-                <li class="col-xs-12 col-sm-12 col-md-6">
-                    <label class="regLab">资金需求：</label>
-                    <div class="regRig">
-                        <select class="regSelect">
-                            <option>面议</option>
-                        </select>
-                    </div>
-                    <div class="clear"></div>
-                </li>
-                <li class="col-xs-12">
-                    <label class="regLab">合作方式：</label>
-                    <div class="regRig serSelCon serSelCon2">
-                        <label><input type="radio" name="cooWay" checked><span>技术转让（将专利等技术成果的所有权转让给受让单位。）</span></label>
-                        <label><input type="radio" name="cooWay"><span>许可使用（允许其他单位根据范围、时限、数量等约定条件使用相关技术成果，包括独占许可、排他许可、普通许可三种形式。）</span></label>
-                        <label><input type="radio" name="cooWay"><span>合作开发（与其他单位合作进行技术开发、市场开拓等，并共享新产品有关权益。）</span></label>
-                        <label><input type="radio" name="cooWay"><span>作价入股（以技术成果为无形资产作价出资公司。）</span></label>
-                        <label><input type="radio" name="cooWay"><span>技术服务（利用技术为其他单位提供设计开发、难题诊断及技术攻关、设备及生产线研发、工程设计等服务。）</span></label>
-                        <label><input type="radio" name="cooWay"><span>其他（请注明）：<input type="text" disabled></span></label>
-                    </div>
-                    <div class="clear"></div>
-                </li>
-                <li class="col-xs-12 col-sm-12 col-md-6">
-                    <label class="regLab">区域：</label>
-                    <div class="sxCenCon">
-                        <select>
-                            <option>省份</option>
-                            <option>北京</option>
-                        </select>
-                        <select>
-                            <option>城市</option>
-                            <option>北京</option>
-                        </select>
-                        <select>
-                            <option>地区</option>
-                            <option>海淀区</option>
-                        </select>
-                    </div>
-                    <div class="clear"></div>
-                </li>
-                <li class="col-xs-12 col-sm-12 col-md-6">
-                    <label class="regLab">应用范围：</label>
-                    <div class="regRig">
-                        <input type="text" class="loginInput" >
-                    </div>
-                    <div class="clear"></div>
-                </li>
-                <li class="col-xs-12">
-                    <label class="regLab">样品成熟度：</label>
-                    <div class="regRig serSelCon serSelCon2 serSelCon3">
-                        <label><input type="radio" name="serName2" checked><span>样品、实验室阶段</span></label>
-                        <label><input type="radio" name="serName2"><span>试生产、应用开发阶段</span></label>
-                        <label><input type="radio" name="serName2"><span>小批量生产、工程应用阶段</span></label>
-                        <label><input type="radio" name="serName2"><span>小批量生产、工程应用阶段</span></label>
-                    </div>
-                    <div class="clear"></div>
-                </li>
-                <li class="col-xs-12 col-sm-12 col-md-6">
-                    <label class="regLab">预期效益：</label>
-                    <div class="regRig">
-                        <input type="text" class="loginInput" >
-                    </div>
-                    <div class="clear"></div>
-                </li>
-                <li class="col-xs-12 col-sm-12 col-md-6">
-                    <label class="regLab">知识产权情况：</label>
-                    <div class="regRig">
-                        <input type="text" class="loginInput" >
-                    </div>
-                    <div class="clear"></div>
-                </li>
-                <li class="col-xs-12 col-sm-12 col-md-6">
                     <label class="regLab">联系人：</label>
                     <div class="regRig">
-                        <input type="text" class="loginInput" >
+                        <input type="text" class="loginInput" id="cMan">
                     </div>
                     <div class="clear"></div>
                 </li>
                 <li class="col-xs-12 col-sm-12 col-md-6">
                     <label class="regLab">联系电话：</label>
                     <div class="regRig">
-                        <input type="text" class="loginInput" >
+                        <input type="text" class="loginInput" id="cPhone">
                     </div>
                     <div class="clear"></div>
                 </li>
                 <li class="col-xs-12">
                     <div class="regRig sxCenCon text-center">
-                        <input class="loginBtn submitBtn" type="submit" value="发布" data-toggle="modal" data-target="#success">
+                        <input class="loginBtn submitBtn" type="submit" onclick="productSave();" value="发布" data-toggle="modal" data-target="#success">
                         <input class="loginBtn cancelBtn" type="submit" value="取消">
                     </div>
                     <div class="clear"></div>
@@ -355,40 +304,29 @@
             </ul>
             <ul id="result" class="regList newPro list-unstyled row wow fadeInUp">
                 <li class="col-xs-12 col-sm-12">
-                    <label class="regLab">成果名称：</label>
+                    <label class="regLab">名称：</label>
                     <div class="regRig">
-                        <input type="text" class="loginInput" >
+                        <input type="text" class="loginInput" id="resultName">
                     </div>
                     <div class="clear"></div>
                 </li>
                 <li class="col-xs-12 col-sm-12">
                     <label class="regLab">所属行业：</label>
                     <div class="regRig serSelCon" id="resultClassify">
-                        <label><input type="checkbox" name="serName1"><span>电子信息</span></label>
-                        <label><input type="checkbox" name="serName1" checked><span>航空航天</span></label>
-                        <label><input type="checkbox" name="serName1"><span>先进制造</span></label>
-                        <label><input type="checkbox" name="serName1" checked><span>现代交通</span></label>
-                        <label><input type="checkbox" name="serName1"><span>农业</span></label>
-                        <label><input type="checkbox" name="serName1"><span>环境保护与资源综合利用</span></label>
-                        <label><input type="checkbox" name="serName1"><span>生物、医药合医疗器械</span></label>
-                        <label><input type="checkbox" name="serName1"><span>新材料及其应用</span></label>
-                        <label><input type="checkbox" name="serName1"><span>新能源与高效节能</span></label>
-                        <label><input type="checkbox" name="serName1"><span>城市建设与社会发展</span></label>
-                        <label><input type="checkbox" name="serName1"><span>其它</span></label>
                     </div>
                     <div class="clear"></div>
                 </li>
                 <li class="col-xs-12 col-sm-12 col-md-6">
                     <label class="regLab">细分领域：</label>
                     <div class="regRig">
-                        <input type="text" class="loginInput" >
+                        <input type="text" class="loginInput" id="resultXfArea">
                     </div>
                     <div class="clear"></div>
                 </li>
                 <li class="col-xs-12 col-sm-12 col-md-6">
                     <label class="regLab">技术来源：</label>
                     <div class="regRig">
-                        <select class="regSelect">
+                        <select class="regSelect" id="resultSource">
                             <option>国家（军方）投资</option>
                             <option>外部引进</option>
                             <option>自主研发</option>
@@ -400,7 +338,7 @@
                 <li class="col-xs-12 col-sm-12">
                     <label class="regLab">技术简介：</label>
                     <div class="regRig">
-                        <input type="text" class="loginInput" >
+                        <input type="text" class="loginInput" id="tdetails">
                     </div>
                     <div class="clear"></div>
                 </li>
@@ -408,35 +346,26 @@
                     <label class="regLab">上传图片：</label>
                     <div class="regRig idCard">
                         <div class="idCardImg">
-                            <img src="../images/newProject1.jpg" class="img-responsive">
-                        </div>
-                        <div class="idCardImg">
-                            <img src="../images/newProject2.jpg" class="img-responsive">
-                        </div>
-                        <div class="idCardImg">
-                            <img src="../images/newProject3.jpg" class="img-responsive">
-                        </div>
-                        <div class="idCardImg">
-                            <div class="idCardInput">
+                            <div class="idCardInput" id="cardB">
                                 <i class="iconfont icon-addition1"></i>
-                                <input type="file">
+                                <input type="file" onchange="upload('B')"  id="uploadB">
                             </div>
                         </div>
-                        <div class="clear"></div>                    
+                        <div class="clear"></div>
                     </div>
                     <div class="clear"></div>
                 </li>
                 <li class="col-xs-12 col-sm-12 col-md-6">
                     <label class="regLab">技术指标：</label>
                     <div class="regRig">
-                        <input type="text" class="loginInput" >
+                        <input type="text" class="loginInput" id="tIndex">
                     </div>
                     <div class="clear"></div>
                 </li>
                 <li class="col-xs-12 col-sm-12 col-md-6">
                     <label class="regLab">资金需求：</label>
                     <div class="regRig">
-                        <select class="regSelect">
+                        <select class="regSelect" id="mNeed">
                             <option>面议</option>
                         </select>
                     </div>
@@ -444,7 +373,7 @@
                 </li>
                 <li class="col-xs-12">
                     <label class="regLab">合作方式：</label>
-                    <div class="regRig serSelCon serSelCon2">
+                    <div class="regRig serSelCon serSelCon2" id="cWays">
                         <label><input type="radio" name="cooWay" checked><span>技术转让（将专利等技术成果的所有权转让给受让单位。）</span></label>
                         <label><input type="radio" name="cooWay"><span>许可使用（允许其他单位根据范围、时限、数量等约定条件使用相关技术成果，包括独占许可、排他许可、普通许可三种形式。）</span></label>
                         <label><input type="radio" name="cooWay"><span>合作开发（与其他单位合作进行技术开发、市场开拓等，并共享新产品有关权益。）</span></label>
@@ -456,32 +385,28 @@
                 </li>
                 <li class="col-xs-12 col-sm-12 col-md-6">
                     <label class="regLab">区域：</label>
-                    <div class="sxCenCon">
-                        <select>
-                            <option>省份</option>
-                            <option>北京</option>
-                        </select>
-                        <select>
-                            <option>城市</option>
-                            <option>北京</option>
-                        </select>
-                        <select>
-                            <option>地区</option>
-                            <option>海淀区</option>
-                        </select>
+                    <div class="regRig">
+                        <input type="text" class="loginInput" id="resultArea">
                     </div>
                     <div class="clear"></div>
                 </li>
                 <li class="col-xs-12 col-sm-12 col-md-6">
+                    <label class="regLab">技术水平：</label>
+                    <div class="regRig">
+                        <input type="text" class="loginInput" id="tlevel">
+                    </div>
+                    <div class="clear"></div>
+                </li>
+                <li class="col-xs-12">
                     <label class="regLab">应用范围：</label>
                     <div class="regRig">
-                        <input type="text" class="loginInput" >
+                        <textarea type="text" class="loginInput" id="useRange"></textarea>
                     </div>
                     <div class="clear"></div>
                 </li>
                 <li class="col-xs-12">
                     <label class="regLab">样品成熟度：</label>
-                    <div class="regRig serSelCon serSelCon2 serSelCon3">
+                    <div class="regRig serSelCon serSelCon2 serSelCon3" id="teMaturity">
                         <label><input type="radio" name="serName2" checked><span>样品、实验室阶段</span></label>
                         <label><input type="radio" name="serName2"><span>试生产、应用开发阶段</span></label>
                         <label><input type="radio" name="serName2"><span>小批量生产、工程应用阶段</span></label>
@@ -492,34 +417,34 @@
                 <li class="col-xs-12 col-sm-12 col-md-6">
                     <label class="regLab">预期效益：</label>
                     <div class="regRig">
-                        <input type="text" class="loginInput" >
+                        <input type="text" class="loginInput" id="predict">
                     </div>
                     <div class="clear"></div>
                 </li>
                 <li class="col-xs-12 col-sm-12 col-md-6">
                     <label class="regLab">知识产权情况：</label>
                     <div class="regRig">
-                        <input type="text" class="loginInput" >
+                        <input type="text" class="loginInput" id="knowledge">
                     </div>
                     <div class="clear"></div>
                 </li>
                 <li class="col-xs-12 col-sm-12 col-md-6">
                     <label class="regLab">联系人：</label>
                     <div class="regRig">
-                        <input type="text" class="loginInput" >
+                        <input type="text" class="loginInput" id="resultCMan">
                     </div>
                     <div class="clear"></div>
                 </li>
                 <li class="col-xs-12 col-sm-12 col-md-6">
                     <label class="regLab">联系电话：</label>
                     <div class="regRig">
-                        <input type="text" class="loginInput" >
+                        <input type="text" class="loginInput" id="resultCPhone">
                     </div>
                     <div class="clear"></div>
                 </li>
                 <li class="col-xs-12">
                     <div class="regRig sxCenCon text-center">
-                        <input class="loginBtn submitBtn" type="submit" value="发布" data-toggle="modal" data-target="#success">
+                        <input class="loginBtn submitBtn" type="submit" onclick="resultSave();" value="发布" data-toggle="modal" data-target="#success">
                         <input class="loginBtn cancelBtn" type="submit" value="取消">
                     </div>
                     <div class="clear"></div>
@@ -527,52 +452,99 @@
             </ul>
             <ul id="patent" class="regList newPro list-unstyled row wow fadeInUp">
                 <li class="col-xs-12 col-sm-12">
-                    <label class="regLab">成果名称：</label>
+                    <label class="regLab">名称：</label>
                     <div class="regRig">
-                        <input type="text" class="loginInput" >
+                        <input type="text" class="loginInput" id="patentName">
                     </div>
                     <div class="clear"></div>
                 </li>
                 <li class="col-xs-12 col-sm-12">
                     <label class="regLab">所属行业：</label>
                     <div class="regRig serSelCon" id="patentClassify">
-                        <label><input type="checkbox" name="serName1"><span>电子信息</span></label>
-                        <label><input type="checkbox" name="serName1" checked><span>航空航天</span></label>
-                        <label><input type="checkbox" name="serName1"><span>先进制造</span></label>
-                        <label><input type="checkbox" name="serName1" checked><span>现代交通</span></label>
-                        <label><input type="checkbox" name="serName1"><span>农业</span></label>
-                        <label><input type="checkbox" name="serName1"><span>环境保护与资源综合利用</span></label>
-                        <label><input type="checkbox" name="serName1"><span>生物、医药合医疗器械</span></label>
-                        <label><input type="checkbox" name="serName1"><span>新材料及其应用</span></label>
-                        <label><input type="checkbox" name="serName1"><span>新能源与高效节能</span></label>
-                        <label><input type="checkbox" name="serName1"><span>城市建设与社会发展</span></label>
-                        <label><input type="checkbox" name="serName1"><span>其它</span></label>
                     </div>
                     <div class="clear"></div>
                 </li>
                 <li class="col-xs-12 col-sm-12 col-md-6">
                     <label class="regLab">细分领域：</label>
                     <div class="regRig">
-                        <input type="text" class="loginInput" >
+                        <input type="text" class="loginInput" id="patentXfArea">
                     </div>
                     <div class="clear"></div>
                 </li>
                 <li class="col-xs-12 col-sm-12 col-md-6">
-                    <label class="regLab">技术来源：</label>
+                    <label class="regLab">专利有效期：</label>
                     <div class="regRig">
-                        <select class="regSelect">
-                            <option>国家（军方）投资</option>
-                            <option>外部引进</option>
-                            <option>自主研发</option>
-                            <option>其它</option>
-                        </select>
+                        <input type="text" class="loginInput" id="zlYear">
+                    </div>
+                    <div class="clear"></div>
+                </li>
+                <li class="col-xs-12 col-sm-12 col-md-6">
+                    <label class="regLab">专利号：</label>
+                    <div class="regRig">
+                        <input type="text" class="loginInput" id="zlId">
+                    </div>
+                    <div class="clear"></div>
+                </li>
+                <li class="col-xs-12 col-sm-12 col-md-6">
+                    <label class="regLab">专利类型：</label>
+                    <div class="regRig">
+                        <input type="text" class="loginInput"  id="zlType">
+                    </div>
+                    <div class="clear"></div>
+                </li>
+                <li class="col-xs-12 col-sm-12 col-md-6">
+                    <label class="regLab">法律状态：</label>
+                    <div class="regRig">
+                        <input type="text" class="loginInput" id="lawS">
+                    </div>
+                    <div class="clear"></div>
+                </li>
+                <li class="col-xs-12 col-sm-12 col-md-6">
+                    <label class="regLab">应用领域：</label>
+                    <div class="regRig">
+                        <input type="text" class="loginInput" id="useArea">
+                    </div>
+                    <div class="clear"></div>
+                </li>
+                <li class="col-xs-12 col-sm-12 col-md-6">
+                    <label class="regLab">交易方式：</label>
+                    <div class="regRig">
+                        <input type="text" class="loginInput" id="dealWay">
+                    </div>
+                    <div class="clear"></div>
+                </li>
+                <li class="col-xs-12 col-sm-12 col-md-6">
+                    <label class="regLab">交易金额：</label>
+                    <div class="regRig">
+                        <input type="text" class="loginInput" id="dealMoney">
+                    </div>
+                    <div class="clear"></div>
+                </li>
+                <li class="col-xs-12 col-sm-12 col-md-6">
+                    <label class="regLab">联系人：</label>
+                    <div class="regRig">
+                        <input type="text" class="loginInput" id="patentCMan">
+                    </div>
+                    <div class="clear"></div>
+                </li>
+                <li class="col-xs-12 col-sm-12 col-md-6">
+                    <label class="regLab">联系电话：</label>
+                    <div class="regRig">
+                        <input type="text" class="loginInput"  id="patentCPhone">
                     </div>
                     <div class="clear"></div>
                 </li>
                 <li class="col-xs-12 col-sm-12">
-                    <label class="regLab">技术简介：</label>
+                    <label class="regLab">转化前景：</label>
                     <div class="regRig">
-                        <input type="text" class="loginInput" >
+                        <input type="text" class="loginInput" id="transform"></input>
+                    </div>
+                    <div class="clear"></div>
+                </li>
+                <li class="col-xs-12 col-sm-12">
+                    <label class="regLab">专利详情：</label>
+                    <div class="regRig">
+                        <textarea type="text" class="loginInput" id="zlDetails"></textarea>
                     </div>
                     <div class="clear"></div>
                 </li>
@@ -580,118 +552,18 @@
                     <label class="regLab">上传图片：</label>
                     <div class="regRig idCard">
                         <div class="idCardImg">
-                            <img src="../images/newProject1.jpg" class="img-responsive">
-                        </div>
-                        <div class="idCardImg">
-                            <img src="../images/newProject2.jpg" class="img-responsive">
-                        </div>
-                        <div class="idCardImg">
-                            <img src="../images/newProject3.jpg" class="img-responsive">
-                        </div>
-                        <div class="idCardImg">
-                            <div class="idCardInput">
+                            <div class="idCardInput" id="cardC">
                                 <i class="iconfont icon-addition1"></i>
-                                <input type="file">
+                                <input type="file" onchange="upload('C')"  id="uploadC">
                             </div>
                         </div>
                         <div class="clear"></div>                    
                     </div>
                     <div class="clear"></div>
                 </li>
-                <li class="col-xs-12 col-sm-12 col-md-6">
-                    <label class="regLab">技术指标：</label>
-                    <div class="regRig">
-                        <input type="text" class="loginInput" >
-                    </div>
-                    <div class="clear"></div>
-                </li>
-                <li class="col-xs-12 col-sm-12 col-md-6">
-                    <label class="regLab">资金需求：</label>
-                    <div class="regRig">
-                        <select class="regSelect">
-                            <option>面议</option>
-                        </select>
-                    </div>
-                    <div class="clear"></div>
-                </li>
-                <li class="col-xs-12">
-                    <label class="regLab">合作方式：</label>
-                    <div class="regRig serSelCon serSelCon2">
-                        <label><input type="radio" name="cooWay" checked><span>技术转让（将专利等技术成果的所有权转让给受让单位。）</span></label>
-                        <label><input type="radio" name="cooWay"><span>许可使用（允许其他单位根据范围、时限、数量等约定条件使用相关技术成果，包括独占许可、排他许可、普通许可三种形式。）</span></label>
-                        <label><input type="radio" name="cooWay"><span>合作开发（与其他单位合作进行技术开发、市场开拓等，并共享新产品有关权益。）</span></label>
-                        <label><input type="radio" name="cooWay"><span>作价入股（以技术成果为无形资产作价出资公司。）</span></label>
-                        <label><input type="radio" name="cooWay"><span>技术服务（利用技术为其他单位提供设计开发、难题诊断及技术攻关、设备及生产线研发、工程设计等服务。）</span></label>
-                        <label><input type="radio" name="cooWay"><span>其他（请注明）：<input type="text" disabled></span></label>
-                    </div>
-                    <div class="clear"></div>
-                </li>
-                <li class="col-xs-12 col-sm-12 col-md-6">
-                    <label class="regLab">区域：</label>
-                    <div class="sxCenCon">
-                        <select>
-                            <option>省份</option>
-                            <option>北京</option>
-                        </select>
-                        <select>
-                            <option>城市</option>
-                            <option>北京</option>
-                        </select>
-                        <select>
-                            <option>地区</option>
-                            <option>海淀区</option>
-                        </select>
-                    </div>
-                    <div class="clear"></div>
-                </li>
-                <li class="col-xs-12 col-sm-12 col-md-6">
-                    <label class="regLab">应用范围：</label>
-                    <div class="regRig">
-                        <input type="text" class="loginInput" >
-                    </div>
-                    <div class="clear"></div>
-                </li>
-                <li class="col-xs-12">
-                    <label class="regLab">样品成熟度：</label>
-                    <div class="regRig serSelCon serSelCon2 serSelCon3">
-                        <label><input type="radio" name="serName2" checked><span>样品、实验室阶段</span></label>
-                        <label><input type="radio" name="serName2"><span>试生产、应用开发阶段</span></label>
-                        <label><input type="radio" name="serName2"><span>小批量生产、工程应用阶段</span></label>
-                        <label><input type="radio" name="serName2"><span>小批量生产、工程应用阶段</span></label>
-                    </div>
-                    <div class="clear"></div>
-                </li>
-                <li class="col-xs-12 col-sm-12 col-md-6">
-                    <label class="regLab">预期效益：</label>
-                    <div class="regRig">
-                        <input type="text" class="loginInput" >
-                    </div>
-                    <div class="clear"></div>
-                </li>
-                <li class="col-xs-12 col-sm-12 col-md-6">
-                    <label class="regLab">知识产权情况：</label>
-                    <div class="regRig">
-                        <input type="text" class="loginInput" >
-                    </div>
-                    <div class="clear"></div>
-                </li>
-                <li class="col-xs-12 col-sm-12 col-md-6">
-                    <label class="regLab">联系人：</label>
-                    <div class="regRig">
-                        <input type="text" class="loginInput" >
-                    </div>
-                    <div class="clear"></div>
-                </li>
-                <li class="col-xs-12 col-sm-12 col-md-6">
-                    <label class="regLab">联系电话：</label>
-                    <div class="regRig">
-                        <input type="text" class="loginInput" >
-                    </div>
-                    <div class="clear"></div>
-                </li>
                 <li class="col-xs-12">
                     <div class="regRig sxCenCon text-center">
-                        <input class="loginBtn submitBtn" type="submit" value="发布" data-toggle="modal" data-target="#success">
+                        <input class="loginBtn submitBtn" type="submit" onclick="patentSave();" value="发布" data-toggle="modal" data-target="#success">
                         <input class="loginBtn cancelBtn" type="submit" value="取消">
                     </div>
                     <div class="clear"></div>
@@ -699,7 +571,7 @@
             </ul>
         </div>
         <script>
-        	$(".ceshi .regList").eq(0).show().siblings().hide();
+        	$(".ceshi .regList").eq(1).show().siblings().hide();
 			$(".userTitRig li a").click(function(){
 			    var param = $(this)[0].text;
                 changeJob(param);
@@ -766,7 +638,7 @@
         </div>
         <div class="ftBot wow fadeInUp">
         	<div class="copyRight">
-            	<p>Copyright © 2018中国航天科工集团知识产权中心版权所有 京ICP备13006003号-2  设计支持：<a href="#">千助科技</a></p>
+            	<p>Copyright © 2018中国航天科工集团知识产权中心版权所有 京ICP备13006003号-2  设计支持：<a href="#">谦亨网络</a></p>
             </div>
             <div class="ftBotRig">
             	<ul class="ftBotIco list-unstyled list-inline">
@@ -788,7 +660,7 @@
         </div>
     </div>
 </footer>
-<div id="myHeadImg" class="modal fade">
+<!--<div id="myHeadImg" class="modal fade">
     <div class="loginBox">
         <div class="loginTop">
             <h2 class="loginTit">修改头像</h2>
@@ -809,22 +681,27 @@
         </div>
         <a href="javascript:;" class="uploadExit" data-dismiss="modal">取消</a>
     </div>
-</div>
+</div>-->
 <div id="success" class="modal fade">
     <div class="loginBox succBox">
         <div class="loginTop">
-            <span class="loginClose" href="javascript:;" data-dismiss="modal"><i class="iconfont icon-guanbi"></i></span>
+            <span class="loginClose" href="javascript:;" data-dismiss="modal"><i class="iconfont icon-guanbi" onclick="javascript:window.location.reload();"></i></span>
             <div class="clear"></div>
         </div>
         <div class="succTip text-center">
         	<h3><i class="iconfont icon-xiaolian"></i>您的项目已成功发布！</h3>
             <p>您已成功发布一个新项目，请留意您的项目状况</p>
-            <p>返回 <a class="corBlue" href="#">会员首页</a> 或返回 <a href="#">网站首页</a></p>
+            <p>返回 <a class="corBlue" href="userCore.html">会员首页</a> 或返回 <a href="../index.html">网站首页</a></p>
         </div>
     </div>
 </div>
+<input type="hidden" id="cardInputA" name="cardInputA">
+<input type="hidden" id="cardInputB" name="cardInputB">
+<input type="hidden" id="cardInputC" name="cardInputC">
 </body>
 <script>
+    console.log("user"+user);
+    var sId = '';
     //所属行业改变
     function changeJob(obj) {
         var a = '';
@@ -850,10 +727,179 @@
                 b.html('');
                 var data = result.data;
                 for (var i = 0; i < data.length; i++) {
-                    b.append('<label><input type="radio" name="serName1"><span>'+data[i].name+'</span></label>\n');
+                    b.append('<label><input type="radio" name="serName1" value="'+data[i].id+'"><span>'+data[i].name+'</span></label>\n');
                 }
             }
         })
     }
+
+    function selectSidByFid(requestUrl,fId) {
+        $.ajax({
+            type : "get" ,
+            url: '/'+requestUrl+'/selectSidByFid?fid='+fId,
+            async : false,
+            success : function (result) {
+                sId = result;
+            }
+        })
+    }
+
+    function upload(obj) {
+        var file = $("#upload"+obj)[0].files[0];
+        if (file !=null && file !='undefined'){
+            var formData = new FormData();
+            formData.append("file", file);
+            $.ajax({
+                type : "post" ,
+                url: '/files',
+                data : formData ,
+                processData : false,
+                contentType : false,
+                success: function (result) {
+                    $("#card"+obj).attr("style","background:url("+domain+"/statics"+result.url+") no-repeat;background-size: contain;")
+                    $("#cardInput"+obj).val(result.url);
+                }
+            })
+        }
+    }
+
+    function productSave(){
+        var fromJob = $("#productClassify").find("input");
+        var fId = "";
+        for(var i in fromJob){
+            if(fromJob[i].checked){
+                fId = fromJob[i].value;
+            }
+        }
+        selectSidByFid('kjProductClassifyInfos',fId);
+        var formdata = new FormData();
+        formdata.name = $("#productName").val();
+        formdata.fId = fId;
+        formdata.sId = sId;
+        formdata.xfArea = $("#xfArea").val();
+        formdata.place = $("#place").val();
+        formdata.pData = $("#pData").val();
+        formdata.price = $("#price").val();
+        formdata.salePrice = $("#salePrice").val();
+        formdata.buyNum = $("#buyNum").val();
+        formdata.haveNum = $("#haveNum").val();
+        formdata.pDetail = $("#pDetail").val();
+        formdata.image = $("#cardInputA").val();
+        formdata.cMan = $("#cMan").val();
+        formdata.cPhone = $("#cPhone").val();
+        formdata.pubTime = (new Date()).Format("yyyy-MM-dd hh:mm:ss");
+        formdata.userId = user.id;
+        formdata.status = 0;
+        console.log("formdata======"+JSON.stringify(formdata));
+        $.ajax({
+            type : 'post',
+            url : '/kjProducts',
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formdata),
+            success : function(data) {
+                layer.msg("发布成功!");
+            }
+        });
+    }
+    function resultSave(){
+        var fromJob = $("#resultClassify").find("input");
+        var fId = "";
+        for(var i in fromJob){
+            if(fromJob[i].checked){
+                fId = fromJob[i].value;
+            }
+        }
+        selectSidByFid('kjResultClassifyInfos',fId);
+        var cways = $("#cWays").find("input");
+        var cway = '';
+        for(var j in cways){
+            if(cways[j].checked){
+                cway = ($("#cWays").find("span"))[j].textContent;
+                alert("cway="+($("#cWays").find("span"))[j].textContent);
+            }
+        }
+        var maturity = $("#teMaturity").find("input");
+        var teMaturity = '';
+        for(var j in maturity){
+            if(maturity[j].checked){
+                teMaturity = ($("#teMaturity").find("span"))[j].textContent;
+                alert("teMaturity="+($("#teMaturity").find("span"))[j].textContent);
+            }
+        }
+        var formdata = new FormData();
+        formdata.name = $("#resultName").val();
+        formdata.fId = fId;
+        formdata.sId = sId;
+        formdata.xfArea = $("#resultXfArea").val();
+        formdata.source = $("#resultSource").val();
+        formdata.image = $("#cardInputB").val();
+        formdata.tIndex = $("#tIndex").val();
+        formdata.mNeed = $("#mNeed").val();
+        formdata.cWays = cway;
+        formdata.area = $("#resultArea").val();
+        formdata.tlevel = $("#tlevel").val();
+        formdata.useRange = $("#useRange").val();
+        formdata.teMaturity = teMaturity;
+        formdata.predict = $("#predict").val();
+        formdata.knowledge = $("#knowledge").val();
+        formdata.cMan = $("#resultCMan").val();
+        formdata.cPhone = $("#resultCPhone").val();
+        formdata.tdetails = $("#tdetails").val();
+        formdata.pubTime = (new Date()).Format("yyyy-MM-dd hh:mm:ss");
+        formdata.userId = user.id;
+        formdata.status = 0;
+        console.log("formdata======"+JSON.stringify(formdata));
+        $.ajax({
+            type : 'post',
+            url : '/kjResults',
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formdata),
+            success : function(data) {
+                console.log("发布成功!");
+            }
+        });
+    }
+    function patentSave(){
+        var fromJob = $("#patentClassify").find("input");
+        var fId = "";
+        for(var i in fromJob){
+            if(fromJob[i].checked){
+                fId = fromJob[i].value;
+            }
+        }
+        selectSidByFid('kjZlSuperClassifyInfos',fId);
+        var formdata = new FormData();
+        formdata.name = $("#patentName").val();
+        formdata.fId = fId;
+        formdata.sId = sId;
+        formdata.xfArea = $("#patentXfArea").val();
+        formdata.zlYear = $("#zlYear").val();
+        formdata.zlId = $("#zlId").val();
+        formdata.zlType = $("#zlType").val();
+        formdata.lawS = $("#lawS").val();
+        formdata.useArea = $("#useArea").val();
+        formdata.dealWay = $("#dealWay").val();
+        formdata.dealMoney = $("#dealMoney").val();
+        formdata.cMan = $("#patentCMan").val();
+        formdata.cPhone = $("#patentCPhone").val();
+        formdata.transform = $("#transform").val();
+        formdata.zlDetails = $("#zlDetails").val();
+        formdata.image = $("#cardInputC").val();
+        formdata.pubTime = (new Date()).Format("yyyy-MM-dd hh:mm:ss");
+        formdata.userId = user.id;
+        formdata.status = 0;
+        console.log("formdata======"+JSON.stringify(formdata));
+        $.ajax({
+            type : 'post',
+            url : '/kjZlsupers',
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formdata),
+            success : function(data) {
+                console.log("发布成功!");
+            }
+        });
+    }
+
+    changeJob('技术成果');
 </script>
 </html>

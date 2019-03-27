@@ -37,4 +37,7 @@ public interface KjZlSuperClassifyInfoDao {
 
     @Select("select * from kj_zlSuper_classifyInfo where parentId = #{parentId}")
     List<KjZlSuperClassifyInfo> listData(@Param("parentId") Long parentId);
+
+    @Select("select ifnull(max(id),-1) from kj_zlSuper_classifyInfo where parentId = #{fid} and name = '其它' ")
+    int selectSidByFid(@Param("fid") int fid);
 }

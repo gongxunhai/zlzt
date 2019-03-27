@@ -44,24 +44,16 @@
                                 <tr>
                                 </tr>                       
                                 <tr>
-									<th>buyNum</th>
-									<th>cMan</th>
-									<th>cPhone</th>
-									<th>fId</th>
-									<th>haveNum</th>
-									<th>history</th>
 									<th>id</th>
-									<th>name</th>
-									<th>pData</th>
-									<th>pDetail</th>
-									<th>pImage</th>
-									<th>place</th>
-									<th>price</th>
-									<th>pubTime</th>
-									<th>salePrice</th>
-									<th>sId</th>
-									<th>talk</th>
-									<th>xfArea</th>
+									<th>所属行业</th>
+									<th>二级行业</th>
+									<th>名称</th>
+									<th>价格</th>
+									<th>促销价</th>
+									<th>成交量</th>
+									<th>剩余量</th>
+									<th>区域</th>
+									<th>状态</th>
 									<th>操作</th>
                                 </tr>
                             </thead>
@@ -104,24 +96,28 @@ function init(){
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
             "columns": [
-				{"data" : "buyNum", "defaultContent" : ""},
-				{"data" : "cMan", "defaultContent" : ""},
-				{"data" : "cPhone", "defaultContent" : ""},
-				{"data" : "fId", "defaultContent" : ""},
+                {"data" : "id", "defaultContent" : ""},
+                {"data" : "fIdName", "defaultContent" : ""},
+                {"data" : "sIdName", "defaultContent" : ""},
+                {"data" : "name", "defaultContent" : ""},
+                {"data" : "price", "defaultContent" : ""},
+                {"data" : "salePrice", "defaultContent" : ""},
+                {"data" : "buyNum", "defaultContent" : ""},
 				{"data" : "haveNum", "defaultContent" : ""},
-				{"data" : "history", "defaultContent" : ""},
-				{"data" : "id", "defaultContent" : ""},
-				{"data" : "name", "defaultContent" : ""},
-				{"data" : "pData", "defaultContent" : ""},
-				{"data" : "pDetail", "defaultContent" : ""},
-				{"data" : "pImage", "defaultContent" : ""},
 				{"data" : "place", "defaultContent" : ""},
-				{"data" : "price", "defaultContent" : ""},
-				{"data" : "pubTime", "defaultContent" : ""},
-				{"data" : "salePrice", "defaultContent" : ""},
-				{"data" : "sId", "defaultContent" : ""},
-				{"data" : "talk", "defaultContent" : ""},
-				{"data" : "xfArea", "defaultContent" : ""},
+                {"data" : "status", "defaultContent" : "",
+                    "render": function (data, type, row) {
+                        var status = row['status'];
+                        if(status == 0){
+                            return "<span style='color:red'>未审核</span>";
+                        }else if(status == 1){
+                            return "已审核";
+                        }else if(status == 2){
+                            return "<span style='color:red'>审核失败</span>";
+                        }
+                        return status;
+                    }
+                },
 				{ 
 								"data": "", 
 								"defaultContent": "",
@@ -136,7 +132,7 @@ function init(){
 							},
                 
             ],
-           "order": [[ 0, "asc" ]]
+           "order": [[ 8, "asc" ]]
         } );
 }
 

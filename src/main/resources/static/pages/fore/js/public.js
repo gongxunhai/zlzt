@@ -114,23 +114,23 @@ jQuery(function () {
 		$(this).parent().addClass("active").siblings().removeClass("active");
 		$(".box1Bot .box1Item").eq($(this).parent().index()).show().addClass('fadeInUp animated').siblings().hide();
 	})	
-	$(document).on("click",".upcollect a",function(event){
+	/*$(document).on("click",".upcollect a",function(event){
         $(this).toggleClass("active");
         if ($(this).hasClass("up")){
             if ($(this).hasClass("active")) {
-                alert("点赞成功");
+                alert("点赞成功!");
             }else {
-                alert("取消点赞");
+                alert("取消点赞!");
             }
         }
         if ($(this).hasClass("collect")){
             if ($(this).hasClass("active")) {
-                alert("点赞成功");
+                alert("收藏成功!");
             }else {
-                alert("取消点赞");
+                alert("取消收藏!");
             }
         }
-	})
+	})*/
 	$(".box2Rig li").each(function(index){$(this).attr("data-wow-delay",index/10+"s");});
 	$(".box4List li").each(function(index){$(this).attr("data-wow-delay",index/10+"s");});
 	$(".box5Item").each(function(index, element) {

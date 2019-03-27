@@ -3,6 +3,7 @@ package com.boot.security.server.controller;
 import java.util.List;
 
 import com.alibaba.fastjson.JSONObject;
+import com.boot.security.server.annotation.LogAnnotation;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -32,7 +33,10 @@ public class ZlztUserController {
     @ApiOperation(value = "保存")
     public ZlztUser save(@RequestBody ZlztUser zlztUser) {
         zlztUser.setPassword(passwordEncoder.encode(zlztUser.getPassword()));
-        zlztUserDao.save(zlztUser);
+        ZlztUser zlztUser1 = zlztUserDao.getPwdByPhoneAndEmail(zlztUser.getPhone(),zlztUser.getEmail());
+        if (zlztUser1 !=null){
+            zlztUserDao.save(zlztUser);
+        }
         return zlztUser;
     }
 
@@ -104,4 +108,5 @@ public class ZlztUserController {
         }
         return json;
     }
+
 }

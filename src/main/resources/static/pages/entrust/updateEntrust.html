@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+</head>
+<body>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<form class="form-horizontal" onsubmit="return false" id="form">
+		<fieldset>
+			<input type="hidden" id="id" name="id">
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>用户名称</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='userId' type='text' name='userId' id='userId' data-bv-notempty='true' data-bv-notempty-message='userId 不能为空'>
+                </div>
+            </div>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>委托内容</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='content' type='text' name='content' id='content' data-bv-notempty='true' data-bv-notempty-message='content 不能为空'>
+                </div>
+            </div>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>产品类型</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='type' type='text' name='type' id='type' data-bv-notempty='true' data-bv-notempty-message='type 不能为空'>
+                </div>
+            </div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>联系人</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='contactMan' type='text' name='contactMan' id='contactMan' data-bv-notempty='true' data-bv-notempty-message='contactMan 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>联系方式</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='contactWay' type='text' name='contactWay' id='contactWay' data-bv-notempty='true' data-bv-notempty-message='contactWay 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>上传附件</label>
+				<div class='col-md-10'>
+                    <a id='file' >点击查看</a>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>页面地址</label>
+				<div class='col-md-10'>
+                    <a id='url'>点击查看</a>
+				</div>
+			</div>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>状态</label>
+                <div class='col-md-10'>
+                    <select class='form-control' placeholder='status' type='text' name='status' id='status' data-bv-notempty='true' data-bv-notempty-message='status 不能为空'></select>
+                </div>
+            </div>
+			<div class="form-actions">
+				<div class="row" align="center">
+					<div class="col-md-12">
+					    <button class="btn btn-primary" onclick="location.href='entrustList.html'">返回</button>
+						<button class="btn btn-primary" type="submit" onclick="update()">
+							<i class="fa fa-save"></i> 保存
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+</div>
+	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../js/jq.js"></script>
+    <script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript">
+        var pro = window.location.protocol;
+        var host = window.location.host;
+        var domain = pro + "//" + host;
+        var layer ;
+
+		layui.use(['layer','laydate'], function(){
+            layer = layui.layer;
+		});
+		
+		$.ajax({
+            type : 'get',
+            url :  '/dicts?type=zlztUserStatus',
+            async : false,
+            success : function(data) {
+                $("#status").html('');
+                for (var i = 0; i < data.length; i++) {
+                    $("#status").append('<option value="' + data[i].k + '">' + data[i].val + '</option>')
+
+                }
+            }
+        })
+		
+		function initData(){
+			var id = getUrlParam("id");
+			if(id != ""){
+				$.ajax({
+					type : 'get',
+					url : '/entrusts/'+id,
+					async : false,
+					success : function(data) {
+						$('#contactMan').val(data.contactMan);
+						$('#contactWay').val(data.contactWay);
+						$('#content').val(data.content);
+						$('#createTime').val(data.createTime);
+						$('#file').attr("href",domain+"/statics"+data.file);
+						$('#id').val(data.id);
+						$('#status').val(data.status);
+						$('#type').val(data.typeName);
+						$('#url').attr("href",domain+data.url);
+						$('#userId').val(data.username);
+					}
+				});
+			}
+		}
+
+        initData();
+		function update() {
+			$('#form').bootstrapValidator();
+			var bootstrapValidator = $("#form").data('bootstrapValidator');
+			bootstrapValidator.validate();
+		    if(!bootstrapValidator.isValid()){
+			   return;
+		    }
+		    
+		    var formdata = $("#form").serializeObject();
+
+			$.ajax({
+				type : 'put',
+				url : '/entrusts',
+				contentType: "application/json; charset=utf-8",  
+				data : JSON.stringify(formdata),
+				success : function(data) {
+					layer.msg("修改成功", {shift: -1, time: 1000}, function(){
+                        location.href = "entrustList.html";
+                    });
+				}
+			});
+		}
+	</script>
+</body>
+</html>

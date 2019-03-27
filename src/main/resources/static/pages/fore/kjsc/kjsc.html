@@ -1335,6 +1335,7 @@
     var id = getUrlParam("id");
     $("#tableName").val("kj_result");
     $("#tableName2").val("kj_result_classifyInfo");
+    var fromURL = '/kjProducts'; // /kjResults /kjZlsupers
 
     var dataSet =[];
     var orderBy = 'order by pubTime desc';
@@ -1399,7 +1400,8 @@
                 "lawS" : $("#lawS").val(),
                 "dealWay" : $("#dealWay").val(),
                 "zlType" : $("#zlType").val(),
-                "orderBy" : orderBy
+                "orderBy" : orderBy,
+                "status" : 1
             },
             success : function (result) {
                 //清空datatables
@@ -1438,7 +1440,7 @@
                     dataChildren.push('<td>\n' +
                         '                                    <div class="box1Con">\n' + ahref +
                         '                                            <div class="box1Img">\n' +
-                        '                                                <img src="../images/box1Img1.jpg" class="img-responsive">\n' +
+                        '                                                <img src="'+domain+'/statics'+(data[i*3].image || '/default2.png' )+'" class="img-responsive">\n' +
                         '                                                <div class="box1Mask"></div>\n' +
                         '                                                <div class="box1Ico">\n' +
                         '                                                    <i class="iconfont icon-chakan"></i>\n' +
@@ -1456,8 +1458,8 @@
                         '                                        </a>\n' +
                         '                                        <div class="box1Bot">\n' +
                         '                                            <div class="upcollect pull-left">\n' +
-                        '                                                <a href="javascript:;" class="up">点赞(35)</a>\n' +
-                        '                                                <a href="javascript:;" class="collect">关注(64)</a>\n' +
+                        '                                                <a href="javascript:;" class="up" id="P'+$("#tableName").val()+data[i*3].id+'" value="'+data[i*3].id+'">点赞('+(data[i*3].pointNum || '0' )+')</a>\n' +
+                        '                                                <a href="javascript:;" class="collect" id="C'+$("#tableName").val()+data[i*3].id+'" value="'+data[i*3].id+'">关注('+(data[i*3].careNum || '0' )+')</a>\n' +
                         '                                            </div>\n' +
                         '                                            <span class="box1Tag pull-right">自营</span>\n' +
                         '                                            <div class="clear"></div>\n' +
@@ -1467,7 +1469,7 @@
                     dataChildren.push('<td>\n' +
                         '                                    <div class="box1Con">\n' + ahref1 +
                         '                                            <div class="box1Img">\n' +
-                        '                                                <img src="../images/box1Img1.jpg" class="img-responsive">\n' +
+                        '                                                <img src="'+domain+'/statics'+(data[i*3+1].image || '/default2.png' )+'" class="img-responsive">\n' +
                         '                                                <div class="box1Mask"></div>\n' +
                         '                                                <div class="box1Ico">\n' +
                         '                                                    <i class="iconfont icon-chakan"></i>\n' +
@@ -1485,8 +1487,8 @@
                         '                                        </a>\n' +
                         '                                        <div class="box1Bot">\n' +
                         '                                            <div class="upcollect pull-left">\n' +
-                        '                                                <a href="javascript:;" class="up">点赞(35)</a>\n' +
-                        '                                                <a href="javascript:;" class="collect">关注(64)</a>\n' +
+                        '                                                <a href="javascript:;" class="up" id="P'+$("#tableName").val()+data[i*3+1].id+'" value="'+data[i*3+1].id+'">点赞('+(data[i*3+1].pointNum || '0' )+')</a>\n' +
+                        '                                                <a href="javascript:;" class="collect" id="C'+$("#tableName").val()+data[i*3+1].id+'" value="'+data[i*3+1].id+'">关注('+(data[i*3+1].careNum || '0' )+')</a>\n' +
                         '                                            </div>\n' +
                         '                                            <span class="box1Tag pull-right">自营</span>\n' +
                         '                                            <div class="clear"></div>\n' +
@@ -1496,7 +1498,7 @@
                         dataChildren.push('<td>\n' +
                         '                                    <div class="box1Con">\n' + ahref2 +
                         '                                            <div class="box1Img">\n' +
-                        '                                                <img src="../images/box1Img1.jpg" class="img-responsive">\n' +
+                        '                                                <img src="'+domain+'/statics'+ (data[i*3+2].image || "/default2.png" )+'" class="img-responsive">\n' +
                         '                                                <div class="box1Mask"></div>\n' +
                         '                                                <div class="box1Ico">\n' +
                         '                                                    <i class="iconfont icon-chakan"></i>\n' +
@@ -1514,8 +1516,8 @@
                         '                                        </a>\n' +
                         '                                        <div class="box1Bot">\n' +
                         '                                            <div class="upcollect pull-left">\n' +
-                        '                                                <a href="javascript:;" class="up">点赞(35)</a>\n' +
-                        '                                                <a href="javascript:;" class="collect">关注(64)</a>\n' +
+                            '                                                <a href="javascript:;" class="up" id="P'+$("#tableName").val()+data[i*3+2].id+'" value="'+data[i*3+2].id+'">点赞('+(data[i*3+2].pointNum || '0' )+')</a>\n' +
+                            '                                                <a href="javascript:;" class="collect" id="C'+$("#tableName").val()+data[i*3+2].id+'" value="'+data[i*3+2].id+'">关注('+(data[i*3+2].careNum || '0' )+')</a>\n' +
                         '                                            </div>\n' +
                         '                                            <span class="box1Tag pull-right">自营</span>\n' +
                         '                                            <div class="clear"></div>\n' +
@@ -1536,7 +1538,7 @@
                         datachildren.push('<td>\n' +
                             '                                    <div class="box1Con">\n' +ahref3 +
                             '                                            <div class="box1Img">\n' +
-                            '                                                <img src="../images/box1Img1.jpg" class="img-responsive">\n' +
+                            '                                                <img src="'+domain+'/statics'+data[a*3+j].image+'" class="img-responsive">\n' +
                             '                                                <div class="box1Mask"></div>\n' +
                             '                                                <div class="box1Ico">\n' +
                             '                                                    <i class="iconfont icon-chakan"></i>\n' +
@@ -1554,8 +1556,8 @@
                             '                                        </a>\n' +
                             '                                        <div class="box1Bot">\n' +
                             '                                            <div class="upcollect pull-left">\n' +
-                            '                                                <a href="javascript:;" class="up">点赞(35)</a>\n' +
-                            '                                                <a href="javascript:;" class="collect">关注(64)</a>\n' +
+                            '                                                <a href="javascript:;" class="up" id="P'+$("#tableName").val()+data[a*3+j].id+'" value="'+data[a*3+j].id+'">点赞('+(data[a*3+j].pointNum || '0' )+')</a>\n' +
+                            '                                                <a href="javascript:;" class="collect" id="C'+$("#tableName").val()+data[a*3+j].id+'" value="'+data[a*3+j].id+'">关注('+(data[a*3+j].careNum || '0' )+')</a>\n' +
                             '                                            </div>\n' +
                             '                                            <span class="box1Tag pull-right">自营</span>\n' +
                             '                                            <div class="clear"></div>\n' +
@@ -1669,11 +1671,12 @@
     // console.log(table);
 
 
+    //一级分类选中样式改变，当前所在页面改变，筛选条件清空，数据初始化
     function dataChange(obj, index) {
 
         var aObjs = $('.leftMenu').find('tr');
 
-        console.log(aObjs);
+        // console.log(aObjs);
 
         for(var i=0;i<aObjs.length;i++) {
             var num = $(aObjs[i]).attr('data-tt-id');
@@ -1717,6 +1720,8 @@
         $("#zlType").val('');
         init();
         changeSelect();
+        selectPoint();
+        selectCollection();
     }
 
     //获取1级fid，2级sid的值
@@ -1813,14 +1818,172 @@
         })
     }
 
-    init();
-    changeSelect();
+    /*init();
+    changeSelect();*/
     if( id == '1'){
-        dataChange('product', '1')
+        dataChange('product', '1');
     }else if ( id == '2'){
-        dataChange('result', '2')
+        dataChange('result', '2');
     }else if ( id == '3'){
-        dataChange('zlsuper', '3')
+        dataChange('zlsuper', '3');
+    }
+
+    $(document).on("click",".upcollect a",function(event){
+        if (user != null && user != '') {
+            $(this).toggleClass("active");
+            if ($(this).hasClass("up")){
+                if ($(this).hasClass("active")) {
+                    addPoint($(this).attr("value"));
+                }else {
+                    deletePoint($(this).attr("value"));
+                }
+            }
+            if ($(this).hasClass("collect")){
+                if ($(this).hasClass("active")) {
+                    addCollection($(this).attr("value"));
+                }else {
+                    deleteCollection($(this).attr("value"));
+                }
+            }
+        }else {
+            alert("请先登录!");
+        }
+    });
+
+    function addPoint(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.agreeId =  obj;
+        formData.type = $("#tableName").val();
+        switch ($("#tableName").val()) {
+            case "kj_result" :  formData.url = "/pages/fore/kjsc/kjsc_result.html?id="+obj;break;
+            case "kj_product" :  formData.url = "/pages/fore/kjsc/kjsc_kjproduct.html?id="+obj;break;
+            case "kj_zlsuper" :  formData.url = "/pages/fore/kjsc/kjsc_zlsuper.html?id="+obj;break;
+        }
+        $.ajax({
+            type : 'post',
+            url : '/zlztPointAgrees/addPoint',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    if (data.msg == "success") {
+                        $("#P" + $("#tableName").val() + obj).html('点赞(' + data.pointNum + ')');
+                        alert("点赞成功!");
+                    }
+                    else {
+                        alert("已点赞!");
+                    }
+                }
+            }
+        })
+    }
+    function deletePoint(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.agreeId =  obj;
+        formData.type = $("#tableName").val();
+        $.ajax({
+            type : 'delete',
+            url : '/zlztPointAgrees/deletePoint',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    $("#P" + $("#tableName").val() + obj).html('点赞(' + data.pointNum + ')');
+                    alert("取消点赞!");
+                }
+            }
+        });
+    }
+
+    function selectPoint() {
+        $.ajax({
+            type : 'get',
+            url : '/zlztPointAgrees',
+            async : false,
+            data:{
+                "userId" : user.id,
+                "type" : $("#tableName").val()
+            },
+            success : function(result) {
+                var data = result.data;
+                console.log(data);
+                for (var i = 0; i < data.length; i++) {
+                    $("#P"+$("#tableName").val()+data[i].agreeId).addClass("active");
+                }
+            }
+        })
+    }
+
+    function addCollection(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.careId =  obj;
+        formData.type = $("#tableName").val();
+        switch ($("#tableName").val()) {
+            case "kj_result" :  formData.url = "/pages/fore/kjsc/kjsc_result.html?id="+obj;break;
+            case "kj_product" :  formData.url = "/pages/fore/kjsc/kjsc_kjproduct.html?id="+obj;break;
+            case "kj_zlsuper" :  formData.url = "/pages/fore/kjsc/kjsc_zlsuper.html?id="+obj;break;
+        }
+        $.ajax({
+            type : 'post',
+            url : '/zlztCareinfos/addCare',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    if (data.msg == "success") {
+                        $("#C" + $("#tableName").val() + obj).html('收藏(' + data.pointNum + ')');
+                        alert("收藏成功!");
+                    }
+                    else {
+                        alert("已收藏!");
+                    }
+                }
+            }
+        })
+    }
+    function deleteCollection(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.careId =  obj;
+        formData.type = $("#tableName").val();
+        $.ajax({
+            type : 'delete',
+            url : '/zlztCareinfos/deleteCare',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    $("#C" + $("#tableName").val() + obj).html('收藏(' + data.pointNum + ')');
+                    alert("取消收藏!");
+                }
+            }
+        });
+    }
+
+    function selectCollection() {
+        $.ajax({
+            type : 'get',
+            url : '/zlztCareinfos',
+            async : false,
+            data:{
+                "userId" : user.id,
+                "type" : $("#tableName").val()
+            },
+            success : function(result) {
+                var data = result.data;
+                console.log(data);
+                for (var i = 0; i < data.length; i++) {
+                    $("#C"+$("#tableName").val()+data[i].careId).addClass("active");
+                }
+            }
+        })
     }
 </script>
 </body>

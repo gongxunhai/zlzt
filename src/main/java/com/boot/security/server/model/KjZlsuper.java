@@ -1,5 +1,7 @@
 package com.boot.security.server.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class KjZlsuper extends BaseEntity<Long> {
@@ -12,17 +14,22 @@ public class KjZlsuper extends BaseEntity<Long> {
 	private Integer fId;
 	private String lawS;
 	private String name;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date pubTime;
 	private Integer sId;
 	private String useArea;
 	private String xfArea;
 	private String zlDetails;
 	private String zlId;
-	private String zlImage;
+	private String image;
 	private String zlType;
 	private String zlYear;
 	private String fIdName;
 	private String sIdName;
+	private Integer userId;
+	private Integer status;
+	private Integer pointNum;
+	private Integer careNum;
 
 	public String getTransform() {
 		return transform;
@@ -109,13 +116,13 @@ public class KjZlsuper extends BaseEntity<Long> {
 	public void setZlId(String zlId) {
 		this.zlId = zlId;
 	}
-	public String getZlImage() {
-		return zlImage;
-	}
-	public void setZlImage(String zlImage) {
-		this.zlImage = zlImage;
-	}
-	public String getZlType() {
+    public String getImage() {
+        return image;
+    }
+    public void setImage(String image) {
+        this.image = image;
+    }
+    public String getZlType() {
 		return zlType;
 	}
 	public void setZlType(String zlType) {
@@ -127,20 +134,76 @@ public class KjZlsuper extends BaseEntity<Long> {
 	public void setZlYear(String zlYear) {
 		this.zlYear = zlYear;
 	}
-
 	public String getfIdName() {
 		return fIdName;
 	}
-
 	public void setfIdName(String fIdName) {
 		this.fIdName = fIdName;
 	}
-
 	public String getsIdName() {
 		return sIdName;
 	}
-
 	public void setsIdName(String sIdName) {
 		this.sIdName = sIdName;
 	}
+	public Integer getUserId() {
+		return userId;
+	}
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+	public Integer getStatus() {
+		return status;
+	}
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+
+    public String getcMan() {
+        return cMan;
+    }
+
+    public void setcMan(String cMan) {
+        this.cMan = cMan;
+    }
+
+    public String getcPhone() {
+        return cPhone;
+    }
+
+    public void setcPhone(String cPhone) {
+        this.cPhone = cPhone;
+    }
+
+    public Integer getfId() {
+        return fId;
+    }
+
+    public void setfId(Integer fId) {
+        this.fId = fId;
+    }
+
+    public Integer getsId() {
+        return sId;
+    }
+
+    public void setsId(Integer sId) {
+        this.sId = sId;
+    }
+
+    public Integer getPointNum() {
+        return pointNum;
+    }
+
+    public void setPointNum(Integer pointNum) {
+        this.pointNum = pointNum;
+    }
+
+    public Integer getCareNum() {
+        return careNum;
+    }
+
+    public void setCareNum(Integer careNum) {
+        this.careNum = careNum;
+    }
 }

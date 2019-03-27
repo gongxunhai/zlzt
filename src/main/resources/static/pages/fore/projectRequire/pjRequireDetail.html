@@ -12,6 +12,7 @@
 	<link href="../css/animate.css" rel="stylesheet">
 	<link href="../css/bootsnav.css" rel="stylesheet">
     <link href="../css/swiper.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
     <link href="../treetable/css/jquery.treetable.css" rel="stylesheet" type="text/css" >
 	<link href="../css/style.css" rel="stylesheet">
     <script src="../js/jquery.js"></script>
@@ -19,13 +20,63 @@
 	<script src="../js/bootsnav.js"></script>
     <script src="../js/swiper.min.js"></script>
 	<script src="../treetable/js/jquery.treetable.js"></script>
+    <script type="text/javascript" src="../../../layui/layui.js"></script>
+    <script type="text/javascript" src="../../../js/common.js"></script>
     <script src="../js/rem.js"></script>
     <script src="../js/public.js"></script>
-    <script type="text/javascript" src="../../../js/common.js"></script>
+
 	<!--[if lt IE 9]>
 	  <script src="../js/html5shiv.min.js"></script>
 	  <script src="../js/respond.min.js"></script>
 	<![endif]-->
+    <style>
+        .file {
+            position: relative;
+            display: inline-block;
+            background: #D0EEFF;
+            border: 1px solid #99D3F5;
+            border-radius: 4px;
+            padding: 8px 12px;
+            /* width: 20%; */
+            /* height: 42px; */
+            /* line-height: 42px; */
+            /* margin-right: 0; */
+            overflow: hidden;
+            color: #1E88C7;
+            text-decoration: none;
+            text-indent: 0;
+            line-height: 20px;
+        }
+
+        .file input {
+            position: absolute;
+            /* font-size: 100px; */
+            right: 0;
+            top: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .file:hover {
+            background: #AADFFD;
+            border-color: #78C3F3;
+            color: #004974;
+            text-decoration: none;
+        }
+
+        .btn-upload {
+            display: flex;
+            width: 100%;
+            height: 42px;
+            margin: 10px 0;
+            align-items: center;
+            justify-content: center;
+            background-color: #AADFFD;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 <script>
@@ -489,29 +540,43 @@
         <ul class="LaySearchList list-unstyled row">
             <li class="col-xs-12">
                 <div class="LaySearchRig">
-                    <input type="text" class="LaySearchInput" placeholder="联系人">
+                    <input type="text" class="LaySearchInput" placeholder="联系人" id="contactMan">
                 </div>
             </li>
             <li class="col-xs-12">
                 <div class="LaySearchRig">
-                    <input type="text" class="LaySearchInput" placeholder="联系方式">
+                    <input type="text" class="LaySearchInput" placeholder="联系方式" id="contactWay">
                 </div>
             </li>
             <li class="col-xs-12">
                 <div class="LaySearchRig">
-                    <textarea class="LaySearchInput" rows="3" placeholder="详细要求"></textarea>
+                    <textarea class="LaySearchInput" rows="3" placeholder="详细要求" id="content"></textarea>
+                </div>
+            </li>
+            <li class="col-xs-12">
+                <div class="LaySearchRig" style="display:flex;align-items: center; justify-content: space-between; ">
+                    <input type="text" id="fileName" class="LaySearchInput"
+                           style="display: inline-block;width: 80%;" disabled placeholder="文件名称">
+                    <a href="javascript:;" class="file">选择文件
+                        <input type="file" name="file" id="upLoadFile" onchange="changeValue()">
+                    </a>
                 </div>
             </li>
             <li class="col-xs-12">
                 <div class="LaySearchBtn">
-                    <a href="javascript:;" class="LaySearchBtn1">提交</a>
+                    <a href="javascript:;" class="LaySearchBtn1" onclick="entrustSub()">提交</a>
                 </div>
             </li>
         </ul>
     </div>
 </div>
+<input type="hidden" id="entrustFile" name="entrustFile">
 <script>
     var id = getUrlParam("id");
+    var layer;
+    layui.use([ 'layer' ], function() {
+        layer = layui.layer;
+    });
 	$(".zyItem").eq(0).show().addClass('fadeInUp animated').siblings().hide();
 	$(".zyTextTab li").click(function(){
 		$(this).addClass("active").siblings().removeClass("active");	
@@ -572,6 +637,58 @@
                 '                            <p>'+data.target+'</p>');
         }
     })
+
+    function changeValue() {
+        console.log("user="+user);
+        if (user != null && user != ''){
+            var file = $("#upLoadFile")[0].files[0];
+            if (file !=null && file !='undefined'){
+                var formData = new FormData();
+                formData.append("file", file);
+                $.ajax({
+                    type : "post" ,
+                    url: '/files',
+                    data : formData ,
+                    processData : false,
+                    contentType : false,
+                    success: function (result) {
+                        console.log(result);
+                        $("#entrustFile").val(result.url);
+                        $('#fileName').attr('value', result.name);
+                    }
+                })
+            }
+        }else {
+            layer.msg("请先登录");
+        }
+    }
+
+    function entrustSub() {
+        if (user != null && user != ''){
+            var formData = new FormData();
+            formData.contactMan = $('#contactMan').val();
+            formData.contactWay = $('#contactWay').val();
+            formData.content = $('#content').val();
+            formData.file = $('#entrustFile').val();
+            formData.status = 0;
+            formData.type = 1 ;
+            formData.url = pathname + window.location.search;
+            formData.userId = user.id;
+            console.log("formDat="+JSON.stringify(formData));
+            $.ajax({
+                type : "post" ,
+                url: '/entrusts',
+                contentType: "application/json; charset=utf-8",
+                data : JSON.stringify(formData) ,
+                success: function (result) {
+                    layer.msg("委托成功");
+                    $('#myBroker').modal('hide');
+                }
+            })
+        }else {
+            layer.msg("请先登录");
+        }
+    }
 </script>
 </body>
 </html>

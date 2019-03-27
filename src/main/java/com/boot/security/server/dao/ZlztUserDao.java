@@ -36,4 +36,7 @@ public interface ZlztUserDao {
 
     @Select("select * from zlzt_user where phone = #{phoneOrEmail} or email = #{phoneOrEmail}")
     ZlztUser getPwdByPhoneOrEmail(@Param("phoneOrEmail") String phoneOrEmail);
+
+    @Select("select * from zlzt_user where phone = #{phone} or email = #{Email}")
+    ZlztUser getPwdByPhoneAndEmail(@Param("phone") String phone,@Param("Email") String Email);
 }

@@ -14,6 +14,8 @@ public class KjService extends BaseEntity<Long> {
 	private Integer commentId;
 	private String name;
 	private String image;
+	private String flowImageA;
+	private String flowImageB;
 
     public String getName() {
         return name;
@@ -74,5 +76,17 @@ public class KjService extends BaseEntity<Long> {
     }
     public void setImage(String image) {
         this.image = image;
+    }
+    public String getFlowImageA() {
+        return flowImageA;
+    }
+    public void setFlowImageA(String flowImageA) {
+        this.flowImageA = flowImageA;
+    }
+    public String getFlowImageB() {
+        return flowImageB;
+    }
+    public void setFlowImageB(String flowImageB) {
+        this.flowImageB = flowImageB;
     }
 }

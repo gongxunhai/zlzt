@@ -8,6 +8,8 @@
 <body>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <input type="hidden" id="imageurl" >
+    <input type="hidden" id="imageurlA" >
+    <input type="hidden" id="imageurlB" >
 	<form class="form-horizontal" onsubmit="return false" id="form">
 		<fieldset>
 			<div class='form-group'>
@@ -35,18 +37,48 @@
 				</div>
 			</div>
             <div style="border-bottom: solid 1px #c6d0de">
+			<span >图片上传</span>
+		</div>
+			<div>
+				<button type="button" class="layui-btn" id="test1">
+					<i class="layui-icon">&#xe67c;</i>上传图片
+				</button>
+				<button type="button" class="layui-btn" id="test2">
+					上传
+				</button>
+			</div>
+			<div id="showname"></div>
+			<div id="buttondelete"></div>
+
+			<div style="border-bottom: solid 1px #c6d0de">
+				<span >图片上传</span>
+			</div>
+			<div>
+				<button type="button" class="layui-btn" id="flowImageA">
+					<i class="layui-icon">&#xe67c;</i>滚动图片A
+				</button>
+				<button type="button" class="layui-btn" id="subFlowImageA">
+					上传
+				</button>
+			</div>
+			<div id="showname1"></div>
+			<div id="buttondelete1"></div>
+
+            <div style="border-bottom: solid 1px #c6d0de">
                 <span >图片上传</span>
             </div>
             <div>
-                <button type="button" class="layui-btn" id="test1">
-                    <i class="layui-icon">&#xe67c;</i>上传图片
+                <button type="button" class="layui-btn" id="flowImageB">
+                    <i class="layui-icon">&#xe67c;</i>滚动图片B
                 </button>
-                <button type="button" class="layui-btn" id="test2">
+                <button type="button" class="layui-btn" id="subFlowImageB">
                     上传
                 </button>
             </div>
-            <div id="showname"></div>
-            <div id="buttondelete"></div>
+            <div id="showname2"></div>
+            <div id="buttondelete2"></div>
+
+
 			<div class="form-actions">
 				<div class="row" align="center">
 					<div class="col-md-12">
@@ -74,6 +106,8 @@
 		layui.use(['layer','laydate','layedit','upload'], function(){
 		    var layer = layui.layer;
             var upload = layui.upload;
+            var upload1 = layui.upload;
+            var upload2 = layui.upload;
 
             layedit = layui.layedit;
             layedit.set({
@@ -98,6 +132,35 @@
                     $("#buttondelete").html('<button onclick="delete1(\''+res.id+'\')">删除</button>');
                 }
             });
+
+            upload1.render({
+                elem: '#flowImageA' //绑定元素
+                ,accept: 'images' //允许上传的文件类型
+                ,url: '/files' //上传接口
+                ,auto: false //选择文件后不自动上传
+                ,bindAction: '#subFlowImageA' //指向一个按钮触发上传
+                ,done: function(res, index, upload){
+                    $("#imageurlA").val(res.url);
+                    var a = "<span>上传文件名:"+res.id+"</span>";
+                    $("#showname1").html(a);
+                    $("#buttondelete1").html('<button onclick="delete1(\''+res.id+'\')">删除</button>');
+                }
+            });
+
+            upload.render({
+                elem: '#flowImageB' //绑定元素
+                ,accept: 'images' //允许上传的文件类型
+                ,url: '/files' //上传接口
+                ,auto: false //选择文件后不自动上传
+                ,bindAction: '#subFlowImageB' //指向一个按钮触发上传
+                ,done: function(res, index, upload){
+                    $("#imageurlB").val(res.url);
+                    var a = "<span>上传文件名:"+res.id+"</span>";
+                    $("#showname2").html(a);
+                    $("#buttondelete2").html('<button onclick="delete1(\''+res.id+'\')">删除</button>');
+                }
+            });
+
 		});
 
         function delete1(id) {
@@ -140,6 +203,7 @@
         });*/
 		
 		function add() {
+		    var uploadId = '';
 			$('#form').bootstrapValidator();
 			var bootstrapValidator = $("#form").data('bootstrapValidator');
 			bootstrapValidator.validate();
@@ -149,20 +213,39 @@
 		    
 		    var formdata = $("#form").serializeObject();
 		    formdata.image =  $("#imageurl").val();
+		    formdata.flowImageA =  $("#imageurlA").val();
+		    formdata.flowImageB =  $("#imageurlB").val();
             formdata.introduction = layedit.getContent(index);
             alert(JSON.stringify(formdata));
 
 			$.ajax({
 				type : 'post',
 				url : '/kjServices',
+                async : false ,
 				contentType: "application/json; charset=utf-8",  
 				data : JSON.stringify(formdata),
 				success : function(data) {
-					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
-                        location.href = "kjServiceList.html";
-                    });
+                    uploadId = data.id;
 				}
 			});
+
+			var dictForm = new FormData();
+			dictForm.type = 'entrustType';
+			dictForm.k = uploadId;
+			dictForm.val = $("#name").val();
+            $.ajax({
+                type : 'post',
+                url : '/dicts',
+                async : false ,
+                contentType: "application/json; charset=utf-8",
+                data : JSON.stringify(dictForm),
+                success : function(data) {
+                    layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                        location.href = "kjServiceList.html";
+                    });
+                    console.log("字典保存成功"+data);
+                }
+            });
 		}
 		
 	</script>

@@ -12,6 +12,7 @@
 	<link href="../css/animate.css" rel="stylesheet">
 	<link href="../css/bootsnav.css" rel="stylesheet">
     <link href="../css/swiper.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
     <link href="../treetable/css/jquery.treetable.css" rel="stylesheet" type="text/css" >
 	<link href="../css/style.css" rel="stylesheet">
     <script src="../js/jquery.js"></script>
@@ -19,6 +20,8 @@
 	<script src="../js/bootsnav.js"></script>
     <script src="../js/swiper.min.js"></script>
 	<script src="../treetable/js/jquery.treetable.js"></script>
+    <script type="text/javascript" src="../../../layui/layui.js"></script>
+    <script type="text/javascript" src="../../../js/common.js"></script>
     <script src="../js/rem.js"></script>
     <script src="../js/public.js"></script>
 	<!--[if lt IE 9]>
@@ -51,39 +54,35 @@
             <a class="navbar-brand flexBox logo" href="#">
                 <span><img src="../images/logo.png" class="img-responsive"></span>
             </a>
-        </div>            
+        </div>
         <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
-                <li><a href="../index.html"><span>首页</span></a></li>
-                <li><a href="../kjsc/kjsc.html"><span>科技商城</span></a></li>
-                <li><a href="../projectRequire/pjRequire.html"><span>项目需求</span></a></li>
+                <li><a href="#"><span>首页</span></a></li>
+				<li><a href="#"><span>科技商城</span></a></li>
+				<li><a href="#"><span>项目需求</span></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" ><span>科技资源</span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="../lawsRegulations/lawsRegulations.html">政策法规</a></li>
-                        <li><a href="../zlzt/zlzt.html">专利专题</a></li>
+                        <li><a href="#">政策法规</a></li>
+                        <li><a href="#">专利专题</a></li>
                         <li class="dropdown">
-                            <a href="../ztReport/ztReport.html" class="dropdown-toggle" data-toggle="dropdown" >专题报告</a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" >专题报告</a>
                             <ul class="dropdown-menu">
-                                <li><a href="../ztReport/ztReportList.html">专利态势分析</a></li>
-                                <li><a href="../ztReport/ztReportList.html">政策研究</a></li>
-                                <li><a href="../ztReport/ztReportList.html">情报研究</a></li>
+                                <li><a href="#">专利态势分析</a></li>
+                                <li><a href="#">政策研究</a></li>
+                                <li><a href="#">行业咨询</a></li>
+                                <li><a href="#">情报研究</a></li>
                             </ul>
                         </li>
+                        <li><a href="#">行业咨询</a></li>
                     </ul>
                 </li>
-                <li><a href="../gfArea/zlResult.html"><span>高分专区</span></a></li>
-                <li><a href="../news/news.html"><span>新闻动态</span></a></li>
-                <li class="dropdown" class="active">
-                    <a href="kjService.html" class="dropdown-toggle" data-toggle="dropdown" ><span>科技服务</span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="kjServiceList.html">知识产权服务</a></li>
-                        <li><a href="kjService.html">科技服务</a></li>
-                    </ul>
-                </li>
-                <li><a href="../aboutUs.html"><span>关于我们</span></a></li>
+				<li><a href="#"><span>专项成果</span></a></li>
+				<li><a href="#"><span>新闻动态</span></a></li>
+				<li class="active"><a href="#"><span>科技服务</span></a></li>
+				<li><a href="#"><span>关于我们</span></a></li>
             </ul>
-        </div>        
+        </div>
     </div>
 </nav>-->
 <div class="searchBg">
@@ -122,7 +121,7 @@
 	<div class="wrap">
     	<ul class="breadcrumb wow fadeInLeft">
             <li><i class="iconfont icon-weizhi"></i>当前位置：</li>
-            <li><a href="#">首页</a></li>
+            <li><a href="../index.html">首页</a></li>
             <li>科技服务</li>
         </ul>
     </div>
@@ -141,9 +140,13 @@
                     </div>
                     <div class="serBox">
                         <ul class="serList list-unstyled list-inline wow fadeInUp" id="content">
-                            <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                                <a class="serLink" href="kjServiceDetail.html">
-                                    <div class="serIco"><i class="iconfont icon-zhuanliguanli"></i></div>
+                          <!--  <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <a class="serLink" href="#">
+                                    &lt;!&ndash;<div class="serIco"><i class="iconfont icon-zhuanliguanli"></i></div>&ndash;&gt;
+                                    <div class="serIco">
+                                    	<img src="../images/serIco1.png" class="img-responsive">
+                                        <div class="serIco serIcoHov"><img src="../images/serIco1a.png" class="img-responsive"></div>
+                                    </div>
                                     <h3 class="serTit ellipsis">专利代理</h3>
                                     <div class="serBrief">
                                         <p>提供国防专利、发明专利、实用新型专利、外观设计专利申请的全流程的代理服务。</p>
@@ -151,8 +154,11 @@
                                 </a>
                             </li>
                             <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                                <a class="serLink" href="kjServiceDetail.html">
-                                    <div class="serIco"><i class="iconfont icon-zhuzuoquan"></i></div>
+                                <a class="serLink" href="#">
+                                    <div class="serIco">
+                                    	<img src="../images/serIco2.png" class="img-responsive">
+                                        <div class="serIco serIcoHov"><img src="../images/serIco2a.png" class="img-responsive"></div>
+                                    </div>
                                     <h3 class="serTit ellipsis">著作权登记</h3>
                                     <div class="serBrief">
                                         <p>为用户提供各类著作权登记全过程服务。</p>
@@ -161,8 +167,11 @@
                                 </a>
                             </li>
                             <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                                <a class="serLink" href="kjServiceDetail.html">
-                                    <div class="serIco"><i class="iconfont icon-shangbiaozhuce"></i></div>
+                                <a class="serLink" href="#">
+                                    <div class="serIco">
+                                    	<img src="../images/serIco3.png" class="img-responsive">
+                                        <div class="serIco serIcoHov"><img src="../images/serIco3a.png" class="img-responsive"></div>
+                                    </div>
                                     <h3 class="serTit ellipsis">商标注册代理</h3>
                                     <div class="serBrief">
                                         <p>为用户提供商标注册代理全过程服务。</p>
@@ -171,8 +180,11 @@
                                 </a>
                             </li>
                             <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                                <a class="serLink" href="kjServiceDetail.html">
-                                    <div class="serIco"><i class="iconfont icon-rongyuqiang"></i></div>
+                                <a class="serLink" href="#">
+                                    <div class="serIco">
+                                    	<img src="../images/serIco4.png" class="img-responsive">
+                                        <div class="serIco serIcoHov"><img src="../images/serIco4a.png" class="img-responsive"></div>
+                                    </div>
                                     <h3 class="serTit ellipsis">专利资助办理</h3>
                                     <div class="serBrief">
                                         <p>为企业提供当地政府专利资助申请服务。</p>
@@ -181,8 +193,11 @@
                                 </a>
                             </li>
                             <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                                <a class="serLink" href="kjServiceDetail.html">
-                                    <div class="serIco"><i class="iconfont icon-zhishichanquanguanli"></i></div>
+                                <a class="serLink" href="#">
+                                    <div class="serIco">
+                                    	<img src="../images/serIco5.png" class="img-responsive">
+                                        <div class="serIco serIcoHov"><img src="../images/serIco5a.png" class="img-responsive"></div>
+                                    </div>
                                     <h3 class="serTit ellipsis">知识产权托管</h3>
                                     <div class="serBrief">
                                         <p>代理用户管理知识产权，包括知识产权的费用管理、统计分析、转让许可等级等服务。</p>
@@ -190,8 +205,11 @@
                                 </a>
                             </li>
                             <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                                <a class="serLink" href="kjServiceDetail.html">
-                                    <div class="serIco"><i class="iconfont icon-shujukubiao-"></i></div>
+                                <a class="serLink" href="#">
+                                    <div class="serIco">
+                                    	<img src="../images/serIco6.png" class="img-responsive">
+                                        <div class="serIco serIcoHov"><img src="../images/serIco6a.png" class="img-responsive"></div>
+                                    </div>
                                     <h3 class="serTit ellipsis">专题专利数据库建设</h3>
                                     <div class="serBrief">
                                         <p>订制开发个性化专利数据库，挖掘出企业关注的专利技术，集聚成数据库…</p>
@@ -199,8 +217,11 @@
                                 </a>
                             </li>
                             <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                                <a class="serLink" href="kjServiceDetail.html">
-                                    <div class="serIco"><i class="iconfont icon-shujujiansuo"></i></div>
+                                <a class="serLink" href="#">
+                                    <div class="serIco">
+                                    	<img src="../images/serIco7.png" class="img-responsive">
+                                        <div class="serIco serIcoHov"><img src="../images/serIco7a.png" class="img-responsive"></div>
+                                    </div>
                                     <h3 class="serTit ellipsis">专利大数据检索平台</h3>
                                     <div class="serBrief">
                                         <p>为用户提供专利大数据检索工具。收费标准为：30000元/账号/年。</p>
@@ -208,8 +229,11 @@
                                 </a>
                             </li>
                             <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                                <a class="serLink" href="kjServiceDetail.html">
-                                    <div class="serIco"><i class="iconfont icon-zaixianxuexi"></i></div>
+                                <a class="serLink" href="#">
+                                    <div class="serIco">
+                                    	<img src="../images/serIco8.png" class="img-responsive">
+                                        <div class="serIco serIcoHov"><img src="../images/serIco8a.png" class="img-responsive"></div>
+                                    </div>
                                     <h3 class="serTit ellipsis">知识产权在线学习系统</h3>
                                     <div class="serBrief">
                                         <p>为用户提供知识产权在线学习课程。收费标准：10000元/账号/年。</p>
@@ -217,8 +241,11 @@
                                 </a>
                             </li>
                             <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                                <a class="serLink" href="kjServiceDetail.html">
-                                    <div class="serIco"><i class="iconfont icon-guwen"></i></div>
+                                <a class="serLink" href="#">
+                                    <div class="serIco">
+                                    	<img src="../images/serIco9.png" class="img-responsive">
+                                        <div class="serIco serIcoHov"><img src="../images/serIco9a.png" class="img-responsive"></div>
+                                    </div>
                                     <h3 class="serTit ellipsis">企业知识产权顾问</h3>
                                     <div class="serBrief">
                                         <p>依托专家资源，通过知识产权专家顾问形式为用户提供知识产权咨询服务。</p>
@@ -226,8 +253,11 @@
                                 </a>
                             </li>
                             <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                                <a class="serLink" href="kjServiceDetail.html">
-                                    <div class="serIco"><i class="iconfont icon-zixun1"></i></div>
+                                <a class="serLink" href="#">
+                                    <div class="serIco">
+                                    	<img src="../images/serIco10.png" class="img-responsive">
+                                        <div class="serIco serIcoHov"><img src="../images/serIco10a.png" class="img-responsive"></div>
+                                    </div>
                                     <h3 class="serTit ellipsis">知识产权贯标咨询</h3>
                                     <div class="serBrief">
                                         <p>为每家企业配备一名专业知识产权专家为用户贯标工作各个阶段提供咨询服务。</p>
@@ -235,8 +265,11 @@
                                 </a>
                             </li>
                             <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                                <a class="serLink" href="kjServiceDetail.html">
-                                    <div class="serIco"><i class="iconfont icon-zhiliangyujingfenxi"></i></div>
+                                <a class="serLink" href="#">
+                                    <div class="serIco">
+                                    	<img src="../images/serIco11.png" class="img-responsive">
+                                        <div class="serIco serIcoHov"><img src="../images/serIco11a.png" class="img-responsive"></div>
+                                    </div>
                                     <h3 class="serTit ellipsis">专利预警分析</h3>
                                     <div class="serBrief">
                                         <p>对某一技术领域的专利进行技术动态、业界领先者、科研机构、核心专利等…</p>
@@ -244,14 +277,17 @@
                                 </a>
                             </li>
                             <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                                <a class="serLink" href="kjServiceDetail.html">
-                                    <div class="serIco"><i class="iconfont icon-fenxipinggu"></i></div>
+                                <a class="serLink" href="#">
+                                    <div class="serIco">
+                                    	<img src="../images/serIco12.png" class="img-responsive">
+                                        <div class="serIco serIcoHov"><img src="../images/serIco12a.png" class="img-responsive"></div>
+                                    </div>
                                     <h3 class="serTit ellipsis">竞争对手跟踪分析</h3>
                                     <div class="serBrief">
                                         <p>定期跟踪竞争对手最新专利申请、专利法律状态变化、专利交易等动态…</p>
                                     </div>
                                 </a>
-                            </li>
+                            </li>-->
                         </ul>
                     </div>
                     <div class="serMore wow fadeInUp"><a class="serBtn" href="javascript:;"><span>查看更多知识产权服务</span><i class="iconfont icon-jiantou-you-copy"></i></a></div>
@@ -266,7 +302,7 @@
                     </div>
                     <ul class="serList2 list-unstyled list-inline">
                     	<li class="col-xs-12 col-sm-6 col-md-6 col-lg-4 wow fadeInUp">
-                        	<a class="serLink2" href="javascript:;">
+                        	<a class="serLink2" href="#">
                             	<div class="serImg">
                                 	<div class="imgFull"><img src="../images/serImg1.jpg" class="img-responsive"></div>
                                 	<div class="serHovBg"></div>
@@ -276,7 +312,8 @@
                                     </div>
                                 </div>
                                 <div class="serText">
-                                	<div class="serIco2"><i class="iconfont icon-chilun"></i></div>
+                                	<!--<div class="serIco2"><i class="iconfont icon-chilun"></i></div>-->
+                                	<div class="serIco2"><img src="../images/ser2Ico1.png" class="img-responsive"></div>
                                     <div class="serRig">
                                     	<h3 class="serTit ellipsis">知识产权管理系统</h3>
                                         <div class="serBrief2">
@@ -288,7 +325,7 @@
                             </a>
                         </li>
                     	<li class="col-xs-12 col-sm-6 col-md-6 col-lg-4 wow fadeInUp">
-                        	<a class="serLink2" href="javascript:;">
+                        	<a class="serLink2" href="#">
                             	<div class="serImg">
                                 	<div class="imgFull"><img src="../images/serImg2.jpg" class="img-responsive"></div>
                                 	<div class="serHovBg"></div>
@@ -298,7 +335,8 @@
                                     </div>
                                 </div>
                                 <div class="serText">
-                                	<div class="serIco2"><i class="iconfont icon-zhiliang"></i></div>
+                                	<!--<div class="serIco2"><i class="iconfont icon-zhiliang"></i></div>-->
+                                	<div class="serIco2"><img src="../images/ser2Ico2.png" class="img-responsive"></div>
                                     <div class="serRig">
                                     	<h3 class="serTit ellipsis">知识产权贯标系统</h3>
                                         <div class="serBrief2">
@@ -310,7 +348,7 @@
                             </a>
                         </li>
                     	<li class="col-xs-12 col-sm-6 col-md-6 col-lg-4 wow fadeInUp">
-                        	<a class="serLink2" href="javascript:;">
+                        	<a class="serLink2" href="#">
                             	<div class="serImg">
                                 	<div class="imgFull"><img src="../images/serImg3.jpg" class="img-responsive"></div>
                                 	<div class="serHovBg"></div>
@@ -320,7 +358,8 @@
                                     </div>
                                 </div>
                                 <div class="serText">
-                                	<div class="serIco2"><i class="iconfont icon-jiazhipinggu-"></i></div>
+                                	<!--<div class="serIco2"><i class="iconfont icon-jiazhipinggu-"></i></div>-->
+                                	<div class="serIco2"><img src="../images/ser2Ico3.png" class="img-responsive"></div>
                                     <div class="serRig">
                                     	<h3 class="serTit ellipsis">知识产权价值评估系统</h3>
                                         <div class="serBrief2">
@@ -342,7 +381,8 @@
                                     </div>
                                 </div>
                                 <div class="serText">
-                                	<div class="serIco2"><i class="iconfont icon-wendang"></i></div>
+                                	<!--<div class="serIco2"><i class="iconfont icon-wendang"></i></div>-->
+                                	<div class="serIco2"><img src="../images/ser2Ico4.png" class="img-responsive"></div>
                                     <div class="serRig">
                                     	<h3 class="serTit ellipsis">知识产权资源导航</h3>
                                         <div class="serBrief2">
@@ -354,7 +394,7 @@
                             </a>
                         </li>
                     	<li class="col-xs-12 col-sm-6 col-md-6 col-lg-4 wow fadeInUp">
-                        	<a class="serLink2" href="javascript:;">
+                        	<a class="serLink2" href="#">
                             	<div class="serImg">
                                 	<div class="imgFull"><img src="../images/serImg5.jpg" class="img-responsive"></div>
                                 	<div class="serHovBg"></div>
@@ -364,7 +404,8 @@
                                     </div>
                                 </div>
                                 <div class="serText">
-                                	<div class="serIco2"><i class="iconfont icon-dashuju"></i></div>
+                                	<!--<div class="serIco2"><i class="iconfont icon-dashuju"></i></div>-->
+                                	<div class="serIco2"><img src="../images/ser2Ico5.png" class="img-responsive"></div>
                                     <div class="serRig">
                                     	<h3 class="serTit ellipsis">专利大数据检索</h3>
                                         <div class="serBrief2">
@@ -376,7 +417,7 @@
                             </a>
                         </li>
                     	<li class="col-xs-12 col-sm-6 col-md-6 col-lg-4 wow fadeInUp">
-                        	<a class="serLink2" href="javascript:;">
+                        	<a class="serLink2" href="#">
                             	<div class="serImg">
                                 	<div class="imgFull"><img src="../images/serImg6.jpg" class="img-responsive"></div>
                                 	<div class="serHovBg"></div>
@@ -386,7 +427,8 @@
                                     </div>
                                 </div>
                                 <div class="serText">
-                                	<div class="serIco2"><i class="iconfont icon-zhuanlizhengshu"></i></div>
+                                	<!--<div class="serIco2"><i class="iconfont icon-zhuanlizhengshu"></i></div>-->
+                                	<div class="serIco2"><img src="../images/ser2Ico6.png" class="img-responsive"></div>
                                     <div class="serRig">
                                     	<h3 class="serTit ellipsis">知识产权</h3>
                                         <div class="serBrief2">
@@ -458,7 +500,7 @@
         </div>
         <div class="ftBot wow fadeInUp">
         	<div class="copyRight">
-            	<p>Copyright © 2018中国航天科工集团知识产权中心版权所有 京ICP备13006003号-2  设计支持：<a href="#">谦亨网络</a></p>
+            	<p>Copyright © 2018中国航天科工集团知识产权中心版权所有 京ICP备13006003号-2  设计支持：<a href="#">千助科技</a></p>
             </div>
             <div class="ftBotRig">
             	<ul class="ftBotIco list-unstyled list-inline">
@@ -509,6 +551,28 @@
     </div>
 </div>
 <script>
+    $.ajax({
+        type : "get",
+        url : "/kjServices",
+        async : false,
+        success : function (data) {
+            var result = data.data;
+            for (var i = 0; i < result.length; i++) {
+                $("#content").append(' <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">\n' +
+                    '                                <a class="serLink" href="kjServiceDetail.html?id='+result[i].id+'">\n' +
+                    '                                    <div class="serIco">\n' +
+                    '                                    \t<img src="'+domain+'/statics'+result[i].flowImageA+'" class="img-responsive">\n' +
+                    '                                        <div class="serIco serIcoHov"><img src="'+domain+'/statics'+result[i].flowImageB+'" class="img-responsive"></div>\n' +
+                    '                                    </div>\n' +
+                    '                                    <h3 class="serTit ellipsis">'+result[i].name+'</h3>\n' +
+                    '                                    <div class="serBrief">\n' +
+                    '                                        <p>'+result[i].descript+'</p>\n' +
+                    '                                    </div>\n' +
+                    '                                </a>\n' +
+                    '                            </li>');
+            }
+        }
+    });
 	$(".zyItem").eq(0).show().addClass('fadeInUp animated').siblings().hide();
 	$(".zyTextTab li").click(function(){
 		$(this).addClass("active").siblings().removeClass("active");	

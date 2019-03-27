@@ -1,5 +1,7 @@
 package com.boot.security.server.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class PjRequire extends BaseEntity<Long> {
@@ -8,9 +10,45 @@ public class PjRequire extends BaseEntity<Long> {
 	private String cMoney;
 	private String cWays;
 	private String description;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date endTime;
 	private Integer fId;
-	private String man;
+	private Integer pointNum;
+	private Integer careNum;
+
+    public String getcMoney() {
+        return cMoney;
+    }
+
+    public void setcMoney(String cMoney) {
+        this.cMoney = cMoney;
+    }
+
+    public String getcWays() {
+        return cWays;
+    }
+
+    public void setcWays(String cWays) {
+        this.cWays = cWays;
+    }
+
+    public Integer getfId() {
+        return fId;
+    }
+
+    public void setfId(Integer fId) {
+        this.fId = fId;
+    }
+
+    public Integer getsId() {
+        return sId;
+    }
+
+    public void setsId(Integer sId) {
+        this.sId = sId;
+    }
+
+    private String man;
 	private String name;
 	private String phone;
 	private String place;
@@ -141,5 +179,21 @@ public class PjRequire extends BaseEntity<Long> {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public Integer getPointNum() {
+        return pointNum;
+    }
+
+    public void setPointNum(Integer pointNum) {
+        this.pointNum = pointNum;
+    }
+
+    public Integer getCareNum() {
+        return careNum;
+    }
+
+    public void setCareNum(Integer careNum) {
+        this.careNum = careNum;
     }
 }

@@ -4,14 +4,7 @@ import java.util.List;
 
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.boot.security.server.page.table.PageTableRequest;
 import com.boot.security.server.page.table.PageTableHandler;
@@ -75,5 +68,25 @@ public class PjRequireClassifyInfoController {
     @ApiOperation(value = "删除")
     public void delete(@PathVariable Long id) {
         pjRequireClassifyInfoDao.delete(id);
+    }
+
+    @PostMapping("/changeFromJob")
+    @ApiOperation(value = "获取用户中心发布新项目的所属行业")
+    public List<PjRequireClassifyInfo> changeFromJob(){
+        return pjRequireClassifyInfoDao.listData((long) 0);
+    }
+
+    @GetMapping("/selectSidByFid")
+    public int selectSidByFid(@RequestParam("fid") int fid ){
+        int sId = pjRequireClassifyInfoDao.selectSidByFid(fid);
+        if (sId == -1){
+            PjRequireClassifyInfo pjRequireClassifyInfo = new PjRequireClassifyInfo();
+            pjRequireClassifyInfo.setParentId(fid);
+            pjRequireClassifyInfo.setName("其它");
+            pjRequireClassifyInfo.setType(2);
+            pjRequireClassifyInfoDao.save(pjRequireClassifyInfo);
+            sId = pjRequireClassifyInfo.getId().intValue();
+        }
+        return sId;
     }
 }

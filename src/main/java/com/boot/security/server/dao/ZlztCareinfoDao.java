@@ -24,10 +24,27 @@ public interface ZlztCareinfoDao {
     int update(ZlztCareinfo zlztCareinfo);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into zlzt_careinfo(userid, careId, type, createTime, updateTime) values(#{userid}, #{careId}, #{type}, #{createTime}, #{updateTime})")
+    @Insert("insert into zlzt_careinfo(userId, careId, type, url, createTime, updateTime) values(#{userId}, #{careId}, #{type}, #{url}, #{createTime}, #{updateTime})")
     int save(ZlztCareinfo zlztCareinfo);
     
     int count(@Param("params") Map<String, Object> params);
 
     List<ZlztCareinfo> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+
+    List<ZlztCareinfo> list1(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+
+    @Select("select ifnull(max(id),-1) from zlzt_careinfo where type = #{type} and careId = #{careId} and userId = #{userId} ")
+    int selectSameData(ZlztCareinfo zlztCareinfo);
+
+    @Select("delete from zlzt_careinfo where type = #{type} and careId = #{careId} and userId = #{userId}")
+    void deletePoint(ZlztCareinfo zlztCareinfo);
+
+    @Select("update ${type} set careNum = IFNULL(careNum,0) + 1 where id = #{careId} ")
+    void addNumByDate(ZlztCareinfo zlztCareinfo);
+
+    @Select("update ${type} set careNum = careNum - 1 where id = #{careId} ")
+    void deleteNumByData(ZlztCareinfo zlztCareinfo);
+
+    @Select("select IFNULL(careNum,-1) from ${type} where id = #{careId} ")
+    int selectPointNum(ZlztCareinfo zlztCareinfo);
 }

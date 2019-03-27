@@ -9,6 +9,7 @@ public class FileInfo extends BaseEntity<String> {
 	private String path;
 	private String url;
 	private Integer type;
+	private String name;
 
 	public String getContentType() {
 		return contentType;
@@ -48,5 +49,13 @@ public class FileInfo extends BaseEntity<String> {
 
 	public void setType(Integer type) {
 		this.type = type;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }

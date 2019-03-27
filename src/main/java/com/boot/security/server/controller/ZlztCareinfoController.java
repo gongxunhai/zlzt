@@ -2,6 +2,7 @@ package com.boot.security.server.controller;
 
 import java.util.List;
 
+import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -35,7 +36,6 @@ public class ZlztCareinfoController {
     @ApiOperation(value = "保存")
     public ZlztCareinfo save(@RequestBody ZlztCareinfo zlztCareinfo) {
         zlztCareinfoDao.save(zlztCareinfo);
-
         return zlztCareinfo;
     }
 
@@ -71,9 +71,61 @@ public class ZlztCareinfoController {
         }).handle(request);
     }
 
+    @GetMapping("/foreRequest")
+    @ApiOperation(value = "列表")
+    public PageTableResponse list1(PageTableRequest request) {
+        return new PageTableHandler(new CountHandler() {
+
+            @Override
+            public int count(PageTableRequest request) {
+                return zlztCareinfoDao.count(request.getParams());
+            }
+        }, new ListHandler() {
+
+            @Override
+            public List<ZlztCareinfo> list(PageTableRequest request) {
+                return zlztCareinfoDao.list1(request.getParams(), request.getOffset(), request.getLimit());
+            }
+        }).handle(request);
+    }
+
     @DeleteMapping("/{id}")
     @ApiOperation(value = "删除")
     public void delete(@PathVariable Long id) {
+
         zlztCareinfoDao.delete(id);
+    }
+
+    @PostMapping("/addCare")
+    @ApiOperation(value = "科技商城添加点赞")
+    public JSONObject addPoint(@RequestBody ZlztCareinfo zlztCareinfo) {
+        JSONObject json = new JSONObject();
+        int i = zlztCareinfoDao.selectSameData(zlztCareinfo);
+        if (i == -1){
+            zlztCareinfoDao.save(zlztCareinfo);
+            //数据表点赞字段+1
+            zlztCareinfoDao.addNumByDate(zlztCareinfo);
+            int pointNum = zlztCareinfoDao.selectPointNum(zlztCareinfo);
+            if (pointNum!=-1){
+                json.put("pointNum",pointNum);
+            }
+            json.put("msg","success");
+        }else {
+            json.put("msg","exist");
+        }
+        return json;
+    }
+
+    @DeleteMapping("/deleteCare")
+    @ApiOperation(value = "删除")
+    public JSONObject deletePoint(@RequestBody ZlztCareinfo zlztCareinfo){
+        zlztCareinfoDao.deletePoint(zlztCareinfo);
+        JSONObject json = new JSONObject();
+        zlztCareinfoDao.deleteNumByData(zlztCareinfo);
+        int pointNum = zlztCareinfoDao.selectPointNum(zlztCareinfo);
+        if (pointNum!=-1){
+            json.put("pointNum",pointNum);
+        }
+        return json;
     }
 }

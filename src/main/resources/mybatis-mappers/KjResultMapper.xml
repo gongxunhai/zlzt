@@ -5,8 +5,11 @@
 
 	<sql id="where">
 		<where>
+			<if test="params.status != null and params.status != ''">
+				and a.status = #{params.status}
+			</if>
 			<if test="params.area != null and params.area != ''">
-				and area = #{params.area} 
+				and a.area = #{params.area}
 			</if>
 			<if test="params.cMan != null and params.cMan != ''">
 				and cMan = #{params.cMan} 
@@ -82,6 +85,22 @@
 			</if>
 			<if test="params.zlType != null and params.zlType !=''">
 				and a.zlType = #{params.zlType}
+			</if>
+			<if test="params.beginTime != null and params.beginTime != ''">
+				<if test="params.endTime != null and params.endTime != ''">
+					and a.pubTime between #{params.beginTime} and #{params.endTime}
+				</if>
+				<if test="params.endTime == null || params.endTime == ''">
+					and a.pubTime > #{params.beginTime}
+				</if>
+			</if>
+			<if test="params.endTime != null and params.endTime != ''">
+				<if test="params.beginTime == null || params.beginTime == ''">
+					and  a.pubTime &lt; #{params.endTime}
+				</if>
+			</if>
+			<if test="params.userId != null and params.userId != ''">
+				and a.userId = #{params.userId}
 			</if>
 		</where>
 	</sql>

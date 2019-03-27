@@ -1389,6 +1389,27 @@
     </div>    
 </div>
 <script>
+    $(document).on("click",".upcollect a",function(event){
+        if (user != null && user != '') {
+            $(this).toggleClass("active");
+            if ($(this).hasClass("up")){
+                if ($(this).hasClass("active")) {
+                    // addPoint($(this).attr("value"));
+                }else {
+                    // deletePoint($(this).attr("value"));
+                }
+            }
+            if ($(this).hasClass("collect")){
+                if ($(this).hasClass("active")) {
+                    // addCollection($(this).attr("value"));
+                }else {
+                    // deleteCollection($(this).attr("value"));
+                }
+            }
+        }else {
+            alert("请先登录!");
+        }
+    });
 var old_height = 660;
 change_size();
 $(window).resize(function(event) {

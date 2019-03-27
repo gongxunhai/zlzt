@@ -117,9 +117,16 @@
 					<input class='form-control' placeholder='xfArea' type='text' name='xfArea' id='xfArea' data-bv-notempty='true' data-bv-notempty-message='xfArea 不能为空'>
 				</div>
 			</div>
-
-
-
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>状态</label>
+				<div class='col-md-10'>
+					<select class='form-control' placeholder='status' type='text' name='status' id='status' data-bv-notempty='true' data-bv-notempty-message='status 不能为空'>
+						<option value="0">未审核</option>
+						<option value="1">审核</option>
+						<option value="2">驳回</option>
+					</select>
+				</div>
+			</div>
 			<div class="form-actions">
 				<div class="row" align="center">
 					<div class="col-md-12">
@@ -134,11 +141,11 @@
 		</fieldset>
 	</form>
 </div>
-	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="../../js/jq.js"></script>
-	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
-	<script type="text/javascript" src="../../js/common.js"></script>
-	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript" src="../../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../../js/jq.js"></script>
+	<script type="text/javascript" src="../../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../../../js/common.js"></script>
+	<script type="text/javascript" src="../../../layui/layui.js"></script>
 	<script type="text/javascript">
 		layui.use(['layer','laydate'], function(){
 		    var layer = layui.layer;
@@ -155,25 +162,25 @@
 					async : false,
 					success : function(data) {
 						$('#area').val(data.area);
-						$('#cMan').val(data.cMan);
-						$('#cPhone').val(data.cPhone);
-						$('#cWays').val(data.cWays);
-						$('#fId').val(data.fId);
+						$('#cMan').val(data.cman);
+						$('#cPhone').val(data.cphone);
+						$('#cWays').val(data.cways);
+						$('#fId').val(data.fid);
 						$('#id').val(data.id);
 						$('#knowledge').val(data.knowledge);
-						$('#Mneed').val(data.Mneed);
+						$('#Mneed').val(data.mneed);
 						$('#name').val(data.name);
 						$('#predict').val(data.predict);
 						$('#pubTime').val(data.pubTime);
-						$('#sId').val(data.sId);
+						$('#sId').val(data.sid);
 						$('#source').val(data.source);
 						$('#tdetails').val(data.tdetails);
 						$('#teMaturity').val(data.teMaturity);
-						$('#tIndex').val(data.tIndex);
+						$('#tIndex').val(data.tindex);
 						$('#tlevel').val(data.tlevel);
 						$('#useRange').val(data.useRange);
 						$('#xfArea').val(data.xfArea);
-
+                        $('#status').val(data.status);
 					}
 				});
 			}

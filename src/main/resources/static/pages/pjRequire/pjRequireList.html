@@ -123,20 +123,20 @@ function init(){
 				{"data" : "man", "defaultContent" : ""},
 				{"data" : "phone", "defaultContent" : ""},*/
 				{
-								"data": "", 
-								"defaultContent": "",
-								"orderable":false,
-						        "render": function (data, type, row) {
-                		           var id = row['id'];
-                		           var href = "updatePjRequire.html?id=" + id;
-                                   var edit = buttonEdit(href, "", pers);
-                		           var del = buttonDel(id, "", pers);
-                                   return edit + del;
-                  	            }		
-							},
+					"data": "",
+					"defaultContent": "",
+					"orderable":false,
+					"render": function (data, type, row) {
+					   var id = row['id'];
+					   var href = "updatePjRequire.html?id=" + id;
+					   var edit = buttonEdit(href, "", pers);
+					   var del = buttonDel(id, "", pers);
+					   return edit + del;
+					}
+				},
                 
             ],
-           "order": [[ 0, "asc" ]]
+           "order": [[ 7, "asc" ]]
         } );
 }
 

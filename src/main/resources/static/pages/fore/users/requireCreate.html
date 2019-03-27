@@ -21,6 +21,7 @@
     <script src="../js/swiper.min.js"></script>
 	<script src="../treetable/js/jquery.treetable.js"></script>
     <script type="text/javascript" src="../../../layui/layui.js"></script>
+    <script type="text/javascript" src="../../../js/common.js"></script>
     <script src="../js/rem.js"></script>
     <script src="../js/public.js"></script>
 	<!--[if lt IE 9]>
@@ -29,6 +30,18 @@
 	<![endif]-->
 </head>
 <body>
+<script>
+    var pro = window.location.protocol;
+    var host = window.location.host;
+    var domain = pro + "//" + host;
+
+    var layer;
+    layui.use([ 'layer' ], function() {
+        layer = layui.layer;
+    });
+</script>
+<script src="../js/htmlJs/publicHeader.js"></script>
+<!--
 <nav class="navbar navbar-default bootsnav navbar-fixed-top wow fadeInDown">
     <div class="wrap">
         <div class="attr-nav navRig">
@@ -73,12 +86,12 @@
             <a class="navbar-brand flexBox logo" href="#">
                 <span><img src="../images/logo.png" class="img-responsive"></span>
             </a>
-        </div>            
+        </div>
         <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
                 <li><a href="#"><span>首页</span></a></li>
 				<li><a href="#"><span>科技商城</span></a></li>
-				<li><a href="#"><span>项目需求</span></a></li>             
+				<li><a href="#"><span>项目需求</span></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" ><span>科技资源</span></a>
                     <ul class="dropdown-menu">
@@ -101,9 +114,10 @@
 				<li><a href="#"><span>科技服务</span></a></li>
 				<li><a href="#"><span>关于我们</span></a></li>
             </ul>
-        </div>        
+        </div>
     </div>
 </nav>
+-->
 <div class="searchBg">
 	<div class="wrap">
     	<div class="search">
@@ -133,7 +147,7 @@
         </div>
     </div>
 </div><!--searchBg-->
-<div class="banInner banUser wow fadeIn">
+<!--<div class="banInner banUser wow fadeIn">
 	<div class="imgFull"><img src="../images/banUser.jpg" class="img-responsive"></div>
     <div class="banUserCon">
     	<div class="userImgBox" data-toggle="modal" data-target="#myHeadImg">
@@ -169,7 +183,9 @@
     	<li><a href="#">消息通知</a></li>
     	<li><a href="#">账户设置</a></li>
     </ul>
-</div>
+</div>-->
+<script src="../js/htmlJs/getUserHeader.js"></script>
+<script src="../js/htmlJs/getPathname.js"></script>
 <div class="mainBg grayBg overHide">
     <div class="container">
         <div class="reportTop userTit wow fadeInDown">
@@ -207,7 +223,7 @@
             <li class="col-xs-12 col-sm-12 col-md-6">
                 <label class="regLab">细分领域：</label>
                 <div class="regRig">
-                    <input type="text" class="loginInput" >
+                    <input type="text" class="loginInput" id="xfArea">
                 </div>
                 <div class="clear"></div>
             </li>
@@ -232,9 +248,23 @@
                 <div class="clear"></div>
             </li>
             <li class="col-xs-12 col-sm-12 col-md-6">
+                <label class="regLab">合作金额：</label>
+                <div class="regRig">
+                    <input type="text" class="loginInput" id="cMoney">
+                </div>
+                <div class="clear"></div>
+            </li>
+            <li class="col-xs-12 col-sm-12 col-md-6">
+                <label class="regLab">区域：</label>
+                <div class="regRig">
+                    <input type="text" class="loginInput" id="place">
+                </div>
+                <div class="clear"></div>
+            </li>
+            <li class="col-xs-12 col-sm-12 col-md-6">
                 <label class="regLab">资金需求：</label>
                 <div class="regRig">
-                    <select class="regSelect">
+                    <select class="regSelect" id="mNeed">
                         <option>面议</option>
                     </select>
                 </div>
@@ -243,29 +273,28 @@
             <li class="col-xs-12 col-sm-12 col-md-6">
                 <label class="regLab">预期目标：</label>
                 <div class="regRig">
-                    <input type="text" class="loginInput" >
+                    <input type="text" class="loginInput" id="target">
                 </div>
                 <div class="clear"></div>
             </li>
-            
             <li class="col-xs-12">
                 <label class="regLab">需求描述：</label>
                 <div class="regRig">
-                    <input type="text" class="loginInput" >
+                    <input type="text" class="loginInput" id="description">
                 </div>
                 <div class="clear"></div>
             </li>
             <li class="col-xs-12 col-sm-12 col-md-6">
                 <label class="regLab">联系人：</label>
                 <div class="regRig">
-                    <input type="text" class="loginInput" >
+                    <input type="text" class="loginInput" id="man">
                 </div>
                 <div class="clear"></div>
             </li>
             <li class="col-xs-12 col-sm-12 col-md-6">
                 <label class="regLab">联系电话：</label>
                 <div class="regRig">
-                    <input type="text" class="loginInput" >
+                    <input type="text" class="loginInput" id="phone">
                 </div>
                 <div class="clear"></div>
             </li>
@@ -334,7 +363,7 @@
         </div>
         <div class="ftBot wow fadeInUp">
         	<div class="copyRight">
-            	<p>Copyright © 2018中国航天科工集团知识产权中心版权所有 京ICP备13006003号-2  设计支持：<a href="#">千助科技</a></p>
+            	<p>Copyright © 2018中国航天科工集团知识产权中心版权所有 京ICP备13006003号-2  设计支持：<a href="#">谦亨网络</a></p>
             </div>
             <div class="ftBotRig">
             	<ul class="ftBotIco list-unstyled list-inline">
@@ -356,7 +385,7 @@
         </div>
     </div>
 </footer>
-<div id="myHeadImg" class="modal fade">
+<!--<div id="myHeadImg" class="modal fade">
     <div class="loginBox">
         <div class="loginTop">
             <h2 class="loginTit">修改头像</h2>
@@ -377,17 +406,17 @@
         </div>
         <a href="javascript:;" class="uploadExit" data-dismiss="modal">取消</a>
     </div>
-</div>
+</div>-->
 <div id="success" class="modal fade">
     <div class="loginBox succBox">
         <div class="loginTop">
-            <a class="loginClose" href="javascript:;" data-dismiss="modal"><i class="iconfont icon-guanbi"></i></a>
+            <a class="loginClose" href="javascript:;" data-dismiss="modal"><i class="iconfont icon-guanbi" onclick="javascript:window.location.reload();"></i></a>
             <div class="clear"></div>
         </div>
         <div class="succTip text-center">
         	<h3><i class="iconfont icon-xiaolian"></i>您的需求已成功发布！</h3>
             <p>您已成功发布一个新需求，请留意您的需求状况</p>
-            <p>返回 <a class="corBlue" href="#">会员首页</a> 或返回 <a href="#">网站首页</a></p>
+            <p>返回 <a class="corBlue" href="userCore.html">会员首页</a> 或返回 <a href="../index.html">网站首页</a></p>
         </div>
     </div>
 </div>
@@ -397,6 +426,7 @@
     var host = window.location.host;
     var domain = pro + "//" + host;
     var layer;
+    var sId = '';
     layui.use([ 'layer','laydate' ], function() {
         layer = layui.layer;
         var laydate = layui.laydate;
@@ -420,24 +450,60 @@
             }
         }
     });
+
+    function selectSidByFid(fId) {
+        $.ajax({
+            type : "get" ,
+            url: '/pjRequireClassifyInfos/selectSidByFid?fid='+fId,
+            async : false,
+            success : function (result) {
+                sId = result;
+            }
+        })
+    }
+
     function submitButton(){
         var cWays ;
-        var fromJob;
+        var fId;
         var obj = $(".serSelCon2").find("input");
         for (var i in obj) {
             if(obj[i].checked){
                 cWays = ($(".serSelCon2").find("span"))[i].innerText;
             }
         }
-        var fromJobObj = $("#fromJob").find("input");
-        for (var i in fromJobObj) {
-            if(fromJobObj[i].checked){
-                console.log(fromJobObj[i]);
-                fromJob = fromJobObj[i].value;
+        var fromJob = $("#fromJob").find("input");
+        for (var i in fromJob) {
+            if(fromJob[i].checked){
+                fId = fromJob[i].value;
             }
         }
-        alert("cWays="+cWays);
-        alert("fromJob="+fromJob);
+        selectSidByFid(fId);
+        var formdata = new FormData();
+        formdata.name = $("#name").val();
+        formdata.fId = fId;
+        formdata.sId = sId;
+        formdata.xfArea = $("#xfArea").val();
+        formdata.endTime = (new Date($("#endTime").val())).Format("yyyy-MM-dd hh:mm:ss");
+        formdata.cWays = cWays;
+        formdata.cMoney = $("#cMoney").val();
+        formdata.place = $("#place").val();
+        formdata.mNeed = $("#mNeed").val();
+        formdata.target = $("#target").val();
+        formdata.description = $("#description").val();
+        formdata.man = $("#man").val();
+        formdata.phone = $("#phone").val();
+        formdata.userId = user.id;
+        formdata.status = 0;
+        console.log("formdata======"+JSON.stringify(formdata));
+        $.ajax({
+            type : 'post',
+            url : '/pjRequires',
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formdata),
+            success : function(data) {
+                layer.msg("发布成功!");
+            }
+        });
     }
 
 </script>

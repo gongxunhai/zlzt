@@ -12,6 +12,7 @@
 	<link href="../css/animate.css" rel="stylesheet">
 	<link href="../css/bootsnav.css" rel="stylesheet">
     <link href="../css/swiper.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
     <link href="../treetable/css/jquery.treetable.css" rel="stylesheet" type="text/css" >
 	<link href="../css/style.css" rel="stylesheet">
     <script src="../js/jquery.js"></script>
@@ -19,6 +20,8 @@
 	<script src="../js/bootsnav.js"></script>
     <script src="../js/swiper.min.js"></script>
 	<script src="../treetable/js/jquery.treetable.js"></script>
+    <script type="text/javascript" src="../../../layui/layui.js"></script>
+    <script type="text/javascript" src="../../../js/common.js"></script>
     <script src="../js/rem.js"></script>
     <script src="../js/public.js"></script>
 	<!--[if lt IE 9]>
@@ -27,7 +30,18 @@
 	<![endif]-->
 </head>
 <body>
-<nav class="navbar navbar-default bootsnav navbar-fixed-top wow fadeInDown">
+<script>
+    var pro = window.location.protocol;
+    var host = window.location.host;
+    var domain = pro + "//" + host;
+
+    var layer;
+    layui.use([ 'layer' ], function() {
+        layer = layui.layer;
+    });
+</script>
+<script src="../js/htmlJs/publicHeader.js"></script>
+<!--<nav class="navbar navbar-default bootsnav navbar-fixed-top wow fadeInDown">
     <div class="wrap">
         <div class="attr-nav navRig">
             <ul>
@@ -101,7 +115,7 @@
             </ul>
         </div>        
     </div>
-</nav>
+</nav>-->
 <div class="searchBg">
 	<div class="wrap">
     	<div class="search">
@@ -131,7 +145,7 @@
         </div>
     </div>
 </div><!--searchBg-->
-<div class="banInner banUser wow fadeIn">
+<!--<div class="banInner banUser wow fadeIn">
 	<div class="imgFull"><img src="../images/banUser.jpg" class="img-responsive"></div>
     <div class="banUserCon">
     	<div class="userImgBox" data-toggle="modal" data-target="#myHeadImg">
@@ -167,11 +181,16 @@
     	<li><a href="#">消息通知</a></li>
     	<li><a href="#">账户设置</a></li>
     </ul>
-</div>
+</div>-->
+<script src="../js/htmlJs/getUserHeader.js"></script>
+<script src="../js/htmlJs/getPathname.js"></script>
 <div class="mainBg grayBg overHide">
     <div class="container">
         <div class="reportTop userTit wow fadeInDown">
-            <h3 class="reportTit pull-left">我发布的需求</h3>            
+            <h3 class="reportTit pull-left">我发布的需求</h3>
+            <ul class="userTitRig list-unstyled list-inline pull-right">
+                <li><a class="last" href="requireCreate.html">发布新需求</a></li>
+            </ul>
             <div class="clear"></div>
         </div>
         <div class="proSeach">
@@ -179,22 +198,22 @@
                 <li class="col-xs-12 col-sm-12 col-md-6">
                     <label class="regLab">技术名称：</label>
                     <div class="regRig">
-                        <input type="text" class="loginInput" >
+                        <input type="text" class="loginInput" id="name">
                     </div>
                     <div class="clear"></div>
                 </li>
                 <li class="col-xs-12 col-sm-12 col-md-6">
                     <label class="regLab">发布日期：</label>
                     <div class="regRig">
-                        <input class="sxTimeInput" type="text" placeholder="10 Oct 2018">
-                        <input class="sxTimeInput" type="text" placeholder="25 Oct 2018">
+                        <input class="sxTimeInput" type="text" placeholder="10 Oct 2018" id="beginTime">
+                        <input class="sxTimeInput" type="text" placeholder="25 Oct 2018" id="lastTime">
                     </div>
                     <div class="clear"></div>
                 </li>
                 <li class="col-xs-12 col-sm-12 col-md-6">
                     <label class="regLab">所属行业：</label>
                     <div class="regRig">
-                        <select class="regSelect">
+                        <select class="regSelect" id="fromJob">
                             <option>全部</option>
                             <option>电子信息</option>
                             <option>航空航天</option>
@@ -214,16 +233,16 @@
                 <li class="col-xs-12 col-sm-12 col-md-6">
                     <label class="regLab">状态：</label>
                     <div class="regRig">
-                        <select class="regSelect">
-                            <option>全部</option>
-                            <option>待审核</option>
-                            <option>已发布</option>
+                        <select class="regSelect" id="status">
+                            <option  value="">全部</option>
+                            <option value="0">待审核</option>
+                            <option value="1">已发布</option>
                         </select>
                     </div>
                     <div class="clear"></div>
                 </li>
             </ul>
-            <a class="proSeaBtn wow fadeInRight" href="javascript:;"><i class="iconfont icon-sousuo1"></i>查询</a>
+            <a class="proSeaBtn wow fadeInRight" href="javascript:;" onclick="searchByData()"><i class="iconfont icon-sousuo1"></i>查询</a>
         </div>
         <table id="proTab" class="table wow fadeInUp" width="100%">
             <thead>                      
@@ -555,7 +574,7 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <th colspan="3">共计：<strong class="corOrg">420</strong>条记录</th>
+                    <th colspan="3">共计：<strong class="corOrg" id="dataNum">420</strong>条记录</th>
                     <th colspan="3"><a class="prodelBtn" href="javascript:;">删除所选项目</a></th>
                 </tr>
             </tfoot>
@@ -617,7 +636,7 @@
         </div>
         <div class="ftBot wow fadeInUp">
         	<div class="copyRight">
-            	<p>Copyright © 2018中国航天科工集团知识产权中心版权所有 京ICP备13006003号-2  设计支持：<a href="#">千助科技</a></p>
+            	<p>Copyright © 2018中国航天科工集团知识产权中心版权所有 京ICP备13006003号-2  设计支持：<a href="#">谦亨网络</a></p>
             </div>
             <div class="ftBotRig">
             	<ul class="ftBotIco list-unstyled list-inline">
@@ -639,7 +658,7 @@
         </div>
     </div>
 </footer>
-<div id="myHeadImg" class="modal fade">
+<!--<div id="myHeadImg" class="modal fade">
     <div class="loginBox">
         <div class="loginTop">
             <h2 class="loginTit">修改头像</h2>
@@ -660,44 +679,76 @@
         </div>
         <a href="javascript:;" class="uploadExit" data-dismiss="modal">取消</a>
     </div>
-</div>
+</div>-->
 <link rel="stylesheet" type="text/css" media="screen" href="../datatables/dataTables.bootstrap.min.css">
 <script type="text/javascript" src="../datatables/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="../datatables/dataTables.bootstrap.min.js"></script>
 <script>
+    layui.use(['layer','laydate'], function(){
+        var layer = layui.layer;
+        var laydate = layui.laydate;
+        var laydate1 = layui.laydate;
+
+        laydate.render({
+            elem: '#beginTime'
+        });
+
+        laydate1.render({
+            elem: '#lastTime'
+        });
+    });
+
+    //获取所属行业下拉框值
+    function changeFromJob() {
+        $.ajax({
+            type : 'post',
+            url : '/pjRequireClassifyInfos/changeFromJob',
+            async : false,
+            success : function(data) {
+                $("#fromJob").html('');
+                $("#fromJob").append('<option value=""> </option>');
+                for (var i = 0; i < data.length; i++) {
+                    $("#fromJob").append('<option value="'+data[i].id+'">'+data[i].name+'</option>');
+                }
+            }
+        })
+    }
+
+    function deleteProject(obj) {
+        $.ajax({
+            type : 'delete',
+            url : '/pjRequires/'+obj,
+            success : function(data) {
+                table.ajax.reload();
+                layer.msg("删除成功");
+            }
+        });
+    }
+
 	var table = $('#proTab').DataTable({
-		"searching": false,
-		"ordering": false,
-		"processing": false,
-		"info": false,
-		//"paging":   false,
-		"lengthMenu": [10, 20, 30, "所有"],
-		"pageLength": 12,
-		"pagingType":"numbers",
-		"language": {
-			"sProcessing": "处理中...",
-			"sLengthMenu": "显示 _MENU_ 项结果",
-			"sZeroRecords": "没有匹配结果",
-			"sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
-			"sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
-			"sInfoFiltered": "(由 _MAX_ 项结果过滤)",
-			"sInfoPostFix": "",
-			"sSearch": "搜索:",
-			"sUrl": "",
-			"sEmptyTable": "表中数据为空",
-			"sLoadingRecords": "载入中...",
-			"sInfoThousands": ",",
-			"oPaginate": {
-				"sFirst": "首页",
-				"sPrevious": "上页",
-				"sNext": "下页",
-				"sLast": "末页"
-			},
-			"oAria": {
-				"sSortAscending": ": 以升序排列此列",
-				"sSortDescending": ": 以降序排列此列"
-			}			
-		},
+        "searching": false,
+        "ordering": false,
+        "serverSide" : true,
+        "processing": false,
+        "language": {
+            "url": "/js/plugin/datatables/Chinese.lang"
+        },
+        "ajax": {
+            "url" : "/pjRequires",
+            "type":"get",
+            "data":function(d){
+                d.searchByInput = $("#name").val();
+                d.beginTime = $("#beginTime").val();
+                d.lastTime = $("#lastTime").val();
+                d.fId = $("#fromJob").val();
+                d.status = $("#status").val();
+                d.userId = user.id ;
+            }
+        },
+        "fnInfoCallback": function (response) {
+            // console.log(response);
+            $("#dataNum").text(response.json.recordsTotal);
+        },
 		"columnDefs": [
 			{ className: "proTabCon1", "targets": [ 0 ] },
 			{ className: "proTabCon2", "targets": [ 1 ] },
@@ -705,7 +756,52 @@
 			{ className: "proTabCon4", "targets": [ 3 ] },
 			{ className: "proTabCon5", "targets": [ 4 ] },
 			{ className: "proTabCon6", "targets": [ 5 ] },
-		  ]
+		  ],
+        "columns": [
+            {"data" : "", "defaultContent" : "",
+                "render":function (data, type, row) {
+                    return '<label><span><input type="checkbox" name="rowid" value="'+row.id+'"><i class="iconfont icon-xuanze"></i></span></label>';
+                }},
+            {"data" : "name", "defaultContent" : "",
+                "render":function (data, type, row) {
+                    var a = ' <strong>名称：</strong>\n' +
+                        '                        <a class="zyTabName" href="javascript:;">'+row.name+'</a>';
+                    return a;
+                }
+            },
+            { "data" : "fIdName", "defaultContent" : "",
+                "render":function (data, type, row) {
+                    var a = '<strong>所属行业：</strong>'+row.fIdName+'';
+                    return a;
+                }},
+            {"data" : "createTime", "defaultContent" : "",
+                "render": function (data, type, row) {
+                    return (new Date(data)).Format("yyyy-MM-dd");
+                }},
+            {"data" : "status", "defaultContent" : "",
+                "render":function (data, type, row) {
+                    var status = row['status'];
+                    if(status == 0){
+                        return "待审核";
+                    }else if(status == 1){
+                        return "已发布";
+                    }else if(status == 2){
+                        return "已驳回";
+                    }
+                    return status;
+                }},
+            {
+                "data": "",
+                "defaultContent": "",
+                "orderable":false,
+                "render": function (data, type, row) {
+                    var a = '<strong>操作：</strong>\n' +
+                        '                    \t<a href="javascript:;" onclick="deleteProject('+row.id+')"><i class="iconfont icon-shanchu"></i>删除</a>\n' +
+                        '                    \t<a href="javascript:;"><i class="iconfont icon-chakan1"></i>查看</a>';
+                    return a;
+                }
+            },
+        ]
 	});
 	$('#checkAll').on('click', function(){
       var rows = table.rows({ 'search': 'applied' }).nodes();
@@ -719,6 +815,10 @@
 			}
 		}
    });
+    function searchByData() {
+        table.ajax.reload();
+    }
+    changeFromJob();
 </script>
 </body>
 </html>

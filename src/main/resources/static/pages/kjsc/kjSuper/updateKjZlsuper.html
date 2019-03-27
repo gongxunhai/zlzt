@@ -111,9 +111,16 @@
 					<input class='form-control' placeholder='zlYear' type='text' name='zlYear' id='zlYear' data-bv-notempty='true' data-bv-notempty-message='zlYear 不能为空'>
 				</div>
 			</div>
-
-
-
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>状态</label>
+				<div class='col-md-10'>
+					<select class='form-control' placeholder='status' type='text' name='status' id='status' data-bv-notempty='true' data-bv-notempty-message='status 不能为空'>
+						<option value="0">未审核</option>
+						<option value="1">审核</option>
+						<option value="2">驳回</option>
+					</select>
+				</div>
+			</div>
 			<div class="form-actions">
 				<div class="row" align="center">
 					<div class="col-md-12">
@@ -128,11 +135,11 @@
 		</fieldset>
 	</form>
 </div>
-	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="../../js/jq.js"></script>
-	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
-	<script type="text/javascript" src="../../js/common.js"></script>
-	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript" src="../../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../../js/jq.js"></script>
+	<script type="text/javascript" src="../../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../../../js/common.js"></script>
+	<script type="text/javascript" src="../../../layui/layui.js"></script>
 	<script type="text/javascript">
 		layui.use(['layer','laydate'], function(){
 		    var layer = layui.layer;
@@ -149,16 +156,16 @@
 					async : false,
 					success : function(data) {
 						$('#change').val(data.change);
-						$('#cMan').val(data.cMan);
-						$('#cPhone').val(data.cPhone);
+						$('#cMan').val(data.cman);
+						$('#cPhone').val(data.cphone);
 						$('#dealMoney').val(data.dealMoney);
 						$('#dealWay').val(data.dealWay);
-						$('#fId').val(data.fId);
+						$('#fId').val(data.fid);
 						$('#id').val(data.id);
 						$('#lawS').val(data.lawS);
 						$('#name').val(data.name);
 						$('#pubTime').val(data.pubTime);
-						$('#sId').val(data.sId);
+						$('#sId').val(data.sid);
 						$('#useArea').val(data.useArea);
 						$('#xfArea').val(data.xfArea);
 						$('#zlDetails').val(data.zlDetails);
@@ -166,7 +173,7 @@
 						$('#zlImage').val(data.zlImage);
 						$('#zlType').val(data.zlType);
 						$('#zlYear').val(data.zlYear);
-
+                        $('#status').val(data.status);
 					}
 				});
 			}

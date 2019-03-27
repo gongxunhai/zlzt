@@ -5,61 +5,82 @@
 
 	<sql id="where">
 		<where>
+            <if test="params.status != null and params.status != ''">
+                and t.status = #{params.status}
+            </if>
 			<if test="params.buyNum != null and params.buyNum != ''">
-				and buyNum = #{params.buyNum} 
+				and t.buyNum = #{params.buyNum}
 			</if>
 			<if test="params.cMan != null and params.cMan != ''">
-				and cMan = #{params.cMan} 
+				and t.cMan = #{params.cMan}
 			</if>
 			<if test="params.cPhone != null and params.cPhone != ''">
-				and cPhone = #{params.cPhone} 
+				and t.cPhone = #{params.cPhone}
 			</if>
 			<if test="params.fId != null and params.fId != ''">
-				and fId = #{params.fId} 
+				and t.fId = #{params.fId}
 			</if>
 			<if test="params.haveNum != null and params.haveNum != ''">
-				and haveNum = #{params.haveNum} 
+				and t.haveNum = #{params.haveNum}
 			</if>
 			<if test="params.history != null and params.history != ''">
-				and history = #{params.history} 
+				and t.history = #{params.history}
 			</if>
 			<if test="params.id != null and params.id != ''">
-				and id = #{params.id} 
+				and t.id = #{params.id}
 			</if>
 			<if test="params.name != null and params.name != ''">
-				and name = #{params.name} 
+				and t.name = #{params.name}
 			</if>
 			<if test="params.pData != null and params.pData != ''">
-				and pData = #{params.pData} 
+				and t.pData = #{params.pData}
 			</if>
 			<if test="params.pDetail != null and params.pDetail != ''">
-				and pDetail = #{params.pDetail} 
+				and t.pDetail = #{params.pDetail}
 			</if>
-			<if test="params.pImage != null and params.pImage != ''">
-				and pImage = #{params.pImage} 
+			<if test="params.image != null and params.image != ''">
+				and t.image = #{params.image}
 			</if>
 			<if test="params.place != null and params.place != ''">
-				and place = #{params.place} 
+				and t.place = #{params.place}
 			</if>
 			<if test="params.price != null and params.price != ''">
-				and price = #{params.price} 
+				and t.price = #{params.price}
 			</if>
 			<if test="params.pubTime != null and params.pubTime != ''">
-				and pubTime = #{params.pubTime} 
+				and t.pubTime = #{params.pubTime}
 			</if>
 			<if test="params.salePrice != null and params.salePrice != ''">
-				and salePrice = #{params.salePrice} 
+				and t.salePrice = #{params.salePrice}
 			</if>
 			<if test="params.sId != null and params.sId != ''">
-				and sId = #{params.sId} 
+				and t.sId = #{params.sId}
 			</if>
 			<if test="params.talk != null and params.talk != ''">
-				and talk = #{params.talk} 
+				and t.talk = #{params.talk}
 			</if>
 			<if test="params.xfArea != null and params.xfArea != ''">
-				and xfArea = #{params.xfArea} 
+				and t.xfArea = #{params.xfArea}
 			</if>
-		
+            <if test="params.beginTime != null and params.beginTime != ''">
+                <if test="params.endTime != null and params.endTime != ''">
+                    and t.pubTime between #{params.beginTime} and #{params.endTime}
+                </if>
+                <if test="params.endTime == null || params.endTime == ''">
+                    and t.pubTime > #{params.beginTime}
+                </if>
+            </if>
+            <if test="params.endTime != null and params.endTime != ''">
+                <if test="params.beginTime == null || params.beginTime == ''">
+                    and  t.pubTime &lt; #{params.endTime}
+                </if>
+            </if>
+            <if test="params.searchByInput != null and params.searchByInput != ''">
+                and t.name like concat('%', #{params.searchByInput}, '%')
+            </if>
+            <if test="params.userId != null and params.userId != ''">
+                and t.userId = #{params.userId}
+            </if>
 		</where>
 	</sql>
 
@@ -69,7 +90,9 @@
 	</select>
 
 	<select id="list" resultType="KjProduct">
-		select * from kj_product t
+		select t.*,b.name as fIdName,c.name as sIdName from kj_product t
+		left join kj_product_classifyInfo b on t.fId = b.id
+		left join kj_product_classifyInfo c on t.sId = c.id
 		<include refid="where" />
 		<if test="params.orderBy!=null and params.orderBy !=''">
 			${params.orderBy}
@@ -109,8 +132,8 @@
 			<if test="pDetail != null">
 				pDetail = #{pDetail}, 
 			</if>
-			<if test="pImage != null">
-				pImage = #{pImage}, 
+			<if test="image != null">
+				image = #{image},
 			</if>
 			<if test="place != null">
 				place = #{place}, 

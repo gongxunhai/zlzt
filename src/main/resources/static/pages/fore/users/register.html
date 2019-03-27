@@ -298,6 +298,10 @@
             layer.msg("手机号码有误，请重填");
             return false;
         }
+        if (phone == "") {
+            layer.msg("请填写手机号！");
+            return false;
+        }
         var selectPhone = '';
         $.ajax({
             "type": "post",

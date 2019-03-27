@@ -24,7 +24,7 @@ public interface KjServiceDao {
     int update(KjService kjService);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into kj_service(descript, type, serviceWay, price, introduction, flow, record, commentId, createTime, name, image) values(#{descript}, #{type}, #{serviceWay}, #{price}, #{introduction}, #{flow}, #{record}, #{commentId}, #{createTime}, #{name}, #{image})")
+    @Insert("insert into kj_service(descript, type, serviceWay, price, introduction, flow, record, commentId, createTime, name, image, flowImageA, flowImageB) values(#{descript}, #{type}, #{serviceWay}, #{price}, #{introduction}, #{flow}, #{record}, #{commentId}, #{createTime}, #{name}, #{image}, #{flowImageA}, #{flowImageB})")
     int save(KjService kjService);
     
     int count(@Param("params") Map<String, Object> params);

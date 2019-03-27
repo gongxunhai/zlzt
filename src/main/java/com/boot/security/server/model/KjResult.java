@@ -1,5 +1,7 @@
 package com.boot.security.server.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class KjResult extends BaseEntity<Long> {
@@ -10,9 +12,10 @@ public class KjResult extends BaseEntity<Long> {
 	private String cWays;
 	private Integer fId;
 	private String knowledge;
-	private String Mneed;
+	private String mNeed;
 	private String name;
 	private String predict;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date pubTime;
 	private Integer sId;
 	private String source;
@@ -25,6 +28,10 @@ public class KjResult extends BaseEntity<Long> {
 	private String image;
 	private String fIdName;
 	private String sIdName;
+	private Integer userId;
+	private Integer status;
+	private Integer pointNum;
+	private Integer careNum;
 
 	public String getfIdName() {
 		return fIdName;
@@ -78,13 +85,13 @@ public class KjResult extends BaseEntity<Long> {
 	public void setKnowledge(String knowledge) {
 		this.knowledge = knowledge;
 	}
-	public String getMneed() {
-		return Mneed;
-	}
-	public void setMneed(String Mneed) {
-		this.Mneed = Mneed;
-	}
-	public String getName() {
+    public String getmNeed() {
+        return mNeed;
+    }
+    public void setmNeed(String mNeed) {
+        this.mNeed = mNeed;
+    }
+    public String getName() {
 		return name;
 	}
 	public void setName(String name) {
@@ -150,12 +157,86 @@ public class KjResult extends BaseEntity<Long> {
 	public void setXfArea(String xfArea) {
 		this.xfArea = xfArea;
 	}
-
 	public String getImage() {
 		return image;
 	}
-
 	public void setImage(String image) {
 		this.image = image;
 	}
+    public Integer getUserId() {
+        return userId;
+    }
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+    public Integer getStatus() {
+        return status;
+    }
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getcMan() {
+        return cMan;
+    }
+
+    public void setcMan(String cMan) {
+        this.cMan = cMan;
+    }
+
+    public String getcPhone() {
+        return cPhone;
+    }
+
+    public void setcPhone(String cPhone) {
+        this.cPhone = cPhone;
+    }
+
+    public String getcWays() {
+        return cWays;
+    }
+
+    public void setcWays(String cWays) {
+        this.cWays = cWays;
+    }
+
+    public Integer getfId() {
+        return fId;
+    }
+
+    public void setfId(Integer fId) {
+        this.fId = fId;
+    }
+
+    public Integer getsId() {
+        return sId;
+    }
+
+    public void setsId(Integer sId) {
+        this.sId = sId;
+    }
+
+    public String gettIndex() {
+        return tIndex;
+    }
+
+    public void settIndex(String tIndex) {
+        this.tIndex = tIndex;
+    }
+
+    public Integer getPointNum() {
+        return pointNum;
+    }
+
+    public void setPointNum(Integer pointNum) {
+        this.pointNum = pointNum;
+    }
+
+    public Integer getCareNum() {
+        return careNum;
+    }
+
+    public void setCareNum(Integer careNum) {
+        this.careNum = careNum;
+    }
 }

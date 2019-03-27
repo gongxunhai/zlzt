@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" media="screen" href="../../fore/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" media="screen" href="../../../css/dataTables.bootstrap.min.css">
-<link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
+<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="../../css/dataTables.bootstrap.min.css">
+<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
 </head>
 <body>
     <div>
@@ -25,10 +25,7 @@
 									</form>
 	                   			</td>
 	                   			<td align="right">
-									<button type="button" class="layui-btn layui-btn-sm" id="upexcel">
-										<i class="layui-icon">&#xe67c;</i>上传excel文件
-									</button>
-	                   				<button class="layui-btn layui-btn-sm" onclick="location.href='addKjResult.html'">
+	                   				<button class="layui-btn layui-btn-sm" onclick="location.href='addEntrust.html'">
                                       <i class="layui-icon">&#xe608;</i> 添加
                                     </button>
 	                   			</td>
@@ -45,14 +42,13 @@
                                 </tr>                       
                                 <tr>
 									<th>id</th>
-									<th>所属行业</th>
-									<th>二级行业</th>
-									<th>名称</th>
-									<th>来源</th>
-									<th>技术水品</th>
-									<th>合作方式</th>
-									<th>区域</th>
-									<th>状态</th>
+                                    <th>状态</th>
+									<th>委托内容</th>
+									<th>产品类型</th>
+									<th>用户名称</th>
+                                    <th>联系人</th>
+                                    <th>联系方式</th>
+                                    <th>委托时间</th>
 									<th>操作</th>
                                 </tr>
                             </thead>
@@ -64,21 +60,18 @@
             </div>
         </div>
     </div>
-	<input type="hidden" id="tableName" name="type">
-	<input type="hidden" id="tableName2" name="type">
 </body>
 </html>
 
-<script type="text/javascript" src="../../../js/libs/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="../../../js/jq.js"></script>
-<script type="text/javascript" src="../../../js/plugin/datatables/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="../../../js/plugin/datatables/dataTables.bootstrap.min.js"></script>
-<script type="text/javascript" src="../../../layui/layui.js"></script>
-<script type="text/javascript" src="../../../js/my/permission.js"></script>
+<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../../js/jq.js"></script>
+<script type="text/javascript" src="../../js/plugin/datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../../js/plugin/datatables/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="../../layui/layui.js"></script>
+<script type="text/javascript" src="../../js/my/permission.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
 <script type="text/javascript">
 var pers = checkPermission();
-$("#tableName").val("kj_result");
-$("#tableName2").val("kj_result_classifyInfo");
 
 var example;
 function init(){
@@ -91,24 +84,15 @@ function init(){
                 "url": "/js/plugin/datatables/Chinese.lang"
             },
         	"ajax": {
-        		"url" : "/kjResults",
+        		"url" : "/entrusts",
         		"type":"get",
         		"data":function(d){
-                    d.tableName =  $("#tableName").val();
-                    d.tableName2 =  $("#tableName2").val();
     				d.id = $("#id").val();
     			}
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
             "columns": [
                 {"data" : "id", "defaultContent" : ""},
-                {"data" : "fIdName", "defaultContent" : ""},
-                {"data" : "sIdName", "defaultContent" : ""},
-                {"data" : "name", "defaultContent" : ""},
-                {"data" : "source", "defaultContent" : ""},
-                {"data" : "tlevel", "defaultContent" : ""},
-                {"data" : "cways", "defaultContent" : ""},
-				{"data" : "area", "defaultContent" : ""},
                 {"data" : "status", "defaultContent" : "",
                     "render": function (data, type, row) {
                         var status = row['status'];
@@ -122,20 +106,30 @@ function init(){
                         return status;
                     }
                 },
+                {"data" : "content", "defaultContent" : ""},
+                {"data" : "type", "defaultContent" : ""},
+                {"data" : "username", "defaultContent" : ""},
+				{"data" : "contactMan", "defaultContent" : ""},
+				{"data" : "contactWay", "defaultContent" : ""},
+				{"data" : "createTime", "defaultContent" : ""/*,
+                    "render": function (data, type, row) {
+                        return (new Date(row.createTime)).Format("yyyy-MM-dd") ;
+                    }    */
+                },
 				{
-					"data": "",
-					"defaultContent": "",
-					"orderable":false,
-					"render": function (data, type, row) {
-					   var id = row['id'];
-					   var href = "updateKjResult.html?id=" + id;
-					   var edit = buttonEdit(href, "", pers);
-					   var del = buttonDel(id, "", pers);
-					   return edit + del;
-					}
-				},
+                    "data": "",
+                    "defaultContent": "",
+                    "orderable":false,
+                    "render": function (data, type, row) {
+                       var id = row['id'];
+                       var href = "updateEntrust.html?id=" + id;
+                       var edit = buttonEdit(href, "", pers);
+                       var del = buttonDel(id, "", pers);
+                       return edit + del;
+                    }
+                },
             ],
-           "order": [[ 8, "asc" ]]
+           "order": [[ 0, "asc" ]]
         } );
 }
 
@@ -149,7 +143,7 @@ function del(id){
     }, function() {
     	$.ajax({
             type : 'delete',
-            url : '/kjResults/'+id,
+            url : '/entrusts/'+id,
             success : function(data) {
                 example.ajax.reload();
                 layer.msg("删除成功");
@@ -162,28 +156,6 @@ function del(id){
 
 $("#searchBt").click(function(){
 	example.ajax.reload();
-});
-
-layui.use(['upload','layer'], function(){
-    var layer = layui.layer;
-    var upload = layui.upload;
-
-    upload.render({
-        elem: '#upexcel' //绑定元素
-        ,accept: 'file' //允许上传的文件类型
-        ,url: '/kjResults/upexcel' //上传接口
-        ,done: function(res, index, upload){
-            layer.msg("上传成功");
-            example.ajax.reload();
-        },
-        error:function (e) {
-            //返回500错误 或者其他 http状态码错误时 需要在error 回调函数中处理了 并且返回的数据还不能直接alert，需要使用
-            //$.parseJSON 进行转译    res.msg 是自己组装的错误信息通用变量
-            var res = $.parseJSON(e.responseText);
-            layer.msg(res.msg);
-        }
-    });
-
 });
 
 init();

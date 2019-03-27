@@ -5,7 +5,7 @@ document.writeln("            <ul>");
 document.writeln("            	<li class=\'navTelMob\'><a href=\'tel:010-68376645\'><i class=\'iconfont icon-dianhua\'></i></a></li>");
 document.writeln("                <li class=\'navTel\'><a href=\'javascript:;\'><i class=\'iconfont icon-dianhua\'></i><strong>010-68376645</strong></a></li>");
 document.writeln("                <li class=\'navSearch\'><a href=\'javascript:;\'><i class=\'iconfont icon-sousuo\'></i>搜索</a></li>");
-document.writeln("                <li><i class=\'iconfont icon-guanjiaowangtubiao01\'></i><a href=\'#\'>登录</a><span>or</span><a href=\'#\'>注册</a></li>");
+document.writeln("                <li  id=\'userNav\'><i class=\'iconfont icon-guanjiaowangtubiao01\'></i><a href=\'"+domain+"/pages/fore/users/login.html\'>登录</a><span>or</span><a href=\'"+domain+"/pages/fore/users/register.html\'>注册</a></li>");
 document.writeln("            </ul>");
 document.writeln("        </div>");
 document.writeln("        <div class=\'navbar-header\'>");
@@ -46,11 +46,10 @@ document.writeln("                </li>");
 document.writeln("                <li  id=\'zlResult\'><a href=\'"+domain+"/pages/fore/gfArea/zlResult.html\'><span>高分专区</span></a></li>");
 document.writeln("                <li  id=\'news\'><a href=\'"+domain+"/pages/fore/news/news.html\'><span>新闻动态</span></a></li>");
 document.writeln("                <li class=\'dropdown\'  id=\'kjService\'>");
-document.writeln("                      <a href=\'kjService.html\' class=\'dropdown-toggle\' data- ");
-document.writeln("                       toggle=\'dropdown\' ><span>科技服务</span></a>");
+document.writeln("                     <a href=\'javascript:;\' class=\'dropdown-toggle\' data-toggle=\'dropdown\' ><span>科技服务</span></a>");
 document.writeln("                     <ul class=\'dropdown-menu\'>");
-document.writeln("                        <li><a href=\'"+domain+"/pages/forekjServiceList.html\'>知识产权服务</a></li>");
-document.writeln("                        <li><a href=\'"+domain+"/pages/forekjService.html\'>科技服务</a></li>");
+document.writeln("                        <li><a href=\'"+domain+"/pages/fore/kjService/kjServiceList.html\'>知识产权服务</a></li>");
+document.writeln("                        <li><a href=\'"+domain+"/pages/fore/kjService/kjService.html\'>科技服务</a></li>");
 document.writeln("                    </ul>");
 document.writeln("                  </li>");
 document.writeln("                <li id=\'aboutUs\'><a href=\'"+domain+"/pages/fore/aboutUs.html\'><span>关于我们</span></a></li>");
@@ -58,3 +57,38 @@ document.writeln("            </ul>");
 document.writeln("        </div>        ");
 document.writeln("    </div>");
 document.writeln("</nav>");
+
+function checkUser() {
+    if (sessionStorage.getItem("forSession") != '' && sessionStorage.getItem("forSession") !=null) {
+        user = JSON.parse(sessionStorage.getItem("forSession"));
+        $("#userNav").attr("class","navUser dropdown");
+        $("#userNav").html('<a href="'+domain+'/pages/fore/users/userCore.html" class="dropdown-toggle" data-toggle="dropdown" >\n' +
+            '                    \t<i class="iconfont icon-guanjiaowangtubiao01"><sup></sup></i>\n' +
+            '                        <span>'+user.username+'<i class="fa fa-angle-down"></i></span>\n' +
+            '                    </a>\n' +
+            '                    <ul class="dropdown-menu navUserCon">\n' +
+            '                    \t<li>\n' +
+            '                        \t<div class="media">\n' +
+            '                            \t<div class="media-left media-middle">\n' +
+            '                                \t<div class="headerImg"><img src="'+domain+'/statics'+user.headImgUrl+'" class="img-responsive"></div>\n' +
+            '                                </div>\n' +
+            '                                <div class="media-body">\n' +
+            '                                \t<h3 class="navUserName">'+user.username+'</h3>\n' +
+            '                                    <p>'+user.email+'</p>\n' +
+            '                                    <p>'+user.phone+'</p>\n' +
+            '                                </div>\n' +
+            '                            </div>\n' +
+            '                        </li>\n' +
+            '                    \t<li>\n' +
+            '                        \t<p><a href="'+domain+'/pages/fore/users/userCore.html">我的个人资料</a></p>\n' +
+            '                        \t<p><a href="#">我的订单<span class="corRed">（3）</span></a></p>\n' +
+            '                        \t<p><a href="#">消息通知<span class="corRed">（20）</span></a></p>\n' +
+            '                        </li>\n' +
+            '                    \t<li class="exit">\n' +
+            '                        \t<p><a href="javascript:;"><i class="iconfont icon-zhuxiao"></i>退出</a></p>\n' +
+            '                        </li>\n' +
+            '                    </ul>');
+    }
+}
+var user = '';
+checkUser();

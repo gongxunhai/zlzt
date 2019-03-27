@@ -38,8 +38,8 @@ public class FileServiceImpl implements FileService {
 			return fileInfo;
 		}
 
-		fileOrigName = fileOrigName.substring(fileOrigName.lastIndexOf("."));
-		String pathname = FileUtil.getPath() + md5 + fileOrigName;
+		String fileLastName = fileOrigName.substring(fileOrigName.lastIndexOf("."));
+		String pathname = FileUtil.getPath() + md5 + fileLastName;
 		String fullPath = filesPath + pathname;
 		FileUtil.saveFile(file, fullPath);
 
@@ -52,6 +52,7 @@ public class FileServiceImpl implements FileService {
 		fileInfo.setSize(size);
 		fileInfo.setPath(fullPath);
 		fileInfo.setUrl(pathname);
+		fileInfo.setName(fileOrigName);
 		fileInfo.setType(contentType.startsWith("image/") ? 1 : 0);
 
 		fileInfoDao.save(fileInfo);

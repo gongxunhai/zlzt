@@ -27,7 +27,18 @@
 	<![endif]-->
 </head>
 <body>
-<nav class="navbar navbar-default bootsnav navbar-fixed-top wow fadeInDown">
+<script>
+    var pro = window.location.protocol;
+    var host = window.location.host;
+    var domain = pro + "//" + host;
+
+    var layer;
+    layui.use([ 'layer' ], function() {
+        layer = layui.layer;
+    });
+</script>
+<script src="../js/htmlJs/publicHeader.js"></script>
+<!--<nav class="navbar navbar-default bootsnav navbar-fixed-top wow fadeInDown">
     <div class="wrap">
         <div class="attr-nav navRig">
             <ul>
@@ -71,12 +82,12 @@
             <a class="navbar-brand flexBox logo" href="#">
                 <span><img src="../images/logo.png" class="img-responsive"></span>
             </a>
-        </div>            
+        </div>
         <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
                 <li><a href="#"><span>首页</span></a></li>
 				<li><a href="#"><span>科技商城</span></a></li>
-				<li><a href="#"><span>项目需求</span></a></li>             
+				<li><a href="#"><span>项目需求</span></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" ><span>科技资源</span></a>
                     <ul class="dropdown-menu">
@@ -99,39 +110,39 @@
 				<li><a href="#"><span>科技服务</span></a></li>
 				<li><a href="#"><span>关于我们</span></a></li>
             </ul>
-        </div>        
+        </div>
     </div>
-</nav>
+</nav>-->
 <div class="searchBg">
-	<div class="wrap">
-    	<div class="search">
-        	<div class="close"></div>
+    <div class="wrap">
+        <div class="search">
+            <div class="close"></div>
             <div class="container">
-            	<div class="searchBox">
-                	<a href="javascript:;" class="searchBtn"><i class="fa fa-search"></i></a>
-                	<input type="text" placeholder="请输入关键字" class="searchInput" >
+                <div class="searchBox">
+                    <a href="javascript:;" class="searchBtn"><i class="fa fa-search"></i></a>
+                    <input type="text" placeholder="请输入关键字" class="searchInput" >
                 </div>
-				<div class="searchTip">点击回车即可搜索</div>
-            	<ul class="hotSearch list-unstyled list-inline">
-                	<li><a href="#">技术成果</a></li>
-                	<li><a href="#">专家需求</a></li>
-                	<li><a href="#">科研院所资源</a></li>
-                	<li><a href="#">专利成果</a></li>
-                	<li><a href="#">检验测试需求</a></li>
-                	<li><a href="#">检验测试资源</a></li>
-                	<li><a href="#">技术需求</a></li>
-                	<li><a href="#">仪器设备需求</a></li>
-                	<li><a href="#">仪器设备资源</a></li>
-                	<li><a href="#">服务需求</a></li>
-                	<li><a href="#">专家资源</a></li>
-                	<li><a href="#">展厅资源</a></li>
-                	<li><a href="#">服务</a></li>
+                <div class="searchTip">点击回车即可搜索</div>
+                <ul class="hotSearch list-unstyled list-inline">
+                    <li><a href="#">技术成果</a></li>
+                    <li><a href="#">专家需求</a></li>
+                    <li><a href="#">科研院所资源</a></li>
+                    <li><a href="#">专利成果</a></li>
+                    <li><a href="#">检验测试需求</a></li>
+                    <li><a href="#">检验测试资源</a></li>
+                    <li><a href="#">技术需求</a></li>
+                    <li><a href="#">仪器设备需求</a></li>
+                    <li><a href="#">仪器设备资源</a></li>
+                    <li><a href="#">服务需求</a></li>
+                    <li><a href="#">专家资源</a></li>
+                    <li><a href="#">展厅资源</a></li>
+                    <li><a href="#">服务</a></li>
                 </ul>
             </div>
         </div>
     </div>
 </div><!--searchBg-->
-<div class="banInner banUser wow fadeIn">
+<!--<div class="banInner banUser wow fadeIn">
 	<div class="imgFull"><img src="../images/banUser.jpg" class="img-responsive"></div>
     <div class="banUserCon">
     	<div class="userImgBox" data-toggle="modal" data-target="#myHeadImg">
@@ -160,14 +171,16 @@
     	<li><a href="#">首页</a></li>
     	<li><a href="#">我发布的项目</a></li>
     	<li><a href="#">我发布的需求</a></li>
-    	<li><a class="active" href="#">我的订单</a></li>
-    	<li><a href="#">我的委托</a></li>
+    	<li><a href="#">我的订单</a></li>
+    	<li><a class="active" href="#">我的委托</a></li>
     	<li><a href="#">我的收藏</a></li>
     	<li><a href="#">我已点赞</a></li>
     	<li><a href="#">消息通知</a></li>
     	<li><a href="#">账户设置</a></li>
     </ul>
-</div>
+</div>-->
+<script src="../js/htmlJs/getUserHeader.js"></script>
+<script src="../js/htmlJs/getPathname.js"></script>
 <div class="mainBg grayBg overHide">
     <div class="container">
         <div class="reportTop userTit wow fadeInDown">

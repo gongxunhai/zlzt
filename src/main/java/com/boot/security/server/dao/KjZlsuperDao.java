@@ -26,7 +26,7 @@ public interface KjZlsuperDao {
     int update(KjZlsuper kjZlsuper);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into kj_zlsuper(transform, cMan, cPhone, dealMoney, dealWay, fId, lawS, name, pubTime, sId, useArea, xfArea, zlDetails, zlId, zlImage, zlType, zlYear) values(#{change}, #{cMan}, #{cPhone}, #{dealMoney}, #{dealWay}, #{fId}, #{lawS}, #{name}, #{pubTime}, #{sId}, #{useArea}, #{xfArea}, #{zlDetails}, #{zlId}, #{zlImage}, #{zlType}, #{zlYear})")
+    @Insert("insert into kj_zlsuper(transform, cMan, cPhone, dealMoney, dealWay, fId, lawS, name, pubTime, sId, useArea, xfArea, zlDetails, zlId, image, zlType, zlYear, userId, status) values(#{transform}, #{cMan}, #{cPhone}, #{dealMoney}, #{dealWay}, #{fId}, #{lawS}, #{name}, #{pubTime}, #{sId}, #{useArea}, #{xfArea}, #{zlDetails}, #{zlId}, #{image}, #{zlType}, #{zlYear}, #{userId}, #{status})")
     int save(KjZlsuper kjZlsuper);
     
     int count(@Param("params") Map<String, Object> params);

@@ -1,5 +1,8 @@
 package com.boot.security.server.model;
 
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class KjProduct extends BaseEntity<Long> {
@@ -13,16 +16,23 @@ public class KjProduct extends BaseEntity<Long> {
 	private String name;
 	private String pData;
 	private String pDetail;
-	private String pImage;
+	private String image;
 	private String place;
 	private String price;
-	private Date pubTime;
+	private Integer pointNum;
+	private Integer careNum;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date pubTime;
+
 	private String salePrice;
 	private Integer sId;
 	private String talk;
 	private String xfArea;
 	private String fIdName;
 	private String sIdName;
+	private Integer userId;
+	private Integer status;
 
 	public String getBuyNum() {
 		return buyNum;
@@ -78,13 +88,13 @@ public class KjProduct extends BaseEntity<Long> {
 	public void setPDetail(String pDetail) {
 		this.pDetail = pDetail;
 	}
-	public String getPImage() {
-		return pImage;
-	}
-	public void setPImage(String pImage) {
-		this.pImage = pImage;
-	}
-	public String getPlace() {
+    public String getImage() {
+        return image;
+    }
+    public void setImage(String image) {
+        this.image = image;
+    }
+    public String getPlace() {
 		return place;
 	}
 	public void setPlace(String place) {
@@ -142,4 +152,78 @@ public class KjProduct extends BaseEntity<Long> {
 	public void setsIdName(String sIdName) {
 		this.sIdName = sIdName;
 	}
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getcMan() {
+        return cMan;
+    }
+
+    public void setcMan(String cMan) {
+        this.cMan = cMan;
+    }
+
+    public String getcPhone() {
+        return cPhone;
+    }
+
+    public void setcPhone(String cPhone) {
+        this.cPhone = cPhone;
+    }
+
+    public Integer getfId() {
+        return fId;
+    }
+
+    public void setfId(Integer fId) {
+        this.fId = fId;
+    }
+
+    public String getpData() {
+        return pData;
+    }
+
+    public void setpData(String pData) {
+        this.pData = pData;
+    }
+
+    public String getpDetail() {
+        return pDetail;
+    }
+
+    public void setpDetail(String pDetail) {
+        this.pDetail = pDetail;
+    }
+    public Integer getsId() {
+        return sId;
+    }
+    public void setsId(Integer sId) {
+        this.sId = sId;
+    }
+    public Integer getPointNum() {
+        return pointNum;
+    }
+    public void setPointNum(Integer pointNum) {
+        this.pointNum = pointNum;
+    }
+    public Integer getCareNum() {
+        return careNum;
+    }
+    public void setCareNum(Integer careNum) {
+        this.careNum = careNum;
+    }
 }
