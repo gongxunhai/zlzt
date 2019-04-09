@@ -132,7 +132,7 @@
                         <h2 class="siftTit">重点推荐</h2>
                         <div class="fenleiH2Btn visible-xs visible-sm visible-md"><i class="fa fa-folder"></i>展开</div>
                     </div>
-                    <ul class="fenleiList recommendList list-unstyled">
+                    <ul class="fenleiList recommendList list-unstyled" id="importantInfor">
                         <li class="fenleiLi">
                             <a href="javascript:;">
                                 <i class="recommendLine"></i>
@@ -859,6 +859,32 @@
         init();
     });
 
+    $.ajax({
+        type : 'get',
+        url : '/pjRequires',
+        async : false,
+        data : {
+            "status" : 1
+        },
+        success : function(result) {
+            var data = result.data;
+            $("#importantInfor").html('');
+            console.log(data);
+            if (data.length > 5) {
+                for (var i = 5; i > 0; i--) {
+                    $("#importantInfor").append('<li class="fenleiLi">\n' +
+                        '                            <a href="'+domain+'/pages/fore/projectRequire/pjRequireDetail.html?id='+data[i].id+'">\n' +
+                        '                                <i class="recommendLine"></i>\n' +
+                        '                                <h3 class="recommendTit ellipsis">'+data[i].name+'</h3>\n' +
+                        '                                <div class="recommendBrief">\n' +
+                        '                                    <p>'+data[i].description+'…</p>\n' +
+                        '                                </div>\n' +
+                        '                            </a>\n' +
+                        '                        </li>');
+                }
+            }
+        }
+    });
     function searchByInput() {
         $("#search").val($("#searchByInput").val());
         $('#projectTab').dataTable().fnClearTable();
@@ -1278,6 +1304,11 @@
             }
         })
     }
+
+    $(document).on("click",".pagination li a",function(event){
+        selectPoint();
+        selectCollection();
+    });
 </script>
 </body>
 </html>

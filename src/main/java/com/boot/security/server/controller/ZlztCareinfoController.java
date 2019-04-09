@@ -78,7 +78,7 @@ public class ZlztCareinfoController {
 
             @Override
             public int count(PageTableRequest request) {
-                return zlztCareinfoDao.count(request.getParams());
+                return zlztCareinfoDao.count1(request.getParams());
             }
         }, new ListHandler() {
 

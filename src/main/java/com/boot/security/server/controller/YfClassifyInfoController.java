@@ -130,4 +130,10 @@ public class YfClassifyInfoController {
         return yfClassifyInfoList;
     }
 
+    @GetMapping("/getParentClassifyInfo/{id}")
+    @ApiOperation(value = "根据parentid获取二级")
+    public List<YfClassifyInfo> getClassifyByParentId(@PathVariable Long id){
+        return yfClassifyInfoDao.getParentClassifyInfo(id.intValue());
+    }
+
 }

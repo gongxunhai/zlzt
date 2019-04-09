@@ -17,6 +17,8 @@ public class ZtReport extends BaseEntity<Long> {
 	private Integer sId;
 	private String fIdName;
 	private String sIdName;
+	private Integer pointNum;
+	private Integer careNum;
 
 	public String getAuthor() {
 		return author;
@@ -95,4 +97,20 @@ public class ZtReport extends BaseEntity<Long> {
 	public void setsIdName(String sIdName) {
 		this.sIdName = sIdName;
 	}
+
+    public Integer getPointNum() {
+        return pointNum;
+    }
+
+    public void setPointNum(Integer pointNum) {
+        this.pointNum = pointNum;
+    }
+
+    public Integer getCareNum() {
+        return careNum;
+    }
+
+    public void setCareNum(Integer careNum) {
+        this.careNum = careNum;
+    }
 }

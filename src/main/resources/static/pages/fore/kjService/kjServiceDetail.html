@@ -85,54 +85,7 @@
 </script>
 <script src="../js/htmlJs/publicHeader.js"></script>
 <script src="../js/htmlJs/getPathname.js"></script>
-<!--<nav class="navbar navbar-default bootsnav navbar-fixed-top wow fadeInDown">
-    <div class="wrap">
-        <div class="attr-nav navRig">
-            <ul>
-            	<li class="navTelMob"><a href="tel:010-68376645"><i class="iconfont icon-dianhua"></i></a></li>
-                <li class="navTel"><a href="javascript:;"><i class="iconfont icon-dianhua"></i><strong>010-68376645</strong></a></li>
-                <li class="navSearch"><a href="javascript:;"><i class="iconfont icon-sousuo"></i>搜索</a></li>
-                <li><i class="iconfont icon-guanjiaowangtubiao01"></i><a href="#">登录</a><span>or</span><a href="#">注册</a></li>
-            </ul>
-        </div>
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-                <i class="fa fa-bars"></i>
-            </button>
-            <a class="navbar-brand flexBox logo" href="#">
-                <span><img src="../images/logo.png" class="img-responsive"></span>
-            </a>
-        </div>            
-        <div class="collapse navbar-collapse" id="navbar-menu">
-            <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
-                <li><a href="../index.html"><span>首页</span></a></li>
-                <li><a href="../kjsc/kjsc.html"><span>科技商城</span></a></li>
-                <li><a href="../projectRequire/pjRequire.html"><span>项目需求</span></a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" ><span>科技资源</span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="../lawsRegulations/lawsRegulations.html">政策法规</a></li>
-                        <li><a href="../zlzt/zlzt.html">专利专题</a></li>
-                        <li class="dropdown">
-                            <a href="../ztReport/ztReport.html" class="dropdown-toggle" data-toggle="dropdown" >专题报告</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="../ztReport/ztReportList.html">专利态势分析</a></li>
-                                <li><a href="../ztReport/ztReportList.html">政策研究</a></li>
-
-                                <li><a href="../ztReport/ztReportList.html">情报研究</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="../gfArea/zlResult.html"><span>高分专区</span></a></li>
-                <li><a href="../news/news.html"><span>新闻动态</span></a></li>
-                <li class="active"><a href="kjService.html"><span>科技服务</span></a></li>
-                <li><a href="../aboutUs.html"><span>关于我们</span></a></li>
-            </ul>
-        </div>        
-    </div>
-</nav>-->
-<div class="searchBg">
+<div class  ="searchBg">
 	<div class="wrap">
     	<div class="search">
         	<div class="close"></div>
@@ -216,7 +169,7 @@
                         <h2 class="siftTit">重点推荐</h2>
                         <div class="fenleiH2Btn visible-xs visible-sm visible-md"><i class="fa fa-folder"></i>展开</div>
                     </div>
-                    <ul class="fenleiList recommendList list-unstyled">
+                    <ul class="fenleiList recommendList list-unstyled" id="importantInfor">
                         <li class="fenleiLi">
                             <a href="#">
                                 <i class="recommendLine"></i>
@@ -263,9 +216,6 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="leftMore">
-                        <a href="#">查看更多<i class="iconfont icon-arrow-right"></i></a>
-                    </div>
                 </div>
             </div>
             <div class="mRig">
@@ -309,15 +259,12 @@
                             </div>
                             <div class="technoBrief3">
                                 <a href="javascript:;" class="jingjiren" data-toggle="modal" data-target="#myBroker"><i class="iconfont icon-shenqing"></i>立即申请</a>
-                                <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox">
+                                <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox" id="pointAndCare">
                                     <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>
                                     <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>
                                     <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>
                                 </ul>
-                                <script>
-                                    _bd_share_config = { "common": { "bdSign": "off", "bdSize": "24" }, "share": { "bdCustomStyle": "../css/share.css" } }
-        with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
-                                </script>
+
                             </div>
                         </div>                        
                         <div class="clear"></div>
@@ -556,6 +503,32 @@
             }
         }
     });
+    $.ajax({
+        type: 'get',
+        url: '/ztReports',
+        data: {"orderBy": "order by pageView DESC"},
+        async: false,
+        success: function (result) {
+            var data = result.data;
+            $("#importantInfor").html('');
+            console.log(data);
+            for (var i = 0; i < data.length; i++) {
+                if (i > 4 ){
+                    break;
+                }
+                $("#importantInfor").append('<li class="fenleiLi">\n' +
+                    '                            <a href="'+domain+'/pages/fore/ztReport/ztReportDetail.html?classifyid='+data[i].id+'">\n' +
+                    '                                <i class="recommendLine"></i>\n' +
+                    '                                <h3 class="recommendTit ellipsis">'+data[i].name+'</h3>\n' +
+                    '                                <div class="recommendBrief">\n' +
+                    '                                    <p>'+( data[i].descript || '' )+'…</p>\n' +
+                    '                                </div>\n' +
+                    '                            </a>\n' +
+                    '                        </li>');
+            }
+
+        }
+    });
 
     function changeData(obj){
 
@@ -583,6 +556,9 @@
                 $("#name").html(result.name+' <span class="box1Tag">自营</span>');
                 $("#price").html(result.price);
                 $("#introduction").html(' <h3 class="zyTextH3">服务介绍</h3>'+result.introduction);
+                $("#pointAndCare").html(' <li><a href="javascript:;" class="point" ><i class="iconfont icon-qinziAPPtubiao-"></i>点赞('+( result.pointNum || '0' )+')</a></li>\n' +
+                    '                                  <li><a href="javascript:;" class="collection" ><i class="iconfont icon-guanzhu1"></i>关注('+( result.careNum || '0' )+')</a></li>\n' +
+                    '                                    <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>');
                 $.ajax({
                     type : "post",
                     url : "/dicts/getKByValAndType",
@@ -660,11 +636,177 @@
         }
     }
 
+    $(document).on("click",".zyTitIco a",function(event){
+        if (user != null && user != '') {
+            $(this).toggleClass("active");
+            if ($(this).hasClass("point")){
+                if ($(this).hasClass("active")) {
+                    addPoint(id);
+                }else {
+                    deletePoint(id);
+                }
+            }
+            if ($(this).hasClass("collection")){
+                if ($(this).hasClass("active")) {
+                    addCollection(id);
+                }else {
+                    deleteCollection(id);
+                }
+            }
+        }else {
+            alert("请先登录!");
+        }
+    });
+
+    function addPoint(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.agreeId =  obj;
+        formData.type = 'kj_service';
+        formData.url = "/kjService/kjServiceDetail.html?id="+obj;
+        $.ajax({
+            type : 'post',
+            url : '/zlztPointAgrees/addPoint',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    if (data.msg == "success") {
+                        $(".point" ).html('<i class="iconfont icon-qinziAPPtubiao-"></i>点赞(' + data.pointNum + ')');
+                        alert("点赞成功!");
+                    }
+                    else {
+                        alert("已点赞!");
+                    }
+                }
+            }
+        })
+    }
+
+    function deletePoint(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.agreeId =  obj;
+        formData.type = 'kj_service';
+        $.ajax({
+            type : 'delete',
+            url : '/zlztPointAgrees/deletePoint',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    $(".point" ).html('<i class="iconfont icon-qinziAPPtubiao-"></i>点赞(' + data.pointNum + ')');
+                    alert("取消点赞!");
+                }
+            }
+        });
+    }
+    //已点赞的就显示
+    function selectPoint() {
+        if (user != null && user !='') {
+            $.ajax({
+                type : 'get',
+                url : '/zlztPointAgrees',
+                async : false,
+                data:{
+                    "userId" : user.id,
+                    "type" : 'kj_service'
+                },
+                success : function(result) {
+                    var data = result.data;
+                    console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].agreeId == id) {
+                            $(".point").addClass("active");
+                        }
+                    }
+                }
+            })
+        }
+    }
+
+    function addCollection(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.careId =  obj;
+        formData.type = 'kj_service';
+        formData.url = "/kjService/kjServiceDetail.html?id="+obj;
+        $.ajax({
+            type : 'post',
+            url : '/zlztCareinfos/addCare',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    if (data.msg == "success") {
+                        $(".collection").html('<i class="iconfont icon-guanzhu1">收藏(' + data.pointNum + ')');
+                        alert("收藏成功!");
+                    }
+                    else {
+                        alert("已收藏!");
+                    }
+                }
+            }
+        })
+    }
+    function deleteCollection(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.careId =  obj;
+        formData.type = 'kj_service';
+        $.ajax({
+            type : 'delete',
+            url : '/zlztCareinfos/deleteCare',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    $(".collection").html('<i class="iconfont icon-guanzhu1">收藏(' + data.pointNum + ')');
+                    alert("取消收藏!");
+                }
+            }
+        });
+    }
+
+    function selectCollection() {
+        if (user != null && user !='') {
+            $.ajax({
+                type : 'get',
+                url : '/zlztCareinfos',
+                async : false,
+                data:{
+                    "userId" : user.id,
+                    "type" : 'kj_service'
+                },
+                success : function(result) {
+                    var data = result.data;
+                    console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].careId == id) {
+                            $(".collection").addClass("active");
+                        }
+                    }
+                }
+            })
+        }
+    }
+
+    selectPoint();
+    selectCollection();
+
 	$(".zyItem").eq(0).show().addClass('fadeInUp animated').siblings().hide();
 	$(".zyTextTab li").click(function(){
 		$(this).addClass("active").siblings().removeClass("active");	
 		$(".zyTextCon .zyItem").eq($(this).index()).show().addClass('fadeInUp animated').siblings().hide();
 	})
+</script>
+<script>
+    _bd_share_config = { "common": { "bdSign": "off", "bdSize": "24" }, "share": { "bdCustomStyle": "../css/share.css" } }
+    with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
 </script>
 </body>
 </html>

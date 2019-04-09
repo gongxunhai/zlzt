@@ -79,4 +79,5 @@ public interface GfClassifyInfoDao {
 
     @Select("select * from gf_classifyinfo t where t.parentId = #{parentId}")
     List<GfClassifyInfo> getParentClassifyInfo(@Param("parentId") int parentId);
+
 }

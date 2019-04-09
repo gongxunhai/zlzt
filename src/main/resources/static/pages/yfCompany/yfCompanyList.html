@@ -45,13 +45,13 @@
                                 </tr>                       
                                 <tr>
 									<th>id</th>
-									<th>dataId</th>
-									<th>fId</th>
-									<th>sId</th>
-									<th>tId</th>
-									<th>cId</th>
-									<th>createTime</th>
-									<th>updateTime</th>
+									<th>数据表ID</th>
+									<th>一级标题</th>
+									<th>二级标题</th>
+									<th>一级分类</th>
+									<th>二级分类</th>
+									<th>创建时间</th>
+									<th>更新时间</th>
 									<th>操作</th>
                                 </tr>
                             </thead>
@@ -94,82 +94,27 @@ function init(){
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
             "columns": [
-				{"data" : "id", "defaultContent" : ""},
-				{"data" : "dataId", "defaultContent" : ""},
-				{"data" : "fid", "defaultContent" : "",
-                    "render":function (data, type, row) {
-                        var id = row['fid'];
-                        var a ;
-                        $.ajax({
-                            "type":"get",
-                            "url":"/yfClassifyInfos/"+id,
-                            async:false,
-                            success:function (data) {
-                                a = data.name ;
-                            }
-                        })
-                        return a;
+                {"data" : "id", "defaultContent" : ""},
+                {"data" : "dataId", "defaultContent" : ""},
+                {"data" : "fIdName", "defaultContent" : ""},
+                {"data" : "sIdName", "defaultContent" : ""},
+                {"data" : "tIdName", "defaultContent" : ""},
+                {"data" : "cIdName", "defaultContent" : ""},
+                {"data" : "createTime", "defaultContent" : ""},
+                {"data" : "updateTime", "defaultContent" : ""},
+                {
+                    "data": "",
+                    "defaultContent": "",
+                    "orderable":false,
+                    "render": function (data, type, row) {
+                        var id = row['id'];
+                        var href = "updateYfCompany.html?id=" + id;
+                        var edit = buttonEdit(href, "", pers);
+                        var del = buttonDel(id, "", pers);
+                        return edit + del;
                     }
-				},
-				{"data" : "sid", "defaultContent" : "",
-                    "render":function (data, type, row) {
-                        var id = row['sid'];
-                        var a ;
-                        $.ajax({
-                            "type":"get",
-                            "url":"/yfClassifyInfos/"+id,
-                            async:false,
-                            success:function (data) {
-                                a = data.name ;
-                            }
-                        })
-                        return a;
-                    }
-				},
-				{"data" : "tid", "defaultContent" : "",
-                    "render":function (data, type, row) {
-                        var id = row['tid'];
-                        var a ;
-                        $.ajax({
-                            "type":"get",
-                            "url":"/yfClassifyInfos/"+id,
-                            async:false,
-                            success:function (data) {
-                                a = data.name ;
-                            }
-                        })
-                        return a;
-                    }
-				},
-				{"data" : "cid", "defaultContent" : "",
-                    "render":function (data, type, row) {
-                        var id = row['cid'];
-                        var a ;
-                        $.ajax({
-                            "type":"get",
-                            "url":"/yfClassifyInfos/"+id,
-                            async:false,
-                            success:function (data) {
-                                a = data.name ;
-                            }
-                        })
-                        return a;
-                    }
-				},
-				{"data" : "createTime", "defaultContent" : ""},
-				{"data" : "updateTime", "defaultContent" : ""},
-				{ 
-					"data": "",
-					"defaultContent": "",
-					"orderable":false,
-					"render": function (data, type, row) {
-					   var id = row['id'];
-					   var href = "updateYfCompany.html?id=" + id;
-					   var edit = buttonEdit(href, "", pers);
-					   var del = buttonDel(id, "", pers);
-					   return edit + del;
-					}
-				},
+                },
+
             ],
            "order": [[ 0, "asc" ]]
         } );

@@ -1,5 +1,6 @@
 package com.boot.security.server.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.models.auth.In;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -16,9 +17,11 @@ public class ZlztDatainfo extends BaseEntity<Long> {
 	private String country;
 	private String openId;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date openDay;
 	private String applyId;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date applyDay;
 	private String title;
 	private String titleFy;
@@ -55,6 +58,16 @@ public class ZlztDatainfo extends BaseEntity<Long> {
 	private String openDayStr;
 	private String applyDayStr;
 	private String fromTable;
+
+	private Integer pointNum;
+	private Integer careNum;
+
+	private String fIdName;
+	private String sIdName;
+	private String tIdName;
+	private String cIdName;
+
+	private String secret;
 
 	public String getKeyname() {
 		return keyname;
@@ -339,4 +352,60 @@ public class ZlztDatainfo extends BaseEntity<Long> {
 	public void setFromTable(String fromTable) {
 		this.fromTable = fromTable;
 	}
+
+    public Integer getPointNum() {
+        return pointNum;
+    }
+
+    public void setPointNum(Integer pointNum) {
+        this.pointNum = pointNum;
+    }
+
+    public Integer getCareNum() {
+        return careNum;
+    }
+
+    public void setCareNum(Integer careNum) {
+        this.careNum = careNum;
+    }
+
+    public String getfIdName() {
+        return fIdName;
+    }
+
+    public void setfIdName(String fIdName) {
+        this.fIdName = fIdName;
+    }
+
+    public String getsIdName() {
+        return sIdName;
+    }
+
+    public void setsIdName(String sIdName) {
+        this.sIdName = sIdName;
+    }
+
+    public String gettIdName() {
+        return tIdName;
+    }
+
+    public void settIdName(String tIdName) {
+        this.tIdName = tIdName;
+    }
+
+    public String getcIdName() {
+        return cIdName;
+    }
+
+    public void setcIdName(String cIdName) {
+        this.cIdName = cIdName;
+    }
+
+    public String getSecret() {
+        return secret;
+    }
+
+    public void setSecret(String secret) {
+        this.secret = secret;
+    }
 }

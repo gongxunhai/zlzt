@@ -246,10 +246,7 @@
                                     <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>
                                     <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>
                                 </ul>
-                                <script>
-                                    _bd_share_config = { "common": { "bdSign": "off", "bdSize": "24" }, "share": { "bdCustomStyle": "../css/share.css" } }
-        with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
-                                </script>
+
                             </div>
                         </div>
                         <!--<div class="technoConUs pull-right wow fadeInRight">
@@ -274,7 +271,7 @@
                         <div class="anchorCon" id="tdetails">
                             <p>本技术背景来源于卫星敏感载荷的微振动隔离。通过被动隔振的技术途径，采取低频大阻尼、高频小阻尼的松弛型液体阻尼隔振装置获取无谐振峰隔振装置。采取正负刚度并联的结构，获取高静态刚度、低动态刚度的刚度特性，实现超低频、无共振、高衰减的隔振效果。</p>
                             <p>本技术的特点是，基于被动装置，不消耗能源且可靠性高。成功应用于卫星敏感载荷隔振也充分说明其应用于复杂环境的适应性。在隔振性能上，采取的阻尼器能够根据隔振频率进行自主阻尼调节，实现完美阻尼匹配。该技术能够解决卫星敏感载荷在轨运行以及精密加工制造时的微振动干扰，提高载荷性能或精密加工的制造精度，具有广阔的应用空间。</p>
-                            <center><img src="../images/technoJjImg.jpg" class="img-responsive"></center>
+                            <!--<center><img src="../images/technoJjImg.jpg" class="img-responsive"></center>-->
                         </div>
                     </div>
                     <div class="anchorItem">
@@ -451,7 +448,7 @@
                             <span>项目推荐</span>
                         </div>
                     </div>
-                    <ul class="hotProject list-unstyled list-inline">
+                    <ul class="hotProject list-unstyled list-inline" id="lookMore">
                     	<li class="wow fadeInUp">
                         	<div class="box1Con">
                                 <a class="box1Link" href="#">
@@ -679,7 +676,7 @@
             var pageTitle ='<h1 class="zyTitCn">'+data.name+'<span class="box1Tag">自营</span></h1>\n' +
                 '<ul class="technoTag list-unstyled list-inline">';
             if (xfArea != null) {
-                if (xfArea.indexOf(";")) {
+                if (xfArea.indexOf(";")!= -1) {
                     var xf = xfArea.split("；");
                     for (var j in xf) {
                         pageTitle  += '<li><span>'+xf[j]+'</span></li>';
@@ -702,7 +699,7 @@
             $("#tdetails").append('<p>'+data.tdetails+'</p>');
             $("#tIndex").append('<p>'+data.tindex+'</p>');
             var knowledge = data.knowledge;
-            if (knowledge != null && knowledge.indexOf("\n")) {
+            if (knowledge != null && knowledge.indexOf("\n") != -1) {
                 var arr = knowledge.split("\n");
                 if (arr.length >0){
                     var len = arr.length;
@@ -718,7 +715,7 @@
                     }
                     if (lenB > 0) {
                         kl += '<tr>\n' +
-                            '        <td>- '+arr[lenA*2+lenB]+'</td>\n' +
+                            '        <td>- '+arr[lenA*2]+'</td>\n' +
                             '        <td>-</td>\n' +
                             '    </tr>';
                     }
@@ -728,8 +725,8 @@
                 $("#knowledge").append(kl);
             }
             $("#predict").append('<p>'+data.predict+'</p>');
-            $("#pointAndCare").html(' <li><a href="javascript:;" class="point"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞('+( data.pointNum || '0' )+')</a></li>\n' +
-                '                                    <li><a href="javascript:;" class="collection" ><i class="iconfont icon-guanzhu1"></i>关注('+( data.careNum || '0' )+')</a></li>\n' +
+            $("#pointAndCare").html(' <li><a href="javascript:;" class="point" id="P'+data.id+'" value="'+data.id+'"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞('+( data.pointNum || '0' )+')</a></li>\n' +
+                '                                  <li><a href="javascript:;" class="collection" id="C'+data.id+'" value="'+data.id+'"><i class="iconfont icon-guanzhu1"></i>关注('+( data.careNum || '0' )+')</a></li>\n' +
                 '                                    <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>');
         }
     })
@@ -786,21 +783,71 @@
         }
     }
 
+    $.ajax({
+        type: 'get',
+        url: '/kjResults',
+        async : false,
+        data : {
+            "status" : 1
+        },
+        success: function (result) {
+            var data = result.data;
+            $("#lookMore").html('');
+            console.log(data);
+            if (data.length > 2){
+                for (var i = 2 ; i >= 0; i--) {
+                    if (data[i].id != id) {
+                        $("#lookMore").append('<li class="wow fadeInUp">\n' +
+                            '                            <div class="box1Con">\n' +
+                            '                                <a class="box1Link" href="'+domain+'/pages/fore/kjsc/kjsc_result.html?id='+data[i].id+'">\n' +
+                            '                                    <div class="box1Img">\n' +
+                            '                                        <img src="'+domain+'/statics'+( data[i].image || '/default2.png' )+'" class="img-responsive">\n' +
+                            '                                        <div class="box1Mask"></div>\n' +
+                            '                                        <div class="box1Ico">\n' +
+                            '                                            <i class="iconfont icon-chakan"></i>\n' +
+                            '                                            <span>了解详细信息</span>\n' +
+                            '                                        </div>\n' +
+                            '                                    </div>\n' +
+                            '                                    <div class="box1Text">\n' +
+                            '                                        <h3 class="box1Tit ellipsis">'+data[i].name+'</h3>\n' +
+                            '                                        <div class="box1Infor">\n' +
+                            '                                            <span class="b1Sp1">行业：'+data[i].fIdName+'</span>\n' +
+                            '                                            <i class="b1Line">|</i>\n' +
+                            '                                            <span class="b1Sp2">更新：'+(new Date(data[i].pubTime)).Format("yyyy-MM-dd")+'</span>\n' +
+                            '                                        </div>\n' +
+                            '                                    </div>\n' +
+                            '                                </a>\n' +
+                            '                                <div class="box1Bot">\n' +
+                            '                                    <div class="upcollect pull-left">\n' +
+                            '                                        <a href="javascript:;" class="up" id="P'+data[i].id+'" value="'+data[i].id+'">点赞('+(data[i].pointNum || '0' )+')</a>\n' +
+                            '                                        <a href="javascript:;" class="collect" id="C'+data[i].id+'" value="'+data[i].id+'">关注('+(data[i].careNum || '0' )+')</a>\n' +
+                            '                                    </div>\n' +
+                            '                                    <span class="box1Tag pull-right">自营</span>\n' +
+                            '                                    <div class="clear"></div>\n' +
+                            '                                </div>\n' +
+                            '                            </div>\n' +
+                            '                        </li>');
+                    }
+                }
+            }
+        }
+    });
+
     $(document).on("click",".zyTitIco a",function(event){
         if (user != null && user != '') {
             $(this).toggleClass("active");
             if ($(this).hasClass("point")){
                 if ($(this).hasClass("active")) {
-                    addPoint(id);
+                    addPoint(id,'f');
                 }else {
-                    deletePoint(id);
+                    deletePoint(id,'f');
                 }
             }
             if ($(this).hasClass("collection")){
                 if ($(this).hasClass("active")) {
-                    addCollection(id);
+                    addCollection(id,'f');
                 }else {
-                    deleteCollection(id);
+                    deleteCollection(id,'f');
                 }
             }
         }else {
@@ -808,12 +855,34 @@
         }
     });
 
-    function addPoint(obj) {
+    $(document).on("click",".upcollect a",function(event){
+        if (user != null && user != '') {
+            $(this).toggleClass("active");
+            if ($(this).hasClass("up")){
+                if ($(this).hasClass("active")) {
+                    addPoint($(this).attr("value"),'s');
+                }else {
+                    deletePoint($(this).attr("value"),'s');
+                }
+            }
+            if ($(this).hasClass("collect")){
+                if ($(this).hasClass("active")) {
+                    addCollection($(this).attr("value"),'s');
+                }else {
+                    deleteCollection($(this).attr("value"),'s');
+                }
+            }
+        }else {
+            alert("请先登录!");
+        }
+    });
+
+    function addPoint(obj,param) {
         var formData = new FormData();
         formData.userId = user.id;
         formData.agreeId =  obj;
         formData.type = 'kj_result';
-        formData.url = "/pages/fore/projectRequire/pjRequireDetail.html?id="+obj;
+        formData.url = "/pages/fore/kjsc/kjsc_result.html?id="+obj;
         $.ajax({
             type : 'post',
             url : '/zlztPointAgrees/addPoint',
@@ -823,7 +892,11 @@
             success : function(data) {
                 if (data != null && data != '') {
                     if (data.msg == "success") {
-                        $(".point").html('<i class="iconfont icon-qinziAPPtubiao-"></i>点赞(' + data.pointNum + ')');
+                        if (param == 'f') {
+                            $("#P" + obj).html('<i class="iconfont icon-qinziAPPtubiao-"></i>点赞(' + data.pointNum + ')');
+                        }else if(param == 's') {
+                            $("#P" + obj).html('点赞(' + data.pointNum + ')');
+                        }
                         alert("点赞成功!");
                     }
                     else {
@@ -834,7 +907,7 @@
         })
     }
 
-    function deletePoint(obj) {
+    function deletePoint(obj,param) {
         var formData = new FormData();
         formData.userId = user.id;
         formData.agreeId =  obj;
@@ -847,7 +920,11 @@
             data : JSON.stringify(formData),
             success : function(data) {
                 if (data != null && data != '') {
-                    $(".point").html('<i class="iconfont icon-qinziAPPtubiao-"></i>点赞(' + data.pointNum + ')');
+                    if (param == 'f') {
+                        $("#P" + obj).html('<i class="iconfont icon-qinziAPPtubiao-"></i>点赞(' + data.pointNum + ')');
+                    }else if(param == 's') {
+                        $("#P" + obj).html('点赞(' + data.pointNum + ')');
+                    }
                     alert("取消点赞!");
                 }
             }
@@ -855,32 +932,32 @@
     }
     //已点赞的就显示
     function selectPoint() {
-        $.ajax({
-            type : 'get',
-            url : '/zlztPointAgrees',
-            async : false,
-            data:{
-                "userId" : user.id,
-                "type" : 'kj_result'
-            },
-            success : function(result) {
-                var data = result.data;
-                console.log(data);
-                for (var i = 0; i < data.length; i++) {
-                    if (data[i].agreeId == id) {
-                        $(".point").addClass("active");
+        if (user != null && user !='') {
+            $.ajax({
+                type : 'get',
+                url : '/zlztPointAgrees',
+                async : false,
+                data:{
+                    "userId" : user.id,
+                    "type" : 'kj_result'
+                },
+                success : function(result) {
+                    var data = result.data;
+                    console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                        $("#P"+data[i].agreeId).addClass("active");
                     }
                 }
-            }
-        })
+            })
+        }
     }
 
-    function addCollection(obj) {
+    function addCollection(obj,param) {
         var formData = new FormData();
         formData.userId = user.id;
         formData.careId =  obj;
         formData.type = 'kj_result';
-        formData.url = "/pages/fore/projectRequire/pjRequireDetail.html?id="+obj;
+        formData.url = "/pages/fore/kjsc/kjsc_result.html?id="+obj;
         $.ajax({
             type : 'post',
             url : '/zlztCareinfos/addCare',
@@ -890,7 +967,11 @@
             success : function(data) {
                 if (data != null && data != '') {
                     if (data.msg == "success") {
-                        $(".collection").html('<i class="iconfont icon-guanzhu1">收藏(' + data.pointNum + ')');
+                        if (param == 'f') {
+                            $("#C" + obj).html('<i class="iconfont icon-guanzhu1">收藏(' + data.pointNum + ')');
+                        }else if(param == 's') {
+                            $("#C" + obj).html('收藏(' + data.pointNum + ')');
+                        }
                         alert("收藏成功!");
                     }
                     else {
@@ -900,7 +981,7 @@
             }
         })
     }
-    function deleteCollection(obj) {
+    function deleteCollection(obj,param) {
         var formData = new FormData();
         formData.userId = user.id;
         formData.careId =  obj;
@@ -913,7 +994,11 @@
             data : JSON.stringify(formData),
             success : function(data) {
                 if (data != null && data != '') {
-                    $(".collection").html('<i class="iconfont icon-guanzhu1">收藏(' + data.pointNum + ')');
+                    if (param == 'f') {
+                        $("#C" + obj).html('<i class="iconfont icon-guanzhu1">收藏(' + data.pointNum + ')');
+                    }else if(param == 's') {
+                        $("#C" + obj).html('收藏(' + data.pointNum + ')');
+                    }
                     alert("取消收藏!");
                 }
             }
@@ -921,28 +1006,32 @@
     }
 
     function selectCollection() {
-        $.ajax({
-            type : 'get',
-            url : '/zlztCareinfos',
-            async : false,
-            data:{
-                "userId" : user.id,
-                "type" : 'kj_result'
-            },
-            success : function(result) {
-                var data = result.data;
-                console.log(data);
-                for (var i = 0; i < data.length; i++) {
-                    if (data[i].careId == id) {
-                        $(".collection").addClass("active");
+        if (user != null && user !='') {
+            $.ajax({
+                type : 'get',
+                url : '/zlztCareinfos',
+                async : false,
+                data:{
+                    "userId" : user.id,
+                    "type" : 'kj_result'
+                },
+                success : function(result) {
+                    var data = result.data;
+                    console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                        $("#C"+data[i].careId).addClass("active");
                     }
                 }
-            }
-        })
+            })
+        }
     }
 
     selectPoint();
     selectCollection();
+</script>
+<script>
+    _bd_share_config = { "common": { "bdSign": "off", "bdSize": "24" }, "share": { "bdCustomStyle": "../css/share.css" } }
+    with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
 </script>
 </body>
 </html>

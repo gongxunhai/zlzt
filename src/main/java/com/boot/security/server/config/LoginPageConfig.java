@@ -10,6 +10,6 @@ public class LoginPageConfig {
 	@RequestMapping("/")
 	public RedirectView loginPage() {
 		//login.html
-		return new RedirectView("/pages/fore/index.html");
+		return new RedirectView("/pages/fore/gfArea/zlResult.html");
 	}
 }

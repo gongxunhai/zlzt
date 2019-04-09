@@ -15,6 +15,15 @@ import com.boot.security.server.model.YfCompany;
 @Mapper
 public interface YfCompanyDao {
 
+
+    @Select("select t.*,a.name as fIdName,b.name as sIdName,c.name as tIdName,d.name as cIdName,m.* from yf_company t\n" +
+            "\t\tinner join yf_classifyinfo a on t.fId = a.id\n" +
+            "\t\tinner join yf_classifyinfo b on t.sId = b.id\n" +
+            "\t\tinner join yf_classifyinfo c on t.tId = c.id\n" +
+            "\t\tinner join yf_classifyinfo d on t.cId = d.id" +
+            "    inner join zlzt_datainfo m on t.dataId = m.id where t.id = #{id}")
+    YfCompany getAllData(Long id);
+
     @Select("select * from yf_company t where t.id = #{id}")
     YfCompany getById(Long id);
 

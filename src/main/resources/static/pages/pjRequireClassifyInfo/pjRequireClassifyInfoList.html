@@ -41,11 +41,10 @@
                                 <tr>
                                 </tr>                       
                                 <tr>
-									<th>createTime</th>
 									<th>id</th>
-									<th>name</th>
-									<th>parentId</th>
-									<th>type</th>
+									<th>名称</th>
+									<th>上级ID</th>
+                                    <th>创建时间</th>
 									<th>操作</th>
                                 </tr>
                             </thead>
@@ -88,11 +87,11 @@ function init(){
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
             "columns": [
-				{"data" : "createTime", "defaultContent" : ""},
+
 				{"data" : "id", "defaultContent" : ""},
 				{"data" : "name", "defaultContent" : ""},
 				{"data" : "parentId", "defaultContent" : ""},
-				{"data" : "type", "defaultContent" : ""},
+                {"data" : "createTime", "defaultContent" : ""},
 				{ 
 								"data": "", 
 								"defaultContent": "",

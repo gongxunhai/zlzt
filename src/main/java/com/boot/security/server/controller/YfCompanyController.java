@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.alibaba.fastjson.JSONObject;
 import com.boot.security.server.dao.YfClassifyInfoDao;
+import com.boot.security.server.model.YfClassifyInfo;
 import com.boot.security.server.model.ZlztDatainfo;
 import com.boot.security.server.service.ZlztDatainfoService;
 import io.swagger.annotations.Api;
@@ -45,8 +46,31 @@ public class YfCompanyController {
     @PostMapping
     @ApiOperation(value = "保存")
     public YfCompany save(@RequestBody YfCompany yfCompany) {
+        if (yfCompany.getTId() == null && yfCompany.getTId().equals("")){
+            int i = yfClassifyInfoDao.getByNameAndParentId(yfCompany.gettIdName(),yfCompany.getSId());
+            if ( i == -1){
+                YfClassifyInfo yfClassifyInfo = new YfClassifyInfo();
+                yfClassifyInfo.setName(yfCompany.gettIdName());
+                yfClassifyInfo.setParentId(yfCompany.getSId());
+                yfClassifyInfo.setType(3);
+                yfClassifyInfoDao.save(yfClassifyInfo);
+                i = yfClassifyInfo.getId().intValue();
+            }
+            yfCompany.setTId(i);
+        }
+        if (yfCompany.getTId() == null && yfCompany.getTId().equals("")){
+            int j = yfClassifyInfoDao.getByNameAndParentId(yfCompany.getcIdName(),yfCompany.getTId());
+            if ( j == -1){
+                YfClassifyInfo yfClassifyInfo = new YfClassifyInfo();
+                yfClassifyInfo.setName(yfCompany.getcIdName());
+                yfClassifyInfo.setParentId(yfCompany.getTId());
+                yfClassifyInfo.setType(4);
+                yfClassifyInfoDao.save(yfClassifyInfo);
+                j = yfClassifyInfo.getId().intValue();
+            }
+            yfCompany.setCId(j);
+        }
         yfCompanyDao.save(yfCompany);
-
         return yfCompany;
     }
 
@@ -59,6 +83,30 @@ public class YfCompanyController {
     @PutMapping
     @ApiOperation(value = "修改")
     public YfCompany update(@RequestBody YfCompany yfCompany) {
+        if (yfCompany.getCId() == null && yfCompany.getCId().equals("")){
+            int i = yfClassifyInfoDao.getByNameAndParentId(yfCompany.gettIdName(),yfCompany.getsId());
+            if ( i == -1){
+                YfClassifyInfo yfClassifyInfo = new YfClassifyInfo();
+                yfClassifyInfo.setName(yfCompany.gettIdName());
+                yfClassifyInfo.setParentId(yfCompany.getsId());
+                yfClassifyInfo.setType(3);
+                yfClassifyInfoDao.save(yfClassifyInfo);
+                i = yfClassifyInfo.getId().intValue();
+            }
+            yfCompany.setcId(i);
+        }
+        if (yfCompany.getTId() == null && yfCompany.getTId().equals("")){
+            int j = yfClassifyInfoDao.getByNameAndParentId(yfCompany.getcIdName(),yfCompany.getTId());
+            if ( j == -1){
+                YfClassifyInfo yfClassifyInfo = new YfClassifyInfo();
+                yfClassifyInfo.setName(yfCompany.getcIdName());
+                yfClassifyInfo.setParentId(yfCompany.getTId());
+                yfClassifyInfo.setType(4);
+                yfClassifyInfoDao.save(yfClassifyInfo);
+                j = yfClassifyInfo.getId().intValue();
+            }
+            yfCompany.settId(j);
+        }
         yfCompanyDao.update(yfCompany);
 
         return yfCompany;
@@ -97,10 +145,17 @@ public class YfCompanyController {
         return json ;
     }
 
+
     @PostMapping("/getallcount")
     @ApiOperation(value = "获取统计信息")
     public List<ZlztDatainfo> getAllcount(@RequestBody ZlztDatainfo zlztDatainfo){
         String fromTable = "view_yfdata" ;
         return zlztDatainfoService.getAllcount(zlztDatainfo,fromTable);
+    }
+
+    @GetMapping("/getAllData/{id}")
+    @ApiOperation(value = "根据id获取")
+    public YfCompany getAllData(@PathVariable Long id) {
+        return yfCompanyDao.getAllData(id);
     }
 }

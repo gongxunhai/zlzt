@@ -91,4 +91,10 @@ public class KjResultClassifyInfoController {
     public List<KjResultClassifyInfo> changeFromJob(){
         return kjResultClassifyInfoDao.listData((long) 0);
     }
+
+    @GetMapping("/getClassify/{id}")
+    @ApiOperation(value = "获取1级分类")
+    public List<KjResultClassifyInfo> getClassifyByParentId(@PathVariable Long id){
+        return kjResultClassifyInfoDao.listData(id);
+    }
 }

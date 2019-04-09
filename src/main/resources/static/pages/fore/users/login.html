@@ -58,6 +58,7 @@
                 <p>尚未注册账户？<a href="register.html">注册</a></p>
             </div>
         </div>
+        <input type="text" id="key_enter" style="display:none">
     </div>
 </div>
 <script>
@@ -65,6 +66,13 @@
     layui.use([ 'layer' ], function() {
         layer = layui.layer;
     });
+
+    document.onkeydown = function (event) {//监听键盘敲击
+        event = event ? event : window.event;
+        if (event.keyCode == 13) { //按下Enter键
+           login();
+        }
+    }
     function login(){
         var phoneOrEmail = $("#phoneOrEmail").val();
         if (phoneOrEmail == "") {

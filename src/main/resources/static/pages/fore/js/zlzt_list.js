@@ -54,7 +54,25 @@ $(function (){
     initEcharts();
     //加载treetable样式
     initTreetableStyle();
+    //加载点击样式
+    initLeftClass();
 });
+
+function initLeftClass() {
+    var aObjs = $('.leftMenu').find('tr');
+
+    // console.log(aObjs);
+
+    for(var i=0;i<aObjs.length;i++) {
+        var num = $(aObjs[i]).attr('data-tt-id');
+
+        if(classifyid == num) {
+            $(aObjs[i]).find('a').css('color', '#F08080');
+        } else {
+            $(aObjs[i]).find('a').css('color', '#000000');
+        }
+    }
+}
 var layer;
 layui.use([ 'layer' ], function() {
      layer = layui.layer;
@@ -118,6 +136,7 @@ function downloadExcel() {
     location.href = "/zlztDatainfos/downloadExcel?jsonString=" + jsonString+"&fromTable=view_zlztdata";
     // layer.close(index);
 }
+
 function selctByAllData() {
     var params ={};
     params.order = $("#order").val();
@@ -153,9 +172,11 @@ function selctByAllData() {
     localStorage.setItem("params", JSON.stringify(params));
    // console.log(localStorage);
 }
+
 function changData(id,type1) {
     classifyid = id;
     type = type1;
+    initLeftClass();
     $("#classifyid").val(classifyid);
     $("#type").val(type);
     //信息统计
@@ -170,16 +191,16 @@ function changData(id,type1) {
     //加载treetable样式
     initTreetableStyle();
 }
+
 function initlistdata() {
     $.ajax({
         url : "/zlztClassifyinfos/treetable/"+classifyid+"/"+type,
         type : "get",
         async: false,
         success : function (data) {
-          //  console.log(JSON.stringify(data));
+           console.log("data="+JSON.stringify(data));
             var a = '<div class="fenleiTit">\n' +
                 '                        \t<a class="fenleiTitLink" style="display: flex;" href="javascript:;" onclick="changData(\''+data.id+'\',\''+data.type+'\')">\n' +
-                '                                <img src="'+domain+'/statics/icon/zlzt.png" style="margin: 3px;width:25px;height:25px">\n' +
                 '                                <h2 class="fenleiTitCn">'+data.name+'</h2>\n' +
                 '                            </a>\n' +
                 '                        </div>\n' +
@@ -208,7 +229,7 @@ function initlistdata() {
     })
 }
 
-function initleftdata() {
+    function initleftdata() {
     var obj ={};
     obj.classifyId  =classifyid;
     obj.type  = type;

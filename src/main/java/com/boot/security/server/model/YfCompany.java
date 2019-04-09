@@ -9,6 +9,12 @@ public class YfCompany extends BaseEntity<Long> {
 	private Integer sId;
 	private Integer tId;
 	private Integer cId;
+	private String fIdName;
+	private String sIdName;
+	private String tIdName;
+	private String cIdName;
+	private Integer pointNum;
+	private Integer careNum;
 
 	public Integer getDataId() {
 		return dataId;
@@ -40,5 +46,80 @@ public class YfCompany extends BaseEntity<Long> {
 	public void setCId(Integer cId) {
 		this.cId = cId;
 	}
+    public Integer getPointNum() {
+        return pointNum;
+    }
+    public void setPointNum(Integer pointNum) {
+        this.pointNum = pointNum;
+    }
+    public Integer getCareNum() {
+        return careNum;
+    }
+    public void setCareNum(Integer careNum) {
+        this.careNum = careNum;
+    }
 
+    public Integer getfId() {
+        return fId;
+    }
+
+    public void setfId(Integer fId) {
+        this.fId = fId;
+    }
+
+    public Integer getsId() {
+        return sId;
+    }
+
+    public void setsId(Integer sId) {
+        this.sId = sId;
+    }
+
+    public Integer gettId() {
+        return tId;
+    }
+
+    public void settId(Integer tId) {
+        this.tId = tId;
+    }
+
+    public Integer getcId() {
+        return cId;
+    }
+
+    public void setcId(Integer cId) {
+        this.cId = cId;
+    }
+
+    public String getfIdName() {
+        return fIdName;
+    }
+
+    public void setfIdName(String fIdName) {
+        this.fIdName = fIdName;
+    }
+
+    public String getsIdName() {
+        return sIdName;
+    }
+
+    public void setsIdName(String sIdName) {
+        this.sIdName = sIdName;
+    }
+
+    public String gettIdName() {
+        return tIdName;
+    }
+
+    public void settIdName(String tIdName) {
+        this.tIdName = tIdName;
+    }
+
+    public String getcIdName() {
+        return cIdName;
+    }
+
+    public void setcIdName(String cIdName) {
+        this.cIdName = cIdName;
+    }
 }

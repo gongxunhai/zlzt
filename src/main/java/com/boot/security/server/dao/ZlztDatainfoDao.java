@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.alibaba.fastjson.JSONObject;
+import com.boot.security.server.model.SqlLiteCeshi;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -25,7 +26,7 @@ public interface ZlztDatainfoDao {
     int update(ZlztDatainfo zlztDatainfo);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into zlzt_datainfo(country, openId, openDay, applyId, applyDay, title, titleFy, zy, zyFy, powerAsk, powerAFy, powerAN, applyMan, applyPlace, createMan, lawS, nowLawS, zlType, ipcMC, ipcMCFy, ipc, ipcFy, cpec, cpecFy, beUsedNum, value, zlImage, zlText, homeImage, createTime, updateTime) values(#{country}, #{openId}, #{openDay}, #{applyId}, #{applyDay}, #{title}, #{titleFy}, #{zy}, #{zyFy}, #{powerAsk}, #{powerAFy}, #{powerAN}, #{applyMan}, #{applyPlace}, #{createMan}, #{lawS}, #{nowLawS}, #{zlType}, #{ipcMC}, #{ipcMCFy}, #{ipc}, #{ipcFy}, #{cpec}, #{cpecFy}, #{beUsedNum}, #{value}, #{zlImage}, #{zlText}, #{homeImage}, #{createTime}, #{updateTime})")
+    @Insert("insert into zlzt_datainfo(country, openId, openDay, applyId, applyDay, title, titleFy, zy, zyFy, powerAsk, powerAFy, powerAN, applyMan, applyPlace, createMan, lawS, nowLawS, zlType, ipcMC, ipcMCFy, ipc, ipcFy, cpec, cpecFy, beUsedNum, value, zlImage, zlText, homeImage, secret, createTime, updateTime) values(#{country}, #{openId}, #{openDay}, #{applyId}, #{applyDay}, #{title}, #{titleFy}, #{zy}, #{zyFy}, #{powerAsk}, #{powerAFy}, #{powerAN}, #{applyMan}, #{applyPlace}, #{createMan}, #{lawS}, #{nowLawS}, #{zlType}, #{ipcMC}, #{ipcMCFy}, #{ipc}, #{ipcFy}, #{cpec}, #{cpecFy}, #{beUsedNum}, #{value}, #{zlImage}, #{zlText}, #{homeImage}, #{secret}, #{createTime}, #{updateTime})")
     int save(ZlztDatainfo zlztDatainfo);
     
     int count(@Param("params") Map<String, Object> params);
@@ -55,4 +56,7 @@ public interface ZlztDatainfoDao {
 
     @Select("select ifnull(max(id),-1) from zlzt_datainfo where openId = #{openid}")
     int selectOpenid(@Param("openid") String openid);
+
+    @Select("select * from ceshi")
+    SqlLiteCeshi getSqlLiteCeshi();
 }

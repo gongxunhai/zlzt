@@ -1,6 +1,7 @@
 package com.boot.security.server.service;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -12,4 +13,5 @@ public interface FileService {
 
 	void delete(String id);
 
+	List<FileInfo> saveByZip(MultipartFile file) throws IOException;
 }

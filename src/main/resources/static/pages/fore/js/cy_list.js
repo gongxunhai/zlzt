@@ -55,7 +55,25 @@ $(function (){
     initEcharts();
     //加载treetable样式
     initTreetableStyle();
+    //加载点击样式
+    initLeftClass();
 });
+
+function initLeftClass() {
+    var aObjs = $('.leftMenu').find('tr');
+
+    // console.log(aObjs);
+
+    for(var i=0;i<aObjs.length;i++) {
+        var num = $(aObjs[i]).attr('data-tt-id');
+
+        if(classifyid == num) {
+            $(aObjs[i]).find('a').css('color', '#F08080');
+        } else {
+            $(aObjs[i]).find('a').css('color', '#000000');
+        }
+    }
+}
 var layer;
 layui.use([ 'layer' ], function() {
      layer = layui.layer;
@@ -157,6 +175,8 @@ function selctByAllData() {
 function changeData(id,type1) {
     classifyid = id;
     type = type1;
+    //加载点击样式
+    initLeftClass();
     $("#classifyid").val(classifyid);
     $("#type").val(type);
     //加载主表
@@ -197,7 +217,6 @@ function initlistdata() {
           //  console.log(JSON.stringify(data));
             var a = '<div class="fenleiTit">\n' +
                 '                        \t<a class="fenleiTitLink" style="display: flex;" href="javascript:;" onclick="changeData(\''+data.id+'\',\''+data.type+'\')">\n' +
-                '                                <img src="'+domain+'/statics/icon/cydw.png" style="margin: 3px;width:25px;height:25px">\n' +
                 '                                <h2 class="fenleiTitCn">'+data.name+'</h2>\n' +
                 '                            </a>\n' +
                 '                        </div>\n' +

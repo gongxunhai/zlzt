@@ -29,7 +29,7 @@ public class ExcelAndImgUtil {
 
 	public void excelLocal(String path, String fileName, String[] headers, List<Object[]> datas) throws  IOException {
 		ByteArrayOutputStream byteArrayOutputStream = null;
-		Workbook workbook = getWorkbook(headers, datas);
+		Workbook workbook = getWorkbook(headers, datas,32);
 		if (workbook != null) {
 //			ByteArrayOutputStream byteArrayOutputStream = null;
 			FileOutputStream fileOutputStream = null;
@@ -81,10 +81,10 @@ public class ExcelAndImgUtil {
 	 * @param response
 	 */
 	public void excelExport(String fileName, String[] headers, List<Object[]> datas,
-			HttpServletResponse response) throws  IOException {
+			HttpServletResponse response ,int imageNum) throws  IOException {
 		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 		//获取workbook对象;
-		Workbook workbook = getWorkbook(headers, datas);
+		Workbook workbook = getWorkbook(headers, datas,imageNum);
 		if (workbook != null) {
 			try {
 				//workbook写入字节数组输出流
@@ -128,7 +128,7 @@ public class ExcelAndImgUtil {
 	 *            数据
 	 * @return
 	 */
-	public Workbook getWorkbook(String[] headers, List<Object[]> datas) throws IOException {
+	public Workbook getWorkbook(String[] headers, List<Object[]> datas ,int imageNum) throws IOException {
 		Workbook workbook = new HSSFWorkbook();
 		Sheet sheet = workbook.createSheet();
 		Row row = null;
@@ -177,7 +177,7 @@ public class ExcelAndImgUtil {
 
 					for (int i = 0; i < length; i++) {
 						cell = row.createCell(i);
-						if(i==32 && data[i]!=null && !data[i].equals("")){
+						if(i==imageNum && data[i]!=null && !data[i].equals("")){
 							ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 							//绘图工具
 							HSSFPatriarch patriarch = (HSSFPatriarch) sheet.createDrawingPatriarch();

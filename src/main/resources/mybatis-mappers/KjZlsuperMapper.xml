@@ -156,7 +156,9 @@
 			<if test="zlYear != null">
 				zlYear = #{zlYear}, 
 			</if>
-
+			<if test="status != null">
+				status = #{status},
+			</if>
 		</set>
 
 		where t.id = #{id}

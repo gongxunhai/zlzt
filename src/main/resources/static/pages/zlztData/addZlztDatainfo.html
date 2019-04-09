@@ -10,175 +10,200 @@
 	<form class="form-horizontal" onsubmit="return false" id="form">
 		<fieldset>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>country</label>
+				<label class='col-md-2 control-label'>公开号</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='country' type='text' name='country' id='country' data-bv-notempty='true' data-bv-notempty-message='country 不能为空'>
+					<input class='form-control'  type='text' name='openId' id='openId' data-bv-notempty='true' data-bv-notempty-message='公开号不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>openId</label>
+				<label class='col-md-2 control-label'>公开日</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='openId' type='text' name='openId' id='openId' data-bv-notempty='true' data-bv-notempty-message='openId 不能为空'>
+					<input class='form-control' type='text' name='openDay' id='openDay' data-bv-notempty='true' data-bv-notempty-message='公开日不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>openDay</label>
+				<label class='col-md-2 control-label'>申请号</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='openDay' type='text' name='openDay' id='openDay' data-bv-notempty='true' data-bv-notempty-message='openDay 不能为空'>
+					<input class='form-control' type='text' name='applyId' id='applyId' data-bv-notempty='true' data-bv-notempty-message='申请号不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>applyId</label>
+				<label class='col-md-2 control-label'>申请日</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='applyId' type='text' name='applyId' id='applyId' data-bv-notempty='true' data-bv-notempty-message='applyId 不能为空'>
+					<input class='form-control' type='text' name='applyDay' id='applyDay' data-bv-notempty='true' data-bv-notempty-message='申请日不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>applyDay</label>
+				<label class='col-md-2 control-label'>国家</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='applyDay' type='text' name='applyDay' id='applyDay' data-bv-notempty='true' data-bv-notempty-message='applyDay 不能为空'>
+					<input class='form-control' type='text' name='country' id='country' data-bv-notempty='true' data-bv-notempty-message='国家不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>title</label>
+				<label class='col-md-2 control-label'>标题</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='title' type='text' name='title' id='title' data-bv-notempty='true' data-bv-notempty-message='title 不能为空'>
+					<input class='form-control' type='text' name='title' id='title' data-bv-notempty='true' data-bv-notempty-message='标题不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>titleFy</label>
+				<label class='col-md-2 control-label'>标题翻译</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='titleFy' type='text' name='titleFy' id='titleFy' data-bv-notempty='true' data-bv-notempty-message='titleFy 不能为空'>
+					<input class='form-control' type='text' name='titleFy' id='titleFy' data-bv-notempty='true' data-bv-notempty-message='标题翻译不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>zy</label>
+				<label class='col-md-2 control-label'>摘要</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='zy' type='text' name='zy' id='zy' data-bv-notempty='true' data-bv-notempty-message='zy 不能为空'>
+                    <textarea class='form-control' type='text' name='zy' id='zy' data-bv-notempty='true' data-bv-notempty-message='摘要不能为空'></textarea>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>zyFy</label>
+				<label class='col-md-2 control-label'>摘要翻译</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='zyFy' type='text' name='zyFy' id='zyFy' data-bv-notempty='true' data-bv-notempty-message='zyFy 不能为空'>
+                    <textarea class='form-control' type='text' name='zyFy' id='zyFy' data-bv-notempty='true' data-bv-notempty-message='摘要翻译不能为空'></textarea>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>powerAsk</label>
+				<label class='col-md-2 control-label'>权利要求</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='powerAsk' type='text' name='powerAsk' id='powerAsk' data-bv-notempty='true' data-bv-notempty-message='powerAsk 不能为空'>
+                    <textarea class='form-control' type='text' name='powerAsk' id='powerAsk' data-bv-notempty='true' data-bv-notempty-message='权利要求不能为空'></textarea>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>powerAFy</label>
+				<label class='col-md-2 control-label'>权利要求翻译</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='powerAFy' type='text' name='powerAFy' id='powerAFy' data-bv-notempty='true' data-bv-notempty-message='powerAFy 不能为空'>
+                    <textarea class='form-control'  type='text' name='powerAFy' id='powerAFy' data-bv-notempty='true' data-bv-notempty-message='权利要求翻译不能为空'></textarea>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>powerAN</label>
+				<label class='col-md-2 control-label'>权利要求数</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='powerAN' type='text' name='powerAN' id='powerAN' data-bv-notempty='true' data-bv-notempty-message='powerAN 不能为空'>
+					<input class='form-control'  type='text' name='powerAN' id='powerAN' data-bv-notempty='true' data-bv-notempty-message='权利要求数不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>applyMan</label>
+				<label class='col-md-2 control-label'>申请人</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='applyMan' type='text' name='applyMan' id='applyMan' data-bv-notempty='true' data-bv-notempty-message='applyMan 不能为空'>
+					<input class='form-control' type='text' name='applyMan' id='applyMan' data-bv-notempty='true' data-bv-notempty-message='申请人不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>applyPlace</label>
+				<label class='col-md-2 control-label'>申请人所在地</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='applyPlace' type='text' name='applyPlace' id='applyPlace' data-bv-notempty='true' data-bv-notempty-message='applyPlace 不能为空'>
+					<input class='form-control' type='text' name='applyPlace' id='applyPlace' data-bv-notempty='true' data-bv-notempty-message='申请人所在地不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>createMan</label>
+				<label class='col-md-2 control-label'>发明人</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='createMan' type='text' name='createMan' id='createMan' data-bv-notempty='true' data-bv-notempty-message='createMan 不能为空'>
+					<input class='form-control' type='text' name='createMan' id='createMan' data-bv-notempty='true' data-bv-notempty-message='发明人不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>lawS</label>
+				<label class='col-md-2 control-label'>法律状态</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='lawS' type='text' name='lawS' id='lawS' data-bv-notempty='true' data-bv-notempty-message='lawS 不能为空'>
+                    <textarea class='form-control' type='text' name='lawS' id='lawS' data-bv-notempty='true' data-bv-notempty-message='法律状态不能为空'></textarea>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>nowLawS</label>
+				<label class='col-md-2 control-label'>当前法律状态</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='nowLawS' type='text' name='nowLawS' id='nowLawS' data-bv-notempty='true' data-bv-notempty-message='nowLawS 不能为空'>
+					<input class='form-control'  type='text' name='nowLawS' id='nowLawS' data-bv-notempty='true' data-bv-notempty-message='当前法律状态不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>zlType</label>
+				<label class='col-md-2 control-label'>专利类型</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='zlType' type='text' name='zlType' id='zlType' data-bv-notempty='true' data-bv-notempty-message='zlType 不能为空'>
+					<input class='form-control'  type='text' name='zlType' id='zlType' data-bv-notempty='true' data-bv-notempty-message='专利类型不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>ipcMC</label>
+				<label class='col-md-2 control-label'>ipc主分类</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='ipcMC' type='text' name='ipcMC' id='ipcMC' data-bv-notempty='true' data-bv-notempty-message='ipcMC 不能为空'>
+					<input class='form-control' type='text' name='ipcMC' id='ipcMC' data-bv-notempty='true' data-bv-notempty-message='ipc主分类不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>ipcMCFy</label>
+				<label class='col-md-2 control-label'>ipc主分类翻译</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='ipcMCFy' type='text' name='ipcMCFy' id='ipcMCFy' data-bv-notempty='true' data-bv-notempty-message='ipcMCFy 不能为空'>
+					<input class='form-control' type='text' name='ipcMCFy' id='ipcMCFy' data-bv-notempty='true' data-bv-notempty-message='ipc主分类翻译不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>ipc</label>
+				<label class='col-md-2 control-label'>ipc分类</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='ipc' type='text' name='ipc' id='ipc' data-bv-notempty='true' data-bv-notempty-message='ipc 不能为空'>
+					<input class='form-control' type='text' name='ipc' id='ipc' data-bv-notempty='true' data-bv-notempty-message='ipc分类不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>ipcFy</label>
+				<label class='col-md-2 control-label'>ipc分类翻译</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='ipcFy' type='text' name='ipcFy' id='ipcFy' data-bv-notempty='true' data-bv-notempty-message='ipcFy 不能为空'>
+					<input class='form-control' type='text' name='ipcFy' id='ipcFy' data-bv-notempty='true' data-bv-notempty-message='ipc分类翻译不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>cpec</label>
+				<label class='col-md-2 control-label'>国民经济</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='cpec' type='text' name='cpec' id='cpec' data-bv-notempty='true' data-bv-notempty-message='cpec 不能为空'>
+					<input class='form-control' type='text' name='cpec' id='cpec' data-bv-notempty='true' data-bv-notempty-message='国民经济不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>cpecFy</label>
+				<label class='col-md-2 control-label'>国民经济翻译</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='cpecFy' type='text' name='cpecFy' id='cpecFy' data-bv-notempty='true' data-bv-notempty-message='cpecFy 不能为空'>
+					<input class='form-control' type='text' name='cpecFy' id='cpecFy' data-bv-notempty='true' data-bv-notempty-message='国民经济翻译不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>beUsedNum</label>
+				<label class='col-md-2 control-label'>被引证次数</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='beUsedNum' type='text' name='beUsedNum' id='beUsedNum' data-bv-notempty='true' data-bv-notempty-message='beUsedNum 不能为空'>
+					<input class='form-control'  type='text' name='beUsedNum' id='beUsedNum' data-bv-notempty='true' data-bv-notempty-message='被引证次数不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>value</label>
+				<label class='col-md-2 control-label'>价值度</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='value' type='text' name='value' id='value' data-bv-notempty='true' data-bv-notempty-message='value 不能为空'>
+					<input class='form-control' type='text' name='value' id='value' data-bv-notempty='true' data-bv-notempty-message='价值度不能为空'>
 				</div>
 			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>zlImage</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='zlImage' type='text' name='zlImage' id='zlImage' data-bv-notempty='true' data-bv-notempty-message='zlImage 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>zlText</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='zlText' type='text' name='zlText' id='zlText' data-bv-notempty='true' data-bv-notempty-message='zlText 不能为空'>
-				</div>
-			</div>
-
-
+            <div style="border-bottom: solid 1px #c6d0de">
+                <span >首页附图</span>
+            </div>
+            <div>
+                <button type="button" class="layui-btn" id="test1">
+                    <i class="layui-icon">&#xe67c;</i>上传图片
+                </button>
+                <button type="button" class="layui-btn" id="test2">
+                    上传
+                </button>
+            </div>
+            <div id="showname1"></div>
+            <div id="buttondelete1"></div>
+            <div style="border-bottom: solid 1px #c6d0de">
+                <span >专利全文</span><span style="color: red;">(为pdf格式)</span>
+            </div>
+            <div>
+                <button type="button" class="layui-btn" id="test3">
+                    <i class="layui-icon">&#xe67c;</i>上传文件
+                </button>
+                <button type="button" class="layui-btn" id="test4">
+                    上传
+                </button>
+            </div>
+            <div id="showname2"></div>
+            <div id="buttondelete2"></div>
+            <div style="border-bottom: solid 1px #c6d0de">
+                <span >专利附图</span>
+            </div>
+            <div>
+                <button type="button" class="layui-btn" id="test5">
+                    <i class="layui-icon">&#xe67c;</i>上传文件
+                </button>
+                <button type="button" class="layui-btn" id="test6">
+                    上传
+                </button>
+            </div>
+            <div id="showname3"></div>
+            <div id="buttondelete3"></div>
 			<div class="form-actions">
 				<div class="row" align="center">
 					<div class="col-md-12">
@@ -192,6 +217,9 @@
 
 		</fieldset>
 	</form>
+    <input type="hidden" id="pdfurl" >
+    <input type="hidden" id="imageurl" >
+    <input type="hidden" id="zlFile" >
 </div>
 	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="../../js/jq.js"></script>
@@ -199,16 +227,94 @@
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../layui/layui.js"></script>
 	<script type="text/javascript">
-		layui.use(['layer','laydate'], function(){
+        var pro = window.location.protocol;
+        var host = window.location.host;
+        var domain = pro + "//" + host;
+
+		layui.use(['layer','upload','laydate'], function(){
 		    var layer = layui.layer;
             var laydate = layui.laydate;
+            var upload = layui.upload;
+            var upload1 = layui.upload;
+            var upload2 = layui.upload;
+
             laydate.render({
                 elem: '#openDay'
             });
             laydate.render({
                 elem: '#applyDay'
             });
+
+            upload.render({
+                elem: '#test1' //绑定元素
+                ,accept: 'images' //允许上传的文件类型
+                ,url: '/files' //上传接口
+                ,auto: false //选择文件后不自动上传
+                ,bindAction: '#test2' //指向一个按钮触发上传
+                ,done: function(res, index, upload){
+                    $("#imageurl").val(res.url);
+                    var a = "<span>上传文件名:"+(res.name || res.id)+"</span>";
+                    $("#showname1").html(a);
+                    $("#buttondelete1").html('<button onclick="delete1(1,\''+res.id+'\')">删除</button>');
+                }
+            });
+
+            upload1.render({
+                elem: '#test3' //绑定元素
+                ,accept: 'file' //允许上传的文件类型
+                ,url: '/files' //上传接口
+                ,exts: 'pdf' //上传后缀
+                ,auto: false //选择文件后不自动上传
+                ,bindAction: '#test4' //指向一个按钮触发上传
+                ,done: function(res, index, upload){
+                    $("#pdfurl").val(res.url);
+                    var a = "<span>上传文件名:"+(res.name || res.id)+"</span>";
+                    $("#showname2").html(a);
+                    $("#buttondelete2").html('<button onclick="delete1(2,\''+res.id+'\')">删除</button>');
+                }
+            });
+
+            upload2.render({
+                elem: '#test5' //绑定元素
+                ,accept: 'file' //允许上传的文件类型
+                ,url: '/files/upZip' //上传接口
+                ,auto: false //选择文件后不自动上传
+                ,bindAction: '#test6' //指向一个按钮触发上传
+                ,done: function(res){
+                    var allUrl = '';
+                    if (res != null) {
+                        for (var i = 0; i < res.length; i++) {
+                            var fileInfo = res[i];
+                            if (i == 0) {
+                                allUrl = fileInfo.url;
+                            }else {
+                                allUrl =  allUrl +';'+ fileInfo.url;
+                            }
+                            $("#showname3").append('<span>上传文件名:'+(fileInfo.name || fileInfo.id)+'</span>')
+                            $("#buttondelete3").append('<button onclick="delete1(3,\''+fileInfo.id+'\')">删除</button>');
+                        }
+                    }
+                    $("#zlFile").val(allUrl);
+                }
+            });
 		});
+
+        function delete1(num,id) {
+            layer.confirm('确定要删除吗？', {
+                btn: ['确定', '取消']
+            }, function () {
+                $.ajax({
+                    type: 'delete',
+                    url: '/files/' + id,
+                    success: function (data) {
+                        $("#showname"+num).html("");
+                        $("#buttondelete"+num).html("");
+                        layer.msg("删除成功");
+                    }
+                });
+                layer.close(1);
+            });
+        }
 		
 		function add() {
 			$('#form').bootstrapValidator();
@@ -219,6 +325,8 @@
 		    }
 		    
 		    var formdata = $("#form").serializeObject();
+		    console.log(JSON.stringify(formdata));
+            return false;
 
 			$.ajax({
 				type : 'post',

@@ -44,8 +44,8 @@
 			<if test="params.inforAutB != null and params.inforAutB != ''">
 				and inforAutB = #{params.inforAutB} 
 			</if>
-			<if test="params.formJob != null and params.formJob != ''">
-				and formJob = #{params.formJob} 
+			<if test="params.fromJob != null and params.fromJob != ''">
+				and fromJob = #{params.fromJob}
 			</if>
 			<if test="params.interestJob != null and params.interestJob != ''">
 				and interestJob = #{params.interestJob} 
@@ -111,8 +111,8 @@
 			<if test="inforAutB != null">
 				inforAutB = #{inforAutB}, 
 			</if>
-			<if test="formJob != null">
-				formJob = #{formJob}, 
+			<if test="fromJob != null">
+				fromJob = #{fromJob},
 			</if>
 			<if test="interestJob != null">
 				interestJob = #{interestJob}, 

@@ -31,7 +31,9 @@ public interface ZlztPointAgreeDao {
 
     List<ZlztPointAgree> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
 
-   List<ZlztPointAgree> list1(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+    int count1(@Param("params") Map<String, Object> params);
+
+    List<ZlztPointAgree> list1(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
 
     @Select("select ifnull(max(id),-1) from zlzt_point_agree where type = #{type} and agreeId = #{agreeId} and userId = #{userId} ")
     int selectSameData(ZlztPointAgree zlztPointAgree);

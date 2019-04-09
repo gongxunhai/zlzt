@@ -31,6 +31,8 @@ public interface ZlztCareinfoDao {
 
     List<ZlztCareinfo> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
 
+    int count1(@Param("params") Map<String, Object> params);
+
     List<ZlztCareinfo> list1(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
 
     @Select("select ifnull(max(id),-1) from zlzt_careinfo where type = #{type} and careId = #{careId} and userId = #{userId} ")

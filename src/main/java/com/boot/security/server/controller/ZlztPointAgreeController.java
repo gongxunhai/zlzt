@@ -79,7 +79,7 @@ public class ZlztPointAgreeController {
 
             @Override
             public int count(PageTableRequest request) {
-                return zlztPointAgreeDao.count(request.getParams());
+                return zlztPointAgreeDao.count1(request.getParams());
             }
         }, new ListHandler() {
 

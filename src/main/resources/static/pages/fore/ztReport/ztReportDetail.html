@@ -12,6 +12,7 @@
 	<link href="../css/animate.css" rel="stylesheet">
 	<link href="../css/bootsnav.css" rel="stylesheet">
     <link href="../css/swiper.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
     <link href="../treetable/css/jquery.treetable.css" rel="stylesheet" type="text/css" >
 	<link href="../css/style.css" rel="stylesheet">
     <script src="../js/jquery.js"></script>
@@ -19,6 +20,7 @@
 	<script src="../js/bootsnav.js"></script>
     <script src="../js/swiper.min.js"></script>
 	<script src="../treetable/js/jquery.treetable.js"></script>
+    <script type="text/javascript" src="../../../layui/layui.js"></script>
     <script type="text/javascript" src="../../../js/common.js"></script>
     <script src="../js/rem.js"></script>
     <script src="../js/public.js"></script>
@@ -26,6 +28,54 @@
 	  <script src="../js/html5shiv.min.js"></script>
 	  <script src="../js/respond.min.js"></script>
 	<![endif]-->
+    <style>
+        .file {
+            position: relative;
+            display: inline-block;
+            background: #D0EEFF;
+            border: 1px solid #99D3F5;
+            border-radius: 4px;
+            padding: 8px 12px;
+            /* width: 20%; */
+            /* height: 42px; */
+            /* line-height: 42px; */
+            /* margin-right: 0; */
+            overflow: hidden;
+            color: #1E88C7;
+            text-decoration: none;
+            text-indent: 0;
+            line-height: 20px;
+        }
+
+        .file input {
+            position: absolute;
+            /* font-size: 100px; */
+            right: 0;
+            top: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .file:hover {
+            background: #AADFFD;
+            border-color: #78C3F3;
+            color: #004974;
+            text-decoration: none;
+        }
+
+        .btn-upload {
+            display: flex;
+            width: 100%;
+            height: 42px;
+            margin: 10px 0;
+            align-items: center;
+            justify-content: center;
+            background-color: #AADFFD;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 <script>
@@ -35,55 +85,6 @@
 </script>
 <script src="../js/htmlJs/publicHeader.js"></script>
 <script src="../js/htmlJs/getPathname.js"></script>
-<!--
-<nav class="navbar navbar-default bootsnav navbar-fixed-top wow fadeInDown">
-    <div class="wrap">
-        <div class="attr-nav navRig">
-            <ul>
-            	<li class="navTelMob"><a href="tel:010-68376645"><i class="iconfont icon-dianhua"></i></a></li>
-                <li class="navTel"><a href="javascript:;"><i class="iconfont icon-dianhua"></i><strong>010-68376645</strong></a></li>
-                <li class="navSearch"><a href="javascript:;"><i class="iconfont icon-sousuo"></i>搜索</a></li>
-                <li><i class="iconfont icon-guanjiaowangtubiao01"></i><a href="#">登录</a><span>or</span><a href="#">注册</a></li>
-            </ul>
-        </div>
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-                <i class="fa fa-bars"></i>
-            </button>
-            <a class="navbar-brand flexBox logo" href="#">
-                <span><img src="../images/logo.png" class="img-responsive"></span>
-            </a>
-        </div>            
-        <div class="collapse navbar-collapse" id="navbar-menu">
-            <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
-                <li><a href="../index.html"><span>首页</span></a></li>
-                <li><a href="../kjsc/kjsc.html"><span>科技商城</span></a></li>
-                <li><a href="../projectRequire/pjRequire.html"><span>项目需求</span></a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" ><span>科技资源</span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="../lawsRegulations/lawsRegulations.html">政策法规</a></li>
-                        <li><a href="../zlzt/zlzt.html">专利专题</a></li>
-                        <li class="dropdown">
-                           <a href="ztReport.html" class="dropdown-toggle" data-toggle="dropdown" >专题报告</a>
-                            <ul class="dropdown-menu">
-                               <li><a href="ztReportList.html">专利态势分析</a></li>
-                                <li><a href="ztReportList.html">政策研究</a></li>
-                               <li><a href="ztReportList.html">行业咨询</a></li>
-                                <li><a href="ztReportList.html">情报研究</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="../gfArea/zlResult.html"><span>高分专区</span></a></li>
-                <li><a href="../news/news.html"><span>新闻动态</span></a></li>
-                <li><a href="../kjService/kjService.html"><span>科技服务</span></a></li>
-                <li><a href="../aboutUs.html"><span>关于我们</span></a></li>
-            </ul>
-        </div>        
-    </div>
-</nav>
--->
 <div class="searchBg">
 	<div class="wrap">
     	<div class="search">
@@ -147,15 +148,11 @@
                                 </ul>                       
                                 <div class="technoBrief3">
                                     <a href="javascript:;" class="jingjiren" data-toggle="modal" data-target="#myBroker"><i class="iconfont icon-jingjiren"></i>委托经纪人</a>
-                                    <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox">
+                                    <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox" id="pointAndCare">
                                         <li><a href="javascript:;"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>
                                         <li><a href="javascript:;"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>
                                         <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>
                                     </ul>
-                                    <script>
-                                        _bd_share_config = { "common": { "bdSign": "off", "bdSize": "24" }, "share": { "bdCustomStyle": "../css/share.css" } }
-            with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
-                                    </script>
                                 </div>
                             </div>
                         </div>            
@@ -210,7 +207,7 @@
                             <span>相关推荐</span>
                         </div>
                     </div>
-                    <ul class="hotReport list-unstyled">
+                    <ul class="hotReport list-unstyled" id="lookMore">
                     	<li class="wow fadeInUp">
                             <a class="reportLink" href="ztReportDetail.html">
                                 <div class="reportImg"><img src="../images/reportImg1.jpg" class="img-responsive"></div>
@@ -365,33 +362,43 @@
         <ul class="LaySearchList list-unstyled row">
             <li class="col-xs-12">
                 <div class="LaySearchRig">
-                    <input type="text" class="LaySearchInput" placeholder="联系人">
+                    <input type="text" class="LaySearchInput" placeholder="联系人" id="contactMan">
                 </div>
             </li>
             <li class="col-xs-12">
                 <div class="LaySearchRig">
-                    <input type="text" class="LaySearchInput" placeholder="联系方式">
+                    <input type="text" class="LaySearchInput" placeholder="联系方式" id="contactWay">
                 </div>
             </li>
             <li class="col-xs-12">
                 <div class="LaySearchRig">
-                    <textarea class="LaySearchInput" rows="3" placeholder="详细要求"></textarea>
+                    <textarea class="LaySearchInput" rows="3" placeholder="详细要求" id="description"></textarea>
+                </div>
+            </li>
+            <li class="col-xs-12">
+                <div class="LaySearchRig" style="display:flex;align-items: center; justify-content: space-between; ">
+                    <input type="text" id="fileName" class="LaySearchInput"
+                           style="display: inline-block;width: 80%;" disabled placeholder="文件名称">
+                    <a href="javascript:;" class="file">选择文件
+                        <input type="file" name="file" id="upLoadFile" onchange="changeValue()">
+                    </a>
                 </div>
             </li>
             <li class="col-xs-12">
                 <div class="LaySearchBtn">
-                    <a href="javascript:;" class="LaySearchBtn1">提交</a>
+                    <a href="javascript:;" class="LaySearchBtn1"  onclick="entrustSub()">提交</a>
                 </div>
             </li>
         </ul>
     </div>
 </div>
+<input type="hidden" id="entrustFile" name="entrustFile">
 <script>
-    var pro = window.location.protocol;
-    var host = window.location.host;
-    var domain = pro + "//" + host;
     var id = getUrlParam("id");
-
+    var layer;
+    layui.use([ 'layer' ], function() {
+        layer = layui.layer;
+    });
     function addPageView() {
         $.ajax({
             type : 'post',
@@ -426,14 +433,273 @@
                 '                            <h3 class="zyTextH3">目录</h3>\n' +
                 '                            <ul class="report_Catalog list-unstyled list-inline">' + result.catalog + '');
             $("#showPDF").append('<embed src="'+domain+'/statics'+result.pdfFile+'" width="800" name="pdF" title="pdF" height="425">');
+            $("#pointAndCare").html(' <li><a href="javascript:;" class="point" ><i class="iconfont icon-qinziAPPtubiao-"></i>点赞('+( result.pointNum || '0' )+')</a></li>\n' +
+                '                                  <li><a href="javascript:;" class="collection" ><i class="iconfont icon-guanzhu1"></i>关注('+( result.careNum || '0' )+')</a></li>\n' +
+                '                                    <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>');
             $("#downloadPDF")
         }
     });
+
+    function changeValue() {
+        console.log("user="+user);
+        if (user != null && user != ''){
+            var file = $("#upLoadFile")[0].files[0];
+            if (file !=null && file !='undefined'){
+                var formData = new FormData();
+                formData.append("file", file);
+                $.ajax({
+                    type : "post" ,
+                    url: '/files',
+                    data : formData ,
+                    processData : false,
+                    contentType : false,
+                    success: function (result) {
+                        console.log(result);
+                        $("#entrustFile").val(result.url);
+                        $('#fileName').attr('value', result.name);
+                    }
+                })
+            }
+        }else {
+            layer.msg("请先登录");
+        }
+    }
+
+    function entrustSub() {
+        if (user != null && user != ''){
+            var formData = new FormData();
+            formData.contactMan = $('#contactMan').val();
+            formData.contactWay = $('#contactWay').val();
+            formData.content = $('#description').val();
+            formData.file = $('#entrustFile').val();
+            formData.status = 0;
+            formData.type = 2 ;
+            formData.url = pathname + window.location.search;
+            formData.userId = user.id;
+            console.log("formDat="+JSON.stringify(formData));
+            $.ajax({
+                type : "post" ,
+                url: '/entrusts',
+                contentType: "application/json; charset=utf-8",
+                data : JSON.stringify(formData) ,
+                success: function (result) {
+                    layer.msg("委托成功");
+                    $('#myBroker').modal('hide');
+                }
+            })
+        }else {
+            layer.msg("请先登录");
+        }
+    }
+
+    $.ajax({
+        type: 'get',
+        url: '/ztReports',
+        async : false,
+        data : {
+            "orderBy" : "order by pageView DESC"
+        },
+        success: function (result) {
+            var data = result.data;
+            $("#lookMore").html('');
+            console.log(data);
+            if (data.length > 3){
+                for (var i = 0 ; i <data.length; i++) {
+                    if (i > 3) {
+                        break;
+                    }
+                    $("#lookMore").append('<li class="wow fadeInUp">\n' +
+                        '                            <a class="reportLink" href="'+domain+'/pages/fore/ztReport/ztReportDetail.html?id='+data[i].id+'">\n' +
+                        '                                <div class="reportImg"><img src="'+domain+'/statics'+( data[i].image || '/default2.png' )+'" class="img-responsive"></div>\n' +
+                        '                                <div class="reportRig">\n' +
+                        '                                    <h4 class="reportName ellipsis">'+data[i].name+'</h4>\n' +
+                        '                                    <div class="reportBrief">\n' +
+                        '                                        <p>'+data[i].descript+'</p>\n' +
+                        '                                    </div>\n' +
+                        '                                    <div class="reportInfor">\n' +
+                        '                                        <span><i class="iconfont icon-riqi"></i>'+(new Date(data[i].createTime)).Format("yyyy-MM-dd")+'</span>\n' +
+                        '                                        <span><i class="iconfont icon-liulan-copy"></i>'+data[i].pageView+'</span>\n' +
+                        '                                    </div>\n' +
+                        '                                </div>\n' +
+                        '                                <div class="clear"></div>\n' +
+                        '                            </a>\n' +
+                        '                        </li>');
+                }
+            }
+        }
+    });
+
+    $(document).on("click",".zyTitIco a",function(event){
+        if (user != null && user != '') {
+            $(this).toggleClass("active");
+            if ($(this).hasClass("point")){
+                if ($(this).hasClass("active")) {
+                    addPoint(id);
+                }else {
+                    deletePoint(id);
+                }
+            }
+            if ($(this).hasClass("collection")){
+                if ($(this).hasClass("active")) {
+                    addCollection(id);
+                }else {
+                    deleteCollection(id);
+                }
+            }
+        }else {
+            alert("请先登录!");
+        }
+    });
+
+    function addPoint(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.agreeId =  obj;
+        formData.type = 'zt_report';
+        formData.url = "/pages/fore/ztReport/ztReportDetail.html?id="+obj;
+        $.ajax({
+            type : 'post',
+            url : '/zlztPointAgrees/addPoint',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    if (data.msg == "success") {
+                        $(".point" ).html('<i class="iconfont icon-qinziAPPtubiao-"></i>点赞(' + data.pointNum + ')');
+                        alert("点赞成功!");
+                    }
+                    else {
+                        alert("已点赞!");
+                    }
+                }
+            }
+        })
+    }
+
+    function deletePoint(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.agreeId =  obj;
+        formData.type = 'zt_report';
+        $.ajax({
+            type : 'delete',
+            url : '/zlztPointAgrees/deletePoint',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    $(".point" ).html('<i class="iconfont icon-qinziAPPtubiao-"></i>点赞(' + data.pointNum + ')');
+                    alert("取消点赞!");
+                }
+            }
+        });
+    }
+    //已点赞的就显示
+    function selectPoint() {
+        if (user != null && user !='') {
+            $.ajax({
+                type : 'get',
+                url : '/zlztPointAgrees',
+                async : false,
+                data:{
+                    "userId" : user.id,
+                    "type" : 'zt_report'
+                },
+                success : function(result) {
+                    var data = result.data;
+                    console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].agreeId == id) {
+                            $(".point").addClass("active");
+                        }
+                    }
+                }
+            })
+        }
+    }
+
+    function addCollection(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.careId =  obj;
+        formData.type = 'zt_report';
+        formData.url = "/pages/fore/ztReport/ztReportDetail.html?id="+obj;
+        $.ajax({
+            type : 'post',
+            url : '/zlztCareinfos/addCare',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    if (data.msg == "success") {
+                        $(".collection").html('<i class="iconfont icon-guanzhu1">收藏(' + data.pointNum + ')');
+                        alert("收藏成功!");
+                    }
+                    else {
+                        alert("已收藏!");
+                    }
+                }
+            }
+        })
+    }
+    function deleteCollection(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.careId =  obj;
+        formData.type = 'zt_report';
+        $.ajax({
+            type : 'delete',
+            url : '/zlztCareinfos/deleteCare',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    $(".collection").html('<i class="iconfont icon-guanzhu1">收藏(' + data.pointNum + ')');
+                    alert("取消收藏!");
+                }
+            }
+        });
+    }
+
+    function selectCollection() {
+        if (user != null && user !='') {
+            $.ajax({
+                type : 'get',
+                url : '/zlztCareinfos',
+                async : false,
+                data:{
+                    "userId" : user.id,
+                    "type" : 'zt_report'
+                },
+                success : function(result) {
+                    var data = result.data;
+                    console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].careId == id) {
+                            $(".collection").addClass("active");
+                        }
+                    }
+                }
+            })
+        }
+    }
+
+    selectPoint();
+    selectCollection();
+
 	$(".zyItem").eq(0).show().addClass('fadeInUp animated').siblings().hide();
 	$(".zyTextTab li").click(function(){
 		$(this).addClass("active").siblings().removeClass("active");	
 		$(".zyTextCon .zyItem").eq($(this).index()).show().addClass('fadeInUp animated').siblings().hide();
 	})
+</script>
+<script>
+    _bd_share_config = { "common": { "bdSign": "off", "bdSize": "24" }, "share": { "bdCustomStyle": "../css/share.css" } }
+    with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
 </script>
 </body>
 </html>

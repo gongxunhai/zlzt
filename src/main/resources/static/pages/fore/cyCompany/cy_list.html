@@ -169,16 +169,16 @@
                             <li class="zyOrderLi selBox">
                             	<span class="selTit">排序<i class="iconfont icon-jiantou"></i></span>
                                 <ul class="zyOrderSub selList list-unstyled" id="orderby">
-                                	<li value="openDay" >公开号↑</li>
-                                    <li value="openDay DESC">公开号↓</li>
-                                	<li value="applyDay">申请号↑</li>
-                                    <li value="applyDay DESC">申请号↓</li>
-                                	<li value="applyMan">申请人↑</li>
-                                    <li value="applyMan DESC">申请人↓</li>
-                                	<li value="ipcMC">IPC主分类↑</li>
-                                    <li value="ipcMC DESC">IPC主分类↓</li>
-                                	<li value="cpec">国民经济分类↑</li>
-                                    <li value="cpec DESC">国民经济分类↓</li>
+                                	<li value="t.openDay" >公开号↑</li>
+                                    <li value="t.openDay DESC">公开号↓</li>
+                                	<li value="t.applyDay">申请号↑</li>
+                                    <li value="t.applyDay DESC">申请号↓</li>
+                                	<li value="t.applyMan">申请人↑</li>
+                                    <li value="t.applyMan DESC">申请人↓</li>
+                                	<li value="t.ipcMC">IPC主分类↑</li>
+                                    <li value="t.ipcMC DESC">IPC主分类↓</li>
+                                	<li value="t.cpec">国民经济分类↑</li>
+                                    <li value="t.cpec DESC">国民经济分类↓</li>
                                 </ul>
                                 <input type="hidden">
                             </li>
@@ -463,6 +463,8 @@
     <input type="hidden" id="zlTypeId" name="zlTypeId">
     <input type="hidden" id="ipcId" name="ipcId">
     <input type="hidden" id="cpecId" name="cpecId">
+    <input type="hidden" id="classifyid" name="classifyid">
+    <input type="hidden" id="type" name="type">
 </div>
 <link rel="stylesheet" type="text/css" media="screen" href="../datatables/dataTables.bootstrap.min.css">
 <script type="text/javascript" src="../datatables/jquery.dataTables.min.js"></script>
@@ -554,7 +556,7 @@
             {"data" : "title", "defaultContent" : "",
                 "render":function (data, type, row) {
                     var a = '<strong>标题：</strong>\n'+
-                        '\t<a class="zyTabName" href="../zlzt/zlzt_list_detail.html?classifyid='+row.id+'">'+row.title+'</a>\n'+
+                        '\t<a class="zyTabName" href="cy_list_detail.html?classifyid='+row.id+'">'+row.title+'</a>\n'+
                         '\t<a class="zyTabTag corTag1" href="javascript:;">'+( row.nowLawS || '') +'</a>\n'+
                         '\t<a class="zyTabTag corTag2" href="javascript:;">'+( row.country|| '') +'</a>\n'+
                         '\t<a class="zyTabTag corTag3" href="javascript:;">'+( row.zlType || '') +'</a>\n';

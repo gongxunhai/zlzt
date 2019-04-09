@@ -1,4 +1,4 @@
-document.writeln("<nav class=\'navbar navbar-default bootsnav navbar-fixed-top wow fadeInDown\'>");
+document.writeln("<nav class=\'navbar navBox navbar-default bootsnav navbar-fixed-top wow fadeInDown\'>");
 document.writeln("    <div class=\'wrap\'>");
 document.writeln("        <div class=\'attr-nav navRig\'>");
 document.writeln("            <ul>");
@@ -57,6 +57,7 @@ document.writeln("            </ul>");
 document.writeln("        </div>        ");
 document.writeln("    </div>");
 document.writeln("</nav>");
+document.writeln("<div class=\'navSpace\'></div>");
 
 function checkUser() {
     if (sessionStorage.getItem("forSession") != '' && sessionStorage.getItem("forSession") !=null) {
@@ -81,14 +82,25 @@ function checkUser() {
             '                        </li>\n' +
             '                    \t<li>\n' +
             '                        \t<p><a href="'+domain+'/pages/fore/users/userCore.html">我的个人资料</a></p>\n' +
-            '                        \t<p><a href="#">我的订单<span class="corRed">（3）</span></a></p>\n' +
-            '                        \t<p><a href="#">消息通知<span class="corRed">（20）</span></a></p>\n' +
+            '                        \t<p><a href="#">我的订单<span class="corRed"></span></a></p>\n' +
+            '                        \t<p><a href="#">消息通知<span class="corRed"></span></a></p>\n' +
             '                        </li>\n' +
             '                    \t<li class="exit">\n' +
-            '                        \t<p><a href="javascript:;"><i class="iconfont icon-zhuxiao"></i>退出</a></p>\n' +
+            '                        \t<p><a href="javascript:;" onclick="quit()"><i class="iconfont icon-zhuxiao"></i>退出</a></p>\n' +
             '                        </li>\n' +
             '                    </ul>');
     }
 }
 var user = '';
+
+
+function quit() {
+    if(window.confirm('确定退出登录！')){
+        sessionStorage.removeItem("forSession");
+        location.href = domain+"/pages/fore/index.html";
+    }else{
+        return false;
+    }
+}
+
 checkUser();

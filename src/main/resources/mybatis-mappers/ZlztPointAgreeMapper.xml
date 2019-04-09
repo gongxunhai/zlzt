@@ -58,8 +58,21 @@
 		</if>
 	</select>
 
+	<select id="count1" resultType="int">
+		select count(1)
+		from zlzt_point_agree t inner join ${params.fromTable} m
+		on t.agreeId = m.id and t.type = #{params.fromTable}
+		<include refid="where" />
+	</select>
+
 	<select id="list1" resultType="ZlztPointAgree">
-        select t.*,m.name as name,m.image as image
+        select t.*
+        <if test="params.fromTable == 'view_zlztdata' or params.fromTable == 'view_gfdata' or params.fromTable == 'view_yfdata' ">
+            ,m.title as name , m.homeImage as image
+        </if>
+        <if test="params.fromTable != 'view_zlztdata' and params.fromTable != 'view_gfdata' and params.fromTable != 'view_yfdata' ">
+            ,m.name as name , m.image as image
+        </if>
         from zlzt_point_agree t inner join ${params.fromTable} m
         on t.agreeId = m.id and t.type = #{params.fromTable}
 		<include refid="where" />

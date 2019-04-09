@@ -16,6 +16,14 @@ import com.boot.security.server.model.GfDatainfo;
 @Mapper
 public interface GfDatainfoDao {
 
+    @Select("select t.*,a.name as fIdName,b.name as sIdName,c.name as tIdName,d.name as cIdName,m.* from gf_datainfo t\n" +
+            "\t\tinner join gf_classifyinfo a on t.fId = a.id\n" +
+            "\t\tinner join gf_classifyinfo b on t.sId = b.id\n" +
+            "\t\tinner join gf_classifyinfo c on t.tId = c.id\n" +
+            "\t\tinner join gf_classifyinfo d on t.cId = d.id" +
+            "    inner join zlzt_datainfo m on t.dataId = m.id where t.id = #{id}")
+    GfDatainfo getAllData(Long id);
+
     @Select("select * from gf_datainfo t where t.id = #{id}")
     GfDatainfo getById(Long id);
 
@@ -34,4 +42,5 @@ public interface GfDatainfoDao {
 
     @Select("select ifnull(max(id),-1) from gf_datainfo where dataId = #{dataId}")
     int selectIdByDataId(GfDatainfo gfDatainfo);
+
 }

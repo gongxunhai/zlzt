@@ -35,55 +35,6 @@
 </script>
 <script src="../js/htmlJs/publicHeader.js"></script>
 <script src="../js/htmlJs/getPathname.js"></script>
-<!--
-<nav class="navbar navbar-default bootsnav navbar-fixed-top wow fadeInDown">
-    <div class="wrap">
-        <div class="attr-nav navRig">
-            <ul>
-            	<li class="navTelMob"><a href="tel:010-68376645"><i class="iconfont icon-dianhua"></i></a></li>
-                <li class="navTel"><a href="javascript:;"><i class="iconfont icon-dianhua"></i><strong>010-68376645</strong></a></li>
-                <li class="navSearch"><a href="javascript:;"><i class="iconfont icon-sousuo"></i>搜索</a></li>
-                <li><i class="iconfont icon-guanjiaowangtubiao01"></i><a href="#">登录</a><span>or</span><a href="#">注册</a></li>
-            </ul>
-        </div>
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-                <i class="fa fa-bars"></i>
-            </button>
-            <a class="navbar-brand flexBox logo" href="#">
-                <span><img src="../images/logo.png" class="img-responsive"></span>
-            </a>
-        </div>            
-        <div class="collapse navbar-collapse" id="navbar-menu">
-            <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
-                <li><a href="../index.html"><span>首页</span></a></li>
-                <li><a href="../kjsc/kjsc.html"><span>科技商城</span></a></li>
-                <li><a href="../projectRequire/pjRequire.html"><span>项目需求</span></a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" ><span>科技资源</span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="lawsRegulations.html">政策法规</a></li>
-                        <li class="active"><a href="zlzt.html">专利专题</a></li>
-                        <li class="dropdown">
-                          <a href="../ztReport/ztReport.html" class="dropdown-toggle" data-toggle="dropdown" >专题报告</a>
-                            <ul class="dropdown-menu">
-                               <li><a href="../ztReport/ztReportList.html">专利态势分析</a></li>
-                                <li><a href="../ztReport/ztReportList.html">政策研究</a></li>
-
-                                <li><a href="../ztReport/ztReportList.html">情报研究</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="../gfArea/zlResult.html"><span>高分专区</span></a></li>
-                <li><a href="../news/news.html"><span>新闻动态</span></a></li>
-                <li><a href="../kjService/kjService.html"><span>科技服务</span></a></li>
-                <li><a href="#"><span>关于我们</span></a></li>
-            </ul>
-        </div>        
-    </div>
-</nav>
--->
 <div class="searchBg">
 	<div class="wrap">
     	<div class="search">
@@ -118,12 +69,11 @@
 </div>
 <div class="breadNavBg">
 	<div class="wrap">
-    	<ul class="breadcrumb wow fadeInLeft">
+    	<ul class="breadcrumb wow fadeInLeft" id="nowPlace">
             <li><i class="iconfont icon-weizhi"></i>当前位置：</li>
-            <li><a href="#">首页</a></li>
-            <li><a href="#">科技资源</a></li>
-            <li><a href="#">专利专题库</a></li>
-            <li>合成纤维</li>
+            <li><a href="../index.html">首页</a></li>
+            <li><a href="javascript:;">科技资源</a></li>
+            <li><a href="zlzt_list.html">专利专题库</a></li>
         </ul>
     </div>
 </div>
@@ -136,7 +86,7 @@
                     	<h2 class="siftTit">重点推荐</h2>
                         <div class="fenleiH2Btn visible-xs visible-sm visible-md"><i class="fa fa-folder"></i>展开</div>
                     </div>
-                    <ul class="fenleiList recommendList list-unstyled">
+                    <ul class="fenleiList recommendList list-unstyled" id="importantInfor">
                         <li class="fenleiLi">
                         	<a href="zlzt_list_detail.html?classifyid=39">
                             	<i class="recommendLine"></i>
@@ -156,9 +106,6 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="leftMore">
-                    	<a href="#">查看更多<i class="iconfont icon-arrow-right"></i></a>
-                    </div>
                 </div>
             </div>
             <div class="mRig">
@@ -166,10 +113,10 @@
                 	<div class="zyTextTop wow fadeInDown">
                     	<div class="zyTit" id="title">
                         </div>
-                        <ul class="zyTitIco list-unstyled list-inline">
-                        	<li><a href="#"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>
-                        	<li><a href="#"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>
-                        	<li><a href="#"><i class="iconfont icon-xiazai"></i>下载</a></li>
+                        <ul class="zyTitIco list-unstyled list-inline" id="pointAndCare">
+                        	<li><a href="javascript:;" class="point"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>
+                        	<li><a href="javascript:;" class="collection"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>
+                        	<li><a href="javascript:;" id="downloadZl"><i class="iconfont icon-xiazai"></i>下载</a></li>
                         </ul>
                     </div>
                     <ul class="zyTextTab list-unstyled list-inline row wow fadeInDown">
@@ -327,7 +274,7 @@
     $.ajax({
         type : 'post',
         url : '/zlztDatainfos/getListDetail',
-        data : {"params":params,"id":id},
+        data : {"param":"view_zlztdata","id":id},
      //   contentType: "application/json; charset=utf-8",
         async : false,
         success : function(result) {
@@ -345,12 +292,13 @@
             }
             a = a+b;
             $("#upDownPage").html(a);
+            $("#nowPlace").append('<li>'+result[1].title+'</li>');
             var data = result[1];
           //  console.log(data);
             $("#title").html('<h1 class="zyTitCn">'+ data.title+'<span class="zyTabTag corTag1">'+data.nowLawS+'</span>' +
                 '<span class="zyTabTag corTag2">'+ (data.country || '') +'</span><span class="zyTabTag corTag3">'+(data.zlType || '') +'</span></h1>\n' +
                 '            <p class="zyTitEn">'+ ( data.titleFy || '')+'</p>');
-            $("#baseData").html('<div class="zyImgRig"><img src="'+domain+'/statics'+data.homeImage+'" class="img-responsive"></div>\n' +
+            $("#baseData").html('<div class="zyImgRig"><img src="'+domain+'/statics'+ ( data.homeImage || '/default.png' )+'" class="img-responsive"></div>\n' +
                 '                            <h3 class="zyTextH3">摘要</h3>\n' +
                 '                            <p>'+data.zy+'</p>\n' +
                 '                            <br>\n' +
@@ -394,46 +342,242 @@
                 '                            <p class="corBlue"><strong>[ 翻译 Translate ]</strong></p>\n' +
                 '                            <p>'+( data.powerAFy || '')+'</p>\n' +
                 '                            <div class="clear"></div>   ');
+            $("#pointAndCare").html('<li><a href="javascript:;" class="point"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞('+( data.pointNum || '0' )+')</a></li>\n' +
+                '                        \t<li><a href="javascript:;" class="collection"><i class="iconfont icon-guanzhu1"></i>关注('+( data.careNum || '0' )+')</a></li>\n' +
+                '                        \t<li><a href="javascript:;" id="downloadZl"><i class="iconfont icon-xiazai"></i>下载</a></li>');
             var arr = [];
-            arr = data.lawS.substring(0,data.lawS.length-2).split("\n");
-           // console.log(arr);
-            if (data.lawS.indexOf("状态效果")!=-1 && data.lawS.indexOf("状态代码")!=-1){
-                var a = '<tr>\n' +
-                    '                                \t<th width="15%">法律状态公告日</th>\n' +
-                    '                                \t<th width="15%">状态效果</th>\n' +
-                    '                                \t<th width="15%">状态代码</th>\n' +
-                    '                                \t<th width="25%">法律状态</th>\n' +
-                    '                                    <th width="30%">描述信息</th>\n' +
-                    '                                </tr>';
-                for (var i = 0; i < arr.length;){
-                     a += '<tr>\n' +
-                        '                                    <td>'+arr[i].substring(8)+'</td>\n' +
-                        '                                    <td>'+arr[i+1].substring(5)+'</td>\n' +
-                        '                                    <td>'+arr[i+2].substring(5)+'</td>\n' +
-                        '                                    <td>'+arr[i+3].substring(5)+'</td>\n' +
-                        '                                    <td>'+arr[i+4].substring(5)+'</td>\n' +
+            if (data.lawS != null) {
+                arr = data.lawS.substring(0,data.lawS.length-2).split("\n");
+                // console.log(arr);
+                if (data.lawS.indexOf("状态效果")!=-1 && data.lawS.indexOf("状态代码")!=-1){
+                    var a = '<tr>\n' +
+                        '                                \t<th width="15%">法律状态公告日</th>\n' +
+                        '                                \t<th width="15%">状态效果</th>\n' +
+                        '                                \t<th width="15%">状态代码</th>\n' +
+                        '                                \t<th width="25%">法律状态</th>\n' +
+                        '                                    <th width="30%">描述信息</th>\n' +
                         '                                </tr>';
-                     i = i+5;
+                    for (var i = 0; i < arr.length;){
+                        a += '<tr>\n' +
+                            '                                    <td>'+arr[i].substring(8)+'</td>\n' +
+                            '                                    <td>'+arr[i+1].substring(5)+'</td>\n' +
+                            '                                    <td>'+arr[i+2].substring(5)+'</td>\n' +
+                            '                                    <td>'+arr[i+3].substring(5)+'</td>\n' +
+                            '                                    <td>'+arr[i+4].substring(5)+'</td>\n' +
+                            '                                </tr>';
+                        i = i+5;
+                    }
+                    $("#zlztTable").html(a);
+                }else {
+                    var a ='<tr>\n' +
+                        '                                \t<th width="15%">法律状态公告日</th>\n' +
+                        '                                \t<th width="25%">法律状态</th>\n' +
+                        '                                \t<th width="30%">描述信息</th>\n' +
+                        '                                </tr>';
+                    for (var i = 0; i < arr.length;){
+                        a += '<tr>\n' +
+                            '                                    <td>'+arr[i].substring(8,arr[i].length-1)+'</td>\n' +
+                            '                                    <td>'+arr[i+1].substring(5,arr[i+1].length-1)+'</td>\n' +
+                            '                                    <td>'+arr[i+2].substring(5,arr[i+2].length-1)+'</td>\n' +
+                            '                                </tr>';
+                        i = i+3;
+                    }
+                    $("#zlztTable").html(a);
                 }
-                $("#zlztTable").html(a);
             }else {
-                var a ='<tr>\n' +
-                    '                                \t<th width="15%">法律状态公告日</th>\n' +
-                    '                                \t<th width="25%">法律状态</th>\n' +
-                    '                                \t<th width="30%">描述信息</th>\n' +
-                    '                                </tr>';
-                for (var i = 0; i < arr.length;){
-                    a += '<tr>\n' +
-                        '                                    <td>'+arr[i].substring(8,arr[i].length-1)+'</td>\n' +
-                        '                                    <td>'+arr[i+1].substring(5,arr[i+1].length-1)+'</td>\n' +
-                        '                                    <td>'+arr[i+2].substring(5,arr[i+2].length-1)+'</td>\n' +
-                        '                                </tr>';
-                    i = i+3;
-                }
-                $("#zlztTable").html(a);
+                $("#zlztTable").html('');
             }
         }
     })
+
+    $.ajax({
+        type: 'get',
+        url: '/zlztDatainfos',
+        data: {"fromTable": "view_zlztdata","start":0,"length": 5},
+        async: false,
+        success: function (result) {
+            var data = result.data;
+            $("#importantInfor").html('');
+            console.log(data);
+            for (var i = 0; i < data.length; i++) {
+                if (i > 4 ){
+                    break;
+                }
+                $("#importantInfor").append('<li class="fenleiLi">\n' +
+                    '                            <a href="'+domain+'/pages/fore/zlzt/zlzt_list_detail.html?classifyid='+data[i].id+'">\n' +
+                    '                                <i class="recommendLine"></i>\n' +
+                    '                                <h3 class="recommendTit ellipsis">'+data[i].title+'</h3>\n' +
+                    '                                <div class="recommendBrief">\n' +
+                    '                                    <p>'+ ( data[i].titleFy || '' )+'…</p>\n' +
+                    '                                </div>\n' +
+                    '                            </a>\n' +
+                    '                        </li>');
+            }
+
+        }
+    });
+
+    $(document).on("click",".zyTitIco a",function(event){
+        if (user != null && user != '') {
+            $(this).toggleClass("active");
+            if ($(this).hasClass("point")){
+                if ($(this).hasClass("active")) {
+                    addPoint(id);
+                }else {
+                    deletePoint(id);
+                }
+            }
+            if ($(this).hasClass("collection")){
+                if ($(this).hasClass("active")) {
+                    addCollection(id);
+                }else {
+                    deleteCollection(id);
+                }
+            }
+        }else {
+            alert("请先登录!");
+        }
+    });
+
+    function addPoint(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.agreeId =  obj;
+        formData.type = 'view_zlztdata';
+        formData.url = "/pages/fore/zlzt/zlzt_list_detail.html?classifyid="+obj;
+        $.ajax({
+            type : 'post',
+            url : '/zlztPointAgrees/addPoint',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    if (data.msg == "success") {
+                        $(".point").html('<i class="iconfont icon-qinziAPPtubiao-"></i>点赞(' + data.pointNum + ')');
+                        alert("点赞成功!");
+                    }
+                    else {
+                        alert("已点赞!");
+                    }
+                }
+            }
+        })
+    }
+
+    function deletePoint(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.agreeId =  obj;
+        formData.type = 'view_zlztdata';
+        $.ajax({
+            type : 'delete',
+            url : '/zlztPointAgrees/deletePoint',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    $(".point").html('<i class="iconfont icon-qinziAPPtubiao-"></i>点赞(' + data.pointNum + ')');
+                    alert("取消点赞!");
+                }
+            }
+        });
+    }
+    //已点赞的就显示
+    function selectPoint() {
+        if (user != null && user !='') {
+            $.ajax({
+                type : 'get',
+                url : '/zlztPointAgrees',
+                async : false,
+                data:{
+                    "userId" : user.id,
+                    "type" : 'view_zlztdata'
+                },
+                success : function(result) {
+                    var data = result.data;
+                    console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].agreeId == id) {
+                            $(".point").addClass("active");
+                        }
+                    }
+                }
+            })
+        }
+    }
+
+    function addCollection(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.careId =  obj;
+        formData.type = 'view_zlztdata';
+        formData.url = "/pages/fore/zlzt/zlzt_list_detail.html?classifyid="+obj;
+        $.ajax({
+            type : 'post',
+            url : '/zlztCareinfos/addCare',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    if (data.msg == "success") {
+                        $(".collection").html('<i class="iconfont icon-guanzhu1">收藏(' + data.pointNum + ')');
+                        alert("收藏成功!");
+                    }
+                    else {
+                        alert("已收藏!");
+                    }
+                }
+            }
+        })
+    }
+    function deleteCollection(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.careId =  obj;
+        formData.type = 'view_zlztdata';
+        $.ajax({
+            type : 'delete',
+            url : '/zlztCareinfos/deleteCare',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    $(".collection").html('<i class="iconfont icon-guanzhu1">收藏(' + data.pointNum + ')');
+                    alert("取消收藏!");
+                }
+            }
+        });
+    }
+
+    function selectCollection() {
+        if (user != null && user !='') {
+            $.ajax({
+                type : 'get',
+                url : '/zlztCareinfos',
+                async : false,
+                data:{
+                    "userId" : user.id,
+                    "type" : 'view_zlztdata'
+                },
+                success : function(result) {
+                    var data = result.data;
+                    console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].careId == id) {
+                            $(".collection").addClass("active");
+                        }
+                    }
+                }
+            })
+        }
+    }
+
+    selectPoint();
+    selectCollection();
 </script>
 <script>
 	$(".zyItem").eq(0).show().addClass('fadeInUp animated').siblings().hide();

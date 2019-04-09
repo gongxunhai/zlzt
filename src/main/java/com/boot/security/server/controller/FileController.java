@@ -1,18 +1,18 @@
 package com.boot.security.server.controller;
 
 import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 import com.alibaba.fastjson.JSONObject;
-import org.apache.tomcat.util.http.fileupload.FileItem;
-import org.apache.tomcat.util.http.fileupload.FileUploadBase;
-import org.apache.tomcat.util.http.fileupload.ProgressListener;
-import org.apache.tomcat.util.http.fileupload.RequestContext;
-import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
-import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
+import com.boot.security.server.utils.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -30,12 +30,8 @@ import com.boot.security.server.service.FileService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 @Api(tags = "文件")
 @RestController
@@ -53,7 +49,7 @@ public class FileController extends HttpServlet {
 	@ApiOperation(value = "文件上传")
 	public FileInfo uploadFile(MultipartFile file) throws IOException {
 		return fileService.save(file);
-	}
+}
 
 	/**
 	 * layui富文本文件自定义上传
@@ -107,10 +103,9 @@ public class FileController extends HttpServlet {
 		fileService.delete(id);
 	}
 
-	@PostMapping("/upImage")
-    @ApiOperation(value = "本地通过文件位置上传")
-	public void upImage(@RequestParam("file") MultipartFile files) throws IOException, ServletException {
-
+	@PostMapping("/upZip")
+    @ApiOperation(value = "上传压缩包解析图片")
+	public List<FileInfo> upImage(MultipartFile file) throws IOException{
+        return fileService.saveByZip(file);
     }
-
 }

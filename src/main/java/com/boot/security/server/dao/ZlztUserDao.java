@@ -24,7 +24,7 @@ public interface ZlztUserDao {
     int update(ZlztUser zlztUser);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into zlzt_user(username, password, nickname, headImgUrl, phone, telephone, email, birthday, sex, status, inforAutA, inforAutB, formJob, interestJob, createTime, updateTime, userType) values(#{username}, #{password}, #{nickname}, #{headImgUrl}, #{phone}, #{telephone}, #{email}, #{birthday}, #{sex}, #{status}, #{inforAutA}, #{inforAutB}, #{formJob}, #{interestJob}, #{createTime}, #{updateTime}, #{userType})")
+    @Insert("insert into zlzt_user(username, password, nickname, headImgUrl, phone, telephone, email, birthday, sex, status, inforAutA, inforAutB, fromJob, interestJob, createTime, updateTime, userType) values(#{username}, #{password}, #{nickname}, #{headImgUrl}, #{phone}, #{telephone}, #{email}, #{birthday}, #{sex}, #{status}, #{inforAutA}, #{inforAutB}, #{fromJob}, #{interestJob}, #{createTime}, #{updateTime}, #{userType})")
     int save(ZlztUser zlztUser);
     
     int count(@Param("params") Map<String, Object> params);

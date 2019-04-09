@@ -25,9 +25,9 @@
 									</form>
 	                   			</td>
 	                   			<td align="right">
-									<button type="button" class="layui-btn layui-btn-sm" id="upexcel">
+									<!--<button type="button" class="layui-btn layui-btn-sm" id="upexcel">
 										<i class="layui-icon">&#xe67c;</i>上传excel文件
-									</button>
+									</button>-->
 	                   				<button class="layui-btn layui-btn-sm" onclick="location.href='addZlztDatainfo.html'">
                                       <i class="layui-icon">&#xe608;</i> 添加
                                     </button>
@@ -45,35 +45,12 @@
                                 </tr>                       
                                 <tr>
 									<th>id</th>
-									<th>country</th>
-									<th>openId</th>
-									<th>openDay</th>
-									<th>applyId</th>
-									<th>applyDay</th>
-									<th>title</th>
-									<th>titleFy</th>
-									<th>zy</th>
-									<th>zyFy</th>
-									<th>powerAsk</th>
-									<th>powerAFy</th>
-									<th>powerAN</th>
-									<th>applyMan</th>
-									<th>applyPlace</th>
-									<th>createMan</th>
-									<th>lawS</th>
-									<th>nowLawS</th>
-									<th>zlType</th>
-									<th>ipcMC</th>
-									<th>ipcMCFy</th>
-									<th>ipc</th>
-									<th>ipcFy</th>
-									<th>cpec</th>
-									<th>cpecFy</th>
-									<th>beUsedNum</th>
-									<th>value</th>
-									<th>zlImage</th>
-									<th>zlText</th>
-									<th>homeImage</th>
+									<th>国家</th>
+									<th>公开号</th>
+									<th>申请号</th>
+									<th>标题</th>
+									<th>当前法律状态</th>
+									<th>专利类型</th>
 									<th>createTime</th>
 									<th>updateTime</th>
 									<th>操作</th>
@@ -121,48 +98,24 @@ function init(){
 				{"data" : "id", "defaultContent" : ""},
 				{"data" : "country", "defaultContent" : ""},
 				{"data" : "openId", "defaultContent" : ""},
-				{"data" : "openDay", "defaultContent" : ""},
 				{"data" : "applyId", "defaultContent" : ""},
-				{"data" : "applyDay", "defaultContent" : ""},
 				{"data" : "title", "defaultContent" : ""},
-				{"data" : "titleFy", "defaultContent" : ""},
-				{"data" : "zy", "defaultContent" : ""},
-				{"data" : "zyFy", "defaultContent" : ""},
-				{"data" : "powerAsk", "defaultContent" : ""},
-				{"data" : "powerAFy", "defaultContent" : ""},
-				{"data" : "powerAN", "defaultContent" : ""},
-				{"data" : "applyMan", "defaultContent" : ""},
-				{"data" : "applyPlace", "defaultContent" : ""},
-				{"data" : "createMan", "defaultContent" : ""},
-				{"data" : "lawS", "defaultContent" : ""},
 				{"data" : "nowLawS", "defaultContent" : ""},
 				{"data" : "zlType", "defaultContent" : ""},
-				{"data" : "ipcMC", "defaultContent" : ""},
-				{"data" : "ipcMCFy", "defaultContent" : ""},
-				{"data" : "ipc", "defaultContent" : ""},
-				{"data" : "ipcFy", "defaultContent" : ""},
-				{"data" : "cpec", "defaultContent" : ""},
-				{"data" : "cpecFy", "defaultContent" : ""},
-				{"data" : "beUsedNum", "defaultContent" : ""},
-				{"data" : "value", "defaultContent" : ""},
-				{"data" : "zlImage", "defaultContent" : ""},
-				{"data" : "zlText", "defaultContent" : ""},
-                {"data" : "homeImage", "defaultContent" : ""},
 				{"data" : "createTime", "defaultContent" : ""},
 				{"data" : "updateTime", "defaultContent" : ""},
 				{
-								"data": "",
-								"defaultContent": "",
-								"orderable":false,
-						        "render": function (data, type, row) {
-                		           var id = row['id'];
-                		           var href = "updateZlztDatainfo.html?id=" + id;
-                                   var edit = buttonEdit(href, "", pers);
-                		           var del = buttonDel(id, "", pers);
-                                   return edit + del;
-                  	            }
-							},
-
+                    "data": "",
+                    "defaultContent": "",
+                    "orderable":false,
+                    "render": function (data, type, row) {
+                       var id = row['id'];
+                       var href = "updateZlztDatainfo.html?id=" + id;
+                       var edit = buttonEdit(href, "", pers);
+                       var del = buttonDel(id, "", pers);
+                       return edit + del;
+                    }
+                },
             ],
            "order": [[ 0, "asc" ]]
         } );
@@ -184,7 +137,6 @@ function del(id){
                 layer.msg("删除成功");
             }
         });
-        
         layer.close(1);
     });
 }

@@ -1,13 +1,11 @@
 package com.boot.security.server.utils;
 
 import java.io.*;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -562,6 +560,7 @@ public class ExcelUtil {
 							case 29 : zldata.setValue(cell.getStringCellValue()); break;
 							case 30 : zldata.setZlImage(cell.getStringCellValue()); break;
 							case 31 : zldata.setZlText(cell.getStringCellValue()); break;
+							case 33 : zldata.setSecret(cell.getStringCellValue()); break;
 						}
 					}
 				}
@@ -678,8 +677,10 @@ public class ExcelUtil {
 			}
 		}
 		SysUser sysUser  = UserUtil.getLoginUser();
-		exceptionNum = losezlzt + loseelse;
-		sysLogService.save(sysUser.getId(),"excel导入",true,"成功导入:"+successNum+"条,失败导入:"+exceptionNum+"条(其中缺失专利专题的为:"+losezlzt+"条,其它的为:"+loseelse+"条)");
+		if(UserUtil.getLoginUser()!=null){
+            exceptionNum = losezlzt + loseelse;
+            sysLogService.save(sysUser.getId(),"excel导入",true,"成功导入:"+successNum+"条,失败导入:"+exceptionNum+"条(其中缺失专利专题的为:"+losezlzt+"条,其它的为:"+loseelse+"条)");
+        }
 
 		//   for (Map.Entry<String, PictureData> entry : maplist.entrySet()) {
 		//       System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
@@ -858,6 +859,9 @@ public class ExcelUtil {
 		ExcelUtil e = new ExcelUtil();
 		Map<Object,String> map = printImg(maplist);
 
+		//数据为num类型格式化
+        DecimalFormat df = new DecimalFormat("0");
+
 		int lastNum = sheet.getLastRowNum(); //获取Excel最后一行索引
 		int colNum = sheet.getRow(0).getLastCellNum();//获取Excel列数
 		int exceptionNum = 0;
@@ -935,7 +939,8 @@ public class ExcelUtil {
 						case 14 : kjResult.setKnowledge(cell.getStringCellValue()); break;
 						case 15 : kjResult.setPredict(cell.getStringCellValue()); break;
 						case 16 : kjResult.setCMan(cell.getStringCellValue()); break;
-						case 17 : kjResult.setCPhone(String.valueOf(cell.getNumericCellValue())); break;
+						case 17 : kjResult.setCPhone(df.format(cell.getNumericCellValue())); break;
+						case 23 : kjResult.setUpdateTime(new Date());break;
 					}
 				}
 			}
@@ -960,6 +965,9 @@ public class ExcelUtil {
 		//输出图片并且返回图片输出路径
 		ExcelUtil e = new ExcelUtil();
 		Map<Object,String> map = printImg(maplist);
+        //数据为num类型格式化
+        DecimalFormat df = new DecimalFormat("0");
+
 
 		int lastNum = sheet.getLastRowNum(); //获取Excel最后一行索引
 		int colNum = sheet.getRow(0).getLastCellNum();//获取Excel列数
@@ -1036,7 +1044,7 @@ public class ExcelUtil {
 						case 11 : kjZlsuper.setDealWay(cell.getStringCellValue()); break;
 						case 12 : kjZlsuper.setDealMoney(cell.getStringCellValue()); break;
 						case 14 : kjZlsuper.setCMan(cell.getStringCellValue()); break;
-						case 15: kjZlsuper.setCPhone(String.valueOf(cell.getNumericCellValue())); break;
+						case 15: kjZlsuper.setCPhone(df.format(cell.getNumericCellValue())); break;
 					}
 				}
 			}
@@ -1061,6 +1069,8 @@ public class ExcelUtil {
 		//输出图片并且返回图片输出路径
 		ExcelUtil e = new ExcelUtil();
 		Map<Object,String> map = printImg(maplist);
+        //数据为num类型格式化
+        DecimalFormat df = new DecimalFormat("0");
 
 		int lastNum = sheet.getLastRowNum(); //获取Excel最后一行索引
 		int colNum = sheet.getRow(0).getLastCellNum();//获取Excel列数
@@ -1136,7 +1146,7 @@ public class ExcelUtil {
 						case 12 : kjProduct.setTalk(cell.getStringCellValue()); break;
 						case 13 : kjProduct.setHistory(cell.getStringCellValue()); break;
 						case 14 : kjProduct.setCMan(cell.getStringCellValue()); break;
-						case 15: kjProduct.setCPhone(String.valueOf(cell.getNumericCellValue())); break;
+						case 15: kjProduct.setCPhone(df.format(cell.getNumericCellValue())); break;
 					}
 				}
 			}
@@ -1158,6 +1168,8 @@ public class ExcelUtil {
 		//校验文件
 		Workbook workbook = getWorkBook(file);
 		Sheet sheet = workbook.getSheetAt(0);
+        //数据为num类型格式化
+        DecimalFormat df = new DecimalFormat("0");
 
 		int lastNum = sheet.getLastRowNum(); //获取Excel最后一行索引
 		int colNum = sheet.getRow(0).getLastCellNum();//获取Excel列数
@@ -1228,7 +1240,7 @@ public class ExcelUtil {
 						case 10 : pjRequire.setAddFile(cell.getStringCellValue()); break;
 						case 11 : pjRequire.setUnit(cell.getStringCellValue()); break;
 						case 12 : pjRequire.setMan(cell.getStringCellValue()); break;
-						case 13 : pjRequire.setPhone(cell.getStringCellValue()); break;
+						case 13 : pjRequire.setPhone(df.format(cell.getNumericCellValue())); break;
 					}
 				}
 			}

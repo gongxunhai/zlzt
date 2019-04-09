@@ -129,6 +129,7 @@
         $.ajax({
             type : 'get',
             url : '/newsClassifyInfos/'+typeId,
+			async : false,
 			success : function (result) {
 				$("#type").val(result.name);
 				$("#typeid").val(result.id);

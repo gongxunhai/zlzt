@@ -138,7 +138,7 @@
 		<if test="params.orderBy!= null">
 			${params.orderBy}
 		</if>
-		<if test="offset != null and offset !='' and limit !=null and limit !=''">
+		<if test="limit !=null and limit !=''">
 			limit #{offset}, #{limit}
 		</if>
 	</select>
@@ -166,8 +166,8 @@
 			<if test="knowledge != null">
 				knowledge = #{knowledge}, 
 			</if>
-			<if test="Mneed != null">
-				Mneed = #{Mneed}, 
+			<if test="mNeed != null">
+                mNeed = #{mNeed},
 			</if>
 			<if test="name != null">
 				name = #{name}, 
@@ -191,7 +191,7 @@
 				teMaturity = #{teMaturity}, 
 			</if>
 			<if test="tIndex != null">
-				tIndex = #{tIndex}, 
+				tIndex = #{tIndex},
 			</if>
 			<if test="tlevel != null">
 				tlevel = #{tlevel}, 
@@ -201,6 +201,12 @@
 			</if>
 			<if test="xfArea != null">
 				xfArea = #{xfArea}, 
+			</if>
+			<if test="status != null">
+                status = #{status},
+			</if>
+            <if test="image != null">
+                image = #{image},
 			</if>
 
 		</set>

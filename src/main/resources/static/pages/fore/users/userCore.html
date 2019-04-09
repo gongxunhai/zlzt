@@ -211,8 +211,8 @@
                         	<div class="userBox1Cir flexBox"><i class="iconfont icon-guanzhu1"></i></div>
                         </div>
                         <div class="media-body media-middle userBox1Rig">
-                            <p>我已收藏：<strong class="corRed">52</strong></p>
-                            <p><a href="#">查看我的收藏<i class="fa fa-angle-right"></i></a></p>
+                            <p>我已收藏：<strong class="corRed" id="collection">52</strong></p>
+                            <p><a href="collection.html">查看我的收藏<i class="fa fa-angle-right"></i></a></p>
                         </div>
                     </div>
                 </li>
@@ -225,10 +225,10 @@
                 <div class="userBox2Item wow fadeInLeft">
                     <div class="box3Tit">
                         <h2>我发布的项目</h2>
-                        <a href="#" class="iconfont icon-gengduo1"></a>
+                        <a href="projectList.html" class="iconfont icon-gengduo1"></a>
                         <div class="clear"></div>
                     </div>
-                    <ul class="userBox2List list-unstyled">
+                    <ul class="userBox2List list-unstyled" id="project">
                     	<li><span>2018-10-20</span><a class="ellipsis" href="#"><i class="iconfont icon-fabu"></i>凯文·凯利：预言大师眼中的新一代大数据平台</a></li>
                     	<li><span>2018-10-20</span><a class="ellipsis" href="#"><i class="iconfont icon-fabu"></i>产业观察：中国制造业全面开放惠全球</a></li>
                     	<li><span>2018-10-20</span><a class="ellipsis" href="#"><i class="iconfont icon-fabu"></i>工业上云：区块链是工业互联网的安全防护罩？</a></li>
@@ -239,10 +239,10 @@
                 <div class="userBox2Item wow fadeInRight">
                     <div class="box3Tit">
                         <h2>我发布的需求</h2>
-                        <a href="#" class="iconfont icon-gengduo1"></a>
+                        <a href="requireList.html" class="iconfont icon-gengduo1"></a>
                         <div class="clear"></div>
                     </div>
-                    <ul class="userBox2List list-unstyled">
+                    <ul class="userBox2List list-unstyled" id="require">
                     	<li><span>2018-10-20</span><a class="ellipsis" href="#"><i class="iconfont icon-xuqiu"></i>凯文·凯利：预言大师眼中的新一代大数据平台</a></li>
                     	<li><span>2018-10-20</span><a class="ellipsis" href="#"><i class="iconfont icon-xuqiu"></i>产业观察：中国制造业全面开放惠全球</a></li>
                     	<li><span>2018-10-20</span><a class="ellipsis" href="#"><i class="iconfont icon-xuqiu"></i>工业上云：区块链是工业互联网的安全防护罩？</a></li>
@@ -357,5 +357,53 @@
 </body>
 <script>
     console.log("forSession="+sessionStorage.getItem("forSession"));
+    //我已收藏
+    $.ajax({
+        type : 'get',
+        url : '/zlztCareinfos',
+        async : false,
+        data : {
+            "userId" : user.id
+        },
+        success : function(result) {
+            $("#collection").html(result.data.length);
+        }
+    });
+
+    //我发布的项目
+    $.ajax({
+        type : 'get',
+        url : '/kjResults',
+        async : false,
+        data : {
+            "userId" : user.id,
+            "status" : 1
+        },
+        success : function(result) {
+            $("#project").html('');
+            var data = result.data;
+            for (var i = 0; i < data.length;i++) {
+                $("#project").append('\t<li><span>'+(new Date(data[i].pubTime)).Format("yyyy-MM-dd")+'</span><a class="ellipsis" href="'+domain+'/pages/fore/kjsc/kjsc_result.html?id='+data[i].id+'"><i class="iconfont icon-fabu"></i>'+data[i].name+'</a></li>\n');
+            }
+        }
+    });
+
+    //我发布的需求
+    $.ajax({
+        type : 'get',
+        url : '/pjRequires',
+        async : false,
+        data : {
+            "userId" : user.id,
+            "status" : 1
+        },
+        success : function(result) {
+            $("#require").html('');
+            var data = result.data;
+            for (var i = 0; i < data.length;i++) {
+                $("#require").append('\t<li><span>'+(new Date(data[i].pubTime)).Format("yyyy-MM-dd")+'</span><a class="ellipsis" href="'+domain+'/pages/fore/kjsc/kjsc_result.html?id='+data[i].id+'"><i class="iconfont icon-fabu"></i>'+data[i].name+'</a></li>\n');
+            }
+        }
+    })
 </script>
 </html>

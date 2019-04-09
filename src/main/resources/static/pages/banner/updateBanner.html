@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="../../layui/css/layui.css">
+</head>
+<body>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<form class="form-horizontal" onsubmit="return false" id="form">
+		<fieldset>
+			<input type="hidden" id="id" name="id">
+			<button type="button" class="layui-btn" id="test1">
+				<i class="layui-icon">&#xe67c;</i>上传头像
+			</button>
+			<div id="headImgDiv">
+			</div>
+			<div class="form-actions">
+				<div class="row" align="center">
+					<div class="col-md-12">
+					    <button class="btn btn-primary" onclick="location.href='bannerList.html'">返回</button>
+						<button class="btn btn-primary" type="submit" onclick="update()">
+							<i class="fa fa-save"></i> 保存
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+    <input type="hidden" id="imageUrl">
+</div>
+	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../js/jq.js"></script>
+	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript">
+        var pro = window.location.protocol;
+        var host = window.location.host;
+        var domain = pro + "//" + host;
+
+        layui.use(['layer','upload','laydate'], function(){
+		    var layer = layui.layer;
+            var upload = layui.upload;
+            upload.render({
+                elem: '#test1' //绑定元素
+                ,accept: 'images' //允许上传的文件类型
+                ,url: '/files' //上传接口
+                ,done: function(res, index, upload){
+                    var url = res.url;
+                    var src = domain + "/statics" + url;
+                    var a = "<a target='_blank' href='" + src +"'><img src='" + src + "'></img></a>";
+                    $("#headImgDiv").html(a);
+                    $("#imageUrl").val(url);
+                }
+            });
+		});
+		
+		initData();
+		
+		function initData(){
+			var id = getUrlParam("id");
+			if(id != ""){
+				$.ajax({
+					type : 'get',
+					url : '/banners/'+id,
+					async : false,
+					success : function(data) {
+                        var url = data.url;
+                        if(url!=null && url!=""){
+                            var src = domain + "/statics" + url;
+                            var a = "<a target='_blank' href='" + src +"'><img src='" + src + "'></img></a>";
+                            $("#headImgDiv").html(a);
+                        }
+						$('#createTime').val(data.createTime);
+						$('#id').val(data.id);
+						$('#type').val(data.type);
+						$('#updateTime').val(data.updateTime);
+						$('#imageUrl').val(data.url);
+					}
+				});
+			}
+		}
+
+		function update() {
+			$('#form').bootstrapValidator();
+			var bootstrapValidator = $("#form").data('bootstrapValidator');
+			bootstrapValidator.validate();
+		    if(!bootstrapValidator.isValid()){
+			   return;
+		    }
+		    
+		    var formdata = $("#form").serializeObject();
+            formdata.url = $("#imageUrl").val();
+
+			$.ajax({
+				type : 'put',
+				url : '/banners',
+				contentType: "application/json; charset=utf-8",  
+				data : JSON.stringify(formdata),
+				success : function(data) {
+					layer.msg("修改成功", {shift: -1, time: 1000}, function(){
+                        location.href = "bannerList.html";
+                    });
+				}
+			});
+		}
+		
+	</script>
+</body>
+</html>

@@ -21,13 +21,13 @@
 	<form class="form-horizontal" onsubmit="return false" id="form">
 		<fieldset>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>name</label>
+				<label class='col-md-2 control-label'>名称</label>
 				<div class='col-md-10'>
 					<input class='form-control' placeholder='name' type='text' name='name' id='name' data-bv-notempty='true' data-bv-notempty-message='name 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>type</label>
+				<label class='col-md-2 control-label'>类别</label>
 				<div class="sxBot" id="listSelect">
 				</div>
 				<div class='col-md-10'>
@@ -35,13 +35,13 @@
 			</div>
 
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>company</label>
+				<label class='col-md-2 control-label'>制定单位</label>
 				<div class='col-md-10'>
 					<input class='form-control' placeholder='company' type='text' name='company' id='company' data-bv-notempty='true' data-bv-notempty-message='company 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>symbol</label>
+				<label class='col-md-2 control-label'>文号</label>
 				<div class='col-md-10'>
 					<input class='form-control' placeholder='symbol' type='text' name='symbol' id='symbol' data-bv-notempty='true' data-bv-notempty-message='symbol 不能为空'>
 				</div>
@@ -88,6 +88,9 @@
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../layui/layui.js"></script>
 	<script type="text/javascript">
+        var pro = window.location.protocol;
+        var host = window.location.host;
+        var domain = pro + "//" + host;
 		layui.use(['layer','laydate'], function(){
 		    var layer = layui.layer;
 		});
@@ -228,10 +231,9 @@
                 ,bindAction: '#test2' //指向一个按钮触发上传
                 ,done: function(res, index, upload){
                     $("#fileurl").val(res.url);
-                    var a = "<span>上传文件名:"+res.id+"</span>";
+                    var a = "<a href='"+domain+"/statics"+res.url+"' >点击查看上传文件！</a>";
                     $("#showname").html(a);
                     $("#buttondelete").html('<button onclick="delete1(\''+res.id+'\')">删除</button>');
-                    alert(JSON.stringify(res));
                 }
             });
         });

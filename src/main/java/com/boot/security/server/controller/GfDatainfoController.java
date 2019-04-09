@@ -7,10 +7,12 @@ import java.util.List;
 import com.alibaba.fastjson.JSONObject;
 import com.boot.security.server.dao.GfClassifyInfoDao;
 import com.boot.security.server.dao.ZlztDatainfoDao;
+import com.boot.security.server.model.GfClassifyInfo;
 import com.boot.security.server.model.ZlztDatainfo;
 import com.boot.security.server.service.ZlztDatainfoService;
 import com.boot.security.server.utils.ExcelUtil;
 import io.swagger.annotations.Api;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,8 +49,31 @@ public class GfDatainfoController {
     @PostMapping
     @ApiOperation(value = "保存")
     public GfDatainfo save(@RequestBody GfDatainfo gfDatainfo) {
+        if (gfDatainfo.getCId() == null && gfDatainfo.getCId().equals("")){
+            int i = gfClassifyInfoDao.getByNameAndParentId(gfDatainfo.gettIdName(),gfDatainfo.getSId());
+            if ( i == -1){
+                GfClassifyInfo gfClassifyInfo = new GfClassifyInfo();
+                gfClassifyInfo.setName(gfDatainfo.gettIdName());
+                gfClassifyInfo.setParentId(gfDatainfo.getSId());
+                gfClassifyInfo.setType(3);
+                gfClassifyInfoDao.save(gfClassifyInfo);
+                i = gfClassifyInfo.getId().intValue();
+            }
+            gfDatainfo.setTId(i);
+        }
+        if (gfDatainfo.getTId() == null && gfDatainfo.getTId().equals("")){
+            int j = gfClassifyInfoDao.getByNameAndParentId(gfDatainfo.getcIdName(),gfDatainfo.getTId());
+            if ( j == -1){
+                GfClassifyInfo gfClassifyInfo = new GfClassifyInfo();
+                gfClassifyInfo.setName(gfDatainfo.getcIdName());
+                gfClassifyInfo.setParentId(gfDatainfo.getTId());
+                gfClassifyInfo.setType(4);
+                gfClassifyInfoDao.save(gfClassifyInfo);
+                j = gfClassifyInfo.getId().intValue();
+            }
+            gfDatainfo.setCId(j);
+        }
         gfDatainfoDao.save(gfDatainfo);
-
         return gfDatainfo;
     }
 
@@ -58,9 +83,39 @@ public class GfDatainfoController {
         return gfDatainfoDao.getById(id);
     }
 
+    @GetMapping("/getAllData/{id}")
+    @ApiOperation(value = "根据id获取")
+    public GfDatainfo getAllData(@PathVariable Long id) {
+        return gfDatainfoDao.getAllData(id);
+    }
+
     @PutMapping
     @ApiOperation(value = "修改")
     public GfDatainfo update(@RequestBody GfDatainfo gfDatainfo) {
+        if (gfDatainfo.getCId() == null && gfDatainfo.getCId().equals("")){
+            int i = gfClassifyInfoDao.getByNameAndParentId(gfDatainfo.gettIdName(),gfDatainfo.getsId());
+            if ( i == -1){
+                GfClassifyInfo gfClassifyInfo = new GfClassifyInfo();
+                gfClassifyInfo.setName(gfDatainfo.gettIdName());
+                gfClassifyInfo.setParentId(gfDatainfo.getsId());
+                gfClassifyInfo.setType(3);
+                gfClassifyInfoDao.save(gfClassifyInfo);
+                i = gfClassifyInfo.getId().intValue();
+            }
+            gfDatainfo.setcId(i);
+        }
+        if (gfDatainfo.getTId() == null && gfDatainfo.getTId().equals("")){
+            int j = gfClassifyInfoDao.getByNameAndParentId(gfDatainfo.getcIdName(),gfDatainfo.getTId());
+            if ( j == -1){
+                GfClassifyInfo gfClassifyInfo = new GfClassifyInfo();
+                gfClassifyInfo.setName(gfDatainfo.getcIdName());
+                gfClassifyInfo.setParentId(gfDatainfo.getTId());
+                gfClassifyInfo.setType(4);
+                gfClassifyInfoDao.save(gfClassifyInfo);
+                j = gfClassifyInfo.getId().intValue();
+            }
+            gfDatainfo.settId(j);
+        }
         gfDatainfoDao.update(gfDatainfo);
 
         return gfDatainfo;
@@ -104,4 +159,5 @@ public class GfDatainfoController {
         String fromTable = "view_gfdata" ;
         return zlztDatainfoService.getAllcount(zlztDatainfo,fromTable);
     }
+
 }

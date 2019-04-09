@@ -19,6 +19,7 @@
     <script src="../js/swiper.min.js"></script>
     <script src="../js/rem.js"></script>
     <script src="../js/public.js"></script>
+    <script type="text/javascript" src="../../../layui/layui.js"></script>
     <script type="text/javascript" src="../../../js/common.js"></script>
 	<!--[if lt IE 9]>
 	  <script src="../js/html5shiv.min.js"></script>
@@ -33,55 +34,6 @@
 </script>
 <script src="../js/htmlJs/publicHeader.js"></script>
 <script src="../js/htmlJs/getPathname.js"></script>
-<!--
-<nav class="navbar navbar-default bootsnav navbar-fixed-top wow fadeInDown">
-    <div class="wrap">
-        <div class="attr-nav navRig">
-            <ul>
-            	<li class="navTelMob"><a href="tel:010-68376645"><i class="iconfont icon-dianhua"></i></a></li>
-                <li class="navTel"><a href="javascript:;"><i class="iconfont icon-dianhua"></i><strong>010-68376645</strong></a></li>
-                <li class="navSearch"><a href="javascript:;"><i class="iconfont icon-sousuo"></i>搜索</a></li>
-                <li><i class="iconfont icon-guanjiaowangtubiao01"></i><a href="#">登录</a><span>or</span><a href="#">注册</a></li>
-            </ul>
-        </div>
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-                <i class="fa fa-bars"></i>
-            </button>
-            <a class="navbar-brand flexBox logo" href="#">
-                <span><img src="../images/logo.png" class="img-responsive"></span>
-            </a>
-        </div>            
-        <div class="collapse navbar-collapse" id="navbar-menu">
-            <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
-                <li><a href="../index.html"><span>首页</span></a></li>
-                <li><a href="../kjsc/kjsc.html"><span>科技商城</span></a></li>
-                <li><a href="../projectRequire/pjRequire.html"><span>项目需求</span></a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" ><span>科技资源</span></a>
-                    <ul class="dropdown-menu">
-                        <li class="active"><a href="lawsRegulations.html">政策法规</a></li>
-                        <li><a href="../zlzt/zlzt.html">专利专题</a></li>
-                        <li class="dropdown">
-                          <a href="../ztReport/ztReport.html" class="dropdown-toggle" data-toggle="dropdown" >专题报告</a>
-                            <ul class="dropdown-menu">
-                               <li><a href="../ztReport/ztReportList.html">专利态势分析</a></li>
-                                <li><a href="../ztReport/ztReportList.html">政策研究</a></li>
-
-                                <li><a href="../ztReport/ztReportList.html">情报研究</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="../gfArea/zlResult.html"><span>高分专区</span></a></li>
-                <li><a href="../news/news.html"><span>新闻动态</span></a></li>
-                <li><a href="../kjService/kjService.html"><span>科技服务</span></a></li>
-                <li><a href="../aboutUs.html"><span>关于我们</span></a></li>
-            </ul>
-        </div>        
-    </div>
-</nav>
--->
 <div class="searchBg">
 	<div class="wrap">
     	<div class="search">
@@ -134,7 +86,7 @@
                     	<h2 class="siftTit">相关解读</h2>
                         <div class="fenleiH2Btn visible-xs visible-sm visible-md"><i class="fa fa-folder"></i>展开</div>
                     </div>
-                    <ul class="fenleiList recommendList list-unstyled">
+                    <ul class="fenleiList recommendList list-unstyled" id="lookMore">
                         <li class="fenleiLi">
                         	<a href="#">
                             	<i class="recommendLine"></i>
@@ -262,17 +214,13 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="leftMore">
-                    	<a href="#">查看更多<i class="iconfont icon-arrow-right"></i></a>
-                    </div>
                 </div>
             </div>
             <div class="mRig">
                 <div class="rigTopBg">
                 	<div class="zyTextTop ruleTitTop wow fadeInDown">
-                    	<div class="zyTit">
-                            <h1 class="zyTitCn">跨境专利拍卖，成功“跨”出第一步</h1>
-                            <div class="newsTime" id="pageTitle">
+                    	<div class="zyTit" id="pageTitle">
+                            <div class="newsTime" >
                             	<span><strong>制定日期：</strong>2018-10-20</span>
                                 <span><strong>政策分类：</strong>民生</span>
                                 <span><strong>制定单位：</strong>国务院办公厅</span>
@@ -310,7 +258,7 @@
                             <span>相关推荐</span>
                         </div>
                     </div>
-                    <ul class="hotRuleList list-unstyled">
+                    <ul class="hotRuleList list-unstyled" id="importantInfor">
                     	<li class="wow fadeInUp">
                             <a class="ruleLink ellipsis" href="#"><span>2018-10-20</span>跨境专利拍卖，成功“跨”出第一步</a>
                         </li>
@@ -479,6 +427,49 @@
         })
     }
 
+    $.ajax({
+        type : 'get',
+        url : '/lawsRegulations',
+        async : false,
+        success : function(result) {
+            var data = result.data;
+            $("#lookMore").html('');
+            console.log(data);
+            for (var i = 0; i < data.length; i++) {
+                if (i > 4 ){
+                    break;
+                }
+                $("#lookMore").append('<li class="fenleiLi">\n' +
+                    '                            <a href="'+domain+'/pages/fore/lawsRegulations/lawsRegulationsDetail.html?id='+data[i].id+'">\n' +
+                    '                                <i class="recommendLine"></i>\n' +
+                    '                                <h3 class="recommendTit ellipsis">'+data[i].name+'</h3>\n' +
+                    '                                <div class="recommendBrief">\n' +
+                    '                                    <p>'+data[i].content.substring(0,20)+'…</p>\n' +
+                    '                                </div>\n' +
+                    '                            </a>\n' +
+                    '                        </li>');
+            }
+        }
+    });
+
+    $.ajax({
+        type : 'get',
+        url : '/lawsRegulations',
+        async : false,
+        success : function(result) {
+            var data = result.data;
+            $("#importantInfor").html('');
+            console.log(data);
+            for (var i = 0; i < data.length; i++) {
+                if (i > 4 ){
+                    break;
+                }
+                    $("#importantInfor").append('<li class="wow fadeInUp">\n' +
+                        '                            <a class="ruleLink ellipsis" href="'+domain+'/pages/fore/lawsRegulations/lawsRegulationsDetail.html?id='+data[i].id+'"><span>'+(new Date(data[i].createTime)).Format("yyyy-MM-dd")+'</span>'+data[i].name+'</a>\n' +
+                        '                        </li>');
+            }
+        }
+    });
     init();
 </script>
 </body>

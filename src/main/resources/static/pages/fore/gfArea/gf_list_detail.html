@@ -1,0 +1,613 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<title>科技资源_专利专题库_列表_详</title>
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../fonts/FontAwesome/font-awesome.css" rel="stylesheet">
+	<link href="../fonts/IconFont/iconfont.css" rel="stylesheet">
+	<link href="../css/animate.css" rel="stylesheet">
+	<link href="../css/bootsnav.css" rel="stylesheet">
+    <link href="../css/swiper.min.css" rel="stylesheet">
+	<link href="../css/style.css" rel="stylesheet">
+    <script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootsnav.js"></script>
+    <script type="text/javascript" src="../../../js/common.js"></script>
+    <script src="../treetable/js/jquery.treetable.js"></script>
+    <script type="text/javascript" src="../../../layui/layui.js"></script>
+    <script src="../js/swiper.min.js"></script>
+    <script src="../js/rem.js"></script>
+    <script src="../js/public.js"></script>
+	<!--[if lt IE 9]>
+    <script src="../js/html5shiv.min.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<script>
+    var pro = window.location.protocol;
+    var host = window.location.host;
+    var domain = pro + "//" + host;
+</script>
+<script src="../js/htmlJs/publicHeader.js"></script>
+<script src="../js/htmlJs/getPathname.js"></script>
+<div class="searchBg">
+	<div class="wrap">
+    	<div class="search">
+        	<div class="close"></div>
+            <div class="container">
+            	<div class="searchBox">
+                	<a href="javascript:;" class="searchBtn"><i class="fa fa-search"></i></a>
+                	<input type="text" placeholder="请输入关键字" class="searchInput" >
+                </div>
+				<div class="searchTip">点击回车即可搜索</div>
+            	<ul class="hotSearch list-unstyled list-inline">
+                	<li><a href="#">技术成果</a></li>
+                	<li><a href="#">专家需求</a></li>
+                	<li><a href="#">科研院所资源</a></li>
+                	<li><a href="#">专利成果</a></li>
+                	<li><a href="#">检验测试需求</a></li>
+                	<li><a href="#">检验测试资源</a></li>
+                	<li><a href="#">技术需求</a></li>
+                	<li><a href="#">仪器设备需求</a></li>
+                	<li><a href="#">仪器设备资源</a></li>
+                	<li><a href="#">服务需求</a></li>
+                	<li><a href="#">专家资源</a></li>
+                	<li><a href="#">展厅资源</a></li>
+                	<li><a href="#">服务</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div><!--searchBg-->
+<div class="banInner wow fadeIn">
+	<div class="imgFull"><img src="../images/banResource.jpg" class="img-responsive"></div>
+</div>
+<div class="breadNavBg">
+	<div class="wrap">
+        <ul class="breadcrumb wow fadeInLeft" id="nowPlace">
+            <li><i class="iconfont icon-weizhi"></i>当前位置：</li>
+            <li><a href="../index.html">首页</a></li>
+            <li><a href="zlResult.html">高分专区</a></li>
+            <li><a href="gf_list.html">技术导航</a></li>
+        </ul>
+    </div>
+</div>
+<div class="mainBg grayBg overHide">
+    <div class="wrap">
+    	<div class="main">
+            <div class="mLef hidden-xs hidden-sm hidden-md">                
+                <div class="fenlei wow fadeInLeft">
+                	<div class="siftTop">
+                    	<h2 class="siftTit">重点推荐</h2>
+                        <div class="fenleiH2Btn visible-xs visible-sm visible-md"><i class="fa fa-folder"></i>展开</div>
+                    </div>
+                    <ul class="fenleiList recommendList list-unstyled" id="importantInfor">
+                        <li class="fenleiLi">
+                        	<a href="zlzt_list_detail.html?classifyid=39">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">果冻机</h3>
+                                <div class="recommendBrief">
+                                    <p>Guodong machine</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fenleiLi">
+                        	<a href="zlzt_list_detail.html?classifyid=41">
+                            	<i class="recommendLine"></i>
+                                <h3 class="recommendTit ellipsis">由化学交联法固载的固-固相变材料的制备方法</h3>
+                                <div class="recommendBrief">
+                                    <p>Preparation of solid solid phase change material immobilized by chemical crosslinking method…</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mRig">
+                <div class="rigTopBg">
+                	<div class="zyTextTop wow fadeInDown">
+                    	<div class="zyTit" id="title">
+                        </div>
+                        <ul class="zyTitIco list-unstyled list-inline" id="pointAndCare">
+                        	<li><a href="#"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞(10)</a></li>
+                        	<li><a href="#"><i class="iconfont icon-guanzhu1"></i>关注(55)</a></li>
+                        	<li><a href="#"><i class="iconfont icon-xiazai"></i>下载</a></li>
+                        </ul>
+                    </div>
+                    <ul class="zyTextTab list-unstyled list-inline row wow fadeInDown">
+                    	<li class="active"><span>基本信息</span></li>
+                    	<li><span>法律信息</span></li>
+                    	<li><span>权利要求</span></li>
+                    	<li><span>专利附图</span></li>
+                    	<li><span>专利全文</span></li>
+                    </ul>
+                    <div class="zyTextCon">
+                    	<div class="zyItem" id="baseData">
+                        </div>
+                    	<div class="zyItem">
+                            <h3 class="zyTextH3">法律状态</h3>
+                            <table width="100%" class="zyRecordInfor text-center" align="center" id="zlztTable">
+                                <!--<tr>
+                                	<td colspan="4" class="text-left">
+                                    	<p class="corBlue"><strong>描述信息</strong></p>
+                                    	<p>著录事项变更IPC(主分类：H02P 25/02；变更事项：申请人；变更前：阿莱戈微系统公司；变更后：阿莱戈微系统有限责任公司；变更事项:地址；变更前:美国马萨诸塞；变更后：美国马萨诸塞。专利权人的姓名或者名称、地址的变更IPC(主分类)：H02P 25/02变更前 ;  专利权人：阿莱戈微系统有限责任公司 ;  地址:美国马萨诸塞变更后 ;  专利权人：阿莱戈微系统有限责任公司 ;  地址：美国新罕布什尔州。</p>
+                                    </td>
+                                </tr>-->
+                            </table>
+                        </div>
+                        <div class="zyItem" id="powerAsk">
+                        </div>
+                        <div class="zyItem">
+                        	<div class="zyItemPic">
+                            	<div class="swiper-slide">
+                                	<div class="zyItemPicCon"><img src="../images/zyItem4Img1.jpg" class="img-responsive"></div>
+                                </div>
+                            	<div class="swiper-slide">
+                                	<div class="zyItemPicCon"><img src="../images/zyItem4Img2.jpg" class="img-responsive"></div>
+                                </div>
+                            	<div class="swiper-slide">
+                                	<div class="zyItemPicCon"><img src="../images/zyItem4Img3.jpg" class="img-responsive"></div>
+                                </div>
+                            	<div class="swiper-slide">
+                                	<div class="zyItemPicCon"><img src="../images/zyItem4Img4.jpg" class="img-responsive"></div>
+                                </div>
+                            </div>                           
+                        </div>
+                        <div class="zyItem" id="pdfShow">
+                        </div>
+                    </div>
+                    <div class="page wow fadeInUp">
+                        <ul class="pageList list-unstyled" id="upDownPage">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<footer class="footBg">
+    <div class="wrap">
+        <div class="ftTop">
+        	<div class="friendLink wow fadeInLeft">
+            	<h3 class="ftTit">友情链接</h3>
+                <ul class="fdLinkList list-unstyled list-inline">
+                	<li><a href="#">- 航天云网</a></li>
+                	<li><a href="#">- 中国军民融合网</a></li>
+                	<li><a href="#">- 中国航天科工三院</a></li>
+                	<li><a href="#">- 融融网</a></li>
+                	<li><a href="#">- 装备采购网</a></li>
+                	<li><a href="#">- 中国航天科工集团</a></li>
+                	<li><a href="#">- 海鹰资讯</a></li>
+                	<li><a href="#">- 猪八戒网</a></li>
+                </ul>
+            </div>
+            <ul class="ftCon list-unstyled list-inline wow fadeInDown">
+            	<li>
+                    <h3 class="ftTit">科技商城</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 科技产品</a></p>
+                        <p><a href="#">- 科技成果</a></p>
+                        <p><a href="#">- 专利技术</a></p>
+                    </div>
+                </li>
+            	<li>
+                    <h3 class="ftTit">新闻动态</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 工作动态</a></p>
+                        <p><a href="#">- 科技动态</a></p>
+                        <p><a href="#">- 通知公告</a></p>
+                    </div>
+                </li>
+            	<li>
+                    <h3 class="ftTit">科技服务</h3>
+                    <div class="ftLink">
+                        <p><a href="#">- 知识产权管理系统</a></p>
+                        <p><a href="#">- 知识产权资源导航</a></p>
+                        <p><a href="#">- 知识产权贯标系统</a></p>
+                        <p><a href="#">- 专利大数据检索</a></p>
+                        <p><a href="#">- 知识产权价值评估系统</a></p>
+                        <p><a href="#">- 知识培训统</a></p>
+                    </div>
+                </li>
+            </ul>
+        	<div class="ftConUs wow fadeInRight">
+            	<h3 class="ftTit">联系我们</h3>
+                <p class="ftAdd"><strong>地址：</strong>北京市丰台区云岗北区西里1号院</p>
+                <p class="ftTel"><strong>电话：</strong>010-68376645</p>
+                <p class="ftEmail"><strong>邮箱：</strong>service@htjsw.com</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="ftBot wow fadeInUp">
+        	<div class="copyRight">
+            	<p>Copyright © 2018中国航天科工集团知识产权中心版权所有 京ICP备13006003号-2  设计支持：<a href="#">谦亨网络</a></p>
+            </div>
+            <div class="ftBotRig">
+            	<ul class="ftBotIco list-unstyled list-inline">
+                	<li>
+                    	<a href="javascript:;"><i class="fa fa-weixin"></i></a>
+                        <div class="ftBotWx">
+                        	<img src="../images/weChat.jpg" class="img-responsive">
+                        </div>
+                    </li>
+                    <li><a href="#"><i class="fa fa-weibo"></i></a></li>
+                </ul>
+            	<ul class="ftBotLink list-unstyled list-inline">
+                	<li><a href="#">关于我们</a></li>
+                	<li><a href="#">发布成果</a></li>
+                	<li><a href="#">发布需求</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</footer>
+<div class="LayBg"></div>
+<div class="LayBox">
+	<span class="LayClose"></span>
+	<h4 class="LayTit">专利附图</h4>
+    <div class="LaySlider">
+    	<div class="swiper-container">
+        	<div class="swiper-wrapper">
+            </div>
+        </div>
+        <span class="LayPrev"><i class="iconfont icon-jiantou5"></i></span>
+        <span class="LayNext"><i class="iconfont icon-jiantou5"></i></span>
+    </div>
+</div>
+<script>
+    var id = getUrlParam("classifyid");
+    var params = localStorage.getItem("params");
+    console.log(params,"params");
+    var pro = window.location.protocol;
+    var host = window.location.host;
+    var domain = pro + "//" + host;
+
+    $("#pdfShow").html('<embed src="'+domain+'/statics/a.pdf" width="800" name="宏观策略研究" title="宏观策略研究" height="425">\n');
+
+    $.ajax({
+        type : 'post',
+        url : '/zlztDatainfos/getListDetail',
+        data : {"param":"view_gfdata","id":id},
+     //   contentType: "application/json; charset=utf-8",
+        async : false,
+        success : function(result) {
+            var a = '';
+            var b = '';
+            if (result[0].id!=null){
+                 a = '<li><a class="ellipsis" href="zlzt_list_detail.html?classifyid='+result[0].id+'">上一件：'+result[0].title+'</a></li>\n' ;
+            }else {
+                a = '<li><a class="ellipsis">上一件：没有了</a></li>\n' ;
+            }
+            if (result[2].id!=null){
+                b = '<li><a class="ellipsis" href="zlzt_list_detail.html?classifyid='+result[2].id+'">下一件：'+result[2].title+'</a></li>\n' ;
+            }else {
+                b = '<li><a class="ellipsis">下一件：没有了</a></li>\n' ;
+            }
+            a = a+b;
+            $("#upDownPage").html(a);
+            $("#nowPlace").append('<li>'+result[1].title+'</li>');
+            var data = result[1];
+          //  console.log(data);
+            $("#title").html('<h1 class="zyTitCn">'+ data.title+'<span class="zyTabTag corTag1">'+data.nowLawS+'</span>' +
+                '<span class="zyTabTag corTag2">'+ (data.country || '') +'</span><span class="zyTabTag corTag3">'+(data.zlType || '') +'</span></h1>\n' +
+                '            <p class="zyTitEn">'+ ( data.titleFy || '')+'</p>');
+            $("#baseData").html('<div class="zyImgRig"><img src="'+domain+'/statics'+ ( data.homeImage || '/default2.png' )+'" class="img-responsive"></div>\n' +
+                '                            <h3 class="zyTextH3">摘要</h3>\n' +
+                '                            <p>'+data.zy+'</p>\n' +
+                '                            <br>\n' +
+                '                            <p class="corBlue"><strong>[ 翻译 Translate ]</strong></p>\n' +
+                '                            <p>'+( data.zyFy || '')+'</p>\n' +
+                '                            <div class="clear"></div>\n' +
+                '                            <h3 class="zyTextH3">著录信息</h3>\n' +
+                '                            <table width="100%" class="zyRecordInfor">\n' +
+                '                            \t<tr>\n' +
+                '                                \t<td><span>- 公开日：</span> '+ ( new Date(data.openDay).Format("yyyy-MM-dd") || '')+'</td>\n' +
+                '                                \t<td><span>- 公开号：</span> '+( data.openId || '') +'</td>\n' +
+                '                                </tr>\n' +
+                '                            \t<tr>\n' +
+                '                                \t<td><span>- 申请日：</span> '+new Date(data.applyDay).Format("yyyy-MM-dd")+'</td>\n' +
+                '                                \t<td><span>- 申请号：</span> '+( data.applyId || '')+'</td>\n' +
+                '                                </tr>\n' +
+                '                            \t<tr>\n' +
+                '                                \t<td><span>- 申请人：</span> '+( data.applyMan || '')+'</td>\n' +
+                '                                \t<td><span>- 申请人地址：</span> '+( data.applyPlace || '') +'</td>\n' +
+                '                                </tr>\n' +
+                '                            \t<tr>\n' +
+                '                                \t<td><span>- IPC主分类：</span> '+( data.ipcMC || '')+'('+( data.ipcMCFy || '')+')</td>\n' +
+                '                                \t<td><span>- IPC分类：</span> '+( data.ipc || '')+'</td>\n' +
+                '                                </tr>\n' +
+                '                            \t<tr>\n' +
+                '                                \t<td><span>- 发明人：</span> '+( data.createMan || '')+'</td>\n' +
+                '                                \t<td><span>- 权利要求数：</span> '+( data.powerAN || '')+'</td>\n' +
+                '                                </tr>\n' +
+                '                            \t<tr>\n' +
+                '                                \t<td><span>- 国民经济分类：</span> '+( data.cpec || '')+'('+( data.cpecFy || '')+')</td>\n' +
+                '                                \t<td><span>- 被引证次数：</span> '+( data.beUsedNum || '')+'</td>\n' +
+                '                                </tr>\n' +
+                '                            \t<tr>\n' +
+                '                                \t<td><span><a href="../valuePredict/home.html"> - 价值度：</a></span> <img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"></td>\n' +
+                '                                \t<td></td>\n' +
+                '                                </tr>\n' +
+                '                            </table>');
+            $("#powerAsk").html('<h3 class="zyTextH3">原文</h3>\n' +
+                '                            <p>'+( data.powerAsk || '')+'</p>\n' +
+                '                            <br>\n' +
+                '                            <p class="corBlue"><strong>[ 翻译 Translate ]</strong></p>\n' +
+                '                            <p>'+( data.powerAFy || '')+'</p>\n' +
+                '                            <div class="clear"></div>   ');
+            $("#pointAndCare").html('<li><a href="javascript:;" class="point"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞('+( data.pointNum || '0' )+')</a></li>\n' +
+                '                        \t<li><a href="javascript:;" class="collection"><i class="iconfont icon-guanzhu1"></i>关注('+( data.careNum || '0' )+')</a></li>\n' +
+                '                        \t<li><a href="javascript:;" id="downloadZl"><i class="iconfont icon-xiazai"></i>下载</a></li>');
+            var arr = [];
+            if (data.lawS != null) {
+                arr = data.lawS.substring(0,data.lawS.length-2).split("\n");
+                // console.log(arr);
+                if (data.lawS.indexOf("状态效果")!=-1 && data.lawS.indexOf("状态代码")!=-1){
+                    var a = '<tr>\n' +
+                        '                                \t<th width="15%">法律状态公告日</th>\n' +
+                        '                                \t<th width="15%">状态效果</th>\n' +
+                        '                                \t<th width="15%">状态代码</th>\n' +
+                        '                                \t<th width="25%">法律状态</th>\n' +
+                        '                                    <th width="30%">描述信息</th>\n' +
+                        '                                </tr>';
+                    for (var i = 0; i < arr.length;){
+                        a += '<tr>\n' +
+                            '                                    <td>'+arr[i].substring(8)+'</td>\n' +
+                            '                                    <td>'+arr[i+1].substring(5)+'</td>\n' +
+                            '                                    <td>'+arr[i+2].substring(5)+'</td>\n' +
+                            '                                    <td>'+arr[i+3].substring(5)+'</td>\n' +
+                            '                                    <td>'+arr[i+4].substring(5)+'</td>\n' +
+                            '                                </tr>';
+                        i = i+5;
+                    }
+                    $("#zlztTable").html(a);
+                }else {
+                    var a ='<tr>\n' +
+                        '                                \t<th width="15%">法律状态公告日</th>\n' +
+                        '                                \t<th width="25%">法律状态</th>\n' +
+                        '                                \t<th width="30%">描述信息</th>\n' +
+                        '                                </tr>';
+                    for (var i = 0; i < arr.length;){
+                        a += '<tr>\n' +
+                            '                                    <td>'+arr[i].substring(8,arr[i].length-1)+'</td>\n' +
+                            '                                    <td>'+arr[i+1].substring(5,arr[i+1].length-1)+'</td>\n' +
+                            '                                    <td>'+arr[i+2].substring(5,arr[i+2].length-1)+'</td>\n' +
+                            '                                </tr>';
+                        i = i+3;
+                    }
+                    $("#zlztTable").html(a);
+                }
+            }else {
+                $("#zlztTable").html('');
+            }
+        }
+    })
+
+    $.ajax({
+        type: 'get',
+        url: '/zlztDatainfos',
+        data: {"fromTable": "view_gfdata","start":0,"length": 5},
+        async: false,
+        success: function (result) {
+            var data = result.data;
+            $("#importantInfor").html('');
+            console.log(data);
+            for (var i = 0; i < data.length; i++) {
+                if (i > 4 ){
+                    break;
+                }
+                $("#importantInfor").append('<li class="fenleiLi">\n' +
+                    '                            <a href="'+domain+'/pages/fore/gfArea/gf_list_detail.html?classifyid='+data[i].id+'">\n' +
+                    '                                <i class="recommendLine"></i>\n' +
+                    '                                <h3 class="recommendTit ellipsis">'+data[i].title+'</h3>\n' +
+                    '                                <div class="recommendBrief">\n' +
+                    '                                    <p>'+( data[i].titleFy || '' )+'…</p>\n' +
+                    '                                </div>\n' +
+                    '                            </a>\n' +
+                    '                        </li>');
+            }
+
+        }
+    });
+
+    $(document).on("click",".zyTitIco a",function(event){
+        if (user != null && user != '') {
+            $(this).toggleClass("active");
+            if ($(this).hasClass("point")){
+                if ($(this).hasClass("active")) {
+                    addPoint(id);
+                }else {
+                    deletePoint(id);
+                }
+            }
+            if ($(this).hasClass("collection")){
+                if ($(this).hasClass("active")) {
+                    addCollection(id);
+                }else {
+                    deleteCollection(id);
+                }
+            }
+        }else {
+            alert("请先登录!");
+        }
+    });
+
+    function addPoint(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.agreeId =  obj;
+        formData.type = 'view_gfdata';
+        formData.url = "/pages/fore/gfArea/gf_list_detail.html?classifyid="+obj;
+        $.ajax({
+            type : 'post',
+            url : '/zlztPointAgrees/addPoint',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    if (data.msg == "success") {
+                        $(".point").html('<i class="iconfont icon-qinziAPPtubiao-"></i>点赞(' + data.pointNum + ')');
+                        alert("点赞成功!");
+                    }
+                    else {
+                        alert("已点赞!");
+                    }
+                }
+            }
+        })
+    }
+
+    function deletePoint(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.agreeId =  obj;
+        formData.type = 'view_gfdata';
+        $.ajax({
+            type : 'delete',
+            url : '/zlztPointAgrees/deletePoint',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    $(".point").html('<i class="iconfont icon-qinziAPPtubiao-"></i>点赞(' + data.pointNum + ')');
+                    alert("取消点赞!");
+                }
+            }
+        });
+    }
+    //已点赞的就显示
+    function selectPoint() {
+        if (user != null && user !='') {
+            $.ajax({
+                type : 'get',
+                url : '/zlztPointAgrees',
+                async : false,
+                data:{
+                    "userId" : user.id,
+                    "type" : 'view_gfdata'
+                },
+                success : function(result) {
+                    var data = result.data;
+                    console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].agreeId == id) {
+                            $(".point").addClass("active");
+                        }
+                    }
+                }
+            })
+        }
+    }
+
+    function addCollection(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.careId =  obj;
+        formData.type = 'view_gfdata';
+        formData.url = "/pages/fore/gfArea/gf_list_detail.html?classifyid="+obj;
+        $.ajax({
+            type : 'post',
+            url : '/zlztCareinfos/addCare',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    if (data.msg == "success") {
+                        $(".collection").html('<i class="iconfont icon-qinziAPPtubiao-"></i>点赞(' + data.pointNum + ')');
+                        alert("收藏成功!");
+                    }
+                    else {
+                        alert("已收藏!");
+                    }
+                }
+            }
+        })
+    }
+    function deleteCollection(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.careId =  obj;
+        formData.type = 'view_gfdata';
+        $.ajax({
+            type : 'delete',
+            url : '/zlztCareinfos/deleteCare',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    $(".collection").html('<i class="iconfont icon-qinziAPPtubiao-"></i>点赞(' + data.pointNum + ')');
+                    alert("取消收藏!");
+                }
+            }
+        });
+    }
+
+    function selectCollection() {
+        if (user != null && user !='') {
+            $.ajax({
+                type : 'get',
+                url : '/zlztCareinfos',
+                async : false,
+                data:{
+                    "userId" : user.id,
+                    "type" : 'view_gfdata'
+                },
+                success : function(result) {
+                    var data = result.data;
+                    console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].careId == id) {
+                            $(".collection").addClass("active");
+                        }
+                    }
+                }
+            })
+        }
+    }
+
+    selectPoint();
+    selectCollection();
+</script>
+<script>
+	$(".zyItem").eq(0).show().addClass('fadeInUp animated').siblings().hide();
+	$(".zyTextTab li").click(function(){
+		$(this).addClass("active").siblings().removeClass("active");	
+		$(".zyTextCon .zyItem").eq($(this).index()).show().addClass('fadeInUp animated').siblings().hide();
+	})
+	$(".zyItemPicCon").click(function(){
+		var LayHtml = $(this).parents(".zyItemPic").html();	
+		var clickNum = $(this).parent().index();
+		$(".LaySlider .swiper-container .swiper-wrapper").html(LayHtml);
+		var LaySlider = new Swiper('.LaySlider .swiper-container', {
+			loop:true,
+			prevButton: '.LayPrev',
+			nextButton: '.LayNext',
+			spaceBetween: 30,
+			resizeReInit:true,
+			observer:true,
+			observeParents:true,		
+			autoHeight: true
+		});
+		$(".LayBg").fadeIn();
+		$(".LayBox").fadeIn();
+		LaySlider.slideTo(clickNum+1, 1000, false);
+	})
+	$(".LayClose").click(function(){
+		$(".LayBg").fadeOut();
+		$(".LayBox").fadeOut();
+		LaySlider.destroy(false);			
+	})
+</script>
+</body>
+</html>

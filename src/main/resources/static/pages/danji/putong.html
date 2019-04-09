@@ -15,6 +15,7 @@
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/bootsnav.css" rel="stylesheet">
     <link href="css/swiper.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
     <link href="treetable/css/jquery.treetable.css" rel="stylesheet" type="text/css">
     <link href="css/style.css" rel="stylesheet">
     <!-- <link rel="stylesheet" href="./css/jquery.dataTable.css"> -->
@@ -25,6 +26,8 @@
     <script src="treetable/js/jquery.treetable.js"></script>
     <script src="js/rem.js"></script>
     <script src="js/public.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script type="text/javascript" src="../../layui/layui.js"></script>
     <!--[if lt IE 9]>
 	  <script src="js/html5shiv.min.js"></script>
 	  <script src="js/respond.min.js"></script>
@@ -344,12 +347,13 @@
         .tag-b,
         .tag-c {
             display: inline-block;
-            width: 40px;
+            width: 50px;
             height: 24px;
             line-height: 24px;
             text-align: center;
             color: #ffffff;
             font-size: 12px;
+            margin-left: 8px;
         }
 
         .tag-a {
@@ -422,6 +426,23 @@
         .fenleiTit2-active {
             background-color: #0670C4;
         }
+        .titleShow{
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-box input {
+            color: #333;
+        }
+        .search-section .item-wrap .active-sort {
+            background-color: #0670C4;
+            color: #ffffff;
+        }
+
+        .action-btns {
+            float: right;
+        }
     </style>
 </head>
 
@@ -434,19 +455,16 @@
         </div>
         <div class="cat">
             <div class="cat-section">
-                <!-- <span class="iconfont icon-chengguo icons"></span> -->
                 <img src="./imgs/result_white.png" alt="">
-                <span class="text">科技成果：1120项</span>
+                <span class="text">科技成果：<b id='kjResult'>30</b>项</span>
             </div>
             <div class="cat-section">
-                <!-- <span class="iconfont icon-chengguo icons"></span> -->
                 <img src="./imgs/putong_white.png" alt="">
-                <span class="text">普通专利：30项</span>
+                <span class="text">普通专利：<b id='putongZl'>30</b>项</span>
             </div>
             <div class="cat-section">
-                <!-- <span class="iconfont icon-unie641 icons"></span> -->
                 <img src="./imgs/guofang_white.png" alt="">
-                <span class="text">国防专利：23项</span>
+                <span class="text">国防专利：<b id='guofangZl'>30</b>项</span>
             </div>
         </div>
     </div>
@@ -461,19 +479,17 @@
             <a href="./guofang.html">国防专利</a>
         </span>
     </div>
-
-
+    <script src="js/htmlJs/publicHeader.js"></script>
     <!-- <div class="tabs wow fadeInDown">
             <span class="tab ">科技成果</span>
             <span class="tab active-tab">普通专利</span>
             <span class="tab">国防专利</span>
         </div> -->
-
     <div class="mainBg grayBg overHide">
         <div class="wrap">
             <div class="main">
                 <div class="mLef">
-                    <div class="fenlei wow fadeInLeft" style="padding-bottom: 0; ">
+                    <div class="fenlei wow fadeInLeft" style="padding-bottom: 0; " id="fenlei">
                         <div class="fenleiTop">
                             <div class="fenleiTit2">
                                 <img src="./imgs/arrow-down2.png" alt="">
@@ -664,121 +680,14 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="nav wow fadeInLeft">
-                        <div class="level">
-                            <div class="level-title level-a"> <img src="./imgs/arrow-down2.png" alt="" > 技术导航</div>
-                            <div class="level-content">
-                                <div>
-                                    <div>
-                                        <div class="level-title level-b level-all">全部专利</div>
-                                    </div>
-                                    <div>
-                                        <div class="level-title level-b">中科院 <img src="./imgs/plus.png" alt=""> </div>
-                                        <div class="level-content">
-                                            <div class="level-c" data-id="123" data-pid="876">中科院第1研究所</div>
-                                            <div class="level-c">中科院第2研究所</div>
-                                            <div class="level-c">中科院第3研究所</div>
-                                            <div class="level-c">中科院第4研究所</div>
-                                            <div class="level-c">中科院第5研究所</div>
-                                            <div class="level-c">中科院第6研究所</div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="level-title level-b">航天科技公司 <img src="./imgs/plus.png" alt=""> </div>
-                                        <div class="level-content">
-                                            <div class="level-c" data-id="123" data-pid="876">航天科工集团公司301所</div>
-                                            <div class="level-c">航天科工集团公司302所</div>
-                                            <div class="level-c">航天科工集团公司303所</div>
-                                            <div class="level-c">航天科工集团公司304所</div>
-                                            <div class="level-c">航天科工集团公司305所</div>
-                                            <div class="level-c">航天科工集团公司306所</div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="level-title level-b">电子科技集团</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="level">
-                            <div class="level-title level-a"> <img src="./imgs/arrow-down2.png" alt="" > 承研单位</div>
-                            <div class="level-content">
-                                <div>
-                                    <div>
-                                        <div class="level-title level-b level-all">全部专利</div>
-                                    </div>
-                                    <div>
-                                        <div class="level-title level-b">中科院 <img src="./imgs/plus.png" alt=""> </div>
-                                        <div class="level-content">
-                                            <div class="level-c" data-id="123" data-pid="876">中科院第1研究所</div>
-                                            <div class="level-c">中科院第2研究所</div>
-                                            <div class="level-c">中科院第3研究所</div>
-                                            <div class="level-c">中科院第4研究所</div>
-                                            <div class="level-c">中科院第5研究所</div>
-                                            <div class="level-c">中科院第6研究所</div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="level-title level-b">航天科技公司 <img src="./imgs/plus.png" alt=""> </div>
-                                        <div class="level-content">
-                                            <div class="level-c" data-id="123" data-pid="876">航天科工集团公司301所</div>
-                                            <div class="level-c">航天科工集团公司302所</div>
-                                            <div class="level-c">航天科工集团公司303所</div>
-                                            <div class="level-c">航天科工集团公司304所</div>
-                                            <div class="level-c">航天科工集团公司305所</div>
-                                            <div class="level-c">航天科工集团公司306所</div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="level-title level-b">电子科技集团</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="level">
-                            <div class="level-title level-a"> <img src="./imgs/arrow-down2.png" alt="" > 研究报告</div>
-                            <div class="level-content">
-                                <div>
-                                    <div>
-                                        <div class="level-title level-b level-all">全部专利</div>
-                                    </div>
-                                    <div>
-                                        <div class="level-title level-b">中科院 <img src="./imgs/plus.png" alt=""> </div>
-                                        <div class="level-content">
-                                            <div class="level-c" data-id="123" data-pid="876">中科院第1研究所</div>
-                                            <div class="level-c">中科院第2研究所</div>
-                                            <div class="level-c">中科院第3研究所</div>
-                                            <div class="level-c">中科院第4研究所</div>
-                                            <div class="level-c">中科院第5研究所</div>
-                                            <div class="level-c">中科院第6研究所</div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="level-title level-b">航天科技公司 <img src="./imgs/plus.png" alt=""> </div>
-                                        <div class="level-content">
-                                            <div class="level-c" data-id="123" data-pid="876">航天科工集团公司301所</div>
-                                            <div class="level-c">航天科工集团公司302所</div>
-                                            <div class="level-c">航天科工集团公司303所</div>
-                                            <div class="level-c">航天科工集团公司304所</div>
-                                            <div class="level-c">航天科工集团公司305所</div>
-                                            <div class="level-c">航天科工集团公司306所</div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="level-title level-b">电子科技集团</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                     <div class="fenlei wow fadeInLeft">
                         <div class="siftTop">
                             <h2 class="siftTit">信息统计</h2>
                             <div class="fenleiH2Btn visible-xs visible-sm visible-md"><i class="fa fa-folder"></i>展开
                             </div>
                         </div>
-                        <ul class="fenleiList list-unstyled">
-                            <li class="fenleiLi">
+                        <ul class="fenleiList list-unstyled" id="listinfoAll">
+                            <!--<li class="fenleiLi">
                                 <h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">法律状态</a></h3>
                             </li>
                             <li class="fenleiLi">
@@ -848,7 +757,7 @@
                             </li>
                             <li class="fenleiLi">
                                 <h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">国民分类</a></h3>
-                            </li>
+                            </li>-->
                         </ul>
                     </div>
                 </div>
@@ -856,32 +765,31 @@
                     <div class="rigTopBg">
                         <div class="search-section wow fadeInDown">
                             <div class="search-result">
-                                共搜索到 <span>6472</span> 个专利
+                                共搜索到 <span id="zlnum">6472</span> 个专利
                             </div>
                             <div class="search-box">
                                 <span class="iconfont icon-search"></span>
-                                <input type="text" name="" id="" placeholder="搜索关键字">
-                                <span class="btnS">搜索</span>
+                                <input type="text" name="" id="search" placeholder="搜索关键字">
+                                <span class="btnS" onclick="searchByInput()">搜索</span>
                             </div>
                             <div class="item-wrap">
-
                                 <div class="time">
-                                    <span>时间</span>
+                                    <span onclick="orderByData('时间')">时间</span>
                                     <span class="iconfont icon-arrow-down"></span>
                                 </div>
                                 <div class="time">
-                                    <span>人气</span>
+                                    <span onclick="orderByData('人气')">人气</span>
                                     <span class="iconfont icon-arrow-down"></span>
                                 </div>
                                 <div class="time">
-                                    <span>收藏</span>
+                                    <span onclick="orderByData('收藏')">收藏</span>
                                     <span class="iconfont icon-arrow-down"></span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="zyTabTop wow fadeInUp">
-                            <h3 class="zyTabTit">合成纤维</h3>
+                            <!-- <h3 class="zyTabTit">合成纤维</h3> -->
                             <ul class="zyOrderBy list-unstyled list-inline"
                                 style="display: flex;justify-content: flex-end; ">
                                 <!-- <li><span>专利数量：<strong class="corOrg">1560</strong>个</span></li> -->
@@ -890,12 +798,12 @@
                                 </li>
                                 <li class="zyOrderLi selBox">
                                     <span class="selTit">排序<i class="iconfont icon-jiantou"></i></span>
-                                    <ul class="zyOrderSub selList list-unstyled">
-                                        <li data-index="1">公开号</li>
-                                        <li data-index="2">申请号</li>
-                                        <li data-index="3">申请人</li>
-                                        <li data-index="4">IPC主分类</li>
-                                        <li data-index="5">国民经济分类</li>
+                                    <ul class="zyOrderSub selList list-unstyled" id="orderby">
+                                        <li data-index="1" value="order by t.openDay DESC">公开号</li>
+                                        <li data-index="2" value="order by t.applyId DESC">申请号</li>
+                                        <li data-index="3" value="order by t.applyMan DESC">申请人</li>
+                                        <li data-index="4"  value="order by t.ipcMC DESC">IPC主分类</li>
+                                        <li data-index="5" value="order by t.cpec DESC">国民经济分类</li>
                                     </ul>
                                     <input type="hidden">
                                 </li>
@@ -903,14 +811,29 @@
                                     <span onclick="daochu()"><i class="iconfont icon-daochu"></i>导出</span>
                                 </li>
                                 <li>
-                                    <span><i class="iconfont icon-daoruiconxuanzhong"
+                                    <span id="upexcel"><i class="iconfont icon-daoruiconxuanzhong"
                                             style="font-size: 28px; "></i>导入</span>
                                 </li>
-
+                                <li>
+                                    <span onclick="addData()" ><i class="iconfont icon-plus"
+                                           style="font-size: 30px;color: #0670C4; "></i>添加</span>
+                                </li>
                             </ul>
                             <div class="clear"></div>
                         </div>
-                        <table class="table" id="tableA"></table>
+                        <table class="table" id="tableA">
+                            <thead>
+                            <tr>
+                                <th><label>序号<span><input type="checkbox" id="checkAll"></span></label></th>
+                                <th>标题</th>
+                                <th>行业</th>
+                                <th>公开日</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
 
                     </div>
                     <ul class="rigChart list-unstyled list-inline row" id="tongji">
@@ -1079,162 +1002,402 @@
             </ul>
         </div>
     </div>
+    <input type="hidden" id="order" name="order">
+    <input type="hidden" id="countryId" name="countryId">
+    <input type="hidden" id="applyDayId" name="applyDayId">
+    <input type="hidden" id="openDayId" name="openDayId">
+    <input type="hidden" id="applyManId" name="applyManId">
+    <input type="hidden" id="createManId" name="createManId">
+    <input type="hidden" id="nowLawSId" name="nowLawSId">
+    <input type="hidden" id="zlTypeId" name="zlTypeId">
+    <input type="hidden" id="ipcId" name="ipcId">
+    <input type="hidden" id="cpecId" name="cpecId">
+    <input type="hidden" id="classifyid" name="classifyid">
+    <input type="hidden" id="type" name="type">
     <link rel="stylesheet" type="text/css" media="screen" href="datatables/dataTables.bootstrap.min.css">
     <script type="text/javascript" src="datatables/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="datatables/dataTables.bootstrap.min.js"></script>
     <script>
-        var table = $('#zyTab').DataTable({
-            "searching": false,
-            "ordering": false,
-            "processing": false,
-            "info": false,
-            //"paging":   false,
-            "lengthMenu": [10, 20, 30, "所有"],
-            "pageLength": 15,
-            "pagingType": "numbers",
-            "language": {
-                "sProcessing": "处理中...",
-                "sLengthMenu": "显示 _MENU_ 项结果",
-                "sZeroRecords": "没有匹配结果",
-                "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
-                "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
-                "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
-                "sInfoPostFix": "",
-                "sSearch": "搜索:",
-                "sUrl": "",
-                "sEmptyTable": "表中数据为空",
-                "sLoadingRecords": "载入中...",
-                "sInfoThousands": ",",
-                "oPaginate": {
-                    "sFirst": "首页",
-                    "sPrevious": "上页",
-                    "sNext": "下页",
-                    "sLast": "末页"
-                },
-                "oAria": {
-                    "sSortAscending": ": 以升序排列此列",
-                    "sSortDescending": ": 以降序排列此列"
+        var table ;
+        var layer;
+        var classifyid ;
+        var type ;
+        var orderBy = 'order by t.createTime DESC';
+        layui.use([ 'upload','layer' ], function() {
+            layer = layui.layer;
+            var upload = layui.upload;
+
+            upload.render({
+                elem: '#upexcel' //绑定元素
+                ,accept: 'file' //允许上传的文件类型
+                ,url: '/zlztDatainfos/upexcel' //上传接口
+                ,done: function(res, index, upload){
+                    layer.msg("上传成功");
+                    table.ajax.reload();
                 }
-            },
-            "columnDefs": [
-                { className: "zyTabCon1", "targets": [0] },
-                { className: "zyTabCon2", "targets": [1] },
-                { className: "zyTabCon3", "targets": [2] },
-                { className: "zyTabCon4", "targets": [3] },
-                { className: "zyTabCon5", "targets": [4] },
-            ]
+            });
         });
+
+        // 排序
+        $(document).on('click', '.item-wrap .time', function() {
+            var sortTypes = $(this).parent().find('.time');
+            sortTypes.each(function(index, item) {
+                // console.log(item);
+                $(item).removeClass('active-sort');
+            });
+            $(this).addClass('active-sort');
+            var text = $(this).find('span').first().text();
+            // console.log(text)
+            switch (text) {
+                case "时间" : orderBy = 'order by t.createTime DESC';break;
+                case "人气" : orderBy = 'order by t.pointNum DESC';break;
+                case "收藏" : orderBy = 'order by t.careNum DESC';break;
+                default:
+                    break;
+            }
+            table.ajax.reload();
+        });
+
+        //搜索路况点击事件
+        function searchByInput() {
+            table.ajax.reload();
+        }
+        //加载左侧菜单
+        function initlistdata() {
+            $.ajax({
+                url: "/zlztClassifyinfos/danjiTreetable",
+                type: "get",
+                async: false,
+                success: function (data) {
+                    $("#fenlei").html('');
+                    // console.log("data=" + JSON.stringify(data));
+                    for (var i = 0 ; i < data.length; i++){
+                        var a = ' <div class="fenleiTop">\n' +
+                            '                            <div class="fenleiTit2">\n' +
+                            '                                <img src="./imgs/arrow-down2.png" alt="">\n' +
+                            '                                <h2 class="fenleiTitCn">'+data[i].name+'</h2>\n' +
+                            '                            </div>\n' +
+                            '                            <div class="fenleiList">\n' +
+                            '                                <table class="leftMenu">\n' +
+                            '                                    <tbody>\n' ;
+                        var children = data[i].children;
+                        for (var j = 0; j < children.length; j++) {
+                            a += '<tr data-tt-id="'+children[j].id+'" data-tt-parent-id="' + children[j].parentId + '" class="leftTr1">\n' +
+                                '                                            <td class="leftLi1"><i><a href="javascript:changData(\''+children[j].id+'\',\''+children[j].type+'\')">'+children[j].name+'</a></i></td>\n' +
+                                '                                        </tr>';
+                        }
+                        a += '</tbody>\n' +
+                            '                                </table>\n' +
+                            '                            </div>\n' +
+                            '                        </div>';
+                        $("#fenlei").append(a);
+                    }
+                }
+            })
+        };
+        //初始化treetable样式
+        function initTreetableStyle() {
+            $(document).find(".leftMenu").treetable({ expandable: true});
+            $(document).find(".leftMenu tbody").on("mousedown", "tr", function() {
+                $(".selected").not(this).removeClass("selected");
+                $(this).toggleClass("selected");
+            });
+            $(document).find(".leftMenu .folder").each(function() {
+                $(this).parents(".leftMenu tr").droppable({
+                    accept: ".file, .folder",
+                    drop: function(e, ui) {
+                        var droppedEl = ui.draggable.parents("tr");
+                        $(".leftMenu").treetable("move", droppedEl.data("ttId"), $(this).data("ttId"));
+                    },hoverClass: "accept",over: function(e, ui) {
+                        var droppedEl = ui.draggable.parents("tr");
+                        if(this != droppedEl[0] && !$(this).is(".expanded")) {
+                            $(".leftMenu").treetable("expandNode", $(this).data("ttId"));
+                        }
+                    }
+                });
+            });
+        }
+        //加载统计信息
+        function initleftdata() {
+            var obj ={};
+            obj.classifyId  =classifyid;
+            obj.type  = type;
+            obj.country = $("#countryId").val();
+            obj.applyDayStr = $("#applyDayId").val();
+            obj.openDayStr = $("#openDayId").val();
+            obj.applyMan = $("#applyManId").val();
+            obj.createMan = $("#createManId").val();
+            obj.nowLawS = $("#nowLawSId").val();
+            obj.zlType = $("#zlTypeId").val();
+            obj.ipc = $("#ipcId").val();
+            obj.cpec = $("#cpecId").val();
+            $.ajax({
+                contentType: "application/json; charset=utf-8",
+                url : "/zlztDataDetails/getallcount",
+                data:JSON.stringify(obj),
+                type : "post",
+                async: false,
+                success : function (data) {
+                    var result = data;
+                    //清空统计模块，进行拼接。
+                    $("#listinfoAll").html('');
+                    // console.log(result);
+
+                    var listdata = '';
+                    for (var i in result) {
+                        var d = result[i];
+                        switch (d.keyname) {
+                            case "country" : countryList = d.children;break;
+                            case "applyDay" : applyDayList = d.children;break;
+                            case "openDay" : openDayList = d.children;break;
+                            case "applyMan" : applyManList = d.children;break;
+                            case "createMan" : createManList = d.children;break;
+                            case "nowLawS" : nowLawSList = d.children;break;
+                            case "zlType" : zlTypeList = d.children;break;
+                            case "ipc" : ipcList = d.children;break;
+                            case "cpec" : cpecList = d.children;break;
+                        }
+                        var children = d.children;
+                        if (d.keyname == 'applyDay'){
+                            option1.xAxis.data = [];
+                            option1.series[0].data = [];
+                            for (var t=children.length-1;t>=0;t--) {
+                                option1.xAxis.data.push(children[t].keyname.substring(0,4)+"");
+                                option1.series[0].data.push(children[t].count);
+                                if (option1.xAxis.data.length >= 20) {
+                                    break;
+                                }
+                            }
+                        }
+                        if (d.keyname == 'openDay'){
+                            option2.xAxis.data = [];
+                            option2.series[0].data = [];
+                            for (var t=children.length-1;t>=0;t--) {
+                                option2.xAxis.data.push(children[t].keyname.substring(0,4)+"");
+                                option2.series[0].data.push(children[t].count);
+                                if (option2.xAxis.data.length >= 10) {
+                                    break;
+                                }
+                            }
+                        }
+                        if (d.keyname == 'country'){
+                            option3.legend.data = [];
+                            option3.series[0].data = [];
+                            for (var t in children) {
+                                option3.legend.data.push(children[t].keyname);
+                                var obj = {
+                                    value: '',
+                                    name: ''
+                                };
+                                obj.value = children[t].count;
+                                obj.name = children[t].keyname;
+                                option3.series[0].data.push(obj);
+                                if (option3.legend.data.length >= 10) {
+                                    break;
+                                }
+                            }
+                        }
+                        if (d.keyname == 'nowLawS'){
+                            option4.legend.data = [];
+                            option4.series[0].data = [];
+                            for (var t in children) {
+                                option4.legend.data.push(children[t].keyname);
+                                var obj = {
+                                    value: '',
+                                    name: ''
+                                };
+                                obj.value = children[t].count;
+                                obj.name = children[t].keyname;
+                                option4.series[0].data.push(obj);
+                                if (option4.legend.data.length >= 10) {
+                                    break;
+                                }
+                            }
+                        }
+                        if (d.keyname == 'createMan'){
+                            option5.xAxis[0].data = [];
+                            option5.series[0].data = [];
+                            for (var t= 0;t<children.length;t++) {
+                                option5.xAxis[0].data.push(children[t].keyname);
+                                option5.series[0].data.push(children[t].count);
+                                if (option5.xAxis[0].data.length >= 10) {
+                                    break;
+                                }
+                            }
+                        }
+                        if (d.keyname == 'applyMan'){
+                            option6.xAxis[0].data = [];
+                            option6.series[0].data = [];
+                            for (var t= 0;t<children.length;t++) {
+                                option6.xAxis[0].data.push(children[t].keyname);
+                                option6.series[0].data.push(children[t].count);
+                                if (option6.xAxis[0].data.length >= 10) {
+                                    break;
+                                }
+                            }
+                        }
+                        if (d.keyname == 'ipc'){
+                            option7.xAxis[0].data = [];
+                            option7.series[0].data = [];
+                            for (var t= 0;t<children.length;t++) {
+                                option7.xAxis[0].data.push(children[t].keyname);
+                                option7.series[0].data.push(children[t].count);
+                                if (option7.xAxis[0].data.length >= 10) {
+                                    break;
+                                }
+                            }
+                        }
+                        if (d.keyname == 'cpec'){
+                            option8.xAxis[0].data = [];
+                            option8.series[0].data = [];
+                            for (var t=0;t<children.length;t++) {
+                                option8.xAxis[0].data.push(children[t].keyname);
+                                option8.series[0].data.push(children[t].count);
+                                if (option8.xAxis[0].data.length >= 10) {
+                                    break;
+                                }
+                            }
+                        }
+                        listdata += '<li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">'+d.name+'</a></h3>';
+                        if(d.children!==null&& d.children!=""){
+                            // console.log(children);
+
+                            listdata += '<div class="fenleiSub siftSub">\n' +
+                                '                            \t<ul class="siftList list-unstyled" id="all'+d.keyname+'">';
+                            for (var j in children) {
+                                if (j < 5) {
+                                    var p = children[j];
+                                    if (d.keyname == 'applyDay' || d.keyname == 'openDay') {
+                                        listdata += '<li><span><input type="checkbox" name="'+d.keyname+'Id" value="'+p.keyname.substring(0,4)+'"><i class="iconfont icon-xuanze"></i><a href="#">'+p.keyname.substring(0,4)+'年('+p.count+')</a></span></li>';
+                                    }else {
+                                        listdata += '<li><span><input type="checkbox" name="'+d.keyname+'Id" value="'+p.keyname+'"><i class="iconfont icon-xuanze"></i><a href="#">'+p.keyname+'('+p.count+')</a></li>';
+                                    }
+                                }
+                            }
+                            listdata += '</ul>\n<div class="siftBtn">\n' +
+                                '                            <a href="javascript:selectBy(\''+d.keyname+'Id\');" class="siftBtn1">筛选</a>\n' +
+                                '                            <a href="javascript:showAllList(\''+d.keyname+'\');" class="siftBtn2" id="show'+d.keyname+'">展开<i class="iconfont icon-iconfontgengduo"></i></a>\n' +
+                                '                        </div>';
+                            listdata += '\t</div>';
+                        }
+                        listdata += '</li>';
+                    }
+                    $("#listinfoAll").append(listdata);
+                }
+            });
+        }
+        //信息的统计的展开隐藏。
+        function showAllList(objname) {
+            var list = objname +"List";
+            // if (list == "countryList") {
+            //     list = countryList;
+            // }
+            switch (list) {
+                case "countryList" : list = countryList;break;
+                case "applyDayList" : list = applyDayList;break;
+                case "openDayList" : list = openDayList;break;
+                case "applyManList" : list = applyManList;break;
+                case "createManList" : list = createManList;break;
+                case "nowLawSList" : list = nowLawSList;break;
+                case "zlTypeList" : list = zlTypeList;break;
+                case "ipcList" : list = ipcList;break;
+                case "cpecList" : list = cpecList;break;
+            }
+            var value =$("#show"+objname).text();
+            console.log("aaaaa"+value);
+            if (value == "展开") {
+                $("#all"+objname).html('');
+                for (var i in list) {
+                    if (objname == 'applyDay' || objname == 'openDay') {
+                        $("#all"+objname).append('<li><span><input type="checkbox" name="'+list[i].keyname+'Id" value="'+list[i].keyname.substring(0,4)+'"><i class="iconfont icon-xuanze"></i><a href="#">'+list[i].keyname.substring(0,4)+'年('+list[i].count+')</a></span></li>');
+                    }else {
+                        $("#all"+objname).append('<li><span><input type="checkbox" name="'+list[i].keyname+'Id" value="'+list[i].keyname+'"><i class="iconfont icon-xuanze"></i><a href="#">'+list[i].keyname+'('+list[i].count+')</a></li>');
+                    }
+                }
+                $("#show"+objname).html("隐藏<i class='iconfont icon-iconfontgengduo'></i>");
+            }else if(value == "隐藏"){
+                $("#all"+objname).html('');
+                for (var i in list) {
+                    if (i<5){
+                        if (objname == 'applyDay' || objname == 'openDay') {
+                            $("#all"+objname).append('<li><span><input type="checkbox" name="'+list[i].keyname+'Id" value="'+list[i].keyname.substring(0,4)+'"><i class="iconfont icon-xuanze"></i><a href="#">'+list[i].keyname.substring(0,4)+'年('+list[i].count+')</a></span></li>');
+                        }else {
+                            $("#all"+objname).append('<li><span><input type="checkbox" name="'+list[i].keyname+'Id" value="'+list[i].keyname+'"><i class="iconfont icon-xuanze"></i><a href="#">'+list[i].keyname+'('+list[i].count+')</a></li>');
+                        }
+                    }
+                }
+                $("#show"+objname).html("展开<i class='iconfont icon-iconfontgengduo'></i>");
+            }
+        }
+        //信息统计的筛选功能
+        function selectBy(objName){
+            var obj = document.getElementsByName(objName);
+            var check_val = [];
+            for(var k in obj){
+                if(obj[k].checked)
+                    check_val.push(obj[k].value);
+            }
+            $("#"+objName).val(check_val);
+            table.ajax.reload();
+            initleftdata();
+            initEcharts();
+            //  console.log(check_val);
+        };
+        //左侧列表的功能
+        function changData(id,type1) {
+            classifyid = id;
+            type = type1;
+            $("#classifyid").val(classifyid);
+            $("#type").val(type);
+            //信息统计
+            table.ajax.reload();
+            initleftdata();
+            // 加载当前位置
+            // initNowPlace();
+            //查询条件
+            // selctByAllData();
+            //加载图表
+            initEcharts();
+            //加载treetable样式
+            initTreetableStyle();
+        }
         $('#checkAll').on('click', function () {
             var rows = table.rows({ 'search': 'applied' }).nodes();
             $('input[type="checkbox"]', rows).prop('checked', this.checked);
         });
-        $('#zyTab tbody').on('change', 'input[type="checkbox"]', function () {
-            if (!this.checked) {
-                var el = $('#checkAll').get(0);
-                if (el && el.checked && ('indeterminate' in el)) {
-                    el.indeterminate = true;
-                }
-            }
-        });
     </script>
 
-    <!-- <script>
 
-        $(document).ready(function () {
-
-            $('.fenleiTop .fenleiList').hide();
-
-            $(document).on('click', '.fenleiTit2', function () {
-                let fenleiAs = $(this).parents('.fenlei').find('.fenleiTit2');
-
-                for (let i = 0; i < fenleiAs.length; i++) {
-                    $(fenleiAs[i]).removeClass('fenleiTit2-active');
-                }
-                $(this).addClass('fenleiTit2-active');
-
-
-                let isShow = $(this).parents('.fenleiTop').find('.fenleiList').css('display');
-                console.log(isShow)
-
-                if (isShow == 'block') {
-                    $(this).parents('.fenleiTop').find('.fenleiList').hide();
-                    $(this).find('img').attr('src', './images/arrow-down2.png');
-                } else {
-                    $(this).parents('.fenleiTop').find('.fenleiList').show();
-                    $(this).find('img').attr('src', './images/arrow_down2.png');
-                }
-            })
-        })
-    </script> -->
-    
 
     <script>
         $(document).ready(function () {
-            $('.level-content').hide();
-
-            // 点击展示子级
-            $(document).on('click', '.level-title', function () {
-                var isShow = $(this).parent().children('.level-content').css('display');
-                // var hasActive = $(this).parent().find('.level-a').hasClass('level-a-active');
-
-                if (isShow == 'block') {
-                    $(this).parent().children('.level-content').hide();
-                    $(this).parent().find('.level-a').removeClass('level-a-active');
-                } else {
-                    $(this).parent().children('.level-content').show();
-                }
+            //加载左侧菜单
+            initlistdata();
+            //加载统计信息
+            initleftdata();
+            //初始化treetable样式
+            initTreetableStyle();
+            //加载图表
+            initEcharts();
+            //排序点击事件
+            $("#orderby li").click(function(){//点击事件
+                var orderColumn = $(this).attr("value");
+                orderBy = orderColumn;
+                table.ajax.reload();
+                // selctByAllData();
             });
-            // 选中效果 -- 一级
-            $(document).on('click', '.level-a', function () {
-                var levelAs = $(this).parents('.nav').find('.level-a');
-                for (let i = 0; i < levelAs.length; i++) {
-                    $(levelAs[i]).removeClass('level-a-active')
-                }
-                $(this).parent().find('.level-a').addClass('level-a-active');
-
-                var isShow = $(this).parent().children('.level-content').css('display');
-                console.log(isShow);
-                if (isShow == 'block') {
-                    $(this).children('img').attr('src', './imgs/arrow_down2.png');
-                } else {
-                    $(this).children('img').attr('src', './imgs/arrow-down2.png');
-                }
-            })
-            $(document).on('click', '.level-b', function () {
-                var isShow = $(this).parent().children('.level-content').css('display');
-                if (isShow == 'block') {
-                    $(this).children('img').attr('src', './imgs/minus.png');
-                } else {
-                    $(this).children('img').attr('src', './imgs/plus.png');
-                }
-            })
-            // 选中效果 -- 三级 并且获取数据
-            $(document).on('click', '.level-c', function () {
-                let levelCs = $(this).parents('.nav').find('.level-c');
-                for (let i = 0; i < levelCs.length; i++) {
-                    $(levelCs[i]).removeClass('level-c-active');
-                }
-                $(this).addClass('level-c-active')
-
-                // 请求数据
-                var currentItemId = $(this).attr('data-id');
-                var currentItemPid = $(this).attr('data-pid');
-            });
-
-
-            // 
             $('.fenleiTop .fenleiList').hide();
 
             $(document).on('click', '.fenleiTit2', function () {
-                let fenleiAs = $(this).parents('.fenlei').find('.fenleiTit2');
+                var fenleiAs = $(this).parents('.fenlei').find('.fenleiTit2');
 
-                for (let i = 0; i < fenleiAs.length; i++) {
+                for (var i = 0; i < fenleiAs.length; i++) {
                     $(fenleiAs[i]).removeClass('fenleiTit2-active');
                 }
                 $(this).addClass('fenleiTit2-active');
 
 
-                let isShow = $(this).parents('.fenleiTop').find('.fenleiList').css('display');
+                var isShow = $(this).parents('.fenleiTop').find('.fenleiList').css('display');
                 console.log(isShow)
 
                 if (isShow == 'block') {
@@ -1250,120 +1413,92 @@
 
     <script>
 
-        let dataA = [];
-        for (let i = 0; i < 99; i++) {
-            let obj = {};
-            obj.id = 1 + i;
-            obj.title = `由化学交联法固载的固由化学交联法固载的固---${i}`;
-            obj.industry = '测试';
-            obj.pubTime = '2019-03-03'
-            obj.action = '';
-            // obj.tagA = '自营';
-            obj.tagB = '授权';
-            obj.tagC = '发明';
-
-            dataA.push(obj);
-        };
-        // console.log(dataA);
         $(document).ready(function () {
-            let table = $('#tableA').DataTable({
-                "data": dataA,
-                "autoWidth": false,
+            table = $('#tableA').DataTable({
+                "searching": false,
+                "ordering": false,
+                "serverSide" : true,
+                "processing": false,
+                "language": {
+                    "url": "/js/plugin/datatables/Chinese.lang"
+                },
+                "ajax": {
+                    "url" : "/zlztDatainfos",
+                    "type":"get",
+                    "async" : false,
+                    "data":function(d){
+                        d.fromTable =  "view_zlztdata";
+                        d.order = $("#order").val();
+                        d.searchKey = $("#search").val();
+                        d.type = $("#type").val();
+                        d.classifyid = $("#classifyid").val();
+                        d.countryId = $("#countryId").val();
+                        d.applyDayId = $("#applyDayId").val();
+                        d.openDayId = $("#openDayId").val();
+                        d.applyManId = $("#applyManId").val();
+                        d.createManId = $("#createManId").val();
+                        d.nowLawSId = $("#nowLawSId").val();
+                        d.zlTypeId = $("#zlTypeId").val();
+                        d.ipcId = $("#ipcId").val();
+                        d.cpecId = $("#cpecId").val();
+                        d.orderBy = orderBy
+                    }
+                },
+                "fnInfoCallback": function (response) {
+                    // console.log(response);
+                    $("#zlnum").text(response.json.recordsTotal);
+                },
+                "createdRow": function ( row, data, index ) {
+                    $('td', row).eq(1).addClass('titleShow');
+                },
                 "columns": [
                     {
-                        "data": 'index',
-                        "min-wdith": 60,
-                        "title": '序号' + '<input type="checkbox" name="" id="checkAll" value="">'
+                        "data": '',
+                        "render":function (data, type, row) {
+                            return  '<label><span><input type="checkbox" name="rowid" value="'+row.id+'"></span></label>';;
+                        }
                     },
                     {
                         "data": "title",
-                        "min-wdith": 60,
-                        "title": '标题'
-                    },
-                    {
-                        "data": "industry",
-                        "wdith": 80,
-                        "title": "行业"
-                    },
-                    {
-                        "data": "pubTime",
-                        "min-wdith": 60,
-                        "title": "公开日"
-                    },
-                    {
-                        "data": "id",
-                        "min-wdith": 60,
-                        "title": "操作"
-                    }
-                ],
-                "info": false, // 左下角信息不显示
-                "pagingType": "numbers", // 
-                "lengthChange": false, // 
-                "searching": false,
-                "ordering": false,
-                "processing": false,
-                "pageLength": 15,
-                "language": {
-                    "sProcessing": "处理中...",
-                    "sLengthMenu": "显示 _MENU_ 项结果",
-                    "sZeroRecords": "没有匹配结果",
-                    "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
-                    "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
-                    "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
-                    "sInfoPostFix": "",
-                    "sSearch": "搜索:",
-                    "sUrl": "",
-                    "sEmptyTable": "表中数据为空",
-                    "sLoadingRecords": "载入中...",
-                    "sInfoThousands": ",",
-                    "oPaginate": {
-                        "sFirst": "首页",
-                        "sPrevious": "上页",
-                        "sNext": "下页",
-                        "sLast": "末页"
-                    },
-                    "oAria": {
-                        "sSortAscending": ": 以升序排列此列",
-                        "sSortDescending": ": 以降序排列此列"
-                    }
-                },
-                "columnDefs": [
-                    {
-                        targets: 0,
-                        render: function (data, type, row, meta) {
-                            return `<label for="${row.id}">${meta.row < 9 ? '0' + (meta.row + 1) : meta.row + 1}<input id="${row.id}" type="checkbox" name="checklist" value="${row.id}" /></label>`;
+                        "render":function (data, type, row) {
+                            return '<a  href="ptentDetail.html?id='+row.id+'">'+row.title+'</a>\n'+
+                                '\t<span class="tag-a" >'+( row.nowLawS || '') +'</span>\n'+
+                                '\t<span class="tag-a" >'+( row.country|| '') +'</span>\n'+
+                                '\t<span class="tag-a" >'+( row.zlType || '') +'</span>\n';
                         }
                     },
                     {
-                        targets: 1,
-                        render: function (data, type, row, meta) {
-                            return `<a href="./ptentDetail.html?id=${row.id}" class="title">${row.title}</a> ${row.tagA ? `<span class="tag-a">${row.tagA}</span>` : '' } ${row.tagB ? `<span class="tag-a">${row.tagB}</span>` : '' } ${row.tagC ? `<span class="tag-a">${row.tagC}</span>` : '' }`
-
-                            // return `<span class="title">${row.title}</span> ${row.tagA ? `<span class="tag-a">${row.tagA}</span>` : ''} ${row.tagB ? `<span class="tag-a">${row.tagB}</span>` : ''} ${row.tagC ? `<span class="tag-a">${row.tagC}</span>` : ''}`
-                            // return `<span class="title">${row.title}</span> ${row.tagA ? `<span class="tag-a">${row.tagA}</span>` : '' } <span class="tag-b">${row.tagB}</span> <span class="tag-c">${row.tagC}</span>`
-                            // return `<label for="${row.id}">${meta.row<10?'0' + (meta.row + 1): meta.row + 1 }<input id="${row.id}" type="checkbox" name="checklist" value="${row.id}" /></label>`;
+                        "data": "fIdName",
+                        "render":function (data, type, row) {
+                            return row.fIdName;
                         }
                     },
                     {
-                        targets: -1,
-                        render: function (data, type, row, meta) {
-                            return `<span class="iconfont icon-bianji" onclick="edit(${data})"></span> <span class="iconfont icon-shanchu" onclick="del(${data})"></span>`;
+                        "data": "applyDay",
+                        "render":function (data, type, row) {
+                            return (new Date(row.applyDay)).Format("yyyy-MM-dd");
+                        }
+                    },
+                    {
+                        "data": "",
+                        "render":function (data, type, row) {
+                            return '<span class="iconfont icon-bianji" onclick="edit('+row.id+')"></span> <span class="iconfont icon-shanchu" onclick="del('+row.id+')"></span>';
                         }
                     }
                 ],
             });
         });
         $(document).on('change', '#checkAll', function () {
-            let inputSels = $('tbody input[type=checkbox]');
+            var inputSels = $('tbody input[type=checkbox]');
 
             if (this.checked) {
-                for (let i = 0; i < inputSels.length; i++) {
+                for (var i = 0; i < inputSels.length; i++) {
                     // $(inputSels[i]).attr('checked', true);
                     $(inputSels[i]).get(0).checked = true;
 
                 }
             } else {
-                for (let i = 0; i < inputSels.length; i++) {
+                for (var i = 0; i < inputSels.length; i++) {
                     // $(inputSels[i]).attr('checked', false);
                     $(inputSels[i]).get(0).checked = false;
 
@@ -1371,13 +1506,13 @@
             }
         });
         $(document).on('change', '#tableA tbody input[type=checkbox]', function () {
-            let checkSels = $('#tableA tbody input[type=checkbox]');
+            var checkSels = $('#tableA tbody input[type=checkbox]');
 
-            for (let i = 0; i < checkSels.length; i++) {
-                let isChecked = $(checkSels[i]).get(0).checked;
+            for (var i = 0; i < checkSels.length; i++) {
+                var isChecked = $(checkSels[i]).get(0).checked;
                 // console.log( isChecked )
                 if (!isChecked) {
-                    // let text = $(checkSels[i]).val();
+                    // var text = $(checkSels[i]).val();
                     // console.log(text)
                     $('#checkAll').get(0).checked = false;
                     return;
@@ -1388,23 +1523,44 @@
 
         });
         function del(id) {
-            console.log('删除', id);
+            layer.confirm('确定要删除吗？', {
+                btn : [ '确定', '取消' ]
+            }, function() {
+                $.ajax({
+                    type : 'delete',
+                    url : '/zlztDataDetails/deleteByDataId/'+id,
+                    success : function(data) {
+                        table.ajax.reload();
+                        layer.msg("删除成功");
+                    }
+                });
+                layer.close(1);
+            });
         };
         function edit(id) {
-            console.log('编辑', id)
+            location.href = "addPatentSecret.html?id="+id;
         };
+
+        function addData() {
+            location.href = "addPatentSecret.html";
+        }
+
+        //excel导出
         function daochu() {
-            let checkSels = $('#tableA tbody').find('input');
+            var check_val = [];
+            var checkSels = $('#tableA tbody').find('input');
             // console.log(checkSels)
 
-            for (let i = 0; i < checkSels.length; i++) {
-                let isChecked = $(checkSels[i]).get(0).checked;
+            for (var i = 0; i < checkSels.length; i++) {
+                var isChecked = $(checkSels[i]).get(0).checked;
                 // console.log( isChecked )
                 if (isChecked) {
-                    let text = $(checkSels[i]).val();
+                    var text = $(checkSels[i]).val();
+                    check_val.push(text);
                     console.log(text)
                 }
             }
+            location.href = "/zlztDatainfos/downloadExcel?jsonString=" + check_val+"&fromTable=view_zlztdata";
         }
     </script>
 
@@ -1722,24 +1878,27 @@
                 }
             ]
         };
-        chartPar1.setOption(option1);
-        chartPar2.setOption(option2);
-        chartPar3.setOption(option3);
-        chartPar4.setOption(option4);
-        chartPar5.setOption(option5);
-        chartPar6.setOption(option6);
-        chartPar7.setOption(option7);
-        chartPar8.setOption(option8);
-        window.addEventListener("resize", function () {
-            this.chartPar1.resize();
-            this.chartPar2.resize();
-            this.chartPar3.resize();
-            this.chartPar4.resize();
-            this.chartPar5.resize();
-            this.chartPar6.resize();
-            this.chartPar7.resize();
-            this.chartPar8.resize();
-        });
+        //加载echarts配置及生成
+        function initEcharts() {
+            chartPar1.setOption(option1);
+            chartPar2.setOption(option2);
+            chartPar3.setOption(option3);
+            chartPar4.setOption(option4);
+            chartPar5.setOption(option5);
+            chartPar6.setOption(option6);
+            chartPar7.setOption(option7);
+            chartPar8.setOption(option8);
+            window.addEventListener("resize", function(){
+                this.chartPar1.resize();
+                this.chartPar2.resize();
+                this.chartPar3.resize();
+                this.chartPar4.resize();
+                this.chartPar5.resize();
+                this.chartPar6.resize();
+                this.chartPar7.resize();
+                this.chartPar8.resize();
+            });
+        }
     </script>
 </body>
 

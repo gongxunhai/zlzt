@@ -10,26 +10,17 @@
 		<fieldset>
 			<input type="hidden" id="id" name="id">
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>name</label>
+				<label class='col-md-2 control-label'>上级id</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='name' type='text' name='name' id='name' data-bv-notempty='true' data-bv-notempty-message='name 不能为空'>
+					<select class='form-control' placeholder='parentId' type='text' name='parentId' id='parentId' data-bv-notempty='true' data-bv-notempty-message='parentId 不能为空'></select>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>parentId</label>
+				<label class='col-md-2 control-label'>名称</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='parentId' type='text' name='parentId' id='parentId' data-bv-notempty='true' data-bv-notempty-message='parentId 不能为空'>
+					<input class='form-control' type='text' name='name' id='name' data-bv-notempty='true' data-bv-notempty-message='name 不能为空'>
 				</div>
 			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>type</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='type' type='text' name='type' id='type' data-bv-notempty='true' data-bv-notempty-message='type 不能为空'>
-				</div>
-			</div>
-
-
-
 			<div class="form-actions">
 				<div class="row" align="center">
 					<div class="col-md-12">
@@ -53,7 +44,26 @@
 		layui.use(['layer','laydate'], function(){
 		    var layer = layui.layer;
 		});
-		
+
+        selectClassifyinfo();
+        function selectClassifyinfo() {
+            $.ajax({
+                type : 'get',
+                url : '/pjRequireClassifyInfos/getParentClassifyInfo/0',
+                async : false,
+                success : function(data) {
+                    var select = $("#parentId");
+                    select.append("<option value = '0'>root</option>")
+                    for(var i=0; i<data.length; i++){
+                        var d = data[i];
+                        var id = d['id'];
+                        var name = d['name'];
+                        select.append("<option value='"+ id +"'>" +name+"</option>");
+                    }
+                }
+            });
+        }
+
 		initData();
 		
 		function initData(){
@@ -82,8 +92,11 @@
 		    if(!bootstrapValidator.isValid()){
 			   return;
 		    }
-		    
-		    var formdata = $("#form").serializeObject();
+
+            var type = $("#parentId").val();
+            (type > 0) ? type=2 : type=1 ;
+            var formdata = $("#form").serializeObject();
+            formdata.type = type;
 
 			$.ajax({
 				type : 'put',

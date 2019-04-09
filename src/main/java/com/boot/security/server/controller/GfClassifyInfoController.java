@@ -122,6 +122,13 @@ public class GfClassifyInfoController {
         return gfClassifyInfoDao.getClassify(1);
     }
 
+    @GetMapping("/getParentClassifyInfo/{id}")
+    @ApiOperation(value = "根据parentid获取二级")
+    public List<GfClassifyInfo> getClassifyByParentId(@PathVariable Long id){
+        return gfClassifyInfoDao.getParentClassifyInfo(id.intValue());
+    }
+
+
     @GetMapping("/getGfInfo")
     @ApiOperation(value = "获取一级和二级分类")
     public List<GfClassifyInfo> getGfInfo(){

@@ -20,10 +20,10 @@ document.writeln("        </div>");
 document.writeln("        <div class=\'userName\' id=\'userName\'>"+user.username+"</div>");
 document.writeln("        <ul class=\'userInfor list-unstyled list-inline\'>");
 document.writeln("        	<li><i class=\'iconfont icon-VIP\'></i><strong>会员等级：</strong>vip用户</li>");
-document.writeln("        	<li id=\'myOrder\'><i class=\'iconfont icon-dingdan1\'></i><strong>我的订单：</strong>（<a href=\'#\'>3</a>）个</li>");
-document.writeln("        	<li id=\'myCollect\'><i class=\'iconfont icon-guanzhu1\'></i><strong>我的收藏：</strong>（<a href=\'#\'>52</a>）个</li>");
-document.writeln("        	<li id=\'information\'><i class=\'iconfont icon-tongzhi\'></i><strong>消息通知：</strong>（<a href=\'#\'>7</a>）条</li>");
-document.writeln("        	<li id=\'myEntrust\'><i class=\'iconfont icon-weituoweixuanzhong\'></i><strong>我的委托：</strong>（<a href=\'#\'>2</a>）个</li>");
+document.writeln("        	<li id=\'myOrder\'><i class=\'iconfont icon-dingdan1\'></i><strong>我的订单：</strong>（<a href=\'"+domain+"/pages/fore/users/order.html\' id=\'orderNum\'>3</a>）个</li>");
+document.writeln("        	<li id=\'myCollect\'><i class=\'iconfont icon-guanzhu1\'></i><strong>我的收藏：</strong>（<a href=\'"+domain+"/pages/fore/user/collection.html\' id=\'collectNum\'>52</a>）个</li>");
+document.writeln("        	<li id=\'information\'><i class=\'iconfont icon-tongzhi\'></i><strong>消息通知：</strong>（<a href=\'"+domain+"/pages/fore/user/information.html\' id=\'inforNum\'>7</a>）条</li>");
+document.writeln("        	<li id=\'myEntrust\'><i class=\'iconfont icon-weituoweixuanzhong\'></i><strong>我的委托：</strong>（<a href=\'"+domain+"/pages/fore/user/entrust.html\' id=\'entrustNum\'>2</a>）个</li>");
 document.writeln("        </ul>");
 document.writeln("    </div>");
 document.writeln("</div>");
@@ -95,3 +95,31 @@ function upload() {
         })
     }
 }
+
+$.ajax({
+    type : 'get',
+    url : '/zlztCareinfos',
+    async : false,
+    data : {
+      "userId" : user.id
+    },
+    success : function(result) {
+        $("#collectNum").html(result.data.length);
+    }
+});
+
+$.ajax({
+    type : 'get',
+    url : '/entrusts',
+    async : false,
+    data : {
+        "userId" : user.id
+    },
+    success : function(result) {
+        $("#entrustNum").html(result.data.length);
+    }
+})
+/*<li><i class="iconfont icon-dingdan1"></i><strong>我的订单：</strong>（<a href="#">3</a>）个</li>
+        	<li><i class="iconfont icon-guanzhu1"></i><strong>我的收藏：</strong>（<a href="#">52</a>）个</li>
+        	<li><i class="iconfont icon-tongzhi"></i><strong>消息通知：</strong>（<a href="#">7</a>）条</li>
+        	<li><i class="iconfont icon-weituoweixuanzhong"></i><strong>我的委托：</strong>（<a href="#">2</a>）个</li>*/

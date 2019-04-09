@@ -134,7 +134,7 @@
                     	<h2 class="siftTit">最新报告</h2>
                         <div class="fenleiH2Btn visible-xs visible-sm visible-md"><i class="fa fa-folder"></i>展开</div>
                     </div>
-                    <ul class="fenleiList recommendList list-unstyled">
+                    <ul class="fenleiList recommendList list-unstyled" id="newReport">
                         <li class="fenleiLi">
                         	<a href="#">
                             	<i class="recommendLine"></i>
@@ -187,7 +187,7 @@
                     	<h2 class="siftTit">重点推荐</h2>
                         <div class="fenleiH2Btn visible-xs visible-sm visible-md"><i class="fa fa-folder"></i>展开</div>
                     </div>
-                    <ul class="fenleiList recommendList list-unstyled">
+                    <ul class="fenleiList recommendList list-unstyled" id="importantInfor">
                         <li class="fenleiLi">
                         	<a href="#">
                             	<i class="recommendLine"></i>
@@ -918,10 +918,7 @@
 
     function searchByInput() {
         $("#search").val($("#searchByInput").val());
-        $('#reportTab').dataTable().fnClearTable();
         init();
-        $('#reportTab').dataTable().fnAddData(dataSet);
-        $('#reportTab').dataTable().fnDraw(false);
     }
 
     function init() {
@@ -1057,6 +1054,59 @@
 			{ className: "zyTabCon5", "targets": [ 4 ] },
 		  ]*/
 	});
+
+    $.ajax({
+        type: 'get',
+        url: '/ztReports',
+        data: {"orderBy": "order by createTime DESC"},
+        async: false,
+        success: function (result) {
+            var data = result.data;
+            $("#newReport").html('');
+            console.log(data);
+            for (var i = 0; i < data.length; i++) {
+                if (i > 4 ){
+                    break;
+                }
+                $("#newReport").append('<li class="fenleiLi">\n' +
+                    '                            <a href="'+domain+'/pages/fore/ztReport/ztReportDetail.html?classifyid='+data[i].id+'">\n' +
+                    '                                <i class="recommendLine"></i>\n' +
+                    '                                <h3 class="recommendTit ellipsis">'+data[i].name+'</h3>\n' +
+                    '                                <div class="recommendBrief">\n' +
+                    '                                    <p>'+( data[i].descript || '' )+'…</p>\n' +
+                    '                                </div>\n' +
+                    '                            </a>\n' +
+                    '                        </li>');
+            }
+
+        }
+    });
+    $.ajax({
+        type: 'get',
+        url: '/ztReports',
+        data: {"orderBy": "order by pageView DESC"},
+        async: false,
+        success: function (result) {
+            var data = result.data;
+            $("#importantInfor").html('');
+            console.log(data);
+            for (var i = 0; i < data.length; i++) {
+                if (i > 4 ){
+                    break;
+                }
+                $("#importantInfor").append('<li class="fenleiLi">\n' +
+                    '                            <a href="'+domain+'/pages/fore/ztReport/ztReportDetail.html?classifyid='+data[i].id+'">\n' +
+                    '                                <i class="recommendLine"></i>\n' +
+                    '                                <h3 class="recommendTit ellipsis">'+data[i].name+'</h3>\n' +
+                    '                                <div class="recommendBrief">\n' +
+                    '                                    <p>'+( data[i].descript || '' )+'…</p>\n' +
+                    '                                </div>\n' +
+                    '                            </a>\n' +
+                    '                        </li>');
+            }
+
+        }
+    });
 
     init();
 </script>

@@ -9,33 +9,33 @@
 	<form class="form-horizontal" onsubmit="return false" id="form">
 		<fieldset>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>dataId</label>
+				<label class='col-md-2 control-label'>数据表id</label>
 				<div class='col-md-10'>
 					<input class='form-control' placeholder='dataId' type='text' name='dataId' id='dataId' data-bv-notempty='true' data-bv-notempty-message='dataId 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>fId</label>
+				<label class='col-md-2 control-label'>一级标题</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='fId' type='text' name='fId' id='fId' data-bv-notempty='true' data-bv-notempty-message='fId 不能为空'>
+					<select class='form-control' onchange="selectSid()" placeholder='fId' type='text' name='fId' id='fId' data-bv-notempty='true' data-bv-notempty-message='fId 不能为空'></select>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>sId</label>
+				<label class='col-md-2 control-label'>二级标题</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='sId' type='text' name='sId' id='sId' data-bv-notempty='true' data-bv-notempty-message='sId 不能为空'>
+					<select class='form-control' placeholder='sId' type='text' name='sId' id='sId' data-bv-notempty='true' data-bv-notempty-message='sId 不能为空'></select>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>tId</label>
+				<label class='col-md-2 control-label'>一级分类</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='tId' type='text' name='tId' id='tId' data-bv-notempty='true' data-bv-notempty-message='tId 不能为空'>
+					<input class='form-control' type='text' name='tIdName' id='tIdName' data-bv-notempty='true' data-bv-notempty-message='tIdName 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>cId</label>
+				<label class='col-md-2 control-label'>二级分类</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='cId' type='text' name='cId' id='cId' data-bv-notempty='true' data-bv-notempty-message='cId 不能为空'>
+					<input class='form-control' type='text' name='cIdName' id='cIdName' data-bv-notempty='true' data-bv-notempty-message='cIdName 不能为空'>
 				</div>
 			</div>
 
@@ -63,6 +63,42 @@
 		layui.use(['layer','laydate'], function(){
 		    var layer = layui.layer;
 		});
+        function selectFid(){
+            $.ajax({
+                type : 'get',
+                url : '/zlztClassifyinfos/getClassify',
+                async : false,
+                success : function (data) {
+                    if (data.length > 0) {
+                        $("#fId").append("<option value =''> </option>");
+                        for (var i = 0; i < data.length; i++) {
+                            $("#fId").append("<option value ='" + data[i].id + "'>" + data[i].name + "</option>");
+                        }
+                    }
+                }
+            });
+        }
+        selectFid();
+        function selectSid() {
+            var fId = $("#fId").val();
+            $("#sId").html('');
+            if (fId != '' && fId != null) {
+                $.ajax({
+                    type : 'get',
+                    url : '/zlztClassifyinfos/getClassify/'+fId,
+                    async : false,
+                    success : function(data) {
+                        var select = $("#sId");
+                        for(var i=0; i<data.length; i++){
+                            var d = data[i];
+                            var id = d['id'];
+                            var name = d['name'];
+                            select.append("<option value='"+ id +"'>" +name+"</option>");
+                        }
+                    }
+                });
+            }
+        }
 		
 		function add() {
 			$('#form').bootstrapValidator();
@@ -73,6 +109,8 @@
 		    }
 		    
 		    var formdata = $("#form").serializeObject();
+            formdata.fId = $("#fId").val();
+            formdata.sId = $("#sId").val();
 
 			$.ajax({
 				type : 'post',

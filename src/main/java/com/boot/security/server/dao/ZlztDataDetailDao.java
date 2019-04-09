@@ -3,6 +3,7 @@ package com.boot.security.server.dao;
 import java.util.List;
 import java.util.Map;
 
+import com.boot.security.server.model.ZlztDatainfo;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -15,11 +16,22 @@ import com.boot.security.server.model.ZlztDataDetail;
 @Mapper
 public interface ZlztDataDetailDao {
 
+    @Select("select t.*,a.name as fIdName,b.name as sIdName,c.name as tIdName,d.name as cIdName,m.* from zlzt_data_detail t\n" +
+            "\t\tinner join zlzt_classifyinfo a on t.fId = a.id\n" +
+            "\t\tinner join zlzt_classifyinfo b on t.sId = b.id\n" +
+            "\t\tinner join zlzt_classifyinfo c on t.tId = c.id\n" +
+            "\t\tinner join zlzt_classifyinfo d on t.cId = d.id" +
+            "    inner join zlzt_datainfo m on t.dataId = m.id where t.id = #{id}")
+    ZlztDataDetail getAllData(Long id);
+
     @Select("select * from zlzt_data_detail t where t.id = #{id}")
     ZlztDataDetail getById(Long id);
 
     @Delete("delete from zlzt_data_detail where id = #{id}")
     int delete(Long id);
+
+    @Delete("delete from zlzt_data_detail where dataId = #{id}")
+    int deleteByDataId(Long id);
 
     int update(ZlztDataDetail zlztDataDetail);
     
@@ -37,4 +49,5 @@ public interface ZlztDataDetailDao {
     @Select("select ifnull(max(id),-1) from zlzt_data_detail where dataId = #{dataId}")
     int selectIdByDataId(ZlztDataDetail zlztDataDetail);
 
+    void danjiUpdate(ZlztDatainfo zlztDatainfo);
 }

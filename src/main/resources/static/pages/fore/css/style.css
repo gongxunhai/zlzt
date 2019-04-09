@@ -68,6 +68,10 @@ nav.navbar.bootsnav li.dropdown ul.navUserCon li:last-child{ border-radius:0 0 5
 nav.navbar.bootsnav li.dropdown ul.navUserCon li.exit a{ color:#333333;}
 nav.navbar.bootsnav li.dropdown ul.navUserCon li.exit i{ font-size:20px; vertical-align:bottom;}
 
+.navBox{ position:absolute;}
+.navBox.active{ position:fixed; top:0;}
+.navSpace{ height:100px;}
+
 .searchBg{ position:fixed; left:0; right:0; bottom:0; top:0; background:url(../images/searchBg.jpg) center center no-repeat; background-size:cover; z-index:10; display:none;}
 .search{ position:relative; padding-top:105px;}
 .close{ position:absolute; right:0; top:70px; width:26px; height:26px; background:url(../images/close.png) center center no-repeat; opacity:1;}
@@ -90,7 +94,7 @@ nav.navbar.bootsnav li.dropdown ul.navUserCon li.exit i{ font-size:20px; vertica
 .searchList li{ line-height:30px; padding:5px 15px; font-size:16px; color:#0670c4; cursor:pointer; margin:1px 0; transition:all 0.2s linear;}
 .searchList li.active{ background:#e9af36; color:#FFFFFF;}
 
-.banner{ height:100%; position:relative; background:#FFFFFF; z-index:1;}
+.banner{ height:100%; position:relative; background:#FFFFFF; z-index:3;}
 .banner .swiper-slide{ position:relative; overflow:hidden; background:#FFFFFF;}
 .banImg{ height:100%;}
 .banner .swiper-pagination{ bottom:8%;}
@@ -140,7 +144,7 @@ nav.navbar.bootsnav li.dropdown ul.navUserCon li.exit i{ font-size:20px; vertica
 .ban01CirArr1{ background-image:url(../images/ban01CirArr1.png); animation:opacity 2s linear 0s infinite;}
 .ban01CirArr2{ background-image:url(../images/ban01CirArr2.png); animation:opacity 1.5s linear 0.5s infinite;}
 
-.noticeBg{ position:relative; margin-top:-53px; width:100%; z-index:1;}
+.noticeBg{ position:relative; margin-top:-53px; width:100%; z-index:3;}
 .notice{ border-top:1px solid rgba(255,255,255,0.25); position:relative; line-height:52px; padding-right:80px;}
 .noticeTit{ float:left; color:#FFFFFF; font-weight:bold; margin-right:25px;}
 .noticeList{ overflow:hidden; height:52px;}
@@ -288,7 +292,8 @@ background: linear-gradient(to right,rgba(0,0,0,0.3),rgba(0,0,0,0));
 .box6Page .swiper-pagination-bullet{ opacity:1; width:6px; height:6px; vertical-align:middle; background:#a8a8aa; margin:0 7px;}
 .box6Page .swiper-pagination-bullet-active{ width:16px; height:16px; border:4px solid #0670c4; background:none;}
 
-.boxNav{ position:fixed; left:0; top:50%; transform:translateY(-50%); z-index:2;}
+.boxNav{ position:fixed; left:0; top:50%; transform:translateY(-50%); z-index:2; opacity:0; visibility:hidden;}
+.boxNav.active{ opacity:1; visibility:visible;}
 .boxNav li{ line-height:32px; color:#FFFFFF; padding:0 14px; margin-bottom:5px; cursor:pointer; transform:translateX(-90%); transition:all 0.4s linear;}
 .boxNav li span{ font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif; font-weight:bold; margin-right:5px;}
 .boxNavLi1{ background:#5b8eb8;}
@@ -336,10 +341,10 @@ background: linear-gradient(to right,rgba(0,0,0,0.3),rgba(0,0,0,0));
 .ftBotIco li.active a{ color:#FFFFFF;}
 .ftBotIco li.active .ftBotWx{ opacity:1; visibility:visible; transform:translateY(0);}
 
-.banInner{ height:560px;}
+.banInner{ height:560px; height:420px;}
 .banInner .imgFull{ height:100%;}
 
-.bannerN{ position:relative;}
+.bannerN{ position:relative; z-index:3;}
 .bannerN .swiper-container,.bannerN .swiper-slide,.bannerN .imgFull{ height:100%;}
 .bannerN .swiper-pagination{ z-index:1; position:absolute; left:0; width:100%; bottom:3%; text-align:center;}
 .bannerN .swiper-pagination-bullet{ margin:0 5px; background:#FFFFFF; opacity:1; width:12px; height:12px;}
@@ -1150,6 +1155,7 @@ background-image: linear-gradient(to bottom,rgba(234,236,241,0) 0%, rgba(234,236
 .banUserCon{ position:absolute; left:0; bottom:0; width:100%; padding:15px; z-index:1; color:#FFFFFF; text-align:center;}
 .userImgBox{ width:160px; height:160px; margin:10px auto 0.2rem; background:#FFFFFF; padding:0.08rem; border-radius:50%;}
 .userImg{ position:relative; overflow:hidden;}
+.userImg img{ width:100%;}
 .userImgHov{ position:absolute; left:0; top:0; width:100%; height:100%; background:rgba(6,112,196,0.75); border-radius:50%; cursor:pointer; opacity:0; visibility:hidden; transition:all 0.3s linear;}
 .userImgHovCon{ display:block; width:100%; padding:15px; font-size:16px; line-height:150%;}
 .userImgHovCon i{ font-size:40px; line-height:110%;}
@@ -1367,9 +1373,10 @@ background-image: linear-gradient(to bottom,rgba(234,236,241,0) 0%, rgba(234,236
 .updateBtn{ right:0.3rem;}
 .updateIco{ float:left; max-width:62px; padding-right:0.2rem;}
 .updateIco i{ color:#0670c4; font-size:50px; line-height:50px;}
+.updateIco i.icon-shenfenzheng{ font-size:44px;}
 .updateCon{ color:#999999; line-height:26px; overflow:hidden;}
 .updateCon h4{ font-size:18px; color:#333333; line-height:26px; word-break:keep-all;}
-#myPwd .LaySearch,#myMob .LaySearch{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); margin:0;}
+#myPwd .LaySearch,#myMob .LaySearch,#myEmail .LaySearch{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); margin:0;}
 #myCard .idCardImg{ margin-bottom:0; margin-top:10px;}
 .LayBroker .LaySearchBtn3 a{ display:inline-block; width:40%; max-width:250px; margin:0 10px;}
 
@@ -1392,6 +1399,8 @@ background-image: linear-gradient(to bottom,rgba(234,236,241,0) 0%, rgba(234,236
 .onLine.active{ transform:translateX(100%);}
 .onBtn.active{ transform:rotate(45deg);}
 
+.updateMob_2,.updateMob_3{ display:none;}
+.updateEmail_2,.updateEmail_3{ display:none;}
 
 @media (min-width:1200px){
 	.modal-open nav.navbar.bootsnav{ padding-right:17px;}
@@ -1532,6 +1541,7 @@ background-image: linear-gradient(to bottom,rgba(234,236,241,0) 0%, rgba(234,236
 	.container{ width:1230px;}
 }
 @media (max-width:1600px){
+	.navSpace{ height:80px;}
 	.wrap{ padding:0 40px;}
 	nav.navbar.bootsnav .wrap{ padding:0 15px;}
 	.logo{ height:80px; padding:5px 0; max-width:250px;}
@@ -1658,10 +1668,11 @@ background-image: linear-gradient(to bottom,rgba(234,236,241,0) 0%, rgba(234,236
 	
 	.loginBox{ max-width:500px; padding:0.2rem 50px 0.3rem;}
 	.registerBox{ max-width:1000px;}
-	
+	.banUser{ height:380px;}
 	.orderTop{ margin:0.2rem -5px;}
 }
 @media (max-width:1400px){
+	.navSpace{ height:74px;}
 	.logo{ height:74px; max-width:220px;}
 	nav.navbar.bootsnav ul.nav{ left:1%;}
 	nav.navbar.bootsnav ul.nav > li > a{ padding:19px 0;}
@@ -1777,7 +1788,8 @@ background-image: linear-gradient(to bottom,rgba(234,236,241,0) 0%, rgba(234,236
 }
 @media (max-width:1200px){	
 	.wrap{ padding:0 30px;}
-	nav.navbar.bootsnav{ position:absolute; /*animation:none !important;*/}
+	.navSpace{ display:none;}
+	nav.navbar.bootsnav{ position:absolute; position:static; /*animation:none !important;*/}
 	nav.navbar.bootsnav .container-fluid{ padding:0; width:100%;}
 	nav.navbar.bootsnav .navbar-brand{ float:left !important;}
 	.logo{ padding:10px 0; height:70px; vertical-align:middle; display:flex !important; display:-ms-flexbox !important;}
@@ -2458,6 +2470,7 @@ background-image: linear-gradient(to bottom,rgba(234,236,241,0) 0%, rgba(234,236
 	.goPay{ height:38px; line-height:38px; font-size:16px;}
 	
 	.updateIco i{ font-size:30px; line-height:40px;}
+	.updateIco i.icon-shenfenzheng{ font-size:28px;}
 	.updateCon h4{ font-size:16px;}
 }
 @media (max-width:360px){

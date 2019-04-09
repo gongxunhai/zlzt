@@ -13,11 +13,9 @@
 	<link href="css/animate.css" rel="stylesheet">
 	<link href="css/bootsnav.css" rel="stylesheet">
     <link href="css/swiper.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
     <link href="treetable/css/jquery.treetable.css" rel="stylesheet" type="text/css" >
     <link href="css/style.css" rel="stylesheet">  
-    <!-- <link rel="stylesheet" href="./css/jquery.dataTable.css"> -->
-
-    <!-- <link rel="stylesheet" href="./css/mydatatable.css">   -->
     <script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/bootsnav.js"></script>
@@ -25,330 +23,424 @@
 	<script src="treetable/js/jquery.treetable.js"></script>
     <script src="js/rem.js"></script>
     <script src="js/public.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script type="text/javascript" src="../../layui/layui.js"></script>
 	<!--[if lt IE 9]>
 	  <script src="js/html5shiv.min.js"></script>
 	  <script src="js/respond.min.js"></script>
     <![endif]-->
-    
-    <!-- <link rel="stylesheet" href="./css/mydatatable.css"> -->
-    
+
     <style>
-            .ding,
-            .ding div,
-            .tabs {
-                display: flex;
-            }
-            .ding {
-                width: 100%;
-                height: 330px;
-                flex-direction: column;
-                background-color: #087EDB;
-            }
-    
-            .title {
-                width: 100%;
-                justify-content: center;
-                margin-top: 78px;
-                margin-bottom: 98px;
-            }
-    
-            .title span {
-                font-size: 36px;
-                font-weight: 400;
-                color: #ffffff;
-            }
-    
-            .title img {
-                width: 60px;
-                height: 56px;
-                margin-left: 25px;
-            }
-    
-            .cat {
-                width: 100%;
-                justify-content: center;
-            }
-    
-            .cat .cat-section {
-                margin-right: 46px;
-                align-items: center;
-            }
-            .cat .cat-section img {
-                width: 70px;
-                height: 70px;
-            } 
-    
-            .cat .cat-section span.icons {
-                font-size: 50px;
-                color: #ffffff;
-                margin-right: 15px;
-            }
-    
-            .cat .cat-section span.text {
-                font-size: 24px;
-                font-weight: 400;
-                color: #FEFEFE;
-            }
-    
-            .tabs {
-                width: 100%;
-                justify-content: center;
-                background-color: #ffffff;
-            }
-    
-            .tabs .tab {
-                margin-right: 70px;
-                padding: 30px 0;
-                font-size: 24px;
-                font-weight: 400;
-                color: #999999;
-            }
-    
-            .tabs .active-tab {
-                color: #1875F0;
-                border-bottom: #087EDB solid 1px;
-            }
-    
-            
-            .search-section,
-            .search-section div{ 
-                display: flex;
-            }
-             .search-section {
-                width: 100%;
-                /* height: 72px; */
-                box-sizing: border-box;
-                margin: 0 auto;
-                align-items: center;
-                justify-content: space-around;
-                background-color: #CFD1D8;
-                border-radius: 2px;
-                padding: 0 40px;
-                color: #ffffff;
-            }
-             /* .search-section .search-result {} */
-             .search-section .search-result span {
-                color: #E99918;
-            }
-             .search-section .search-box {
-                flex: 1;
-                height: 50px;
-                align-items: center;
-                margin: 20px 40px;
-                background-color: #ffffff;
-                border-radius: 4px;
-            }
-             .search-section .search-box span.iconfont {
-                font-size: 30px;
-                margin: 0 10px;
-                color: #929292;
-            }
-             .search-section .search-box input {
-                /* width: 60%; */
-                display: flex;
-                flex: 1;
-                height: 30px;
-                border: none;
-                outline-style: none;
-                color: #333;
-            }
-             .search-section .search-box span.btnS {
-                padding: 0 20px;
-                border-left: #DDDDDD 2px solid;
-                color: #087EDB;
-                cursor: pointer;
-            }
-             /* .search-section .item-wrap {} */
-             .search-section .time {
-                padding: 2px 6px;
-                margin: 0 10px;
-                border-radius: 20px;
-                background-color: #E5E5E5;
-                color: #ffffff;
-                cursor: pointer;
-            }
-             .search-section .time span {
-                color: #ffffff;
-            }
-             .search-section .time span.iconfont {
-                font-size: 20px;
-            }
+        .ding,
+        .ding div,
+        .tabs {
+            display: flex;
+        }
 
-            .fenleiA {
-                display: flex;
-                align-items: center;
-                padding: 10px 0;
-            }
-            .fenleiA:hover {
-                background-color: #087EDB;
-                color: #ffffff;
-            }
-            .fenleiA:hover h2 {
-                color: #ffffff;
-            }
+        .ding {
+            width: 100%;
+            height: 330px;
+            flex-direction: column;
+            background-color: #087EDB;
+        }
 
-            .fenleiA .icon-show,
-            .fenleiA .icon {
-                width: 20px;
-                height: 20px;
-                margin: 10px;
-                cursor: pointer;
-                background-size: cover;
-                /* background:url(../images/box3Bg.jpg)  */
-            }
-            .fenleiA .icon {
-                background-image: url(./imgs/arrow-down.png);
-            }
-            .fenleiA .icon-show {
-                background-image: url(./imgs/arrow_down.png);
-            }
+        .title {
+            width: 100%;
+            justify-content: center;
+            margin-top: 78px;
+            margin-bottom: 98px;
+        }
 
-            .nav {
-                margin-bottom: 20px;
-            }
+        .title span {
+            font-size: 36px;
+            font-weight: 400;
+            color: #ffffff;
+        }
 
-            .level {
-                /* width: 240px; */
-                background-color: #EAECF1;
-            }
+        .title img {
+            width: 60px;
+            height: 56px;
+            margin-left: 25px;
+        }
 
-            .level-title,
-            .level-content {
-                cursor: pointer;
-            }
+        .cat {
+            width: 100%;
+            justify-content: center;
+        }
 
-            .level-a {
-                /* width: 200px; */
-                width: 100%;
-                height: 60px;
-                line-height: 60px;
-                /* text-align: center; */
-                color: #ffffff;
-                background-color: #CFD1D8;
-            }
-            .level-a img,
-            .level-b img {
-                width: 20px;
-                height: 20px;
-                margin: 0 20px;
-            }
-            .level-a:hover {
-                background-color: #0670C4;
-            }
-            .level-a-active {
-                background-color: #0670C4;
-            }
+        .cat .cat-section {
+            margin-right: 46px;
+            align-items: center;
+        }
+        .cat .cat-section img {
+            width: 70px;
+            height: 70px;
+        }
 
-            .level-b,
-            .level-c {
-                margin: 0 20px;
-            }
+        .cat .cat-section span.icons {
+            font-size: 50px;
+            color: #ffffff;
+            margin-right: 15px;
+        }
 
-            .level-b {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
+        .cat .cat-section span.text {
+            font-size: 24px;
+            font-weight: 400;
+            color: #FEFEFE;
+        }
 
-                color: #333333;
-                line-height: 40px;
-                border-bottom: dashed #cccccc 1px;
-            }
+        .tabs {
+            width: 100%;
+            justify-content: center;
+            background-color: #ffffff;
+        }
 
-            .level-c {
-                color: #aaaaaa;
-                line-height: 40px;
-            }
+        .tabs .tab {
+            margin-right: 70px;
+            padding: 30px 0;
+            font-size: 24px;
+            font-weight: 400;
+            color: #999999;
+        }
 
-            .level-c:hover {
-                color: #0670C4;
-            }
+        .tabs .active-tab {
+            color: #1875F0;
+            border-bottom: #087EDB solid 1px;
+        }
 
-            .level-c-active {
-                color: #0670C4;
-            }
 
-            .level-all {
-                border: none;
-            }
+        .search-section,
+        .search-section div {
+            display: flex;
+        }
 
-            /* 表格 */
-            /* 分页居中 */
-            #tableA_paginate {
-                float: none;
-                display: flex;
-                justify-content: center;
-            }
-            .iconfont {
-                cursor: pointer;
-            }
-            .iconfont.icon-bianji {
-                color: #e7982d;
-                margin-right: 10px;
-            }
-            .iconfont.icon-shanchu {
-                color: #cd463d;
-            }
-            #tableA {
-                width: 100%;
-            }
+        .search-section {
+            width: 100%;
+            /* height: 72px; */
+            box-sizing: border-box;
+            margin: 0 auto;
+            align-items: center;
+            justify-content: space-around;
+            background-color: #CFD1D8;
+            border-radius: 2px;
+            padding: 0 40px;
+            color: #ffffff;
+        }
 
-            #tableA tbody tr label {
-                width: 40px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-            #tableA thead tr th {
-                /* min-width: 90px; */
-                text-align: left;
-            }
-            #tableA tbody a.title {
-                color: #333333;
-            }
-            #tableA tbody a.title:hover {
-                color: #0670C4;
-            }
-            .button-a {
-                width: 100px;
-                height: 40px;
-                line-height: 40px;
-                text-align: center;
-                background: #cd463d;
-                margin-right: 20px;
-                cursor: pointer;
-                color: #ffffff;
-            }
-            .tag-a,
-            .tag-b,
-            .tag-c {
-                display: inline-block;
-                width: 40px;
-                height: 24px;
-                line-height: 24px;
-                text-align: center;
-                color: #ffffff;
-                font-size: 12px;
-            }
-            .tag-a {
-                background-color: #94b5d1;
-            }
-            .tag-b {
-                background-color: #aad1d3;
-            }
-            .tag-c {
-                background-color: #c2ce88;
-            }
+        /* .search-section .search-result {} */
+        .search-section .search-result span {
+            color: #E99918;
+        }
 
-            a {
-                list-style: none;
-                text-decoration: none;
-                color: #999999;
-            }
-            .active-tab a {
-                color: #1875F0;
-            }
+        .search-section .search-box {
+            flex: 1;
+            height: 50px;
+            align-items: center;
+            margin: 20px 40px;
+            background-color: #ffffff;
+            border-radius: 4px;
+        }
 
-        </style>
+        .search-section .search-box span.iconfont {
+            font-size: 30px;
+            margin: 0 10px;
+            color: #929292;
+        }
+
+        .search-section .search-box input {
+            /* width: 60%; */
+            display: flex;
+            flex: 1;
+            height: 30px;
+            border: none;
+            outline-style: none;
+            color: #333;
+        }
+
+        .search-section .search-box span.btnS {
+            padding: 0 20px;
+            border-left: #DDDDDD 2px solid;
+            color: #087EDB;
+            cursor: pointer;
+        }
+
+        /* .search-section .item-wrap {} */
+        .search-section .time {
+            padding: 2px 6px;
+            margin: 0 10px;
+            border-radius: 20px;
+            background-color: #E5E5E5;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .search-section .time span {
+            color: #ffffff;
+        }
+
+        .search-section .time span.iconfont {
+            font-size: 20px;
+        }
+
+        .fenleiA {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .fenleiA:hover {
+            background-color: #087EDB;
+            color: #ffffff;
+        }
+
+        .fenleiA:hover h2 {
+            color: #ffffff;
+        }
+
+        .fenleiA .icon-show,
+        .fenleiA .icon {
+            width: 20px;
+            height: 20px;
+            margin: 10px;
+            cursor: pointer;
+            background-size: cover;
+            /* background:url(../images/box3Bg.jpg)  */
+        }
+
+        .fenleiA .icon {
+            background-image: url(./imgs/arrow-down.png);
+        }
+
+        .fenleiA .icon-show {
+            background-image: url(./imgs/arrow_down.png);
+        }
+
+        .nav {
+            margin-bottom: 20px;
+        }
+
+        .level {
+            /* width: 240px; */
+            background-color: #EAECF1;
+        }
+
+        .level-title,
+        .level-content {
+            cursor: pointer;
+        }
+
+        .level-a {
+            /* width: 200px; */
+            width: 100%;
+            height: 60px;
+            line-height: 60px;
+            /* text-align: center; */
+            color: #ffffff;
+            background-color: #CFD1D8;
+        }
+
+        .level-a img,
+        .level-b img {
+            width: 20px;
+            height: 20px;
+            margin: 0 20px;
+        }
+
+        .level-a:hover {
+            background-color: #0670C4;
+        }
+
+        .level-a-active {
+            background-color: #0670C4;
+        }
+
+        .level-b,
+        .level-c {
+            margin: 0 20px;
+        }
+
+        .level-b {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            color: #333333;
+            line-height: 40px;
+            border-bottom: dashed #cccccc 1px;
+        }
+
+        .level-c {
+            color: #aaaaaa;
+            line-height: 40px;
+        }
+
+        .level-c:hover {
+            color: #0670C4;
+        }
+
+        .level-c-active {
+            color: #0670C4;
+        }
+
+        .level-all {
+            border: none;
+        }
+
+        /* 表格 */
+        #tableA_paginate {
+            float: none;
+            display: flex;
+            justify-content: center;
+        }
+        .iconfont {
+            cursor: pointer;
+        }
+        .iconfont.icon-bianji {
+            color: #e7982d;
+            margin-right: 10px;
+        }
+        .iconfont.icon-shanchu {
+            color: #cd463d;
+        }
+
+        #tableA {
+            width: 100%;
+        }
+
+        /* #tableA tbody tr {
+            height: 60px;
+            line-height: 60px;
+        } */
+        #tableA tbody tr label {
+            width: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #tableA thead tr th {
+            /* min-width: 90px; */
+            text-align: left;
+        }
+        #tableA tbody a.title {
+            color: #333333;
+        }
+        #tableA tbody a.title:hover {
+            color: #0670C4;
+        }
+
+        .button-a {
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: #cd463d;
+            margin-right: 20px;
+            cursor: pointer;
+            color: #ffffff;
+        }
+
+        .tag-a,
+        .tag-b,
+        .tag-c {
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            color: #ffffff;
+            font-size: 12px;
+            margin-left: 8px;
+        }
+
+        .tag-a {
+            background-color: #94b5d1;
+        }
+
+        .tag-b {
+            background-color: #aad1d3;
+        }
+
+        .tag-c {
+            background-color: #c2ce88;
+        }
+
+        .tab a {
+            list-style: none;
+            text-decoration: none;
+            color: #999999;
+        }
+
+        .active-tab a {
+            color: #1875F0;
+        }
+        /*  */
+        .fenleiTitLink2 {
+            height: 40px;
+            line-height: 40px;
+            color: #ffffff;
+
+        }
+
+        .fenleiTitLink2 img {
+            width: 20px;
+            height: 20px;
+            margin: 10px;
+        }
+
+        .fenleiTitLink2 h2 {
+            display: inline-block;
+        }
+
+        .fenleiTop {
+            background: none;
+        }
+
+        .fenleiTit2 {
+            display: flex;
+            width: 100%;
+            height: 60px;
+            align-items: center;
+            background-color: #CFD1D8;
+        }
+
+        .fenleiTit2 img {
+            width: 20px;
+            height: 20px;
+            margin: 0 10px 0 20px;
+        }
+
+        .fenleiTit2 h2 {
+            display: inline-block;
+            /* line-height: 40px; */
+        }
+
+        .fenleiTit2:hover {
+            background-color: #0670C4;
+            cursor: pointer;
+        }
+
+        .fenleiTit2-active {
+            background-color: #0670C4;
+        }
+        .titleShow{
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-box input {
+            color: #333;
+        }
+        .search-section .item-wrap .active-sort {
+            background-color: #0670C4;
+            color: #ffffff;
+        }
+
+        .action-btns {
+            float: right;
+        }
+    </style>
 </head>
 <body>
 
@@ -361,17 +453,17 @@
                 <div class="cat-section">
                     <!-- <span class="iconfont icon-chengguo icons"></span> -->
                     <img src="./imgs/result_white.png" alt="">
-                    <span class="text">科技成果：1120项</span>
+                    <span class="text">科技成果：<b id='kjResult'>30</b>项</span>
                 </div>
                 <div class="cat-section">
                     <!-- <span class="iconfont icon-chengguo icons"></span> -->
                     <img src="./imgs/putong_white.png" alt="">
-                    <span class="text">普通专利：30项</span>
+                    <span class="text">普通专利：<b id='putongZl'>30</b>项</span>
                 </div>
                 <div class="cat-section">
                     <!-- <span class="iconfont icon-unie641 icons"></span> -->
                     <img src="./imgs/guofang_white.png" alt="">
-                    <span class="text">国防专利：23项</span>
+                    <span class="text">国防专利：<b id='guofangZl'>30</b>项</span>
                 </div>
             </div>
         </div>
@@ -387,1177 +479,1421 @@
                 <a href="./guofang.html">国防专利</a>
             </span>
         </div>
-        
-        <!-- <div class="tabs wow fadeInDown">
-            <span class="tab ">科技成果</span>
-            <span class="tab">普通专利</span>
-            <span class="tab active-tab">国防专利</span>
-        </div> -->
-            <!-- <div style="width: 100%;height:20px;background-color: #f7f8ff;"></div> -->
-    
-            <!-- <div class="mRig" style="width: 80%;margin: 0 auto;">
-                    <div class="rigTopBg">
-                        <div class="sxBox">
-                            <div class="sxTop wow fadeInDown">
-                                <div class="sxTopTit">
-                                    <i class="iconfont icon-shaixuan"></i>
-                                    <span>当前检索条件</span>
+        <script src="js/htmlJs/publicHeader.js"></script>
+        <div class="mainBg grayBg overHide">
+            <div class="wrap">
+                <div class="main">
+                    <div class="mLef">
+                        <div class="fenlei wow fadeInLeft" style="padding-bottom: 0; " id="fenlei">
+                            <div class="fenleiTop">
+                                <div class="fenleiTit2">
+                                    <img src="./imgs/arrow-down2.png" alt="">
+                                    <h2 class="fenleiTitCn">先进材料</h2>
                                 </div>
-                                <div class="sxTopCon"><span class="delSelBtn">清空筛选</span></div>                            
-                            </div>
-                            <div class="sxBot">
-                                <div class="sxBotItem wow fadeInUp">
-                                    <span class="sxBotTit">所属行业：</span>
-                                    <div class="sxBotCon">
-                                        <div class="sxFirst">
-                                            <div class="sxFirCon">
-                                                <a class="active" href="javascript:;" data-index="0">不限</a>
-                                                <a href="javascript:;" data-index="1">电子信息</a>
-                                                <a href="javascript:;" data-index="2">航空航天</a>
-                                                <a href="javascript:;" data-index="3">先进制造</a>
-                                                <a href="javascript:;" data-index="4">现代交通 </a>
-                                                <a href="javascript:;" data-index="5">农业环境</a>
-                                                <a href="javascript:;" data-index="6">保护与资源综合利用</a>
-                                                <a href="javascript:;" data-index="7">生物、医药合医疗器械</a>
-                                                <a href="javascript:;" data-index="8">新材料及其应用</a>
-                                                <a href="javascript:;" data-index="9">新能源与高效节能</a>
-                                                <a href="javascript:;" data-index="10">城市建设与社会发展</a>
-                                                <a href="javascript:;" data-index="11">其它</a>
-                                            </div>
-                                        </div>
-                                        <div class="sxSecond" data-con="1">
-                                            <a href="javascript:;">专用车制造</a>
-                                            <a href="javascript:;">能源装备</a>
-                                            <a href="javascript:;">汽车电子及零部件</a>
-                                            <a href="javascript:;">传感器</a>
-                                            <a href="javascript:;">工业互联网</a>
-                                            <a href="javascript:;">先进材料</a>
-                                            <a href="javascript:;">网络安全</a>
-                                            <a href="javascript:;">定位系统</a>
-                                            <a href="javascript:;">识别技术</a>
-                                        </div>
-                                        <div class="sxSecond" data-con="2">
-                                            <a href="javascript:;">识别技术2</a>
-                                            <a href="javascript:;">专用车制造2</a>
-                                            <a href="javascript:;">能源装备2</a>
-                                            <a href="javascript:;">汽车电子及零部件2</a>
-                                            <a href="javascript:;">传感器2</a>
-                                            <a href="javascript:;">工业互联网2</a>
-                                        </div>
-                                        <div class="sxSecond" data-con="3">
-                                            <a href="javascript:;">识别技术3</a>
-                                            <a href="javascript:;">专用车制造3</a>
-                                            <a href="javascript:;">能源装备3</a>
-                                            <a href="javascript:;">汽车电子及零部件3</a>
-                                        </div>
-                                        <div class="sxSecond" data-con="4">
-                                            <a href="javascript:;">能源装备4</a>
-                                            <a href="javascript:;">汽车电子及零部件4</a>
-                                            <a href="javascript:;">传感器4</a>
-                                            <a href="javascript:;">工业互联网4</a>
-                                        </div>
-                                    </div>
-                                    <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>
-                                </div>
-                                <div class="sxBotItem wow fadeInUp">
-                                    <span class="sxBotTit">技术来源：</span>
-                                    <div class="sxBotCon">
-                                        <div class="sxFirst">
-                                            <div class="sxFirCon">
-                                                <a class="active" href="javascript:;" data-index="0">不限</a>
-                                                <a href="javascript:;" data-index="1">国家（军方）投资</a>
-                                                <a href="javascript:;" data-index="2">外部引进</a>
-                                                <a href="javascript:;" data-index="3">自主研发</a>
-                                                <a href="javascript:;" data-index="4">其它 </a>
-                                            </div>
-                                        </div>
-                                        <div class="sxSecond" data-con="1">
-                                            <a href="javascript:;">识别技术</a>
-                                            <a href="javascript:;">专用车制造</a>
-                                            <a href="javascript:;">能源装备</a>
-                                            <a href="javascript:;">汽车电子及零部件</a>
-                                            <a href="javascript:;">传感器</a>
-                                            <a href="javascript:;">工业互联网</a>
-                                            <a href="javascript:;">先进材料</a>
-                                            <a href="javascript:;">网络安全</a>
-                                            <a href="javascript:;">定位系统</a>
-                                        </div>
-                                        <div class="sxSecond" data-con="2">
-                                            <a href="javascript:;">专用车制造2</a>
-                                            <a href="javascript:;">能源装备2</a>
-                                            <a href="javascript:;">汽车电子及零部件2</a>
-                                            <a href="javascript:;">传感器2</a>
-                                            <a href="javascript:;">工业互联网2</a>
-                                            <a href="javascript:;">先进材料2</a>
-                                            <a href="javascript:;">网络安全2</a>
-                                            <a href="javascript:;">定位系统2</a>
-                                            <a href="javascript:;">识别技术2</a>
-                                        </div>
-                                    </div>
-                                    <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>
-                                </div>
-                                <div class="sxBotItem wow fadeInUp">
-                                    <span class="sxBotTit">技术水平：</span>
-                                    <div class="sxBotCon">
-                                        <div class="sxFirst">
-                                            <div class="sxFirCon">
-                                                <a class="active" href="javascript:;" data-index="0">不限</a>
-                                                <a href="javascript:;" data-index="1">国际领先</a>
-                                                <a href="javascript:;" data-index="2">国际先进</a>
-                                                <a href="javascript:;" data-index="3">国内领先</a>
-                                                <a href="javascript:;" data-index="4">国内先进</a>
-                                                <a href="javascript:;" data-index="5">其它</a>
-                                            </div>
-                                        </div>                                    
-                                    </div>
-                                    <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>
-                                </div>
-                                <div class="sxBotItem wow fadeInUp">
-                                    <span class="sxBotTit">合作方式：</span>
-                                    <div class="sxBotCon">
-                                        <div class="sxFirst">
-                                            <div class="sxFirCon">
-                                                <a class="active" href="javascript:;" data-index="0">不限</a>
-                                                <a href="javascript:;" data-index="1">技术转让 </a>
-                                                <a href="javascript:;" data-index="2">许可使用</a>
-                                                <a href="javascript:;" data-index="3">合作开发</a>
-                                                <a href="javascript:;" data-index="4">作价入股</a>
-                                                <a href="javascript:;" data-index="5">技术服务</a>
-                                                <a href="javascript:;" data-index="6">其它</a>
-                                            </div>
-                                        </div>                                    
-                                    </div>
-                                    <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>
-                                </div>
-                                <div class="sxBotItem wow fadeInUp">
-                                    <span class="sxBotTit">技术成熟度：</span>
-                                    <div class="sxBotCon">
-                                        <div class="sxFirst">
-                                            <div class="sxFirCon">
-                                                <a class="active" href="javascript:;" data-index="0">不限</a>
-                                                <a href="javascript:;" data-index="1">样品、实验室阶段 </a>
-                                                <a href="javascript:;" data-index="2">试生产、应用开发阶段</a>
-                                                <a href="javascript:;" data-index="3">小批量生产、工程应用阶段</a>
-                                                <a href="javascript:;" data-index="4">批量生产、成熟应用阶段</a>
-                                            </div>
-                                        </div>                                    
-                                    </div>
-                                    <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>
-                                </div>
-                                <div class="sxBotItem wow fadeInUp">
-                                    <span class="sxBotTit">区域：</span>
-                                    <div class="sxBotCon">
-                                        <div class="sxFirst">
-                                            <div class="sxFirCon">
-                                                <a class="active" href="javascript:;" data-index="1">北京市</a>
-                                                <a href="javascript:;" data-index="2">天津市 </a>
-                                                <a href="javascript:;" data-index="3">河北省</a>
-                                                <a href="javascript:;" data-index="4">山西省</a>
-                                                <a href="javascript:;" data-index="5">辽宁省</a>
-                                                <a href="javascript:;" data-index="6">吉林省</a>
-                                                <a href="javascript:;" data-index="7">广东省</a>
-                                                <a href="javascript:;" data-index="8">海南省</a>
-                                                <a href="javascript:;" data-index="9">上海市</a>
-                                                <a href="javascript:;" data-index="10">江苏省</a>
-                                                <a href="javascript:;" data-index="11">浙江省</a>
-                                                <a href="javascript:;" data-index="12">安徽省</a>
-                                            </div>                                        
-                                        </div>                                    
-                                    </div>
-                                    <span class="sxBtn">展开<i class="fa fa-caret-down"></i></span>
+                                <div class="fenleiList">
+                                    <table class="leftMenu">
+                                        <tbody>
+                                        <tr data-tt-id="1" class="leftTr1">
+                                            <td class="leftLi1"><i><a href="#">气凝胶</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="1-1" data-tt-parent-id="1">
+                                            <td class="leftLi2"><i><a href="#">太阳能电池材料</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="1-2" data-tt-parent-id="1">
+                                            <td class="leftLi2"><i><a href="#">储氢材料</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="1-2-1" data-tt-parent-id="1-2">
+                                            <td class="leftLi3"><i><a href="#">- 合成纤维</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="1-2-2" data-tt-parent-id="1-2">
+                                            <td class="leftLi3"><i><a href="#">- 聚酯</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="1-2-3" data-tt-parent-id="1-2">
+                                            <td class="leftLi3"><i><a href="#">- 决策支持系统</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="1-3" data-tt-parent-id="1">
+                                            <td class="leftLi2"><i><a href="#">固体氧化物电池材料</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="2" class="leftTr1">
+                                            <td class="leftLi1"><i><a href="#">石墨烯</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="3" class="leftTr1">
+                                            <td class="leftLi1"><i><a href="#">磁性材料</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="4" class="leftTr1">
+                                            <td class="leftLi1"><i><a href="#">能源材料</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="4-1" data-tt-parent-id="4">
+                                            <td class="leftLi2"><i><a href="#">太阳能电池材料</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="4-2" data-tt-parent-id="4">
+                                            <td class="leftLi2"><i><a href="#">储氢材料</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="4-2-1" data-tt-parent-id="4-2">
+                                            <td class="leftLi3"><i><a href="#">- 合成纤维</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="4-2-2" data-tt-parent-id="4-2">
+                                            <td class="leftLi3"><i><a href="#">- 聚酯</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="4-2-3" data-tt-parent-id="4-2">
+                                            <td class="leftLi3"><i><a href="#">- 决策支持系统</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="4-3" data-tt-parent-id="4">
+                                            <td class="leftLi2"><i><a href="#">固体氧化物电池材料</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="5" class="leftTr1">
+                                            <td class="leftLi1"><i><a href="#">高分子材料</a></i></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
+                            <div class="fenleiTop">
+                                <div class="fenleiTit2">
+                                    <img src="./imgs/arrow-down2.png" alt="">
+                                    <h2 class="fenleiTitCn">先进材料</h2>
+                                </div>
+                                <div class="fenleiList">
+                                    <table class="leftMenu">
+                                        <tbody>
+                                        <tr data-tt-id="1" class="leftTr1">
+                                            <td class="leftLi1"><i><a href="#">气凝胶</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="1-1" data-tt-parent-id="1">
+                                            <td class="leftLi2"><i><a href="#">太阳能电池材料</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="1-2" data-tt-parent-id="1">
+                                            <td class="leftLi2"><i><a href="#">储氢材料</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="1-2-1" data-tt-parent-id="1-2">
+                                            <td class="leftLi3"><i><a href="#">- 合成纤维</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="1-2-2" data-tt-parent-id="1-2">
+                                            <td class="leftLi3"><i><a href="#">- 聚酯</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="1-2-3" data-tt-parent-id="1-2">
+                                            <td class="leftLi3"><i><a href="#">- 决策支持系统</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="1-3" data-tt-parent-id="1">
+                                            <td class="leftLi2"><i><a href="#">固体氧化物电池材料</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="2" class="leftTr1">
+                                            <td class="leftLi1"><i><a href="#">石墨烯</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="3" class="leftTr1">
+                                            <td class="leftLi1"><i><a href="#">磁性材料</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="4" class="leftTr1">
+                                            <td class="leftLi1"><i><a href="#">能源材料</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="4-1" data-tt-parent-id="4">
+                                            <td class="leftLi2"><i><a href="#">太阳能电池材料</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="4-2" data-tt-parent-id="4">
+                                            <td class="leftLi2"><i><a href="#">储氢材料</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="4-2-1" data-tt-parent-id="4-2">
+                                            <td class="leftLi3"><i><a href="#">- 合成纤维</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="4-2-2" data-tt-parent-id="4-2">
+                                            <td class="leftLi3"><i><a href="#">- 聚酯</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="4-2-3" data-tt-parent-id="4-2">
+                                            <td class="leftLi3"><i><a href="#">- 决策支持系统</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="4-3" data-tt-parent-id="4">
+                                            <td class="leftLi2"><i><a href="#">固体氧化物电池材料</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="5" class="leftTr1">
+                                            <td class="leftLi1"><i><a href="#">高分子材料</a></i></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="fenleiTop">
+                                <div class="fenleiTit2">
+                                    <img src="./imgs/arrow-down2.png" alt="">
+                                    <h2 class="fenleiTitCn">先进材料</h2>
+                                </div>
+                                <div class="fenleiList">
+                                    <table class="leftMenu">
+                                        <tbody>
+                                        <tr data-tt-id="1" class="leftTr1">
+                                            <td class="leftLi1"><i><a href="#">气凝胶</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="1-1" data-tt-parent-id="1">
+                                            <td class="leftLi2"><i><a href="#">太阳能电池材料</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="1-2" data-tt-parent-id="1">
+                                            <td class="leftLi2"><i><a href="#">储氢材料</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="1-2-1" data-tt-parent-id="1-2">
+                                            <td class="leftLi3"><i><a href="#">- 合成纤维</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="1-2-2" data-tt-parent-id="1-2">
+                                            <td class="leftLi3"><i><a href="#">- 聚酯</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="1-2-3" data-tt-parent-id="1-2">
+                                            <td class="leftLi3"><i><a href="#">- 决策支持系统</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="1-3" data-tt-parent-id="1">
+                                            <td class="leftLi2"><i><a href="#">固体氧化物电池材料</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="2" class="leftTr1">
+                                            <td class="leftLi1"><i><a href="#">石墨烯</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="3" class="leftTr1">
+                                            <td class="leftLi1"><i><a href="#">磁性材料</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="4" class="leftTr1">
+                                            <td class="leftLi1"><i><a href="#">能源材料</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="4-1" data-tt-parent-id="4">
+                                            <td class="leftLi2"><i><a href="#">太阳能电池材料</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="4-2" data-tt-parent-id="4">
+                                            <td class="leftLi2"><i><a href="#">储氢材料</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="4-2-1" data-tt-parent-id="4-2">
+                                            <td class="leftLi3"><i><a href="#">- 合成纤维</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="4-2-2" data-tt-parent-id="4-2">
+                                            <td class="leftLi3"><i><a href="#">- 聚酯</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="4-2-3" data-tt-parent-id="4-2">
+                                            <td class="leftLi3"><i><a href="#">- 决策支持系统</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="4-3" data-tt-parent-id="4">
+                                            <td class="leftLi2"><i><a href="#">固体氧化物电池材料</a></i></td>
+                                        </tr>
+                                        <tr data-tt-id="5" class="leftTr1">
+                                            <td class="leftLi1"><i><a href="#">高分子材料</a></i></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fenlei wow fadeInLeft">
+                            <div class="siftTop">
+                                <h2 class="siftTit">信息统计</h2>
+                                <div class="fenleiH2Btn visible-xs visible-sm visible-md"><i class="fa fa-folder"></i>展开
+                                </div>
+                            </div>
+                            <ul class="fenleiList list-unstyled" id="listinfoAll">
+                                <!--<li class="fenleiLi">
+                                    <h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">法律状态</a></h3>
+                                </li>
+                                <li class="fenleiLi">
+                                    <h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">国家</a></h3>
+                                </li>
+                                <li class="fenleiLi">
+                                    <h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">申请年</a></h3>
+                                </li>
+                                <li class="fenleiLi">
+                                    <h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">公开年</a></h3>
+                                </li>
+                                <li class="fenleiLi">
+                                    <h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">申请人</a></h3>
+                                    <div class="fenleiSub siftSub">
+                                        <ul class="siftList list-unstyled">
+                                            <li><i class="iconfont icon-xuanze checkIco"></i><a href="#">江南大学 (29)</a></li>
+                                            <li><i class="iconfont icon-xuanze checkIco"></i><a href="#">中原工学院 (27)</a></li>
+                                            <li><i class="iconfont icon-xuanze checkIco"></i><a href="#">东华大学 (24)</a></li>
+                                            <li><i class="iconfont icon-xuanze checkIco"></i><a href="#">江苏工程职业技术学院 (18)</a>
+                                            </li>
+                                            <li><i class="iconfont icon-xuanze checkIco"></i><a href="#">武汉纺织大学 (18)</a>
+                                            </li>
+                                            <li><i class="iconfont icon-xuanze checkIco"></i><a href="#">绍兴文理学院 (15)</a>
+                                            </li>
+                                            <li><i class="iconfont icon-xuanze checkIco"></i><a href="#">浙江理工大学 (14)</a>
+                                            </li>
+                                            <li><i class="iconfont icon-xuanze checkIco"></i><a href="#">南通蛇类治疗研究所 (11)</a>
+                                            </li>
+                                            <li><i class="iconfont icon-xuanze checkIco"></i><a href="#">西安工程大学 (7)</a></li>
+                                            <li><i class="iconfont icon-xuanze checkIco"></i><a href="#">青岛大学 (6)</a></li>
+                                            <li><i class="iconfont icon-xuanze checkIco"></i><a href="#">南通大学 (5)</a></li>
+                                            <li><i class="iconfont icon-xuanze checkIco"></i><a href="#">陕西科技大学 (4)</a></li>
+                                            <li><i class="iconfont icon-xuanze checkIco"></i><a href="#">中国人民解放军总后勤部 (4)</a>
+                                            </li>
+                                            <li><i class="iconfont icon-xuanze checkIco"></i><a href="#">盐城工业职业技术学院 (3)</a>
+                                            </li>
+                                            <li><i class="iconfont icon-xuanze checkIco"></i><a href="#">河南工程学院 (3)</a></li>
+                                            <li><i class="iconfont icon-xuanze checkIco"></i><a href="#">江苏工程职业技术学院 (18)</a>
+                                            </li>
+                                            <li><i class="iconfont icon-xuanze checkIco"></i><a href="#">武汉纺织大学 (18)</a>
+                                            </li>
+                                            <li><i class="iconfont icon-xuanze checkIco"></i><a href="#">绍兴文理学院 (15)</a>
+                                            </li>
+                                            <li><i class="iconfont icon-xuanze checkIco"></i><a href="#">浙江理工大学 (14)</a>
+                                            </li>
+                                            <li><i class="iconfont icon-xuanze checkIco"></i><a href="#">南通蛇类治疗研究所 (11)</a>
+                                            </li>
+                                        </ul>
+                                        <div class="siftBtn">
+                                            <a href="javascript:;" class="siftBtn1">筛选</a>
+                                            <a href="javascript:;" class="siftBtn2">隐藏 <i
+                                                    class="iconfont icon-iconfontgengduo"></i></a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="fenleiLi">
+                                    <h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">发明人</a></h3>
+                                </li>
+                                <li class="fenleiLi">
+                                    <h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">当前法律状态</a></h3>
+                                </li>
+                                <li class="fenleiLi">
+                                    <h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">专利类型</a></h3>
+                                </li>
+                                <li class="fenleiLi">
+                                    <h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">IPC分类</a></h3>
+                                </li>
+                                <li class="fenleiLi">
+                                    <h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">国民分类</a></h3>
+                                </li>-->
+                            </ul>
                         </div>
                     </div>
-                </div> -->
-    
-            <!-- <div style="width: 100%;height:20px;background-color: #f7f8ff;"></div> -->
-    
-
-<div class="mainBg grayBg overHide">
-    <div class="wrap">
-    	<div class="main">
-            <div class="mLef">
-                <div class="nav wow fadeInLeft">
-                        <div class="level">
-                            <div class="level-title level-a"> <img src="./imgs/arrow-down2.png" alt="" > 技术导航</div>
-                            <div class="level-content">
-                                <div>
-                                    <div>
-                                        <div class="level-title level-b level-all">全部专利</div>
-                                    </div>
-                                    <div>
-                                        <div class="level-title level-b">中科院 <img src="./imgs/plus.png" alt=""> </div>
-                                        <div class="level-content">
-                                            <div class="level-c" data-id="123" data-pid="876">中科院第1研究所</div>
-                                            <div class="level-c">中科院第2研究所</div>
-                                            <div class="level-c">中科院第3研究所</div>
-                                            <div class="level-c">中科院第4研究所</div>
-                                            <div class="level-c">中科院第5研究所</div>
-                                            <div class="level-c">中科院第6研究所</div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="level-title level-b">航天科技公司 <img src="./imgs/plus.png" alt=""> </div>
-                                        <div class="level-content">
-                                            <div class="level-c" data-id="123" data-pid="876">航天科工集团公司301所</div>
-                                            <div class="level-c">航天科工集团公司302所</div>
-                                            <div class="level-c">航天科工集团公司303所</div>
-                                            <div class="level-c">航天科工集团公司304所</div>
-                                            <div class="level-c">航天科工集团公司305所</div>
-                                            <div class="level-c">航天科工集团公司306所</div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="level-title level-b">电子科技集团</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="level">
-                            <div class="level-title level-a"> <img src="./imgs/arrow-down2.png" alt="" > 承研单位</div>
-                            <div class="level-content">
-                                <div>
-                                    <div>
-                                        <div class="level-title level-b level-all">全部专利</div>
-                                    </div>
-                                    <div>
-                                        <div class="level-title level-b">中科院 <img src="./imgs/plus.png" alt=""> </div>
-                                        <div class="level-content">
-                                            <div class="level-c" data-id="123" data-pid="876">中科院第1研究所</div>
-                                            <div class="level-c">中科院第2研究所</div>
-                                            <div class="level-c">中科院第3研究所</div>
-                                            <div class="level-c">中科院第4研究所</div>
-                                            <div class="level-c">中科院第5研究所</div>
-                                            <div class="level-c">中科院第6研究所</div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="level-title level-b">航天科技公司 <img src="./imgs/plus.png" alt=""> </div>
-                                        <div class="level-content">
-                                            <div class="level-c" data-id="123" data-pid="876">航天科工集团公司301所</div>
-                                            <div class="level-c">航天科工集团公司302所</div>
-                                            <div class="level-c">航天科工集团公司303所</div>
-                                            <div class="level-c">航天科工集团公司304所</div>
-                                            <div class="level-c">航天科工集团公司305所</div>
-                                            <div class="level-c">航天科工集团公司306所</div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="level-title level-b">电子科技集团</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="level">
-                            <div class="level-title level-a"> <img src="./imgs/arrow-down2.png" alt="" > 研究报告</div>
-                            <div class="level-content">
-                                <div>
-                                    <div>
-                                        <div class="level-title level-b level-all">全部专利</div>
-                                    </div>
-                                    <div>
-                                        <div class="level-title level-b">中科院 <img src="./imgs/plus.png" alt=""> </div>
-                                        <div class="level-content">
-                                            <div class="level-c" data-id="123" data-pid="876">中科院第1研究所</div>
-                                            <div class="level-c">中科院第2研究所</div>
-                                            <div class="level-c">中科院第3研究所</div>
-                                            <div class="level-c">中科院第4研究所</div>
-                                            <div class="level-c">中科院第5研究所</div>
-                                            <div class="level-c">中科院第6研究所</div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="level-title level-b">航天科技公司 <img src="./imgs/plus.png" alt=""> </div>
-                                        <div class="level-content">
-                                            <div class="level-c" data-id="123" data-pid="876">航天科工集团公司301所</div>
-                                            <div class="level-c">航天科工集团公司302所</div>
-                                            <div class="level-c">航天科工集团公司303所</div>
-                                            <div class="level-c">航天科工集团公司304所</div>
-                                            <div class="level-c">航天科工集团公司305所</div>
-                                            <div class="level-c">航天科工集团公司306所</div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="level-title level-b">电子科技集团</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <div class="fenlei wow fadeInLeft">
-                	<div class="siftTop">
-                    	<h2 class="siftTit">信息统计</h2>
-                        <div class="fenleiH2Btn visible-xs visible-sm visible-md"><i class="fa fa-folder"></i>展开</div>
-                    </div>
-                    <ul class="fenleiList list-unstyled">
-                        <li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">法律状态</a></h3></li>
-                        <li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">国家</a></h3></li>
-                        <li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">申请年</a></h3></li>
-                        <li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">公开年</a></h3></li>
-                        <li class="fenleiLi">
-                        	<h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">申请人</a></h3>
-                            <div class="fenleiSub siftSub">
-                            	<ul class="siftList list-unstyled">
-                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">江南大学 (29)</a></li>
-                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">中原工学院 (27)</a></li>
-                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">东华大学 (24)</a></li>
-                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">江苏工程职业技术学院 (18)</a></li>
-                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">武汉纺织大学 (18)</a></li>
-                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">绍兴文理学院 (15)</a></li>
-                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">浙江理工大学 (14)</a></li>
-                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">南通蛇类治疗研究所 (11)</a></li>
-                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">西安工程大学 (7)</a></li>
-                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">青岛大学 (6)</a></li>
-                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">南通大学 (5)</a></li>
-                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">陕西科技大学 (4)</a></li>
-                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">中国人民解放军总后勤部 (4)</a></li>
-                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">盐城工业职业技术学院 (3)</a></li>
-                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">河南工程学院 (3)</a></li>
-                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">江苏工程职业技术学院 (18)</a></li>
-                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">武汉纺织大学 (18)</a></li>
-                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">绍兴文理学院 (15)</a></li>
-                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">浙江理工大学 (14)</a></li>
-                                	<li><i class="iconfont icon-xuanze checkIco"></i><a href="#">南通蛇类治疗研究所 (11)</a></li>
-                                </ul>
-                            	<div class="siftBtn">
-                                    <a href="javascript:;" class="siftBtn1">筛选</a>
-                                    <a href="javascript:;" class="siftBtn2">隐藏 <i class="iconfont icon-iconfontgengduo"></i></a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">发明人</a></h3></li>
-                        <li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">当前法律状态</a></h3></li>
-                        <li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">专利类型</a></h3></li>
-                        <li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">IPC分类</a></h3></li>
-                        <li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">国民分类</a></h3></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="mRig">
-                <div class="rigTopBg">
-                        <div class="search-section wow fadeInDown">
+                    <div class="mRig">
+                        <div class="rigTopBg">
+                            <div class="search-section wow fadeInDown">
                                 <div class="search-result">
-                                    共搜索到 <span>6472</span> 个专利
+                                    共搜索到 <span id="zlnum">6472</span> 个专利
                                 </div>
                                 <div class="search-box">
                                     <span class="iconfont icon-search"></span>
-                                    <input type="text" name="" id="" placeholder="搜索关键字">
-                                    <span class="btnS">搜索</span>
+                                    <input type="text" name="" id="search" placeholder="搜索关键字">
+                                    <span class="btnS" onclick="searchByInput()">搜索</span>
                                 </div>
                                 <div class="item-wrap">
-                
                                     <div class="time">
-                                        <span>时间</span>
+                                        <span onclick="orderByData('时间')">时间</span>
                                         <span class="iconfont icon-arrow-down"></span>
                                     </div>
                                     <div class="time">
-                                        <span>人气</span>
+                                        <span onclick="orderByData('人气')">人气</span>
                                         <span class="iconfont icon-arrow-down"></span>
                                     </div>
                                     <div class="time">
-                                        <span>收藏</span>
+                                        <span onclick="orderByData('收藏')">收藏</span>
                                         <span class="iconfont icon-arrow-down"></span>
                                     </div>
                                 </div>
                             </div>
-                	
-                    <div class="zyTabTop wow fadeInUp">
-                    	<h3 class="zyTabTit">合成纤维</h3>
-                        <ul class="zyOrderBy list-unstyled list-inline" style="display: flex;justify-content: flex-end; ">
-                            <!-- <li><span>专利数量：<strong class="corOrg">1560</strong>个</span></li> -->
-                            <li>
-                                <a href="#tongji" class="tongji"><i class="iconfont icon-tongji"></i>统计</a>
-                            </li>
-                            <li class="zyOrderLi selBox">
-                            	<span class="selTit">排序<i class="iconfont icon-jiantou"></i></span>
-                                <ul class="zyOrderSub selList list-unstyled">
-                                	<li data-index="1">公开号</li>
-                                	<li data-index="2">申请号</li>
-                                	<li data-index="3">申请人</li>
-                                	<li data-index="4">IPC主分类</li>
-                                	<li data-index="5">国民经济分类</li>
-                                </ul>
-                                <input type="hidden">
-                            </li>
-                            <li>
-                            	<span onclick="daochu()"><i class="iconfont icon-daochu"></i>导出</span>
-                            </li>
-                            <li>
-                                <span><i class="iconfont icon-daoruiconxuanzhong" style="font-size: 28px; "></i>导入</span>
-                            </li>
-                            
-                        </ul>
-                        <div class="clear"></div>
-                    </div>
-                    <table class="table" id="tableA"></table>
 
+                            <div class="zyTabTop wow fadeInUp">
+                                <!-- <h3 class="zyTabTit">合成纤维</h3> -->
+                                <ul class="zyOrderBy list-unstyled list-inline"
+                                    style="display: flex;justify-content: flex-end; ">
+                                    <!-- <li><span>专利数量：<strong class="corOrg">1560</strong>个</span></li> -->
+                                    <li>
+                                        <a href="#tongji" class="tongji"><i class="iconfont icon-tongji"></i>统计</a>
+                                    </li>
+                                    <li class="zyOrderLi selBox">
+                                        <span class="selTit">排序<i class="iconfont icon-jiantou"></i></span>
+                                        <ul class="zyOrderSub selList list-unstyled" id="orderby">
+                                            <li data-index="1" value="order by t.openDay DESC">公开号</li>
+                                            <li data-index="2" value="order by t.applyId DESC">申请号</li>
+                                            <li data-index="3" value="order by t.applyMan DESC">申请人</li>
+                                            <li data-index="4"  value="order by t.ipcMC DESC">IPC主分类</li>
+                                            <li data-index="5" value="order by t.cpec DESC">国民经济分类</li>
+                                        </ul>
+                                        <input type="hidden">
+                                    </li>
+                                    <li>
+                                        <span onclick="daochu()"><i class="iconfont icon-daochu"></i>导出</span>
+                                    </li>
+                                    <li>
+                                    <span id="upexcel"><i class="iconfont icon-daoruiconxuanzhong"
+                                                          style="font-size: 28px; "></i>导入</span>
+                                    </li>
+                                    <li>
+                                    <span onclick="addData()" ><i class="iconfont icon-plus"
+                                                                  style="font-size: 30px;color: #0670C4; "></i>添加</span>
+                                    </li>
+                                </ul>
+                                <div class="clear"></div>
+                            </div>
+                            <table class="table" id="tableA">
+                                <thead>
+                                <tr>
+                                    <th><label>序号<span><input type="checkbox" id="checkAll"></span></label></th>
+                                    <th>标题</th>
+                                    <th>行业</th>
+                                    <th>公开日</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <ul class="rigChart list-unstyled list-inline row" id="tongji">
+                            <li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                                <div class="rigChartBg">
+                                    <h3 class="rigChartTit">专利申请趋势</h3>
+                                    <div class="rigCharCon">
+                                        <div id="chartPar1"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                                <div class="rigChartBg">
+                                    <h3 class="rigChartTit">专利公开趋势</h3>
+                                    <div class="rigCharCon">
+                                        <div id="chartPar2"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                                <div class="rigChartBg">
+                                    <h3 class="rigChartTit">全球地域分布图</h3>
+                                    <div class="rigCharCon">
+                                        <div id="chartPar3"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                                <div class="rigChartBg">
+                                    <h3 class="rigChartTit">法律状态统计</h3>
+                                    <div class="rigCharCon">
+                                        <div id="chartPar4"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                                <div class="rigChartBg">
+                                    <h3 class="rigChartTit">发明人统计</h3>
+                                    <div class="rigCharCon">
+                                        <div id="chartPar5"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                                <div class="rigChartBg">
+                                    <h3 class="rigChartTit">申请人统计</h3>
+                                    <div class="rigCharCon">
+                                        <div id="chartPar6"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                                <div class="rigChartBg">
+                                    <h3 class="rigChartTit">IPC分类统计</h3>
+                                    <div class="rigCharCon">
+                                        <div id="chartPar7"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                                <div class="rigChartBg">
+                                    <h3 class="rigChartTit">国民经济分类统计</h3>
+                                    <div class="rigCharCon">
+                                        <div id="chartPar8"></div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
                 </div>
-                <ul class="rigChart list-unstyled list-inline row" id="tongji">
-                	<li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                    	<div class="rigChartBg">
-                        	<h3 class="rigChartTit">专利申请趋势</h3>
-                            <div class="rigCharCon">
-                            	<div id="chartPar1"></div>
-                            </div>
+            </div>
+        </div>
+
+        <div id="myModal" class="modal fade">
+            <div class="LaySearch">
+                <span class="LaySearchClose" data-dismiss="modal"></span>
+                <h3 class="LaySearchTit">高级搜索</h3>
+                <ul class="LaySearchList list-unstyled row">
+                    <li class="col-xs-12 col-sm-6">
+                        <span class="LaySearchLab">申请号：</span>
+                        <div class="LaySearchRig">
+                            <input type="text" class="LaySearchInput">
                         </div>
                     </li>
-                	<li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                    	<div class="rigChartBg">
-                        	<h3 class="rigChartTit">专利公开趋势</h3>
-                            <div class="rigCharCon">
-                            	<div id="chartPar2"></div>
-                            </div>
+                    <li class="col-xs-12 col-sm-6">
+                        <span class="LaySearchLab">申请日：</span>
+                        <div class="LaySearchRig">
+                            <div class="LaySearchIco"><i class="iconfont icon-riqi"></i></div>
+                            <input type="text" class="LaySearchInput LaySearchDate" readonly>
                         </div>
                     </li>
-                	<li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                    	<div class="rigChartBg">
-                        	<h3 class="rigChartTit">全球地域分布图</h3>
-                            <div class="rigCharCon">
-                            	<div id="chartPar3"></div>
-                            </div>
+                    <li class="col-xs-12 col-sm-6">
+                        <span class="LaySearchLab">标题：</span>
+                        <div class="LaySearchRig">
+                            <input type="text" class="LaySearchInput">
                         </div>
                     </li>
-                	<li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                    	<div class="rigChartBg">
-                        	<h3 class="rigChartTit">法律状态统计</h3>
-                            <div class="rigCharCon">
-                            	<div id="chartPar4"></div>
-                            </div>
+                    <li class="col-xs-12 col-sm-6">
+                        <span class="LaySearchLab">公开日：</span>
+                        <div class="LaySearchRig">
+                            <div class="LaySearchIco"><i class="iconfont icon-riqi"></i></div>
+                            <input type="text" class="LaySearchInput LaySearchDate" readonly>
                         </div>
                     </li>
-                	<li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                    	<div class="rigChartBg">
-                        	<h3 class="rigChartTit">发明人统计</h3>
-                            <div class="rigCharCon">
-                            	<div id="chartPar5"></div>
-                            </div>
+                    <li class="col-xs-12 col-sm-6">
+                        <span class="LaySearchLab">摘要：</span>
+                        <div class="LaySearchRig">
+                            <input type="text" class="LaySearchInput">
                         </div>
                     </li>
-                	<li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                    	<div class="rigChartBg">
-                        	<h3 class="rigChartTit">申请人统计</h3>
-                            <div class="rigCharCon">
-                            	<div id="chartPar6"></div>
-                            </div>
+                    <li class="col-xs-12 col-sm-6">
+                        <span class="LaySearchLab">公开号：</span>
+                        <div class="LaySearchRig">
+                            <input type="text" class="LaySearchInput">
                         </div>
                     </li>
-                	<li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                    	<div class="rigChartBg">
-                        	<h3 class="rigChartTit">IPC分类统计</h3>
-                            <div class="rigCharCon">
-                            	<div id="chartPar7"></div>
-                            </div>
+                    <li class="col-xs-12 col-sm-6">
+                        <span class="LaySearchLab">IPC分类号：</span>
+                        <div class="LaySearchRig">
+                            <input type="text" class="LaySearchInput">
                         </div>
                     </li>
-                	<li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                    	<div class="rigChartBg">
-                        	<h3 class="rigChartTit">国民经济分类统计</h3>
-                            <div class="rigCharCon">
-                            	<div id="chartPar8"></div>
-                            </div>
+                    <li class="col-xs-12 col-sm-6">
+                        <span class="LaySearchLab">主分类号：</span>
+                        <div class="LaySearchRig">
+                            <input type="text" class="LaySearchInput">
+                        </div>
+                    </li>
+                    <li class="col-xs-12 col-sm-6">
+                        <span class="LaySearchLab">专利权人：</span>
+                        <div class="LaySearchRig">
+                            <input type="text" class="LaySearchInput">
+                        </div>
+                    </li>
+                    <li class="col-xs-12 col-sm-6">
+                        <span class="LaySearchLab">发明人：</span>
+                        <div class="LaySearchRig">
+                            <input type="text" class="LaySearchInput">
+                        </div>
+                    </li>
+                    <li class="col-xs-12 col-sm-6">
+                        <span class="LaySearchLab">地址：</span>
+                        <div class="LaySearchRig">
+                            <input type="text" class="LaySearchInput">
+                        </div>
+                    </li>
+                    <li class="col-xs-12 col-sm-6">
+                        <span class="LaySearchLab">国民经济分类：</span>
+                        <div class="LaySearchRig">
+                            <input type="text" class="LaySearchInput">
+                        </div>
+                    </li>
+                    <li class="col-xs-12 col-sm-6">
+                        <span class="LaySearchLab">权利要求书：</span>
+                        <div class="LaySearchRig">
+                            <input type="text" class="LaySearchInput">
+                        </div>
+                    </li>
+                    <li class="col-xs-12">
+                        <div class="LaySearchBtn">
+                            <a href="javascript:;" class="LaySearchBtn1">检索</a>
+                            <a href="javascript:;" class="LaySearchBtn2">重置</a>
                         </div>
                     </li>
                 </ul>
             </div>
-            <div class="clear"></div>
         </div>
-    </div>
-</div>
+        <input type="hidden" id="order" name="order">
+        <input type="hidden" id="countryId" name="countryId">
+        <input type="hidden" id="applyDayId" name="applyDayId">
+        <input type="hidden" id="openDayId" name="openDayId">
+        <input type="hidden" id="applyManId" name="applyManId">
+        <input type="hidden" id="createManId" name="createManId">
+        <input type="hidden" id="nowLawSId" name="nowLawSId">
+        <input type="hidden" id="zlTypeId" name="zlTypeId">
+        <input type="hidden" id="ipcId" name="ipcId">
+        <input type="hidden" id="cpecId" name="cpecId">
+        <input type="hidden" id="classifyid" name="classifyid">
+        <input type="hidden" id="type" name="type">
+        <link rel="stylesheet" type="text/css" media="screen" href="datatables/dataTables.bootstrap.min.css">
+        <script type="text/javascript" src="datatables/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="datatables/dataTables.bootstrap.min.js"></script>
+        <script>
+            var table ;
+            var layer;
+            var classifyid ;
+            var type ;
+            var orderBy = 'order by t.createTime DESC';
+            layui.use([ 'upload','layer' ], function() {
+                layer = layui.layer;
+                var upload = layui.upload;
 
-<div id="myModal" class="modal fade">
-    <div class="LaySearch">
-        <span class="LaySearchClose" data-dismiss="modal"></span>
-        <h3 class="LaySearchTit">高级搜索</h3>
-        <ul class="LaySearchList list-unstyled row">
-            <li class="col-xs-12 col-sm-6">
-                <span class="LaySearchLab">申请号：</span>
-                <div class="LaySearchRig">
-                    <input type="text" class="LaySearchInput">
-                </div>
-            </li>
-            <li class="col-xs-12 col-sm-6">
-                <span class="LaySearchLab">申请日：</span>
-                <div class="LaySearchRig">
-                    <div class="LaySearchIco"><i class="iconfont icon-riqi"></i></div>
-                    <input type="text" class="LaySearchInput LaySearchDate" readonly>
-                </div>
-            </li>
-            <li class="col-xs-12 col-sm-6">
-                <span class="LaySearchLab">标题：</span>
-                <div class="LaySearchRig">
-                    <input type="text" class="LaySearchInput">
-                </div>
-            </li>
-            <li class="col-xs-12 col-sm-6">
-                <span class="LaySearchLab">公开日：</span>
-                <div class="LaySearchRig">
-                    <div class="LaySearchIco"><i class="iconfont icon-riqi"></i></div>
-                    <input type="text" class="LaySearchInput LaySearchDate" readonly>
-                </div>
-            </li>
-            <li class="col-xs-12 col-sm-6">
-                <span class="LaySearchLab">摘要：</span>
-                <div class="LaySearchRig">
-                    <input type="text" class="LaySearchInput">
-                </div>
-            </li>
-            <li class="col-xs-12 col-sm-6">
-                <span class="LaySearchLab">公开号：</span>
-                <div class="LaySearchRig">
-                    <input type="text" class="LaySearchInput">
-                </div>
-            </li>
-            <li class="col-xs-12 col-sm-6">
-                <span class="LaySearchLab">IPC分类号：</span>
-                <div class="LaySearchRig">
-                    <input type="text" class="LaySearchInput">
-                </div>
-            </li>
-            <li class="col-xs-12 col-sm-6">
-                <span class="LaySearchLab">主分类号：</span>
-                <div class="LaySearchRig">
-                    <input type="text" class="LaySearchInput">
-                </div>
-            </li>
-            <li class="col-xs-12 col-sm-6">
-                <span class="LaySearchLab">专利权人：</span>
-                <div class="LaySearchRig">
-                    <input type="text" class="LaySearchInput">
-                </div>
-            </li>
-            <li class="col-xs-12 col-sm-6">
-                <span class="LaySearchLab">发明人：</span>
-                <div class="LaySearchRig">
-                    <input type="text" class="LaySearchInput">
-                </div>
-            </li>
-            <li class="col-xs-12 col-sm-6">
-                <span class="LaySearchLab">地址：</span>
-                <div class="LaySearchRig">
-                    <input type="text" class="LaySearchInput">
-                </div>
-            </li>
-            <li class="col-xs-12 col-sm-6">
-                <span class="LaySearchLab">国民经济分类：</span>
-                <div class="LaySearchRig">
-                    <input type="text" class="LaySearchInput">
-                </div>
-            </li>
-            <li class="col-xs-12 col-sm-6">
-                <span class="LaySearchLab">权利要求书：</span>
-                <div class="LaySearchRig">
-                    <input type="text" class="LaySearchInput">
-                </div>
-            </li>
-            <li class="col-xs-12">
-                <div class="LaySearchBtn">
-                    <a href="javascript:;" class="LaySearchBtn1">检索</a>
-                    <a href="javascript:;" class="LaySearchBtn2">重置</a>
-                </div>
-            </li>
-        </ul>
-    </div>
-</div>
-<link rel="stylesheet" type="text/css" media="screen" href="datatables/dataTables.bootstrap.min.css">
-<script type="text/javascript" src="datatables/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="datatables/dataTables.bootstrap.min.js"></script>
-<script>
-// 	var table = $('#zyTab').DataTable({
-// 		"searching": false,
-// 		"ordering": false,
-// 		"processing": false,
-// 		"info": false,
-// 		//"paging":   false,
-// 		"lengthMenu": [10, 20, 30, "所有"],
-// 		"pageLength": 15,
-// 		"pagingType":"numbers",
-// 		"language": {
-// 			"sProcessing": "处理中...",
-// 			"sLengthMenu": "显示 _MENU_ 项结果",
-// 			"sZeroRecords": "没有匹配结果",
-// 			"sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
-// 			"sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
-// 			"sInfoFiltered": "(由 _MAX_ 项结果过滤)",
-// 			"sInfoPostFix": "",
-// 			"sSearch": "搜索:",
-// 			"sUrl": "",
-// 			"sEmptyTable": "表中数据为空",
-// 			"sLoadingRecords": "载入中...",
-// 			"sInfoThousands": ",",
-// 			"oPaginate": {
-// 				"sFirst": "首页",
-// 				"sPrevious": "上页",
-// 				"sNext": "下页",
-// 				"sLast": "末页"
-// 			},
-// 			"oAria": {
-// 				"sSortAscending": ": 以升序排列此列",
-// 				"sSortDescending": ": 以降序排列此列"
-// 			}			
-// 		},
-// 		"columnDefs": [
-// 			{ className: "zyTabCon1", "targets": [ 0 ] },
-// 			{ className: "zyTabCon2", "targets": [ 1 ] },
-// 			{ className: "zyTabCon3", "targets": [ 2 ] },
-// 			{ className: "zyTabCon4", "targets": [ 3 ] },
-// 			{ className: "zyTabCon5", "targets": [ 4 ] },
-// 		  ]
-// 	});
-// 	$('#checkAll').on('click', function(){
-//       var rows = table.rows({ 'search': 'applied' }).nodes();
-//       $('input[type="checkbox"]', rows).prop('checked', this.checked);
-//    });
-//    $('#zyTab tbody').on('change', 'input[type="checkbox"]', function(){
-//       if(!this.checked){
-//          var el = $('#checkAll').get(0);
-//          if(el && el.checked && ('indeterminate' in el)){
-//             el.indeterminate = true;
-//          }
-//       }
-//    });
-</script>
-
-<script>
-        $(document).ready(function () {
-            $('.level-content').hide();
-
-            // 点击展示子级
-            $(document).on('click', '.level-title', function () {
-                var isShow = $(this).parent().children('.level-content').css('display');
-                // var hasActive = $(this).parent().find('.level-a').hasClass('level-a-active');
-
-                if (isShow == 'block') {
-                    $(this).parent().children('.level-content').hide();
-                    $(this).parent().find('.level-a').removeClass('level-a-active');
-                } else {
-                    $(this).parent().children('.level-content').show();
-                }
-            });
-            // 选中效果 -- 一级
-            $(document).on('click', '.level-a', function() {
-                var levelAs = $(this).parents('.nav').find('.level-a');
-                for(var i=0;i<levelAs.length;i++) {
-                    $(levelAs[i]).removeClass('level-a-active')
-                }
-                $(this).parent().find('.level-a').addClass('level-a-active');
-
-                var isShow = $(this).parent().children('.level-content').css('display');
-                console.log(isShow);
-                if (isShow == 'block') {
-                    $(this).children('img').attr('src', './imgs/arrow_down2.png');
-                } else {
-                    $(this).children('img').attr('src', './imgs/arrow-down2.png');
-                }
-            })
-            $(document).on('click', '.level-b', function() {
-                var isShow = $(this).parent().children('.level-content').css('display');
-                if (isShow == 'block') {
-                    $(this).children('img').attr('src', './imgs/minus.png');
-                } else {
-                    $(this).children('img').attr('src', './imgs/plus.png');
-                }
-            })
-            // 选中效果 -- 三级 并且获取数据
-            $(document).on('click', '.level-c', function() {
-                var levelCs = $(this).parents('.nav').find('.level-c');
-                for(var i=0;i<levelCs.length;i++) {
-                    $(levelCs[i]).removeClass('level-c-active');
-                }
-                $(this).addClass('level-c-active')
-
-                // 请求数据
-                var currentItemId = $(this).attr('data-id');
-                var currentItemPid = $(this).attr('data-pid');
-            })
-        })
-    </script>
-
-    <script>
-        
-        var dataA = [];
-        for(var i=0;i<99;i++) {
-            var obj = {};
-            obj.id = 1 + i;
-            obj.title = `由化学交联法固载的固由化学交联法固载的固---${i}`;
-            obj.industry = '测试';
-            obj.pubTime = '2019-03-03'
-            obj.action = '';
-            // obj.tagA = '自营';
-            obj.tagB = '授权';
-            obj.tagC = '发明';
-
-            dataA.push(obj);
-        };
-        // console.log(dataA);
-        $(document).ready(function () {
-            var table = $('#tableA').DataTable({
-                "data": dataA,
-                "autoWidth": false,
-                "columns": [
-                    {
-                        "data": 'index',
-                        "title": '序号' + '<input type="checkbox" name="" id="checkAll" value="">'
-                    },
-                    {
-                        "data": "title",
-                        "title": '标题'
-                    },
-                    {
-                        "data": "industry",
-                        "title": "行业"
-                    },
-                    {
-                        "data": "pubTime",
-                        "title": "公开日"
-                    },
-                    {
-                        "data": "id",
-                        "title": "操作"
+                upload.render({
+                    elem: '#upexcel' //绑定元素
+                    ,accept: 'file' //允许上传的文件类型
+                    ,url: '/zlztDatainfos/upexcel' //上传接口
+                    ,done: function(res, index, upload){
+                        layer.msg("上传成功");
+                        table.ajax.reload();
                     }
-                ],
-                "info": false, // 左下角信息不显示
-                "pagingType": "numbers", // 
-                "lengthChange": false, // 
-                "searching": false,
-                "ordering": false,
-        		"processing": false,
-                "pageLength": 15,
-                "language": {
-                    "sProcessing": "处理中...",
-                    "sLengthMenu": "显示 _MENU_ 项结果",
-                    "sZeroRecords": "没有匹配结果",
-                    "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
-                    "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
-                    "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
-                    "sInfoPostFix": "",
-                    "sSearch": "搜索:",
-                    "sUrl": "",
-                    "sEmptyTable": "表中数据为空",
-                    "sLoadingRecords": "载入中...",
-                    "sInfoThousands": ",",
-                    "oPaginate": {
-                        "sFirst": "首页",
-                        "sPrevious": "上页",
-                        "sNext": "下页",
-                        "sLast": "末页"
-                    },
-                    "oAria": {
-                        "sSortAscending": ": 以升序排列此列",
-                        "sSortDescending": ": 以降序排列此列"
-                    }			
-                },
-                "columnDefs": [
-                    {
-                        targets: 0,
-                        render: function(data, type, row, meta) {
-                            return `<label for="${row.id}">${meta.row<9?'0' + (meta.row + 1): meta.row + 1 }<input id="${row.id}" type="checkbox" name="checklist" value="${row.id}" /></label>`;
-                        }
-                    },
-                    {
-                        targets: 1,
-                        render: function(data, type, row, meta) {
-                            return `<a href="./ptentDetail.html?id=${row.id}" class="title">${row.title}</a> ${row.tagA ? `<span class="tag-a">${row.tagA}</span>` : '' } ${row.tagB ? `<span class="tag-a">${row.tagB}</span>` : '' } ${row.tagC ? `<span class="tag-a">${row.tagC}</span>` : '' }`
-                            // return `<span class="title">${row.title}</span> ${row.tagA ? `<span class="tag-a">${row.tagA}</span>` : '' } <span class="tag-b">${row.tagB}</span> <span class="tag-c">${row.tagC}</span>`
-                            // return `<label for="${row.id}">${meta.row<10?'0' + (meta.row + 1): meta.row + 1 }<input id="${row.id}" type="checkbox" name="checklist" value="${row.id}" /></label>`;
-                        }
-                    },
-                    {
-                        targets: -1,
-                        render: function(data, type, row, meta) {
-                            return `<span class="iconfont icon-bianji" onclick="edit(${data})"></span> <span class="iconfont icon-shanchu" onclick="del(${data})"></span>`;
+                });
+            });
+
+            // 排序
+            $(document).on('click', '.item-wrap .time', function() {
+                var sortTypes = $(this).parent().find('.time');
+                sortTypes.each(function(index, item) {
+                    // console.log(item);
+                    $(item).removeClass('active-sort');
+                });
+                $(this).addClass('active-sort');
+                var text = $(this).find('span').first().text();
+                // console.log(text)
+                switch (text) {
+                    case "时间" : orderBy = 'order by t.createTime DESC';break;
+                    case "人气" : orderBy = 'order by t.pointNum DESC';break;
+                    case "收藏" : orderBy = 'order by t.careNum DESC';break;
+                    default:
+                        break;
+                }
+                table.ajax.reload();
+            });
+
+            //搜索路况点击事件
+            function searchByInput() {
+                table.ajax.reload();
+            }
+            //加载左侧菜单
+            function initlistdata() {
+                $.ajax({
+                    url: "/zlztClassifyinfos/danjiTreetable",
+                    type: "get",
+                    async: false,
+                    success: function (data) {
+                        $("#fenlei").html('');
+                        // console.log("data=" + JSON.stringify(data));
+                        for (var i = 0 ; i < data.length; i++){
+                            var a = ' <div class="fenleiTop">\n' +
+                                '                            <div class="fenleiTit2">\n' +
+                                '                                <img src="./imgs/arrow-down2.png" alt="">\n' +
+                                '                                <h2 class="fenleiTitCn">'+data[i].name+'</h2>\n' +
+                                '                            </div>\n' +
+                                '                            <div class="fenleiList">\n' +
+                                '                                <table class="leftMenu">\n' +
+                                '                                    <tbody>\n' ;
+                            var children = data[i].children;
+                            for (var j = 0; j < children.length; j++) {
+                                a += '<tr data-tt-id="'+children[j].id+'" data-tt-parent-id="' + children[j].parentId + '" class="leftTr1">\n' +
+                                    '                                            <td class="leftLi1"><i><a href="javascript:changData(\''+children[j].id+'\',\''+children[j].type+'\')">'+children[j].name+'</a></i></td>\n' +
+                                    '                                        </tr>';
+                            }
+                            a += '</tbody>\n' +
+                                '                                </table>\n' +
+                                '                            </div>\n' +
+                                '                        </div>';
+                            $("#fenlei").append(a);
                         }
                     }
-                ],
+                })
+            };
+            //初始化treetable样式
+            function initTreetableStyle() {
+                $(document).find(".leftMenu").treetable({ expandable: true});
+                $(document).find(".leftMenu tbody").on("mousedown", "tr", function() {
+                    $(".selected").not(this).removeClass("selected");
+                    $(this).toggleClass("selected");
+                });
+                $(document).find(".leftMenu .folder").each(function() {
+                    $(this).parents(".leftMenu tr").droppable({
+                        accept: ".file, .folder",
+                        drop: function(e, ui) {
+                            var droppedEl = ui.draggable.parents("tr");
+                            $(".leftMenu").treetable("move", droppedEl.data("ttId"), $(this).data("ttId"));
+                        },hoverClass: "accept",over: function(e, ui) {
+                            var droppedEl = ui.draggable.parents("tr");
+                            if(this != droppedEl[0] && !$(this).is(".expanded")) {
+                                $(".leftMenu").treetable("expandNode", $(this).data("ttId"));
+                            }
+                        }
+                    });
+                });
+            }
+            //加载统计信息
+            function initleftdata() {
+                var obj ={};
+                obj.classifyId  =classifyid;
+                obj.type  = type;
+                obj.country = $("#countryId").val();
+                obj.applyDayStr = $("#applyDayId").val();
+                obj.openDayStr = $("#openDayId").val();
+                obj.applyMan = $("#applyManId").val();
+                obj.createMan = $("#createManId").val();
+                obj.nowLawS = $("#nowLawSId").val();
+                obj.zlType = $("#zlTypeId").val();
+                obj.ipc = $("#ipcId").val();
+                obj.cpec = $("#cpecId").val();
+                obj.secret = 'secret' ;
+                $.ajax({
+                    contentType: "application/json; charset=utf-8",
+                    url : "/zlztDataDetails/getallcount",
+                    data:JSON.stringify(obj),
+                    type : "post",
+                    async: false,
+                    success : function (data) {
+                        var result = data;
+                        //清空统计模块，进行拼接。
+                        $("#listinfoAll").html('');
+                        // console.log(result);
+
+                        var listdata = '';
+                        for (var i in result) {
+                            var d = result[i];
+                            switch (d.keyname) {
+                                case "country" : countryList = d.children;break;
+                                case "applyDay" : applyDayList = d.children;break;
+                                case "openDay" : openDayList = d.children;break;
+                                case "applyMan" : applyManList = d.children;break;
+                                case "createMan" : createManList = d.children;break;
+                                case "nowLawS" : nowLawSList = d.children;break;
+                                case "zlType" : zlTypeList = d.children;break;
+                                case "ipc" : ipcList = d.children;break;
+                                case "cpec" : cpecList = d.children;break;
+                            }
+                            var children = d.children;
+                            if (d.keyname == 'applyDay'){
+                                option1.xAxis.data = [];
+                                option1.series[0].data = [];
+                                for (var t=children.length-1;t>=0;t--) {
+                                    option1.xAxis.data.push(children[t].keyname.substring(0,4)+"");
+                                    option1.series[0].data.push(children[t].count);
+                                    if (option1.xAxis.data.length >= 20) {
+                                        break;
+                                    }
+                                }
+                            }
+                            if (d.keyname == 'openDay'){
+                                option2.xAxis.data = [];
+                                option2.series[0].data = [];
+                                for (var t=children.length-1;t>=0;t--) {
+                                    option2.xAxis.data.push(children[t].keyname.substring(0,4)+"");
+                                    option2.series[0].data.push(children[t].count);
+                                    if (option2.xAxis.data.length >= 10) {
+                                        break;
+                                    }
+                                }
+                            }
+                            if (d.keyname == 'country'){
+                                option3.legend.data = [];
+                                option3.series[0].data = [];
+                                for (var t in children) {
+                                    option3.legend.data.push(children[t].keyname);
+                                    var obj = {
+                                        value: '',
+                                        name: ''
+                                    };
+                                    obj.value = children[t].count;
+                                    obj.name = children[t].keyname;
+                                    option3.series[0].data.push(obj);
+                                    if (option3.legend.data.length >= 10) {
+                                        break;
+                                    }
+                                }
+                            }
+                            if (d.keyname == 'nowLawS'){
+                                option4.legend.data = [];
+                                option4.series[0].data = [];
+                                for (var t in children) {
+                                    option4.legend.data.push(children[t].keyname);
+                                    var obj = {
+                                        value: '',
+                                        name: ''
+                                    };
+                                    obj.value = children[t].count;
+                                    obj.name = children[t].keyname;
+                                    option4.series[0].data.push(obj);
+                                    if (option4.legend.data.length >= 10) {
+                                        break;
+                                    }
+                                }
+                            }
+                            if (d.keyname == 'createMan'){
+                                option5.xAxis[0].data = [];
+                                option5.series[0].data = [];
+                                for (var t= 0;t<children.length;t++) {
+                                    option5.xAxis[0].data.push(children[t].keyname);
+                                    option5.series[0].data.push(children[t].count);
+                                    if (option5.xAxis[0].data.length >= 10) {
+                                        break;
+                                    }
+                                }
+                            }
+                            if (d.keyname == 'applyMan'){
+                                option6.xAxis[0].data = [];
+                                option6.series[0].data = [];
+                                for (var t= 0;t<children.length;t++) {
+                                    option6.xAxis[0].data.push(children[t].keyname);
+                                    option6.series[0].data.push(children[t].count);
+                                    if (option6.xAxis[0].data.length >= 10) {
+                                        break;
+                                    }
+                                }
+                            }
+                            if (d.keyname == 'ipc'){
+                                option7.xAxis[0].data = [];
+                                option7.series[0].data = [];
+                                for (var t= 0;t<children.length;t++) {
+                                    option7.xAxis[0].data.push(children[t].keyname);
+                                    option7.series[0].data.push(children[t].count);
+                                    if (option7.xAxis[0].data.length >= 10) {
+                                        break;
+                                    }
+                                }
+                            }
+                            if (d.keyname == 'cpec'){
+                                option8.xAxis[0].data = [];
+                                option8.series[0].data = [];
+                                for (var t=0;t<children.length;t++) {
+                                    option8.xAxis[0].data.push(children[t].keyname);
+                                    option8.series[0].data.push(children[t].count);
+                                    if (option8.xAxis[0].data.length >= 10) {
+                                        break;
+                                    }
+                                }
+                            }
+                            listdata += '<li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">'+d.name+'</a></h3>';
+                            if(d.children!==null&& d.children!=""){
+                                // console.log(children);
+
+                                listdata += '<div class="fenleiSub siftSub">\n' +
+                                    '                            \t<ul class="siftList list-unstyled" id="all'+d.keyname+'">';
+                                for (var j in children) {
+                                    if (j < 5) {
+                                        var p = children[j];
+                                        if (d.keyname == 'applyDay' || d.keyname == 'openDay') {
+                                            listdata += '<li><span><input type="checkbox" name="'+d.keyname+'Id" value="'+p.keyname.substring(0,4)+'"><i class="iconfont icon-xuanze"></i><a href="javascript:;">'+p.keyname.substring(0,4)+'年('+p.count+')</a></span></li>';
+                                        }else {
+                                            listdata += '<li><span><input type="checkbox" name="'+d.keyname+'Id" value="'+p.keyname+'"><i class="iconfont icon-xuanze"></i><a href="javascript:;">'+p.keyname+'('+p.count+')</a></li>';
+                                        }
+                                    }
+                                }
+                                listdata += '</ul>\n<div class="siftBtn">\n' +
+                                    '                            <a href="javascript:selectBy(\''+d.keyname+'Id\');" class="siftBtn1">筛选</a>\n' +
+                                    '                            <a href="javascript:showAllList(\''+d.keyname+'\');" class="siftBtn2" id="show'+d.keyname+'">展开<i class="iconfont icon-iconfontgengduo"></i></a>\n' +
+                                    '                        </div>';
+                                listdata += '\t</div>';
+                            }
+                            listdata += '</li>';
+                        }
+                        $("#listinfoAll").append(listdata);
+                    }
+                });
+            }
+            //信息的统计的展开隐藏。
+            function showAllList(objname) {
+                var list = objname +"List";
+                // if (list == "countryList") {
+                //     list = countryList;
+                // }
+                switch (list) {
+                    case "countryList" : list = countryList;break;
+                    case "applyDayList" : list = applyDayList;break;
+                    case "openDayList" : list = openDayList;break;
+                    case "applyManList" : list = applyManList;break;
+                    case "createManList" : list = createManList;break;
+                    case "nowLawSList" : list = nowLawSList;break;
+                    case "zlTypeList" : list = zlTypeList;break;
+                    case "ipcList" : list = ipcList;break;
+                    case "cpecList" : list = cpecList;break;
+                }
+                var value =$("#show"+objname).text();
+                console.log("aaaaa"+value);
+                if (value == "展开") {
+                    $("#all"+objname).html('');
+                    for (var i in list) {
+                        if (objname == 'applyDay' || objname == 'openDay') {
+                            $("#all"+objname).append('<li><span><input type="checkbox" name="'+list[i].keyname+'Id" value="'+list[i].keyname.substring(0,4)+'"><i class="iconfont icon-xuanze"></i><a href="#">'+list[i].keyname.substring(0,4)+'年('+list[i].count+')</a></span></li>');
+                        }else {
+                            $("#all"+objname).append('<li><span><input type="checkbox" name="'+list[i].keyname+'Id" value="'+list[i].keyname+'"><i class="iconfont icon-xuanze"></i><a href="#">'+list[i].keyname+'('+list[i].count+')</a></li>');
+                        }
+                    }
+                    $("#show"+objname).html("隐藏<i class='iconfont icon-iconfontgengduo'></i>");
+                }else if(value == "隐藏"){
+                    $("#all"+objname).html('');
+                    for (var i in list) {
+                        if (i<5){
+                            if (objname == 'applyDay' || objname == 'openDay') {
+                                $("#all"+objname).append('<li><span><input type="checkbox" name="'+list[i].keyname+'Id" value="'+list[i].keyname.substring(0,4)+'"><i class="iconfont icon-xuanze"></i><a href="#">'+list[i].keyname.substring(0,4)+'年('+list[i].count+')</a></span></li>');
+                            }else {
+                                $("#all"+objname).append('<li><span><input type="checkbox" name="'+list[i].keyname+'Id" value="'+list[i].keyname+'"><i class="iconfont icon-xuanze"></i><a href="#">'+list[i].keyname+'('+list[i].count+')</a></li>');
+                            }
+                        }
+                    }
+                    $("#show"+objname).html("展开<i class='iconfont icon-iconfontgengduo'></i>");
+                }
+            }
+            //信息统计的筛选功能
+            function selectBy(objName){
+                var obj = document.getElementsByName(objName);
+                var check_val = [];
+                for(var k in obj){
+                    if(obj[k].checked)
+                        check_val.push(obj[k].value);
+                }
+                $("#"+objName).val(check_val);
+                table.ajax.reload();
+                initleftdata();
+                initEcharts();
+                //  console.log(check_val);
+            };
+            //左侧列表的功能
+            function changData(id,type1) {
+                classifyid = id;
+                type = type1;
+                $("#classifyid").val(classifyid);
+                $("#type").val(type);
+                table.ajax.reload();
+                initleftdata();
+                // 加载当前位置
+                // initNowPlace();
+                //查询条件
+                // selctByAllData();
+                //加载图表
+                initEcharts();
+                //加载treetable样式
+                initTreetableStyle();
+            }
+            $('#checkAll').on('click', function () {
+                var rows = table.rows({ 'search': 'applied' }).nodes();
+                $('input[type="checkbox"]', rows).prop('checked', this.checked);
             });
-        });
-        $(document).on('change', '#checkAll', function() {
-            var inputSels = $('tbody input[type=checkbox]');
-            
-            if(this.checked) {
-                for(var i=0;i<inputSels.length;i++) {
-                    // $(inputSels[i]).attr('checked', true);
-                    $(inputSels[i]).get(0).checked = true;
+        </script>
 
-                }
-            } else {
-                for(var i=0;i<inputSels.length;i++) {
-                    // $(inputSels[i]).attr('checked', false);
-                    $(inputSels[i]).get(0).checked = false;
 
-                }
-            }
-        });
-        $(document).on('change', '#tableA tbody input[type=checkbox]', function() {
-            var checkSels = $('#tableA tbody input[type=checkbox]');
 
-            for(var i=0;i<checkSels.length;i++) {
-                var isChecked = $(checkSels[i]).get(0).checked;
-                // console.log( isChecked )
-                if(!isChecked) {
-                    // var text = $(checkSels[i]).val();
-                    // console.log(text)
-                    $('#checkAll').get(0).checked = false;
-                    return ;
+        <script>
+            $(document).ready(function () {
+                //加载左侧菜单
+                initlistdata();
+                //加载统计信息
+                initleftdata();
+                //初始化treetable样式
+                initTreetableStyle();
+                //加载图表
+                initEcharts();
+                //排序点击事件
+                $("#orderby li").click(function(){//点击事件
+                    var orderColumn = $(this).attr("value");
+                    orderBy = orderColumn;
+                    table.ajax.reload();
+                    // selctByAllData();
+                });
+                $('.fenleiTop .fenleiList').hide();
+
+                $(document).on('click', '.fenleiTit2', function () {
+                    var fenleiAs = $(this).parents('.fenlei').find('.fenleiTit2');
+
+                    for (var i = 0; i < fenleiAs.length; i++) {
+                        $(fenleiAs[i]).removeClass('fenleiTit2-active');
+                    }
+                    $(this).addClass('fenleiTit2-active');
+
+
+                    var isShow = $(this).parents('.fenleiTop').find('.fenleiList').css('display');
+                    console.log(isShow)
+
+                    if (isShow == 'block') {
+                        $(this).parents('.fenleiTop').find('.fenleiList').hide();
+                        $(this).find('img').attr('src', './imgs/arrow-down2.png');
+                    } else {
+                        $(this).parents('.fenleiTop').find('.fenleiList').show();
+                        $(this).find('img').attr('src', './imgs/arrow_down2.png');
+                    }
+                })
+            })
+        </script>
+
+        <script>
+
+            $(document).ready(function () {
+                table = $('#tableA').DataTable({
+                    "searching": false,
+                    "ordering": false,
+                    "serverSide" : true,
+                    "processing": false,
+                    "language": {
+                        "url": "/js/plugin/datatables/Chinese.lang"
+                    },
+                    "ajax": {
+                        "url" : "/zlztDatainfos",
+                        "type":"get",
+                        "data":function(d){
+                            d.fromTable =  "view_zlztdata";
+                            d.order = $("#order").val();
+                            d.searchKey = $("#search").val();
+                            d.type = $("#type").val();
+                            d.classifyid = $("#classifyid").val();
+                            d.countryId = $("#countryId").val();
+                            d.applyDayId = $("#applyDayId").val();
+                            d.openDayId = $("#openDayId").val();
+                            d.applyManId = $("#applyManId").val();
+                            d.createManId = $("#createManId").val();
+                            d.nowLawSId = $("#nowLawSId").val();
+                            d.zlTypeId = $("#zlTypeId").val();
+                            d.ipcId = $("#ipcId").val();
+                            d.cpecId = $("#cpecId").val();
+                            d.orderBy = orderBy;
+                            d.secret = 'secret'
+                        }
+                    },
+                    "fnInfoCallback": function (response) {
+                        // console.log(response);
+                        $("#zlnum").text(response.json.recordsTotal);
+                    },
+                    "createdRow": function ( row, data, index ) {
+                        $('td', row).eq(1).addClass('titleShow');
+                    },
+                    "columns": [
+                        {
+                            "data": '',
+                            "render":function (data, type, row) {
+                                return  '<label><span><input type="checkbox" name="rowid" value="'+row.id+'"></span></label>';;
+                            }
+                        },
+                        {
+                            "data": "title",
+                            "render":function (data, type, row) {
+                                return '<a  href="ptentDetail.html?id='+row.id+'">'+row.title+'</a>\n'+
+                                    '\t<span class="tag-a" >'+( row.nowLawS || '') +'</span>\n'+
+                                    '\t<span class="tag-a" >'+( row.country|| '') +'</span>\n'+
+                                    '\t<span class="tag-a" >'+( row.zlType || '') +'</span>\n';
+                            }
+                        },
+                        {
+                            "data": "fIdName",
+                            "render":function (data, type, row) {
+                                return row.fIdName;
+                            }
+                        },
+                        {
+                            "data": "applyDay",
+                            "render":function (data, type, row) {
+                                return (new Date(row.applyDay)).Format("yyyy-MM-dd");
+                            }
+                        },
+                        {
+                            "data": "",
+                            "render":function (data, type, row) {
+                                return '<span class="iconfont icon-bianji" onclick="edit('+row.id+')"></span> <span class="iconfont icon-shanchu" onclick="del('+row.id+')"></span>';
+                            }
+                        }
+                    ],
+                });
+            });
+            $(document).on('change', '#checkAll', function () {
+                var inputSels = $('tbody input[type=checkbox]');
+
+                if (this.checked) {
+                    for (var i = 0; i < inputSels.length; i++) {
+                        // $(inputSels[i]).attr('checked', true);
+                        $(inputSels[i]).get(0).checked = true;
+
+                    }
                 } else {
-                    $('#checkAll').get(0).checked = true;
-                }
-            }
-            
-        });
-        function del(id) {
-            console.log('删除', id);
-        };
-        function edit(id) {
-            console.log('编辑', id)
-        };
-        function daochu() {
-            var checkSels = $('#tableA tbody').find('input');
-            // console.log(checkSels)
+                    for (var i = 0; i < inputSels.length; i++) {
+                        // $(inputSels[i]).attr('checked', false);
+                        $(inputSels[i]).get(0).checked = false;
 
-            for(var i=0;i<checkSels.length;i++) {
-                var isChecked = $(checkSels[i]).get(0).checked;
-                // console.log( isChecked )
-                if(isChecked) {
-                    var text = $(checkSels[i]).val();
-                    console.log(text)
+                    }
                 }
+            });
+            $(document).on('change', '#tableA tbody input[type=checkbox]', function () {
+                var checkSels = $('#tableA tbody input[type=checkbox]');
+
+                for (var i = 0; i < checkSels.length; i++) {
+                    var isChecked = $(checkSels[i]).get(0).checked;
+                    // console.log( isChecked )
+                    if (!isChecked) {
+                        // var text = $(checkSels[i]).val();
+                        // console.log(text)
+                        $('#checkAll').get(0).checked = false;
+                        return;
+                    } else {
+                        $('#checkAll').get(0).checked = true;
+                    }
+                }
+
+            });
+            function del(id) {
+                layer.confirm('确定要删除吗？', {
+                    btn : [ '确定', '取消' ]
+                }, function() {
+                    $.ajax({
+                        type : 'delete',
+                        url : '/zlztDataDetails/deleteByDataId/'+id,
+                        success : function(data) {
+                            table.ajax.reload();
+                            layer.msg("删除成功");
+                        }
+                    });
+                    layer.close(1);
+                });
+            };
+            function edit(id) {
+                location.href = "addpatentSecret.html?id="+id;
+            };
+            function addData() {
+                location.href = "addpatentSecret.html";
             }
-        }
-    </script>
+
+            //excel导出
+            function daochu() {
+                var check_val = [];
+                var checkSels = $('#tableA tbody').find('input');
+                // console.log(checkSels)
+
+                for (var i = 0; i < checkSels.length; i++) {
+                    var isChecked = $(checkSels[i]).get(0).checked;
+                    // console.log( isChecked )
+                    if (isChecked) {
+                        var text = $(checkSels[i]).val();
+                        check_val.push(text);
+                        console.log(text)
+                    }
+                }
+                location.href = "/zlztDatainfos/downloadExcel?jsonString=" + check_val+"&fromTable=view_zlztdata";
+            }
+        </script>
 
 <link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
 <script src="js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 <script src="js/echarts.min.js"></script>
 <script>
-	$.fn.datetimepicker.dates['zh-CN'] = {
-			days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
-			daysShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六", "周日"],
-			daysMin:  ["日", "一", "二", "三", "四", "五", "六", "日"],
-			months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
-			monthsShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一", "十二"],
-			today: "今天",
-			suffix: [],
-			meridiem: ["上午", "下午"]
-	};
-	$('.LaySearchDate').datetimepicker({
-        language:  'zh-CN',
-        weekStart: 1,
-		autoclose: 1,
-		startView: 2,
-		minView: 2,
-		forceParse: 0
-    });
-	$(".tongji").click(function(){
-		$('html,body').animate({scrollTop:$('#tongji').offset().top-$(".logo").height()-15}, 800);	
-	})
-	var chartPar1 = echarts.init(document.getElementById('chartPar1'));
-	var chartPar2 = echarts.init(document.getElementById('chartPar2'));
-	var chartPar3 = echarts.init(document.getElementById('chartPar3'));
-	var chartPar4 = echarts.init(document.getElementById('chartPar4'));
-	var chartPar5 = echarts.init(document.getElementById('chartPar5'));
-	var chartPar6 = echarts.init(document.getElementById('chartPar6'));
-	var chartPar7 = echarts.init(document.getElementById('chartPar7'));
-	var chartPar8 = echarts.init(document.getElementById('chartPar8'));
-	var option1 = {
-		color:'#0670c4',
-		tooltip: {
-			trigger: 'axis',
-			position: function (pt) {
-				return [pt[0], '10%'];
-			}
-		},
-		xAxis: {
-			type: 'category',
-			boundaryGap: false,
-			data: ['2012', '2013', '2014', '2015', '2016', '2017', '2018']
-		},
-		yAxis: {
-			type: 'value'
-		},
-		series: [{
-			data: [820, 932, 901, 934, 1290, 1330, 1320],
-			type: 'line',
-			areaStyle: {
-				normal: {
-					color: new echarts.graphic.LinearGradient(0, 0, 0, 0.8, [{
-						offset: 0,
-						color: '#0670c4'
-					}, {
-						offset: 1,
-						color: '#fff'
-					}])
-				}
-			},
-		}]
-	};
-	var option2 = {
-		color:'#0670c4',
-		tooltip: {
-			trigger: 'axis',
-			position: function (pt) {
-				return [pt[0], '10%'];
-			}
-		},
-		xAxis: {
-			type: 'category',
-			boundaryGap: false,
-			data: ['2012', '2013', '2014', '2015', '2016', '2017', '2018']
-		},
-		yAxis: {
-			type: 'value'
-		},
-		series: [{
-			data: [620, 532, 901, 934, 1290, 1330, 1320],
-			type: 'line',
-			areaStyle: {
-				normal: {
-					color: new echarts.graphic.LinearGradient(0, 0, 0, 0.8, [{
-						offset: 0,
-						color: '#0670c4'
-					}, {
-						offset: 1,
-						color: '#fff'
-					}])
-				}
-			},
-		}]
-	};
-	var option3 = {
-		color:['#57cad9','#ff835c','#fdcd58','#72bd76','#b660c5',],
-		tooltip : {
-			trigger: 'item',
-			formatter: "{a} <br/>{b} : {c} ({d}%)"
-		},
-		legend: {
-			left: 'left',
-			data: ['中国','德国','美国','法国','欧盟']
-		},
-		series : [
-			{
-				name: '全球地域分布图',
-				type: 'pie',
-				radius : ['55%', '80%'],
-				center: ['50%', '56%'],
-				data:[
-					{value:335, name:'中国'},
-					{value:310, name:'德国'},
-					{value:234, name:'美国'},
-					{value:135, name:'法国'},
-					{value:1548, name:'欧盟'}
-				],
-				itemStyle: {
-					emphasis: {
-						shadowBlur: 10,
-						shadowOffsetX: 0,
-						shadowColor: 'rgba(0, 0, 0, 0.5)'
-					}
-				}
-			}
-		]
-	};
-	var option4 = {
-		color:['#57cad9','#ff835c','#fdcd58','#72bd76','#b660c5',,'#d7e361','#ef598c',,'#66b4f1',],
-		tooltip : {
-			trigger: 'item',
-			formatter: "{a} <br/>{b} : {c} ({d}%)"
-		},
-		legend: {
-			left: 'left',
-			data: ['授权','权力终止','实质审查','撤回','放弃','驳回','公开','全部无效']
-		},
-		series : [
-			{
-				name: '法律状态统计',
-				type: 'pie',
-				radius : '55%',
-				center: ['50%', '60%'],
-				data:[
-					{value:335, name:'授权'},
-					{value:310, name:'权力终止'},
-					{value:234, name:'实质审查'},
-					{value:135, name:'撤回'},
-					{value:148, name:'放弃'},
-					{value:548, name:'驳回'},
-					{value:458, name:'公开'},
-					{value:248, name:'全部无效'}
-				],
-				itemStyle: {
-					emphasis: {
-						shadowBlur: 10,
-						shadowOffsetX: 0,
-						shadowColor: 'rgba(0, 0, 0, 0.5)'
-					}
-				}
-			}
-		]
-	};
-	var option5 = {
-		color: ['#0670c4'],
-		tooltip : {
-			trigger: 'axis',
-			axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-				type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-			}
-		},
-		grid: {
-			left: '3%',
-			right: '4%',
-			bottom: '3%',
-			containLabel: true
-		},
-		xAxis : [
-			{
-				type : 'category',
-				data : ['郭建刚', '陈龙辉', '王冬雷', '不公告设计人', '曾永春', '赵三', '李四'],
-				axisTick: {
-					alignWithLabel: true
-				}
-			}
-		],
-		yAxis : [
-			{
-				type : 'value'
-			}
-		],
-		series : [
-			{
-				name:'专利数量',
-				type:'bar',
-				barWidth: '60%',
-				data:[10, 52, 200, 334, 390, 330, 220]
-			}
-		]
-	};
-	var option6 = {
-		color: ['#0670c4'],
-		tooltip : {
-			trigger: 'axis',
-			axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-				type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-			}
-		},
-		grid: {
-			left: '3%',
-			right: '4%',
-			bottom: '3%',
-			containLabel: true
-		},
-		xAxis : [
-			{
-				type : 'category',
-				data : ['郭建刚', '陈龙辉', '王冬雷', '不公告设计人', '曾永春', '赵三', '李四'],
-				axisTick: {
-					alignWithLabel: true
-				}
-			}
-		],
-		yAxis : [
-			{
-				type : 'value'
-			}
-		],
-		series : [
-			{
-				name:'专利数量',
-				type:'bar',
-				barWidth: '60%',
-				data:[10, 52, 200, 334, 390, 330, 220]
-			}
-		]
-	};
-	var option7 = {
-		color: ['#2dbdd0'],
-		tooltip : {
-			trigger: 'axis',
-			axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-				type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-			}
-		},
-		grid: {
-			left: '3%',
-			right: '4%',
-			bottom: '3%',
-			containLabel: true
-		},
-		xAxis : [
-			{
-				type : 'category',
-				data : ['A47J', 'B65D', 'A23F', 'H05B', 'A47G', 'G07F', 'F24H'],
-				axisTick: {
-					alignWithLabel: true
-				}
-			}
-		],
-		yAxis : [
-			{
-				type : 'value'
-			}
-		],
-		series : [
-			{
-				name:'专利数量',
-				type:'bar',
-				barWidth: '60%',
-				data:[10615, 424, 405, 343, 246, 180, 177]
-			}
-		]
-	};
-	var option8 = {
-		color: ['#2dbdd0'],
-		tooltip : {
-			trigger: 'axis',
-			axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-				type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-			}
-		},
-		grid: {
-			left: '3%',
-			right: '4%',
-			bottom: '3%',
-			containLabel: true
-		},
-		xAxis : [
-			{
-				type : 'category',
-				data : ['A47J', 'B65D', 'A23F', 'H05B', 'A47G', 'G07F', 'F24H'],
-				axisTick: {
-					alignWithLabel: true
-				}
-			}
-		],
-		yAxis : [
-			{
-				type : 'value'
-			}
-		],
-		series : [
-			{
-				name:'专利数量',
-				type:'bar',
-				barWidth: '60%',
-				data:[10615, 424, 405, 343, 246, 180, 177]
-			}
-		]
-	};
-	chartPar1.setOption(option1);
-	chartPar2.setOption(option2);
-	chartPar3.setOption(option3);
-	chartPar4.setOption(option4);
-	chartPar5.setOption(option5);
-	chartPar6.setOption(option6);
-	chartPar7.setOption(option7);
-	chartPar8.setOption(option8);
-	window.addEventListener("resize", function(){
-		this.chartPar1.resize();
-		this.chartPar2.resize();
-		this.chartPar3.resize();
-		this.chartPar4.resize();
-		this.chartPar5.resize();
-		this.chartPar6.resize();
-		this.chartPar7.resize();
-		this.chartPar8.resize();
-	});
-</script>
+            $.fn.datetimepicker.dates['zh-CN'] = {
+                days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
+                daysShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+                daysMin: ["日", "一", "二", "三", "四", "五", "六", "日"],
+                months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+                monthsShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一", "十二"],
+                today: "今天",
+                suffix: [],
+                meridiem: ["上午", "下午"]
+            };
+            $('.LaySearchDate').datetimepicker({
+                language: 'zh-CN',
+                weekStart: 1,
+                autoclose: 1,
+                startView: 2,
+                minView: 2,
+                forceParse: 0
+            });
+            $(".tongji").click(function () {
+                $('html,body').animate({ scrollTop: $('#tongji').offset().top - $(".logo").height() - 15 }, 800);
+            })
+            var chartPar1 = echarts.init(document.getElementById('chartPar1'));
+            var chartPar2 = echarts.init(document.getElementById('chartPar2'));
+            var chartPar3 = echarts.init(document.getElementById('chartPar3'));
+            var chartPar4 = echarts.init(document.getElementById('chartPar4'));
+            var chartPar5 = echarts.init(document.getElementById('chartPar5'));
+            var chartPar6 = echarts.init(document.getElementById('chartPar6'));
+            var chartPar7 = echarts.init(document.getElementById('chartPar7'));
+            var chartPar8 = echarts.init(document.getElementById('chartPar8'));
+            var option1 = {
+                color: '#0670c4',
+                tooltip: {
+                    trigger: 'axis',
+                    position: function (pt) {
+                        return [pt[0], '10%'];
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['2012', '2013', '2014', '2015', '2016', '2017', '2018']
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [{
+                    data: [820, 932, 901, 934, 1290, 1330, 1320],
+                    type: 'line',
+                    areaStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 0.8, [{
+                                offset: 0,
+                                color: '#0670c4'
+                            }, {
+                                offset: 1,
+                                color: '#fff'
+                            }])
+                        }
+                    },
+                }]
+            };
+            var option2 = {
+                color: '#0670c4',
+                tooltip: {
+                    trigger: 'axis',
+                    position: function (pt) {
+                        return [pt[0], '10%'];
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['2012', '2013', '2014', '2015', '2016', '2017', '2018']
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [{
+                    data: [620, 532, 901, 934, 1290, 1330, 1320],
+                    type: 'line',
+                    areaStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 0.8, [{
+                                offset: 0,
+                                color: '#0670c4'
+                            }, {
+                                offset: 1,
+                                color: '#fff'
+                            }])
+                        }
+                    },
+                }]
+            };
+            var option3 = {
+                color: ['#57cad9', '#ff835c', '#fdcd58', '#72bd76', '#b660c5',],
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                legend: {
+                    left: 'left',
+                    data: ['中国', '德国', '美国', '法国', '欧盟']
+                },
+                series: [
+                    {
+                        name: '全球地域分布图',
+                        type: 'pie',
+                        radius: ['55%', '80%'],
+                        center: ['50%', '56%'],
+                        data: [
+                            { value: 335, name: '中国' },
+                            { value: 310, name: '德国' },
+                            { value: 234, name: '美国' },
+                            { value: 135, name: '法国' },
+                            { value: 1548, name: '欧盟' }
+                        ],
+                        itemStyle: {
+                            emphasis: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            };
+            var option4 = {
+                color: ['#57cad9', '#ff835c', '#fdcd58', '#72bd76', '#b660c5', , '#d7e361', '#ef598c', , '#66b4f1',],
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                legend: {
+                    left: 'left',
+                    data: ['授权', '权力终止', '实质审查', '撤回', '放弃', '驳回', '公开', '全部无效']
+                },
+                series: [
+                    {
+                        name: '法律状态统计',
+                        type: 'pie',
+                        radius: '55%',
+                        center: ['50%', '60%'],
+                        data: [
+                            { value: 335, name: '授权' },
+                            { value: 310, name: '权力终止' },
+                            { value: 234, name: '实质审查' },
+                            { value: 135, name: '撤回' },
+                            { value: 148, name: '放弃' },
+                            { value: 548, name: '驳回' },
+                            { value: 458, name: '公开' },
+                            { value: 248, name: '全部无效' }
+                        ],
+                        itemStyle: {
+                            emphasis: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            };
+            var option5 = {
+                color: ['#0670c4'],
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                        type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: [
+                    {
+                        type: 'category',
+                        data: ['郭建刚', '陈龙辉', '王冬雷', '不公告设计人', '曾永春', '赵三', '李四'],
+                        axisTick: {
+                            alignWithLabel: true
+                        }
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value'
+                    }
+                ],
+                series: [
+                    {
+                        name: '专利数量',
+                        type: 'bar',
+                        barWidth: '60%',
+                        data: [10, 52, 200, 334, 390, 330, 220]
+                    }
+                ]
+            };
+            var option6 = {
+                color: ['#0670c4'],
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                        type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: [
+                    {
+                        type: 'category',
+                        data: ['郭建刚', '陈龙辉', '王冬雷', '不公告设计人', '曾永春', '赵三', '李四'],
+                        axisTick: {
+                            alignWithLabel: true
+                        }
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value'
+                    }
+                ],
+                series: [
+                    {
+                        name: '专利数量',
+                        type: 'bar',
+                        barWidth: '60%',
+                        data: [10, 52, 200, 334, 390, 330, 220]
+                    }
+                ]
+            };
+            var option7 = {
+                color: ['#2dbdd0'],
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                        type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: [
+                    {
+                        type: 'category',
+                        data: ['A47J', 'B65D', 'A23F', 'H05B', 'A47G', 'G07F', 'F24H'],
+                        axisTick: {
+                            alignWithLabel: true
+                        }
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value'
+                    }
+                ],
+                series: [
+                    {
+                        name: '专利数量',
+                        type: 'bar',
+                        barWidth: '60%',
+                        data: [10615, 424, 405, 343, 246, 180, 177]
+                    }
+                ]
+            };
+            var option8 = {
+                color: ['#2dbdd0'],
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                        type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: [
+                    {
+                        type: 'category',
+                        data: ['A47J', 'B65D', 'A23F', 'H05B', 'A47G', 'G07F', 'F24H'],
+                        axisTick: {
+                            alignWithLabel: true
+                        }
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value'
+                    }
+                ],
+                series: [
+                    {
+                        name: '专利数量',
+                        type: 'bar',
+                        barWidth: '60%',
+                        data: [10615, 424, 405, 343, 246, 180, 177]
+                    }
+                ]
+            };
+            //加载echarts配置及生成
+            function initEcharts() {
+                chartPar1.setOption(option1);
+                chartPar2.setOption(option2);
+                chartPar3.setOption(option3);
+                chartPar4.setOption(option4);
+                chartPar5.setOption(option5);
+                chartPar6.setOption(option6);
+                chartPar7.setOption(option7);
+                chartPar8.setOption(option8);
+                window.addEventListener("resize", function(){
+                    this.chartPar1.resize();
+                    this.chartPar2.resize();
+                    this.chartPar3.resize();
+                    this.chartPar4.resize();
+                    this.chartPar5.resize();
+                    this.chartPar6.resize();
+                    this.chartPar7.resize();
+                    this.chartPar8.resize();
+                });
+            }
+        </script>
 </body>
+
 </html>

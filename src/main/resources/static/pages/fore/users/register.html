@@ -58,7 +58,7 @@
                     <div class="clear"></div>
                 </li>
             	<li class="col-xs-12 col-sm-12 col-md-6">
-                	<label class="regLab"><span class="corRed">*</span> 姓名：</label>
+                	<label class="regLab" id="changeName"><span class="corRed">*</span> 姓名：</label>
                     <div class="regRig">
                     	<input type="text" class="loginInput" id="name" >
                     </div>
@@ -246,7 +246,11 @@
         }
     });
     function changeDataByUserType() {
-        // alert($("#userType").val());
+        if ($("#userType").val() == '0'){
+            $("#changeName").html('<span class="corRed">*</span> 姓名：');
+        }else if ($("#userType").val() == '1'){
+            $("#changeName").html('<span class="corRed">*</span> 单位名称：');
+        }
     }
     function upload(obj) {
 	    var file = $("#upload"+obj)[0].files[0];
@@ -260,7 +264,7 @@
                 processData : false,
                 contentType : false,
                 success: function (result) {
-                    $("#card"+obj).attr("style","background:url("+domain+"/statics"+result.url+") no-repeat;background-size: contain;")
+                    $("#card"+obj).attr("style","background:url("+domain+"/statics"+result.url+") no-repeat;background-size: contain;");
                     $("#cardInput"+obj).val(result.url);
                 }
             })
@@ -411,11 +415,12 @@
         formdata.phone = phone;
         formdata.email = email;
         formdata.password = password;
-        formdata.formJob = fromJob_val;
+        formdata.fromJobmJob = fromJob_val;
         formdata.interestJob = interest_val;
         formdata.inforAutA = cardA;
         formdata.inforAutB = cardB;
         formdata.userType = $("#userType").val();
+        fromdata.headImgUrl = '/default.jpg';
         formdata.status = 0;
         console.log(JSON.stringify(formdata));
 
@@ -425,9 +430,9 @@
             contentType: "application/json; charset=utf-8",
             data : JSON.stringify(formdata),
             success : function(data) {
-                layer.msg("注册成功", {shift: -1, time: 1000}, function(){
-                    location.href = "login.html";
-                });
+                // layer.msg("注册成功", {shift: -1, time: 1000}, function(){
+                //     location.href = "login.html";
+                // });
             }
         });
     }

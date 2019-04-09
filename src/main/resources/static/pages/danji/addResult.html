@@ -1,0 +1,497 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>科技成果数据导入</title>
+
+    <link rel="stylesheet" href="./css/reset.css">
+	<link rel="stylesheet" href="./myfont/iconfont.css">
+	<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+    <link rel="stylesheet" href="./css/animate.css">
+    <!-- <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script> -->
+    <script src="./js/jquery.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../layui/layui.js"></script>
+    <style>
+         .main {
+            width: 100%;
+            min-height: 100vh;
+            background-color: #ffffff;
+            flex-direction: column;
+        }
+
+        .main .top {
+            width: 100%;
+            height: 380px;
+            background-color: #087EDB;
+			display: flex;
+			flex-direction: column;
+            /*justify-content: center;/*控制内容位于横轴的中间*/
+            /*align-items: center;  /*控制内容位于纵轴的中间*/
+        } 
+		
+
+        .top .top-content {
+			width: 100%;
+			height:60px;
+			justify-content: center;/*控制内容位于横轴的中间*/
+			margin-top: 90px;
+            /* align-items: center; */
+        }
+		.top .top-discribe {
+			width: 100%;
+			height:60px;
+			justify-content: center;/*控制内容位于横轴的中间*/
+			 margin-top: 110px; 
+			/* align-items: center; */
+			
+		}
+
+        .top-content span {
+			font-size: 36px;
+			font-family:MicrosoftYaHei;
+			font-weight:400;
+			color:rgba(255,255,255,1);
+			line-height:60px;
+        }
+
+        .top-content img {
+            width: 60px;
+            height: 57px;
+            margin-left: 25px;
+        }
+		.top-discribe img {
+		    width:60px;
+			height:56px;
+		    margin-left: 2%;
+		}
+		.top-discribe p{
+			width:18%;
+			height:25px;
+			font-size:24px;
+			font-family:MicrosoftYaHei;
+			font-weight:400;
+			color:rgba(254,254,254,1);
+			line-height:60px;
+		}
+		.main .bottom {
+		    width: 100%;
+		    height: 1690px;
+			background:rgba(255,255,255,1);
+			box-shadow:0px 3px 10px 0px rgba(0, 0, 0, 0.08);
+			border-radius:6px;
+			display: flex;
+			flex-direction: column;
+		    /*justify-content: center;/*控制内容位于横轴的中间*/
+		    /*align-items: center;  /*控制内容位于纵轴的中间*/
+		} 
+		.bottom .bottom-content{
+			float:left;
+			width:50%;
+			height:60px;
+			margin-top: 30px;
+			
+		}
+		.bottom .bottom-content1{
+			float:left;
+			width:50%;
+			height:60px;
+			margin-top: 30px;
+			
+		}
+		.bottom-content span{
+			width:40%;
+			height:17px;
+			font-size:18px;
+			font-family:PingFangSC-Regular;
+			font-weight:400;
+			color:rgba(51,51,51,1);
+			line-height:48px;
+			text-align: right;
+			margin-right: 20px;
+			
+		}
+		.bottom-content1 span{
+			width:24%;
+			height:17px;
+			font-size:18px;
+			font-family:PingFangSC-Regular;
+			font-weight:400;
+			color:rgba(51,51,51,1);
+			line-height:48px;
+			text-align: right;
+			margin-right: 20px;
+			
+		}
+		.bottom input{
+			width:42%;
+			height:60px;
+			background:rgba(245,246,250,1);
+		}
+		.bottom .bottom-content2{
+			width:100%;
+			height:120px;
+			/* margin-left: 150px; */
+			padding-top: 30px;
+			/* margin-top:30px; */
+			
+		}
+		.bottom-content2 textarea{
+			width:63%;
+			height:120px;
+			background:rgba(245,246,250,1);
+		}
+		.bottom-content2 span{
+			width:20%;
+			height:17px;
+			font-size:18px;
+			font-family:PingFangSC-Regular;
+			font-weight:400;
+			color:rgba(51,51,51,1);
+			line-height:48px;
+			text-align: right;
+			margin-right: 20px;
+		}
+		.bottom .bottom-content3{
+			width:100%;
+			height:60px;
+			/* margin-left: 150px; */
+			padding-top: 30px;
+			margin-top:90px;
+			
+		}
+		.bottom-content3 span{
+			width:20%;
+			height:17px;
+			font-size:18px;
+			font-family:PingFangSC-Regular;
+			font-weight:400;
+			color:rgba(51,51,51,1);
+			line-height:48px;
+			text-align: right;
+			margin-right: 20px;
+			
+			margin-top:70px;
+		}
+		.bottom .bottom-submit{
+			width:100%;
+			height:100px;
+			margin-top:120px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;/*控制内容位于横轴的中间*/ 
+			
+		}
+		
+		
+		.bottom-content3 .patentEgImg{
+			width:160px;
+			height:160px;
+			/* margin-left: 18px; */
+			margin-right: 18px;
+		}
+		.bottom-content3 .patentAddImg{
+			width:50px;
+			height:50px;
+			margin-left: 30px;
+			margin-top:55px;
+		}
+		
+		.bottom-submit button{
+			width:200px;
+			height:80px;
+			background:rgba(8,126,219,1);
+			margin-left: 45%;
+		}
+		.bottom-submit span{
+			width:43px;
+			height:24px;
+			font-size:24px;
+			font-family:PingFangSC-Regular;
+			font-weight:400;
+			color:rgba(255,255,255,1);
+			line-height:48px;
+			
+		}
+         .fileinput-button {
+             width:50px !important;
+             height:50px !important;
+             margin-left: 30px;
+             margin-top:55px;
+             background-image: url(imgs/add.png) !important;
+             background-repeat: no-repeat !important;
+             position: relative;
+             border-radius: 30px;
+             border: none;
+         }
+         .fileinput-button input{
+             width:50px;
+             position:absolute;
+             right: 0px;
+             top: 0px;
+             opacity: 0;
+             -ms-filter: 'alpha(opacity=0)';
+         }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="main">
+		<div class="top  wow fadeInDown">
+			<div class="top-content">
+				<span>高分专项知识产权信息管理平台</span>
+				<img src="imgs/logo.png" alt="">
+			</div>
+			<div class="top-discribe">
+				<img src="imgs/result_white.png" alt="">
+				<p>科技成果：<b id='kjResult'>30</b>项</p>
+				<img src="imgs/putong_white.png" alt="">
+				<p>普通专利：<b id='putongZl'>30</b>项</p>
+				<img src="imgs/guofang_white.png" alt="">
+				<p>国防专利：<b id='guofangZl'>30</b>项</p>
+			</div>
+		</div>
+
+		<script src="js/htmlJs/publicHeader.js"></script>
+        <div class="bottom wow fadeInUp">
+            <form id="add_form"  onsubmit="return false">
+                <div class="bottom-content">
+                    <span>成果名称:</span>
+                    <input id="name" name="name" type="text"/>
+                </div>
+				<div class="bottom-content1">
+					<span>细分领域:</span>
+					<input id="xfArea" name="xfArea" type="text"/>
+				</div>
+				<div class="bottom-content">
+					<span>所属行业:</span>
+					<select id="fId" onchange="selectSid()" style="width: 42%;height: 60px"  type="text"></select>
+				</div>
+                <div class="bottom-content1">
+                	<span>二级行业:</span>
+					<select id="sId"  style="width: 42%;height: 60px" type="text"></select>
+                </div>
+				<div class="bottom-content">
+					<span>技术水平:</span>
+					<input id="tlevel" name="tlevel" type="text"/>
+				</div>
+				<div class="bottom-content1">
+					<span>技术成熟度:</span>
+					<input id="teMaturity" name="teMaturity" type="text"/>
+				</div>
+				<div class="bottom-content">
+					<span>联系人:</span>
+					<input id="cMan" name="cMan" type="text"/>
+				</div>
+				<div class="bottom-content1">
+					<span>联系电话:</span>
+					<input id="cPhone" name="cPhone" type="text"/>
+				</div>
+				<div class="bottom-content">
+					<span>发布日期:</span>
+					<input id="pubTime" name="pubTime" type="text"/>
+				</div>
+				<div class="bottom-content1">
+					<span>技术来源:</span>
+					<input id="source" name="source" type="text"/>
+				</div>
+                <div class="bottom-content">
+					<span>合作方式:</span>
+					<input id="cWays" name="cWays" type="text"/>
+				</div>
+				<div class="bottom-content1">
+					<span>应用范围:</span>
+					<input id="useRange" name="useRange" type="text"/>
+				</div>
+                <div class="bottom-content">
+					<span>资金需求:</span>
+					<input id="mNeed" name="mNeed" type="text"/>
+				</div>
+				<div class="bottom-content1">
+					<span>区域:</span>
+					<input id="area" name="area" type="text"/>
+				</div>
+				<div class="bottom-content2">
+					<span>知识产权情况:</span>
+					<textarea id="knowledge" name="knowledge"></textarea>
+				</div>
+				<div class="bottom-content2">
+					<span>预期效益:</span>
+					<textarea id="predict" name="predict"></textarea>
+				</div>
+				<div class="bottom-content2">
+					<span>技术指标:</span>
+					<textarea id="tIndex" name="tIndex"></textarea>
+				</div>
+				<div class="bottom-content2">
+					<span>技术简介:</span>
+					<textarea id="tdetails" name="tdetails"></textarea>
+				</div>
+                <div class="bottom-content3">
+                    <span>附图:</span>
+                    <div id="addImage">
+                    </div>
+                    <div>
+                        <input type="button" class="fileinput-button" id="image">
+                    </div>
+                </div>
+				<div class="bottom-submit">
+                    <button onclick="choose()"><span>提交</span></button>
+				</div>
+            </form>
+        </div>
+    </div>
+    <input type="hidden" id="imageurl" >
+    <input type="hidden" id="id" name="id">
+	<script>
+        var pro = window.location.protocol;
+        var host = window.location.host;
+        var domain = pro + "//" + host;
+
+        layui.use(['layer','upload','laydate'], function() {
+            var layer = layui.layer;
+            var laydate = layui.laydate;
+            var upload = layui.upload;
+
+            laydate.render({
+                elem: '#pubTime'
+            });
+
+            upload.render({
+                elem: '#image' //绑定元素
+                ,accept: 'image' //允许上传的文件类型
+                ,url: '/files' //上传接口
+                ,done: function(res, index, upload){
+                    $("#addImage").html('<img src="'+domain+'/statics'+res.url+'" alt="" class="patentEgImg"/>');
+                    $("#imageurl").val(res.url);
+                }
+            });
+        });
+        function selectFid(){
+            $.ajax({
+                type : 'get',
+                url : '/kjResultClassifyInfos/getClassify/0',
+                async : false,
+                success : function (data) {
+                    if (data.length > 0) {
+                        $("#fId").append("<option value =''> </option>");
+                        for (var i = 0; i < data.length; i++) {
+                            $("#fId").append("<option value ='" + data[i].id + "'>" + data[i].name + "</option>");
+                        }
+                    }
+                }
+            });
+        }
+        selectFid();
+        function selectSid() {
+            var fId = $("#fId").val();
+            $("#sId").html('');
+            if (fId != '' && fId != null) {
+                $.ajax({
+                    type : 'get',
+                    url : '/kjResultClassifyInfos/getClassify/'+fId,
+                    async : false,
+                    success : function(data) {
+                        var select = $("#sId");
+                        for(var i=0; i<data.length; i++){
+                            var d = data[i];
+                            var id = d['id'];
+                            var name = d['name'];
+                            select.append("<option value='"+ id +"'>" +name+"</option>");
+                        }
+                    }
+                });
+            }
+        }
+        var id = getUrlParam("id");
+        if (id != '') {
+            $.ajax({
+                type : 'get',
+                url : '/kjResults/'+id,
+                async : false,
+                success : function(data) {
+                    $('#area').val(data.area);
+                    $('#cMan').val(data.cman);
+                    $('#cPhone').val(data.cphone);
+                    $('#cWays').val(data.cways);
+                    $('#fId').val(data.fid);
+                    selectSid();
+                    $('#id').val(data.id);
+                    $('#knowledge').val(data.knowledge);
+                    $('#mNeed').val(data.mNeed);
+                    $('#name').val(data.name);
+                    $('#predict').val(data.predict);
+                    $('#pubTime').val( (new Date(data.pubTime)).Format("yyyy-MM-dd"));
+                    $('#sId').val(data.sid);
+                    $('#source').val(data.source);
+                    $('#tdetails').val(data.tdetails);
+                    $('#teMaturity').val(data.teMaturity);
+                    $('#tIndex').val(data.tindex);
+                    $('#tlevel').val(data.tlevel);
+                    $('#useRange').val(data.useRange);
+                    $('#xfArea').val(data.xfArea);
+                    $('#status').val(data.status);
+                    if (data.image != null && data.image!='') {
+                        $("#addImage").html('<img src="'+domain+'/statics'+data.image+'" alt="" class="patentEgImg"/>');
+                        $("#imageurl").val(data.image);
+                    }
+                }
+            });
+        }
+
+
+        function choose() {
+            if (id != '') {
+                update();
+            }else {
+                add();
+            }
+        }
+        function add() {
+            var formdata = $("#add_form").serializeObject();
+            formdata.fId = $("#fId").val();
+            formdata.sId = $("#sId").val();
+            formdata.image = $("#imageurl").val();
+            formdata.status = 1;
+            formdata.pubTime = (new Date($("#pubTime").val())).Format("yyyy-MM-dd hh:mm:ss");
+            console.log(JSON.stringify(formdata));
+            // return false;
+            $.ajax({
+                type : 'post',
+                url : '/kjResults',
+                contentType: "application/json; charset=utf-8",
+                data : JSON.stringify(formdata),
+                success : function(data) {
+                    layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                        location.href = "kejichengguo.html";
+                    });
+                }
+            });
+        }
+        function update() {
+            var formdata = $("#add_form").serializeObject();
+            formdata.id = $("#id").val();
+            formdata.fId = $("#fId").val();
+            formdata.sId = $("#sId").val();
+            formdata.image = $("#imageurl").val();
+            formdata.pubTime = (new Date($("#pubTime").val())).Format("yyyy-MM-dd hh:mm:ss");
+            console.log(JSON.stringify(formdata));
+
+            $.ajax({
+                type : 'put',
+                url : '/kjResults',
+                contentType: "application/json; charset=utf-8",
+                data : JSON.stringify(formdata),
+                success : function(data) {
+                    layer.msg("修改成功", {shift: -1, time: 1000}, function(){
+                        location.href = "kejichengguo.html";
+                    });
+                }
+            });
+        }
+	</script>
+</body>
+
+</html>

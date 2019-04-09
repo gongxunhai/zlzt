@@ -8,6 +8,7 @@ import java.util.Map;
 
 import com.alibaba.fastjson.JSONObject;
 import com.boot.security.server.dao.ZlztClassifyinfoDao;
+import com.boot.security.server.model.SqlLiteCeshi;
 import com.boot.security.server.service.ZlztDatainfoService;
 import com.boot.security.server.utils.ExcelAndImgUtil;
 import com.google.common.collect.Lists;
@@ -112,10 +113,13 @@ public class ZlztDatainfoController {
     @ApiOperation(value = "excel导出")
     public void downloadExcel(@RequestParam(value="jsonString") String[] id, @RequestParam(value = "fromTable") String fromTable ,String fileName, HttpServletResponse response) throws IOException {
         String tableClassift = "";
+        int imageNum = 32;
         if (fromTable.equals("view_gfdata")){
             tableClassift = "gf_classifyinfo";
         }else if (fromTable.equals("view_zlztdata")){
             tableClassift = "zlzt_classifyinfo";
+        }else if (fromTable.equals("view_yfdata")){
+            tableClassift = "yf_classifyinfo";
         }
         String sql ="SELECT\n" +
                 "\tb.name '所属专题',\n" +
@@ -160,6 +164,15 @@ public class ZlztDatainfoController {
                 "on a.tId = d.id\n" +
                 "INNER JOIN " +tableClassift+ " e\n" +
                 "on a.cId = e.id";
+        if (fromTable.equals("kj_result")){
+            sql = "select a.name '名称', a.pubTime '发布日期', b.name '所属行业', c.name '二级行业', " +
+                    "      a.xfArea '细分领域', a.source '来源', a.tlevel '技术水平', a.useRange '应用范围', " +
+                    "      a.cWays '合作方式', a.mNeed '资金需求', a.teMaturity '技术成熟度', a.area '区域', a.tdetails '技术详情', " +
+                    "      a.tIndex '技术指标', a.knowledge '知识产权情况', a.predict '预期收益', a.cMan '联系人', a.cPhone '联系电话', a.image '图片'" +
+                    " from kj_result a inner join kj_result_classifyinfo b on a.fId = b.id " +
+                    " inner join kj_result_classifyinfo c on a.sId = c.id ";
+            imageNum = 18;
+        }
         if (id.length>0){
             sql += " where a.id in (";
             for (int i =0;i<id.length;i++){
@@ -171,7 +184,7 @@ public class ZlztDatainfoController {
             }
             sql+=")";
         }
-//        System.out.println("sql="+sql);
+        System.out.println("sql="+sql);
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         if (!CollectionUtils.isEmpty(list)) {
             Map<String, Object> map = list.get(0);
@@ -194,14 +207,15 @@ public class ZlztDatainfoController {
             }
             excelAndImgUtil.excelExport(
                     fileName == null || fileName.trim().length() <= 0 ? DigestUtils.md5Hex(sql) : fileName, headers,
-                    datas, response);
+                    datas, response,imageNum);
         }
     }
 
     @PostMapping("/getListDetail")
     @ApiOperation(value = "上下翻页")
-    public List<ZlztDatainfo> getListDetail(@RequestParam(value = "params") String json,@RequestParam(value = "id") String id){
-        JSONObject params = JSONObject.parseObject(json);
+    public List<ZlztDatainfo> getListDetail(@RequestParam(value = "param") String param,@RequestParam(value = "id") String id){
+        JSONObject params = new JSONObject();
+        params.put("fromTable",param);
 //        System.out.println(params);
 //        System.out.println(id);
         List<ZlztDatainfo> list = Lists.newArrayList();
@@ -211,7 +225,8 @@ public class ZlztDatainfoController {
             zlztDatainfo = new ZlztDatainfo();
         }
         list.add(zlztDatainfo);
-        ZlztDatainfo zlztDatainfo1 = zlztDatainfoDao.getById(Long.valueOf(id));
+        params.put("fType",3);
+        ZlztDatainfo zlztDatainfo1 = zlztDatainfoDao.selectListByParams(params,id);
         if (zlztDatainfo1 == null ){
             zlztDatainfo1 = new ZlztDatainfo();
         }
@@ -225,4 +240,8 @@ public class ZlztDatainfoController {
         return list;
     }
 
+    @GetMapping("/sqliteCeshi")
+    public SqlLiteCeshi getData(){
+        return zlztDatainfoDao.getSqlLiteCeshi();
+    }
 }

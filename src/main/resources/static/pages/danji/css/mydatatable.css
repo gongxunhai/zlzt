@@ -262,12 +262,13 @@
 .tag-b,
 .tag-c {
     display: inline-block;
-    width: 40px;
+    width: 50px;
     height: 24px;
     line-height: 24px;
     text-align: center;
     color: #ffffff;
     font-size: 12px;
+    margin-left: 8px;
 }
 .tag-a {
     background-color: #94b5d1;

@@ -484,6 +484,7 @@ jQuery(function () {
 		$('.sxSecond').hide();
 		$(this).hide();
 	})
+
 	//科技商城详情	
 	if($(".technoImgTop .swiper-slide").length>1){
 		var technoImgTop = new Swiper('.technoImgTop .swiper-container', {
@@ -586,6 +587,23 @@ jQuery(function () {
 		$(".onLine").toggleClass("active");
 	})
 	
+	//boxNav
+	if($(".banInner").length>0){
+		$(window).scroll(function(){
+			if($(window).scrollTop()>($(".banInner").height()/2)){
+				$(".boxNav").addClass("active");
+			}else{
+				$(".boxNav").removeClass("active");	
+			}
+			if($(window).scrollTop()>$(".banInner").offset().top){
+				$(".navBox").addClass("active");
+			}else{
+				$(".navBox").removeClass("active");	
+			}
+		})
+	}
+	if($(".banner").length>0){$(".boxNav").addClass("active");$(".navbar").removeClass("navBox");$(".navSpace").remove();}
+	if($(".banUser").length>0){$(".navbar").removeClass("navBox");$(".navSpace").remove();}
 		
 	function equip() {
 		$("nav.navbar.bootsnav.no-full .navbar-collapse").css("max-height",$(window).height()-$(".logo").height());

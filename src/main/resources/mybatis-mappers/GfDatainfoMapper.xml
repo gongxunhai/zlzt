@@ -39,10 +39,18 @@
 	</select>
 
 	<select id="list" resultType="GfDatainfo">
-		select * from gf_datainfo t
+		select t.*,a.name as fIdName,b.name as sIdName,c.name as tIdName,d.name as cIdName from gf_datainfo t
+		inner join gf_classifyinfo a on t.fId = a.id
+		inner join gf_classifyinfo b on t.sId = b.id
+		inner join gf_classifyinfo c on t.tId = c.id
+		inner join gf_classifyinfo d on t.cId = d.id
 		<include refid="where" />
-		${params.orderBy}
-		limit #{offset}, #{limit}
+		<if test="params.orderBy!=null and params.orderBy !=''">
+			${params.orderBy}
+		</if>
+		<if test="limit !=null and limit !=''">
+			limit #{offset}, #{limit}
+		</if>
 	</select>
 
 	<update id="update">

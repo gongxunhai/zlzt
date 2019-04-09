@@ -443,8 +443,12 @@ public class ZlztDatainfoServiceImpl implements ZlztDatainfoService {
         map.put("zlType","专利类型");
         map.put("ipc","IPC分类");
         map.put("cpec","国名经济");
-        int type = zlztDatainfo.getType();
-        int id = zlztDatainfo.getClassifyId();
+        int type = 0;
+        int id = 0;
+        if (zlztDatainfo.getType()!=null){
+            type = zlztDatainfo.getType();
+            id = zlztDatainfo.getClassifyId();
+        }
         if (type==1){
             zlztDatainfo.setfId(id);
         }else if (type==2){

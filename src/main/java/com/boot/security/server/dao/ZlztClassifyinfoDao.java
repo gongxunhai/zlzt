@@ -81,4 +81,6 @@ public interface ZlztClassifyinfoDao {
             "ON T1._id = T2.id \n" +
             "ORDER BY T1.lvl DESC;")
     List<ZlztClassifyinfo>  getParentInfo(@Param("id") Long id);
+
+    List<ZlztClassifyinfo> getClassifyByParentId(Long id);
 }

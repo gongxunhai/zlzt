@@ -54,7 +54,24 @@ $(function (){
     initEcharts();
     //加载treetable样式
     initTreetableStyle();
+    //加载点击样式
+    initLeftClass();
 });
+function initLeftClass() {
+    var aObjs = $('.leftMenu').find('tr');
+
+    // console.log(aObjs);
+
+    for(var i=0;i<aObjs.length;i++) {
+        var num = $(aObjs[i]).attr('data-tt-id');
+
+        if(classifyid == num) {
+            $(aObjs[i]).find('a').css('color', '#F08080');
+        } else {
+            $(aObjs[i]).find('a').css('color', '#000000');
+        }
+    }
+}
 var layer;
 layui.use([ 'layer' ], function() {
      layer = layui.layer;
@@ -156,6 +173,7 @@ function selctByAllData() {
 function changData(id,type1) {
     classifyid = id;
     type = type1;
+    initLeftClass();
     $("#classifyid").val(classifyid);
     $("#type").val(type);
     //信息统计
@@ -181,7 +199,6 @@ function initlistdata() {
           //  console.log(JSON.stringify(data));
             var a = '<div class="fenleiTit">\n' +
                 '                        \t<a class="fenleiTitLink" style="display: flex;" href="javascript:;" onclick="changData(\''+data.id+'\',\''+data.type+'\')">\n' +
-                '                                <img src="'+domain+'/statics/icon/gfArea.png" style="margin: 3px;width:25px;height:25px">\n' +
                 '                                <h2 class="fenleiTitCn">'+data.name+'</h2>\n' +
                 '                            </a>\n' +
                 '                        </div>\n' +
@@ -350,7 +367,7 @@ function initleftdata() {
                         }
                     }
                 }
-                listdata += '<li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="#">'+d.name+'</a></h3>';
+                listdata += '<li class="fenleiLi"><h3 class="fenleiLiTit"><i class="fenleiIco"></i><a href="javascript:;">'+ d.name+'</a></h3>';
                 if(d.children!==null&& d.children!=""){
                     // console.log(children);
 
@@ -359,11 +376,15 @@ function initleftdata() {
                     for (var j in children) {
                         if (j < 5) {
                             var p = children[j];
-                            if (d.keyname == 'applyDay' || d.keyname == 'openDay') {
-                                listdata += '<li><span><input type="checkbox" name="'+d.keyname+'Id" value="'+p.keyname.substring(0,4)+'"><i class="iconfont icon-xuanze"></i><a href="#">'+p.keyname.substring(0,4)+'年('+p.count+')</a></span></li>';
-                            }else {
-                                listdata += '<li><span><input type="checkbox" name="'+d.keyname+'Id" value="'+p.keyname+'"><i class="iconfont icon-xuanze"></i><a href="#">'+p.keyname+'('+p.count+')</a></li>';
+                            if (p.keyname != null && p.keyname != '') {
+                                if (d.keyname == 'applyDay' || d.keyname == 'openDay') {
+                                    listdata += '<li><span><input type="checkbox" name="'+d.keyname+'Id" value="'+p.keyname.substring(0,4)+'"><i class="iconfont icon-xuanze"></i><a href="#">'+p.keyname.substring(0,4)+'年('+p.count+')</a></span></li>';
+                                }else {
+                                        listdata += '<li><span><input type="checkbox" name="'+d.keyname+'Id" value="'+p.keyname+'"><i class="iconfont icon-xuanze"></i><a href="javascrpt:;">'+p.keyname+'('+p.count+')</a></li>';
+                                }
                             }
+                        }else {
+                            continue;
                         }
                     }
                     listdata += '</ul>\n<div class="siftBtn">\n' +
@@ -400,10 +421,12 @@ function showAllList(objname) {
     if (value == "展开") {
         $("#all"+objname).html('');
         for (var i in list) {
-            if (objname == 'applyDay' || objname == 'openDay') {
-                $("#all"+objname).append('<li><span><input type="checkbox" name="'+list[i].keyname+'Id" value="'+list[i].keyname.substring(0,4)+'"><i class="iconfont icon-xuanze"></i><a href="#">'+list[i].keyname.substring(0,4)+'年('+list[i].count+')</a></span></li>');
-            }else {
-                $("#all"+objname).append('<li><span><input type="checkbox" name="'+list[i].keyname+'Id" value="'+list[i].keyname+'"><i class="iconfont icon-xuanze"></i><a href="#">'+list[i].keyname+'('+list[i].count+')</a></li>');
+            if (list[i].keyname !=null && list[i].keyname !=''){
+                if (objname == 'applyDay' || objname == 'openDay') {
+                    $("#all"+objname).append('<li><span><input type="checkbox" name="'+list[i].keyname+'Id" value="'+list[i].keyname.substring(0,4)+'"><i class="iconfont icon-xuanze"></i><a href="#">'+list[i].keyname.substring(0,4)+'年('+list[i].count+')</a></span></li>');
+                }else {
+                    $("#all"+objname).append('<li><span><input type="checkbox" name="'+list[i].keyname+'Id" value="'+list[i].keyname+'"><i class="iconfont icon-xuanze"></i><a href="#">'+list[i].keyname+'('+list[i].count+')</a></li>');
+                }
             }
         }
         $("#show"+objname).html("隐藏<i class='iconfont icon-iconfontgengduo'></i>");

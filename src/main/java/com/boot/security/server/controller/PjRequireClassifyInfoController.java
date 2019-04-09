@@ -89,4 +89,11 @@ public class PjRequireClassifyInfoController {
         }
         return sId;
     }
+
+    @GetMapping("/getParentClassifyInfo/{id}")
+    @ApiOperation(value = "根据parentid获取二级")
+    public List<PjRequireClassifyInfo> getClassifyByParentId(@PathVariable Long id){
+        return pjRequireClassifyInfoDao.getParentClassifyInfo(id.intValue());
+    }
+
 }

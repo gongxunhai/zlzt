@@ -42,4 +42,7 @@ public interface PjRequireClassifyInfoDao {
 
     @Select("select ifnull(max(id),-1) from pj_require_classifyInfo where parentId = #{fid} and name = '其它' ")
     int selectSidByFid(@Param("fid") int fid);
+
+    @Select("select * from pj_require_classifyInfo t where t.parentId = #{parentId}")
+    List<PjRequireClassifyInfo> getParentClassifyInfo(@Param("parentId") int intValue);
 }

@@ -858,7 +858,7 @@
                 "render": function (data, type, row) {
                     var a = '<strong>操作：</strong>\n' +
                         '                    \t<a href="javascript:;" onclick="deleteProject('+row.id+')"><i class="iconfont icon-shanchu"></i>删除</a>\n' +
-                        '                    \t<a href="javascript:;"><i class="iconfont icon-chakan1"></i>查看</a>';
+                        '                    \t<a href="'+domain+row.url+'"><i class="iconfont icon-chakan1"></i>查看</a>';
                     return a;
                 }
             },

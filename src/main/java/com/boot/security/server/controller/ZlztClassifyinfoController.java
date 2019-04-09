@@ -47,6 +47,12 @@ public class ZlztClassifyinfoController {
         return zlztClassifyinfoDao.getClassify();
     }
 
+    @GetMapping("/getClassify/{id}")
+    @ApiOperation(value = "获取1级分类")
+    public List<ZlztClassifyinfo> getClassifyByParentId(@PathVariable Long id){
+        return zlztClassifyinfoDao.listData(id);
+    }
+
     @PutMapping
     @ApiOperation(value = "修改")
     public ZlztClassifyinfo update(@RequestBody ZlztClassifyinfo zlztClassifyinfo) {
@@ -156,6 +162,32 @@ public class ZlztClassifyinfoController {
         }
         zlztClassifyinfo.setChildren(list);
         return zlztClassifyinfo;
+    }
+
+    @GetMapping("/danjiTreetable")
+    @ApiOperation(value = "单机版菜单列表")
+    public List<ZlztClassifyinfo> treetable() {
+        List<ZlztClassifyinfo> zlztClassifyinfoList = Lists.newArrayList();
+        ZlztClassifyinfo zlztClassifyinfo = new ZlztClassifyinfo();
+
+        List<ZlztClassifyinfo> zlztClassifyinfoAll = zlztClassifyinfoDao.listAll();
+        List<ZlztClassifyinfo> list = zlztClassifyinfoDao.getClassify();
+        for (int i = 0;i<list.size();i++){
+            List<ZlztClassifyinfo> list1 = Lists.newArrayList();
+            zlztClassifyinfo = zlztClassifyinfoDao.getById(list.get(i).getId());
+            setTreeTableList(list.get(i).getId(), zlztClassifyinfoAll, list1);
+            zlztClassifyinfo.setChildren(list1);
+            zlztClassifyinfoList.add(zlztClassifyinfo);
+        }
+       /* if (type==1){
+
+
+        }else{//类型为4代表第4级，先取上级id再取数
+            zlztClassifyinfo = zlztClassifyinfoDao.getById((long)zlztClassifyinfoDao.getParentId(id));
+            setTreeTableList((long)zlztClassifyinfoDao.getParentId(id), zlztClassifyinfoAll, list);
+        }*/
+
+        return zlztClassifyinfoList;
     }
 
     private void setTreeTableList(Long pId, List<ZlztClassifyinfo> zlztClassifyinfoAll, List<ZlztClassifyinfo> list) {

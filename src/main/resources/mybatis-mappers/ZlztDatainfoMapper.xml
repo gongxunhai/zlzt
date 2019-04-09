@@ -12,105 +12,111 @@
 		<where>
 			1 = 1
 			<if test="params.id != null and params.id != ''">
-				and id = #{params.id} 
+				and t.id = #{params.id}
 			</if>
 			<if test="params.cId != null and params.cId != ''">
-				and cId = #{params.cId} 
+				and t.cId = #{params.cId}
 			</if>
+			<if test="params.secret != null and params.secret != ''">
+				and t.secret = #{params.secret}
+			</if>
+            <if test="params.secret == null || params.secret == ''">
+                and  ( t.secret is  null or t.secret != 'secret' )
+            </if>
 			<if test="params.openId != null and params.openId != ''">
-				and openId like concat('%',#{params.openId},'%')
+				and t.openId like concat('%',#{params.openId},'%')
 			</if>
 			<if test="params.openDay1 != null and params.openDay1 != ''">
 				<if test="params.openDay2 != null and params.openDay2 != ''">
-					and openDay between #{params.openDay1} and #{params.openDay2}
+					and t.openDay between #{params.openDay1} and #{params.openDay2}
 				</if>
 				<if test="params.openDay2 == null || params.openDay2 == ''">
-					and openDay > #{params.openDay1}
+					and t.openDay > #{params.openDay1}
 				</if>
 			</if>
 			<if test="params.openDay2 != null and params.openDay2 != ''">
 				<if test="params.openDay1 == null || params.openDay1 == ''">
-					and openDay &lt; #{params.openDay2}
+					and t.openDay &lt; #{params.openDay2}
 				</if>
 			</if>
 
 			<if test="params.applyDay1 != null and params.applyDay1 != ''">
 				<if test="params.applyDay2 != null and params.applyDay2 != ''">
-					and applyDay between #{params.applyDay1} and #{params.applyDay2}
+					and t.applyDay between #{params.applyDay1} and #{params.applyDay2}
 				</if>
 				<if test="params.applyDay2 == null || params.applyDay2 == ''">
-					and applyDay > #{params.applyDay1}
+					and t.applyDay > #{params.applyDay1}
 				</if>
 			</if>
 			<if test="params.applyDay2 != null and params.applyDay2 != ''">
 				<if test="params.applyDay1 == null || params.applyDay1 == ''">
-					and applyDay &lt; #{params.applyDay2}
+					and t.applyDay &lt; #{params.applyDay2}
 				</if>
 			</if>
-			<if test="params.applayId != null and params.applayId != ''">
-				and applayId like concat('%', #{params.applayId} ,'%')
+			<if test="params.applyId != null and params.applyId != ''">
+				and t.applyId like concat('%', #{params.applyId} ,'%')
 			</if>
 			<if test="params.title != null and params.title != ''">
-				and title like concat('%',#{params.title},'%')
+				and t.title like concat('%',#{params.title},'%')
 			</if>
 			<if test="params.zy != null and params.zy != ''">
-				and zy like concat('%',#{params.zy} ,'%')
+				and t.zy like concat('%',#{params.zy} ,'%')
 			</if>
 			<if test="params.powerAN1 != null and params.powerAN1 != ''">
 				<if test="params.powerAN2 != null and params.powerAN2 != ''">
-					and powerAN between #{params.powerAN1} and #{params.powerAN2}
+					and t.powerAN between #{params.powerAN1} and #{params.powerAN2}
 				</if>
 				<if test="params.powerAN2 == null and params.powerAN2 == ''">
-					and powerAN > #{params.powerAN1}
+					and t.powerAN > #{params.powerAN1}
 				</if>
 			</if>
 			<if test="params.powerAN2 != null and params.powerAN2 != ''">
 				<if test="params.powerAN1 == null || params.powerAN1 == ''">
-					and applyDay &lt; #{params.powerAN2}
+					and t.applyDay &lt; #{params.powerAN2}
 				</if>
 			</if>
 			<if test="params.applyMan != null and params.applyMan != ''">
-				and applyMan like concat('%',#{params.applyMan},'%')
+				and t.applyMan like concat('%',#{params.applyMan},'%')
 			</if>
 			<if test="params.applyPlace != null and params.applyPlace != ''">
-				and applyPlace like concat('%',#{params.applyPlace},'%')
+				and t.applyPlace like concat('%',#{params.applyPlace},'%')
 			</if>
 			<if test="params.createMan != null and params.createMan != ''">
-				and createMan like concat('%',#{params.createMan},'%')
+				and t.createMan like concat('%',#{params.createMan},'%')
 			</if>
 			<if test="params.ipcMC != null and params.ipcMC != ''">
-				and ipcMC like concat('%',#{params.ipcMC},'%')
+				and t.ipcMC like concat('%',#{params.ipcMC},'%')
 			</if>
 			<if test="params.ipc != null and params.ipc != ''">
-				and ipc like concat('%',#{params.ipc},'%')
+				and t.ipc like concat('%',#{params.ipc},'%')
 			</if>
 			<if test="params.cpec != null and params.cpec != ''">
-				and cpec like concat('%',#{params.cpec},'%')
+				and t.cpec like concat('%',#{params.cpec},'%')
 			</if>
 			<if test="params.type != null and params.type != ''">
 				<if test="params.type == 1">
-					and fId = #{params.classifyid}
+					and t.fId = #{params.classifyid}
 				</if>
 				<if test="params.type == 2">
-					and sId = #{params.classifyid}
+					and t.sId = #{params.classifyid}
 				</if>
 				<if test="params.type == 3">
-					and tId = #{params.classifyid}
+					and t.tId = #{params.classifyid}
 				</if>
 				<if test="params.type == 4">
-					and cId = #{params.classifyid}
+					and t.cId = #{params.classifyid}
 				</if>
 			</if>
 			<if test="params.searchKey != null and params.searchKey != ''">
-				and concat(IFNULL(country,''),IFNULL(openId,''),IFNULL(applyId,''),IFNULL(title,''),IFNULL(titleFy,''),IFNULL(zy,''),
-							IFNULL(zyFy,''),IFNULL(powerAsk,''),IFNULL(powerAFy,''),IFNULL(powerAN,''),IFNULL(applyMan,''),IFNULL(applyPlace,''),
-							IFNULL(createMan,''),IFNULL(lawS,''),IFNULL(nowLawS,''),IFNULL(zlType,''),IFNULL(ipcMC,''),IFNULL(ipcMCFy,''),
-							IFNULL(ipc,''),IFNULL(ipcFy,''),IFNULL(cpec,''),IFNULL(cpecFy,''),IFNULL(beUsedNum,''),IFNULL(VALUE,''),IFNULL(zlText,''))
+				and concat(IFNULL(t.country,''),IFNULL(t.openId,''),IFNULL(t.applyId,''),IFNULL(t.title,''),IFNULL(t.titleFy,''),IFNULL(t.zy,''),
+							IFNULL(t.zyFy,''),IFNULL(t.powerAsk,''),IFNULL(t.powerAFy,''),IFNULL(t.powerAN,''),IFNULL(t.applyMan,''),IFNULL(t.applyPlace,''),
+							IFNULL(t.createMan,''),IFNULL(t.lawS,''),IFNULL(t.nowLawS,''),IFNULL(t.zlType,''),IFNULL(t.ipcMC,''),IFNULL(t.ipcMCFy,''),
+							IFNULL(t.ipc,''),IFNULL(t.ipcFy,''),IFNULL(t.cpec,''),IFNULL(t.cpecFy,''),IFNULL(t.beUsedNum,''),IFNULL(t.value,''),IFNULL(t.zlText,''))
 				like concat('%', #{params.searchKey}, '%')
 			</if>
 			<!-- 国家筛选 -->
 			<if test="params.countryId != null and params.countryId != ''">
-				and country in
+				and t.country in
 				<foreach collection="params.countryId.split(',')" item="item" index="index"
 						 open="(" separator="," close=")">
 					'${item}'
@@ -118,15 +124,15 @@
 			</if>
 			<!-- 申请年筛选 -->
 			<if test="params.applyDayId != null and params.applyDayId != ''">
-				and SUBSTRING(applyDay,1,4) in (${params.applyDayId})
+				and SUBSTRING(t.applyDay,1,4) in (${params.applyDayId})
 			</if>
 			<!-- 公开年筛选 -->
 			<if test="params.openDayId != null and params.openDayId != ''">
-				and SUBSTRING(openDay,1,4) in (${params.openDayId})
+				and SUBSTRING(t.openDay,1,4) in (${params.openDayId})
 			</if>
 			<!-- 申请人筛选 -->
 			<if test="params.applyManId != null and params.applyManId != ''">
-				and applyMan in
+				and t.applyMan in
 				<foreach collection="params.applyManId.split(',')" item="item" index="index"
 						 open="(" separator="," close=")">
 					'${item}'
@@ -137,12 +143,12 @@
 				and
 				<foreach collection="params.createManId.split(',')" item="item" index="index"
 						 open="(" separator="or" close=")">
-					createMan like  CONCAT('%',#{item},'%')
+					t.createMan like  CONCAT('%',#{item},'%')
 				</foreach>
 			</if>
 			<!-- 当前法律状态筛选 -->
 			<if test="params.nowLawSId != null and params.nowLawSId != ''">
-				and nowLawS in
+				and t.nowLawS in
 				<foreach collection="params.nowLawSId.split(',')" item="item" index="index"
 						 open="(" separator="," close=")">
 					'${item}'
@@ -150,7 +156,7 @@
 			</if>
 			<!-- 专利类型筛选 -->
 			<if test="params.zlTypeId != null and params.zlTypeId != ''">
-				and zlType in
+				and t.zlType in
 				<foreach collection="params.zlTypeId.split(',')" item="item" index="index"
 						 open="(" separator="or" close=")">
 					 '${item}'
@@ -161,12 +167,12 @@
 				and
 				<foreach collection="params.ipcId.split(',')" item="item" index="index"
 						 open="(" separator="or" close=")">
-					ipc like CONCAT('%',#{item},'%')
+					t.ipc like CONCAT('%',#{item},'%')
 				</foreach>
 			</if>
 			<!-- 国名经济分类筛选 -->
 			<if test="params.cpecId != null and params.cpecId != ''">
-				and cpec in
+				and t.cpec in
 				<foreach collection="params.cpecId.split(',')" item="item" index="index"
 						 open="(" separator="," close=")">
 					'${item}'
@@ -178,21 +184,40 @@
 	<select id="count" resultType="int">
 		select count(1) from
 		<if test="params.fromTable == null || params.fromTable==''">
-			zlzt_datainfo
+			zlzt_datainfo t
 		</if>
 		<if test="params.fromTable !=null and params.fromTable !=''">
-			${params.fromTable}
+			${params.fromTable} t
 		</if>
 		<include refid="where" />
 	</select>
 
 	<select id="list" resultType="ZlztDatainfo">
-		select * from
 		<if test="params.fromTable ==null || params.fromTable==''">
-			zlzt_datainfo
+			select t.*  from
+			zlzt_datainfo t
 		</if>
 		<if test="params.fromTable !=null and params.fromTable !=''">
-			${params.fromTable}
+			select t.*,a.name as fIdName,b.name as sIdName,c.name as tIdName,d.name as cIdName from
+			${params.fromTable} t
+			<if test="params.fromTable == 'view_gfdata'">
+				inner join gf_classifyinfo a on t.fId = a.id
+				inner join gf_classifyinfo b on t.sId = b.id
+				inner join gf_classifyinfo c on t.tId = c.id
+				inner join gf_classifyinfo d on t.cId = d.id
+			</if>
+			<if test="params.fromTable == 'view_yfdata'">
+				inner join yf_classifyinfo a on t.fId = a.id
+				inner join yf_classifyinfo b on t.sId = b.id
+				inner join yf_classifyinfo c on t.tId = c.id
+				inner join yf_classifyinfo d on t.cId = d.id
+			</if>
+			<if test="params.fromTable == 'view_zlztdata'">
+				inner join zlzt_classifyinfo a on t.fId = a.id
+				inner join zlzt_classifyinfo b on t.sId = b.id
+				inner join zlzt_classifyinfo c on t.tId = c.id
+				inner join zlzt_classifyinfo d on t.cId = d.id
+			</if>
 		</if>
 		<include refid="where" />
 		<if test="params.order !=null and params.order !=''">
@@ -221,8 +246,8 @@
 			<if test="openDay != null">
 				openDay = #{openDay}, 
 			</if>
-			<if test="applayId != null">
-				applayId = #{applayId}, 
+			<if test="applyId != null">
+                applyId = #{applyId},
 			</if>
 			<if test="applyDay != null">
 				applyDay = #{applyDay}, 
@@ -334,6 +359,12 @@
 			<if test="cId != null and cId != ''">
 				and cId = #{cId}
 			</if>
+            <if test="secret != null and secret != ''">
+				and secret = #{secret}
+			</if>
+            <if test="secret == null || secret == ''">
+				and ( secret is  null or secret != 'secret' )
+			</if>
 			<!-- 国家筛选 -->
 			<if test="country != null and country != ''">
 				and country in
@@ -411,6 +442,9 @@
 			</if>
 			<if test="params.fType == 2" >
 				and id = (select min(id) from ${params.fromTable} <include refid="where" /> and id > #{id} )
+			</if>
+			<if test="params.fType == 3" >
+				and t.id = #{id}
 			</if>
 		</where>
 		<if test="params.order !=null and params.order !=''">

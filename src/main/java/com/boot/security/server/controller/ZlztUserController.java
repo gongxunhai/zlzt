@@ -34,7 +34,7 @@ public class ZlztUserController {
     public ZlztUser save(@RequestBody ZlztUser zlztUser) {
         zlztUser.setPassword(passwordEncoder.encode(zlztUser.getPassword()));
         ZlztUser zlztUser1 = zlztUserDao.getPwdByPhoneAndEmail(zlztUser.getPhone(),zlztUser.getEmail());
-        if (zlztUser1 !=null){
+        if (zlztUser1 == null){
             zlztUserDao.save(zlztUser);
         }
         return zlztUser;

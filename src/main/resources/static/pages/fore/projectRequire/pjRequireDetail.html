@@ -417,39 +417,6 @@
                             </div>
                         </li>
                     </ul>
-                    <script type="text/javascript">
-						//全局变量，动态的文章ID
-						var ShareId = "";
-						//绑定所有分享按钮所在A标签的鼠标移入事件，从而获取动态ID
-						$(function () {
-							$(".projectBox").click(function () {
-								ShareId = $(this).find(".box1Link").attr("share-src");
-								ShareTit = $(this).find(".projectTit h3").html();
-							});
-						});						
-						/* 
-						* 动态设置百度分享URL的函数,具体参数
-						* cmd为分享目标id,此id指的是插件中分析按钮的ID
-						*，我们自己的文章ID要通过全局变量获取
-						* config为当前设置，返回值为更新后的设置。
-						*/
-						function SetShareUrl(cmd, config) {            
-							if (ShareId) {
-								config.bdUrl = ShareId;   
-								config.bdText = ShareTit;
-							}
-							return config;
-						}						
-						//插件的配置部分，注意要记得设置onBeforeClick事件，主要用于获取动态的文章ID
-						window._bd_share_config = {
-							"common": {
-								onBeforeClick:SetShareUrl,"bdSnsKey":{},"bdText":"","bdMini":"2"
-								,"bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"
-							}, "share": {"bdCustomStyle": "../css/share.css"}
-						};
-						//插件的JS加载部分
-						with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+ ~(-new Date() / 36e5)];
-					</script>
                 </div>
             </div>
         </div>
@@ -635,8 +602,8 @@
                 '                            <p>'+data.description+'</p>');
             $("#target").html(' <h3 class="zyTextH3">预期目标</h3>\n' +
                 '                            <p>'+data.target+'</p>');
-            $("#pointAndCare").html(' <li><a href="javascript:;" class="point"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞('+( data.pointNum || '0' )+')</a></li>\n' +
-                '                                    <li><a href="javascript:;" class="collection" ><i class="iconfont icon-guanzhu1"></i>关注('+( data.careNum || '0' )+')</a></li>\n' +
+            $("#pointAndCare").html(' <li><a href="javascript:;" class="point" id="P'+data.id+'" value="'+data.id+'"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞('+( data.pointNum || '0' )+')</a></li>\n' +
+                '                                    <li><a href="javascript:;" class="collection" id="C'+data.id+'" value="'+data.id+'"><i class="iconfont icon-guanzhu1"></i>关注('+( data.careNum || '0' )+')</a></li>\n' +
                 '                                    <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>');
         }
     });
@@ -645,10 +612,38 @@
         type: 'get',
         url: '/pjRequires',
         async : false,
-        success: function (data) {
+        data : {
+            "status" :1
+        },
+        success: function (result) {
+            var data = result.data;
+            $("#lookMore").html('');
             console.log(data);
-            for (var i = 0; i < data.length; i++) {
-                $("#lookMore").append('');
+            if (data.length > 4){
+                for (var i = 4; i >0; i--) {
+                    $("#lookMore").append('<li class="wow fadeInUp">\n' +
+                        '                            <div class="projectBox">\n' +
+                        '                                <a class="box1Link" href="#" share-src="'+domain+'/pages/fore/projectRequire/pjRequireDetail.html?id='+data[i].id+'">                                            \n' +
+                        '                                    <div class="projectTit">\n' +
+                        '                                        <span>拟投资金额：<i>'+data[i].cmoney+'</i></span>\n' +
+                        '                                        <h3 class="ellipsis">'+data[i].name+'</h3>\n' +
+                        '                                    </div>\n' +
+                        '                                    <div class="projectBrief">\n' +
+                        '                                        <p>'+data[i].description+'</p>\n' +
+                        '                                    </div>\n' +
+                        '                                </a>\n' +
+                        '                                <div class="box1Bot">\n' +
+                        '                                    <div class="projectTime pull-left">行业：'+data[i].fIdName+'<i>|</i><span>更新：'+data[i].endTime+'</span></div>\n' +
+                        '                                    <ul class="zyTitIco technoBriefRig list-unstyled list-inline bdsharebuttonbox pull-right">\n' +
+                        '                                        <li><a href="javascript:;"  class="point" id="P'+data[i].id+'" value="'+data[i].id+'"><i class="iconfont icon-qinziAPPtubiao-"></i>点赞('+(data[i].pointNum || '0' )+')</a></li>\n' +
+                        '                                        <li><a href="javascript:;"  class="collection" id="C'+data[i].id+'" value="'+data[i].id+'"><i class="iconfont icon-guanzhu1"></i>关注('+(data[i].careNum || '0' )+')</a></li>\n' +
+                        '                                        <li><a href="javascript:;" data-cmd="more"><i class="iconfont icon-fenxiang1"></i>分享</a></li>\n' +
+                        '                                    </ul>\n' +
+                        '                                    <div class="clear"></div>\n' +
+                        '                                </div>\n' +
+                        '                            </div>\n' +
+                        '                        </li>');
+                }
             }
         }
     });
@@ -709,16 +704,16 @@
             $(this).toggleClass("active");
             if ($(this).hasClass("point")){
                 if ($(this).hasClass("active")) {
-                    addPoint(id);
+                    addPoint($(this).attr("value"));
                 }else {
-                    deletePoint(id);
+                    deletePoint($(this).attr("value"));
                 }
             }
             if ($(this).hasClass("collection")){
                 if ($(this).hasClass("active")) {
-                    addCollection(id);
+                    addCollection($(this).attr("value"));
                 }else {
-                    deleteCollection(id);
+                    deleteCollection($(this).attr("value"));
                 }
             }
         }else {
@@ -740,7 +735,7 @@
             success : function(data) {
                 if (data != null && data != '') {
                     if (data.msg == "success") {
-                        $(".point").html('<i class="iconfont icon-qinziAPPtubiao-"></i>点赞(' + data.pointNum + ')');
+                        $("#P" + obj).html('<i class="iconfont icon-qinziAPPtubiao-"></i>点赞(' + data.pointNum + ')');
                         alert("点赞成功!");
                     }
                     else {
@@ -764,7 +759,7 @@
             data : JSON.stringify(formData),
             success : function(data) {
                 if (data != null && data != '') {
-                    $(".point").html('<i class="iconfont icon-qinziAPPtubiao-"></i>点赞(' + data.pointNum + ')');
+                    $("#P" + obj).html('<i class="iconfont icon-qinziAPPtubiao-"></i>点赞(' + data.pointNum + ')');
                     alert("取消点赞!");
                 }
             }
@@ -784,9 +779,7 @@
                 var data = result.data;
                 console.log(data);
                 for (var i = 0; i < data.length; i++) {
-                    if (data[i].agreeId == id) {
-                        $(".point").addClass("active");
-                    }
+                    $("#P"+data[i].agreeId).addClass("active");
                 }
             }
         })
@@ -807,7 +800,7 @@
             success : function(data) {
                 if (data != null && data != '') {
                     if (data.msg == "success") {
-                        $(".collection").html('<i class="iconfont icon-guanzhu1">收藏(' + data.pointNum + ')');
+                        $("#C" + obj).html('<i class="iconfont icon-guanzhu1">收藏(' + data.pointNum + ')');
                         alert("收藏成功!");
                     }
                     else {
@@ -830,7 +823,7 @@
             data : JSON.stringify(formData),
             success : function(data) {
                 if (data != null && data != '') {
-                    $(".collection").html('<i class="iconfont icon-guanzhu1">收藏(' + data.pointNum + ')');
+                    $("#C" + obj).html('<i class="iconfont icon-guanzhu1">收藏(' + data.pointNum + ')');
                     alert("取消收藏!");
                 }
             }
@@ -850,9 +843,7 @@
                 var data = result.data;
                 console.log(data);
                 for (var i = 0; i < data.length; i++) {
-                    if (data[i].careId == id) {
-                        $(".collection").addClass("active");
-                    }
+                    $("#C"+data[i].careId).addClass("active");
                 }
             }
         })
@@ -860,6 +851,39 @@
 
     selectPoint();
     selectCollection();
+</script>
+<script type="text/javascript">
+    //全局变量，动态的文章ID
+    var ShareId = "";
+    //绑定所有分享按钮所在A标签的鼠标移入事件，从而获取动态ID
+    $(function () {
+        $(".projectBox").click(function () {
+            ShareId = $(this).find(".box1Link").attr("share-src");
+            ShareTit = $(this).find(".projectTit h3").html();
+        });
+    });
+    /*
+    * 动态设置百度分享URL的函数,具体参数
+    * cmd为分享目标id,此id指的是插件中分析按钮的ID
+    *，我们自己的文章ID要通过全局变量获取
+    * config为当前设置，返回值为更新后的设置。
+    */
+    function SetShareUrl(cmd, config) {
+        if (ShareId) {
+            config.bdUrl = ShareId;
+            config.bdText = ShareTit;
+        }
+        return config;
+    }
+    //插件的配置部分，注意要记得设置onBeforeClick事件，主要用于获取动态的文章ID
+    window._bd_share_config = {
+        "common": {
+            onBeforeClick:SetShareUrl,"bdSnsKey":{},"bdText":"","bdMini":"2"
+            ,"bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"
+        }, "share": {"bdCustomStyle": "../css/share.css"}
+    };
+    //插件的JS加载部分
+    with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+ ~(-new Date() / 36e5)];
 </script>
 </body>
 </html>

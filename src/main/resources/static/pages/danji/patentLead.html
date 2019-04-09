@@ -1,0 +1,376 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>专利导入</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="myfont/iconfont.css">
+
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script> -->
+    <script src="js/jquery.js"></script>
+
+    <style>
+         .main {
+            width: 100%;
+            min-height: 100vh;
+            background-color: #ffffff;
+            flex-direction: column;
+        }
+
+        .main .top {
+            width: 100%;
+            height: 380px;
+            background-color: #087EDB;
+			display: flex;
+			flex-direction: column;
+            /*justify-content: center;/*控制内容位于横轴的中间*/
+            /*align-items: center;  /*控制内容位于纵轴的中间*/
+        } 
+		
+
+        .top .top-content {
+			width: 100%;
+			height:60px;
+			justify-content: center;/*控制内容位于横轴的中间*/
+			margin-top: 90px;
+            /* align-items: center; */
+        }
+		.top .top-discribe {
+			width: 85%;
+			height:60px;
+			justify-content: center;/*控制内容位于横轴的中间*/
+			 margin-top: 110px; 
+			/* align-items: center; */
+			
+		}
+
+        .top-content span {
+			font-size: 36px;
+			font-family:MicrosoftYaHei;
+			font-weight:400;
+			color:rgba(255,255,255,1);
+			line-height:60px;
+        }
+
+        .top-content img {
+            width: 60px;
+            height: 57px;
+            margin-left: 25px;
+        }
+		.top-discribe img {
+		    width:60px;
+			height:56px;
+		    margin-left: 2%;
+		}
+		.top-discribe p{
+			width:20%;
+			height:25px;
+			font-size:24px;
+			font-family:MicrosoftYaHei;
+			font-weight:400;
+			color:rgba(254,254,254,1);
+			line-height:25px;
+			padding-top: 20px;
+		}
+		.main .bottom {
+		    width: 100%;
+		    height: 2016px;
+			background:rgba(255,255,255,1);
+			box-shadow:0px 3px 10px 0px rgba(0, 0, 0, 0.08);
+			border-radius:6px; 
+			display: flex;
+			flex-direction: column;
+		    /*justify-content: center;/*控制内容位于横轴的中间*/
+		    /*align-items: center;  /*控制内容位于纵轴的中间*/
+		} 
+
+		.bottom .bottom-content{
+			float:left;
+			width:50%;
+			height:60px;
+			margin-top: 30px;
+			
+		}
+		.bottom .bottom-content1{
+			float:left;
+			width:50%;
+			height:60px;
+			margin-top: 30px;
+			
+		}
+		.bottom-content span{
+			width:40%;
+			height:17px;
+			font-size:18px;
+			font-family:PingFangSC-Regular;
+			font-weight:400;
+			color:rgba(51,51,51,1);
+			line-height:20px;
+			text-align: right;
+			margin-right: 20px;
+			padding-top: 20px;
+			
+		}
+		.bottom-content1 span{
+			width:24%;
+			height:17px;
+			font-size:18px;
+			font-family:PingFangSC-Regular;
+			font-weight:400;
+			color:rgba(51,51,51,1);
+			line-height:20px;
+			text-align: right;
+			margin-right: 20px;
+			padding-top:20px;
+			
+		}
+		.bottom input{
+			width:42%;
+			height:60px;
+			background:rgba(245,246,250,1);
+		}
+		.bottom .bottom-content2{
+			width:100%;
+			height:120px;
+			/* margin-left: 150px; */
+			padding-top: 30px;
+			/* margin-top:30px; */
+			
+		}
+		.bottom-content2 textarea{
+			width:63%;
+			height:120px;
+			background:rgba(245,246,250,1);
+		}
+		.bottom-content2 span{
+			width:20%;
+			height:17px;
+			font-size:18px;
+			font-family:PingFangSC-Regular;
+			font-weight:400;
+			color:rgba(51,51,51,1);
+			line-height:20px;
+			text-align: right;
+			margin-right: 20px;
+			padding-top: 40px;
+		}
+		.bottom .bottom-content3{
+			width:100%;
+			height:60px;
+			/* margin-left: 150px; */
+			padding-top: 30px;
+			margin-top:90px;
+			
+		}
+		.bottom-content3 span{
+			width:20%;
+			height:17px;
+			font-size:18px;
+			font-family:PingFangSC-Regular;
+			font-weight:400;
+			color:rgba(51,51,51,1);
+			line-height:20px;
+			text-align: right;
+			margin-right: 20px;
+			/* padding-top:40px; */
+			margin-top:70px;
+		}
+		.bottom .bottom-submit{
+			width:100%;
+			height:100px;
+			margin-top:120px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;/*控制内容位于横轴的中间*/ 
+			
+		}
+		
+		
+		.bottom-content3 .patentEgImg{
+			width:160px;
+			height:160px;
+			/* margin-left: 18px; */
+			margin-right: 18px;
+		}
+		.bottom-content3 .patentAddImg{
+			width:50px;
+			height:50px;
+			margin-left: 30px;
+			margin-top:55px;
+		}
+		
+		.bottom-submit button{
+			width:22%;
+			height:80px;
+			background:rgba(8,126,219,1);
+			margin-left: 45%;
+		}
+		.bottom-submit span{
+			width:43px;
+			height:24px;
+			font-size:24px;
+			font-family:PingFangSC-Regular;
+			font-weight:400;
+			color:rgba(255,255,255,1);
+			line-height:48px;
+			
+		}
+		.fileinput-button {
+			width:50px;
+			height:50px;
+			margin-left: 30px;
+			margin-top:55px;
+			background-image: url(imgs/add.png);
+			background-repeat: no-repeat;
+			position: relative;
+		}
+		.fileinput-button input{
+			width:50px;
+		    position:absolute;
+		    right: 0px;
+		    top: 0px;
+			opacity: 0;
+		    -ms-filter: 'alpha(opacity=0)';
+		}
+    </style>
+
+</head>
+
+<body>
+    <div class="main">
+        <div class="top  wow fadeInDown">
+           <div class="top-content">
+                <span>高分专项知识产权信息管理平台</span>
+                <img src="imgs/logo.png" alt="">
+            </div>
+			<div class="top-discribe">
+				<img src="imgs/result_white.png" alt="">
+				<p>科技成果：1211项</p>
+				<img src="imgs/putong_white.png" alt="">
+				<p>普通专利：30项</p>
+				<img src="imgs/guofang_white.png" alt="">
+				<p>国防专利：17项</p>
+			</div>
+        </div>
+       <div class="bottom wow fadeInUp">
+            <form action="">
+                <div class="bottom-content">
+                    <span>所属专题:</span>
+                    <input name="name" type="text"/>
+                </div>
+				<div class="bottom-content1">
+					<span>二级专题:</span>
+					<input name="industry" type="text"/>
+				</div>
+                <div class="bottom-content">
+                	<span>一级分类:</span>
+                	<input name="secondIndustry" type="text"/>
+                </div>
+				<div class="bottom-content1">
+					<span>二级分类:</span>
+					<input name="area" type="text"/>
+				</div>
+				<div class="bottom-content">
+					<span>国家:</span>
+					<input name="level" type="text"/>
+				</div>
+				<div class="bottom-content1">
+					<span>公开号:</span>
+					<input name="maturity" type="text"/>
+				</div>
+				<div class="bottom-content">
+					<span>标题翻译:</span>
+					<input name="linkman" type="text"/>
+				</div>
+				<div class="bottom-content1">
+					<span>权利要求数:</span>
+					<input name="phone" type="text"/>
+				</div>
+				<div class="bottom-content2">
+					<span>摘要:</span>
+					<textarea name="knowledge"></textarea>
+				</div>
+				<div class="bottom-content2">
+					<span>摘要翻译:</span>
+					<textarea name="earning"></textarea>
+				</div>
+				<div class="bottom-content2">
+					<span>权利要求:</span>
+					<textarea name="target"></textarea>
+				</div>
+				<div class="bottom-content2">
+					<span>权力要求翻译:</span>
+					<textarea name="info"></textarea>
+				</div>
+				<div class="bottom-content">
+				    <span>申请人:</span>
+				    <input name="name" type="text"/>
+				</div>
+				<div class="bottom-content1">
+					<span>申请地址:</span>
+					<input name="industry" type="text"/>
+				</div>
+				<div class="bottom-content">
+					<span>发明人:</span>
+					<input name="secondIndustry" type="text"/>
+				</div>
+				<div class="bottom-content1">
+					<span>当前法律状态:</span>
+					<input name="area" type="text"/>
+				</div>
+				<div class="bottom-content">
+					<span>专利类型:</span>
+					<input name="level" type="text"/>
+				</div>
+				<div class="bottom-content1">
+					<span>IPC主分类:</span>
+					<input name="maturity" type="text"/>
+				</div>
+				<div class="bottom-content">
+					<span>主分类翻译:</span>
+					<input name="linkman" type="text"/>
+				</div>
+				<div class="bottom-content1">
+					<span>IPC分类:</span>
+					<input name="phone" type="text"/>
+				</div>
+				<div class="bottom-content">
+					<span>国民经济分类:</span>
+					<input name="phone" type="text"/>
+				</div>
+				<div class="bottom-content1">
+					<span>被引证次数:</span>
+					<input name="phone" type="text"/>
+				</div>
+				<div class="bottom-content3">
+					<span>专利附图:</span>
+					<img src="imgs/eg.png" alt="" class="patentEgImg"/>
+					<img src="imgs/eg.png" alt="" class="patentEgImg"/>
+					<img src="imgs/eg.png" alt="" class="patentEgImg"/>
+					<div class="fileinput-button">
+						<input type="file">
+					</div>
+				</div>
+				<div class="bottom-content3">
+					<span>首页附图:</span>
+					<img src="imgs/eg.png" alt="" class="patentEgImg"/>
+					<img src="imgs/eg.png" alt="" class="patentEgImg"/>
+					<img src="imgs/eg.png" alt="" class="patentEgImg"/>
+					<div class="fileinput-button">
+						<input type="file">
+					</div>
+				</div>
+				<div class="bottom-submit">
+				<button><span>提交</span></button>
+				</div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+    </script>
+</body>
+
+</html>

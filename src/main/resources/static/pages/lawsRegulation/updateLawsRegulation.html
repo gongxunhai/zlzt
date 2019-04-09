@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="../../layui/css/layui.css">
 </head>
 <body>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -10,44 +11,36 @@
 		<fieldset>
 			<input type="hidden" id="id" name="id">
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>addFile</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='addFile' type='text' name='addFile' id='addFile' data-bv-notempty='true' data-bv-notempty-message='addFile 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>company</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='company' type='text' name='company' id='company' data-bv-notempty='true' data-bv-notempty-message='company 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>name</label>
+				<label class='col-md-2 control-label'>名称</label>
 				<div class='col-md-10'>
 					<input class='form-control' placeholder='name' type='text' name='name' id='name' data-bv-notempty='true' data-bv-notempty-message='name 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>pageView</label>
+				<label class='col-md-2 control-label'>制定单位</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='pageView' type='text' name='pageView' id='pageView' data-bv-notempty='true' data-bv-notempty-message='pageView 不能为空'>
+					<input class='form-control' placeholder='company' type='text' name='company' id='company' data-bv-notempty='true' data-bv-notempty-message='company 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>symbol</label>
+				<label class='col-md-2 control-label'>文号</label>
 				<div class='col-md-10'>
 					<input class='form-control' placeholder='symbol' type='text' name='symbol' id='symbol' data-bv-notempty='true' data-bv-notempty-message='symbol 不能为空'>
 				</div>
 			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>type</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='type' type='text' name='type' id='type' data-bv-notempty='true' data-bv-notempty-message='type 不能为空'>
-				</div>
+			<div style="border-bottom: solid 1px #c6d0de">
+				<span >附件</span>
 			</div>
-
-
-
+			<div>
+				<button type="button" class="layui-btn" id="test1">
+					<i class="layui-icon">&#xe67c;</i>上传文件
+				</button>
+				<button type="button" class="layui-btn" id="test2">
+					上传
+				</button>
+			</div>
+			<div id="showname"></div>
+			<div id="buttondelete"></div>
 			<div class="form-actions">
 				<div class="row" align="center">
 					<div class="col-md-12">
@@ -58,9 +51,9 @@
 					</div>
 				</div>
 			</div>
-
 		</fieldset>
 	</form>
+	<input type="hidden" id="fileurl" >
 </div>
 	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="../../js/jq.js"></script>
@@ -68,10 +61,44 @@
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../layui/layui.js"></script>
 	<script type="text/javascript">
+        var pro = window.location.protocol;
+        var host = window.location.host;
+        var domain = pro + "//" + host;
 		layui.use(['layer','laydate'], function(){
 		    var layer = layui.layer;
+            var upload = layui.upload;
+
+            upload.render({
+                elem: '#test1' //绑定元素
+                ,accept: 'file' //允许上传的文件类型
+                ,url: '/files' //上传接口
+                ,auto: false //选择文件后不自动上传
+                ,bindAction: '#test2' //指向一个按钮触发上传
+                ,done: function(res, index, upload){
+                    $("#fileurl").val(res.url);
+                    var a = "<a href='"+domain+"/statics"+res.url+"' >点击查看上传文件！</a>";
+                    $("#showname").html(a);
+                    $("#buttondelete").html('<button onclick="delete1(\''+res.id+'\')">删除</button>');
+                    alert(JSON.stringify(res));
+                }
+            });
 		});
-		
+        function delete1(id) {
+            layer.confirm('确定要删除吗？', {
+                btn: ['确定', '取消']
+            }, function () {
+                $.ajax({
+                    type: 'delete',
+                    url: '/files/' + id,
+                    success: function (data) {
+                        $("#showname").html("");
+                        $("#buttondelete").html("");
+                        layer.msg("删除成功");
+                    }
+                });
+                layer.close(1);
+            });
+        }
 		initData();
 		
 		function initData(){
@@ -91,7 +118,12 @@
 						$('#symbol').val(data.symbol);
 						$('#type').val(data.type);
 						$('#updateTime').val(data.updateTime);
-
+                        if (data.addFile != null && data.addFile!='') {
+                            var a = "<a href='"+domain+"/statics"+data.addFile+"'>点击查看上传文件！</a>";
+                            $("#showname").html(a);
+                            $("#buttondelete").html('<button onclick="delete1(\''+data.addFile+'\')">删除</button>');
+                            $("#fileurl").val(data.addFile);
+                        }
 					}
 				});
 			}
