@@ -19,6 +19,7 @@ public class ZlztUser extends BaseEntity<Long> {
 	private String fromJob;
 	private String interestJob;
 	private Integer userType;
+	private String typeName;
 
 	public String getUsername() {
 		return username;
@@ -109,5 +110,13 @@ public class ZlztUser extends BaseEntity<Long> {
 	}
 	public void setUserType(Integer userType) {
 		this.userType = userType;
+	}
+
+	public String getTypeName() {
+		return typeName;
+	}
+
+	public void setTypeName(String typeName) {
+		this.typeName = typeName;
 	}
 }

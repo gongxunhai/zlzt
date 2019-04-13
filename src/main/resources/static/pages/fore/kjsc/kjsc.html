@@ -1538,7 +1538,7 @@
                         datachildren.push('<td>\n' +
                             '                                    <div class="box1Con">\n' +ahref3 +
                             '                                            <div class="box1Img">\n' +
-                            '                                                <img src="'+domain+'/statics'+data[a*3+j].image+'" class="img-responsive">\n' +
+                            '                                                <img src="'+domain+'/statics'+(data[a*3+j].image || "/default2.png" )+'" class="img-responsive">\n' +
                             '                                                <div class="box1Mask"></div>\n' +
                             '                                                <div class="box1Ico">\n' +
                             '                                                    <i class="iconfont icon-chakan"></i>\n' +
@@ -1919,7 +1919,6 @@
                 }
             })
         }
-
     }
 
     function addCollection(obj) {

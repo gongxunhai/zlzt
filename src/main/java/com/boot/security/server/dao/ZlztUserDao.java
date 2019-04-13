@@ -3,12 +3,7 @@ package com.boot.security.server.dao;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import com.boot.security.server.model.ZlztUser;
 
@@ -39,4 +34,10 @@ public interface ZlztUserDao {
 
     @Select("select * from zlzt_user where phone = #{phone} or email = #{Email}")
     ZlztUser getPwdByPhoneAndEmail(@Param("phone") String phone,@Param("Email") String Email);
+
+    @Select("select * from zlzt_user t where t.username = #{username}")
+    ZlztUser getUser(@Param("username") String username);
+
+    @Update("update zlzt_user t set t.password = #{password} where t.id = #{id}")
+    int changePassword(@Param("id") Long id, @Param("password") String password);
 }

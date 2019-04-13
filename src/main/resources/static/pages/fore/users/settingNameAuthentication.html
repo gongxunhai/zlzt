@@ -215,23 +215,23 @@
         <ul class="LaySearchList list-unstyled row">
             <li class="col-xs-12">
                 <div class="LaySearchRig">
-                    <input type="password" class="LaySearchInput" placeholder="原密码">
+                    <input type="password" class="LaySearchInput" id="oldPass" placeholder="原密码">
                 </div>
             </li>
             <li class="col-xs-12">
                 <div class="LaySearchRig">
-                    <input type="password" class="LaySearchInput" placeholder="新密码">
+                    <input type="password" class="LaySearchInput" id="newPass" placeholder="新密码">
                 </div>
             </li>
             <li class="col-xs-12">
                 <div class="LaySearchRig">
-                    <input type="password" class="LaySearchInput" placeholder="确认新密码">
+                    <input type="password" class="LaySearchInput" id="newPassAgain" placeholder="确认新密码">
                 </div>
             </li>
             <li class="col-xs-12">
                 <div class="LaySearchBtn LaySearchBtn3">
-                    <a href="javascript:;" class="LaySearchBtn1">确定</a>
-                    <a href="javascript:;" class="LaySearchBtn2">取消</a>
+                    <a href="javascript:;" class="LaySearchBtn1" onclick="updatePass1()">确定</a>
+                    <a href="javascript:;" class="LaySearchBtn2" onclick="$('#myPwd').modal('hide');">取消</a>
                 </div>
             </li>
         </ul>
@@ -319,4 +319,43 @@
     </div>    
 </div>
 </body>
+<script>
+    function updatePass1() {
+        var oldPass = $("#oldPass").val();
+        if (oldPass == ''){
+            alert("旧密码不能为空");
+            return false;
+        }
+        var password = $("#newPass").val();
+        if (password == ''){
+            alert("新密码不能为空");
+            return false;
+        }
+        var passwordAgain = $("#newPassAgain").val();
+        if (passwordAgain == ''){
+            alert("新密码不能为空");
+            return false;
+        }
+        if (password != passwordAgain) {
+            alert("两次输入密码不一样，请重新尝试");
+            return false;
+        }
+
+        // update
+        $.ajax({
+            type : 'put',
+            url : '/zlztUsers/'+user.username,
+            data : {
+                "username" : user.username,
+                "oldPassword" : oldPass,
+                "newPassword" : password
+            },
+            success : function(data) {
+                alert("修改成功,请重新登陆!");
+                sessionStorage.removeItem("forSession");
+                location.href = domain+"/pages/fore/gfArea/zlResult.html";
+            }
+        });
+    }
+</script>
 </html>

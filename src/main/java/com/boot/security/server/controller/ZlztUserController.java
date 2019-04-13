@@ -6,6 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.boot.security.server.annotation.LogAnnotation;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,10 +34,7 @@ public class ZlztUserController {
     @ApiOperation(value = "保存")
     public ZlztUser save(@RequestBody ZlztUser zlztUser) {
         zlztUser.setPassword(passwordEncoder.encode(zlztUser.getPassword()));
-        ZlztUser zlztUser1 = zlztUserDao.getPwdByPhoneAndEmail(zlztUser.getPhone(),zlztUser.getEmail());
-        if (zlztUser1 == null){
-            zlztUserDao.save(zlztUser);
-        }
+        zlztUserDao.save(zlztUser);
         return zlztUser;
     }
 
@@ -107,6 +105,22 @@ public class ZlztUserController {
             json.put("msg","losePwd");
         }
         return json;
+    }
+
+    @LogAnnotation
+    @PutMapping("/{username}")
+    @ApiOperation(value = "修改密码")
+    public void changePassword(@RequestParam(value = "username") String username, @RequestParam(value = "oldPassword") String oldPassword, @RequestParam(value = "newPassword") String newPassword) {
+        ZlztUser u = zlztUserDao.getUser(username);
+        if (u == null) {
+            throw new IllegalArgumentException("用户不存在");
+        }
+
+        if (!passwordEncoder.matches(oldPassword, u.getPassword())) {
+            throw new IllegalArgumentException("旧密码错误");
+        }
+        zlztUserDao.changePassword(u.getId(), passwordEncoder.encode(newPassword));
+
     }
 
 }

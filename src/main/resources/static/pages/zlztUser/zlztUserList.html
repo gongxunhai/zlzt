@@ -41,23 +41,12 @@
                                 <tr>
                                 </tr>                       
                                 <tr>
-									<th>id</th>
-									<th>username</th>
-									<th>password</th>
-									<th>nickname</th>
-									<th>headImgUrl</th>
-									<th>phone</th>
-									<th>telephone</th>
-									<th>email</th>
-									<th>birthday</th>
-									<th>sex</th>
-									<th>status</th>
-									<th>inforAutA</th>
-									<th>inforAutB</th>
-									<th>fromJob</th>
-									<th>interestJob</th>
-									<th>createTime</th>
-									<th>updateTime</th>
+									<th>用户名</th>
+									<th>用户类型</th>
+									<th>联系方式</th>
+									<th>邮箱</th>
+									<th>状态</th>
+									<th>创建时间</th>
 									<th>操作</th>
                                 </tr>
                             </thead>
@@ -78,7 +67,9 @@
 <script type="text/javascript" src="../../js/plugin/datatables/dataTables.bootstrap.min.js"></script>
 <script type="text/javascript" src="../../layui/layui.js"></script>
 <script type="text/javascript" src="../../js/my/permission.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
 <script type="text/javascript">
+var status = getUrlParam("id");
 var pers = checkPermission();
 
 var example;
@@ -95,38 +86,40 @@ function init(){
         		"url" : "/zlztUsers",
         		"type":"get",
         		"data":function(d){
-    				d.id = $("#id").val();
+    				d.searchByInput = $("#name").val();
+    				d.status = status;
     			}
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
             "columns": [
-				{"data" : "id", "defaultContent" : ""},
 				{"data" : "username", "defaultContent" : ""},
-				{"data" : "password", "defaultContent" : ""},
-				{"data" : "nickname", "defaultContent" : ""},
-				{"data" : "headImgUrl", "defaultContent" : ""},
+				{"data" : "typeName", "defaultContent" : ""},
 				{"data" : "phone", "defaultContent" : ""},
-				{"data" : "telephone", "defaultContent" : ""},
 				{"data" : "email", "defaultContent" : ""},
-				{"data" : "birthday", "defaultContent" : ""},
-				{"data" : "sex", "defaultContent" : ""},
-				{"data" : "status", "defaultContent" : ""},
-				{"data" : "inforAutA", "defaultContent" : ""},
-				{"data" : "inforAutB", "defaultContent" : ""},
-				{"data" : "fromJob", "defaultContent" : ""},
-				{"data" : "interestJob", "defaultContent" : ""},
+				{"data" : "status", "defaultContent" : "",
+                    "render": function (data, type, row) {
+                        var status = row['status'];
+                        if(status == 0){
+                            return "<span style='color:red'>未审核</span>";
+                        }else if(status == 1){
+                            return "已审核";
+                        }else if(status == 2){
+                            return "<span style='color:red'>审核失败</span>";
+                        }
+                        return status;
+                    }},
 				{"data" : "createTime", "defaultContent" : ""},
-				{"data" : "updateTime", "defaultContent" : ""},
 				{
                             "data": "",
                             "defaultContent": "",
                             "orderable":false,
                             "render": function (data, type, row) {
                                var id = row['id'];
-                               var href = "updateZlztUser.html?id=" + id;
+                               var href = "addZlztUser.html?id=" + id +"&status="+status;
                                var edit = buttonEdit(href, "", pers);
                                var del = buttonDel(id, "", pers);
-                               return edit + del;
+                               var xiugai = '<button class="layui-btn layui-btn-xs" title="修改密码" onclick="window.location=\'updatePassword.html?id='+id+'\'"><i class="layui-icon">&#xe639;</i></button>'
+                               return edit +xiugai+ del;
                             }
                         },
                 

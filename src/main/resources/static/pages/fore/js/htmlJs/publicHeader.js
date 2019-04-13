@@ -51,7 +51,7 @@ document.writeln("                <li class=\'dropdown\'  id=\'kjService\'>");
 document.writeln("                     <a href=\'javascript:;\' class=\'dropdown-toggle\' data-toggle=\'dropdown\' ><span>科技服务</span></a>");
 document.writeln("                     <ul class=\'dropdown-menu\'>");
 document.writeln("                        <li><a href=\'"+domain+"/pages/fore/kjService/kjService.html\'>知识产权服务</a></li>");
-document.writeln("                        <li><a href=\'"+domain+"/pages/fore/kjService/ServiceList.html\'>产品服务</a></li>");
+document.writeln("                        <li><a href=\'"+domain+"/pages/fore/kjService/kjServiceList.html\'>产品服务</a></li>");
 document.writeln("                    </ul>");
 document.writeln("                  </li>");
 document.writeln("                <li id=\'aboutUs\'><a href=\'"+domain+"/pages/fore/aboutUs.html\'><span>关于我们</span></a></li>");
@@ -99,7 +99,7 @@ var user = '';
 function quit() {
     if(window.confirm('确定退出登录！')){
         sessionStorage.removeItem("forSession");
-        location.href = domain+"/pages/fore/index.html";
+        location.href = domain+"/pages/fore/gfArea/zlResult.html";
     }else{
         return false;
     }

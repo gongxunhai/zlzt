@@ -18,7 +18,7 @@
 	                   			<td>
 		                   			<form class="form-inline" onsubmit="return false">
 										<div class="form-group">
-											type：
+											类型：
 											<input id="type" type="text" class="form-control" placeholder="type">
 											<button id="searchBt" class="layui-btn layui-btn-sm" permission="dict:query"><i class="layui-icon">&#xe615;</i>搜索</button>
 										</div>
@@ -41,12 +41,11 @@
                                 <tr>
                                 </tr>                       
                                 <tr>
-									<th>id</th>
-									<th>type</th>
-									<th>k</th>
-									<th>val</th>
-									<th>createTime</th>
-									<th>updateTime</th>
+									<th>类型</th>
+									<th>键</th>
+									<th>值</th>
+									<th>创建时间</th>
+									<th>更新时间</th>
 									<th>操作</th>
                                 </tr>
                             </thead>
@@ -109,7 +108,6 @@ function init(){
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
             "columns": [
-				{"data" : "id", "defaultContent" : ""},
 				{"data" : "type", "defaultContent" : ""},
 				{"data" : "k", "defaultContent" : ""},
 				{"data" : "val", "defaultContent" : ""},

@@ -113,7 +113,71 @@ jQuery(function () {
 	$(".box1Tab li span").click(function(){
 		$(this).parent().addClass("active").siblings().removeClass("active");
 		$(".box1Bot .box1Item").eq($(this).parent().index()).show().addClass('fadeInUp animated').siblings().hide();
-	})	
+	})
+
+    $('.sxTopCon').on('click', '.sxTag', function () {
+        var textStr = $(this).children('b').text();
+        var textStr = textStr.split('：')[0];
+        console.log(textStr);
+
+        switch (textStr) {
+            case '区域':
+                $("#area").val('');
+                break;
+            case '技术成熟度':
+                $("#teMaturity").val('');
+                break;
+            case '合作方式':
+                $("#cWays").val('');
+                break;
+            case '技术水平':
+                $("#tlevel").val('');
+                break;
+            case '技术来源':
+                $("#source").val('');
+                break;
+            case '所属行业':
+                $("#fId").val('');
+                $("#sId").val('');
+                break;
+            case '地点':
+                $("#place").val('');
+                break;
+            case '法律状态':
+                $("#lawS").val('');
+                break;
+            case '交易方式':
+                $("#dealWay").val('');
+                break;
+            case '专利类型':
+                $("#zlType").val('');
+                break;
+            case '合作方式':
+                $("#cWays").val('');
+                break;
+            case '细分领域':
+                $("#xfArea").val('');
+                break;
+            case '所属区域':
+                $("#place").val('');
+                break;
+            case '政策类型':
+                $("#fId").val('');
+                $("#sId").val('');
+                break;
+            case '地点':
+                $("#place").val('');
+                break;
+            case '地点':
+                $("#place").val('');
+                break;
+
+            default:
+                break;
+        }
+        table.ajax.reload();
+    });
+
 	/*$(document).on("click",".upcollect a",function(event){
         $(this).toggleClass("active");
         if ($(this).hasClass("up")){

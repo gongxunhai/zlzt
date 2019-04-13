@@ -351,6 +351,10 @@
         }
         var password = $("#password").val();
         var passwordAgain = $("#passwordAgain").val();
+        if (password == "") {
+            alert("请输入密码");
+            return false;
+        }
         if (password != passwordAgain) {
             alert("两次输入密码不一样，请重新尝试");
             return false;
@@ -421,7 +425,7 @@
         formdata.inforAutB = cardB;
         formdata.userType = $("#userType").val();
         fromdata.headImgUrl = '/default.jpg';
-        formdata.status = 0;
+        formdata.status = 1;
         console.log(JSON.stringify(formdata));
 
         $.ajax({

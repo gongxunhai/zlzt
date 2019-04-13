@@ -104,6 +104,17 @@
             });
 		});
 
+        function delete1(num,id) {
+            layer.confirm('确定要删除吗？', {
+                btn: ['确定', '取消']
+            }, function () {
+                $("#showname"+num).html("");
+                $("#buttondelete"+num).html("");
+                layer.msg("删除成功");
+            });
+        }
+
+
         $.ajax({
             type : 'get',
             url :  '/dicts?type=zlztUserStatus',
@@ -198,7 +209,7 @@
                     success: function (data) {
                         uploadId = data.id;
                         layer.msg("添加成功", {shift: -1, time: 1000}, function () {
-                            location.href = "entrustList.html";
+                            location.href = "entrustList.html?id="+type;
                         });
                     }
                 });

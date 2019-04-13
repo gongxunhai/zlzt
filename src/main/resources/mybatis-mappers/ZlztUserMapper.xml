@@ -6,57 +6,59 @@
 	<sql id="where">
 		<where>
 			<if test="params.id != null and params.id != ''">
-				and id = #{params.id} 
+				and t.id = #{params.id}
 			</if>
 			<if test="params.username != null and params.username != ''">
-				and username = #{params.username} 
+				and t.username = #{params.username}
 			</if>
 			<if test="params.password != null and params.password != ''">
-				and password = #{params.password} 
+				and t.password = #{params.password}
 			</if>
 			<if test="params.nickname != null and params.nickname != ''">
-				and nickname = #{params.nickname} 
+				and t.nickname = #{params.nickname}
 			</if>
 			<if test="params.headImgUrl != null and params.headImgUrl != ''">
-				and headImgUrl = #{params.headImgUrl} 
+				and t.headImgUrl = #{params.headImgUrl}
 			</if>
 			<if test="params.phone != null and params.phone != ''">
-				and phone = #{params.phone} 
+				and t.phone = #{params.phone}
 			</if>
 			<if test="params.telephone != null and params.telephone != ''">
-				and telephone = #{params.telephone} 
+				and t.telephone = #{params.telephone}
 			</if>
 			<if test="params.email != null and params.email != ''">
-				and email = #{params.email} 
+				and t.email = #{params.email}
 			</if>
 			<if test="params.birthday != null and params.birthday != ''">
 				and birthday = #{params.birthday} 
 			</if>
 			<if test="params.sex != null and params.sex != ''">
-				and sex = #{params.sex} 
+				and t.sex = #{params.sex}
 			</if>
 			<if test="params.status != null and params.status != ''">
-				and status = #{params.status} 
+				and t.status = #{params.status}
 			</if>
 			<if test="params.inforAutA != null and params.inforAutA != ''">
-				and inforAutA = #{params.inforAutA} 
+				and t.inforAutA = #{params.inforAutA}
 			</if>
 			<if test="params.inforAutB != null and params.inforAutB != ''">
-				and inforAutB = #{params.inforAutB} 
+				and t.inforAutB = #{params.inforAutB}
 			</if>
 			<if test="params.fromJob != null and params.fromJob != ''">
-				and fromJob = #{params.fromJob}
+				and t.fromJob = #{params.fromJob}
 			</if>
 			<if test="params.interestJob != null and params.interestJob != ''">
-				and interestJob = #{params.interestJob} 
+				and t.interestJob = #{params.interestJob}
 			</if>
 			<if test="params.createTime != null and params.createTime != ''">
-				and createTime = #{params.createTime} 
+				and t.createTime = #{params.createTime}
 			</if>
 			<if test="params.updateTime != null and params.updateTime != ''">
-				and updateTime = #{params.updateTime} 
+				and t.updateTime = #{params.updateTime}
 			</if>
-		
+			<if test="params.searchByInput != null and params.searchByInput != ''">
+				and t.username like concat('%', #{params.searchByInput}, '%')
+			</if>
 		</where>
 	</sql>
 
@@ -66,34 +68,39 @@
 	</select>
 
 	<select id="list" resultType="ZlztUser">
-		select * from zlzt_user t
+		select t.*,m.val as typeName from zlzt_user t
+		inner join t_dict m on t.userType = m.k and m.type = 'zlztUserType'
 		<include refid="where" />
-		${params.orderBy}
-		limit #{offset}, #{limit}
+		<if test="params.orderBy!=null and params.orderBy !=''">
+			${params.orderBy}
+		</if>
+		<if test="limit!=null and limit !=''">
+			limit #{offset}, #{limit}
+		</if>
 	</select>
 
 	<update id="update">
 		update zlzt_user t
 		<set>
-			<if test="username != null">
+			<if test="username != null and username != ''">
 				username = #{username}, 
 			</if>
-			<if test="password != null">
+			<if test="password != null and password != ''">
 				password = #{password}, 
 			</if>
-			<if test="nickname != null">
+			<if test="nickname != null and nickname != ''">
 				nickname = #{nickname}, 
 			</if>
-			<if test="headImgUrl != null">
+			<if test="headImgUrl != null and headImgUrl != ''">
 				headImgUrl = #{headImgUrl}, 
 			</if>
-			<if test="phone != null">
+			<if test="phone != null and username != ''">
 				phone = #{phone}, 
 			</if>
 			<if test="telephone != null">
 				telephone = #{telephone}, 
 			</if>
-			<if test="email != null">
+			<if test="email != null and email != ''">
 				email = #{email}, 
 			</if>
 			<if test="birthday != null">
@@ -102,13 +109,13 @@
 			<if test="sex != null">
 				sex = #{sex}, 
 			</if>
-			<if test="status != null">
+			<if test="status != null and status != ''">
 				status = #{status}, 
 			</if>
-			<if test="inforAutA != null">
+			<if test="inforAutA != null and status != ''">
 				inforAutA = #{inforAutA}, 
 			</if>
-			<if test="inforAutB != null">
+			<if test="inforAutB != null and status != ''">
 				inforAutB = #{inforAutB}, 
 			</if>
 			<if test="fromJob != null">
