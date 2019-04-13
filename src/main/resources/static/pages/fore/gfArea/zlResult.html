@@ -23,6 +23,84 @@
     <script src="../js/html5shiv.min.js"></script>
     <script src="../js/respond.min.js"></script>
     <![endif]-->
+
+    <style type="text/css">
+        .section,
+        .section-con {
+            display: flex;
+        }
+        .section-con div {
+            margin-left: 20px;
+        }
+        .section {
+            justify-content: flex-end;
+            color: #FFFFFF;
+        }
+        .section .section-a,
+        .section .section-b {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        /*.section .section-a:hover,
+        .section .section-b:hover {
+            cursor
+        }*/
+        .section-a {}
+        .section-a-active {
+            border-bottom: solid 2px #FFF;
+        }
+        .section-b {
+            border: solid 1px #FFFFFF;
+            padding: 6px 18px;
+            border-radius: 20px;
+        }
+        .section-b-active {
+            border: none;
+            background-color: #1472c1;
+        }
+
+        /*通知*/
+        .notice-wrap-con {
+            position: relative;
+            top: -50px;
+            width: 100%;
+            color: #fff;
+            z-index: 99;
+            background: rgba(0,0,0, .3);
+        }
+        .notice-con {
+            display: flex;
+            height: 50px;
+            align-items: center;
+            width: 80%;
+            margin: 0 auto;
+            justify-content: space-between;
+        }
+        .new-noticeList {
+            display: flex;
+            align-items: center;
+        }
+        .new-noticeList .swiper-container {
+            height: 20px;
+            margin-left: 30px;
+        }
+        .new-noticeList a {
+            color: #FFFFFF;
+            font-weight: bold;
+        }
+        .notice-more {
+            color: #FFFFFF;
+            font-weight: bold;
+            display: block;
+            /*width: 68px;*/
+            /*text-align: right;*/
+            /*font-size: 0;*/
+        }
+
+
+    </style>
 </head>
 <body>
 <script>
@@ -108,7 +186,7 @@
         </div>
     </div>
 </div><!--searchBg-->
-<div class="banInner bannerN wow fadeIn">
+<div class="banInner bannerN wow fadeIn" style="position: relative;">
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -125,8 +203,46 @@
             </div>
         </div>
     </div>
-    <span class="swiper-pagination"></span>
+<!--    <span class="swiper-pagination"></span>-->
+    <!--<div class="noticeBg new-notice">
+        <div class="wrap">
+            <div class="notice">
+                <div class="noticeTit"><i class="iconfont icon-gonggao"></i><span>最新公告</span></div>
+                <div class="noticeList">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"> · 2019北京半程马拉松将于明日7：00开跑</div>
+                            <div class="swiper-slide"> · 2019北京半程马拉松将于明日8：00开跑</div>
+                            <div class="swiper-slide"> · 2019北京半程马拉松将于明日9：00开跑</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <a class="noticeMore" href="news/news.html"><span>更多</span><i class="iconfont icon-gengduo"></i></a>
+            </div>
+        </div>
+    </div>-->
 </div>
+<!--<div class="notice-wrap">-->
+    <div class="notice-wrap-con wow fadeIn">
+        <div class="notice-con">
+            <div style="display: flex;">
+                <div class="notice-title"><i class="iconfont icon-gonggao"></i><span>最新公告</span></div>
+                <div class="new-noticeList">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><a href=""> · 2019北京半程马拉松将于明日7：00开跑</a> </div>
+                            <div class="swiper-slide"><a href=""> · 2019北京半程马拉松将于明日7：00开跑</a> </div>
+                            <div class="swiper-slide"><a href=""> · 2019北京半程马拉松将于明日7：00开跑</a> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!--            <div class="clear"></div>-->
+            <a class="notice-more" href="news/news.html"><span>更多</span><i class="iconfont icon-gengduo"></i></a>
+        </div>
+    </div>
+<!--</div>-->
 <div class="mainBox">
 <div class="boxBg cgBox1Bg overHide">
 	<div class="container">
@@ -188,12 +304,23 @@
 </div>
 <div class="boxBg cgBox4Bg overHide">
 	<div class="container">
-    	<div class="box1Top">
+    	<div class="box1Top" style="display: flex;flex-direction: column;">
         	<div class="boxTit white text-center wow fadeInDown">
-            	<h3 class="boxTitEn text-uppercase">Converted achievement database</h3>
-                <h2 class="boxTitCn">待转化成果库</h2>
+            	<h3 class="boxTitEn text-uppercase" style="text-align: left">Converted achievement database</h3>
+                <h2 class="boxTitCn" style="text-align: left">待转化成果库</h2>
             </div>
-        </div>  
+            <div class="section wow fadeInRight">
+                <div class="section-con">
+                    <div class="section-a section-a-active">科技产品</div>
+                    <div class="section-a">科技成果</div>
+                    <div class="section-a">专利技术</div>
+                </div>
+                <div class="section-con">
+                    <div class="section-b section-b-active">发布成果</div>
+                    <div class="section-b">发布需求</div>
+                </div>
+            </div>
+        </div>
         <div class="box1Bot wow fadeInUp">
         	<div class="box1Item">
             	<div class="swiper-container">
@@ -696,6 +823,19 @@
     <li><span>04</span>最新动态</li>
     <li><span>05</span>研究报告</li>
 </ul>
+
+<script>
+    var noticeList = new Swiper('.new-noticeList .swiper-container', {
+        loop:true,
+        autoplay:3000,
+        autoplayDisableOnInteraction : false,
+        speed:600,
+        slidesPerView:1,
+        direction : 'vertical',
+        observer:true,
+        observeParents:true
+    });
+</script>
 <script>
     var pro = window.location.protocol;
     var host = window.location.host;
@@ -811,6 +951,29 @@ $(window).scroll(function(){
 		}
 	});
 });
+</script>
+<script>
+    $('.section').on('click', '.section-a', function () {
+        let  sectionA = $(this).parent().find('.section-a');
+        sectionA.each( (index, item) => {
+            $(item).removeClass('section-a-active');
+        } )
+
+        $(this).addClass('section-a-active');
+
+
+    });
+
+    $('.section').on('click', '.section-b', function () {
+        let  sectionA = $(this).parent().find('.section-b');
+        sectionA.each( (index, item) => {
+            $(item).removeClass('section-b-active');
+        } )
+
+        $(this).addClass('section-b-active');
+
+    })
+
 </script>
 </body>
 </html>
