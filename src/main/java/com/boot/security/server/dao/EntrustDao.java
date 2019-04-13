@@ -28,7 +28,7 @@ public interface EntrustDao {
     int update(Entrust entrust);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into entrust(contactMan, contactWay, content, createTime, file, status, type, updateTime, url, userId) values(#{contactMan}, #{contactWay}, #{content}, #{createTime}, #{file}, #{status}, #{type}, #{updateTime}, #{url}, #{userId})")
+    @Insert("insert into entrust(contactMan, contactWay, content, createTime, file, status, type, url, userId) values(#{contactMan}, #{contactWay}, #{content}, #{createTime}, #{file}, #{status}, #{type}, #{url}, #{userId})")
     int save(Entrust entrust);
     
     int count(@Param("params") Map<String, Object> params);

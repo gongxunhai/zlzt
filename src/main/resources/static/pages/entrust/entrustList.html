@@ -24,11 +24,11 @@
 										</div>
 									</form>
 	                   			</td>
-	                   			<td align="right">
+	                   			<!--<td align="right">
 	                   				<button class="layui-btn layui-btn-sm" onclick="location.href='addEntrust.html'">
                                       <i class="layui-icon">&#xe608;</i> 添加
                                     </button>
-	                   			</td>
+	                   			</td>-->
 	                   		</tr> 
 	                    </table>
 					</div>
@@ -41,7 +41,6 @@
                                 <tr>
                                 </tr>                       
                                 <tr>
-
 									<th>产品类型</th>
 									<th>用户名称</th>
                                     <th>联系人</th>
@@ -70,9 +69,9 @@
 <script type="text/javascript" src="../../js/my/permission.js"></script>
 <script type="text/javascript" src="../../js/common.js"></script>
 <script type="text/javascript">
-var id = getUrlParam("id");
+var typeId = getUrlParam("id");
 var pers = checkPermission();
-if (id == "") {
+if (typeId == "") {
 
 }
 
@@ -91,7 +90,7 @@ function init(){
         		"type":"get",
         		"data":function(d){
     				d.username = $("#username").val();
-    				d.status = id
+    				d.status = typeId
     			}
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
@@ -124,7 +123,7 @@ function init(){
                     "orderable":false,
                     "render": function (data, type, row) {
                        var id = row['id'];
-                       var href = "updateEntrust.html?id=" + id;
+                       var href = "addEntrust.html?id=" + id +"&type="+typeId;
                        var edit = buttonEdit(href, "", pers);
                        var del = buttonDel(id, "", pers);
                        return edit + del;

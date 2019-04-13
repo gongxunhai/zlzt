@@ -70,8 +70,8 @@
 			<if test="price != null">
 				price = #{price}, 
 			</if>
-			<if test="Introduction != null">
-				Introduction = #{Introduction}, 
+			<if test="introduction != null">
+				introduction = #{introduction},
 			</if>
 			<if test="flow != null">
 				flow = #{flow}, 
@@ -84,6 +84,9 @@
 			</if>
 			<if test="updateTime != null">
 				updateTime = #{updateTime},
+			</if>
+			<if test="name	 != null">
+				name = #{name},
 			</if>
 		</set>
 

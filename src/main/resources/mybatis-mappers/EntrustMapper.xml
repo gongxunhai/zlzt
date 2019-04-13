@@ -85,9 +85,6 @@
 			<if test="content != null">
 				content = #{content}, 
 			</if>
-			<if test="createTime != null">
-				createTime = #{createTime}, 
-			</if>
 			<if test="file != null">
 				file = #{file}, 
 			</if>

@@ -224,7 +224,8 @@
 		    }
 		    
 		    var formdata = $("#form").serializeObject();
-		    formdata.image =  $("#imageurl").val();
+            formdata.id =  id;
+            formdata.image =  $("#imageurl").val();
 		    formdata.flowImageA =  $("#imageurlA").val();
 		    formdata.flowImageB =  $("#imageurlB").val();
             formdata.introduction = layedit.getContent(index);
