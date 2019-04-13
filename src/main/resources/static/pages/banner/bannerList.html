@@ -15,7 +15,7 @@
                     <div align="left">
 	                    <table style="width: 100%">
 	                   		<tr>
-	                   			<td>
+	                   			<td class="hidden">
 		                   			<form class="form-inline" onsubmit="return false">
 										<div class="form-group">
 											id：
@@ -41,10 +41,10 @@
                                 <tr>
                                 </tr>                       
                                 <tr>
-									<th>id</th>
-                                    <th>图片</th>
-                                    <th>createTime</th>
-									<th>updateTime</th>
+									<th>地址</th>
+									<th>类型</th>
+									<th>创建时间</th>
+									<th>更新时间</th>
 									<th>操作</th>
                                 </tr>
                             </thead>
@@ -67,9 +67,6 @@
 <script type="text/javascript" src="../../js/my/permission.js"></script>
 <script type="text/javascript">
 var pers = checkPermission();
-var pro = window.location.protocol;
-var host = window.location.host;
-var domain = pro + "//" + host;
 
 var example;
 function init(){
@@ -90,28 +87,22 @@ function init(){
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
             "columns": [
-
-				{"data" : "id", "defaultContent" : ""},
-                {"data" : "url", "defaultContent" : "",
-                    "render": function (data, type, row) {
-                        var src = domain + "/statics" + row.url;
-                        return '<a target="_blank" href="'+src+'"><img src="'+src+'" style="width: 40px;"></a>';
-                    }
-                },
-                {"data" : "createTime", "defaultContent" : ""},
+				{"data" : "url", "defaultContent" : ""},
+				{"data" : "type", "defaultContent" : ""},
+				{"data" : "createTime", "defaultContent" : ""},
 				{"data" : "updateTime", "defaultContent" : ""},
 				{
-                    "data": "",
-                    "defaultContent": "",
-                    "orderable":false,
-                    "render": function (data, type, row) {
-                       var id = row['id'];
-                       var href = "updateBanner.html?id=" + id;
-                       var edit = buttonEdit(href, "", pers);
-                       var del = buttonDel(id, "", pers);
-                       return edit + del;
-                    }
-                },
+                            "data": "",
+                            "defaultContent": "",
+                            "orderable":false,
+                            "render": function (data, type, row) {
+                               var id = row['id'];
+                               var href = "updateBanner.html?id=" + id;
+                               var edit = buttonEdit(href, "", pers);
+                               var del = buttonDel(id, "", pers);
+                               return edit + del;
+                            }
+                        },
                 
             ],
            "order": [[ 0, "asc" ]]
