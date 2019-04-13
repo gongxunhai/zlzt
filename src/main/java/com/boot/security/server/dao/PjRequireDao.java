@@ -27,7 +27,7 @@ public interface PjRequireDao {
     int update(PjRequire pjRequire);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into pj_require(addFile, cMoney, cWays, description, createTime, endTime, fId, man, name, phone, place, sId, target, unit, xfArea, userId, status) values(#{addFile}, #{cMoney}, #{cWays}, #{description}, #{createTime}, #{endTime}, #{fId}, #{man}, #{name}, #{phone}, #{place}, #{sId}, #{target}, #{unit}, #{xfArea}, #{userId}, #{status})")
+    @Insert("insert into pj_require(addFile, cMoney, cWays, description, createTime, endTime, fId, man, name, phone, place, sId, target, unit, xfArea, userId, status, updateTime) values(#{addFile}, #{cMoney}, #{cWays}, #{description}, #{createTime}, #{endTime}, #{fId}, #{man}, #{name}, #{phone}, #{place}, #{sId}, #{target}, #{unit}, #{xfArea}, #{userId}, #{status}, #{updateTime})")
     int save(PjRequire pjRequire);
     
     int count(@Param("params") Map<String, Object> params);

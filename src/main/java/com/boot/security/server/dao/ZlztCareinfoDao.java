@@ -49,4 +49,7 @@ public interface ZlztCareinfoDao {
 
     @Select("select IFNULL(careNum,-1) from ${type} where id = #{careId} ")
     int selectPointNum(ZlztCareinfo zlztCareinfo);
+
+    @Select("select ${colum} from ${table} where id = ${careId}")
+    String getTitle(@Param("table") String table, @Param("colum") String colum, @Param("careId") int careId);
 }

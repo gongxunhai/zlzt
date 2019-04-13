@@ -34,7 +34,7 @@
         <div class="loginBox">
             <div class="loginTop">
                 <h2 class="loginTit">登录</h2>
-                <a class="loginClose" href="#"><i class="iconfont icon-guanbi"></i></a>
+                <a class="loginClose" href="javascript:back();"><i class="iconfont icon-guanbi"></i></a>
                 <div class="clear"></div>
             </div>
             <div class="loginWelcome">
@@ -107,6 +107,10 @@
                 }
             }
         })
+    }
+
+    function back() {
+        window.history.back(-1)
     }
 </script>
 </body>

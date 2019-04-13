@@ -116,7 +116,7 @@ public class ZlztDataDetailController {
 
     @GetMapping("/getAllData/{id}")
     @ApiOperation(value = "根据id获取")
-    public ZlztDataDetail getAllData(@PathVariable Long id) {
+    public ZlztDatainfo getAllData(@PathVariable Long id) {
         return zlztDataDetailDao.getAllData(id);
     }
 

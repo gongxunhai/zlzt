@@ -39,9 +39,6 @@
 	<update id="update">
 		update zt_report_classifyinfo t
 		<set>
-			<if test="createTime != null">
-				createTime = #{createTime}, 
-			</if>
 			<if test="name != null">
 				name = #{name}, 
 			</if>
@@ -50,6 +47,9 @@
 			</if>
 			<if test="type != null">
 				type = #{type}, 
+			</if>
+			<if test="updateTime != null">
+				updateTime = #{updateTime},
 			</if>
 
 		</set>

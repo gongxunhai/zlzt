@@ -83,4 +83,7 @@ public interface ZlztClassifyinfoDao {
     List<ZlztClassifyinfo>  getParentInfo(@Param("id") Long id);
 
     List<ZlztClassifyinfo> getClassifyByParentId(Long id);
+
+    @Select("select * from zlzt_classifyinfo t where t.name like concat('%',#{name},'%') order by type")
+    List<ZlztClassifyinfo> listAllByName(@Param("name") String name);
 }

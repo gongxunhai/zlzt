@@ -3,6 +3,7 @@ package com.boot.security.server.dao;
 import java.util.List;
 import java.util.Map;
 
+import com.boot.security.server.model.ZlztDatainfo;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -22,7 +23,7 @@ public interface YfCompanyDao {
             "\t\tinner join yf_classifyinfo c on t.tId = c.id\n" +
             "\t\tinner join yf_classifyinfo d on t.cId = d.id" +
             "    inner join zlzt_datainfo m on t.dataId = m.id where t.id = #{id}")
-    YfCompany getAllData(Long id);
+    ZlztDatainfo getAllData(Long id);
 
     @Select("select * from yf_company t where t.id = #{id}")
     YfCompany getById(Long id);
@@ -30,7 +31,7 @@ public interface YfCompanyDao {
     @Delete("delete from yf_company where id = #{id}")
     int delete(Long id);
 
-    int update(YfCompany yfCompany);
+    int update(ZlztDatainfo zlztDatainfo);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
     @Insert("insert into yf_company(dataId, fId, sId, tId, cId, createTime, updateTime) values(#{dataId}, #{fId}, #{sId}, #{tId}, #{cId}, #{createTime}, #{updateTime})")

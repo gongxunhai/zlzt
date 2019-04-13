@@ -24,7 +24,7 @@ public interface PjRequireClassifyInfoDao {
     int update(PjRequireClassifyInfo pjRequireClassifyInfo);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into pj_require_classifyInfo(createTime, name, parentId, type) values(#{createTime}, #{name}, #{parentId}, #{type})")
+    @Insert("insert into pj_require_classifyInfo(createTime, name, parentId, type, updateTime) values(#{createTime}, #{name}, #{parentId}, #{type}, #{updateTime})")
     int save(PjRequireClassifyInfo pjRequireClassifyInfo);
     
     int count(@Param("params") Map<String, Object> params);
@@ -45,4 +45,7 @@ public interface PjRequireClassifyInfoDao {
 
     @Select("select * from pj_require_classifyInfo t where t.parentId = #{parentId}")
     List<PjRequireClassifyInfo> getParentClassifyInfo(@Param("parentId") int intValue);
+
+    @Select("select * from pj_require_classifyInfo t order by type")
+    List<PjRequireClassifyInfo> listAll();
 }

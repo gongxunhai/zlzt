@@ -7,77 +7,66 @@
 </head>
 <body>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <input type="hidden" id="imageurl" >
-    <input type="hidden" id="imageurlA" >
-    <input type="hidden" id="imageurlB" >
+	<input type="hidden" id="id" name="id">
 	<form class="form-horizontal" onsubmit="return false" id="form">
 		<fieldset>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>名称</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='name' type='text' name='name' id='name' data-bv-notempty='true' data-bv-notempty-message='名称不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>简介</label>
-				<div class='col-md-10'>
-                    <textarea class='form-control' placeholder='descript' type='text' name='descript' id='descript' data-bv-notempty='true' data-bv-notempty-message='简介不能为空'></textarea>
+				<div class='col-md-3'>
+					<input class='form-control' type='text' name='name' id='name' data-bv-notempty='true' data-bv-notempty-message='名称不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>价格</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='price' type='text' name='price' id='price' data-bv-notempty='true' data-bv-notempty-message='price 不能为空'>
+				<div class='col-md-3'>
+					<input class='form-control' type='text' name='price' id='price' data-bv-notempty='true' data-bv-notempty-message='price 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>服务介绍</label>
-				<div class='col-md-10'>
-                    <textarea class='form-control' placeholder='introduction' type='text' name='introduction' id='introduction' data-bv-notempty='true' data-bv-notempty-message='服务介绍 不能为空'></textarea>
+				<label class='col-md-2 control-label'>简介</label>
+				<div class='col-md-8'>
+                    <textarea class='form-control' type='text' name='descript' id='descript' data-bv-notempty='true' data-bv-notempty-message='简介不能为空'></textarea>
 				</div>
 			</div>
-            <div style="border-bottom: solid 1px #c6d0de">
-			<span >图片上传</span>
-		</div>
-			<div>
-				<button type="button" class="layui-btn" id="test1">
-					<i class="layui-icon">&#xe67c;</i>上传图片
-				</button>
-				<button type="button" class="layui-btn" id="test2">
-					上传
-				</button>
-			</div>
-			<div id="showname"></div>
-			<div id="buttondelete"></div>
 
-			<div style="border-bottom: solid 1px #c6d0de">
-				<span >图片上传</span>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>服务介绍</label>
+				<div class='col-md-8'>
+                    <textarea class='form-control'   type='text' name='introduction' id='introduction' data-bv-notempty='true' data-bv-notempty-message='服务介绍 不能为空'></textarea>
+				</div>
 			</div>
-			<div>
-				<button type="button" class="layui-btn" id="flowImageA">
-					<i class="layui-icon">&#xe67c;</i>滚动图片A
+
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>服务附图</label>
+				<button type="button" class="layui-btn" id="upF">
+					<i class="layui-icon">&#xe67c;</i>点击上传
 				</button>
-				<button type="button" class="layui-btn" id="subFlowImageA">
-					上传
-				</button>
+				<div id="showname1" style="display:inline-block;margin-left: 10px;"></div>
+				<div id="buttondelete1" style="display:inline-block;margin-left: 10px;"></div>
 			</div>
-			<div id="showname1"></div>
-			<div id="buttondelete1"></div>
+			<input type="hidden" id="imageurl" >
 
-            <div style="border-bottom: solid 1px #c6d0de">
-                <span >图片上传</span>
-            </div>
-            <div>
-                <button type="button" class="layui-btn" id="flowImageB">
-                    <i class="layui-icon">&#xe67c;</i>滚动图片B
-                </button>
-                <button type="button" class="layui-btn" id="subFlowImageB">
-                    上传
-                </button>
-            </div>
-            <div id="showname2"></div>
-            <div id="buttondelete2"></div>
 
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>滚动图片A</label>
+				<button type="button" class="layui-btn" id="upS">
+					<i class="layui-icon">&#xe67c;</i>点击上传
+				</button>
+				<div id="showname2" style="display:inline-block;margin-left: 10px;"></div>
+				<div id="buttondelete2" style="display:inline-block;margin-left: 10px;"></div>
+			</div>
+			<input type="hidden" id="imageurlA" >
+
+
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>滚动图片B</label>
+				<button type="button" class="layui-btn" id="upT">
+					<i class="layui-icon">&#xe67c;</i>点击上传
+				</button>
+				<div id="showname3" style="display:inline-block;margin-left: 10px;"></div>
+				<div id="buttondelete3" style="display:inline-block;margin-left: 10px;"></div>
+			</div>
+			<input type="hidden" id="imageurlB" >
 
 			<div class="form-actions">
 				<div class="row" align="center">
@@ -120,63 +109,50 @@
             index = layedit.build('introduction');
 
             upload.render({
-                elem: '#test1' //绑定元素
+                elem: '#upF' //绑定元素
                 ,accept: 'images' //允许上传的文件类型
                 ,url: '/files' //上传接口
-                ,auto: false //选择文件后不自动上传
-                ,bindAction: '#test2' //指向一个按钮触发上传
                 ,done: function(res, index, upload){
+                    var a = "<a  target='_blank' href='"+domain+"/statics"+res.url+"' style='margin-top: 80px;font-size:18px'>点击查看上传文件！</a>";
+                    $("#showname1").html(a);
+                    $("#buttondelete1").html('<button class="layui-btn" onclick="delete1(1,\''+res.id+'\')">删除</button>')
                     $("#imageurl").val(res.url);
-                    var a = "<span>上传文件名:"+res.id+"</span>";
-                    $("#showname").html(a);
-                    $("#buttondelete").html('<button onclick="delete1(\''+res.id+'\')">删除</button>');
                 }
             });
 
             upload1.render({
-                elem: '#flowImageA' //绑定元素
+                elem: '#upS' //绑定元素
                 ,accept: 'images' //允许上传的文件类型
                 ,url: '/files' //上传接口
-                ,auto: false //选择文件后不自动上传
-                ,bindAction: '#subFlowImageA' //指向一个按钮触发上传
                 ,done: function(res, index, upload){
+                    var a = "<a  target='_blank' href='"+domain+"/statics"+res.url+"' style='margin-top: 80px;font-size:18px'>点击查看上传文件！</a>";
+                    $("#showname2").html(a);
+                    $("#buttondelete2").html('<button class="layui-btn" onclick="delete1(2,\''+res.id+'\')">删除</button>')
                     $("#imageurlA").val(res.url);
-                    var a = "<span>上传文件名:"+res.id+"</span>";
-                    $("#showname1").html(a);
-                    $("#buttondelete1").html('<button onclick="delete1(\''+res.id+'\')">删除</button>');
                 }
             });
 
             upload.render({
-                elem: '#flowImageB' //绑定元素
+                elem: '#upT' //绑定元素
                 ,accept: 'images' //允许上传的文件类型
                 ,url: '/files' //上传接口
-                ,auto: false //选择文件后不自动上传
-                ,bindAction: '#subFlowImageB' //指向一个按钮触发上传
                 ,done: function(res, index, upload){
+                    var a = "<a  target='_blank' href='"+domain+"/statics"+res.url+"' style='margin-top: 80px;font-size:18px'>点击查看上传文件！</a>";
+                    $("#showname3").html(a);
+                    $("#buttondelete3").html('<button class="layui-btn" onclick="delete1(3,\''+res.id+'\')">删除</button>')
                     $("#imageurlB").val(res.url);
-                    var a = "<span>上传文件名:"+res.id+"</span>";
-                    $("#showname2").html(a);
-                    $("#buttondelete2").html('<button onclick="delete1(\''+res.id+'\')">删除</button>');
                 }
             });
 
 		});
 
-        function delete1(id) {
+        function delete1(num,id) {
             layer.confirm('确定要删除吗？', {
                 btn: ['确定', '取消']
             }, function () {
-                $.ajax({
-                    type: 'delete',
-                    url: '/files/' + id,
-                    success: function (data) {
-                        $("#showname").html("");
-                        $("#buttondelete").html("");
-                        layer.msg("删除成功");
-                    }
-                });
-                layer.close(1);
+                $("#showname"+num).html("");
+                $("#buttondelete"+num).html("");
+                layer.msg("删除成功");
             });
         }
 
@@ -201,6 +177,42 @@
                 }
             }
         });*/
+
+        var id = getUrlParam("id");
+        if (id != '') {
+            $.ajax({
+                type : 'get',
+                url : '/kjServices/'+id,
+                async : false,
+                success : function(data) {
+                    console.log(JSON.stringify(data));
+                    $('#id').val(data.id);
+                    $('#name').val(data.name);
+                    $('#descript').val(data.descript);
+                    $('#price').val(data.price);
+                    $('#introduction').val(data.introduction);
+                    if (data.image != null && data.image !='') {
+                        var a = "<a  target='_blank' href='"+domain+"/statics"+data.image+"' style='margin-top: 80px;font-size:18px'>点击查看上传文件！</a>";
+                        $("#showname1").html(a);
+                        $("#buttondelete1").html('<button class="layui-btn" onclick="delete1(1,\''+data.image+'\')">删除</button>')
+                        $("#image").val(data.image);
+                    }
+                    if (data.flowImageA != null && data.flowImageA !='') {
+                        var a = "<a  target='_blank' href='"+domain+"/statics"+data.flowImageA+"' style='margin-top: 80px;font-size:18px'>点击查看上传文件！</a>";
+                        $("#showname2").html(a);
+                        $("#buttondelete2").html('<button class="layui-btn" onclick="delete1(2,\''+data.flowImageA+'\')">删除</button>')
+                        $("#flowImageA").val(data.flowImageA);
+                    }
+                    if (data.flowImageB != null && data.flowImageB !='') {
+                        var a = "<a  target='_blank' href='"+domain+"/statics"+data.flowImageB+"' style='margin-top: 80px;font-size:18px'>点击查看上传文件！</a>";
+                        $("#showname3").html(a);
+                        $("#buttondelete3").html('<button class="layui-btn" onclick="delete1(3,\''+data.flowImageB+'\')">删除</button>')
+                        $("#flowImageB").val(data.flowImageB);
+                    }
+                }
+            });
+        }
+
 		
 		function add() {
 		    var uploadId = '';
@@ -216,36 +228,54 @@
 		    formdata.flowImageA =  $("#imageurlA").val();
 		    formdata.flowImageB =  $("#imageurlB").val();
             formdata.introduction = layedit.getContent(index);
-            alert(JSON.stringify(formdata));
+            console.log(JSON.stringify(formdata));
 
-			$.ajax({
-				type : 'post',
-				url : '/kjServices',
-                async : false ,
-				contentType: "application/json; charset=utf-8",  
-				data : JSON.stringify(formdata),
-				success : function(data) {
-                    uploadId = data.id;
-				}
-			});
+            if (id != "") {
+                // update
+                $.ajax({
+                    type : 'put',
+                    url : '/kjServices',
+                    contentType: "application/json; charset=utf-8",
+                    data : JSON.stringify(formdata),
+                    success : function(data) {
+                        layer.msg("修改成功", {shift: -1, time: 1000}, function(){
+                            location.href = "kjServiceList.html";
+                        });
+                    }
+                });
+            }else {
+                //insert
+                $.ajax({
+                    type : 'post',
+                    url : '/kjServices',
+                    contentType: "application/json; charset=utf-8",
+                    data : JSON.stringify(formdata),
+                    success : function(data) {
+                        uploadId = data.id;
+                        layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                            location.href = "ztReportList.html";
+                        });
+                    }
+                });
 
-			var dictForm = new FormData();
-			dictForm.type = 'entrustType';
-			dictForm.k = uploadId;
-			dictForm.val = $("#name").val();
-            $.ajax({
-                type : 'post',
-                url : '/dicts',
-                async : false ,
-                contentType: "application/json; charset=utf-8",
-                data : JSON.stringify(dictForm),
-                success : function(data) {
-                    layer.msg("添加成功", {shift: -1, time: 1000}, function(){
-                        location.href = "kjServiceList.html";
-                    });
-                    console.log("字典保存成功"+data);
-                }
-            });
+                var dictForm = new FormData();
+                dictForm.type = 'entrustType';
+                dictForm.k = uploadId;
+                dictForm.val = $("#name").val();
+                $.ajax({
+                    type : 'post',
+                    url : '/dicts',
+                    async : false ,
+                    contentType: "application/json; charset=utf-8",
+                    data : JSON.stringify(dictForm),
+                    success : function(data) {
+                        console.log("字典保存成功"+data);
+                        layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                            location.href = "kjServiceList.html";
+                        });
+                    }
+                });
+            }
 		}
 		
 	</script>

@@ -53,6 +53,9 @@
 			<if test="type != null">
 				type = #{type}, 
 			</if>
+			<if test="updateTime != null">
+				updateTime = #{updateTime},
+			</if>
 
 		</set>
 

@@ -303,16 +303,9 @@
             layer.confirm('确定要删除吗？', {
                 btn: ['确定', '取消']
             }, function () {
-                $.ajax({
-                    type: 'delete',
-                    url: '/files/' + id,
-                    success: function (data) {
-                        $("#showname"+num).html("");
-                        $("#buttondelete"+num).html("");
-                        layer.msg("删除成功");
-                    }
-                });
-                layer.close(1);
+				$("#showname"+num).html("");
+				$("#buttondelete"+num).html("");
+				layer.msg("删除成功");
             });
         }
 		

@@ -1,10 +1,12 @@
 package com.boot.security.server.controller;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import com.boot.security.server.model.ZTreeModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.CollectionUtils;
@@ -34,7 +36,7 @@ import io.swagger.annotations.ApiOperation;
 /**
  * 权限相关接口
  * 
- * @author 小威老师
+ * @author 谦亨网络
  *
  */
 @Api(tags = "权限")
@@ -142,6 +144,21 @@ public class PermissionController {
 
 		return parents;
 	}
+
+//Add by yugb for menu tree start 20181206
+	@GetMapping("/parentsTree")
+	@ApiOperation(value = "一级菜单")
+	@PreAuthorize("hasAuthority('sys:menu:query')")
+	public List<ZTreeModel> parentsTree() {
+		List<ZTreeModel> parentsTree=new ArrayList<>();
+		List<Permission> parents = permissionDao.listParents();
+        parentsTree.add(new ZTreeModel(Long.parseLong("0") ,Long.parseLong("-1"),"根级菜单",true,true));
+		for(int i=0;i<parents.size();i++){
+			parentsTree.add(new ZTreeModel(parents.get(i).getId(),parents.get(i).getParentId(),parents.get(i).getName(),true,true));
+		}
+		return parentsTree;
+	}
+// Add end
 
 	/**
 	 * 菜单树

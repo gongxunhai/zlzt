@@ -18,6 +18,9 @@ public interface GfClassifyInfoDao {
     @Select("select * from gf_classifyInfo t order by type")
     List<GfClassifyInfo> listAll();
 
+    @Select("select * from gf_classifyInfo t where t.name like concat('%',#{name},'%') order by type")
+    List<GfClassifyInfo> listAllByName(@Param("name") String name);
+
     @Select("select * from gf_classifyInfo t where t.id = #{id}")
     GfClassifyInfo getById(Long id);
 
@@ -27,7 +30,7 @@ public interface GfClassifyInfoDao {
     int update(GfClassifyInfo gfClassifyInfo);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into gf_classifyInfo(parentId, type, name ,image) values(#{parentId}, #{type}, #{name} ,#{image})")
+    @Insert("insert into gf_classifyInfo(parentId, type, name ,image, createTime, updateTime) values(#{parentId}, #{type}, #{name} ,#{image}, #{createTime}, #{updateTime})")
     int save(GfClassifyInfo gfClassifyInfo);
     
     int count(@Param("params") Map<String, Object> params);
@@ -74,7 +77,7 @@ public interface GfClassifyInfoDao {
             "ORDER BY T1.lvl DESC;")
     List<GfClassifyInfo>  getParentInfo(@Param("id") Long id);
 
-    @Select("select * from gf_classifyinfo t where t.type = #{type} ")
+    @Select("select * from gf_classifyinfo t where t.type = #{type} order by type ")
     List<GfClassifyInfo> getClassify(@Param("type") int type);
 
     @Select("select * from gf_classifyinfo t where t.parentId = #{parentId}")

@@ -45,36 +45,51 @@ public class GfDatainfoController {
     private GfClassifyInfoDao gfClassifyInfoDao;
     @Autowired
     private ZlztDatainfoService zlztDatainfoService;
+    @Autowired
+    private ZlztDatainfoDao zlztDatainfoDao;
 
     @PostMapping
     @ApiOperation(value = "保存")
-    public GfDatainfo save(@RequestBody GfDatainfo gfDatainfo) {
-        if (gfDatainfo.getCId() == null && gfDatainfo.getCId().equals("")){
-            int i = gfClassifyInfoDao.getByNameAndParentId(gfDatainfo.gettIdName(),gfDatainfo.getSId());
+    public ZlztDatainfo save(@RequestBody ZlztDatainfo zlztDatainfo) {
+        zlztDatainfoDao.save(zlztDatainfo);
+        saveDetail(zlztDatainfo);
+        return zlztDatainfo;
+    }
+
+    private void saveDetail(ZlztDatainfo zlztDatainfo) {
+        GfDatainfo gfDatainfo = new GfDatainfo();
+        gfDatainfo.setDataId(zlztDatainfo.getId().intValue());
+        gfDatainfo.setFId(zlztDatainfo.getfId());
+        gfDatainfo.setSId(zlztDatainfo.getsId());
+        if (zlztDatainfo.gettId() == null || zlztDatainfo.gettId().equals("")){
+            int i = gfClassifyInfoDao.getByNameAndParentId(zlztDatainfo.gettIdName(),zlztDatainfo.getsId());
             if ( i == -1){
                 GfClassifyInfo gfClassifyInfo = new GfClassifyInfo();
-                gfClassifyInfo.setName(gfDatainfo.gettIdName());
-                gfClassifyInfo.setParentId(gfDatainfo.getSId());
+                gfClassifyInfo.setName(zlztDatainfo.gettIdName());
+                gfClassifyInfo.setParentId(zlztDatainfo.getsId());
                 gfClassifyInfo.setType(3);
                 gfClassifyInfoDao.save(gfClassifyInfo);
                 i = gfClassifyInfo.getId().intValue();
             }
-            gfDatainfo.setTId(i);
+            gfDatainfo.settId(i);
+        }else{
+            gfDatainfo.setTId(zlztDatainfo.gettId());
         }
-        if (gfDatainfo.getTId() == null && gfDatainfo.getTId().equals("")){
-            int j = gfClassifyInfoDao.getByNameAndParentId(gfDatainfo.getcIdName(),gfDatainfo.getTId());
+        if (zlztDatainfo.getcId() == null || zlztDatainfo.getcId().equals("")){
+            int j = gfClassifyInfoDao.getByNameAndParentId(zlztDatainfo.getcIdName(),zlztDatainfo.gettId());
             if ( j == -1){
                 GfClassifyInfo gfClassifyInfo = new GfClassifyInfo();
-                gfClassifyInfo.setName(gfDatainfo.getcIdName());
-                gfClassifyInfo.setParentId(gfDatainfo.getTId());
+                gfClassifyInfo.setName(zlztDatainfo.getcIdName());
+                gfClassifyInfo.setParentId(zlztDatainfo.gettId());
                 gfClassifyInfo.setType(4);
                 gfClassifyInfoDao.save(gfClassifyInfo);
                 j = gfClassifyInfo.getId().intValue();
             }
-            gfDatainfo.setCId(j);
+            gfDatainfo.setcId(j);
+        }else {
+            gfDatainfo.setCId(zlztDatainfo.getcId());
         }
         gfDatainfoDao.save(gfDatainfo);
-        return gfDatainfo;
     }
 
     @GetMapping("/{id}")
@@ -85,40 +100,45 @@ public class GfDatainfoController {
 
     @GetMapping("/getAllData/{id}")
     @ApiOperation(value = "根据id获取")
-    public GfDatainfo getAllData(@PathVariable Long id) {
+    public ZlztDatainfo getAllData(@PathVariable Long id) {
         return gfDatainfoDao.getAllData(id);
     }
 
     @PutMapping
     @ApiOperation(value = "修改")
-    public GfDatainfo update(@RequestBody GfDatainfo gfDatainfo) {
-        if (gfDatainfo.getCId() == null && gfDatainfo.getCId().equals("")){
-            int i = gfClassifyInfoDao.getByNameAndParentId(gfDatainfo.gettIdName(),gfDatainfo.getsId());
-            if ( i == -1){
+    public ZlztDatainfo update(@RequestBody ZlztDatainfo zlztDatainfo) {
+        zlztDatainfo = updateZldata(zlztDatainfo);
+        //专利专题数据的使用
+        gfDatainfoDao.update(zlztDatainfo);
+        return zlztDatainfo;
+    }
+
+    private ZlztDatainfo updateZldata(ZlztDatainfo zlztDatainfo) {
+        if (zlztDatainfo.gettId() == null || zlztDatainfo.gettId().equals("")) {
+            int i = gfClassifyInfoDao.getByNameAndParentId(zlztDatainfo.gettIdName(), zlztDatainfo.getsId());
+            if (i == -1) {
                 GfClassifyInfo gfClassifyInfo = new GfClassifyInfo();
-                gfClassifyInfo.setName(gfDatainfo.gettIdName());
-                gfClassifyInfo.setParentId(gfDatainfo.getsId());
+                gfClassifyInfo.setName(zlztDatainfo.gettIdName());
+                gfClassifyInfo.setParentId(zlztDatainfo.getsId());
                 gfClassifyInfo.setType(3);
                 gfClassifyInfoDao.save(gfClassifyInfo);
                 i = gfClassifyInfo.getId().intValue();
             }
-            gfDatainfo.setcId(i);
+            zlztDatainfo.settId(i);
         }
-        if (gfDatainfo.getTId() == null && gfDatainfo.getTId().equals("")){
-            int j = gfClassifyInfoDao.getByNameAndParentId(gfDatainfo.getcIdName(),gfDatainfo.getTId());
-            if ( j == -1){
+        if (zlztDatainfo.getcId() == null || zlztDatainfo.getcId().equals("")) {
+            int j = gfClassifyInfoDao.getByNameAndParentId(zlztDatainfo.getcIdName(), zlztDatainfo.gettId());
+            if (j == -1) {
                 GfClassifyInfo gfClassifyInfo = new GfClassifyInfo();
-                gfClassifyInfo.setName(gfDatainfo.getcIdName());
-                gfClassifyInfo.setParentId(gfDatainfo.getTId());
+                gfClassifyInfo.setName(zlztDatainfo.getcIdName());
+                gfClassifyInfo.setParentId(zlztDatainfo.gettId());
                 gfClassifyInfo.setType(4);
                 gfClassifyInfoDao.save(gfClassifyInfo);
                 j = gfClassifyInfo.getId().intValue();
             }
-            gfDatainfo.settId(j);
+            zlztDatainfo.setcId(j);
         }
-        gfDatainfoDao.update(gfDatainfo);
-
-        return gfDatainfo;
+        return zlztDatainfo;
     }
 
     @GetMapping

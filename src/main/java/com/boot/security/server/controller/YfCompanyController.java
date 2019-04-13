@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.alibaba.fastjson.JSONObject;
 import com.boot.security.server.dao.YfClassifyInfoDao;
+import com.boot.security.server.dao.ZlztDatainfoDao;
 import com.boot.security.server.model.YfClassifyInfo;
 import com.boot.security.server.model.ZlztDatainfo;
 import com.boot.security.server.service.ZlztDatainfoService;
@@ -42,36 +43,43 @@ public class YfCompanyController {
     private ZlztDatainfoService zlztDatainfoService;
     @Autowired
     private YfClassifyInfoDao yfClassifyInfoDao;
+    @Autowired
+    private ZlztDatainfoDao zlztDatainfoDao;
 
     @PostMapping
     @ApiOperation(value = "保存")
-    public YfCompany save(@RequestBody YfCompany yfCompany) {
-        if (yfCompany.getTId() == null && yfCompany.getTId().equals("")){
-            int i = yfClassifyInfoDao.getByNameAndParentId(yfCompany.gettIdName(),yfCompany.getSId());
+    public ZlztDatainfo save(@RequestBody ZlztDatainfo zlztDatainfo) {
+        zlztDatainfoDao.save(zlztDatainfo);
+        YfCompany yfCompany = new YfCompany();
+        yfCompany.setDataId(zlztDatainfo.getId().intValue());
+        yfCompany.setFId(zlztDatainfo.getfId());
+        yfCompany.setSId(zlztDatainfo.getsId());
+        if (zlztDatainfo.gettId() == null || zlztDatainfo.gettId().equals("")){
+            int i = yfClassifyInfoDao.getByNameAndParentId(zlztDatainfo.gettIdName(),zlztDatainfo.getsId());
             if ( i == -1){
                 YfClassifyInfo yfClassifyInfo = new YfClassifyInfo();
-                yfClassifyInfo.setName(yfCompany.gettIdName());
-                yfClassifyInfo.setParentId(yfCompany.getSId());
+                yfClassifyInfo.setName(zlztDatainfo.gettIdName());
+                yfClassifyInfo.setParentId(zlztDatainfo.getsId());
                 yfClassifyInfo.setType(3);
                 yfClassifyInfoDao.save(yfClassifyInfo);
                 i = yfClassifyInfo.getId().intValue();
             }
-            yfCompany.setTId(i);
+            yfCompany.settId(i);
         }
-        if (yfCompany.getTId() == null && yfCompany.getTId().equals("")){
-            int j = yfClassifyInfoDao.getByNameAndParentId(yfCompany.getcIdName(),yfCompany.getTId());
+        if (zlztDatainfo.getcId() == null || zlztDatainfo.getcId().equals("")){
+            int j = yfClassifyInfoDao.getByNameAndParentId(zlztDatainfo.getcIdName(),zlztDatainfo.gettId());
             if ( j == -1){
                 YfClassifyInfo yfClassifyInfo = new YfClassifyInfo();
-                yfClassifyInfo.setName(yfCompany.getcIdName());
-                yfClassifyInfo.setParentId(yfCompany.getTId());
+                yfClassifyInfo.setName(zlztDatainfo.getcIdName());
+                yfClassifyInfo.setParentId(zlztDatainfo.gettId());
                 yfClassifyInfo.setType(4);
                 yfClassifyInfoDao.save(yfClassifyInfo);
                 j = yfClassifyInfo.getId().intValue();
             }
-            yfCompany.setCId(j);
+            yfCompany.setcId(j);
         }
         yfCompanyDao.save(yfCompany);
-        return yfCompany;
+        return zlztDatainfo;
     }
 
     @GetMapping("/{id}")
@@ -82,34 +90,33 @@ public class YfCompanyController {
 
     @PutMapping
     @ApiOperation(value = "修改")
-    public YfCompany update(@RequestBody YfCompany yfCompany) {
-        if (yfCompany.getCId() == null && yfCompany.getCId().equals("")){
-            int i = yfClassifyInfoDao.getByNameAndParentId(yfCompany.gettIdName(),yfCompany.getsId());
+    public ZlztDatainfo update(@RequestBody ZlztDatainfo zlztDatainfo) {
+        if (zlztDatainfo.gettId() == null || zlztDatainfo.gettId().equals("")) {
+            int i = yfClassifyInfoDao.getByNameAndParentId(zlztDatainfo.gettIdName(),zlztDatainfo.getsId());
             if ( i == -1){
                 YfClassifyInfo yfClassifyInfo = new YfClassifyInfo();
-                yfClassifyInfo.setName(yfCompany.gettIdName());
-                yfClassifyInfo.setParentId(yfCompany.getsId());
+                yfClassifyInfo.setName(zlztDatainfo.gettIdName());
+                yfClassifyInfo.setParentId(zlztDatainfo.getsId());
                 yfClassifyInfo.setType(3);
                 yfClassifyInfoDao.save(yfClassifyInfo);
                 i = yfClassifyInfo.getId().intValue();
             }
-            yfCompany.setcId(i);
+            zlztDatainfo.settId(i);
         }
-        if (yfCompany.getTId() == null && yfCompany.getTId().equals("")){
-            int j = yfClassifyInfoDao.getByNameAndParentId(yfCompany.getcIdName(),yfCompany.getTId());
+        if (zlztDatainfo.getcId() == null || zlztDatainfo.getcId().equals("")){
+            int j = yfClassifyInfoDao.getByNameAndParentId(zlztDatainfo.getcIdName(),zlztDatainfo.gettId());
             if ( j == -1){
                 YfClassifyInfo yfClassifyInfo = new YfClassifyInfo();
-                yfClassifyInfo.setName(yfCompany.getcIdName());
-                yfClassifyInfo.setParentId(yfCompany.getTId());
+                yfClassifyInfo.setName(zlztDatainfo.getcIdName());
+                yfClassifyInfo.setParentId(zlztDatainfo.gettId());
                 yfClassifyInfo.setType(4);
                 yfClassifyInfoDao.save(yfClassifyInfo);
                 j = yfClassifyInfo.getId().intValue();
             }
-            yfCompany.settId(j);
+            zlztDatainfo.settId(j);
         }
-        yfCompanyDao.update(yfCompany);
-
-        return yfCompany;
+        yfCompanyDao.update(zlztDatainfo);
+        return zlztDatainfo;
     }
 
     @GetMapping
@@ -155,7 +162,7 @@ public class YfCompanyController {
 
     @GetMapping("/getAllData/{id}")
     @ApiOperation(value = "根据id获取")
-    public YfCompany getAllData(@PathVariable Long id) {
+    public ZlztDatainfo getAllData(@PathVariable Long id) {
         return yfCompanyDao.getAllData(id);
     }
 }

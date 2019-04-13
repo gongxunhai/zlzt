@@ -6,50 +6,50 @@
 	<sql id="where">
 		<where>
 			<if test="params.addFile != null and params.addFile != ''">
-				and addFile = #{params.addFile} 
+				and t.addFile = #{params.addFile}
 			</if>
 			<if test="params.company != null and params.company != ''">
-				and company = #{params.company} 
+				and t.company = #{params.company}
 			</if>
 			<if test="params.createTime != null and params.createTime != ''">
-				and createTime = #{params.createTime} 
+				and t.createTime = #{params.createTime}
 			</if>
 			<if test="params.id != null and params.id != ''">
-				and id = #{params.id} 
+				and t.id = #{params.id}
 			</if>
 			<if test="params.fId != null and params.fId != ''">
-				and fId = #{params.fId}
+				and t.fId = #{params.fId}
 			</if>
 			<if test="params.sId != null and params.sId != ''">
-				and sId = #{params.sId}
+				and t.sId = #{params.sId}
 			</if>
 			<if test="params.beginTime != null and params.beginTime != ''">
 				<if test="params.endTime != null and params.endTime != ''">
-					and createTime between #{params.beginTime} and #{params.endTime}
+					and t.createTime between #{params.beginTime} and #{params.endTime}
 				</if>
 				<if test="params.endTime == null || params.endTime == ''">
-					and createTime > #{params.beginTime}
+					and t.createTime > #{params.beginTime}
 				</if>
 			</if>
 			<if test="params.endTime != null and params.endTime != ''">
 				<if test="params.beginTime == null || params.beginTime == ''">
-					and createTime &lt; #{params.endTime}
+					and t.createTime &lt; #{params.endTime}
 				</if>
 			</if>
 			<if test="params.pageView != null and params.pageView != ''">
-				and pageView = #{params.pageView} 
+				and t.pageView = #{params.pageView}
 			</if>
 			<if test="params.symbol != null and params.symbol != ''">
-				and symbol = #{params.symbol} 
+				and t.symbol = #{params.symbol}
 			</if>
 			<if test="params.content != null and params.content != ''">
-				and content = #{params.content}
+				and t.content = #{params.content}
 			</if>
 			<if test="params.updateTime != null and params.updateTime != ''">
-				and updateTime = #{params.updateTime} 
+				and t.updateTime = #{params.updateTime}
 			</if>
 			<if test="params.searchByInput != null and params.searchByInput != ''">
-				and name like concat('%', #{params.searchByInput}, '%')
+				and t.name like concat('%', #{params.searchByInput}, '%')
 			</if>
 		</where>
 	</sql>
@@ -60,7 +60,9 @@
 	</select>
 
 	<select id="list" resultType="LawsRegulation">
-		select * from laws_regulation t
+		select t.*,b.name as fIdName,c.name as sIdName from laws_regulation t
+		left join laws_regulation_classifyInfo b on t.fid = b.id
+		left join laws_regulation_classifyInfo c on t.sid = c.id
 		<include refid="where" />
 		${params.orderBy}
 		<if test="limit !=null and limit !=''">

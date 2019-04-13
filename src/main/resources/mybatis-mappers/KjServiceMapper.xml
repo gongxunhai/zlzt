@@ -32,6 +32,9 @@
 			<if test="params.commentId != null and params.commentId != ''">
 				and commentId = #{params.commentId} 
 			</if>
+			<if test="params.searchByInput != null and params.searchByInput != ''">
+				and t.name like concat('%', #{params.searchByInput}, '%')
+			</if>
 		
 		</where>
 	</sql>
@@ -79,7 +82,9 @@
 			<if test="commentId != null">
 				commentId = #{commentId}, 
 			</if>
-
+			<if test="updateTime != null">
+				updateTime = #{updateTime},
+			</if>
 		</set>
 
 		where t.id = #{id}

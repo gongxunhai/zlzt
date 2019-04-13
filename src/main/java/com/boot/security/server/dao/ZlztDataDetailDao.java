@@ -22,7 +22,7 @@ public interface ZlztDataDetailDao {
             "\t\tinner join zlzt_classifyinfo c on t.tId = c.id\n" +
             "\t\tinner join zlzt_classifyinfo d on t.cId = d.id" +
             "    inner join zlzt_datainfo m on t.dataId = m.id where t.id = #{id}")
-    ZlztDataDetail getAllData(Long id);
+    ZlztDatainfo getAllData(Long id);
 
     @Select("select * from zlzt_data_detail t where t.id = #{id}")
     ZlztDataDetail getById(Long id);

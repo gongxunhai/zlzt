@@ -2,57 +2,236 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" media="screen" href="../../css/dataTables.bootstrap.min.css">
-<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+	<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../layui/css/layui.css">
 </head>
 <body>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	<form class="form-horizontal" onsubmit="return false" id="form">
 		<fieldset>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>数据表id</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='dataId' type='text' name='dataId' id='dataId' data-bv-notempty='true' data-bv-notempty-message='dataId 不能为空'>
-				</div>
-			</div>
+			<input type="hidden" id="id" name="id">
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>一级标题</label>
-				<div class='col-md-10'>
-					<select class='form-control' onchange="selectSid()" placeholder='fId' type='text' name='fId' id='fId' data-bv-notempty='true' data-bv-notempty-message='fId 不能为空'></select>
+				<div class='col-md-4'>
+					<select class='form-control' onchange="selectSid()"  type='text' name='fId' id='fId' data-bv-notempty='true' data-bv-notempty-message='fId 不能为空'></select>
 				</div>
 			</div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>二级标题</label>
-				<div class='col-md-10'>
-					<select class='form-control' placeholder='sId' type='text' name='sId' id='sId' data-bv-notempty='true' data-bv-notempty-message='sId 不能为空'></select>
+				<div class='col-md-4'>
+					<select class='form-control'  type='text' name='sId' id='sId' data-bv-notempty='true' data-bv-notempty-message='sId 不能为空'></select>
 				</div>
 			</div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>一级分类</label>
-				<div class='col-md-10'>
+				<div class='col-md-4'>
 					<input class='form-control' type='text' name='tIdName' id='tIdName' data-bv-notempty='true' data-bv-notempty-message='tIdName 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>二级分类</label>
-				<div class='col-md-10'>
+				<div class='col-md-4'>
 					<input class='form-control' type='text' name='cIdName' id='cIdName' data-bv-notempty='true' data-bv-notempty-message='cIdName 不能为空'>
 				</div>
 			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>公开号</label>
+				<div class='col-md-4'>
+					<input class='form-control'  type='text' name='openId' id='openId' data-bv-notempty='true' data-bv-notempty-message='公开号不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>公开日</label>
+				<div class='col-md-4'>
+					<input class='form-control' type='text' name='openDay' id='openDay' data-bv-notempty='true' data-bv-notempty-message='公开日不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>申请号</label>
+				<div class='col-md-4'>
+					<input class='form-control' type='text' name='applyId' id='applyId' data-bv-notempty='true' data-bv-notempty-message='申请号不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>申请日</label>
+				<div class='col-md-4'>
+					<input class='form-control' type='text' name='applyDay' id='applyDay' data-bv-notempty='true' data-bv-notempty-message='申请日不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>国家</label>
+				<div class='col-md-4'>
+					<input class='form-control' type='text' name='country' id='country' data-bv-notempty='true' data-bv-notempty-message='国家不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>标题</label>
+				<div class='col-md-4'>
+					<input class='form-control' type='text' name='title' id='title' data-bv-notempty='true' data-bv-notempty-message='标题不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>标题翻译</label>
+				<div class='col-md-4'>
+					<input class='form-control' type='text' name='titleFy' id='titleFy' data-bv-notempty='true' data-bv-notempty-message='标题翻译不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>摘要</label>
+				<div class='col-md-10'>
+					<textarea class='form-control' type='text' name='zy' id='zy' data-bv-notempty='true' data-bv-notempty-message='摘要不能为空'></textarea>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>摘要翻译</label>
+				<div class='col-md-10'>
+					<textarea class='form-control' type='text' name='zyFy' id='zyFy' data-bv-notempty='true' data-bv-notempty-message='摘要翻译不能为空'></textarea>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>权利要求</label>
+				<div class='col-md-10'>
+					<textarea class='form-control' type='text' name='powerAsk' id='powerAsk' data-bv-notempty='true' data-bv-notempty-message='权利要求不能为空'></textarea>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>权利要求翻译</label>
+				<div class='col-md-10'>
+					<textarea class='form-control'  type='text' name='powerAFy' id='powerAFy' data-bv-notempty='true' data-bv-notempty-message='权利要求翻译不能为空'></textarea>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>权利要求数</label>
+				<div class='col-md-4'>
+					<input class='form-control'  type='text' name='powerAN' id='powerAN' data-bv-notempty='true' data-bv-notempty-message='权利要求数不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>申请人</label>
+				<div class='col-md-4'>
+					<input class='form-control' type='text' name='applyMan' id='applyMan' data-bv-notempty='true' data-bv-notempty-message='申请人不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>申请人所在地</label>
+				<div class='col-md-4'>
+					<input class='form-control' type='text' name='applyPlace' id='applyPlace' data-bv-notempty='true' data-bv-notempty-message='申请人所在地不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>发明人</label>
+				<div class='col-md-4'>
+					<input class='form-control' type='text' name='createMan' id='createMan' data-bv-notempty='true' data-bv-notempty-message='发明人不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>法律状态</label>
+				<div class='col-md-10'>
+					<textarea class='form-control' type='text' name='lawS' id='lawS' data-bv-notempty='true' data-bv-notempty-message='法律状态不能为空'></textarea>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>当前法律状态</label>
+				<div class='col-md-4'>
+					<input class='form-control'  type='text' name='nowLawS' id='nowLawS' data-bv-notempty='true' data-bv-notempty-message='当前法律状态不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>专利类型</label>
+				<div class='col-md-4'>
+					<input class='form-control'  type='text' name='zlType' id='zlType' data-bv-notempty='true' data-bv-notempty-message='专利类型不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>ipc主分类</label>
+				<div class='col-md-4'>
+					<input class='form-control' type='text' name='ipcMC' id='ipcMC' data-bv-notempty='true' data-bv-notempty-message='ipc主分类不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>ipc主分类翻译</label>
+				<div class='col-md-4'>
+					<input class='form-control' type='text' name='ipcMCFy' id='ipcMCFy' data-bv-notempty='true' data-bv-notempty-message='ipc主分类翻译不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>ipc分类</label>
+				<div class='col-md-4'>
+					<input class='form-control' type='text' name='ipc' id='ipc' data-bv-notempty='true' data-bv-notempty-message='ipc分类不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>ipc分类翻译</label>
+				<div class='col-md-4'>
+					<input class='form-control' type='text' name='ipcFy' id='ipcFy' data-bv-notempty='true' data-bv-notempty-message='ipc分类翻译不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>国民经济</label>
+				<div class='col-md-4'>
+					<input class='form-control' type='text' name='cpec' id='cpec' data-bv-notempty='true' data-bv-notempty-message='国民经济不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>国民经济翻译</label>
+				<div class='col-md-4'>
+					<input class='form-control' type='text' name='cpecFy' id='cpecFy' data-bv-notempty='true' data-bv-notempty-message='国民经济翻译不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>被引证次数</label>
+				<div class='col-md-4'>
+					<input class='form-control'  type='text' name='beUsedNum' id='beUsedNum' data-bv-notempty='true' data-bv-notempty-message='被引证次数不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>价值度</label>
+				<div class='col-md-4'>
+					<input class='form-control' type='text' name='value' id='value' data-bv-notempty='true' data-bv-notempty-message='价值度不能为空'>
+				</div>
+			</div>
 
+
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>首页附图</label>
+				<button type="button" class="layui-btn" id="upF">
+					<i class="layui-icon">&#xe67c;</i>上传图片
+				</button>
+				<div id="showname1" style="display:inline-block;margin-left: 10px;"></div>
+				<div id="buttondelete1" style="display:inline-block;margin-left: 10px;"></div>
+			</div>
+			<input type="hidden" id="homeImage" >
+
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>专利全文</label>
+				<button type="button" class="layui-btn" id="upS">
+					<i class="layui-icon">&#xe67c;</i>上传pdf
+				</button>
+				<div id="showname2" style="display:inline-block;margin-left: 10px;"></div>
+				<div id="buttondelete2" style="display:inline-block;margin-left: 10px;"></div>
+			</div>
+			<input type="hidden" id="pdfUrl" >
+
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>专利附图</label>
+				<button type="button" class="layui-btn" id="upT">
+					<i class="layui-icon">&#xe67c;</i>上传压缩包
+				</button>
+				<div id="showname3" style="display:inline-block;margin-left: 10px;"></div>
+				<div id="buttondelete3" style="display:inline-block;margin-left: 10px;"></div>
+			</div>
+			<input type="hidden" id="zlFile" >
 
 			<div class="form-actions">
 				<div class="row" align="center">
 					<div class="col-md-12">
 						<button class="btn btn-primary" onclick="location.href='yfCompanyList.html'">返回</button>
-						<button class="btn btn-primary" type="submit" onclick="add()">
+						<button class="btn btn-primary" type="submit" onclick="choose()">
 							<i class="fa fa-save"></i> 保存
 						</button>
 					</div>
 				</div>
 			</div>
-
 		</fieldset>
 	</form>
 </div>
@@ -62,9 +241,80 @@
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../layui/layui.js"></script>
 	<script type="text/javascript">
-		layui.use(['layer','laydate'], function(){
-		    var layer = layui.layer;
-		});
+        var pro = window.location.protocol;
+        var host = window.location.host;
+        var domain = pro + "//" + host;
+        layui.use(['layer','upload','laydate'], function() {
+            var layer = layui.layer;
+            var laydate = layui.laydate;
+            var upload = layui.upload;
+            var upload1 = layui.upload;
+            var upload2 = layui.upload;
+
+            laydate.render({
+                elem: '#openDay'
+            });
+            laydate.render({
+                elem: '#applyDay'
+            });
+
+            upload.render({
+                elem: '#upT' //绑定元素
+                ,accept: 'file' //允许上传的文件类型
+                ,exts: 'zip' //上传后缀
+                ,url: '/files/upZip' //上传接口
+                ,done: function(res, index, upload){
+                    $("#showname3").html('');
+                    var allUrl = '';
+                    if (res != null) {
+                        for (var i = 0; i < res.length; i++) {
+                            var fileInfo = res[i];
+                            if (i == 0) {
+                                allUrl = fileInfo.url;
+                            }else {
+                                allUrl =  allUrl +';'+ fileInfo.url;
+                            }
+                            $("#showname3").append("<a  target='_blank' href='"+domain+"/statics"+fileInfo.url+"' style='margin-top: 80px;font-size:18px'>点击查看上传文件！</a>");                        }
+                    }
+                    $("#zlFile").val(allUrl);
+                    $("#buttondelete3").html('<button class="layui-btn" onclick="delete1(3,\''+allUrl+'\')">删除</button>')
+                }
+            });
+
+            upload1.render({
+                elem: '#upS' //绑定元素
+                ,accept: 'file' //允许上传的文件类型
+                ,url: '/files' //上传接口
+                ,exts: 'pdf' //上传后缀
+                ,done: function(res, index, upload){
+                    var a = "<a  target='_blank' href='"+domain+"/statics"+res.url+"' style='margin-top: 80px;font-size:18px'>点击查看上传文件！</a>";
+                    $("#showname2").html(a);
+                    $("#buttondelete2").html('<button class="layui-btn" onclick="delete1(2,\''+res.id+'\')">删除</button>')
+                    $("#pdfUrl").val(res.url);
+                }
+            });
+
+            upload2.render({
+                elem: '#upF' //绑定元素
+                ,accept: 'image' //允许上传的文件类型
+                ,url: '/files' //上传接口
+                ,done: function(res, index, upload){
+                    var a = "<a  target='_blank' href='"+domain+"/statics"+res.url+"' style='margin-top: 80px;font-size:18px'>点击查看上传文件！</a>";
+                    $("#showname1").html(a);
+                    $("#buttondelete1").html('<button class="layui-btn" onclick="delete1(1,\''+res.id+'\')">删除</button>')
+                    $("#homeImage").val(res.url);
+                }
+            });
+        });
+        function delete1(num,id) {
+            layer.confirm('确定要删除吗？', {
+                btn: ['确定', '取消']
+            }, function () {
+                $("#showname"+num).html("");
+                $("#buttondelete"+num).html("");
+                layer.msg("删除成功");
+            });
+        }
 
         function selectFid(){
             $.ajax({
@@ -103,6 +353,92 @@
             }
         }
 
+
+        var id = getUrlParam("id");
+        if (id != '') {
+            $.ajax({
+                type : 'get',
+                url : '/yfCompanys/getAllData/'+id,
+                async : false,
+                success : function(data) {
+                    $('#id').val(data.id);
+                    $('#fId').val(data.fId);
+                    selectSid();
+                    $('#sId').val(data.sId);
+                    $('#tIdName').val(data.tIdName);
+                    $('#cIdName').val(data.cIdName);
+                    $('#country').val(data.country);
+                    $('#openId').val(data.openId);
+                    $('#openDay').val((new Date(data.openDay)).Format("yyyy-MM-dd"));
+                    $('#applyId').val(data.applyId);
+                    $('#applyDay').val((new Date(data.applyDay)).Format("yyyy-MM-dd"));
+                    $('#title').val(data.title);
+                    $('#titleFy').val(data.titleFy);
+                    $('#zy').val(data.zy);
+                    $('#zyFy').val(data.zyFy);
+                    $('#powerAsk').val(data.powerAsk);
+                    $('#powerAFy').val(data.powerAFy);
+                    $('#powerAN').val(data.powerAN);
+                    $('#applyMan').val(data.applyMan);
+                    $('#applyPlace').val(data.applyPlace);
+                    $('#createMan').val(data.createMan);
+                    $('#lawS').val(data.lawS);
+                    $('#nowLawS').val(data.nowLawS);
+                    $('#zlType').val(data.zlType);
+                    $('#ipcMC').val(data.ipcMC);
+                    $('#ipcMCFy').val(data.ipcMCFy);
+                    $('#ipc').val(data.ipc);
+                    $('#ipcFy').val(data.ipcFy);
+                    $('#cpec').val(data.cpec);
+                    $('#cpecFy').val(data.cpecFy);
+                    $('#beUsedNum').val(data.beUsedNum);
+                    $('#value').val(data.value);
+                    if (data.homeImage != null && data.homeImage!='') {
+                        var a = "<a  target='_blank' href='"+domain+"/statics"+data.homeImage+"' style='margin-top: 80px;font-size:18px'>点击查看上传文件！</a>";
+                        $("#showname1").html(a);
+                        $("#buttondelete1").html('<button class="layui-btn" onclick="delete1(1,\''+data.homeImage+'\')">删除</button>')
+                        $("#homeImage").val(data.homeImage);
+                    }
+                    if (data.zlText != null && data.zlText!='') {
+                        var a = "<a  target='_blank'  href='"+domain+"/statics"+data.zlText+"' style='margin-top: 80px;font-size:18px'>点击查看上传文件！</a>";
+                        $("#showname2").html(a);
+                        $("#buttondelete2").html('<button class="layui-btn" onclick="delete1(2,\''+data.zlText+'\')">删除</button>')
+                        $("#pdfurl").val(data.zlText);
+                    }
+                    if (data.zlImage != null && data.zlImage!='') {
+                        var allUrl = '';
+                        if (data.zlImage.indexOf(";") != -1) {
+                            var res = data.zlImage.split(";");
+                            for (var i = 0; i < res.length; i++) {
+                                var fileInfo = res[i];
+                                if (i == 0) {
+                                    allUrl = fileInfo;
+                                }else {
+                                    allUrl =  allUrl +';'+ fileInfo;
+                                }
+                                $("#showname3").append("<a  target='_blank' href='"+domain+"/statics"+fileInfo+"' style='margin-top: 80px;font-size:18px'>点击查看上传文件！</a>");
+                            }
+                        }else {
+                            $("#addImage").append("<a  target='_blank' href='"+domain+"/statics"+data.zlImage+"' style='margin-top: 80px;font-size:18px'>点击查看上传文件！</a>");
+                            allUrl = data.zlImage;
+                        }
+                        $("#buttondelete3").html('<button class="layui-btn" onclick="delete1(3,\''+data.zlImage+'\')">删除</button>')
+                        $("#zlFile").val(allUrl);
+                    }
+                    $('#createTime').val(data.createTime);
+                    $('#updateTime').val(data.updateTime);
+                }
+            });
+        }
+
+        function choose() {
+            if (id != '') {
+                update();
+            }else {
+                add();
+            }
+        }
+
 		function add() {
 			$('#form').bootstrapValidator();
 			var bootstrapValidator = $("#form").data('bootstrapValidator');
@@ -127,6 +463,36 @@
 				}
 			});
 		}
+        function update() {
+            $('#form').bootstrapValidator();
+            var bootstrapValidator = $("#form").data('bootstrapValidator');
+            bootstrapValidator.validate();
+            if(!bootstrapValidator.isValid()){
+                return;
+            }
+
+            var formdata = $("#form").serializeObject();
+            formdata.fId = $("#fId").val();
+            formdata.sId = $("#sId").val();
+            formdata.zlImage = $("#zlFile").val();
+            formdata.zlText = $("#pdfUrl").val();
+            formdata.homeImage = $("#homeImage").val();
+            formdata.openDay = (new Date($("#openDay").val())).Format("yyyy-MM-dd hh:mm:ss");
+            formdata.applyDay = (new Date($("#applyDay").val())).Format("yyyy-MM-dd hh:mm:ss");
+            console.log(JSON.stringify(formdata));
+
+            $.ajax({
+                type : 'put',
+                url : '/yfCompanys',
+                contentType: "application/json; charset=utf-8",
+                data : JSON.stringify(formdata),
+                success : function(data) {
+                    layer.msg("修改成功", {shift: -1, time: 1000}, function(){
+                        location.href = "yfCompanyList.html";
+                    });
+                }
+            });
+        }
 		
 	</script>
 </body>

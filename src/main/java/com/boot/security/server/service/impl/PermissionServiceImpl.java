@@ -10,6 +10,8 @@ import com.boot.security.server.dao.PermissionDao;
 import com.boot.security.server.model.Permission;
 import com.boot.security.server.service.PermissionService;
 
+import java.util.List;
+
 @Service
 public class PermissionServiceImpl implements PermissionService {
 
@@ -33,10 +35,15 @@ public class PermissionServiceImpl implements PermissionService {
 	@Override
 	@Transactional
 	public void delete(Long id) {
+		List<Permission> permissions= permissionDao.getSubById(id);
+		if (permissions!=null && permissions.size()>0){
+			for (int i=0;i<permissions.size();i++){
+				this.delete(permissions.get(i).getId());
+			}
+		}
 		permissionDao.deleteRolePermission(id);
 		permissionDao.delete(id);
-		permissionDao.deleteByParentId(id);
-
+		//		permissionDao.deleteByParentId(id);
 		log.debug("删除菜单id:{}", id);
 	}
 

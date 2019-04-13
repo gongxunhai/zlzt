@@ -2,43 +2,109 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../../css/font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" href="../../../css/ztree/zTreeStyle/zTreeStyle.css" type="text/css">
+	<link rel="stylesheet" href="../../../css/ztree/demo.css" type="text/css">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../../layui/css/layui.css">
 </head>
 <body>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	<form class="form-horizontal" onsubmit="return false" id="form">
 		<fieldset>
+			<input type="hidden" id="id" name="id">
+			<div class="form-group">
+				<label class="col-md-2 control-label">上级分类</label><span style="color:red">*</span>
+				<div class="col-md-4">
+					<input id="parentId" name="parentId" type="hidden"  value="">
+					<input id="menuName" type="text" readonly value="" class="form-control"
+						   placeholder="请选择上级部门" data-bv-notempty="true" data-bv-notempty-message="名称 不能为空"
+						   onclick="deptTree.showMenu();" />
+				</div>
+				        
+				<div id="menuContent" class="menuContent" style="display:none; position: absolute;z-index:9999">      
+					     
+					<ul id="treeDemo" class="ztree" style="margin-top:0; width:350px; height: 600px;"></ul>
+					        
+				</div>
+			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>name</label>
-				<div class='col-md-10'>
+				<label class='col-md-2 control-label'>名称</label>
+				<div class='col-md-4'>
 					<input class='form-control' placeholder='name' type='text' name='name' id='name' data-bv-notempty='true' data-bv-notempty-message='name 不能为空'>
 				</div>
 			</div>
-
-
 			<div class="form-actions">
 				<div class="row" align="center">
 					<div class="col-md-12">
-					    <button class="btn btn-primary" onclick="location.href='kjResultClassifyInfoList.html'">返回</button>
+						<button class="btn btn-primary" onclick="location.href='kjResultClassifyInfoList.html'">返回</button>
 						<button class="btn btn-primary" type="submit" onclick="add()">
 							<i class="fa fa-save"></i> 保存
 						</button>
 					</div>
 				</div>
 			</div>
-
 		</fieldset>
 	</form>
 </div>
-	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="../../js/jq.js"></script>
-	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
-	<script type="text/javascript" src="../../js/common.js"></script>
-	<script type="text/javascript" src="../../layui/layui.js"></script>
+<script type="text/javascript" src="../../../js/libs/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../../../js/jq.js"></script>
+<script type="text/javascript" src="../../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+<script type="text/javascript" src="../../../js/common.js"></script>
+<script type="text/javascript" src="../../../layui/layui.js"></script>
+<script type="text/javascript" src="../../../js/libs/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="../../../js/ztree-single_obj.js"></script>
 	<script type="text/javascript">
-		layui.use(['layer','laydate'], function(){
-		    var layer = layui.layer;
-		});
+        var pro = window.location.protocol;
+        var host = window.location.host;
+        var domain = pro + "//" + host;
+
+        initData();
+        var deptTree;
+
+
+        function initData() {
+            var id = getUrlParam("id");
+            if (id != "") {
+                $.ajax({
+                    type: 'get',
+                    url: '/kjResultClassifyInfos/' + id,
+                    async: false,
+                    success: function (data) {
+                        $('#id').val(data.id);
+                        $('#parentId').val(data.parentId);
+                        $('#name').val(data.name);
+                    }
+                });
+                if ($('#parentId').val() == 0) {
+                    // $('#menuName').val("根级部门");
+                    $("#menuName").attr("value", "根级分类");
+                } else if ($('#parentId').val() != null && $('#parentId').val() != "") {
+                    $.ajax({
+                        type: 'get',
+                        url: '/kjResultClassifyInfos/' + $('#parentId').val(),
+                        async: false,
+                        success: function (data) {
+                            $("#menuName").attr("value", data.name);
+                            // $('#menuName').val(data.name);
+                        }
+                    });
+                }
+            }
+        }
+
+        $.ajax({
+            type: 'get',
+            url: '/kjResultClassifyInfos/parentsTree',
+            async: false,
+            success: function (data) {
+                deptTree = new MyZtree(data, "treeDemo", "menuName", "menuContent", "parentId");
+            }
+        });
+
+        layui.use(['layer','laydate','upload'], function(){
+            var layer = layui.layer;
+        });
 		
 		function add() {
 			$('#form').bootstrapValidator();
@@ -47,20 +113,41 @@
 		    if(!bootstrapValidator.isValid()){
 			   return;
 		    }
-		    
-		    var formdata = $("#form").serializeObject();
 
-			$.ajax({
-				type : 'post',
-				url : '/kjResultClassifyInfos',
-				contentType: "application/json; charset=utf-8",  
-				data : JSON.stringify(formdata),
-				success : function(data) {
-					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
-                        location.href = "kjResultClassifyInfoList.html";
-                    });
-				}
-			});
+            var type = $("#parentId").val();
+            (type > 0) ? type=2 : type=1 ;
+
+            var formdata = $("#form").serializeObject();
+            formdata.type = type;
+
+            var id = getUrlParam("id");
+            if (id != "") {
+                // update
+                $.ajax({
+                    type : 'put',
+                    url : '/kjResultClassifyInfos',
+                    contentType: "application/json; charset=utf-8",
+                    data : JSON.stringify(formdata),
+                    success : function(data) {
+                        layer.msg("修改成功", {shift: -1, time: 1000}, function(){
+                            location.href = "kjResultClassifyInfoList.html";
+                        });
+                    }
+                });
+            }else {
+                //insert
+                $.ajax({
+                    type : 'post',
+                    url : '/kjResultClassifyInfos',
+                    contentType: "application/json; charset=utf-8",
+                    data : JSON.stringify(formdata),
+                    success : function(data) {
+                        layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                            location.href = "kjResultClassifyInfoList.html";
+                        });
+                    }
+                });
+            }
 		}
 		
 	</script>

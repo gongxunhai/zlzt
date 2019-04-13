@@ -45,6 +45,9 @@
 			<if test="name != null">
 				name = #{name}, 
 			</if>
+			<if test="updateTime != null">
+				updateTime = #{updateTime},
+			</if>
 
 		</set>
 

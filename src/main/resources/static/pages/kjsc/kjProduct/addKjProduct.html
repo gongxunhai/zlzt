@@ -2,121 +2,113 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" media="screen" href="../../../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../layui/css/layui.css" media="all" />
 </head>
 <body>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	<form class="form-horizontal" onsubmit="return false" id="form">
+        <input type="hidden" id="id" name="id">
 		<fieldset>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>buyNum</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='buyNum' type='text' name='buyNum' id='buyNum' data-bv-notempty='true' data-bv-notempty-message='buyNum 不能为空'>
+				<label class='col-md-2 control-label'>产品名称</label>
+				<div class='col-md-4'>
+					<input class='form-control' type='text' name='name' id='name' data-bv-notempty='true' data-bv-notempty-message='成果名称不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>cMan</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='cMan' type='text' name='cMan' id='cMan' data-bv-notempty='true' data-bv-notempty-message='cMan 不能为空'>
+				<label class='col-md-2 control-label'>细分领域</label>
+				<div class='col-md-4'>
+					<input class='form-control' type='text' name='xfArea' id='xfArea' data-bv-notempty='true' data-bv-notempty-message='细分领域不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>cPhone</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='cPhone' type='text' name='cPhone' id='cPhone' data-bv-notempty='true' data-bv-notempty-message='cPhone 不能为空'>
+				<label class='col-md-2 control-label'>所属行业</label>
+				<div class='col-md-4'>
+                    <select class='form-control'  type='text' id="fId" onchange="selectSid()" name='fId'  data-bv-notempty='true' data-bv-notempty-message='所属行业不能为空'></select>
+				</div>
+			</div>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>二级行业</label>
+                <div class='col-md-4'>
+                    <select class='form-control'  type='text' name='sId' id='sId' data-bv-notempty='true' data-bv-notempty-message='二级行业不能为空'></select>
+                </div>
+            </div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>区域</label>
+				<div class='col-md-4'>
+					<input class='form-control' type='text' name='place' id='place' data-bv-notempty='true' data-bv-notempty-message='区域不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>fId</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='fId' type='text' name='fId' id='fId' data-bv-notempty='true' data-bv-notempty-message='fId 不能为空'>
+				<label class='col-md-2 control-label'>价格</label>
+				<div class='col-md-4'>
+					<input class='form-control'  type='text' name='price' id='price' data-bv-notempty='true' data-bv-notempty-message='价格不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>haveNum</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='haveNum' type='text' name='haveNum' id='haveNum' data-bv-notempty='true' data-bv-notempty-message='haveNum 不能为空'>
+				<label class='col-md-2 control-label'>促销价</label>
+				<div class='col-md-4'>
+					<input class='form-control'  type='text' name='salePrice' id='salePrice' data-bv-notempty='true' data-bv-notempty-message='促销价  不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>history</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='history' type='text' name='history' id='history' data-bv-notempty='true' data-bv-notempty-message='history 不能为空'>
+				<label class='col-md-2 control-label'>成交量</label>
+				<div class='col-md-4'>
+					<input class='form-control'  type='text' name='buyNum' id='buyNum' data-bv-notempty='true' data-bv-notempty-message='成交量不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>name</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='name' type='text' name='name' id='name' data-bv-notempty='true' data-bv-notempty-message='name 不能为空'>
+				<label class='col-md-2 control-label'>剩余量</label>
+				<div class='col-md-4'>
+					<input class='form-control'  type='text' name='haveNum' id='haveNum' data-bv-notempty='true' data-bv-notempty-message='剩余量 不能为空'>
 				</div>
 			</div>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>联系人</label>
+                <div class='col-md-4'>
+                    <input class='form-control' type='text' name='cMan' id='cMan' data-bv-notempty='true' data-bv-notempty-message='联系人不能为空'>
+                </div>
+            </div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>pData</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='pData' type='text' name='pData' id='pData' data-bv-notempty='true' data-bv-notempty-message='pData 不能为空'>
+				<label class='col-md-2 control-label'>联系电话</label>
+				<div class='col-md-4'>
+					<input class='form-control' type='text' name='cPhone' id='cPhone' data-bv-notempty='true' data-bv-notempty-message='联系电话不能为空'>
 				</div>
 			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>pDetail</label>
+            <div class='form-group'>
+				<label class='col-md-2 control-label'>产品参数</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='pDetail' type='text' name='pDetail' id='pDetail' data-bv-notempty='true' data-bv-notempty-message='pDetail 不能为空'>
+                    <textarea class='form-control' style="height: 150px;" type='text' name='pData' id='pData' data-bv-notempty='true' ></textarea>
 				</div>
 			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>pImage</label>
+            <div class='form-group'>
+				<label class='col-md-2 control-label'>产品详情</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='pImage' type='text' name='pImage' id='pImage' data-bv-notempty='true' data-bv-notempty-message='pImage 不能为空'>
+                    <textarea class='form-control' style="height: 150px;" type='text' name='pDetail' id='pDetail' data-bv-notempty='true' ></textarea>
 				</div>
 			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>place</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='place' type='text' name='place' id='place' data-bv-notempty='true' data-bv-notempty-message='place 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>price</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='price' type='text' name='price' id='price' data-bv-notempty='true' data-bv-notempty-message='price 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>pubTime</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='pubTime' type='text' name='pubTime' id='pubTime' data-bv-notempty='true' data-bv-notempty-message='pubTime 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>salePrice</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='salePrice' type='text' name='salePrice' id='salePrice' data-bv-notempty='true' data-bv-notempty-message='salePrice 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>sId</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='sId' type='text' name='sId' id='sId' data-bv-notempty='true' data-bv-notempty-message='sId 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>talk</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='talk' type='text' name='talk' id='talk' data-bv-notempty='true' data-bv-notempty-message='talk 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>xfArea</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='xfArea' type='text' name='xfArea' id='xfArea' data-bv-notempty='true' data-bv-notempty-message='xfArea 不能为空'>
-				</div>
-			</div>
-
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>发布日期</label>
+                <div class='col-md-4'>
+                    <input class='form-control' type='text' name='pubTime' id='pubTime' data-bv-notempty='true' data-bv-notempty-message='发布日期不能为空'>
+                </div>
+            </div>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>首页附图</label>
+                <button type="button" class="layui-btn" id="upF">
+                    <i class="layui-icon">&#xe67c;</i>上传图片
+                </button>
+                <div id="showname1" style="display:inline-block;margin-left: 10px;"></div>
+                <div id="buttondelete1" style="display:inline-block;margin-left: 10px;"></div>
+            </div>
+            <input type="hidden" id="image" >
 
 			<div class="form-actions">
 				<div class="row" align="center">
 					<div class="col-md-12">
 					    <button class="btn btn-primary" onclick="location.href='kjProductList.html'">返回</button>
-						<button class="btn btn-primary" type="submit" onclick="add()">
+						<button class="btn btn-primary" type="submit" onclick="choose()">
 							<i class="fa fa-save"></i> 保存
 						</button>
 					</div>
@@ -132,9 +124,118 @@
 	<script type="text/javascript" src="../../../js/common.js"></script>
 	<script type="text/javascript" src="../../../layui/layui.js"></script>
 	<script type="text/javascript">
-		layui.use(['layer','laydate'], function(){
+        var pro = window.location.protocol;
+        var host = window.location.host;
+        var domain = pro + "//" + host;
+		layui.use(['layer','upload','laydate'], function(){
 		    var layer = layui.layer;
+            var upload = layui.upload;
+             var laydate = layui.laydate;
+            laydate.render({
+                elem: '#pubTime'
+            });
+            upload.render({
+                elem: '#upF' //绑定元素
+                ,accept: 'image' //允许上传的文件类型
+                ,url: '/files' //上传接口
+                ,done: function(res, index, upload){
+                    var a = "<a  target='_blank' href='"+domain+"/statics"+res.url+"' style='margin-top: 80px;font-size:18px'>点击查看上传文件！</a>";
+                    $("#showname1").html(a);
+                    $("#buttondelete1").html('<button class="layui-btn" onclick="delete1(1,\''+res.id+'\')">删除</button>')
+                    $("#image").val(res.url);
+                }
+            });
 		});
+
+        function delete1(num,id) {
+            layer.confirm('确定要删除吗？', {
+                btn: ['确定', '取消']
+            }, function () {
+                $("#showname"+num).html("");
+                $("#buttondelete"+num).html("");
+                layer.msg("删除成功");
+            });
+        }
+        function selectFid(){
+            $.ajax({
+                type : 'get',
+                url : '/kjProductClassifyInfos/getClassify/0',
+                async : false,
+                success : function (data) {
+                    if (data.length > 0) {
+                        $("#fId").append("<option value =''> </option>");
+                        for (var i = 0; i < data.length; i++) {
+                            $("#fId").append("<option value ='" + data[i].id + "'>" + data[i].name + "</option>");
+                        }
+                    }
+                }
+            });
+        }
+        selectFid();
+        function selectSid() {
+            var fId = $("#fId").val();
+            $("#sId").html('');
+            if (fId != '' && fId != null) {
+                $.ajax({
+                    type : 'get',
+                    url : '/kjProductClassifyInfos/getClassify/'+fId,
+                    async : false,
+                    success : function(data) {
+                        var select = $("#sId");
+                        for(var i=0; i<data.length; i++){
+                            var d = data[i];
+                            var id = d['id'];
+                            var name = d['name'];
+                            select.append("<option value='"+ id +"'>" +name+"</option>");
+                        }
+                    }
+                });
+            }
+        }
+        var id = getUrlParam("id");
+        if (id != '') {
+            $.ajax({
+                type : 'get',
+                url : '/kjProducts/'+id,
+                async : false,
+                success : function(data) {
+                    console.log(JSON.stringify(data));
+                    $('#name').val(data.name);
+                    $('#area').val(data.area);
+                    $('#cMan').val(data.cman);
+                    $('#cPhone').val(data.cphone);
+                    $('#cWays').val(data.cways);
+                    $('#fId').val(data.fid);
+                    selectSid();
+                    $('#sId').val(data.sId);
+                    $('#id').val(data.id);
+                    $('#place').val(data.place);
+                    $('#price').val(data.price);
+                    $('#salePrice').val(data.salePrice);
+                    $('#buyNum').val(data.buyNum);
+                    $('#haveNum').val(data.haveNum);
+                    $('#pData').val(data.pdata);
+                    $('#pDetail').val(data.pdetail);
+                    $('#tdetails').val(data.tdetails);
+                    $('#pubTime').val( (new Date(data.pubTime)).Format("yyyy-MM-dd"));
+                    $('#xfArea').val(data.xfArea);
+                    if (data.image != null && data.image!='') {
+                        var a = "<a  target='_blank' href='"+domain+"/statics"+data.image+"' style='margin-top: 80px;font-size:18px'>点击查看上传文件！</a>";
+                        $("#showname1").html(a);
+                        $("#buttondelete1").html('<button class="layui-btn" onclick="delete1(1,\''+data.image+'\')">删除</button>')
+                        $("#image").val(data.image);
+                    }
+                }
+            });
+        }
+
+        function choose() {
+            if (id != '') {
+                update();
+            }else {
+                add();
+            }
+        }
 		
 		function add() {
 			$('#form').bootstrapValidator();
@@ -145,6 +246,12 @@
 		    }
 		    
 		    var formdata = $("#form").serializeObject();
+            formdata.fId = $("#fId").val();
+            formdata.sId = $("#sId").val();
+            formdata.image = $("#imageurl").val();
+            formdata.status = 1;
+            formdata.pubTime = (new Date($("#pubTime").val())).Format("yyyy-MM-dd hh:mm:ss");
+            console.log(JSON.stringify(formdata));
 
 			$.ajax({
 				type : 'post',
@@ -158,6 +265,34 @@
 				}
 			});
 		}
+        function update() {
+            $('#form').bootstrapValidator();
+            var bootstrapValidator = $("#form").data('bootstrapValidator');
+            bootstrapValidator.validate();
+            if(!bootstrapValidator.isValid()){
+                return;
+            }
+
+            var formdata = $("#form").serializeObject();
+            formdata.id = $("#id").val();
+            formdata.fId = $("#fId").val();
+            formdata.sId = $("#sId").val();
+            formdata.image = $("#imageurl").val();
+            formdata.pubTime = (new Date($("#pubTime").val())).Format("yyyy-MM-dd hh:mm:ss");
+            console.log(JSON.stringify(formdata));
+
+            $.ajax({
+                type : 'put',
+                url : '/kjProducts',
+                contentType: "application/json; charset=utf-8",
+                data : JSON.stringify(formdata),
+                success : function(data) {
+                    layer.msg("修改成功", {shift: -1, time: 1000}, function(){
+                        location.href = "kjProductList.html";
+                    });
+                }
+            });
+        }
 		
 	</script>
 </body>

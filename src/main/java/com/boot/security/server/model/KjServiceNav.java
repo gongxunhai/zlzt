@@ -8,6 +8,8 @@ public class KjServiceNav extends BaseEntity<Long> {
 	private Integer sId;
 	private String name;
 	private String href;
+	private String fIdName;
+	private String sIdName;
 
 	public Integer getfId() {
 		return fId;
@@ -37,5 +39,16 @@ public class KjServiceNav extends BaseEntity<Long> {
 	public void setHref(String href) {
 		this.href = href;
 	}
-
+    public String getfIdName() {
+        return fIdName;
+    }
+    public void setfIdName(String fIdName) {
+        this.fIdName = fIdName;
+    }
+    public String getsIdName() {
+        return sIdName;
+    }
+    public void setsIdName(String sIdName) {
+        this.sIdName = sIdName;
+    }
 }

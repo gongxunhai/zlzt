@@ -29,21 +29,29 @@
 			<if test="params.updateTime != null and params.updateTime != ''">
 				and t.updateTime = #{params.updateTime}
 			</if>
-		
+			<if test="params.name != null and params.name != ''">
+				and m.title like concat('%', #{params.name}, '%')
+			</if>
 		</where>
 	</sql>
 
 	<select id="count" resultType="int">
 		select count(1) from zlzt_data_detail t
-		<include refid="where" />
-	</select>
-
-	<select id="list" resultType="ZlztDataDetail">
-		select t.*,a.name as fIdName,b.name as sIdName,c.name as tIdName,d.name as cIdName from zlzt_data_detail t
 		inner join zlzt_classifyinfo a on t.fId = a.id
 		inner join zlzt_classifyinfo b on t.sId = b.id
 		inner join zlzt_classifyinfo c on t.tId = c.id
 		inner join zlzt_classifyinfo d on t.cId = d.id
+		inner join zlzt_datainfo m on t.dataId = m.id
+		<include refid="where" />
+	</select>
+
+	<select id="list" resultType="ZlztDataDetail">
+		select t.*,a.name as fIdName,b.name as sIdName,c.name as tIdName,d.name as cIdName, m.title as title from zlzt_data_detail t
+		inner join zlzt_classifyinfo a on t.fId = a.id
+		inner join zlzt_classifyinfo b on t.sId = b.id
+		inner join zlzt_classifyinfo c on t.tId = c.id
+		inner join zlzt_classifyinfo d on t.cId = d.id
+		inner join zlzt_datainfo m on t.dataId = m.id
 		<include refid="where" />
 		<if test="params.orderBy != null and params.orderBy !=''">
 			${params.orderBy}

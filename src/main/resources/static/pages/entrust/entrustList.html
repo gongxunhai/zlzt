@@ -18,8 +18,8 @@
 	                   			<td>
 		                   			<form class="form-inline" onsubmit="return false">
 										<div class="form-group">
-											id：
-											<input id="id" type="text" class="form-control" placeholder="id">
+											用户名称：
+											<input id="username" type="text" class="form-control" >
 											<button id="searchBt" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe615;</i>搜索</button>
 										</div>
 									</form>
@@ -41,14 +41,13 @@
                                 <tr>
                                 </tr>                       
                                 <tr>
-									<th>id</th>
-                                    <th>状态</th>
-									<th>委托内容</th>
+
 									<th>产品类型</th>
 									<th>用户名称</th>
                                     <th>联系人</th>
                                     <th>联系方式</th>
                                     <th>委托时间</th>
+                                    <th>状态</th>
 									<th>操作</th>
                                 </tr>
                             </thead>
@@ -71,7 +70,11 @@
 <script type="text/javascript" src="../../js/my/permission.js"></script>
 <script type="text/javascript" src="../../js/common.js"></script>
 <script type="text/javascript">
+var id = getUrlParam("id");
 var pers = checkPermission();
+if (id == "") {
+
+}
 
 var example;
 function init(){
@@ -87,12 +90,21 @@ function init(){
         		"url" : "/entrusts",
         		"type":"get",
         		"data":function(d){
-    				d.id = $("#id").val();
+    				d.username = $("#username").val();
+    				d.status = id
     			}
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
             "columns": [
-                {"data" : "id", "defaultContent" : ""},
+                {"data" : "typeName", "defaultContent" : ""},
+                {"data" : "username", "defaultContent" : ""},
+				{"data" : "contactMan", "defaultContent" : ""},
+				{"data" : "contactWay", "defaultContent" : ""},
+				{"data" : "createTime", "defaultContent" : ""/*,
+                    "render": function (data, type, row) {
+                        return (new Date(row.createTime)).Format("yyyy-MM-dd") ;
+                    }    */
+                },
                 {"data" : "status", "defaultContent" : "",
                     "render": function (data, type, row) {
                         var status = row['status'];
@@ -105,16 +117,6 @@ function init(){
                         }
                         return status;
                     }
-                },
-                {"data" : "content", "defaultContent" : ""},
-                {"data" : "type", "defaultContent" : ""},
-                {"data" : "username", "defaultContent" : ""},
-				{"data" : "contactMan", "defaultContent" : ""},
-				{"data" : "contactWay", "defaultContent" : ""},
-				{"data" : "createTime", "defaultContent" : ""/*,
-                    "render": function (data, type, row) {
-                        return (new Date(row.createTime)).Format("yyyy-MM-dd") ;
-                    }    */
                 },
 				{
                     "data": "",

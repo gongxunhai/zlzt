@@ -7,30 +7,31 @@
 </head>
 <body>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<input type="hidden" id="id" name="id">
 	<form class="form-horizontal" onsubmit="return false" id="form">
 		<fieldset>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>一级分类</label>
-				<div class='col-md-10'>
-					<select class='form-control' placeholder='fId' onchange="selectSid()" type='text' name='fId' id='fId' data-bv-notempty='true' data-bv-notempty-message='fId 不能为空'></select>
+				<div class='col-md-4'>
+					<select class='form-control' onchange="selectSid()" type='text' name='fId' id='fId' data-bv-notempty='true' data-bv-notempty-message='fId 不能为空'></select>
 				</div>
 			</div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>二级分类</label>
-				<div class='col-md-10'>
-                    <select class='form-control' placeholder='sId' type='text' name='sId' id='sId' data-bv-notempty='true' data-bv-notempty-message='sId 不能为空'></select>
+				<div class='col-md-4'>
+                    <select class='form-control' type='text' name='sId' id='sId' data-bv-notempty='true' data-bv-notempty-message='sId 不能为空'></select>
 				</div>
 			</div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>名称</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='name' type='text' name='name' id='name' data-bv-notempty='true' data-bv-notempty-message='name 不能为空'>
+				<div class='col-md-4'>
+					<input class='form-control'type='text' name='name' id='name' data-bv-notempty='true' data-bv-notempty-message='name 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>链接</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='href' type='text' name='href' id='href' data-bv-notempty='true' data-bv-notempty-message='href 不能为空'>
+				<div class='col-md-4'>
+					<input class='form-control' type='text' name='href' id='href' data-bv-notempty='true' data-bv-notempty-message='href 不能为空'>
 				</div>
 			</div>
 			<div class="form-actions">
@@ -43,7 +44,6 @@
 					</div>
 				</div>
 			</div>
-
 		</fieldset>
 	</form>
 </div>
@@ -53,6 +53,7 @@
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../layui/layui.js"></script>
 	<script type="text/javascript">
+        var id = getUrlParam("id");
 		layui.use(['layer','laydate'], function(){
 		    var layer = layui.layer;
 		});
@@ -63,6 +64,7 @@
                 async : false,
                 success : function(data) {
                     var select = $("#fId");
+                    select.append("<option value =''> </option>");
                     for(var i=0; i<data.length; i++){
                         var d = data[i];
                         var id = d['id'];
@@ -72,30 +74,45 @@
                 }
             });
         }
-
+        selectFid();
         function selectSid() {
-            var id = $("#fId").val();
+            var fid = $("#fId").val();
+            $("#sId").html('');
+            if (fid != '' && fid != null) {
+                $.ajax({
+                    type : 'get',
+                    url : '/kjServiceNavClassifyinfos/getClassify/'+fid,
+                    async : false,
+                    success : function(data) {
+                        var select = $("#sId");
+                        select.append("<option value =''></option>");
+                        for(var i=0; i<data.length; i++){
+                            var d = data[i];
+                            var id = d['id'];
+                            var name = d['name'];
+                            select.append("<option value='"+ id +"'>" +name+"</option>");
+                        }
+                    }
+                });
+            }
+        }
+
+        if (id != '') {
             $.ajax({
                 type : 'get',
-                url : '/kjServiceNavClassifyinfos/getClassify/'+id,
+                url : '/kjServiceNavs/'+id,
                 async : false,
                 success : function(data) {
-                    $("#sId").html('');
-                    var select = $("#sId");
-                    for(var i=0; i<data.length; i++){
-                        var d = data[i];
-                        var id = d['id'];
-                        var name = d['name'];
-                        select.append("<option value='"+ id +"'>" +name+"</option>");
-                    }
+                    $('#id').val(data.id);
+                    $('#fId').val(data.fId);
+                    selectFid();
+                    $('#sId').val(data.sId);
+                    $('#name').val(data.name);
+                    $('#href').val(data.href);
                 }
             });
         }
 
-        selectFid();
-        selectSid();
-
-		
 		function add() {
 			$('#form').bootstrapValidator();
 			var bootstrapValidator = $("#form").data('bootstrapValidator');
@@ -105,19 +122,35 @@
 		    }
 		    
 		    var formdata = $("#form").serializeObject();
-            alert(JSON.stringify(formdata));
+            console.log(JSON.stringify(formdata));
 
-			$.ajax({
-				type : 'post',
-				url : '/kjServiceNavs',
-				contentType: "application/json; charset=utf-8",  
-				data : JSON.stringify(formdata),
-				success : function(data) {
-					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
-                        location.href = "kjServiceNavList.html";
-                    });
-				}
-			});
+            if (id != "") {
+                // update
+                $.ajax({
+                    type : 'put',
+                    url : '/kjServiceNavs',
+                    contentType: "application/json; charset=utf-8",
+                    data : JSON.stringify(formdata),
+                    success : function(data) {
+                        layer.msg("修改成功", {shift: -1, time: 1000}, function(){
+                            location.href = "kjServiceNavList.html";
+                        });
+                    }
+                });
+            }else {
+                //insert
+                $.ajax({
+                    type : 'post',
+                    url : '/kjServiceNavs',
+                    contentType: "application/json; charset=utf-8",
+                    data : JSON.stringify(formdata),
+                    success : function(data) {
+                        layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                            location.href = "kjServiceNavList.html";
+                        });
+                    }
+                });
+            }
 		}
 		
 	</script>

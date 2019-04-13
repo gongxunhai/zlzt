@@ -394,292 +394,298 @@ public class ExcelUtil {
 			YfCompany yfCompany = new YfCompany();
 			int i = 0;
 			int j = 0;
-			String openid = row.getCell(5).getStringCellValue();
-			int openIdNum = zlztDatainfoDao.selectOpenid(openid);
-			if (openIdNum==-1){
-				for (int m = 0; m < colNum; m++) {//读取每一行的每一列
-					if (m==0){
-						if (row.getCell(m)==null || row.getCell(m).toString().equals("")){
-							losezlzt ++;
-							break;
-						}
-						i = selectIdByClassify(row.getCell(m),object);
-						if (object instanceof ZlztClassifyinfoDao){
-							zlztDataDetail.setFId(i);
-						}else if (object instanceof GfClassifyInfoDao){
-							gfDatainfo.setFId(i);
-						}else if (object instanceof  YfClassifyInfoDao){
-							yfCompany.setFId(i);
-						}
-						//zldata.setfId(i);
-						if (i==-1){
-							loseelse ++;
-							break;
-						}
-					}else if (m==1){
-						if (row.getCell(m)==null || row.getCell(m).toString().equals("")){
-							loseelse ++;
-							break;
-						}
-						if (object instanceof ZlztClassifyinfoDao){
-							j = zlztClassifyinfoDao.getParentIdByName(row.getCell(m).toString(),i);
-						}else if (object instanceof GfClassifyInfoDao){
-							j = gfClassifyInfoDao.getParentIdByName(row.getCell(m).toString(),i);
-						}else if (object instanceof  YfClassifyInfoDao){
-							j = yfClassifyInfoDao.getParentIdByName(row.getCell(m).toString(),i);
-						}
-						if ( j==-1){
-							loseelse ++;
-							break;
-						}
-						if (i!=j){
-							loseelse ++;
-							break;
-						}
-						i = selectIdByClassify(row.getCell(m),object);
-						if (object instanceof ZlztClassifyinfoDao){
-							zlztDataDetail.setSId(i);
-						}else if (object instanceof GfClassifyInfoDao){
-							gfDatainfo.setSId(i);
-						}else if (object instanceof  YfClassifyInfoDao){
-							yfCompany.setSId(i);
-						}
-	//					zldata.setsId(i);
-					}else if (m==2){
-						i = getClassifyId(row.getCell(m),i,3,object);
-						if (object instanceof ZlztClassifyinfoDao){
-							zlztDataDetail.setTId(i);
-						}else if (object instanceof GfClassifyInfoDao){
-							gfDatainfo.setTId(i);
-						}else if (object instanceof  YfClassifyInfoDao){
-							yfCompany.setTId(i);
-						}
-	//					zldata.settId(i);
-					}else if (m==3){
-						i = getClassifyId(row.getCell(m),i,4,object);
-						if (object instanceof ZlztClassifyinfoDao){
-							zlztDataDetail.setCId(i);
-						}else if (object instanceof GfClassifyInfoDao){
-							gfDatainfo.setCId(i);
-						}else if (object instanceof  YfClassifyInfoDao){
-							yfCompany.setCId(i);
-						}
-	//					zldata.setcId(i);
-					}else if (m==5){
+			String openid = row.getCell(10).getStringCellValue();
+			if (row.getCell(10) != null && !row.getCell(10).toString().equals("")){
+                int openIdNum = zlztDatainfoDao.selectOpenid(openid);
+                if (openIdNum==-1){
+                    for (int m = 0; m < colNum; m++) {//读取每一行的每一列
+                        if (m==0){
+                            if (row.getCell(m)==null || row.getCell(m).toString().equals("")){
+                                losezlzt ++;
+                                break;
+                            }
+                            i = selectIdByClassify(row.getCell(m),object);
+                            if (object instanceof ZlztClassifyinfoDao){
+                                zlztDataDetail.setFId(i);
+                            }else if (object instanceof GfClassifyInfoDao){
+                                gfDatainfo.setFId(i);
+                            }else if (object instanceof  YfClassifyInfoDao){
+                                yfCompany.setFId(i);
+                            }
+                            //zldata.setfId(i);
+                            if (i==-1){
+                                loseelse ++;
+                                break;
+                            }
+                        }else if (m==1){
+                            if (row.getCell(m)==null || row.getCell(m).toString().equals("")){
+                                loseelse ++;
+                                break;
+                            }
+                            if (object instanceof ZlztClassifyinfoDao){
+                                j = zlztClassifyinfoDao.getParentIdByName(row.getCell(m).toString(),i);
+                            }else if (object instanceof GfClassifyInfoDao){
+                                j = gfClassifyInfoDao.getParentIdByName(row.getCell(m).toString(),i);
+                            }else if (object instanceof  YfClassifyInfoDao){
+                                j = yfClassifyInfoDao.getParentIdByName(row.getCell(m).toString(),i);
+                            }
+                            if ( j==-1){
+                                loseelse ++;
+                                break;
+                            }
+                            if (i!=j){
+                                loseelse ++;
+                                break;
+                            }
+                            i = selectIdByClassify(row.getCell(m),object);
+                            if (object instanceof ZlztClassifyinfoDao){
+                                zlztDataDetail.setSId(i);
+                            }else if (object instanceof GfClassifyInfoDao){
+                                gfDatainfo.setSId(i);
+                            }else if (object instanceof  YfClassifyInfoDao){
+                                yfCompany.setSId(i);
+                            }
+                            //					zldata.setsId(i);
+                        }else if (m==2){
+                            i = getClassifyId(row.getCell(m),i,3,object);
+                            if (object instanceof ZlztClassifyinfoDao){
+                                zlztDataDetail.setTId(i);
+                            }else if (object instanceof GfClassifyInfoDao){
+                                gfDatainfo.setTId(i);
+                            }else if (object instanceof  YfClassifyInfoDao){
+                                yfCompany.setTId(i);
+                            }
+                            //					zldata.settId(i);
+                        }else if (m==3){
+                            i = getClassifyId(row.getCell(m),i,4,object);
+                            if (object instanceof ZlztClassifyinfoDao){
+                                zlztDataDetail.setCId(i);
+                            }else if (object instanceof GfClassifyInfoDao){
+                                gfDatainfo.setCId(i);
+                            }else if (object instanceof  YfClassifyInfoDao){
+                                yfCompany.setCId(i);
+                            }
+                            //					zldata.setcId(i);
+                        }else if (m==5){
 
-					}
+                        }
 
-					if (m==22){
-						if (row.getCell(m)==null || row.getCell(m).toString().equals("")){
-							loseelse ++;
-							break;
-						}
-						String ipc =  row.getCell(m).toString();
-						String ipcname = zlztIpcinfoDao.getByIpcId(ipc.substring(0,4));
-						if (ipcname==null || ipcname.equals("")){
-							loseelse ++;
-							break;
-						}
-						zldata.setIpcMCFy(ipcname);
-					}else if (m==24){
-						if (row.getCell(m)==null || row.getCell(m).toString().equals("")){
-							loseelse ++;
-							break;
-						}
-						String ipc = row.getCell(m).toString();
-						if (ipc.indexOf(";")!= -1){
-							String[] ipcArray = ipc.split(";");
-							String ipcAllName = clearContains(ipcArray);
-							if (ipcAllName==null || ipcAllName.equals("")){
-								loseelse ++;
-								break;
-							}
-							zldata.setIpcFy(ipcAllName);
-						}
-					}else if (m==26){
-						if (row.getCell(m)==null || row.getCell(m).toString().equals("")){
-							loseelse ++;
-							break;
-						}
-						String cp = row.getCell(m).toString();
-						String cpName = zlztCpinfoDao.getBycpId(cp);
-						if (cpName==null || cpName.equals("")){
-							loseelse ++;
-							break;
-						}
-						zldata.setCpecFy(cpName);
-					}
-					for (Map.Entry<Object,String> entry : map.entrySet()){
-						String entrykey = entry.getKey().toString();
-						int key1 = Integer.parseInt(entrykey.substring(0,entrykey.indexOf("-")));
-						int key2 = Integer.parseInt(entrykey.substring(entrykey.indexOf("-")+1,entrykey.length()));
-						if (key1 == r && key2 == m){
-							zldata.setHomeImage(entry.getValue());
-						}
-						//   System.out.println("key="+entry.getKey()+", value="+entry.getValue());
-					}
-					Cell cell = row.getCell(m);
-					if (cell!=null && !cell.equals("")){
-						//日期格式转化
-						if (m == 6) {
-							//excel为日期格式
-							switch (cell.getCellTypeEnum()){
-								case NUMERIC: zldata.setOpenDay(cell.getDateCellValue());break;
-								case STRING: zldata.setOpenDay(new SimpleDateFormat("yyyy-MM-dd").parse(cell.getStringCellValue())); break;
-							}
-						}
-						if (m == 8) {
-							switch (cell.getCellTypeEnum()){
-								case NUMERIC: zldata.setApplyDay(cell.getDateCellValue());break;
-								case STRING: zldata.setApplyDay(new SimpleDateFormat("yyyy-MM-dd").parse(cell.getStringCellValue())); break;
-							}
-						}
-						System.out.println("cellType============="+cell.getCellTypeEnum());
-						System.out.println("第"+r+"行-"+"第"+m+"列:"+cell.toString());
-						switch (m){
-							case 4 : zldata.setCountry(cell.getStringCellValue()); break;
-							case 5 : zldata.setOpenId(cell.getStringCellValue()); break;
-							case 7 : zldata.setApplyId(cell.getStringCellValue()); break;
-							case 9 : zldata.setTitle(cell.getStringCellValue()); break;
-							case 10 : zldata.setTitleFy(cell.getStringCellValue()); break;
-							case 11 : zldata.setZy(cell.getStringCellValue()); break;
-							case 12 : zldata.setZyFy(cell.getStringCellValue()); break;
-							case 13 : zldata.setPowerAsk(cell.getStringCellValue()); break;
-							case 14 : zldata.setPowerAFy(cell.getStringCellValue()); break;
-							case 15 : zldata.setPowerAN((int) cell.getNumericCellValue()); break;
-							case 16 : zldata.setApplyMan(cell.getStringCellValue()); break;
-							case 17 : zldata.setApplyPlace(cell.getStringCellValue()); break;
-							case 18 : zldata.setCreateMan(cell.getStringCellValue()); break;
-							case 19 : zldata.setLawS(cell.getStringCellValue()); break;
-							case 20 : zldata.setNowLawS(cell.getStringCellValue()); break;
-							case 21 : zldata.setZlType(cell.getStringCellValue()); break;
-							case 22 : zldata.setIpcMC(cell.getStringCellValue()); break;
-							case 24 : zldata.setIpc(cell.getStringCellValue()); break;
-							case 26 : zldata.setCpec(cell.getStringCellValue()); break;
-							case 28 : zldata.setBeUsedNum(cell.getStringCellValue()); break;
-							case 29 : zldata.setValue(cell.getStringCellValue()); break;
-							case 30 : zldata.setZlImage(cell.getStringCellValue()); break;
-							case 31 : zldata.setZlText(cell.getStringCellValue()); break;
-							case 33 : zldata.setSecret(cell.getStringCellValue()); break;
-						}
-					}
-				}
-			}else {
-				for (int m = 0; m < 4; m++) {//读取每一行的每一列
-					if (m == 0) {
-						if (row.getCell(m) == null || row.getCell(m).toString().equals("")) {
-							losezlzt++;
-							break;
-						}
-						i = selectIdByClassify(row.getCell(m), object);
-						if (object instanceof ZlztClassifyinfoDao) {
-							zlztDataDetail.setFId(i);
-						} else if (object instanceof GfClassifyInfoDao) {
-							gfDatainfo.setFId(i);
-						} else if (object instanceof YfClassifyInfoDao) {
-							yfCompany.setFId(i);
-						}
-						if (i == -1) {
-							loseelse++;
-							break;
-						}
-					} else if (m == 1) {
-						if (row.getCell(m) == null || row.getCell(m).toString().equals("")) {
-							loseelse++;
-							break;
-						}
-						if (object instanceof ZlztClassifyinfoDao) {
-							j = zlztClassifyinfoDao.getParentIdByName(row.getCell(m).toString(), i);
-						} else if (object instanceof GfClassifyInfoDao) {
-							j = gfClassifyInfoDao.getParentIdByName(row.getCell(m).toString(), i);
-						} else if (object instanceof YfClassifyInfoDao) {
-							j = yfClassifyInfoDao.getParentIdByName(row.getCell(m).toString(), i);
-						}
-						if (j == -1) {
-							loseelse++;
-							break;
-						}
-						if (i != j) {
-							loseelse++;
-							break;
-						}
-						i = selectIdByClassify(row.getCell(m), object);
-						if (object instanceof ZlztClassifyinfoDao) {
-							zlztDataDetail.setSId(i);
-						} else if (object instanceof GfClassifyInfoDao) {
-							gfDatainfo.setSId(i);
-						} else if (object instanceof YfClassifyInfoDao) {
-							yfCompany.setSId(i);
-						}
-					} else if (m == 2) {
-						i = getClassifyId(row.getCell(m), i, 3, object);
-						if (object instanceof ZlztClassifyinfoDao) {
-							zlztDataDetail.setTId(i);
-						} else if (object instanceof GfClassifyInfoDao) {
-							gfDatainfo.setTId(i);
-						} else if (object instanceof YfClassifyInfoDao) {
-							yfCompany.setTId(i);
-						}
-					} else if (m == 3) {
-						i = getClassifyId(row.getCell(m), i, 4, object);
-						if (object instanceof ZlztClassifyinfoDao) {
-							zlztDataDetail.setCId(i);
-						} else if (object instanceof GfClassifyInfoDao) {
-							gfDatainfo.setCId(i);
-						} else if (object instanceof YfClassifyInfoDao) {
-							yfCompany.setCId(i);
-						}
-					}
-				}
-				if (object instanceof ZlztClassifyinfoDao){
-					zlztDataDetail.setDataId(openIdNum);
-					int k = zlztDataDetailDao.selectIdByDataId(zlztDataDetail);
-					if ( k==-1){
-						zlztDataDetailDao.save(zlztDataDetail);
-					}else {
-						loseelse++;
-						continue;
-					}
-				}else if (object instanceof GfClassifyInfoDao){
-					gfDatainfo.setDataId(openIdNum);
-					int k = gfDatainfoDao.selectIdByDataId(gfDatainfo);
-					if ( k==-1){
-						gfDatainfoDao.save(gfDatainfo);
-					}else {
-						loseelse++;
-						continue;
-					}
-				}else if (object instanceof  YfClassifyInfoDao){
-					yfCompany.setDataId(openIdNum);
-					int k = yfCompanyDao.selectIdByDataId(yfCompany);
-					if ( k==-1){
-						yfCompanyDao.save(yfCompany);
-					}else {
-						loseelse++;
-						continue;
-					}
-				}
+                        if (m==23){
+                            if (row.getCell(m)==null || row.getCell(m).toString().equals("")){
+                                loseelse ++;
+                                break;
+                            }
+                            String ipc =  row.getCell(m).toString();
+                            zldata.setIpcMC(ipc);
+                            String ipcname = zlztIpcinfoDao.getByIpcId(ipc.substring(0,4));
+                            if (ipcname==null || ipcname.equals("")){
+                                loseelse ++;
+                                break;
+                            }
+                            zldata.setIpcMCFy(ipcname);
+                        }else if (m==24){
+                            if (row.getCell(m)==null || row.getCell(m).toString().equals("")){
+                                loseelse ++;
+                                break;
+                            }
+                            String ipc = row.getCell(m).toString();
+                            zldata.setIpc(ipc);
+
+                            if (ipc.indexOf(";")!= -1){
+                                String[] ipcArray = ipc.split(";");
+                                String ipcAllName = clearContains(ipcArray);
+                                if (ipcAllName==null || ipcAllName.equals("")){
+                                    loseelse ++;
+                                    break;
+                                }
+                                zldata.setIpcFy(ipcAllName);
+                            }
+                            else {
+                                String ipcAllName = zlztIpcinfoDao.getByIpcId(ipc.substring(0,4));
+                                zldata.setIpcFy(ipcAllName);
+                            }
+                        }else if (m==25){
+                            if (row.getCell(m)==null || row.getCell(m).toString().equals("")){
+                                loseelse ++;
+                                break;
+                            }
+                            String cp = row.getCell(m).toString();
+                            zldata.setCpec(cp);
+                            String cpName = zlztCpinfoDao.getBycpId(cp);
+                            if (cpName==null || cpName.equals("")){
+                                loseelse ++;
+                                break;
+                            }
+                            zldata.setCpecFy(cpName);
+                        }
+                        for (Map.Entry<Object,String> entry : map.entrySet()){
+                            String entrykey = entry.getKey().toString();
+                            int key1 = Integer.parseInt(entrykey.substring(0,entrykey.indexOf("-")));
+                            int key2 = Integer.parseInt(entrykey.substring(entrykey.indexOf("-")+1,entrykey.length()));
+                            if (key1 == r && key2 == m){
+                                zldata.setHomeImage(entry.getValue());
+                            }
+                            //   System.out.println("key="+entry.getKey()+", value="+entry.getValue());
+                        }
+                        Cell cell = row.getCell(m);
+                        if (cell!=null && !cell.equals("")){
+                            //日期格式转化
+                            if (m == 11) {
+                                //excel为日期格式
+                                switch (cell.getCellTypeEnum()){
+                                    case NUMERIC: zldata.setOpenDay(cell.getDateCellValue());break;
+                                    case STRING: zldata.setOpenDay(new SimpleDateFormat("yyyy-MM-dd").parse(cell.getStringCellValue())); break;
+                                }
+                            }
+                            if (m == 13) {
+                                switch (cell.getCellTypeEnum()){
+                                    case NUMERIC: zldata.setApplyDay(cell.getDateCellValue());break;
+                                    case STRING: zldata.setApplyDay(new SimpleDateFormat("yyyy-MM-dd").parse(cell.getStringCellValue())); break;
+                                }
+                            }
+                            System.out.println("cellType============="+cell.getCellTypeEnum());
+                            System.out.println("第"+r+"行-"+"第"+m+"列:"+cell.toString());
+                            switch (m){
+                                case 4 : zldata.setTitle(cell.getStringCellValue()); break;
+                                case 5 : zldata.setTitleFy(cell.getStringCellValue()); break;
+                                case 6 : zldata.setZy(cell.getStringCellValue()); break;
+                                case 7 : zldata.setZyFy(cell.getStringCellValue()); break;
+                                case 9 : zldata.setValue(String.valueOf(cell.getNumericCellValue())); break;
+                                case 10 : zldata.setOpenId(cell.getStringCellValue()); break;
+                                case 12 : zldata.setApplyId(cell.getStringCellValue()); break;
+                                case 14 : zldata.setApplyMan(cell.getStringCellValue()); break;
+                                case 15 : zldata.setCountry(cell.getStringCellValue()); break;
+                                case 16 : zldata.setApplyPlace(cell.getStringCellValue()); break;
+                                case 17 : zldata.setPowerAsk(cell.getStringCellValue()); break;
+                                case 18 : zldata.setPowerAN((int) cell.getNumericCellValue()); break;
+                                case 19 : zldata.setLawS(cell.getStringCellValue()); break;
+                                case 20 : zldata.setNowLawS(cell.getStringCellValue()); break;
+                                case 21 : zldata.setZlType(cell.getStringCellValue()); break;
+                                case 22 : zldata.setCreateMan(cell.getStringCellValue()); break;
+                                case 26 : zldata.setBeUsedNum(String.valueOf(cell.getNumericCellValue())); break;
+                                case 29 : zldata.setPowerAFy(cell.getStringCellValue()); break;
+                            }
+                        }
+                    }
+                }else {
+                    for (int m = 0; m < 4; m++) {//读取每一行的每一列
+                        if (m == 0) {
+                            if (row.getCell(m) == null || row.getCell(m).toString().equals("")) {
+                                losezlzt++;
+                                break;
+                            }
+                            i = selectIdByClassify(row.getCell(m), object);
+                            if (object instanceof ZlztClassifyinfoDao) {
+                                zlztDataDetail.setFId(i);
+                            } else if (object instanceof GfClassifyInfoDao) {
+                                gfDatainfo.setFId(i);
+                            } else if (object instanceof YfClassifyInfoDao) {
+                                yfCompany.setFId(i);
+                            }
+                            if (i == -1) {
+                                loseelse++;
+                                break;
+                            }
+                        } else if (m == 1) {
+                            if (row.getCell(m) == null || row.getCell(m).toString().equals("")) {
+                                loseelse++;
+                                break;
+                            }
+                            if (object instanceof ZlztClassifyinfoDao) {
+                                j = zlztClassifyinfoDao.getParentIdByName(row.getCell(m).toString(), i);
+                            } else if (object instanceof GfClassifyInfoDao) {
+                                j = gfClassifyInfoDao.getParentIdByName(row.getCell(m).toString(), i);
+                            } else if (object instanceof YfClassifyInfoDao) {
+                                j = yfClassifyInfoDao.getParentIdByName(row.getCell(m).toString(), i);
+                            }
+                            if (j == -1) {
+                                loseelse++;
+                                break;
+                            }
+                            if (i != j) {
+                                loseelse++;
+                                break;
+                            }
+                            i = selectIdByClassify(row.getCell(m), object);
+                            if (object instanceof ZlztClassifyinfoDao) {
+                                zlztDataDetail.setSId(i);
+                            } else if (object instanceof GfClassifyInfoDao) {
+                                gfDatainfo.setSId(i);
+                            } else if (object instanceof YfClassifyInfoDao) {
+                                yfCompany.setSId(i);
+                            }
+                        } else if (m == 2) {
+                            i = getClassifyId(row.getCell(m), i, 3, object);
+                            if (object instanceof ZlztClassifyinfoDao) {
+                                zlztDataDetail.setTId(i);
+                            } else if (object instanceof GfClassifyInfoDao) {
+                                gfDatainfo.setTId(i);
+                            } else if (object instanceof YfClassifyInfoDao) {
+                                yfCompany.setTId(i);
+                            }
+                        } else if (m == 3) {
+                            i = getClassifyId(row.getCell(m), i, 4, object);
+                            if (object instanceof ZlztClassifyinfoDao) {
+                                zlztDataDetail.setCId(i);
+                            } else if (object instanceof GfClassifyInfoDao) {
+                                gfDatainfo.setCId(i);
+                            } else if (object instanceof YfClassifyInfoDao) {
+                                yfCompany.setCId(i);
+                            }
+                        }
+                    }
+                    if (object instanceof ZlztClassifyinfoDao){
+                        zlztDataDetail.setDataId(openIdNum);
+                        int k = zlztDataDetailDao.selectIdByDataId(zlztDataDetail);
+                        if ( k==-1){
+                            zlztDataDetailDao.save(zlztDataDetail);
+                        }else {
+                            loseelse++;
+                            continue;
+                        }
+                    }else if (object instanceof GfClassifyInfoDao){
+                        gfDatainfo.setDataId(openIdNum);
+                        int k = gfDatainfoDao.selectIdByDataId(gfDatainfo);
+                        if ( k==-1){
+                            gfDatainfoDao.save(gfDatainfo);
+                        }else {
+                            loseelse++;
+                            continue;
+                        }
+                    }else if (object instanceof  YfClassifyInfoDao){
+                        yfCompany.setDataId(openIdNum);
+                        int k = yfCompanyDao.selectIdByDataId(yfCompany);
+                        if ( k==-1){
+                            yfCompanyDao.save(yfCompany);
+                        }else {
+                            loseelse++;
+                            continue;
+                        }
+                    }
 //				break;
-			}
-			if (zldata.getOpenId()!=null && !zldata.getOpenId().equals("")){
-                successNum += zlztDatainfoDao.save(zldata);
-                long zlztid = zldata.getId();
-				if (object instanceof ZlztClassifyinfoDao){
-					zlztDataDetail.setDataId((int)zlztid);
-					zlztDataDetailDao.save(zlztDataDetail);
-				}else if (object instanceof GfClassifyInfoDao){
-					gfDatainfo.setDataId((int) zlztid);
-					gfDatainfoDao.save(gfDatainfo);
-				}else if (object instanceof  YfClassifyInfoDao){
-					yfCompany.setDataId((int) zlztid);
-					yfCompanyDao.save(yfCompany);
-				}
-			}
-		}
+                }
+                if (zldata.getOpenId()!=null && !zldata.getOpenId().equals("")){
+                    successNum += zlztDatainfoDao.save(zldata);
+                    long zlztid = zldata.getId();
+                    if (object instanceof ZlztClassifyinfoDao){
+                        zlztDataDetail.setDataId((int)zlztid);
+                        zlztDataDetailDao.save(zlztDataDetail);
+                    }else if (object instanceof GfClassifyInfoDao){
+                        gfDatainfo.setDataId((int) zlztid);
+                        gfDatainfoDao.save(gfDatainfo);
+                    }else if (object instanceof  YfClassifyInfoDao){
+                        yfCompany.setDataId((int) zlztid);
+                        yfCompanyDao.save(yfCompany);
+                    }
+                }
+            }
+        }
 		SysUser sysUser  = UserUtil.getLoginUser();
 		if(UserUtil.getLoginUser()!=null){
             exceptionNum = losezlzt + loseelse;
             sysLogService.save(sysUser.getId(),"excel导入",true,"成功导入:"+successNum+"条,失败导入:"+exceptionNum+"条(其中缺失专利专题的为:"+losezlzt+"条,其它的为:"+loseelse+"条)");
+        }else {
+            sysLogService.save((long) 1,"excel导入",true,"成功导入:"+successNum+"条,失败导入:"+exceptionNum+"条(其中缺失专利专题的为:"+losezlzt+"条,其它的为:"+loseelse+"条)");
         }
 
 		//   for (Map.Entry<String, PictureData> entry : maplist.entrySet()) {

@@ -1,8 +1,11 @@
 package com.boot.security.server.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.boot.security.server.model.KjResultClassifyInfo;
+import com.boot.security.server.model.ZTreeModel;
+import com.google.common.collect.Lists;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -91,5 +94,50 @@ public class KjZlSuperClassifyInfoController {
     @ApiOperation(value = "获取用户中心发布新项目的所属行业")
     public List<KjZlSuperClassifyInfo> changeFromJob(){
         return kjZlSuperClassifyInfoDao.listData((long) 0);
+    }
+
+    @GetMapping("/treeTable")
+    @ApiOperation(value = "列表")
+    public List<KjZlSuperClassifyInfo> list() {
+        List<KjZlSuperClassifyInfo> deptAll = kjZlSuperClassifyInfoDao.listAll();
+        List<KjZlSuperClassifyInfo> list = Lists.newArrayList();
+        setTreeTableList(0L, deptAll, list);
+       /* if (name!=null && !name.equals("")){
+            list = deptAll;
+        }else{
+            setTreeTableList(0L, deptAll, list);
+        }*/
+        return list;
+    }
+
+    private void setTreeTableList(Long pId, List<KjZlSuperClassifyInfo> kjProductClassifyInfoListAll, List<KjZlSuperClassifyInfo> list) {
+        for (KjZlSuperClassifyInfo kj : kjProductClassifyInfoListAll) {
+            if (pId.equals((long) kj.getParentId())) {
+                list.add(kj);
+                if (kjProductClassifyInfoListAll.stream().filter(p -> new Integer(p.getParentId()).equals(kj.getId())).findAny() != null) {
+                    setTreeTableList(kj.getId(), kjProductClassifyInfoListAll, list);
+                }
+            }
+        }
+    }
+
+
+    @GetMapping("/parentsTree")
+    @ApiOperation(value = "一级菜单")
+    public List<ZTreeModel> parentsTree() {
+        List<ZTreeModel> parentsTree=new ArrayList<>();
+        List<KjZlSuperClassifyInfo> parents = kjZlSuperClassifyInfoDao.getClassify(1);
+//        List<GfClassifyInfo> parents = gfClassifyInfoDao.listAll();
+        parentsTree.add(new ZTreeModel(Long.parseLong("0") ,Long.parseLong("-1"),"根级菜单",true,true));
+        for(int i=0;i<parents.size();i++){
+            parentsTree.add(new ZTreeModel(parents.get(i).getId(),(long) parents.get(i).getParentId(),parents.get(i).getName(),true,true));
+        }
+        return parentsTree;
+    }
+
+    @GetMapping("/getClassify/{id}")
+    @ApiOperation(value = "获取1级分类")
+    public List<KjZlSuperClassifyInfo> getClassifyByParentId(@PathVariable Long id){
+        return kjZlSuperClassifyInfoDao.listData(id);
     }
 }

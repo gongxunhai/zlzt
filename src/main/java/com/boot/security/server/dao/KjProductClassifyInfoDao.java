@@ -24,7 +24,7 @@ public interface KjProductClassifyInfoDao {
     int update(KjProductClassifyInfo kjProductClassifyInfo);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into kj_product_classifyInfo(createTime, name, parentId, type) values(#{createTime}, #{name}, #{parentId}, #{type})")
+    @Insert("insert into kj_product_classifyInfo(createTime, name, parentId, type, updateTime) values(#{createTime}, #{name}, #{parentId}, #{type}, #{updateTime})")
     int save(KjProductClassifyInfo kjProductClassifyInfo);
     
     int count(@Param("params") Map<String, Object> params);
@@ -39,4 +39,10 @@ public interface KjProductClassifyInfoDao {
 
     @Select("select ifnull(max(id),-1) from kj_product_classifyInfo where parentId = #{fid} and name = '其它' ")
     int selectSidByFid(@Param("fid") int fid);
+
+    @Select("select * from kj_product_classifyInfo t  order by t.type")
+    List<KjProductClassifyInfo> listAll();
+
+    @Select("select * from kj_product_classifyInfo t where t.type = #{type} order by type ")
+    List<KjProductClassifyInfo> getClassify(@Param("type") int type);
 }

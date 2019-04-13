@@ -1,19 +1,14 @@
 package com.boot.security.server.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.boot.security.server.model.GfClassifyInfo;
+import com.boot.security.server.model.ZTreeModel;
 import com.google.common.collect.Lists;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.boot.security.server.page.table.PageTableRequest;
 import com.boot.security.server.page.table.PageTableHandler;
@@ -134,6 +129,32 @@ public class YfClassifyInfoController {
     @ApiOperation(value = "根据parentid获取二级")
     public List<YfClassifyInfo> getClassifyByParentId(@PathVariable Long id){
         return yfClassifyInfoDao.getParentClassifyInfo(id.intValue());
+    }
+
+    @GetMapping("/parentsTree")
+    @ApiOperation(value = "一级菜单")
+    public List<ZTreeModel> parentsTree() {
+        List<ZTreeModel> parentsTree=new ArrayList<>();
+        List<YfClassifyInfo> parents = yfClassifyInfoDao.getClassify(1);
+//        List<GfClassifyInfo> parents = gfClassifyInfoDao.listAll();
+        parentsTree.add(new ZTreeModel(Long.parseLong("0") ,Long.parseLong("-1"),"根级菜单",true,true));
+        for(int i=0;i<parents.size();i++){
+            parentsTree.add(new ZTreeModel(parents.get(i).getId(),parents.get(i).getParentId().longValue(),parents.get(i).getName(),true,true));
+        }
+        return parentsTree;
+    }
+
+    @GetMapping("/treeTable")
+    @ApiOperation(value = "列表")
+    public List<YfClassifyInfo> list(@RequestParam(value = "name") String name) {
+        List<YfClassifyInfo> deptAll = yfClassifyInfoDao.listAllByName(name);
+        List<YfClassifyInfo> list = Lists.newArrayList();
+        if (name!=null && !name.equals("")){
+            list = deptAll;
+        }else{
+            setTreeTableList(0L, deptAll, list);
+        }
+        return list;
     }
 
 }

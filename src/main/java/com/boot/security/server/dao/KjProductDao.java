@@ -26,7 +26,7 @@ public interface KjProductDao {
     int update(KjProduct kjProduct);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into kj_product(buyNum, cMan, cPhone, fId, haveNum, history, name, pData, pDetail, image, place, price, pubTime, salePrice, sId, talk, xfArea, userId, status) values(#{buyNum}, #{cMan}, #{cPhone}, #{fId}, #{haveNum}, #{history}, #{name}, #{pData}, #{pDetail}, #{image}, #{place}, #{price}, #{pubTime}, #{salePrice}, #{sId}, #{talk}, #{xfArea}, #{userId}, #{status})")
+    @Insert("insert into kj_product(buyNum, cMan, cPhone, fId, haveNum, history, name, pData, pDetail, image, place, price, pubTime, salePrice, sId, talk, xfArea, userId, status, updateTime, createTime) values(#{buyNum}, #{cMan}, #{cPhone}, #{fId}, #{haveNum}, #{history}, #{name}, #{pData}, #{pDetail}, #{image}, #{place}, #{price}, #{pubTime}, #{salePrice}, #{sId}, #{talk}, #{xfArea}, #{userId}, #{status}, #{updateTime}, #{createTime})")
     int save(KjProduct kjProduct);
     
     int count(@Param("params") Map<String, Object> params);

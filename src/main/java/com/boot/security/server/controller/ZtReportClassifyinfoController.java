@@ -1,7 +1,10 @@
 package com.boot.security.server.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.boot.security.server.model.ZTreeModel;
+import com.google.common.collect.Lists;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -86,5 +89,43 @@ public class ZtReportClassifyinfoController {
     @ApiOperation(value = "获取当前位置")
     public ZtReportClassifyinfo getNowPlace(@PathVariable Long id){
         return ztReportClassifyinfoDao.getNowPlace(id.intValue());
+    }
+
+    @GetMapping("/treeTable")
+    @ApiOperation(value = "列表")
+    public List<ZtReportClassifyinfo> list() {
+        List<ZtReportClassifyinfo> deptAll = ztReportClassifyinfoDao.listAll();
+        List<ZtReportClassifyinfo> list = Lists.newArrayList();
+        setTreeTableList(0L, deptAll, list);
+        /*if (name!=null && !name.equals("")){
+            list = deptAll;
+        }else{
+            setTreeTableList(0L, deptAll, list);
+        }*/
+        return list;
+    }
+
+    private void setTreeTableList(Long pId, List<ZtReportClassifyinfo> gfClassifyInfoListAll, List<ZtReportClassifyinfo> list) {
+        for (ZtReportClassifyinfo gf : gfClassifyInfoListAll) {
+            if (pId.equals(gf.getParentId().longValue())) {
+                list.add(gf);
+                if (gfClassifyInfoListAll.stream().filter(p -> p.getParentId().equals(gf.getId())).findAny() != null) {
+                    setTreeTableList(gf.getId(), gfClassifyInfoListAll, list);
+                }
+            }
+        }
+    }
+
+    @GetMapping("/parentsTree")
+    @ApiOperation(value = "一级菜单")
+    public List<ZTreeModel> parentsTree() {
+        List<ZTreeModel> parentsTree=new ArrayList<>();
+        List<ZtReportClassifyinfo> parents = ztReportClassifyinfoDao.getClassifyByParentId(0);
+//        List<GfClassifyInfo> parents = gfClassifyInfoDao.listAll();
+        parentsTree.add(new ZTreeModel(Long.parseLong("0") ,Long.parseLong("-1"),"根级菜单",true,true));
+        for(int i=0;i<parents.size();i++){
+            parentsTree.add(new ZTreeModel(parents.get(i).getId(),parents.get(i).getParentId().longValue(),parents.get(i).getName(),true,true));
+        }
+        return parentsTree;
     }
 }

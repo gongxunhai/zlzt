@@ -32,8 +32,12 @@
 	<select id="list" resultType="KjServiceNavClassifyinfo">
 		select * from kj_service_nav_classifyinfo t
 		<include refid="where" />
-		${params.orderBy}
-		limit #{offset}, #{limit}
+		<if test="params.orderBy!=null and params.orderBy !=''">
+			${params.orderBy}
+		</if>
+		<if test="limit!=null and limit !=''">
+			limit #{offset}, #{limit}
+		</if>
 	</select>
 
 	<update id="update">
@@ -48,8 +52,8 @@
 			<if test="parentId != null">
 				parentId = #{parentId}, 
 			</if>
-			<if test="createTime != null">
-				createTime = #{createTime}, 
+			<if test="updateTime != null">
+				updateTime = #{updateTime},
 			</if>
 
 		</set>

@@ -18,15 +18,19 @@
 	                   			<td>
 		                   			<form class="form-inline" onsubmit="return false">
 										<div class="form-group">
-											id：
-											<input id="id" type="text" class="form-control" placeholder="id">
-											<button id="searchBt" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe615;</i>搜索</button>
+											名称：
+											<input id="name" type="text" class="form-control" placeholder="id">
 										</div>
+                                        <div class="form-group">
+											类型：
+                                            <select style="width: 150px" id="type" type="text" class="form-control"></select>
+										</div>
+                                        <button id="searchBt" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe615;</i>搜索</button>
 									</form>
 	                   			</td>
 								<input type="hidden" value="iii" id="typeid" />
 	                   			<td align="right">
-	                   				<button class="layui-btn layui-btn-sm" onclick="location.href='addNewsInformation.html?type='+typeid">
+	                   				<button class="layui-btn layui-btn-sm" onclick="location.href='addNewsInformation.html'">
                                       <i class="layui-icon">&#xe608;</i> 添加
                                     </button>
 	                   			</td>
@@ -42,13 +46,10 @@
                                 <tr>
                                 </tr>                       
                                 <tr>
-									<th>id</th>
-									<th>name</th>
-									<th>source</th>
-									<th>content</th>
-									<th>description</th>
-									<th>createTime</th>
-									<th>updateTime</th>
+									<th>名称</th>
+									<th>来源</th>
+									<th>类别</th>
+									<th>创建时间</th>
 									<th>操作</th>
                                 </tr>
                             </thead>
@@ -75,7 +76,17 @@
     // alert("main typeid="+typeid);
 	var pers = checkPermission();
 
-
+    $.ajax({
+        type : "get",
+        url : "/newsClassifyinfos/getParentClassifyInfo/0",
+        async : false,
+        success:function (result) {
+            $("#type").append("<option value='' > </option>");
+            for (var i = 0; i < result.length; i++) {
+                $("#type").append("<option value='"+result[i].id+"' >"+result[i].name+"</option>");
+            }
+        }
+    });
 var example;
 function init(){
 	example = 
@@ -90,26 +101,23 @@ function init(){
         		"url" : "/newsInformations",
         		"type":"get",
         		"data":function(d){
-    				d.id = $("#id").val();
-    				d.type = typeid;
+    				d.searchByInput = $("#name").val();
+    				d.type = $("#type").val();
     			}
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
             "columns": [
-                {"data" : "id", "defaultContent" : ""},
                 {"data" : "name", "defaultContent" : ""},
                 {"data" : "source", "defaultContent" : ""},
-				{"data" : "content", "defaultContent" : ""},
-				{"data" : "description", "defaultContent" : ""},
+				{"data" : "type", "defaultContent" : ""},
 				{"data" : "createTime", "defaultContent" : ""},
-				{"data" : "updateTime", "defaultContent" : ""},
-				{ 
+				{
 					"data": "",
 					"defaultContent": "",
 					"orderable":false,
 					"render": function (data, type, row) {
 					   var id = row['id'];
-					   var href = "updateNewsInformation.html?id=" + id;
+					   var href = "addNewsInformation.html?id=" + id;
 					   var edit = buttonEdit(href, "", pers);
 					   var del = buttonDel(id, "", pers);
 					   return edit + del;

@@ -1,7 +1,10 @@
 package com.boot.security.server.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.boot.security.server.model.ZTreeModel;
+import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -92,5 +95,50 @@ public class LawsRegulationClassifyInfoController {
             }
         }
         return list;
+    }
+
+    @GetMapping("/treeTable")
+    @ApiOperation(value = "列表")
+    public List<LawsRegulationClassifyInfo> list() {
+        List<LawsRegulationClassifyInfo> deptAll = lawsRegulationClassifyInfoDao.listAll();
+        List<LawsRegulationClassifyInfo> list = Lists.newArrayList();
+        setTreeTableList(0L, deptAll, list);
+       /* if (name!=null && !name.equals("")){
+            list = deptAll;
+        }else{
+            setTreeTableList(0L, deptAll, list);
+        }*/
+        return list;
+    }
+
+    private void setTreeTableList(Long pId, List<LawsRegulationClassifyInfo> kjProductClassifyInfoListAll, List<LawsRegulationClassifyInfo> list) {
+        for (LawsRegulationClassifyInfo kj : kjProductClassifyInfoListAll) {
+            if (pId.equals((long) kj.getParentId())) {
+                list.add(kj);
+                if (kjProductClassifyInfoListAll.stream().filter(p -> new Integer(p.getParentId()).equals(kj.getId())).findAny() != null) {
+                    setTreeTableList(kj.getId(), kjProductClassifyInfoListAll, list);
+                }
+            }
+        }
+    }
+
+
+    @GetMapping("/parentsTree")
+    @ApiOperation(value = "一级菜单")
+    public List<ZTreeModel> parentsTree() {
+        List<ZTreeModel> parentsTree=new ArrayList<>();
+        List<LawsRegulationClassifyInfo> parents = lawsRegulationClassifyInfoDao.getClassify();
+//        List<GfClassifyInfo> parents = gfClassifyInfoDao.listAll();
+        parentsTree.add(new ZTreeModel(Long.parseLong("0") ,Long.parseLong("-1"),"根级菜单",true,true));
+        for(int i=0;i<parents.size();i++){
+            parentsTree.add(new ZTreeModel(parents.get(i).getId(),(long) parents.get(i).getParentId(),parents.get(i).getName(),true,true));
+        }
+        return parentsTree;
+    }
+
+    @GetMapping("/getClassify/{id}")
+    @ApiOperation(value = "获取1级分类")
+    public List<LawsRegulationClassifyInfo> getClassifyByParentId(@PathVariable Long id){
+        return lawsRegulationClassifyInfoDao.listData(id);
     }
 }

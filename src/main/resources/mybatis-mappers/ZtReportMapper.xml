@@ -73,9 +73,6 @@
 			<if test="catalog != null">
 				catalog = #{catalog}, 
 			</if>
-			<if test="createTime != null">
-				createTime = #{createTime}, 
-			</if>
 			<if test="descript != null">
 				descript = #{descript}, 
 			</if>
@@ -96,6 +93,9 @@
 			</if>
 			<if test="sId != null">
 				sId = #{sId}, 
+			</if>
+			<if test="updateTime != null">
+				updateTime = #{updateTime},
 			</if>
 
 		</set>

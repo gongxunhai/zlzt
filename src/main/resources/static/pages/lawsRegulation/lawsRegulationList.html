@@ -18,8 +18,8 @@
 	                   			<td>
 		                   			<form class="form-inline" onsubmit="return false">
 										<div class="form-group">
-											id：
-											<input id="id" type="text" class="form-control" placeholder="id">
+											名称：
+											<input id="name" type="text" class="form-control" placeholder="id">
 											<button id="searchBt" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe615;</i>搜索</button>
 										</div>
 									</form>
@@ -41,8 +41,9 @@
                                 <tr>
                                 </tr>                       
                                 <tr>
-									<th>id</th>
 									<th>名称</th>
+									<th>所属类型</th>
+									<th>二级类型</th>
 									<th>制定单位</th>
 									<th>文号</th>
 									<th>操作</th>
@@ -82,13 +83,14 @@ function init(){
         		"url" : "/lawsRegulations",
         		"type":"get",
         		"data":function(d){
-    				d.id = $("#id").val();
+    				d.searchByInput = $("#name").val();
     			}
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
             "columns": [
-                {"data" : "id", "defaultContent" : ""},
                 {"data" : "name", "defaultContent" : ""},
+                {"data" : "fIdName", "defaultContent" : ""},
+                {"data" : "sIdName", "defaultContent" : ""},
 				{"data" : "company", "defaultContent" : ""},
 				{"data" : "symbol", "defaultContent" : ""},
 				{
@@ -97,7 +99,7 @@ function init(){
                             "orderable":false,
                             "render": function (data, type, row) {
                                var id = row['id'];
-                               var href = "updateLawsRegulation.html?id=" + id;
+                               var href = "addLawsRegulation.html?id=" + id;
                                var edit = buttonEdit(href, "", pers);
                                var del = buttonDel(id, "", pers);
                                return edit + del;

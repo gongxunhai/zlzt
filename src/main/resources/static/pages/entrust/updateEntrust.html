@@ -99,7 +99,7 @@
 
                 }
             }
-        })
+        });
 		
 		function initData(){
 			var id = getUrlParam("id");
@@ -134,6 +134,7 @@
 		    }
 		    
 		    var formdata = $("#form").serializeObject();
+		    console.log(JSON.stringify(formdata));
 
 			$.ajax({
 				type : 'put',

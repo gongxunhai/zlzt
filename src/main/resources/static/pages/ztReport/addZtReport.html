@@ -7,73 +7,67 @@
 </head>
 <body>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <input type="hidden" id="imageurl" >
-    <input type="hidden" id="pdfurl" >
+    <input type="hidden" id="id" name="id">
 	<form class="form-horizontal" onsubmit="return false" id="form">
 		<fieldset>
             <div class='form-group'>
                 <label class='col-md-2 control-label'>名称</label>
+                <div class='col-md-3'>
+                    <input class='form-control' type='text' name='name' id='name' data-bv-notempty='true' data-bv-notempty-message='name 不能为空'>
+                </div>
+            </div>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>所属行业</label>
                 <div class='col-md-10'>
-                    <input class='form-control' placeholder='name' type='text' name='name' id='name' data-bv-notempty='true' data-bv-notempty-message='name 不能为空'>
+                    <select class='form-control'  onchange="selectSid()" type='text' name='fId' id='fId' data-bv-notempty='true' data-bv-notempty-message='fId 不能为空'></select>
+                </div>
+            </div>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>二级行业</label>
+                <div class='col-md-10'>
+                    <select class='form-control' type='text' name='sId' id='sId' data-bv-notempty='true' data-bv-notempty-message='sId 不能为空'></select>
                 </div>
             </div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>作者</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='author' type='text' name='author' id='author' data-bv-notempty='true' data-bv-notempty-message='author 不能为空'>
+				<div class='col-md-3'>
+					<input class='form-control' type='text' name='author' id='author' data-bv-notempty='true' data-bv-notempty-message='author 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>目录</label>
-				<div class='col-md-10'>
+				<div class='col-md-8'>
                     <textarea class="layui-textarea" id="catalog" style="display: none;">
 					</textarea>
 				</div>
 			</div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>摘要</label>
-				<div class='col-md-10'>
-                    <textarea class='form-control' placeholder='descript' type='text' name='descript' id='descript' data-bv-notempty='true' data-bv-notempty-message='descript 不能为空'></textarea>
+				<div class='col-md-8'>
+                    <textarea class='form-control' style="height: 150px"  type='text' name='descript' id='descript' data-bv-notempty='true' data-bv-notempty-message='descript 不能为空'></textarea>
 				</div>
 			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>所属行业</label>
-				<div class='col-md-10'>
-                    <select class='form-control' placeholder='fId' onchange="changeData()" type='text' name='fId' id='fId' data-bv-notempty='true' data-bv-notempty-message='fId 不能为空'></select>
-				</div>
-			</div>
+
             <div class='form-group'>
-                <label class='col-md-2 control-label'>二级行业</label>
-                <div class='col-md-10'>
-                    <select class='form-control' placeholder='sId' type='text' name='sId' id='sId' data-bv-notempty='true' data-bv-notempty-message='sId 不能为空'></select>
-                </div>
-            </div>
-            <div style="border-bottom: solid 1px #c6d0de">
-                <span >图片上传</span>
-            </div>
-            <div>
-                <button type="button" class="layui-btn" id="test1">
-                    <i class="layui-icon">&#xe67c;</i>上传图片
+                <label class='col-md-2 control-label'>上传图片</label>
+                <button type="button" class="layui-btn" id="upF">
+                    <i class="layui-icon">&#xe67c;</i>点击上传
                 </button>
-                <button type="button" class="layui-btn" id="test2">
-                    上传
-                </button>
+                <div id="showname1" style="display:inline-block;margin-left: 10px;"></div>
+                <div id="buttondelete1" style="display:inline-block;margin-left: 10px;"></div>
             </div>
-            <div id="showname"></div>
-            <div id="buttondelete"></div>
-            <div style="border-bottom: solid 1px #c6d0de">
-                <span >pdf上传</span>
-            </div>
-            <div>
-                <button type="button" class="layui-btn" id="test3">
-                    <i class="layui-icon">&#xe67c;</i>上传pdf
+            <input type="hidden" id="image" >
+
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>上传PDF</label>
+                <button type="button" class="layui-btn" id="upS">
+                    <i class="layui-icon">&#xe67c;</i>点击上传
                 </button>
-                <button type="button" class="layui-btn" id="test4">
-                    上传
-                </button>
+                <div id="showname2" style="display:inline-block;margin-left: 10px;"></div>
+                <div id="buttondelete2" style="display:inline-block;margin-left: 10px;"></div>
             </div>
-            <div id="showname1"></div>
-            <div id="buttondelete1"></div>
+            <input type="hidden" id="pdfFile" >
+
 			<div class="form-actions">
 				<div class="row" align="center">
 					<div class="col-md-12">
@@ -113,99 +107,111 @@
             index = layedit.build('catalog');
 
             upload.render({
-                elem: '#test1' //绑定元素
+                elem: '#upF' //绑定元素
                 ,accept: 'images' //允许上传的文件类型
                 ,url: '/files' //上传接口
-                ,auto: false //选择文件后不自动上传
-                ,bindAction: '#updown' //指向一个按钮触发上传
                 ,done: function(res, index, upload){
-                    $("#imageurl").val(res.url);
-                    var a = "<span>上传文件名:"+res.id+"</span>";
-                    $("#showname").html(a);
-                    $("#buttondelete").html('<button onclick="delete1(\''+res.id+'\')">删除</button>');
+                    var a = "<a  target='_blank' href='"+domain+"/statics"+res.url+"' style='margin-top: 80px;font-size:18px'>点击查看上传文件！</a>";
+                    $("#showname1").html(a);
+                    $("#buttondelete1").html('<button class="layui-btn" onclick="delete1(1,\''+res.id+'\')">删除</button>')
+                    $("#image").val(res.url);
                 }
             });
 
             upload1.render({
-                elem: '#test3' //绑定元素
+                elem: '#upS' //绑定元素
                 ,accept: 'file' //允许上传的文件类型
                 ,url: '/files' //上传接口
                 ,exts: 'pdf' //上传后缀
-                ,auto: false //选择文件后不自动上传
-                ,bindAction: '#test4' //指向一个按钮触发上传
                 ,done: function(res, index, upload){
-                    $("#pdfurl").val(res.url);
-                    var a = "<span>上传文件名:"+res.id+"</span>";
-                    $("#showname1").html(a);
-                    $("#buttondelete1").html("<button onclick="+"\""+"delete2('"+res.id+"')"+"\""+">删除</button>");
+                    var a = "<a  target='_blank' href='"+domain+"/statics"+res.url+"' style='margin-top: 80px;font-size:18px'>点击查看上传文件！</a>";
+                    $("#showname2").html(a);
+                    $("#buttondelete2").html('<button class="layui-btn" onclick="delete1(1,\''+res.id+'\')">删除</button>')
+                    $("#pdfFile").val(res.url);
                 }
             });
 		});
 
-        function delete1(id) {
+        function delete1(num,id) {
             layer.confirm('确定要删除吗？', {
                 btn: ['确定', '取消']
             }, function () {
-                $.ajax({
-                    type: 'delete',
-                    url: '/files/' + id,
-                    success: function (data) {
-                        $("#showname").html("");
-                        $("#buttondelete").html("");
-                        layer.msg("删除成功");
-                    }
-                });
-                layer.close(1);
+                $("#showname"+num).html("");
+                $("#buttondelete"+num).html("");
+                layer.msg("删除成功");
             });
         }
 
-        function delete2(id) {
-            layer.confirm('确定要删除吗？', {
-                btn: ['确定', '取消']
-            }, function () {
-                $.ajax({
-                    type: 'delete',
-                    url: '/files/' + id,
-                    success: function (data) {
-                        $("#showname1").html("");
-                        $("#buttondelete1").html("");
-                        layer.msg("删除成功");
-                    }
-                });
-                layer.close(1);
-            });
-        }
-
-        function changeData() {
-            var id = parseInt($("#fId").val());
-            $("#sId").html('');
-            selectData(id);
-        }
-        function selectData(obj){
+        function selectFid(){
             $.ajax({
-                type : "get",
-                url : "/ztReportClassifyinfos/getClassify/"+obj,
+                type : 'get',
+                url : '/ztReportClassifyinfos/getClassify/0',
                 async : false,
-                success : function (result) {
-                    var select = '';
-                    if (obj == 0) {
-                        select = $("#fId");
-                        $("#sId").html('');
-                    }else{
-                        select = $("#sId");
-                    }
-                    select.append("<option value = ''> </option>");
-                    for(var i =0; i<result.length;i++){
-                        var d = result[i];
-                        var id = d['id'];
-                        var name = d['name'];
-                        select.append("<option value='"+ id +"'>" +name+"</option>");
+                success : function (data) {
+                    if (data.length > 0) {
+                        $("#fId").append("<option value =''> </option>");
+                        for (var i = 0; i < data.length; i++) {
+                            $("#fId").append("<option value ='" + data[i].id + "'>" + data[i].name + "</option>");
+                        }
                     }
                 }
             });
         }
-        selectData(0);
+        selectFid();
+        function selectSid() {
+            var fId = $("#fId").val();
+            $("#sId").html('');
+            if (fId != '' && fId != null) {
+                $.ajax({
+                    type : 'get',
+                    url : '/ztReportClassifyinfos/getClassify/'+fId,
+                    async : false,
+                    success : function(data) {
+                        var select = $("#sId");
+                        for(var i=0; i<data.length; i++){
+                            var d = data[i];
+                            var id = d['id'];
+                            var name = d['name'];
+                            select.append("<option value='"+ id +"'>" +name+"</option>");
+                        }
+                    }
+                });
+            }
+        }
 
+
+        var id = getUrlParam("id");
+        if (id != '') {
+            $.ajax({
+                type : 'get',
+                url : '/ztReports/'+id,
+                async : false,
+                success : function(data) {
+                    console.log(JSON.stringify(data));
+                    $('#fId').val(data.fId);
+                    selectSid();
+                    $('#sId').val(data.sId);
+                    $('#id').val(data.id);
+                    $('#author').val(data.author);
+                    $('#catalog').val(data.catalog);
+                    $('#createTime').val(data.createTime);
+                    $('#descript').val(data.descript);
+                    $('#name').val(data.name);
+                    if (data.image != null && data.image !='') {
+                        var a = "<a  target='_blank' href='"+domain+"/statics"+data.image+"' style='margin-top: 80px;font-size:18px'>点击查看上传文件！</a>";
+                        $("#showname1").html(a);
+                        $("#buttondelete1").html('<button class="layui-btn" onclick="delete1(1,\''+data.image+'\')">删除</button>')
+                        $("#image").val(data.image);
+                    }
+                    if (data.pdfFile != null && data.pdfFile !='') {
+                        var a = "<a  target='_blank' href='"+domain+"/statics"+data.pdfFile+"' style='margin-top: 80px;font-size:18px'>点击查看上传文件！</a>";
+                        $("#showname2").html(a);
+                        $("#buttondelete2").html('<button class="layui-btn" onclick="delete1(2,\''+data.pdfFile+'\')">删除</button>')
+                        $("#pdfFile").val(data.pdfFile);
+                    }
+                }
+            });
+        }
 
 		function add() {
 			$('#form').bootstrapValidator();
@@ -216,25 +222,42 @@
 		    }
 		    
 		    var formdata = $("#form").serializeObject();
-            formdata.pdfFile = $("#pdfurl").val();
-            formdata.image = $("#imageurl").val();
+            formdata.id = $("#id").val();
+            formdata.fId = $("#fId").val();
+            formdata.sId = $("#sId").val();
+            formdata.pdfFile = $("#pdfFile").val();
+            formdata.image = $("#image").val();
             formdata.catalog = layedit.getContent(index);
-            // formdata.fId = parseInt($("#fId").val());
-            // formdata.sId = parseInt($("#sId").val());
-            alert(JSON.stringify(formdata));
-            return false;
+            console.log(JSON.stringify(formdata));
 
-			$.ajax({
-				type : 'post',
-				url : '/ztReports',
-				contentType: "application/json; charset=utf-8",  
-				data : JSON.stringify(formdata),
-				success : function(data) {
-					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
-                        location.href = "ztReportList.html";
-                    });
-				}
-			});
+
+            if (id != "") {
+                // update
+                $.ajax({
+                    type : 'put',
+                    url : '/ztReports',
+                    contentType: "application/json; charset=utf-8",
+                    data : JSON.stringify(formdata),
+                    success : function(data) {
+                        layer.msg("修改成功", {shift: -1, time: 1000}, function(){
+                            location.href = "ztReportList.html";
+                        });
+                    }
+                });
+            }else {
+                //insert
+                $.ajax({
+                    type : 'post',
+                    url : '/ztReports',
+                    contentType: "application/json; charset=utf-8",
+                    data : JSON.stringify(formdata),
+                    success : function(data) {
+                        layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                            location.href = "ztReportList.html";
+                        });
+                    }
+                });
+            }
 		}
 		
 	</script>

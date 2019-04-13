@@ -9,56 +9,55 @@
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <input type="hidden" id="imageurl" >
 	<form class="form-horizontal" onsubmit="return false" id="form">
+		<input type="hidden" id="id" name="id">
 		<fieldset>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>名称</label>
-				<div class='col-md-10'>
+				<div class='col-md-3'>
 					<input class='form-control' placeholder='name' type='text' name='name' id='name' data-bv-notempty='true' data-bv-notempty-message='name 不能为空'>
 				</div>
 			</div>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>所属类型</label>
+                <div class='col-md-3'>
+                    <select class='form-control' type='text' name='type' id='type' data-bv-notempty='true' data-bv-notempty-message='类型不能为空'></select>
+                </div>
+            </div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>来源</label>
-				<div class='col-md-10'>
+				<div class='col-md-3'>
 					<input class='form-control' placeholder='source' type='text' name='source' id='source' data-bv-notempty='true' data-bv-notempty-message='source 不能为空'>
 				</div>
 			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>所属类型</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='type' readonly  type='text' name='type' id='type' data-bv-notempty='true' data-bv-notempty-message='type 不能为空'>
-					<input type="hidden" id="typeid" name="id" readonly>
-				</div>
-			</div>
+
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>摘要</label>
-				<div class='col-md-10'>
+				<div class='col-md-8'>
 					<textarea class='form-control' placeholder='type' type='text' name='description' id='description' data-bv-notempty='true' data-bv-notempty-message=' 摘要不能为空'></textarea>
 				</div>
 			</div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>内容</label>
-				<div class='col-md-10'>
+				<div class='col-md-8'>
 					<textarea class="layui-textarea" id="demo" style="display: none;">
 					</textarea>
 				</div>
 			</div>
-			<div style="border-bottom: solid 1px #c6d0de">
-				<span >图片上传</span>
-			</div>
-			<div>
-				<button type="button" class="layui-btn" id="test1">
-					<i class="layui-icon">&#xe67c;</i>上传图片
-				</button>
-				<button type="button" class="layui-btn" id="test2">
-					上传
-				</button>
-			</div>
-			<div id="showname"></div>
-			<div id="buttondelete"></div>
+
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>上传图片</label>
+                <button type="button" class="layui-btn" id="upF">
+                    <i class="layui-icon">&#xe67c;</i>点击上传
+                </button>
+                <div id="showname1" style="display:inline-block;margin-left: 10px;"></div>
+                <div id="buttondelete1" style="display:inline-block;margin-left: 10px;"></div>
+            </div>
+            <input type="hidden" id="image" >
+
 			<div class="form-actions">
 				<div class="row" align="center">
 					<div class="col-md-12">
-					    <button class="btn btn-primary" onclick="location.href='newsInformationList.html?type='+typeId ">返回</button>
+					    <button class="btn btn-primary" onclick="location.href='newsInformationList.html'">返回</button>
 						<button class="btn btn-primary" type="submit" onclick="add()">
 							<i class="fa fa-save"></i> 保存
 						</button>
@@ -74,7 +73,7 @@
 	<script type="text/javascript" src="../../layui/layui.js"></script>
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript">
-        var typeId = getUrlParam("type");
+        var id = getUrlParam("id");
         // alert("add typeId="+typeId);
         var pro = window.location.protocol;
         var host = window.location.host;
@@ -95,82 +94,114 @@
             index = layedit.build('demo');
 
             upload.render({
-                elem: '#test1' //绑定元素
+                elem: '#upF' //绑定元素
                 ,accept: 'images' //允许上传的文件类型
                 ,url: '/files' //上传接口
-                ,auto: false //选择文件后不自动上传
-                ,bindAction: '#test2' //指向一个按钮触发上传
                 ,done: function(res, index, upload){
-                    $("#imageurl").val(res.url);
-                    var a = "<span>上传文件名:"+res.id+"</span>";
-                    $("#showname").html(a);
-                    $("#buttondelete").html('<button onclick="delete1(\''+res.id+'\')">删除</button>');
+                    var a = "<a  target='_blank' href='"+domain+"/statics"+res.url+"' style='margin-top: 80px;font-size:18px'>点击查看上传文件！</a>";
+                    $("#showname1").html(a);
+                    $("#buttondelete1").html('<button class="layui-btn" onclick="delete1(1,\''+res.id+'\')">删除</button>')
+                    $("#image").val(res.url);
                 }
             });
         });
 
-        function delete1(id) {
+        function delete1(num,id) {
             layer.confirm('确定要删除吗？', {
                 btn: ['确定', '取消']
             }, function () {
-                $.ajax({
-                    type: 'delete',
-                    url: '/files/' + id,
-                    success: function (data) {
-                        $("#showname").html("");
-                        $("#buttondelete").html("");
-                        layer.msg("删除成功");
-                    }
-                });
-                layer.close(1);
+                $("#showname"+num).html("");
+                $("#buttondelete"+num).html("");
+                layer.msg("删除成功");
             });
         }
 
         $.ajax({
-            type : 'get',
-            url : '/newsClassifyInfos/'+typeId,
-			async : false,
-			success : function (result) {
-				$("#type").val(result.name);
-				$("#typeid").val(result.id);
+            type : "get",
+            url : "/newsClassifyinfos/getParentClassifyInfo/0",
+            async : false,
+            success:function (result) {
+                $("#type").append("<option value='' > </option>");
+                for (var i = 0; i < result.length; i++) {
+                    $("#type").append("<option value='"+result[i].id+"' >"+result[i].name+"</option>");
+                }
             }
-		});
+        });
 
 		layui.use(['layer','laydate'], function(){
 		    var layer = layui.layer;
 		});
-		
-		function add() {
-			$('#form').bootstrapValidator();
-			var bootstrapValidator = $("#form").data('bootstrapValidator');
-			bootstrapValidator.validate();
-		    if(!bootstrapValidator.isValid()){
-			   return;
-		    }
-		    if ($("#imageurl").val() == ''){
-		        alert("上次图片不能为空");
-		        return false;
-            }
-		    
-		    var formdata = $("#form").serializeObject();
-		    formdata.type = $("#typeid").val();
-            formdata.content = layedit.getContent(index);
-            formdata.image = $("#imageurl").val();
-		    console.log(formdata);
 
-			$.ajax({
-				type : 'post',
-				url : '/newsInformations',
-				contentType: "application/json; charset=utf-8",  
-				data : JSON.stringify(formdata),
-				success : function(data) {
-					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
-                        location.href = "newsInformationList.html?type="+typeId;
-                    });
-				}
-			});
-		}
-		
+        if (id != '') {
+            $.ajax({
+                type : 'get',
+                url : '/newsInformations/'+id,
+                async : false,
+                success : function(data) {
+                    console.log(JSON.stringify(data));
+                    $('#demo').val(data.content);
+                    $('#id').val(data.id);
+                    $('#type').val(data.type);
+                    $('#name').val(data.name);
+                    $('#source').val(data.source);
+                    $('#typeid').val(data.type);
+                    $('#description').val(data.description);
+                    if (data.image != null && data.image !='') {
+                        var a = "<a  target='_blank' href='"+domain+"/statics"+data.image+"' style='margin-top: 80px;font-size:18px'>点击查看上传文件！</a>";
+                        $("#showname1").html(a);
+                        $("#buttondelete1").html('<button class="layui-btn" onclick="delete1(1,\''+data.image+'\')">删除</button>')
+                        $("#image").val(data.addFile);
+                    }
+                }
+            });
+        }
+
+
+        function add() {
+            $('#form').bootstrapValidator();
+            var bootstrapValidator = $("#form").data('bootstrapValidator');
+            bootstrapValidator.validate();
+            if(!bootstrapValidator.isValid()){
+                return;
+            }
+
+            var formdata = $("#form").serializeObject();
+            formdata.type = $("#type").val();
+            formdata.content = layedit.getContent(index);
+            formdata.image = $("#image").val();
+            console.log(JSON.stringify(formdata));
+
+            // alert(id);
+            if (id != "") {
+                // update
+                $.ajax({
+                    type : 'put',
+                    url : '/newsInformations',
+                    contentType: "application/json; charset=utf-8",
+                    data : JSON.stringify(formdata),
+                    success : function(data) {
+                        layer.msg("修改成功", {shift: -1, time: 1000}, function(){
+                            location.href = "newsInformationList.html";
+                        });
+                    }
+                });
+            }else {
+                //insert
+                $.ajax({
+                    type : 'post',
+                    url : '/newsInformations',
+                    contentType: "application/json; charset=utf-8",
+                    data : JSON.stringify(formdata),
+                    success : function(data) {
+                        layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                            location.href = "newsInformationList.html";
+                        });
+                    }
+                });
+            }
+        }
+
+
 	</script>
 </body>
 </html>

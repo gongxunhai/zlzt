@@ -1223,22 +1223,24 @@
     }
     //已点赞的就显示
     function selectPoint() {
-        $.ajax({
-            type : 'get',
-            url : '/zlztPointAgrees',
-            async : false,
-            data:{
-                "userId" : user.id,
-                "type" : 'pj_require'
-            },
-            success : function(result) {
-                var data = result.data;
-                console.log(data);
-                for (var i = 0; i < data.length; i++) {
-                    $("#P"+data[i].agreeId).addClass("active");
+        if (user != null && user !='') {
+            $.ajax({
+                type : 'get',
+                url : '/zlztPointAgrees',
+                async : false,
+                data:{
+                    "userId" : user.id,
+                    "type" : 'pj_require'
+                },
+                success : function(result) {
+                    var data = result.data;
+                    console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                        $("#P"+data[i].agreeId).addClass("active");
+                    }
                 }
-            }
-        })
+            })
+        }
     }
 
     function addCollection(obj) {
@@ -1287,22 +1289,24 @@
     }
 
     function selectCollection() {
-        $.ajax({
-            type : 'get',
-            url : '/zlztCareinfos',
-            async : false,
-            data:{
-                "userId" : user.id,
-                "type" : 'pj_require'
-            },
-            success : function(result) {
-                var data = result.data;
-                console.log(data);
-                for (var i = 0; i < data.length; i++) {
-                    $("#C"+data[i].careId).addClass("active");
+        if (user != null && user !='') {
+            $.ajax({
+                type : 'get',
+                url : '/zlztCareinfos',
+                async : false,
+                data:{
+                    "userId" : user.id,
+                    "type" : 'pj_require'
+                },
+                success : function(result) {
+                    var data = result.data;
+                    console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                        $("#C"+data[i].careId).addClass("active");
+                    }
                 }
-            }
-        })
+            })
+        }
     }
 
     $(document).on("click",".pagination li a",function(event){

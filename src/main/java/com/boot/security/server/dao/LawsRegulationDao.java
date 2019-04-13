@@ -15,7 +15,10 @@ import com.boot.security.server.model.LawsRegulation;
 @Mapper
 public interface LawsRegulationDao {
 
-    @Select("select t.*,b.name as fIdName from laws_regulation t left join laws_regulation_classifyInfo b on t.fid = b.id where t.id = #{id}")
+    @Select("select t.*,b.name as fIdName,c.name as sIdName from laws_regulation t " +
+            "left join laws_regulation_classifyInfo b on t.fid = b.id " +
+            "left join laws_regulation_classifyInfo c on t.sid = c.id " +
+            "where t.id = #{id}")
     LawsRegulation getById(Long id);
 
     @Delete("delete from laws_regulation where id = #{id}")
@@ -24,7 +27,7 @@ public interface LawsRegulationDao {
     int update(LawsRegulation lawsRegulation);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into laws_regulation(addFile, company, createTime, fId, sId, pageView, symbol, type, updateTime, content) values(#{addFile}, #{company}, #{createTime}, #{fId}, #{sId}, #{pageView}, #{symbol}, #{type}, #{updateTime}, #{content})")
+    @Insert("insert into laws_regulation(addFile, company, name, createTime, fId, sId, pageView, symbol, updateTime, content) values(#{addFile}, #{company}, #{name}, #{createTime}, #{fId}, #{sId}, #{pageView}, #{symbol},  #{updateTime}, #{content})")
     int save(LawsRegulation lawsRegulation);
     
     int count(@Param("params") Map<String, Object> params);

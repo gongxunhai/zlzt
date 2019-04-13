@@ -15,8 +15,17 @@ public class GfDatainfo extends BaseEntity<Long> {
 	private String cIdName;
 	private Integer pointNum;
 	private Integer careNum;
+	private String title;
 
-	public Integer getDataId() {
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Integer getDataId() {
 		return dataId;
 	}
 	public void setDataId(Integer dataId) {

@@ -36,4 +36,7 @@ public interface ZtReportClassifyinfoDao {
 
     @Select("select * from zt_report_classifyinfo where id = #{id} ")
     ZtReportClassifyinfo getNowPlace(@Param("id") int id);
+
+    @Select("select * from zt_report_classifyinfo t order by type")
+    List<ZtReportClassifyinfo> listAll();
 }

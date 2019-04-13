@@ -159,6 +159,9 @@
 			<if test="status != null">
 				status = #{status},
 			</if>
+			<if test="updateTime != null">
+				updateTime = #{updateTime},
+			</if>
 		</set>
 
 		where t.id = #{id}

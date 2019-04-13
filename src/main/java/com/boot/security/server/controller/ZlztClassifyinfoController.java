@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.alibaba.fastjson.JSONArray;
+import com.boot.security.server.model.ZTreeModel;
 import com.google.common.collect.Lists;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -206,6 +207,32 @@ public class ZlztClassifyinfoController {
     public List<ZlztClassifyinfo> getNowPlace(@PathVariable Long id,@PathVariable Long type){
         List<ZlztClassifyinfo> zlztClassifyinfo1 =zlztClassifyinfoDao.getParentInfo(id);
         return zlztClassifyinfo1;
+    }
+
+    @GetMapping("/treeTable")
+    @ApiOperation(value = "列表")
+    public List<ZlztClassifyinfo> list(@RequestParam(value = "name") String name) {
+        List<ZlztClassifyinfo> deptAll = zlztClassifyinfoDao.listAllByName(name);
+        List<ZlztClassifyinfo> list = Lists.newArrayList();
+        if (name!=null && !name.equals("")){
+            list = deptAll;
+        }else{
+            setTreeTableList(0L, deptAll, list);
+        }
+        return list;
+    }
+
+    @GetMapping("/parentsTree")
+    @ApiOperation(value = "一级菜单")
+    public List<ZTreeModel> parentsTree() {
+        List<ZTreeModel> parentsTree=new ArrayList<>();
+        List<ZlztClassifyinfo> parents = zlztClassifyinfoDao.getClassify();
+//        List<GfClassifyInfo> parents = gfClassifyInfoDao.listAll();
+        parentsTree.add(new ZTreeModel(Long.parseLong("0") ,Long.parseLong("-1"),"根级菜单",true,true));
+        for(int i=0;i<parents.size();i++){
+            parentsTree.add(new ZTreeModel(parents.get(i).getId(),parents.get(i).getParentId().longValue(),parents.get(i).getName(),true,true));
+        }
+        return parentsTree;
     }
 
 }

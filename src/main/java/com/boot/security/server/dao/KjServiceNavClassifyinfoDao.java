@@ -33,4 +33,7 @@ public interface KjServiceNavClassifyinfoDao {
 
     @Select("select * from kj_service_nav_classifyinfo where parentId = #{parentId} ")
     List<KjServiceNavClassifyinfo> getClassifyByParentId(@Param("parentId") int parentId);
+
+    @Select("select * from kj_service_nav_classifyinfo t order by t.type")
+    List<KjServiceNavClassifyinfo> listAll();
 }

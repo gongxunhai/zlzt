@@ -106,8 +106,8 @@
 			<if test="cWays != null">
 				cWays = #{cWays}, 
 			</if>
-			<if test="describe != null">
-				describe = #{describe}, 
+			<if test="description != null">
+				description = #{description},
 			</if>
 			<if test="endTime != null">
 				endTime = #{endTime}, 
@@ -138,6 +138,9 @@
 			</if>
 			<if test="xfArea != null">
 				xfArea = #{xfArea}, 
+			</if>
+			<if test="updateTime != null">
+				updateTime = #{updateTime},
 			</if>
 
 		</set>

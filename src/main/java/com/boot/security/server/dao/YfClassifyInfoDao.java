@@ -77,4 +77,10 @@ public interface YfClassifyInfoDao {
             "ON T1._id = T2.id \n" +
             "ORDER BY T1.lvl DESC;")
     List<YfClassifyInfo>  getParentInfo(@Param("id") Long id);
+
+    @Select("select * from yf_classifyinfo t where t.type = #{type} order by type ")
+    List<YfClassifyInfo> getClassify(@Param("type") int type);
+
+    @Select("select * from yf_classifyinfo t where t.name like concat('%',#{name},'%') order by type")
+    List<YfClassifyInfo> listAllByName(@Param("name") String name);
 }

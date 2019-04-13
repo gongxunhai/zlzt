@@ -36,4 +36,7 @@ public interface LawsRegulationClassifyInfoDao {
 
     @Select("select * from laws_regulation_classifyInfo where parentId = #{parentId}")
     List<LawsRegulationClassifyInfo> listData(@Param("parentId") Long parentId);
+
+    @Select("select * from laws_regulation_classifyInfo t order by t.type")
+    List<LawsRegulationClassifyInfo> listAll();
 }

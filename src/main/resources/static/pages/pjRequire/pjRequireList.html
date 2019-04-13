@@ -18,8 +18,8 @@
 	                   			<td>
 		                   			<form class="form-inline" onsubmit="return false">
 										<div class="form-group">
-											id：
-											<input id="id" type="text" class="form-control" placeholder="id">
+											名称：
+											<input id="searchByInput" type="text" class="form-control" placeholder="id">
 											<button id="searchBt" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe615;</i>搜索</button>
 										</div>
 									</form>
@@ -44,15 +44,11 @@
                                 <tr>
                                 </tr>                       
                                 <tr>
-									<th>id</th>
 									<th>名称</th>
 									<th>所属行业</th>
 									<th>二级行业</th>
-									<th>细分领域</th>
-									<th>项目描述</th>
 									<th>预期目标</th>
 									<th>状态</th>
-									<th>截至日期</th>
 									<th>操作</th>
                                 </tr>
                             </thead>
@@ -90,19 +86,15 @@ function init(){
         		"url" : "/pjRequires",
         		"type":"get",
         		"data":function(d){
-    				d.id = $("#id").val();
+    				d.searchByInput = $("#searchByInput").val();
+    				d.status = 1
     			}
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
             "columns": [
-                {"data" : "id", "defaultContent" : ""},
                 {"data" : "name", "defaultContent" : ""},
                 {"data" : "fIdName", "defaultContent" : ""},
                 {"data" : "sIdName", "defaultContent" : ""},
-                {"data" : "xfArea", "defaultContent" : ""},
-               /* {"data" : "cways", "defaultContent" : ""},
-				{"data" : "cmoney", "defaultContent" : ""},*/
-                {"data" : "description", "defaultContent" : ""},
                 {"data" : "target", "defaultContent" : ""},
                 {"data" : "status", "defaultContent" : "",
                     "render": function (data, type, row) {
@@ -117,18 +109,13 @@ function init(){
                         return status;
                     }
                 },
-				{"data" : "endTime", "defaultContent" : ""},
-                /*{"data" : "addFile", "defaultContent" : ""},
-                {"data" : "unit", "defaultContent" : ""},
-				{"data" : "man", "defaultContent" : ""},
-				{"data" : "phone", "defaultContent" : ""},*/
 				{
 					"data": "",
 					"defaultContent": "",
 					"orderable":false,
 					"render": function (data, type, row) {
 					   var id = row['id'];
-					   var href = "updatePjRequire.html?id=" + id;
+					   var href = "addPjRequire.html?id=" + id;
 					   var edit = buttonEdit(href, "", pers);
 					   var del = buttonDel(id, "", pers);
 					   return edit + del;
@@ -136,7 +123,7 @@ function init(){
 				},
                 
             ],
-           "order": [[ 7, "asc" ]]
+           "order": [[ 0, "asc" ]]
         } );
 }
 

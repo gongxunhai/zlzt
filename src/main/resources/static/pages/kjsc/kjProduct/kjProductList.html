@@ -18,8 +18,8 @@
 	                   			<td>
 		                   			<form class="form-inline" onsubmit="return false">
 										<div class="form-group">
-											id：
-											<input id="id" type="text" class="form-control" placeholder="id">
+											名称：
+											<input id="searchByInput" type="text" class="form-control" >
 											<button id="searchBt" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe615;</i>搜索</button>
 										</div>
 									</form>
@@ -91,7 +91,8 @@ function init(){
         		"url" : "/kjProducts",
         		"type":"get",
         		"data":function(d){
-    				d.id = $("#id").val();
+    				d.searchByInput = $("#searchByInput").val();
+    				d.status = 1;
     			}
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
@@ -119,20 +120,20 @@ function init(){
                     }
                 },
 				{ 
-								"data": "", 
-								"defaultContent": "",
-								"orderable":false,
-						        "render": function (data, type, row) {
-                		           var id = row['id'];
-                		           var href = "updateKjProduct.html?id=" + id;
-                                   var edit = buttonEdit(href, "", pers);
-                		           var del = buttonDel(id, "", pers);
-                                   return edit + del;
-                  	            }		
-							},
+					"data": "",
+					"defaultContent": "",
+					"orderable":false,
+					"render": function (data, type, row) {
+					   var id = row['id'];
+					   var href = "addKjProduct.html?id=" + id;
+					   var edit = buttonEdit(href, "", pers);
+					   var del = buttonDel(id, "", pers);
+					   return edit + del;
+					}
+				},
                 
             ],
-           "order": [[ 8, "asc" ]]
+           "order": [[ 0, "asc" ]]
         } );
 }
 

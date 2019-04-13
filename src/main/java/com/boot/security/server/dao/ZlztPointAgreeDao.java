@@ -50,4 +50,6 @@ public interface ZlztPointAgreeDao {
     @Select("select IFNULL(pointNum,-1) from ${type} where id = #{agreeId} ")
     int selectPointNum(ZlztPointAgree zlztPointAgree);
 
+    @Select("select ${colum} from ${table} where id = ${agreeId}")
+    String getTitle(@Param("table") String table, @Param("colum") String colum, @Param("agreeId") int agreeId);
 }

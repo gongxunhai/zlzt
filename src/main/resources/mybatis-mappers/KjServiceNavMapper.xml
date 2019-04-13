@@ -23,6 +23,9 @@
 			<if test="params.createTime != null and params.createTime != ''">
 				and createTime = #{params.createTime} 
 			</if>
+			<if test="params.searchByInput != null and params.searchByInput != ''">
+				and t.name like concat('%', #{params.searchByInput}, '%')
+			</if>
 		
 		</where>
 	</sql>
@@ -33,10 +36,16 @@
 	</select>
 
 	<select id="list" resultType="KjServiceNav">
-		select * from kj_service_nav t
+		select t.*,b.name as fIdName,c.name as sIdName from kj_service_nav t
+		left join kj_service_nav_classifyinfo b on t.fId = b.id
+		left join kj_service_nav_classifyinfo c on t.sId = c.id
 		<include refid="where" />
-		${params.orderBy}
-		limit #{offset}, #{limit}
+		<if test="params.orderBy!=null and params.orderBy !=''">
+			${params.orderBy}
+		</if>
+		<if test="limit!=null and limit !=''">
+			limit #{offset}, #{limit}
+		</if>
 	</select>
 
 	<update id="update">
@@ -54,8 +63,8 @@
 			<if test="href != null">
 				href = #{href}, 
 			</if>
-			<if test="createTime != null">
-				createTime = #{createTime}, 
+			<if test="updateTime != null">
+                updateTime = #{updateTime},
 			</if>
 
 		</set>

@@ -10,24 +10,30 @@ import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
-import com.boot.security.server.model.NewsClassifyInfo;
+import com.boot.security.server.model.NewsClassifyinfo;
 
 @Mapper
-public interface NewsClassifyInfoDao {
+public interface NewsClassifyinfoDao {
 
-    @Select("select * from news_classifyInfo t where t.id = #{id}")
-    NewsClassifyInfo getById(Long id);
+    @Select("select * from news_classifyinfo t where t.id = #{id}")
+    NewsClassifyinfo getById(Long id);
 
-    @Delete("delete from news_classifyInfo where id = #{id}")
+    @Delete("delete from news_classifyinfo where id = #{id}")
     int delete(Long id);
 
-    int update(NewsClassifyInfo newsClassifyInfo);
+    int update(NewsClassifyinfo newsClassifyinfo);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into news_classifyInfo(createTime, name, updateTime) values(#{createTime}, #{name}, #{updateTime})")
-    int save(NewsClassifyInfo newsClassifyInfo);
+    @Insert("insert into news_classifyinfo(name, parentId, type, createTime, updateTime) values(#{name}, #{parentId}, #{type}, #{createTime}, #{updateTime})")
+    int save(NewsClassifyinfo newsClassifyinfo);
     
     int count(@Param("params") Map<String, Object> params);
 
-    List<NewsClassifyInfo> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+    List<NewsClassifyinfo> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+
+    @Select("select * from news_classifyinfo t where t.parentId = #{parentId}")
+    List<NewsClassifyinfo> getParentClassifyInfo(@Param("parentId") int intValue);
+
+    @Select("select * from news_classifyinfo t order by type")
+    List<NewsClassifyinfo> listAll();
 }

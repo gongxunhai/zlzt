@@ -16,11 +16,11 @@ public class ZlztDatainfo extends BaseEntity<Long> {
 	private Integer cId;
 	private String country;
 	private String openId;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date openDay;
 	private String applyId;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date applyDay;
 	private String title;

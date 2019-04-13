@@ -39,16 +39,24 @@
             <if test="params.name != null and params.name != ''">
                 and m.name like concat('%', #{params.name}, '%')
             </if>
+			<if test="params.username != null and params.username != ''">
+                and a.username like concat('%', #{params.username}, '%')
+            </if>
+			<if test="params.email != null and params.email != ''">
+                and a.email = #{email}
+            </if>
 		</where>
 	</sql>
 
 	<select id="count" resultType="int">
-		select count(1) from zlzt_point_agree t
+		select count(1) from zlzt_point_agree t inner join zlzt_user a on  t.userId = a.id
 		<include refid="where" />
 	</select>
 
 	<select id="list" resultType="ZlztPointAgree">
-		select * from zlzt_point_agree t
+		select t.*,a.username as username,a.email as email,b.val as typeName from zlzt_point_agree t
+        inner join zlzt_user a on  t.userId = a.id
+        inner join t_dict b on t.type = b.k  and b.type='pointAndCollect'
 		<include refid="where" />
 		<if test="params.orderBy!=null and params.orderBy !=''">
 			${params.orderBy}
