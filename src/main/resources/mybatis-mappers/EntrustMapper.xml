@@ -51,6 +51,9 @@
                     and  t.createTime &lt; #{params.lastTime}
                 </if>
             </if>
+			<if test="params.username != null and params.username != ''">
+				and m.username like concat('%',#{params.username},'%')
+			</if>
 		</where>
 	</sql>
 
