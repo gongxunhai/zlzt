@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+</head>
+<body>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<form class="form-horizontal" onsubmit="return false" id="form">
+		<fieldset>
+		<input type="hidden" id="id" name="id">
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>电话</label>
+				<div class='col-md-5'>
+					<input class='form-control' placeholder='电话' type='text' name='phone' id='phone' autocomplete="off">
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>地址</label>
+				<div class='col-md-5'>
+					<input class='form-control' placeholder='地址' type='text' name='address' id='address' autocomplete="off">
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>邮箱</label>
+				<div class='col-md-5'>
+					<input class='form-control' placeholder='邮箱' type='text' name='mail' id='mail' autocomplete="off">
+				</div>
+			</div>
+
+
+			<div class="form-actions">
+				<div class="row" align="center">
+					<div class="col-md-6">
+					    <button class="btn btn-primary" onclick="location.href='zlztContactUsList.html'">返回</button>
+						<button class="btn btn-primary" type="submit" onclick="add()">
+							<i class="fa fa-save"></i> 保存
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+</div>
+	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../js/jq.js"></script>
+	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript">
+		layui.use(['layer','laydate'], function(){
+		    var layer = layui.layer;
+		});
+
+				initData();
+
+        		function initData(){
+        			var id = getUrlParam("id");
+        			if(id != ""){
+        				$.ajax({
+        					type : 'get',
+        					url : '/zlztContactUss/'+id,
+        					async : false,
+        					success : function(data) {
+        						$('#id').val(data.id);
+						$('#phone').val(data.phone);
+						$('#address').val(data.address);
+						$('#mail').val(data.mail);
+						$('#createTime').val(data.createTime);
+						$('#updateTime').val(data.updateTime);
+
+        					}
+        				});
+        			}
+        		}
+
+		function add() {
+			$('#form').bootstrapValidator();
+			var bootstrapValidator = $("#form").data('bootstrapValidator');
+			bootstrapValidator.validate();
+		    if(!bootstrapValidator.isValid()){
+			   return;
+		    }
+		    
+		    var formdata = $("#form").serializeObject();
+
+        			var id = getUrlParam("id");
+        			if(id != ""){ //For update
+                        $.ajax({
+                            type : 'put',
+                            url : '/zlztContactUss',
+                            contentType: "application/json; charset=utf-8",
+                            data : JSON.stringify(formdata),
+                            success : function(data) {
+                                layer.msg("修改成功", {shift: -1, time: 1000}, function(){
+                                    location.href = "zlztContactUsList.html";
+                                });
+                            }
+                        });
+        			}else{ //For add
+                        $.ajax({
+                            type : 'post',
+                            url : '/zlztContactUss',
+                            contentType: "application/json; charset=utf-8",
+                            data : JSON.stringify(formdata),
+                            success : function(data) {
+                                layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                                    location.href = "zlztContactUsList.html";
+                                });
+                            }
+                        });
+        			}
+
+
+		}
+		
+	</script>
+</body>
+</html>
