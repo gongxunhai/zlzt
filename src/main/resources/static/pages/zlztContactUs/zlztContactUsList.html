@@ -15,7 +15,7 @@
                     <div align="left">
 	                    <table style="width: 100%">
 	                   		<tr>
-	                   			<td>
+	                   			<!--<td>
 		                   			<form class="form-inline" onsubmit="return false">
 										<div class="form-group">
 											id：
@@ -23,9 +23,9 @@
 											<button id="searchBt" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe615;</i>搜索</button>
 										</div>
 									</form>
-	                   			</td>
+	                   			</td>-->
 	                   			<td align="right">
-	                   				<button class="layui-btn layui-btn-sm" onclick="location.href='addZlztIpcinfo.html'">
+	                   				<button class="layui-btn layui-btn-sm" onclick="location.href='addZlztContactUs.html'">
                                       <i class="layui-icon">&#xe608;</i> 添加
                                     </button>
 	                   			</td>
@@ -41,9 +41,10 @@
                                 <tr>
                                 </tr>                       
                                 <tr>
-									<th>id</th>
-									<th>ipcId</th>
-									<th>name</th>
+									<th>电话</th>
+									<th>地址</th>
+									<th>邮箱</th>
+									<th>创建时间</th>
 									<th>操作</th>
                                 </tr>
                             </thead>
@@ -78,24 +79,25 @@ function init(){
                 "url": "/js/plugin/datatables/Chinese.lang"
             },
         	"ajax": {
-        		"url" : "/zlztIpcinfos",
+        		"url" : "/zlztContactUss",
         		"type":"get",
         		"data":function(d){
-    				d.id = $("#id").val();
+    			/*	d.id = $("#id").val();*/
     			}
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
             "columns": [
-				{"data" : "id", "defaultContent" : ""},
-				{"data" : "ipcId", "defaultContent" : ""},
-				{"data" : "name", "defaultContent" : ""},
+				{"data" : "phone", "defaultContent" : ""},
+				{"data" : "address", "defaultContent" : ""},
+				{"data" : "mail", "defaultContent" : ""},
+				{"data" : "createTime", "defaultContent" : ""},
 				{ 
 								"data": "", 
 								"defaultContent": "",
 								"orderable":false,
 						        "render": function (data, type, row) {
                 		           var id = row['id'];
-                		           var href = "updateZlztIpcinfo.html?id=" + id;
+                		           var href = "addZlztContactUs.html?id=" + id;
                                    var edit = buttonEdit(href, "", pers);
                 		           var del = buttonDel(id, "", pers);
                                    return edit + del;
@@ -117,7 +119,7 @@ function del(id){
     }, function() {
     	$.ajax({
             type : 'delete',
-            url : '/zlztIpcinfos/'+id,
+            url : '/zlztContactUss/'+id,
             success : function(data) {
                 example.ajax.reload();
                 layer.msg("删除成功");

@@ -18,14 +18,14 @@
 	                   			<td>
 		                   			<form class="form-inline" onsubmit="return false">
 										<div class="form-group">
-                                            名称:
-                                            <input id="name" autocomplete="off" type="text" class="form-control" placeholder="名称">
+											名称：
+											<input id="name" type="text" class="form-control" placeholder="名称">
 											<button id="searchBt" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe615;</i>搜索</button>
 										</div>
 									</form>
 	                   			</td>
 	                   			<td align="right">
-	                   				<button class="layui-btn layui-btn-sm" onclick="location.href='addZlztCpinfo.html'">
+	                   				<button class="layui-btn layui-btn-sm" onclick="location.href='addZlztIpcinfo.html'">
                                       <i class="layui-icon">&#xe608;</i> 添加
                                     </button>
 	                   			</td>
@@ -41,7 +41,7 @@
                                 <tr>
                                 </tr>                       
                                 <tr>
-									<th>国民映射表id</th>
+									<th>ipc映射id</th>
 									<th>名称</th>
 									<th>操作</th>
                                 </tr>
@@ -77,15 +77,15 @@ function init(){
                 "url": "/js/plugin/datatables/Chinese.lang"
             },
         	"ajax": {
-        		"url" : "/zlztCpinfos",
+        		"url" : "/zlztIpcinfos",
         		"type":"get",
         		"data":function(d){
-                    d.name = $("#name").val();
+    				d.name = $("#name").val();
     			}
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
             "columns": [
-				{"data" : "cpId", "defaultContent" : ""},
+				{"data" : "ipcId", "defaultContent" : ""},
 				{"data" : "name", "defaultContent" : ""},
 				{ 
 								"data": "", 
@@ -93,7 +93,7 @@ function init(){
 								"orderable":false,
 						        "render": function (data, type, row) {
                 		           var id = row['id'];
-                		           var href = "updateZlztCpinfo.html?id=" + id;
+                		           var href = "updateZlztIpcinfo.html?id=" + id;
                                    var edit = buttonEdit(href, "", pers);
                 		           var del = buttonDel(id, "", pers);
                                    return edit + del;
@@ -115,7 +115,7 @@ function del(id){
     }, function() {
     	$.ajax({
             type : 'delete',
-            url : '/zlztCpinfos/'+id,
+            url : '/zlztIpcinfos/'+id,
             success : function(data) {
                 example.ajax.reload();
                 layer.msg("删除成功");

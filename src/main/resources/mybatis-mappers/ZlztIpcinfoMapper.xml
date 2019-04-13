@@ -9,10 +9,10 @@
 				and id = #{params.id} 
 			</if>
 			<if test="params.ipcId != null and params.ipcId != ''">
-				and ipcId = #{params.ipcId} 
+				and ipcId = #{params.ipcId}
 			</if>
 			<if test="params.name != null and params.name != ''">
-				and name = #{params.name} 
+				and name like '%${params.name}%'
 			</if>
 		
 		</where>

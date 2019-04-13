@@ -5,6 +5,9 @@
 
 	<sql id="where">
 		<where>
+			<if test="params.name != null and params.name != ''">
+				and name like '%${params.name}%'
+			</if>
 		</where>
 	</sql>
 
