@@ -23,6 +23,8 @@
                                 <td align="right">
                                     <form class="form-inline" onsubmit="return false">
                                         <div class="form-group">
+                                            名称：
+                                            <input id="name" type="text" class="form-control" placeholder="名称">
                                            <button id="searchBt" class="layui-btn layui-btn-sm" permission="sys:file:query"><i class="layui-icon">&#xe615;</i>搜索</button>
                                         </div>
                                     </form>
@@ -39,9 +41,10 @@
                                 <tr>
                                 </tr>                       
                                 <tr>
-                                    <th>url</th>
-                                    <th>path</th>
-                                    <th>contentType</th>
+                                    <th>名称</th>
+                                    <th>图片链接</th>
+                                    <th>路径</th>
+                                    <th>图片类型</th>
                                     <th>修改时间</th>
                                     <th>管理</th>
                                 </tr>
@@ -84,7 +87,7 @@ function init(){
         		"url" : "/files",
         		"type":"get",
         		"data":function(d){
-    			
+    			    d.name = $("#name").val();
         		},
     			"error":function(xhr, textStatus, errorThrown){
     				var msg = xhr.responseText;
@@ -109,6 +112,7 @@ function init(){
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
             "columns": [
+                { "data": "name", "defaultContent": ""},
                 { 
                 	"data": "url", 
                 	"defaultContent": "",
