@@ -78,6 +78,24 @@ public class KjZlsuperController {
         }).handle(request);
     }
 
+    @GetMapping("/app")
+    @ApiOperation(value = "列表")
+    public PageTableResponse list1(PageTableRequest request) {
+        return new PageTableHandler(new CountHandler() {
+
+            @Override
+            public int count(PageTableRequest request) {
+                return kjZlsuperDao.count1(request.getParams());
+            }
+        }, new ListHandler() {
+
+            @Override
+            public List<KjZlsuper> list(PageTableRequest request) {
+                return kjZlsuperDao.list1(request.getParams(), request.getOffset(), request.getLimit());
+            }
+        }).handle(request);
+    }
+
     @DeleteMapping("/{id}")
     @ApiOperation(value = "删除")
     public void delete(@PathVariable Long id) {

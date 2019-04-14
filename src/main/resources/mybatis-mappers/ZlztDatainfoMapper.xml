@@ -231,6 +231,61 @@
 		</if>
 	</select>
 
+	<select id="count1" resultType="int">
+		select count(1) from
+		<if test="params.fromTable == null || params.fromTable==''">
+			zlzt_datainfo t
+		</if>
+		<if test="params.fromTable !=null and params.fromTable !=''">
+			${params.fromTable} t
+            left join zlzt_careinfo  m on t.id = m.careId and m.type = #{params.fromTable}
+            left join zlzt_point_agree n on t.id = n.agreeId and n.type = #{params.fromTable}
+		</if>
+		<include refid="where" />
+	</select>
+
+	<select id="list1" resultType="ZlztDatainfo">
+		<if test="params.fromTable ==null || params.fromTable==''">
+			select t.*  from
+			zlzt_datainfo t
+		</if>
+		<if test="params.fromTable !=null and params.fromTable !=''">
+			select t.*,a.name as fIdName,b.name as sIdName,c.name as tIdName,d.name as cIdName,
+                     m.careId as careId, n.agreeId as agreeId from
+			${params.fromTable} t
+            left join zlzt_careinfo  m on t.id = m.careId and m.type = #{params.fromTable} and m.userId = #{params.userId}
+            left join zlzt_point_agree n on t.id = n.agreeId and n.type = #{params.fromTable} and n.userId = #{params.userId}
+			<if test="params.fromTable == 'view_gfdata'">
+				inner join gf_classifyinfo a on t.fId = a.id
+				inner join gf_classifyinfo b on t.sId = b.id
+				inner join gf_classifyinfo c on t.tId = c.id
+				inner join gf_classifyinfo d on t.cId = d.id
+			</if>
+			<if test="params.fromTable == 'view_yfdata'">
+				inner join yf_classifyinfo a on t.fId = a.id
+				inner join yf_classifyinfo b on t.sId = b.id
+				inner join yf_classifyinfo c on t.tId = c.id
+				inner join yf_classifyinfo d on t.cId = d.id
+			</if>
+			<if test="params.fromTable == 'view_zlztdata'">
+				inner join zlzt_classifyinfo a on t.fId = a.id
+				inner join zlzt_classifyinfo b on t.sId = b.id
+				inner join zlzt_classifyinfo c on t.tId = c.id
+				inner join zlzt_classifyinfo d on t.cId = d.id
+			</if>
+		</if>
+		<include refid="where" />
+		<if test="params.order !=null and params.order !=''">
+			order by ${params.order}
+		</if>
+		<if test="params.orderBy != null and params.orderBy !=''">
+			${params.orderBy}
+		</if>
+		<if test="limit!=null and limit!=''">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
 	<update id="update">
 		update zlzt_datainfo t
 		<set>

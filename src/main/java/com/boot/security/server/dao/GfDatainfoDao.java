@@ -41,6 +41,11 @@ public interface GfDatainfoDao {
 
     List<GfDatainfo> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
 
+
+    int count1(@Param("params") Map<String, Object> params);
+
+    List<GfDatainfo> list1(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+
     @Select("select ifnull(max(id),-1) from gf_datainfo where dataId = #{dataId}")
     int selectIdByDataId(GfDatainfo gfDatainfo);
 

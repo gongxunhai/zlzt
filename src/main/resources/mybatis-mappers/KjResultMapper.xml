@@ -124,6 +124,31 @@
 		</if>
 	</select>
 
+	<select id="count2" resultType="int">
+		select count(1) from kj_result a
+        left join zlzt_careinfo  m on a.id = m.careId and m.type = #{params.fromTable}
+        left join zlzt_point_agree n on a.id = n.agreeId and n.type = #{params.fromTable}
+		<include refid="where" />
+	</select>
+
+	<select id="list2" resultType="KjResult">
+		select a.*,b.name as fIdName,c.name as sIdName,
+        m.careId as careId, n.agreeId as agreeId
+        from kj_result a
+		join kj_result_classifyinfo b on a.fId = b.id
+		join kj_result_classifyinfo c on a.sId = c.id
+        left join zlzt_careinfo  m on a.id = m.careId and m.type = #{params.fromTable} and m.userId = #{params.userAppId}
+        left join zlzt_point_agree n on a.id = n.agreeId and n.type = #{params.fromTable} and n.userId = #{params.userAppId}
+		<include refid="where" />
+		<if test="params.orderBy!=null and params.orderBy !=''">
+			${params.orderBy}
+		</if>
+		<if test="limit !=null and limit !=''">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+
 	<select id="count1" resultType="int">
 		select count(1) from ${params.tableName} a
 		<include refid="where" />

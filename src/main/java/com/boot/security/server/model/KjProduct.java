@@ -33,8 +33,35 @@ public class KjProduct extends BaseEntity<Long> {
 	private String sIdName;
 	private Integer userId;
 	private Integer status;
+	private int userAppId;
+	private int careId;
+	private int agreeId;
 
-	public String getBuyNum() {
+    public int getUserAppId() {
+        return userAppId;
+    }
+
+    public void setUserAppId(int userAppId) {
+        this.userAppId = userAppId;
+    }
+
+    public int getCareId() {
+        return careId;
+    }
+
+    public void setCareId(int careId) {
+        this.careId = careId;
+    }
+
+    public int getAgreeId() {
+        return agreeId;
+    }
+
+    public void setAgreeId(int agreeId) {
+        this.agreeId = agreeId;
+    }
+
+    public String getBuyNum() {
 		return buyNum;
 	}
 	public void setBuyNum(String buyNum) {

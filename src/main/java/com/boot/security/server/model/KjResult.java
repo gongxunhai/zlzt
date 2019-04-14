@@ -32,6 +32,33 @@ public class KjResult extends BaseEntity<Long> {
 	private Integer status;
 	private Integer pointNum;
 	private Integer careNum;
+	private int userAppId;
+	private int careId;
+	private int agreeId;
+
+	public int getUserAppId() {
+		return userAppId;
+	}
+
+	public void setUserAppId(int userAppId) {
+		this.userAppId = userAppId;
+	}
+
+	public int getCareId() {
+		return careId;
+	}
+
+	public void setCareId(int careId) {
+		this.careId = careId;
+	}
+
+	public int getAgreeId() {
+		return agreeId;
+	}
+
+	public void setAgreeId(int agreeId) {
+		this.agreeId = agreeId;
+	}
 
 	public String getfIdName() {
 		return fIdName;
