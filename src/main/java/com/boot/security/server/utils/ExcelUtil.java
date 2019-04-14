@@ -1290,7 +1290,7 @@ public class ExcelUtil {
 				}
 				Cell cell = row.getCell(m);
 				if (cell!=null && !cell.toString().equals("")){
-					if (m == 9) {
+					if (m == 8) {
 						//excel为日期格式
 						switch (cell.getCellTypeEnum()){
 							case NUMERIC: pjRequire.setEndTime(cell.getDateCellValue());break;
@@ -1306,11 +1306,10 @@ public class ExcelUtil {
 						case 5 : pjRequire.setCMoney(cell.getStringCellValue()); break;
 						case 6 : pjRequire.setDescription(cell.getStringCellValue()); break;
 						case 7 : pjRequire.setTarget(cell.getStringCellValue()); break;
-						case 8 : pjRequire.setPlace(cell.getStringCellValue()); break;
-						case 10 : pjRequire.setAddFile(cell.getStringCellValue()); break;
-						case 11 : pjRequire.setUnit(cell.getStringCellValue()); break;
-						case 12 : pjRequire.setMan(cell.getStringCellValue()); break;
-						case 13 : pjRequire.setPhone(df.format(cell.getNumericCellValue())); break;
+						case 9 : pjRequire.setAddFile(cell.getStringCellValue()); break;
+						case 10 : pjRequire.setUnit(cell.getStringCellValue()); break;
+						case 11 : pjRequire.setMan(cell.getStringCellValue()); break;
+						case 12 : pjRequire.setPhone(df.format(cell.getNumericCellValue())); break;
 					}
 				}
 			}
