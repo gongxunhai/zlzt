@@ -904,7 +904,7 @@
             success : function(data) {
                 if (data != null && data != '') {
                     if (data.msg == "success") {
-                        $("#P" + $("#tableName").val() + obj).html('点赞(' + data.pointNum + ')');
+                        $("#P" + $("#tableName").val() + obj).text('点赞(' + data.pointNum + ')');
                         alert("点赞成功!");
                     }
                     else {
@@ -927,7 +927,7 @@
             data : JSON.stringify(formData),
             success : function(data) {
                 if (data != null && data != '') {
-                    $("#P" + $("#tableName").val() + obj).html('点赞(' + data.pointNum + ')');
+                    $("#P" + $("#tableName").val() + obj).text('点赞(' + data.pointNum + ')');
                     alert("取消点赞!");
                 }
             }
