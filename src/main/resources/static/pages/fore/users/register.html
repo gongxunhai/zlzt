@@ -372,7 +372,7 @@
         var fromJob_val = "";
         for(var i in fromJob){
             if(fromJob[i].checked){
-                if (i == 0) {
+                if (fromJob_val == "") {
                     fromJob_val += fromJob[i].value;
                 }else {
                     fromJob_val += ";"+ fromJob[i].value;
@@ -388,7 +388,7 @@
         var interest_val  = "";
         for(var j in interest){
             if(interest[j].checked){
-                if (j == 0) {
+                if (interest_val == "") {
                     interest_val +=interest[j].value;
                 }else {
                     interest_val += ";"+ interest[j].value;
@@ -419,7 +419,7 @@
         formdata.phone = phone;
         formdata.email = email;
         formdata.password = password;
-        formdata.fromJobmJob = fromJob_val;
+        formdata.fromJob = fromJob_val;
         formdata.interestJob = interest_val;
         formdata.inforAutA = cardA;
         formdata.inforAutB = cardB;
