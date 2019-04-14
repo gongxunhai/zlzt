@@ -63,7 +63,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/ztReports/**","/kjServiceNavs/**","/kjServices/**","/files/**","/kjServiceNavClassifyinfos/**",
 						 "/dicts/**","/mails/**","/zlztUsers/**","/pjRequireClassifyInfos/**","/kjProductClassifyInfos/**",
                         "/kjResultClassifyInfos/**","/kjZlSuperClassifyInfos/**","/entrusts/**","/zlztPointAgrees/**",
-						"/zlztCareinfos/**")
+						"/zlztCareinfos/**","/template/**")
 				.permitAll().anyRequest().authenticated();
 		http.formLogin().loginProcessingUrl("/login")
 				.successHandler(authenticationSuccessHandler).failureHandler(authenticationFailureHandler).and()
