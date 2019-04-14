@@ -19,7 +19,8 @@
     <script src="../js/swiper.min.js"></script>
     <script src="../js/rem.js"></script>
     <script src="../js/public.js"></script>
-	<!--[if lt IE 9]>
+    <script type="text/javascript" src="../../../js/common.js"></script>
+    <!--[if lt IE 9]>
     <script src="../js/html5shiv.min.js"></script>
     <script src="../js/respond.min.js"></script>
     <![endif]-->
@@ -230,16 +231,13 @@
                 <div class="notice-title"><i class="iconfont icon-gonggao"></i><span>最新公告</span></div>
                 <div class="new-noticeList">
                     <div class="swiper-container">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide"><a href=""> · 2019北京半程马拉松将于明日7：00开跑</a> </div>
-                            <div class="swiper-slide"><a href=""> · 2019北京半程马拉松将于明日7：00开跑</a> </div>
-                            <div class="swiper-slide"><a href=""> · 2019北京半程马拉松将于明日7：00开跑</a> </div>
+                        <div class="swiper-wrapper" id="newsList">
                         </div>
                     </div>
                 </div>
             </div>
 <!--            <div class="clear"></div>-->
-            <a class="notice-more" href="news/news.html"><span>更多</span><i class="iconfont icon-gengduo"></i></a>
+            <a class="notice-more" href="../news/news.html"><span>更多</span><i class="iconfont icon-gengduo"></i></a>
         </div>
     </div>
 <!--</div>-->
@@ -311,20 +309,20 @@
             </div>
             <div class="section wow fadeInRight">
                 <div class="section-con">
-                    <div class="section-a section-a-active">科技产品</div>
-                    <div class="section-a">科技成果</div>
-                    <div class="section-a">专利技术</div>
+                    <div class="section-a section-a-active" onclick="dataChange('kjProducts','1')">科技产品</div>
+                    <div class="section-a" onclick="dataChange('kjResults','2')">科技成果</div>
+                    <div class="section-a" onclick="dataChange('kjZlsupers','3')">专利技术</div>
                 </div>
                 <div class="section-con">
-                    <div class="section-b section-b-active">发布成果</div>
-                    <div class="section-b">发布需求</div>
+                    <div class="section-b section-b-active" onclick="location.href='../users/projectCreate.html'">发布成果</div>
+                    <div class="section-b section-b-active" onclick="location.href='../users/requireCreate.html'">发布需求</div>
                 </div>
             </div>
         </div>
         <div class="box1Bot wow fadeInUp">
         	<div class="box1Item">
             	<div class="swiper-container">
-                	<div class="swiper-wrapper">
+                	<div class="swiper-wrapper" id="kjscData">
                     	<div class="swiper-slide">
                         	<div class="box1Con">
                             	<a class="box1Link" href="#">
@@ -419,7 +417,7 @@
                 </div>
                 <div class="boxBtn box1Btn">
                 	<a class="boxPrev box1Prev" href="javascript:;"></a>
-                	<a class="boxList" href="#;"></a>
+                	<a class="boxList" id="kjscHref"></a>
                 	<a class="boxNext box1Next" href="javascript:;"></a>
                 </div>
             </div>
@@ -823,8 +821,261 @@
     <li><span>04</span>最新动态</li>
     <li><span>05</span>研究报告</li>
 </ul>
-
+<input type="hidden" id="tableName">
 <script>
+    var pro = window.location.protocol;
+    var host = window.location.host;
+    var domain = pro + "//" + host;
+
+    $.ajax({
+        type: 'get',
+        url: '/newsInformations',
+        data : {
+            "orderBy" : "order by createTime DESC",
+            "start" : 0,
+            "length" : 3
+        },
+        async: false,
+        success: function (result) {
+            var data = result.data;
+            for (var i = 0; i < data.length; i++) {
+                if (i < 3) {
+                    $("#newsList").append(' <div class="swiper-slide ellipsis"><a href="../news/news_detail.html?id='+data[i].id+'&type='+data[i].type+'">'+data[i].name+'</a></div>');
+                }
+            }
+        }
+    });
+
+    function dataChange(obj, index) {
+        switch (obj) {
+            case "kjZlsupers" :  $("#tableName").val('kj_zlsuper');break;
+            case "kjResults" :   $("#tableName").val('kj_result');break;
+            case "kjProducts" :  $("#tableName").val('kj_product');break;
+        }
+        $("#kjscHref").attr("href",domain+"/pages/fore/kjsc/kjsc.html?id="+index);
+        $.ajax({
+            type : "get",
+            url : "/"+obj,
+            async : false,
+            data :{
+                "start" : 0,
+                "length" : 3
+            },
+            success :function (result) {
+                $("#kjscData").html('');
+                var data = result.data;
+                for (var i = 0; i < data.length; i++) {
+                    if (i < 3) {
+                        var ahref = '';
+                        switch (obj) {
+                            case "kjResults" : ahref = '<a class="box1Link" href="../kjsc/kjsc_result.html?id='+data[i].id+'">';
+                            case "kjProducts" : ahref = '<a class="box1Link" href="../kjsc/kjsc_kjproduct.html?id='+data[i].id+'">';
+                            case "kjZlsupers" : ahref = '<a class="box1Link" href="../kjsc/kjsc_zlsuper.html?id='+data[i].id+'">';
+                        }
+
+                        $("#kjscData").append('<div class="swiper-slide">\n' +
+                            '                        \t<div class="box1Con">\n' + ahref +
+                            '                                    <div class="box1Img">\n' +
+                            '                                        <div class="imgFull"><img src="'+domain+'/statics'+(data[i].image || '/default2.png' )+'" class="img-responsive"></div>\n' +
+                            '                                        <div class="box1Mask"></div>\n' +
+                            '                                        <div class="box1Ico">\n' +
+                            '                                        \t<i class="iconfont icon-chakan"></i>\n' +
+                            '                                        \t<span>了解详细信息</span>\n' +
+                            '                                        </div>\n' +
+                            '                                    </div>\n' +
+                            '                                    <div class="box1Text">\n' +
+                            '                                        <h3 class="box1Tit ellipsis">'+data[i].name+'</h3>\n' +
+                            '                                        <div class="box1Infor">\n' +
+                            '                                            <span class="b1Sp1">行业：'+data[i].fIdName+'</span>\n' +
+                            '                                            <i class="b1Line">|</i>\n' +
+                            '                                            <span class="b1Sp2">更新：'+(new Date(data[i].createTime)).Format("yyyy-MM-dd")+'</span>\n' +
+                            '                                        </div>\n' +
+                            '                                    </div>\n' +
+                            '                                </a>\n' +
+                            '                                <div class="box1Bot">\n' +
+                            '                                \t<div class="upcollect pull-left">\n' +
+                            '                                     <a href="javascript:;" class="up" id="P'+$("#tableName").val()+data[i].id+'" value="'+data[i].id+'">点赞('+(data[i].pointNum || '0' )+')</a>\n' +
+                            '                                   <a href="javascript:;" class="collect" id="C'+$("#tableName").val()+data[i].id+'" value="'+data[i].id+'">关注('+(data[i].careNum || '0' )+')</a>\n' +
+                            '                                    </div>\n' +
+                            '                                    <span class="box1Tag pull-right">自营</span>\n' +
+                            '                                    <div class="clear"></div>\n' +
+                            '                                </div>\n' +
+                            '                            </div>\n' +
+                            '                        </div>');
+                    }
+                }
+            }
+        });
+
+        selectPoint();
+        selectCollection();
+    }
+
+    dataChange('kjProducts','1');
+
+    $(document).on("click",".upcollect a",function(event){
+        if (user != null && user != '') {
+            $(this).toggleClass("active");
+            if ($(this).hasClass("up")){
+                if ($(this).hasClass("active")) {
+                    addPoint($(this).attr("value"));
+                }else {
+                    deletePoint($(this).attr("value"));
+                }
+            }
+            if ($(this).hasClass("collect")){
+                if ($(this).hasClass("active")) {
+                    addCollection($(this).attr("value"));
+                }else {
+                    deleteCollection($(this).attr("value"));
+                }
+            }
+        }else {
+            alert("请先登录!");
+        }
+    });
+
+    function addPoint(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.agreeId =  obj;
+        formData.type = $("#tableName").val();
+        switch ($("#tableName").val()) {
+            case "kj_result" :  formData.url = "/pages/fore/kjsc/kjsc_result.html?id="+obj;break;
+            case "kj_product" :  formData.url = "/pages/fore/kjsc/kjsc_kjproduct.html?id="+obj;break;
+            case "kj_zlsuper" :  formData.url = "/pages/fore/kjsc/kjsc_zlsuper.html?id="+obj;break;
+        }
+        $.ajax({
+            type : 'post',
+            url : '/zlztPointAgrees/addPoint',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    if (data.msg == "success") {
+                        $("#P" + $("#tableName").val() + obj).html('点赞(' + data.pointNum + ')');
+                        alert("点赞成功!");
+                    }
+                    else {
+                        alert("已点赞!");
+                    }
+                }
+            }
+        })
+    }
+    function deletePoint(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.agreeId =  obj;
+        formData.type = $("#tableName").val();
+        $.ajax({
+            type : 'delete',
+            url : '/zlztPointAgrees/deletePoint',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    $("#P" + $("#tableName").val() + obj).html('点赞(' + data.pointNum + ')');
+                    alert("取消点赞!");
+                }
+            }
+        });
+    }
+
+    function selectPoint() {
+        if (user != null && user !='') {
+            $.ajax({
+                type : 'get',
+                url : '/zlztPointAgrees',
+                async : false,
+                data:{
+                    "userId" : user.id,
+                    "type" : $("#tableName").val()
+                },
+                success : function(result) {
+                    var data = result.data;
+                    console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                        $("#P"+$("#tableName").val()+data[i].agreeId).addClass("active");
+                    }
+                }
+            })
+        }
+    }
+
+    function addCollection(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.careId =  obj;
+        formData.type = $("#tableName").val();
+        switch ($("#tableName").val()) {
+            case "kj_result" :  formData.url = "/pages/fore/kjsc/kjsc_result.html?id="+obj;break;
+            case "kj_product" :  formData.url = "/pages/fore/kjsc/kjsc_kjproduct.html?id="+obj;break;
+            case "kj_zlsuper" :  formData.url = "/pages/fore/kjsc/kjsc_zlsuper.html?id="+obj;break;
+        }
+        $.ajax({
+            type : 'post',
+            url : '/zlztCareinfos/addCare',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    if (data.msg == "success") {
+                        $("#C" + $("#tableName").val() + obj).html('收藏(' + data.pointNum + ')');
+                        alert("收藏成功!");
+                    }
+                    else {
+                        alert("已收藏!");
+                    }
+                }
+            }
+        })
+    }
+    function deleteCollection(obj) {
+        var formData = new FormData();
+        formData.userId = user.id;
+        formData.careId =  obj;
+        formData.type = $("#tableName").val();
+        $.ajax({
+            type : 'delete',
+            url : '/zlztCareinfos/deleteCare',
+            async : false,
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formData),
+            success : function(data) {
+                if (data != null && data != '') {
+                    $("#C" + $("#tableName").val() + obj).html('收藏(' + data.pointNum + ')');
+                    alert("取消收藏!");
+                }
+            }
+        });
+    }
+
+    function selectCollection() {
+        if (user != null && user !='') {
+            $.ajax({
+                type : 'get',
+                url : '/zlztCareinfos',
+                async : false,
+                data:{
+                    "userId" : user.id,
+                    "type" : $("#tableName").val()
+                },
+                success : function(result) {
+                    var data = result.data;
+                    console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                        $("#C"+$("#tableName").val()+data[i].careId).addClass("active");
+                    }
+                }
+            })
+        }
+    }
+
+
     var noticeList = new Swiper('.new-noticeList .swiper-container', {
         loop:true,
         autoplay:3000,
@@ -837,9 +1088,8 @@
     });
 </script>
 <script>
-    var pro = window.location.protocol;
-    var host = window.location.host;
-    var domain = pro + "//" + host;
+
+
 
     $.ajax({
         type: 'get',

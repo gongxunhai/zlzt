@@ -94,7 +94,7 @@
 			<if test="headImgUrl != null and headImgUrl != ''">
 				headImgUrl = #{headImgUrl}, 
 			</if>
-			<if test="phone != null and username != ''">
+			<if test="phone != null and phone != ''">
 				phone = #{phone}, 
 			</if>
 			<if test="telephone != null">
@@ -109,13 +109,13 @@
 			<if test="sex != null">
 				sex = #{sex}, 
 			</if>
-			<if test="status != null and status != ''">
+			<if test="status != null">
 				status = #{status}, 
 			</if>
-			<if test="inforAutA != null and status != ''">
+			<if test="inforAutA != null and inforAutA != ''">
 				inforAutA = #{inforAutA}, 
 			</if>
-			<if test="inforAutB != null and status != ''">
+			<if test="inforAutB != null and inforAutB != ''">
 				inforAutB = #{inforAutB}, 
 			</if>
 			<if test="fromJob != null">

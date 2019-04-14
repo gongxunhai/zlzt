@@ -13,7 +13,7 @@ public class ZlztUser extends BaseEntity<Long> {
 	private String email;
 	private Date birthday;
 	private Integer sex;
-	private Integer status;
+	private int status;
 	private String inforAutA;
 	private String inforAutB;
 	private String fromJob;
@@ -75,12 +75,15 @@ public class ZlztUser extends BaseEntity<Long> {
 	public void setSex(Integer sex) {
 		this.sex = sex;
 	}
-	public Integer getStatus() {
+
+	public int getStatus() {
 		return status;
 	}
-	public void setStatus(Integer status) {
+
+	public void setStatus(int status) {
 		this.status = status;
 	}
+
 	public String getInforAutA() {
 		return inforAutA;
 	}
