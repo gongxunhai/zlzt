@@ -33,6 +33,10 @@ public interface KjProductDao {
 
     List<KjProduct> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
 
+    int count1(@Param("params") Map<String, Object> params);
+
+    List<KjProduct> list1(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+
     @Select("select DISTINCT ${key} from kj_product ")
     List<String> selectListData(@Param("key") String key);
 }

@@ -68,6 +68,33 @@ public class ZlztDatainfo extends BaseEntity<Long> {
 	private String cIdName;
 
 	private String secret;
+	private int userId;
+	private int careId;
+	private int agreeId;
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	public int getCareId() {
+		return careId;
+	}
+
+	public void setCareId(int careId) {
+		this.careId = careId;
+	}
+
+	public int getAgreeId() {
+		return agreeId;
+	}
+
+	public void setAgreeId(int agreeId) {
+		this.agreeId = agreeId;
+	}
 
 	public String getKeyname() {
 		return keyname;

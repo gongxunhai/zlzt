@@ -33,6 +33,11 @@ public interface ZlztDatainfoDao {
 
     List<ZlztDatainfo> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
 
+    int count1(@Param("params") Map<String, Object> params);
+
+    List<ZlztDatainfo> list1(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+
+
     ZlztDatainfo selectListByParams(@Param("params") JSONObject params, @Param("id") String id);
 
     List<ZlztDatainfo> getChildren(ZlztDatainfo zlztDatainfo);

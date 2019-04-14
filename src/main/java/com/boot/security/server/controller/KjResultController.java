@@ -85,6 +85,24 @@ public class KjResultController {
         }).handle(request);
     }
 
+    @GetMapping("/app")
+    @ApiOperation(value = "后台列表")
+    public PageTableResponse list2(PageTableRequest request) {
+        return new PageTableHandler(new CountHandler() {
+
+            @Override
+            public int count(PageTableRequest request) {
+                return kjResultDao.count2(request.getParams());
+            }
+        }, new ListHandler() {
+
+            @Override
+            public List<KjResult> list(PageTableRequest request) {
+                return kjResultDao.list2(request.getParams(), request.getOffset(), request.getLimit());
+            }
+        }).handle(request);
+    }
+
     @GetMapping("/foreRequest")
     @ApiOperation(value = "前端请求列表")
     public PageTableResponse list1(PageTableRequest request) {

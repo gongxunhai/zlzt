@@ -33,7 +33,12 @@ public interface KjResultDao {
 
     int count1(@Param("params") Map<String, Object> params);
 
+    int count2(@Param("params") Map<String, Object> params);
+
+
     List<KjResult> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+
+    List<KjResult> list2(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
 
     List<Map<String,Object>> list1(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
 

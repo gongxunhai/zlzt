@@ -1314,6 +1314,7 @@ public class ExcelUtil {
 				}
 			}
 			if (pjRequire.getFId()!=null && ! pjRequire.getFId().equals("")){
+			    pjRequire.setStatus(1);
 				pjRequireDao.save(pjRequire);
                 successNum++;
 			}

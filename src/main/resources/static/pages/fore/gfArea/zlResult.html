@@ -601,13 +601,13 @@
                 <h2 class="boxTitCn">研究报告</h2>
             </div>
             <ul class="box1Tab list-unstyled list-inline pull-right wow fadeInRight">
-                <li><a href="javascript:;">查看更多</a></li>
+                <li><a href="../ztReport/ztReportList.html">查看更多</a></li>
             </ul>
             <div class="clear"></div>
         </div>
         <div class="cgBox6List wow fadeInUp">
             <div class="swiper-container">
-                <div class="swiper-wrapper">
+                <div class="swiper-wrapper" id="ztReportList">
                     <div class="swiper-slide">
                         <a class="cgBox6Link" href="#">
                             <div class="cgBox6Img">
@@ -1162,6 +1162,41 @@
             $("#noticeNews").html(alldata);
         }
     }) ;
+
+    $.ajax({
+        type: 'get',
+        url: '/ztReports',
+        data : {
+            "orderBy" : "order by createTime DESC",
+            "start" : 0,
+            "length" : 4
+        },
+        async: false,
+        success: function (result) {
+            var data = result.data;
+            $("#ztReportList").html('');
+            for (var i = 0; i < data.length; i++) {
+                $("#ztReportList").append('<div class="swiper-slide">\n' +
+                    '                        <a class="cgBox6Link" href="../ztReport/ztReportDetail.html?id='+data[i].id+'">\n' +
+                    '                            <div class="cgBox6Img">\n' +
+                    '                                <img src="'+domain+'/statics'+data[i].image+'" class="img-responsive">\n' +
+                    '                            </div>\n' +
+                    '                            <div class="cgBox6Rig">\n' +
+                    '                            \t<h3 class="cgBox6Tit ellipsis">'+data[i].name+'</h3>\n' +
+                    '                                <div class="cgBox6Brief">\n' +
+                    '                                \t<p>'+data[i].descript+'</p>\n' +
+                    '                                </div>\n' +
+                    '                                <div class="cgBox6Time">\n' +
+                    '                                \t<span><i class="iconfont icon-riqi"></i>'+(new Date(data[i].createTime)).Format("yyyy-MM-dd")+'</span>\n' +
+                    '                                \t<span><i class="iconfont icon-liulan-copy"></i>'+( data[i].pageView || '0')+'</span>\n' +
+                    '                                </div>\n' +
+                    '                            </div>\n' +
+                    '                            <div class="clear"></div>\n' +
+                    '                        </a>\n' +
+                    '                    </div>');
+            }
+        }
+    });
 
 
     var noticeList = new Swiper('.new-noticeList .swiper-container', {
