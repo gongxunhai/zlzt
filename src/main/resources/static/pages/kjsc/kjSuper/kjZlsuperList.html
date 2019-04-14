@@ -25,8 +25,11 @@
 								</form>
 							</td>
 							<td align="right">
+                                <button type="button" class="layui-btn layui-btn-sm" onclick="getExcel()" >
+                                    <i class="layui-icon">&#xe67c;</i>导入模板下载
+                                </button>
 								<button type="button" class="layui-btn layui-btn-sm" id="upexcel">
-									<i class="layui-icon">&#xe67c;</i>上传excel文件
+									<i class="layui-icon">&#xe67c;</i>上传数据
 								</button>
 								<button class="layui-btn layui-btn-sm" onclick="location.href='addKjZlsuper.html'">
 									<i class="layui-icon">&#xe608;</i> 添加
@@ -75,6 +78,11 @@
 <script type="text/javascript">
     var pers = checkPermission();
 
+    function getExcel() {
+        location.href = domain + "/statics/excel/kjproduct.xlsx";
+
+    }
+
     var example;
     function init(){
         example =
@@ -101,7 +109,7 @@
                     {"data" : "zlId", "defaultContent" : ""},
                     {"data" : "pointNum", "defaultContent" : ""},
                     {"data" : "careNum", "defaultContent" : ""},
-                    {"data" : "pubTime", "defaultContent" : ""},
+                    {"data" : "createTime", "defaultContent" : ""},
                     {"data" : "status", "defaultContent" : "",
                         "render": function (data, type, row) {
                             var status = row['status'];
@@ -161,20 +169,23 @@
     layui.use(['upload','layer'], function(){
         var layer = layui.layer;
         var upload = layui.upload;
+        var loadIndex;
 
         upload.render({
             elem: '#upexcel' //绑定元素
             ,accept: 'file' //允许上传的文件类型
             ,url: '/kjZlsupers/upexcel' //上传接口
+            ,before : function() {
+                loadIndex = layer.load();
+            }
             ,done: function(res, index, upload){
+                layer.close(loadIndex);
                 layer.msg("上传成功");
                 example.ajax.reload();
             },
             error:function (e) {
-                //返回500错误 或者其他 http状态码错误时 需要在error 回调函数中处理了 并且返回的数据还不能直接alert，需要使用
-                //$.parseJSON 进行转译    res.msg 是自己组装的错误信息通用变量
-                var res = $.parseJSON(e.responseText);
-                layer.msg(res.msg);
+                layer.close(loadIndex);
+                layer.msg("上传失败，请检查后再上传或联系管理员");
             }
         });
 

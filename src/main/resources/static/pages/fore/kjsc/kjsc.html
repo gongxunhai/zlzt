@@ -1338,7 +1338,7 @@
     var fromURL = '/kjProducts'; // /kjResults /kjZlsupers
 
     var dataSet =[];
-    var orderBy = 'order by pubTime desc';
+    var orderBy = 'order by createTime desc';
 
     $("#title").html(' <img src="'+domain+'/statics/icon/kjsc.png" style="margin: 3px;width:25px;height:25px">\n' +
         '                                <h2 class="fenleiTitCn">科技商城</h2>');
@@ -1348,7 +1348,7 @@
         $(this).addClass("active").parent().siblings().find("span").removeClass("active");
         // alert($(this).text());
         switch ($(this).text()) {
-            case "时间" : orderBy = 'order by pubTime DESC';break;
+            case "时间" : orderBy = 'order by createTime DESC';break;
             case "人气" : orderBy = 'order by id';break;
             case "收藏榜" : orderBy = 'order by id DESC';break;
         }
@@ -1452,7 +1452,7 @@
                         '                                                <div class="box1Infor">\n' +
                         '                                                    <span class="b1Sp1">'+data[i*3].fIdName+'</span>\n' +
                         '                                                    <i class="b1Line">|</i>\n' +
-                        '                                                    <span class="b1Sp2">更新：'+(new Date(data[i*3].pubTime)).Format("yyyy-MM-dd")+'</span>\n' +
+                        '                                                    <span class="b1Sp2">更新：'+(new Date(data[i*3].createTime)).Format("yyyy-MM-dd")+'</span>\n' +
                         '                                                </div>\n' +
                         '                                            </div>\n' +
                         '                                        </a>\n' +
@@ -1481,7 +1481,7 @@
                         '                                                <div class="box1Infor">\n' +
                         '                                                    <span class="b1Sp1">'+data[i*3+1].fIdName+'</span>\n' +
                         '                                                    <i class="b1Line">|</i>\n' +
-                        '                                                    <span class="b1Sp2">更新：'+(new Date(data[i*3+1].pubTime)).Format("yyyy-MM-dd")+'</span>\n' +
+                        '                                                    <span class="b1Sp2">更新：'+(new Date(data[i*3+1].createTime)).Format("yyyy-MM-dd")+'</span>\n' +
                         '                                                </div>\n' +
                         '                                            </div>\n' +
                         '                                        </a>\n' +
@@ -1510,7 +1510,7 @@
                         '                                                <div class="box1Infor">\n' +
                         '                                                    <span class="b1Sp1">'+data[i*3+2].fIdName+'</span>\n' +
                         '                                                    <i class="b1Line">|</i>\n' +
-                        '                                                    <span class="b1Sp2">更新：'+(new Date(data[i*3+2].pubTime)).Format("yyyy-MM-dd")+'</span>\n' +
+                        '                                                    <span class="b1Sp2">更新：'+(new Date(data[i*3+2].createTime)).Format("yyyy-MM-dd")+'</span>\n' +
                         '                                                </div>\n' +
                         '                                            </div>\n' +
                         '                                        </a>\n' +
@@ -1550,7 +1550,7 @@
                             '                                                <div class="box1Infor">\n' +
                             '                                                    <span class="b1Sp1">行业：'+data[a*3+j].sIdName+'</span>\n' +
                             '                                                    <i class="b1Line">|</i>\n' +
-                            '                                                    <span class="b1Sp2">更新：'+ (new Date(data[a*3+j].pubTime)).Format("yyyy-MM-dd") +'</span>\n' +
+                            '                                                    <span class="b1Sp2">更新：'+ (new Date(data[a*3+j].createTime)).Format("yyyy-MM-dd") +'</span>\n' +
                             '                                                </div>\n' +
                             '                                            </div>\n' +
                             '                                        </a>\n' +

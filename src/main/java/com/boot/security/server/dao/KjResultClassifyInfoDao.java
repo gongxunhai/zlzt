@@ -35,6 +35,9 @@ public interface KjResultClassifyInfoDao {
     @Select("select ifnull(max(id),-1) from kj_result_classifyinfo where name = #{cellToString}")
     int selectIdByName(@Param("cellToString") String cellToString);
 
+    @Select("select ifnull(max(id),-1) from kj_result_classifyinfo where name = #{cellToString} and parentId= #{parentId}")
+    int selectIdByNameAndParentId(@Param("cellToString") String cellToString, @Param("parentId") int parentId);
+
     @Select("select * from kj_result_classifyinfo where parentId = #{parentId}")
     List<KjResultClassifyInfo> listData(@Param("parentId") Long parentId);
 

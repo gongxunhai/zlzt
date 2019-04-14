@@ -871,7 +871,7 @@ public class ExcelUtil {
 		int lastNum = sheet.getLastRowNum(); //获取Excel最后一行索引
 		int colNum = sheet.getRow(0).getLastCellNum();//获取Excel列数
 		int exceptionNum = 0;
-		int losezlzt = 0;
+		int losefId = 0;
 		int loseelse = 0;
 		int successNum = 0;
 
@@ -883,30 +883,41 @@ public class ExcelUtil {
 				if (m == 1){
 					if (row.getCell(m)!=null && !row.getCell(m).toString().equals("")){
 						String cellToString = row.getCell(m).toString();
-						i = kjResultClassifyInfoDao.selectIdByName(cellToString);
+						i = kjResultClassifyInfoDao.selectIdByNameAndParentId(cellToString,0);
 						if (i == -1){
-							System.out.println("错误");
+						    losefId++;
 							break;
 						}
+						kjResult.setfId(i);
 					}else {
-						i = kjResultClassifyInfoDao.selectIdByName("其它");
-					}
+                        losefId++;
+                        break;
+                    }
 				}
 				if ( m == 2 ){
 					if (row.getCell(m)!=null && !row.getCell(m).toString().equals("")){
 						String cellToString = row.getCell(m).toString();
-						int j  = kjResultClassifyInfoDao.selectIdByName(cellToString);
+						int j  = kjResultClassifyInfoDao.selectIdByNameAndParentId(cellToString,i);
 						if(j ==-1){
 							KjResultClassifyInfo kjResultClassifyInfo = new KjResultClassifyInfo();
 							kjResultClassifyInfo.setParentId(i);
 							kjResultClassifyInfo.setName(cellToString);
 							kjResultClassifyInfo.setType(2);
 							kjResultClassifyInfoDao.save(kjResultClassifyInfo);
-							i = kjResultClassifyInfo.getId().intValue();
+                            j = kjResultClassifyInfo.getId().intValue();
 						}
-						i = j;
+						kjResult.setSId(j);
 					}else {
-						i = kjResultClassifyInfoDao.selectIdByName("其它");
+                        int j = kjResultClassifyInfoDao.selectIdByNameAndParentId("其它",i);
+                        if (j == -1){
+                            KjResultClassifyInfo kjResultClassifyInfo = new KjResultClassifyInfo();
+                            kjResultClassifyInfo.setParentId(i);
+                            kjResultClassifyInfo.setName("其它");
+                            kjResultClassifyInfo.setType(2);
+                            kjResultClassifyInfoDao.save(kjResultClassifyInfo);
+                            j = kjResultClassifyInfo.getId().intValue();
+                        }
+                        kjResult.setSId(j);
 					}
 				}
 				for (Map.Entry<Object, String> entry : map.entrySet()) {
@@ -929,8 +940,6 @@ public class ExcelUtil {
 						}
 					}
 					switch (m){
-						case 1 : kjResult.setFId(i); break;
-						case 2 : kjResult.setSId(i); break;
 						case 3 : kjResult.setXfArea(cell.getStringCellValue()); break;
 						case 4 : kjResult.setName(cell.getStringCellValue()); break;
 						case 5 : kjResult.setSource(cell.getStringCellValue()); break;
@@ -951,9 +960,18 @@ public class ExcelUtil {
 				}
 			}
 			if (kjResult.getFId()!=null && ! kjResult.getFId().equals("")){
+			    kjResult.setStatus(1);
 				kjResultDao.save(kjResult);
+                successNum++;
 			}
 		}
+        SysUser sysUser  = UserUtil.getLoginUser();
+        if(UserUtil.getLoginUser()!=null){
+            exceptionNum = losefId + loseelse;
+            sysLogService.save(sysUser.getId(),"excel导入",true,"成功导入:"+successNum+"条,失败导入:"+exceptionNum+"条(其中缺失所属行业的为:"+losefId+"条,其它的为:"+loseelse+"条)");
+        }else {
+            sysLogService.save((long) 1,"excel导入",true,"成功导入:"+successNum+"条,失败导入:"+exceptionNum+"条(其中缺失所属行业的为:"+losefId+"条,其它的为:"+loseelse+"条)");
+        }
 	}
 
 	public void getExcelBykjSuper(MultipartFile file) throws IOException, ParseException {
@@ -978,7 +996,7 @@ public class ExcelUtil {
 		int lastNum = sheet.getLastRowNum(); //获取Excel最后一行索引
 		int colNum = sheet.getRow(0).getLastCellNum();//获取Excel列数
 		int exceptionNum = 0;
-		int losezlzt = 0;
+		int losefId = 0;
 		int loseelse = 0;
 		int successNum = 0;
 
@@ -990,30 +1008,41 @@ public class ExcelUtil {
 				if (m == 0){
 					if (row.getCell(m)!=null && !row.getCell(m).toString().equals("")){
 						String cellToString = row.getCell(m).toString();
-						i = kjZlSuperClassifyInfoDao.selectIdByName(cellToString);
+						i = kjZlSuperClassifyInfoDao.selectIdByNameAndParentId(cellToString,0);
 						if (i==-1){
-							System.out.println("错误");
+                            losefId++;
 							break;
 						}
+						kjZlsuper.setfId(i);
 					}else {
-						i = kjZlSuperClassifyInfoDao.selectIdByName("其它");
+                        losefId++;
+                        break;
 					}
-
 				}
 				if ( m == 1 ){
 					if (row.getCell(m)!=null && !row.getCell(m).toString().equals("")){
 						String cellToString = row.getCell(m).toString();
-						int j = kjZlSuperClassifyInfoDao.selectIdByName(cellToString);
-						if(j ==-1){
-							KjZlSuperClassifyInfo kjZlSuperClassifyInfo = new KjZlSuperClassifyInfo();
-							kjZlSuperClassifyInfo.setParentId(i);
-							kjZlSuperClassifyInfo.setName(cellToString);
-							kjZlSuperClassifyInfo.setType(2);
-							kjZlSuperClassifyInfoDao.save(kjZlSuperClassifyInfo);
-							i = kjZlSuperClassifyInfo.getId().intValue();
-						}
+						int j = kjZlSuperClassifyInfoDao.selectIdByNameAndParentId(cellToString,i);
+						if(j == -1) {
+                            KjZlSuperClassifyInfo kjZlSuperClassifyInfo = new KjZlSuperClassifyInfo();
+                            kjZlSuperClassifyInfo.setParentId(i);
+                            kjZlSuperClassifyInfo.setName(cellToString);
+                            kjZlSuperClassifyInfo.setType(2);
+                            kjZlSuperClassifyInfoDao.save(kjZlSuperClassifyInfo);
+                            j = kjZlSuperClassifyInfo.getId().intValue();
+                        }
+                        kjZlsuper.setSId(j);
 					}else {
-						i = kjZlSuperClassifyInfoDao.selectIdByName("其它");
+						int j = kjZlSuperClassifyInfoDao.selectIdByNameAndParentId("其它",i);
+						if (j == -1){
+                            KjZlSuperClassifyInfo kjZlSuperClassifyInfo = new KjZlSuperClassifyInfo();
+                            kjZlSuperClassifyInfo.setParentId(i);
+                            kjZlSuperClassifyInfo.setName("其它");
+                            kjZlSuperClassifyInfo.setType(2);
+                            kjZlSuperClassifyInfoDao.save(kjZlSuperClassifyInfo);
+                            j = kjZlSuperClassifyInfo.getId().intValue();
+                        }
+                        kjZlsuper.setSId(j);
 					}
 				}
 				for (Map.Entry<Object, String> entry : map.entrySet()) {
@@ -1035,9 +1064,14 @@ public class ExcelUtil {
 							case STRING: kjZlsuper.setPubTime(new SimpleDateFormat("yyyy-MM-dd").parse(cell.getStringCellValue())); break;
 						}
 					}
+					if (m == 15) {
+						//excel为日期格式
+						switch (cell.getCellTypeEnum()){
+							case NUMERIC: kjZlsuper.setCPhone(df.format(cell.getNumericCellValue()));break;
+							case STRING: kjZlsuper.setCPhone(cell.getStringCellValue()); break;
+						}
+					}
 					switch (m){
-						case 0 : kjZlsuper.setFId(i); break;
-						case 1 : kjZlsuper.setSId(i); break;
 						case 2 : kjZlsuper.setXfArea(cell.getStringCellValue()); break;
 						case 3 : kjZlsuper.setName(cell.getStringCellValue()); break;
 						case 4 : kjZlsuper.setZlId(cell.getStringCellValue()); break;
@@ -1050,14 +1084,22 @@ public class ExcelUtil {
 						case 11 : kjZlsuper.setDealWay(cell.getStringCellValue()); break;
 						case 12 : kjZlsuper.setDealMoney(cell.getStringCellValue()); break;
 						case 14 : kjZlsuper.setCMan(cell.getStringCellValue()); break;
-						case 15: kjZlsuper.setCPhone(df.format(cell.getNumericCellValue())); break;
 					}
 				}
 			}
 			if (kjZlsuper.getFId()!=null && ! kjZlsuper.getFId().equals("")){
+			    kjZlsuper.setStatus(1);
 				kjZlsuperDao.save(kjZlsuper);
+                successNum++;
 			}
 		}
+        SysUser sysUser  = UserUtil.getLoginUser();
+        if(UserUtil.getLoginUser()!=null){
+            exceptionNum = losefId + loseelse;
+            sysLogService.save(sysUser.getId(),"excel导入",true,"成功导入:"+successNum+"条,失败导入:"+exceptionNum+"条(其中缺失所属行业的为:"+losefId+"条,其它的为:"+loseelse+"条)");
+        }else {
+            sysLogService.save((long) 1,"excel导入",true,"成功导入:"+successNum+"条,失败导入:"+exceptionNum+"条(其中缺失所属行业的为:"+losefId+"条,其它的为:"+loseelse+"条)");
+        }
 	}
 
 	public void getExcelBykjProduct(MultipartFile file) throws IOException, ParseException {
@@ -1081,7 +1123,7 @@ public class ExcelUtil {
 		int lastNum = sheet.getLastRowNum(); //获取Excel最后一行索引
 		int colNum = sheet.getRow(0).getLastCellNum();//获取Excel列数
 		int exceptionNum = 0;
-		int losezlzt = 0;
+		int losefId = 0;
 		int loseelse = 0;
 		int successNum = 0;
 
@@ -1093,29 +1135,41 @@ public class ExcelUtil {
 				if (m == 0){
 					if (row.getCell(m)!=null && !row.getCell(m).toString().equals("")){
 						String cellToString = row.getCell(m).toString();
-						i = kjProductClassifyInfoDao.selectIdByName(cellToString);
+						i = kjProductClassifyInfoDao.selectIdByNameAndParentId(cellToString,0);
 						if (i==-1){
-							System.out.println("错误");
+                            losefId++;
 							break;
 						}
+						kjProduct.setfId(i);
 					}else {
-						i = kjProductClassifyInfoDao.selectIdByName("其它");
+                        losefId++;
+                        break;
 					}
 				}
 				if ( m == 1 ){
 					if (row.getCell(m)!=null && !row.getCell(m).toString().equals("")){
 						String cellToString = row.getCell(m).toString();
-						int j = kjProductClassifyInfoDao.selectIdByName(cellToString);
+						int j = kjProductClassifyInfoDao.selectIdByNameAndParentId(cellToString,i);
 						if(j ==-1){
 							KjProductClassifyInfo kjProductClassifyInfo = new KjProductClassifyInfo();
 							kjProductClassifyInfo.setParentId(i);
 							kjProductClassifyInfo.setName(cellToString);
 							kjProductClassifyInfo.setType(2);
 							kjProductClassifyInfoDao.save(kjProductClassifyInfo);
-							i = kjProductClassifyInfo.getId().intValue();
+                            j = kjProductClassifyInfo.getId().intValue();
 						}
+						kjProduct.setfId(j);
 					}else {
-						i = kjProductClassifyInfoDao.selectIdByName("其它");
+                        int j = kjProductClassifyInfoDao.selectIdByNameAndParentId("其它",i);
+                        if (j == -1){
+                            KjProductClassifyInfo kjProductClassifyInfo = new KjProductClassifyInfo();
+                            kjProductClassifyInfo.setParentId(i);
+                            kjProductClassifyInfo.setName("其它");
+                            kjProductClassifyInfo.setType(2);
+                            kjProductClassifyInfoDao.save(kjProductClassifyInfo);
+                            j = kjProductClassifyInfo.getId().intValue();
+                        }
+                        kjProduct.setSId(j);
 					}
 				}
 				for (Map.Entry<Object, String> entry : map.entrySet()) {
@@ -1138,8 +1192,6 @@ public class ExcelUtil {
 						}
 					}
 					switch (m){
-						case 0 : kjProduct.setFId(i); break;
-						case 1 : kjProduct.setSId(i); break;
 						case 2 : kjProduct.setXfArea(cell.getStringCellValue()); break;
 						case 3 : kjProduct.setName(cell.getStringCellValue()); break;
 						case 4 : kjProduct.setPData(cell.getStringCellValue()); break;
@@ -1157,10 +1209,19 @@ public class ExcelUtil {
 				}
 			}
 			if (kjProduct.getFId()!=null && ! kjProduct.getFId().equals("")){
+				kjProduct.setStatus(1);
 //				System.out.println("success");
 				kjProductDao.save(kjProduct);
+                successNum++;
 			}
 		}
+        SysUser sysUser  = UserUtil.getLoginUser();
+        if(UserUtil.getLoginUser()!=null){
+            exceptionNum = losefId + loseelse;
+            sysLogService.save(sysUser.getId(),"excel导入",true,"成功导入:"+successNum+"条,失败导入:"+exceptionNum+"条(其中缺失所属行业的为:"+losefId+"条,其它的为:"+loseelse+"条)");
+        }else {
+            sysLogService.save((long) 1,"excel导入",true,"成功导入:"+successNum+"条,失败导入:"+exceptionNum+"条(其中缺失所属行业的为:"+losefId+"条,其它的为:"+loseelse+"条)");
+        }
 	}
 
 	public void getExcelByPjRequire(MultipartFile file) throws IOException, ParseException {
@@ -1180,7 +1241,7 @@ public class ExcelUtil {
 		int lastNum = sheet.getLastRowNum(); //获取Excel最后一行索引
 		int colNum = sheet.getRow(0).getLastCellNum();//获取Excel列数
 		int exceptionNum = 0;
-		int losezlzt = 0;
+		int losefId = 0;
 		int loseelse = 0;
 		int successNum = 0;
 
@@ -1194,7 +1255,7 @@ public class ExcelUtil {
 						String cellToString = row.getCell(m).toString();
 						i = pjRequireClassifyInfoDao.selectIdByName(cellToString);
 						if (i==-1){
-							System.out.println("错误");
+                            losefId++;
 							break;
 						}
 					}else {
@@ -1252,7 +1313,15 @@ public class ExcelUtil {
 			}
 			if (pjRequire.getFId()!=null && ! pjRequire.getFId().equals("")){
 				pjRequireDao.save(pjRequire);
+                successNum++;
 			}
 		}
+        SysUser sysUser  = UserUtil.getLoginUser();
+        if(UserUtil.getLoginUser()!=null){
+            exceptionNum = losefId + loseelse;
+            sysLogService.save(sysUser.getId(),"excel导入",true,"成功导入:"+successNum+"条,失败导入:"+exceptionNum+"条(其中缺失所属行业的为:"+losefId+"条,其它的为:"+loseelse+"条)");
+        }else {
+            sysLogService.save((long) 1,"excel导入",true,"成功导入:"+successNum+"条,失败导入:"+exceptionNum+"条(其中缺失所属行业的为:"+losefId+"条,其它的为:"+loseelse+"条)");
+        }
 	}
 }
