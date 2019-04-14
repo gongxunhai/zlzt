@@ -75,6 +75,9 @@
 <script type="text/javascript" src="../../js/my/permission.js"></script>
 <script type="text/javascript">
 var pers = checkPermission();
+var pro = window.location.protocol;
+var host = window.location.host;
+var domain = pro + "//" + host;
 
 function getExcel() {
     location.href = domain + "/template/gfArea.xlsx";
