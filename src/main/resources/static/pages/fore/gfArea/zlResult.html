@@ -1036,10 +1036,11 @@
         },
         async: false,
         success: function (result) {
+            // debugger;
             var data = result.data;
             var alldata = '';
-            for (var i=0;i<data.length;i++){
-                if (i = 0) {
+            for (var i = 0;i<data.length;i++){
+                if (i == 0) {
                     alldata += ' <div class="cgBox5Lef">\n' +
                         '                        \t<a href="../news/news_detail.html?id='+data[i].id+'" class="cgBox5LefLink">\n' +
                         '                            \t<div class="cgBox5LefImg"><div class="imgFull"><img src="'+domain+'/statics'+data[i].image+'" class="img-responsive"></div></div>\n' +
@@ -1068,7 +1069,99 @@
                     ' \t<div class="clear"></div>';
             $("#workNews").html(alldata);
         }
-    })
+    }) ;
+
+    $.ajax({
+        type: 'get',
+        url: '/newsInformations',
+        data : {
+            "orderBy" : "order by createTime DESC",
+            "start" : 0,
+            "length" : 5,
+            "type" : 2
+        },
+        async: false,
+        success: function (result) {
+            // debugger;
+            var data = result.data;
+            var alldata = '';
+            for (var i = 0;i<data.length;i++){
+                if (i == 0) {
+                    alldata += ' <div class="cgBox5Lef">\n' +
+                        '                        \t<a href="../news/news_detail.html?id='+data[i].id+'" class="cgBox5LefLink">\n' +
+                        '                            \t<div class="cgBox5LefImg"><div class="imgFull"><img src="'+domain+'/statics'+data[i].image+'" class="img-responsive"></div></div>\n' +
+                        '                                <div class="cgBox5LefInfor">\n' +
+                        '                                \t<h3 class="cgBox5LefTit ellipsis">' + data[i].name + '</h3>\n' +
+                        '                                    <p>'+ (new Date(data[i].createTime)).Format("yyyy-MM-dd") + '</p>\n' +
+                        '                                </div>\n' +
+                        '                                <div class="cgBox5LefBrief">\n' +
+                        '                                \t<p>'+data[i].description+'</p>\n' +
+                        '                                </div>\n' +
+                        '                            </a>\n' +
+                        '                        </div>';
+                    alldata += ' <ul class="cgBox5Rig list-unstyled">';
+                }else {
+                    alldata += '<li>\n' +
+                        '                            \t<a href="../news/news_detail.html?id='+data[i].id+'">\n' +
+                        '                                \t<h3 class="cgBox5RigTit ellipsis"><span class="cgBox5RigTime">'+ (new Date(data[i].createTime)).Format("yyyy-MM-dd") +'</span>'+ data[i].name +'</h3>\n' +
+                        '                                \t<div class="cgBox5RigBrief">\n' +
+                        '                                    \t<p>'+data[i].description+'</p>\n' +
+                        '                                    </div>\n' +
+                        '                                </a>\n' +
+                        '                            </li>'
+                }
+            }
+            alldata += '</ul>\n'+
+                    ' \t<div class="clear"></div>';
+            $("#kjNews").html(alldata);
+        }
+    }) ;
+
+    $.ajax({
+        type: 'get',
+        url: '/newsInformations',
+        data : {
+            "orderBy" : "order by createTime DESC",
+            "start" : 0,
+            "length" : 5,
+            "type" : 3
+        },
+        async: false,
+        success: function (result) {
+            // debugger;
+            var data = result.data;
+            var alldata = '';
+            for (var i = 0;i<data.length;i++){
+                if (i == 0) {
+                    alldata += ' <div class="cgBox5Lef">\n' +
+                        '                        \t<a href="../news/news_detail.html?id='+data[i].id+'" class="cgBox5LefLink">\n' +
+                        '                            \t<div class="cgBox5LefImg"><div class="imgFull"><img src="'+domain+'/statics'+data[i].image+'" class="img-responsive"></div></div>\n' +
+                        '                                <div class="cgBox5LefInfor">\n' +
+                        '                                \t<h3 class="cgBox5LefTit ellipsis">' + data[i].name + '</h3>\n' +
+                        '                                    <p>'+ (new Date(data[i].createTime)).Format("yyyy-MM-dd") + '</p>\n' +
+                        '                                </div>\n' +
+                        '                                <div class="cgBox5LefBrief">\n' +
+                        '                                \t<p>'+data[i].description+'</p>\n' +
+                        '                                </div>\n' +
+                        '                            </a>\n' +
+                        '                        </div>';
+                    alldata += ' <ul class="cgBox5Rig list-unstyled">';
+                }else {
+                    alldata += '<li>\n' +
+                        '                            \t<a href="../news/news_detail.html?id='+data[i].id+'">\n' +
+                        '                                \t<h3 class="cgBox5RigTit ellipsis"><span class="cgBox5RigTime">'+ (new Date(data[i].createTime)).Format("yyyy-MM-dd") +'</span>'+ data[i].name +'</h3>\n' +
+                        '                                \t<div class="cgBox5RigBrief">\n' +
+                        '                                    \t<p>'+data[i].description+'</p>\n' +
+                        '                                    </div>\n' +
+                        '                                </a>\n' +
+                        '                            </li>'
+                }
+            }
+            alldata += '</ul>\n'+
+                    ' \t<div class="clear"></div>';
+            $("#noticeNews").html(alldata);
+        }
+    }) ;
 
 
     var noticeList = new Swiper('.new-noticeList .swiper-container', {
