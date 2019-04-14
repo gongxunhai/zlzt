@@ -386,6 +386,9 @@ public class ExcelUtil {
 		int loseelse = 0;
 		int successNum = 0;
 
+        //数据为num类型格式化
+        DecimalFormat df = new DecimalFormat("0");
+
 		for(int r=1;r<=lastNum;r++) {//读取每一行，第一行为标题，从第二行开始
 			Row row = sheet.getRow(r);
 			ZlztDatainfo zldata = new ZlztDatainfo();
@@ -404,7 +407,7 @@ public class ExcelUtil {
                                 losezlzt ++;
                                 break;
                             }
-                            i = selectIdByClassify(row.getCell(m),object);
+                            i = selectIdByClassify(row.getCell(m),0,object);
                             if (object instanceof ZlztClassifyinfoDao){
                                 zlztDataDetail.setFId(i);
                             }else if (object instanceof GfClassifyInfoDao){
@@ -437,7 +440,7 @@ public class ExcelUtil {
                                 loseelse ++;
                                 break;
                             }
-                            i = selectIdByClassify(row.getCell(m),object);
+                            i = selectIdByClassify(row.getCell(m),i,object);
                             if (object instanceof ZlztClassifyinfoDao){
                                 zlztDataDetail.setSId(i);
                             }else if (object instanceof GfClassifyInfoDao){
@@ -550,7 +553,7 @@ public class ExcelUtil {
                                 case 5 : zldata.setTitleFy(cell.getStringCellValue()); break;
                                 case 6 : zldata.setZy(cell.getStringCellValue()); break;
                                 case 7 : zldata.setZyFy(cell.getStringCellValue()); break;
-                                case 9 : zldata.setValue(String.valueOf(cell.getNumericCellValue())); break;
+                                case 9 : zldata.setValue(df.format(cell.getNumericCellValue())); break;
                                 case 10 : zldata.setOpenId(cell.getStringCellValue()); break;
                                 case 12 : zldata.setApplyId(cell.getStringCellValue()); break;
                                 case 14 : zldata.setApplyMan(cell.getStringCellValue()); break;
@@ -562,7 +565,7 @@ public class ExcelUtil {
                                 case 20 : zldata.setNowLawS(cell.getStringCellValue()); break;
                                 case 21 : zldata.setZlType(cell.getStringCellValue()); break;
                                 case 22 : zldata.setCreateMan(cell.getStringCellValue()); break;
-                                case 26 : zldata.setBeUsedNum(String.valueOf(cell.getNumericCellValue())); break;
+                                case 26 : zldata.setBeUsedNum(df.format(cell.getNumericCellValue())); break;
                                 case 29 : zldata.setPowerAFy(cell.getStringCellValue()); break;
                             }
                         }
@@ -574,7 +577,7 @@ public class ExcelUtil {
                                 losezlzt++;
                                 break;
                             }
-                            i = selectIdByClassify(row.getCell(m), object);
+                            i = selectIdByClassify(row.getCell(m),0, object);
                             if (object instanceof ZlztClassifyinfoDao) {
                                 zlztDataDetail.setFId(i);
                             } else if (object instanceof GfClassifyInfoDao) {
@@ -606,7 +609,7 @@ public class ExcelUtil {
                                 loseelse++;
                                 break;
                             }
-                            i = selectIdByClassify(row.getCell(m), object);
+                            i = selectIdByClassify(row.getCell(m),i, object);
                             if (object instanceof ZlztClassifyinfoDao) {
                                 zlztDataDetail.setSId(i);
                             } else if (object instanceof GfClassifyInfoDao) {
@@ -820,16 +823,16 @@ public class ExcelUtil {
  *  类别管理
  * @param cell
  */
-	public int selectIdByClassify(Cell cell,Object object){
+	public int selectIdByClassify(Cell cell,int m,Object object){
 		String celltostring = cell.toString();
 		int i = 0;
 		if (cell!=null && !cell.toString().equals("")){
 			if (object instanceof ZlztClassifyinfoDao){
-				i = zlztClassifyinfoDao.getIdByName(celltostring);
+				i = zlztClassifyinfoDao.getByNameAndParentId(celltostring,m);
 			}else if (object instanceof GfClassifyInfoDao){
-				i = gfClassifyInfoDao.getIdByName(celltostring);
+				i = gfClassifyInfoDao.getByNameAndParentId(celltostring,m);
 			}else if (object instanceof YfClassifyInfoDao){
-				i = yfClassifyInfoDao.getIdByName(celltostring);
+				i = yfClassifyInfoDao.getByNameAndParentId(celltostring,m);
 			}
 		}
 		return i;
