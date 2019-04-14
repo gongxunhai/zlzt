@@ -50,6 +50,8 @@
 
 	<select id="count" resultType="int">
 		select count(1) from zlzt_careinfo t
+		inner join zlzt_user a on  t.userId = a.id
+		inner join t_dict b on t.type = b.k  and b.type='pointAndCollect'
 		<include refid="where" />
 	</select>
 

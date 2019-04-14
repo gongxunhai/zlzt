@@ -59,6 +59,8 @@
 
 	<select id="count" resultType="int">
 		select count(1) from entrust t
+		join zlzt_user m on t.userId = m.id
+		join t_dict n on t.type = n.k and n.type = 'entrustType'
 		<include refid="where" />
 	</select>
 
