@@ -826,7 +826,7 @@
                         $("#kjscData").append('<div class="swiper-slide">\n' +
                             '                        \t<div class="box1Con">\n' + ahref +
                             '                                    <div class="box1Img">\n' +
-                            '                                        <div class="imgFull"><img src="'+domain+'/statics'+(data[i].image || '/default2.png' )+'" class="img-responsive"></div>\n' +
+                            '                                        <div class="imgFull" style="background: url('+domain+'/statics'+(data[i].image || '/default2.png' )+')"><img src="'+domain+'/statics'+(data[i].image || '/default2.png' )+'" class="img-responsive"></div>\n' +
                             '                                        <div class="box1Mask"></div>\n' +
                             '                                        <div class="box1Ico">\n' +
                             '                                        \t<i class="iconfont icon-chakan"></i>\n' +
@@ -844,8 +844,8 @@
                             '                                </a>\n' +
                             '                                <div class="box1Bot">\n' +
                             '                                \t<div class="upcollect pull-left">\n' +
-                            '                                     <a href="javascript:;" class="up" id="P'+$("#tableName").val()+data[i].id+'" value="'+data[i].id+'">点赞('+(data[i].pointNum || '0' )+')</a>\n' +
-                            '                                   <a href="javascript:;" class="collect" id="C'+$("#tableName").val()+data[i].id+'" value="'+data[i].id+'">关注('+(data[i].careNum || '0' )+')</a>\n' +
+                            '                                     <a href="javascript:;" class="up" id="P'+$("#tableName").val()+data[i].id+'" value="'+data[i].id+'">点赞(<span>'+(data[i].pointNum || '0' )+'</span>)</a>\n' +
+                            '                                   <a href="javascript:;" class="collect" id="C'+$("#tableName").val()+data[i].id+'" value="'+data[i].id+'">关注(<span>'+(data[i].careNum || '0' )+'</span>)</a>\n' +
                             '                                    </div>\n' +
                             '                                    <span class="box1Tag pull-right">自营</span>\n' +
                             '                                    <div class="clear"></div>\n' +
@@ -868,16 +868,24 @@
             $(this).toggleClass("active");
             if ($(this).hasClass("up")){
                 if ($(this).hasClass("active")) {
-                    addPoint($(this).attr("value"));
+                    // addPoint($(this).attr("value"));
+                    let numT = $(this).find('span').text() - 0 + 1;
+                    $(this).find('span').text(numT);
                 }else {
-                    deletePoint($(this).attr("value"));
+                    // deletePoint($(this).attr("value"));
+                    let numT = $(this).find('span').text() - 1;
+                    $(this).find('span').text( numT );
                 }
             }
             if ($(this).hasClass("collect")){
                 if ($(this).hasClass("active")) {
-                    addCollection($(this).attr("value"));
+                    // addCollection($(this).attr("value"));
+                    let numT = $(this).find('span').text() - 0 + 1;
+                    $(this).find('span').text(numT);
                 }else {
-                    deleteCollection($(this).attr("value"));
+                    // deleteCollection($(this).attr("value"));
+                    let numT = $(this).find('span').text() - 1;
+                    $(this).find('span').text(numT);
                 }
             }
         }else {
