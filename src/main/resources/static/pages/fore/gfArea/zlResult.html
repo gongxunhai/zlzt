@@ -867,14 +867,16 @@
         if (user != null && user != '') {
             $(this).toggleClass("active");
             if ($(this).hasClass("up")){
+                let _that = this;
+
                 if ($(this).hasClass("active")) {
-                    // addPoint($(this).attr("value"));
-                    let numT = $(this).find('span').text() - 0 + 1;
-                    $(this).find('span').text(numT);
+                    addPoint($(this).attr("value"), _that);
+                    /*let numT = $(this).find('span').text() - 0 + 1;
+                    $(this).find('span').text(numT);*/
                 }else {
-                    // deletePoint($(this).attr("value"));
-                    let numT = $(this).find('span').text() - 1;
-                    $(this).find('span').text( numT );
+                    deletePoint($(this).attr("value"), _that);
+                    // let numT = $(this).find('span').text() - 1;
+                    // $(this).find('span').text( numT );
                 }
             }
             if ($(this).hasClass("collect")){
@@ -893,7 +895,7 @@
         }
     });
 
-    function addPoint(obj) {
+    function addPoint(obj, that) {
         var formData = new FormData();
         formData.userId = user.id;
         formData.agreeId =  obj;
@@ -912,7 +914,16 @@
             success : function(data) {
                 if (data != null && data != '') {
                     if (data.msg == "success") {
-                        $("#P" + $("#tableName").val() + obj).html('点赞(' + data.pointNum + ')');
+
+                        /*console.log('参数obj==', obj);
+                        console.log('参数that==', that);*/
+                        $(that).find('span').text(data.pointNum);
+
+
+                        /*let labelA = $("#P" + $("#tableName").val() + obj).find('span') ;
+                        console.log('标签==', labelA)*/
+
+                        // $("#P" + $("#tableName").val() + obj).html('点赞(' + data.pointNum + ')');
                         alert("点赞成功!");
                     }
                     else {
@@ -922,7 +933,7 @@
             }
         })
     }
-    function deletePoint(obj) {
+    function deletePoint(obj, that) {
         var formData = new FormData();
         formData.userId = user.id;
         formData.agreeId =  obj;
@@ -935,7 +946,14 @@
             data : JSON.stringify(formData),
             success : function(data) {
                 if (data != null && data != '') {
-                    $("#P" + $("#tableName").val() + obj).html('点赞(' + data.pointNum + ')');
+
+                    /*console.log('删除参数obj==', obj);
+                    console.log('删除参数that==', that);*/
+                    $(that).find('span').text(data.pointNum);
+                    // let labelA = $("#P" + $("#tableName").val() + obj).find('span') ;
+                    // console.log('标签==', labelA)
+
+                    // $("#P" + $("#tableName").val() + obj).html('点赞(' + data.pointNum + ')');
                     alert("取消点赞!");
                 }
             }
