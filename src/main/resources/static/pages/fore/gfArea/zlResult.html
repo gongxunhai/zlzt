@@ -866,8 +866,9 @@
     $(document).on("click",".upcollect a",function(event){
         if (user != null && user != '') {
             $(this).toggleClass("active");
+            let _that = this;
+
             if ($(this).hasClass("up")){
-                let _that = this;
 
                 if ($(this).hasClass("active")) {
                     addPoint($(this).attr("value"), _that);
@@ -881,13 +882,13 @@
             }
             if ($(this).hasClass("collect")){
                 if ($(this).hasClass("active")) {
-                    // addCollection($(this).attr("value"));
-                    let numT = $(this).find('span').text() - 0 + 1;
-                    $(this).find('span').text(numT);
+                    addCollection($(this).attr("value"), _that);
+                    /*let numT = $(this).find('span').text() - 0 + 1;
+                    $(this).find('span').text(numT);*/
                 }else {
-                    // deleteCollection($(this).attr("value"));
-                    let numT = $(this).find('span').text() - 1;
-                    $(this).find('span').text(numT);
+                    deleteCollection($(this).attr("value"), _that);
+                    /*let numT = $(this).find('span').text() - 1;
+                    $(this).find('span').text(numT);*/
                 }
             }
         }else {
@@ -981,7 +982,7 @@
         }
     }
 
-    function addCollection(obj) {
+    function addCollection(obj, that) {
         var formData = new FormData();
         formData.userId = user.id;
         formData.careId =  obj;
@@ -1000,7 +1001,8 @@
             success : function(data) {
                 if (data != null && data != '') {
                     if (data.msg == "success") {
-                        $("#C" + $("#tableName").val() + obj).html('收藏(' + data.pointNum + ')');
+                        $(that).find('span').text(data.pointNum);
+                        // $("#C" + $("#tableName").val() + obj).html('收藏(' + data.pointNum + ')');
                         alert("收藏成功!");
                     }
                     else {
@@ -1010,7 +1012,7 @@
             }
         })
     }
-    function deleteCollection(obj) {
+    function deleteCollection(obj, that) {
         var formData = new FormData();
         formData.userId = user.id;
         formData.careId =  obj;
@@ -1023,7 +1025,8 @@
             data : JSON.stringify(formData),
             success : function(data) {
                 if (data != null && data != '') {
-                    $("#C" + $("#tableName").val() + obj).html('收藏(' + data.pointNum + ')');
+                    $(that).find('span').text(data.pointNum);
+                    // $("#C" + $("#tableName").val() + obj).html('收藏(' + data.pointNum + ')');
                     alert("取消收藏!");
                 }
             }
